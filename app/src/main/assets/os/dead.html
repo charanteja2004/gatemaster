@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Applications of various Automata</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+<h2><b>DEADLOCK</b></h2>
+
+<h3><b>Introduction of Deadlock in Operating System</b></h3>
+
+<p>A process in operating system uses resources in the following way. <br>
+
+    1.Requests a resource <br>
+    2.Use the resource<br>
+    3.Releases the resource<br><br>
+    A <b>deadlock</b> is a situation where a set of processes are blocked because each process is holding a resource and waiting for another resource acquired by some other process.<br><br>
+
+    Consider an example when two trains are coming toward each other on the same track and there is only one track, none of the trains can move once they are in front of each other. A similar situation occurs in operating systems when there are two or more processes that hold some resources and wait for resources held by other(s). For example, in the below diagram, Process 1 is holding Resource 1 and waiting for resource 2 which is acquired by process 2, and process 2 is waiting for resource 1.<br><br>
+
+    <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2015/06/deadlock.png" width="350" height="350"><br><br>
+
+    <b> Examples Of Deadlock</b><br>
+
+    1.The system has 2 tape drives. P0 and P1 each hold one tape drive and each needs another one.<br>
+    2.Semaphores A and B, initialized to 1, P0, and P1 are in deadlock as follows:<br><br>
+    <li>P0 executes wait(A) and preempts.</li>
+    <li>P1 executes wait(B).</li>
+    <li>Now P0 and P1 enter in deadlock.</li><br><br>
+
+<table border="1">
+    <tr>
+        <th><b>P0</b></th>
+        <th><b>P1</b></th>
+    </tr>
+    <tr>
+
+        <td>Wait(A);</td>
+        <td>Wait(B)</td>
+    </tr>
+    <tr>
+        <td>Wait(B);</td>
+        <td>Wait(A)</td>
+    </tr>
+</table>
+<br><br>
+
+3.  Assume the space is available for allocation of 200K bytes, and the following sequence of events occurs.<br><br>
+
+
+<table border="1">
+    <tr>
+        <th><b>P0</b></th>
+        <th><b>P1</b></th>
+    </tr>
+    <tr>
+
+        <td>Request 80KB;</td>
+        <td>Request 70KB;</td>
+    </tr>
+    <tr>
+        <td>Request 60KB;</td>
+        <td>Request 80KB;</td>
+    </tr>
+</table>
+<br><br>
+
+Deadlock occurs if both processes progress to their second request.  <br><br>
+
+Deadlock can arise if the following four conditions hold simultaneously (Necessary Conditions) <br><br>
+
+<b>Mutual Exclusion: </b>Two or more resources are non-shareable (Only one process can use at a time)<br><br>
+<b>Hold and Wait:</b> A process is holding at least one resource and waiting for resources.<br><br>
+<b>No Preemption:</b> A resource cannot be taken from a process unless the process releases the resource. <br><br>
+<b>Circular Wait:</b> A set of processes waiting for each other in circular form.<br><br>
+
+<b>Methods for handling deadlock </b>
+There are three ways to handle deadlock<br>
+<b>1) Deadlock prevention or avoidance:</b><br>
+
+<b>Prevention:</b>
+
+The idea is to not let the system into a deadlock state. This system will make sure that above mentioned four conditions will not arise. These techniques are very costly so we use this in cases where our priority is making a system deadlock-free.<br>
+One can zoom into each category individually, Prevention is done by negating one of the above-mentioned necessary conditions for deadlock. Prevention can be done in four different ways:<br>
+
+1. Eliminate mutual exclusion                                        3. Allow preemption<br>
+
+2. Solve hold and Wait                                                   4. Circular wait Solution   <br><br>
+
+<b>Avoidance:</b>
+Avoidance is kind of futuristic. By using the strategy of “Avoidance”, we have to make an assumption. We need to ensure that all information about resources that the process will need is known to us before the execution of the process. We use Banker’s algorithm (Which is in turn a gift from Dijkstra) to avoid deadlock. <br><br>
+
+In prevention and avoidance, we get the correctness of data but performance decreases.<br><br>
+
+<b>2) Deadlock detection and recovery:</b> If Deadlock prevention or avoidance is not applied to the software then we can handle this by deadlock detection and recovery. which consist of two phases:<br><br>
+
+1.In the first phase, we examine the state of the process and check whether there is a deadlock or not in the system.<br>
+2.If found deadlock in the first phase then we apply the algorithm for recovery of the deadlock.<br>
+In Deadlock detection and recovery, we get the correctness of data but performance decreases.<br><br>
+
+<b>Recovery from Deadlock</b><br>
+
+<b>1. Manual Intervention:</b><br>
+
+When a deadlock is detected, one option is to inform the operator and let them handle the situation manually. While this approach allows for human judgment and decision-making, it can be time-consuming and may not be feasible in large-scale systems.<br><br>
+
+<b>2. Automatic Recovery:</b><br>
+
+An alternative approach is to enable the system to recover from deadlock automatically. This method involves breaking the deadlock cycle by either aborting processes or preempting resources. Let’s delve into these strategies in more detail.<br><br>
+
+Recovery from Deadlock: <b>Process Termination:</b><br>
+
+<b>1. Abort all deadlocked processes:</b><br>
+
+This approach breaks the deadlock cycle, but it comes at a significant cost. The processes that were aborted may have executed for a considerable amount of time, resulting in the loss of partial computations. These computations may need to be recomputed later.<br><br>
+
+<b>2. Abort one process at a time:</b><br>
+
+Instead of aborting all deadlocked processes simultaneously, this strategy involves selectively aborting one process at a time until the deadlock cycle is eliminated. However, this incurs overhead as a deadlock-detection algorithm must be invoked after each process termination to determine if any processes are still deadlocked.<br><br>
+
+<b>Factors for choosing the termination order:</b><br>
+
+– The process’s priority<br><br>
+
+– Completion time and the progress made so far<br><br>
+
+– Resources consumed by the process<br><br>
+
+– Resources required to complete the process<br><br>
+
+– Number of processes to be terminated<br><br>
+
+– Process type (interactive or batch)<br><br>
+
+Recovery from Deadlock: <b>Resource Preemption:</b><br>
+
+<b>1. Selecting a victim:</b><br>
+
+Resource preemption involves choosing which resources and processes should be preempted to break the deadlock. The selection order aims to minimize the overall cost of recovery. Factors considered for victim selection may include the number of resources held by a deadlocked process and the amount of time the process has consumed.<br><br>
+
+<b>2. Rollback:</b><br>
+
+If a resource is preempted from a process, the process cannot continue its normal execution as it lacks the required resource. Rolling back the process to a safe state and restarting it is a common approach. Determining a safe state can be challenging, leading to the use of total rollback, where the process is aborted and restarted from scratch.<br><br>
+
+<b>3. Starvation prevention:</b><br>
+
+To prevent resource starvation, it is essential to ensure that the same process is not always chosen as a victim. If victim selection is solely based on cost factors, one process might repeatedly lose its resources and never complete its designated task. To address this, it is advisable to limit the number of times a process can be chosen as a victim, including the number of rollbacks in the cost factor.<bR><br>
+
+<b>3) Deadlock ignorance: </b>If a deadlock is very rare, then let it happen and reboot the system. This is the approach that both Windows and UNIX take. we use the ostrich algorithm for deadlock ignorance.<br><br>
+
+In Deadlock, ignorance performance is better than the above two methods but the correctness of data is not there.<br><br>
+
+<b>Safe State:</b><br>
+
+A safe state can be defined as a state in which there is no deadlock. It is achievable if:<br><br>
+
+<li>If a process needs an unavailable resource, it may wait until the same has been released by a process to which it has already been allocated. if such a sequence does not exist, it is an unsafe state.</li>
+<li>All the requested resources are allocated to the process.</li><br><br>
+
+<h3><b>Conditions for Deadlock in Operating System</b></h3>
+
+<p>A Deadlock is a situation that involves the interaction of more than one resource and process with each other. We can visualize the occurrence of deadlock as a situation where there are two people on a staircase.<br><br>
+
+    <b>Disadvantages in Deadlock</b>
+    Deadlock is an infinite Process it means that once a process goes into deadlock it will never come out of the loop and the process will enter for an indefinite amount of time. There are only detection, resolution, and prevention techniques. But, there are no Deadlock-stopping techniques.<br><br>
+
+    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20230726155616/img2.jpg" width="350" height="400"><br><br>
+
+    Consider a simple scenario that includes two processes (Process A and Process B) and two resources (Resource 1 and Resource 2).<br><br>
+
+
+
+    <b>How a Deadlock Can Occur?</b>
+    Let’s see that both processes begin execution at the same time.<br>
+
+
+    1.Process A obtains Resource 1.<br>
+    2.Process B obtains Resource 2.<br><br>
+    We are currently in the following situation:<br>
+
+    1.Process A possesses Resource 1.<br>
+    2.Process B possesses Resource 2.<br><br>
+    Let us now see what happens next:<br><br>
+
+    Process A requires Resource 2 to continue execution but is unable to do so because Process B is currently holding Resource 2.<br><br>
+
+    Similarly, Process B requires Resource 1 to continue execution but is unable to do so because Process A is currently holding Resource 1.<br><br>
+
+    Both processes are now stuck in a loop:<br><br>
+
+    1.Process A is awaiting Resource 2 from Process B.<br>
+    2.Process B is awaiting Resource 1 from Process A.<br><br>
+    We have a deadlock because neither process can release the resource it is holding until it completes its task, and neither can proceed without the resource the other process is holding. Both processes are effectively “deadlocked,” unable to move forward.<br><br>
+
+    To break the deadlock and free up resources for other processes in this situation, an external intervention, such as the operating system killing one or both processes, would be required. Deadlocks are undesirable in operating systems because they waste resources and have a negative impact on overall system performance and responsiveness. To prevent deadlocks, various resource allocation and process scheduling algorithms, such as deadlock detection and avoidance, are employed.<br><br>
+
+<h3><b>Necessary Conditions for the Occurrence of a Deadlock</b></h3>
+Let’s explain all four conditions related to deadlock in the context of the scenario with two processes and two resources:<br><br>
+
+<b>Mutual Exclusion</b><br>
+This condition requires that at least one resource be held in a non-shareable mode, which means that only one process can use the resource at any given time. Both Resource 1 and Resource 2 are non-shareable in our scenario, and only one process can have exclusive access to each resource at any given time.<br><br>
+
+As an example:<br><br>
+
+<li>Process A obtains Resource 1.</li>
+<li>Process B acquires Resource 2.</li><br><br>
+<h4><b>Hold and Wait</b></h4>
+The hold and wait condition specifies that a process must be holding at least one resource while waiting for other processes to release resources that are currently held by other processes. In our example,<br><br>
+
+<li>Process A has Resource 1 and is awaiting Resource 2.</li>
+<li>Process B currently has Resource 2 and is awaiting Resource 1.</li>
+<li>Both processes hold one resource while waiting for the other, satisfying the hold and wait condition.</li><br><br>
+<b>No Preemption</b><br>
+Preemption is the act of taking a resource from a process before it has finished its task. According to the no preemption condition, resources cannot be taken forcibly from a process a process can only release resources voluntarily after completing its task. In our scenario, neither Process A nor Process B can be forced to release the resources in their possession. The processes can only release resources voluntarily.<br><br>
+
+<b>Circular Wait</b><br>
+This condition implies that circular processes must exist, with each process waiting for a resource held by the next process in the chain. In our scenario, Process A is waiting for Resource 2, which is being held by Process B.<br><br>
+
+Process B is awaiting Resource 1 from Process A.<br>
+
+This circular chain of dependencies causes a deadlock because neither process can proceed, resulting in a system shutdown.<br><br>
+
+To summarise, in the context of two processes and two resources, all four conditions (mutual exclusion, hold and wait, no preemption, and circular wait) must be met at the same time. Deadlocks are a major concern in operating systems, and various techniques are used to avoid them to prevent, detect, and recover from them.<br><br>
+</body>
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>Computer Organization</h1>
+        </div>
+        </div>
+        </div>
+        <div class="text">
+        <h3>Basic Terminology</h3>
+        <ul>
+        <li value="1"><strong>Control Unit &ndash;</strong>&nbsp;A control unit (CU) handles all processor control signals. It directs all input and output flow, fetches the code for instructions and controlling how data moves around the system.</li>
+        <li value="2"><strong>Arithmetic and Logic Unit (ALU) &ndash;</strong>&nbsp;The arithmetic logic unit is that part of the CPU that handles all the calculations the CPU may need, e.g. Addition, Subtraction, Comparisons. It performs Logical Operations, Bit Shifting Operations, and Arithmetic Operation.<img src="https://media.geeksforgeeks.org/wp-content/uploads/vn_cpu.png" width="315" height="197" /><strong>Figure &ndash;</strong>&nbsp;Basic CPU structure, illustrating ALU</li>
+        <li value="3"><strong>Main Memory Unit (Registers) &ndash;</strong>
+        <ol>
+        <li value="1"><strong>Accumulator:</strong>&nbsp;Stores the results of calculations made by ALU.</li>
+        <li value="2"><strong>Program Counter (PC):</strong>&nbsp;Keeps track of the memory location of the next instructions to be dealt with. The PC then passes this next address to Memory Address Register (MAR).</li>
+        <li value="3"><strong>Memory Address Register (MAR):</strong>&nbsp;It stores the memory locations of instructions that need to be fetched from memory or stored into memory.</li>
+        <li value="4"><strong>Memory Data Register (MDR):</strong>&nbsp;It stores instructions fetched from memory or any data that is to be transferred to, and stored in, memory.</li>
+        <li value="5"><strong>Current Instruction Register (CIR):</strong>&nbsp;It stores the most recently fetched instructions while it is waiting to be coded and executed.</li>
+        <li value="6"><strong>Instruction Buffer Register (IBR):</strong>&nbsp;The instruction that is not to be executed immediately is placed in the instruction buffer register IBR.</li>
+        </ol>
+        </li>
+        <li value="4"><strong>Input/Output Devices &ndash;</strong>&nbsp;Program or data is read into main memory from the&nbsp;<em><em class="GFGEditorTheme__textItalic">input device</em></em>&nbsp;or secondary storage under the control of CPU input instruction.&nbsp;<em><em class="GFGEditorTheme__textItalic">Output devices</em></em>&nbsp;are used to output the information from a computer.</li>
+        <li value="5"><strong>Buses &ndash;</strong>&nbsp;Data is transmitted from one part of a computer to another, connecting all major internal components to the CPU and memory, by the means of Buses. Types:
+        <ol>
+        <li value="1"><strong>Data Bus:</strong>&nbsp;It carries data among the memory unit, the I/O devices, and the processor.</li>
+        <li value="2"><strong>Address Bus:</strong>&nbsp;It carries the address of data (not the actual data) between memory and processor.</li>
+        <li value="3"><strong>Control Bus:</strong>&nbsp;It carries control commands from the CPU (and status signals from other devices) in order to control and coordinate all the activities within the computer.</li>
+        </ol>
+        </li>
+        </ul>
+        <h3><a href="https://www.geeksforgeeks.org/computer-organization-instruction-formats-zero-one-two-three-address-instruction/" target="_blank" rel="noopener">Instruction Formats (Zero, One, Two and Three Address Instruction)</a></h3>
+        <p dir="ltr">A instruction is of various length depending upon the number of addresses it contain. Generally CPU organization are of three types on the basis of number of address fields:</p>
+        <ol>
+        <li value="1">Single Accumulator organization</li>
+        <li value="2">General register organization</li>
+        <li value="3">Stack organization</li>
+        </ol>
+        <ol>
+        <li value="1"><strong>Zero Address Instructions &ndash;</strong>&nbsp;Address is stored in the opcode, in the zero address instruction. A stack based organization uses zero address instruction.</li>
+        <li value="2"><strong>One Address Instructions &ndash;</strong>&nbsp;This use a implied ACCUMULATOR register for data manipulation. One operand is in accumulator and other is in register or memory location. Implied means that the CPU already know that one operand is in accumulator so there is no need to specify it. i.e there will be one opcode field and one address field.</li>
+        <li value="3"><strong>Two Address Instructions &ndash;</strong>&nbsp;Here two address can be specified in the instruction. Unlike earlier in one address instruction, the result was stored in accumulator here result can be stored at a different location rather than just accumulator, but require the number more of the bit to represent address.</li>
+        <li value="4"><strong>Three Address Instructions &ndash;</strong>&nbsp;This has three address field to specify a register or a memory location. The program created is much short in size but the number of bits per instruction increase.</li>
+        </ol>
+        <h3><a href="https://www.geeksforgeeks.org/addressing-modes/" target="_blank" rel="noopener">Addressing Modes</a></h3>
+        <p dir="ltr">The term addressing modes refers to the way in which the operand of an instruction is specified. The addressing mode specifies a rule for interpreting or modifying the address field of the instruction before the operand is actually executed. An assembly language program instruction consists of two parts</p>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Addressing_Modes_1.jpg" alt="am1" width="496" height="38" /></p>
+        <p dir="ltr">&nbsp;</p>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190611145323/co11.png" width="483" height="217" /></p>
+        <p>&nbsp;</p>
+        </div>
+        <div class="main_wrapper">
+            <div>
+            <div class="article-title">
+            <p dir="ltr"><strong>IMPORTANT TERMS</strong></p>
+            <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+            <ul>
+            <li value="1"><strong>Starting address</strong>&nbsp;of memory segment.</li>
+            <li value="2"><strong>Effective address or Offset</strong>: An offset is determined by adding any combination of three address elements:&nbsp;<strong>displacement, base and index.</strong>
+            <ul>
+            <li value="1"><strong>Displacement:&nbsp;</strong>It is an 8 bit or 16 bit immediate value given in the instruction.</li>
+            <li value="2"><strong>Base</strong>: Contents of base register, BX or BP.</li>
+            <li value="3"><strong>Index</strong>: Content of index register SI or DI.</li>
+            </ul>
+            </li>
+            </ul>
+            <ul>
+            <li value="1"><strong>Implied mode:</strong>: In implied addressing the operand is specified in the instruction itself. In this mode the data is 8 bits or 16 bits long and data is the part of instruction.Zero address instruction are designed with implied addressing mode.</li>
+            <li value="2"><strong>Immediate addressing mode (symbol #):</strong>In this mode data is present in address field of instruction .Designed like one address instruction format.&nbsp;<strong>Note:</strong>Limitation in the immediate mode is that the range of constants are restricted by size of address field.</li>
+            <li value="3"><strong>Register mode:&nbsp;</strong>In register addressing the operand is placed in one of 8 bit or 16 bit general purpose registers. The data is in the register that is specified by the instruction.&nbsp;<em><em class="GFGEditorTheme__textItalic">Here one register reference is required to access the data.</em></em></li>
+            <li value="4"><strong>Register Indirect mode</strong>: In this addressing the operand&rsquo;s offset is placed in any one of the registers BX, BP, SI, DI as specified in the instruction. The effective address of the data is in the base register or an index register that is specified by the instruction.&nbsp;<em><em class="GFGEditorTheme__textItalic">Here two register reference is required to access the data.</em></em></li>
+            <li value="5"><strong>Auto Indexed (increment mode)</strong>: Effective address of the operand is the contents of a register specified in the instruction. After accessing the operand, the contents of this register are automatically incremented to point to the next consecutive memory location.<strong>(R1)+</strong>.&nbsp;<em><em class="GFGEditorTheme__textItalic">Here one register reference, one memory reference, and one ALU operation is required to access the data.</em></em></li>
+            <li value="6"><strong>Auto indexed ( decrement mode)</strong>: Effective address of the operand is the contents of a register specified in the instruction. Before accessing the operand, the contents of this register are automatically decremented to point to the previous consecutive memory location.&nbsp;<em><em class="GFGEditorTheme__textItalic">&ndash;</em></em><strong>(R1)</strong><em><em class="GFGEditorTheme__textItalic">Here one register reference, one memory reference and one ALU operation is required to access the data.</em></em></li>
+            <li value="7"><em><em class="GFGEditorTheme__textItalic">Auto decrement mode is the same as the auto-increment mode. Both can also be used to implement a stack as push and pop. Auto increment and Auto-decrement modes are useful for implementing &ldquo;Last-In-First-Out&rdquo; data structures.</em></em></li>
+            <li value="8"><strong>Direct addressing/ Absolute addressing Mode (symbol [ ]):&nbsp;</strong>The operand&rsquo;s offset is given in the instruction as an 8 bit or 16 bit displacement element. In this addressing mode, the 16-bit effective address of the data is part of the instruction.&nbsp;<em><em class="GFGEditorTheme__textItalic">Here only one memory reference operation is required to access the data.</em></em></li>
+            <li value="9"><strong>Indirect addressing Mode (symbol @ or () )</strong>:In this mode address field of instruction contains the address of effective address.Here two references are required. 1st reference to get an effective address. 2nd reference to access the data.</li>
+            <li value="10"><strong>Indexed addressing mode</strong>: The operand&rsquo;s offset is the sum of the content of an index register SI or DI and an 8 bit or 16-bit displacement.</li>
+            <li value="11"><strong>Based Indexed Addressing:&nbsp;</strong>The operand&rsquo;s offset is sum of the content of a base register BX or BP and an index register SI or DI.</li>
+            <li value="13"><strong><strong>Based on Transfer of control, addressing modes are:</strong></strong></li>
+            <li value="14">
+            <ul>
+            <li value="1"><strong><strong>PC relative addressing mode:</strong></strong>&nbsp;PC relative addressing mode is used to implement intra segment transfer of control, In this mode effective address is obtained by adding displacement to PC.
+            <div class="gray">EA= PC + Address field value<br />PC= PC + Relative value.</div>
+            </li>
+            <li value="2"><strong><strong>Base register addressing mode:</strong></strong>Base register addressing mode is used to implement inter segment transfer of control.In this mode effective address is obtained by adding base register value to address field value.
+            <div class="gray">EA= Base register + Address field value.<br />PC= Base register + Relative value.<br /><br /></div>
+            <strong><strong>Note:</strong></strong>
+            <ol>
+            <li value="1">&nbsp;</li>
+            <li value="2">PC relative and based register both addressing modes are suitable for program relocation at runtime.</li>
+            <li value="3">Based register addressing mode is best suitable to write position independent codes.</li>
+            </ol>
+            </li>
+            </ul>
+            </li>
+            <li value="12">&nbsp;</li>
+            </ul>
+            </div>
+            </div>
+            </div>
+            <div class="main_wrapper">
+                <div>
+                <div class="article-title">
+                <ul>
+                <li value="14">
+                <h3><a href="https://www.geeksforgeeks.org/computer-organization-risc-and-cisc/" target="_blank" rel="noopener">RISC vs CISC</a></h3>
+                </li>
+                <li value="15">
+                <ol>
+                <li value="1">Characteristic of RISC &ndash;</li>
+                <li value="2">Simpler instruction, hence simple instruction decoding.</li>
+                <li value="3">Instruction come under size of one word.</li>
+                <li value="4">Instruction take single clock cycle to get executed.</li>
+                <li value="5">More number of general purpose register.</li>
+                <li value="6">Simple Addressing Modes.</li>
+                <li value="7">Less Data types.</li>
+                <li value="8">Pipelining can be achieved.</li>
+                </ol>
+                </li>
+                <li value="15">
+                <ol>
+                <li value="1">Characteristic of CISC &ndash;</li>
+                <li value="2">Complex instruction, hence complex instruction decoding.</li>
+                <li value="3">Instruction are larger than one word size.</li>
+                <li value="4">Instruction may take more than single clock cycle to get executed.</li>
+                <li value="5">Less number of general purpose register as operation get performed in memory itself.</li>
+                <li value="6">Complex Addressing Modes.</li>
+                <li value="7">More Data types.</li>
+                </ol>
+                </li>
+                <li value="15">
+                <h3><a href="https://www.geeksforgeeks.org/computer-organization-hardwired-vs-micro-programmed-control-unit/" target="_blank" rel="noopener">Hardwired v/s Micro-programmed Control Unit</a></h3>
+                </li>
+                <li value="16"><strong><strong>Hardwired Control Unit &ndash;</strong></strong></li>
+                <li value="17">
+                <ul>
+                <li value="1">Fixed logic circuits that correspond directly to the Boolean expressions are used to generate the control signals.</li>
+                <li value="2">Hardwired control is faster than micro-programmed control.</li>
+                <li value="3">A controller that uses this approach can operate at high speed.</li>
+                <li value="4">RISC architecture is based on hardwired control unit.</li>
+                </ul>
+                </li>
+                <li value="17">
+                <ul>
+                <li value="1"><strong><strong>Micro-programmed Control Unit &ndash;</strong></strong></li>
+                <li value="2">The control signals associated with operations are stored in special memory units inaccessible by the programmer as Control Words.</li>
+                <li value="3">Control signals are generated by a program are similar to machine language programs.</li>
+                <li value="4">Micro-programmed control unit is slower in speed because of the time it takes to fetch microinstructions from the control memory.</li>
+                <li value="5">
+                <ol>
+                <li value="1">There are two type Micro-programmed control Unit:</li>
+                <li value="2"><strong><strong>Horizontal Micro-programmed control Unit-</strong></strong>&nbsp;The control signals are represented in the decoded binary format that is 1 bit/CS.</li>
+                <li value="3"><strong><strong>Vertical Micro-programmed control Unit &ndash;</strong></strong>&nbsp;The control signals re represented in the encoded binary format. For N control signals- Log<sub>n</sub>(N) bits are required.</li>
+                </ol>
+                </li>
+                </ul>
+                </li>
+                <li value="17">
+                <h3><a href="https://www.geeksforgeeks.org/different-instruction-cycles/" target="_blank" rel="noopener">Instruction Cycle</a></h3>
+                </li>
+                <li value="18">Registers Involved In Each Instruction Cycle:</li>
+                <li value="19">
+                <ul>
+                <li value="1"><strong><strong>Memory address registers(MAR)</strong></strong>&nbsp;: It is connected to the address lines of the system bus. It specifies the address in memory for a read or write operation.</li>
+                <li value="2"><strong><strong>Memory Buffer Register(MBR)</strong></strong>&nbsp;: It is connected to the data lines of the system bus. It contains the value to be stored in memory or the last value read from the memory.</li>
+                <li value="3"><strong><strong>Program Counter(PC)&nbsp;</strong></strong>: Holds the address of the next instruction to be fetched.</li>
+                <li value="4"><strong><strong>Instruction Register(IR)</strong></strong>&nbsp;: Holds the last instruction fetched.</li>
+                </ul>
+                </li>
+                <li value="19"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-29-00-57-59.png" width="inherit" height="inherit" /></li>
+                <li value="20">The</li>
+                <li value="21"><em><em class="GFGEditorTheme__textItalic">Indirect Cycle</em></em></li>
+                <li value="22">is always followed by the</li>
+                <li value="23"><em><em class="GFGEditorTheme__textItalic">Execute Cycle</em></em></li>
+                <li value="24">. The</li>
+                <li value="25"><em><em class="GFGEditorTheme__textItalic">Interrupt Cycle</em></em></li>
+                <li value="26">is always followed by the</li>
+                <li value="27"><em><em class="GFGEditorTheme__textItalic">Fetch Cycle</em></em></li>
+                <li value="28">. For both fetch and execute cycles, the next cycle depends on the state of the system.</li>
+                <li value="29">
+                <ol>
+                <li value="1"><strong><strong>The Fetch Cycle &ndash;</strong></strong>&nbsp;At the beginning of the fetch cycle, the address of the next instruction to be executed is in the&nbsp;<em><em class="GFGEditorTheme__textItalic">Program Counter</em></em>(PC).</li>
+                <li value="2"><strong><strong>The Indirect Cycles &ndash;</strong></strong>&nbsp;Once an instruction is fetched, the next step is to fetch source operands.&nbsp;<em><em class="GFGEditorTheme__textItalic">Source Operand</em></em>&nbsp;is being fetched by indirect addressing it can be fetched by any&nbsp;<a href="https://www.geeksforgeeks.org/addressing-modes/">addressing mode</a>, here its done by indirect addressing). Register-based operands need not be fetched. Once the opcode is executed, a similar process may be needed to store the result in the main memory.</li>
+                <li value="3"><strong><strong>The Execute Cycle</strong></strong>&nbsp;The other three cycles(<em><em class="GFGEditorTheme__textItalic">Fetch, Indirect and Interrupt</em></em>) are simple and predictable. Each of them requires a simple, small and fixed sequence of micro-operations. In each case, the same micro-operation is repeated each time around. Execute Cycle is different from them. Like, for a machine with N different opcodes there are N different sequences of micro-operations that can occur.</li>
+                <li value="4"><strong><strong>The Interrupt Cycle</strong></strong>: At the completion of the Execute Cycle, a test is made to determine whether any enabled interrupt has occurred or not. If an enabled interrupt has occurred then Interrupt Cycle occurs. The nature of this cycle varies greatly from one machine to another.</li>
+                </ol>
+                </li>
+                <li value="12">&nbsp;</li>
+                </ul>
+                </div>
+                </div>
+                </div>
+                <div class="main_wrapper">
+                    <div>
+                    <div class="article-title">
+                    <p><strong>Microprogram:</strong></p>
+                    <p>Program stored in memory that generates all control signals required to execute the instruction set correctly, it consists micro-instructions.</p>
+                    <p><strong>Micro-instruction:</strong></p>
+                    <p>Contains a sequencing word and a control word. The control word is all control information required for one clock cycle.</p>
+                    <p><strong>Micro-operations:</strong></p>
+                    <p>Micro-operations are the atomic operations which executes a particular micro-instruction. Example of micro-operation during the fetch cycle:</p>
+                    <div class="gray">t1: MAR &larr;(PC)<br />t2: MBR &larr;Memory<br />    PC &larr;(PC) + I<br />t3: IR &larr;(MBR)<br /><br /></div>
+                    <p>&nbsp;</p>
+                    <h2>Memory Organization :</h2>
+                    <p>Memories are made up of registers. Each register in the memory is one storage location. The storage location is also called a memory location. Memory locations are identified using Address. The total number of bit a memory can store is its capacity.</p>
+                    <table>
+                    <thead>
+                    <tr>
+                    <th><u><span class="GFGEditorTheme__textUnderline">Byte Addressable Memory</span></u></th>
+                    <th><u><span class="GFGEditorTheme__textUnderline">Word Addressable Memory</span></u></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                    <td>When the&nbsp;<em><strong><strong class="GFGEditorTheme__textItalic">data space in the cell = 8 bits</strong></strong></em>&nbsp;then the corresponding&nbsp;<em><strong><strong class="GFGEditorTheme__textItalic">address space</strong></strong></em>&nbsp;is called as&nbsp;<u><strong><strong class="GFGEditorTheme__textUnderline">Byte Address</strong></strong></u>.</td>
+                    <td>When the&nbsp;<em><strong><strong class="GFGEditorTheme__textItalic">data space in the cell = word length of CPU&nbsp;</strong></strong></em>then the corresponding&nbsp;<em><strong><strong class="GFGEditorTheme__textItalic">address space</strong></strong></em>&nbsp;is called as&nbsp;<u><strong><strong class="GFGEditorTheme__textUnderline">Word Address</strong></strong></u>.</td>
+                    </tr>
+                    <tr>
+                    <td>Based on this data storage i.e.&nbsp;<em><em class="GFGEditorTheme__textItalic">Bytewise storage</em></em>, the memory chip configuration is named as&nbsp;<u><strong><strong class="GFGEditorTheme__textUnderline">Byte Addressable Memory</strong></strong></u>.</td>
+                    <td>Based on this data storage i.e.&nbsp;<em><em class="GFGEditorTheme__textItalic">Wordwise storage</em></em>, the memory chip configuration is named as&nbsp;<u><strong><strong class="GFGEditorTheme__textUnderline">Word Addressable Memory</strong></strong></u>.</td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    <p><a href="https:" rel="">&nbsp;</a></p>
+                    <p>&nbsp;</p>
+                    </div>
+                    </div>
+                    </div>
+                    <div>
+                        <div>
+                        <div>
+                        <ul>
+                        <li value="42">
+                        <h3><a href="https://www.geeksforgeeks.org/simultaneous-and-hierarchical-cache-accesses/" target="_blank" rel="noopener">Simultaneous and Hierarchical Access Memory Organizations</a></h3>
+                        </li>
+                        <li value="43"><strong>Simultaneous access memory organization:</strong></li>
+                        <li value="44">If H1 and H2 are the Hit Ratios and T1 and T2 are the access time of L1 and L2 memory levels respectively then the</li>
+                        <li value="45"><em><em>Average Memory Access Time</em></em></li>
+                        <li value="46">can be calculated as:</li>
+                        <li value="47">𝑇=(𝐻1&lowast;𝑇1)+((1&minus;𝐻1)&lowast;𝐻2&lowast;𝑇2T=(H1&lowast;T1)+((1&minus;H1)&lowast;H2&lowast;T2</li>
+                        <li value="48"><strong>Hierarchical Access Memory Organizations:</strong></li>
+                        <li value="49">If H1 and H2 are the Hit Ratios and T1 and T2 are the access time of L1 and L2 memory levels respectively then the</li>
+                        <li value="50"><em><em>Average Memory Access Time</em></em></li>
+                        <li value="51">can be calculated as:</li>
+                        <li value="52">𝑇=(𝐻1&lowast;𝑇1)+((1&minus;𝐻1)&lowast;𝐻2&lowast;(𝑇1+𝑇2)T=(H1&lowast;T1)+((1&minus;H1)&lowast;H2&lowast;(T1+T2)</li>
+                        <li value="53">
+                        <h3><a href="https://www.geeksforgeeks.org/cache-memory/" target="_blank" rel="noopener">Cache Memory</a></h3>
+                        </li>
+                        <li value="54">Cache Memory is a special very high-speed memory. It is used to speed up and synchronizing with high-speed CPU. Levels of memory: Level 1 or Register, Level 2 or Cache memory, Level 3 or Main Memory, Level 4 or Secondary Memory.</li>
+                        <li value="55">
+                        <div class="gray">Hit ratio = hit / (hit + miss) = no. of hits/total accesses</div>
+                        </li>
+                        <li value="56"><strong>Cache Mapping:</strong>
+                        <ol>
+                        <li value="1">There are three different types of mapping used for the purpose of cache memory which is as follows: Direct mapping, Associative mapping, and Set-Associative mapping.</li>
+                        <li value="2"><strong>Direct Mapping &ndash;</strong>&nbsp;Maps each block of main memory into only one possible cache line. If a line is previously taken up by a memory block and a new block needs to be loaded, the old block is trashed. An address space is split into two parts index field and a tag field. The cache is used to store the tag field whereas the rest is stored in the main memory.</li>
+                        <li value="3"><strong>Associative Mapping &ndash;</strong>&nbsp;A block of main memory can map to any line of the cache that is freely available at that moment. The word offset bits are used to identify which word in the block is needed, all of the remaining bits become Tag.</li>
+                        <li value="4"><strong>Set-Associative Mapping &ndash;</strong>&nbsp;Cache lines are grouped into sets where each set contains k number of lines and a particular block of main memory can map to only one particular set of the cache. However, within that set, the memory block can map to any freely available cache line.</li>
+                        </ol>
+                        </li>
+                        <li value="57">Note: Translation Lookaside Buffer (i.e. TLB) is required only if Virtual Memory is used by a processor. In short, TLB speeds up the translation of virtual address to a physical address by storing page-table in faster memory. In fact, TLB also sits between the CPU and Main memory.</li>
+                        <li value="58"><strong>Locality of reference &ndash;</strong></li>
+                        <li value="59">Since size of cache memory is less as compared to main memory. So to check which part of main memory should be given priority and loaded in the cache is decided based on the locality of reference.</li>
+                        <li value="61"><strong>Types of Locality of reference</strong>
+                        <ol>
+                        <li value="1"><strong>Spatial Locality of reference</strong>&nbsp;Spatial locality means instruction or data near to the current memory location that is being fetched, may be needed soon in the near future.</li>
+                        <li value="2"><strong>Temporal Locality of reference</strong>&nbsp;Temporal locality means current data or instruction that is being fetched may be needed soon. So we should store that data or instruction in the cache memory to avoid searching again in main memory for the same data.</li>
+                        </ol>
+                        </li>
+                        </ul>
+                        </div>
+                        </div>
+                        </div>
+                        <ul>
+                            <li value="42">
+                            <ul>
+                            <li value="63">
+                            <h3><a href="https://www.geeksforgeeks.org/computer-organization-and-architecture-pipelining-set-1-execution-stages-and-throughput/" target="_blank" rel="noopener">Pipelining</a></h3>
+                            </li>
+                            <li value="64">Pipelining is a process of arrangement of hardware elements of the CPU such that its overall performance is increased. Simultaneous execution of more than one instruction takes place in a pipelined processor. RISC processor has 5 stage instruction pipeline to execute all the instructions in the RISC instruction set. Following are the 5 stages of RISC pipeline with their respective operations:</li>
+                            <li value="65">
+                            <ul>
+                            <li value="1"><strong>Stage 1 (Instruction Fetch)</strong>&nbsp;In this stage the CPU reads instructions from the address in the memory whose value is present in the program counter.</li>
+                            <li value="2"><strong>Stage 2 (Instruction Decode)</strong>&nbsp;In this stage, instruction is decoded and the register file is accessed to get the values from the registers used in the instruction.</li>
+                            <li value="3"><strong>Stage 3 (Instruction Execute)</strong>&nbsp;In this stage, ALU operations are performed.</li>
+                            <li value="4"><strong>Stage 4 (Memory Access)</strong>&nbsp;In this stage, memory operands are read and written from/to the memory that is present in the instruction.</li>
+                            <li value="5"><strong>Stage 5 (Write Back)</strong>&nbsp;In this stage, computed/fetched value is written back to the register present in the instructions.</li>
+                            </ul>
+                            </li>
+                            <li value="65"><strong>Performance of a pipelined processor</strong></li>
+                            <li value="66">Consider a &lsquo;k&rsquo; segment/stages pipeline with clock cycle time as &lsquo;Tp&rsquo;. Let there be &lsquo;n&rsquo; tasks to be completed in the pipelined processor. So, time taken to execute &lsquo;n&rsquo; instructions in a pipelined processor:</li>
+                            <li value="67">
+                            <div class="gray">                     ET<sub>pipeline</sub> = k + n &ndash; 1 cycles<br />                              = (k + n &ndash; 1) Tp<br /><br /></div>
+                            </li>
+                            <li value="68">In the same case, for a non-pipelined processor, execution time of &lsquo;n&rsquo; instructions will be:</li>
+                            <li value="69">
+                            <div class="gray">                    ET<sub>non-pipeline</sub> = n * k * Tp<br /><br /></div>
+                            </li>
+                            <li value="70">So, speedup (S) of the pipelined processor over non-pipelined processor, when &lsquo;n&rsquo; tasks are executed on the same processor is:</li>
+                            <li value="71">
+                            <div class="gray">    S = Performance of pipelined processor /<br />        Performance of Non-pipelined processor<br /><br /></div>
+                            </li>
+                            <li value="72">As the performance of a processor is inversely proportional to the execution time, we have,</li>
+                            <li value="73">
+                            <div class="gray">   S = ET<sub>non-pipeline</sub> / ET<sub>pipeline</sub><br />    =&gt; S =  [n * k * Tp] / [(k + n &ndash; 1) * Tp]<br />       S = [n * k] / [k + n &ndash; 1]<br /><br /></div>
+                            </li>
+                            <li value="74">When the number of tasks &lsquo;n&rsquo; are significantly larger than k, that is, n &gt;&gt; k</li>
+                            <li value="75">
+                            <div class="gray">    S = n * k / n<br />    S = k<br /><br /></div>
+                            </li>
+                            <li value="76">where &lsquo;k&rsquo; are the number of stages in the pipeline. Also,</li>
+                            <li value="77"><strong>Efficiency</strong></li>
+                            <li value="78">= Given speed up / Max speed up = S / S</li>
+                            <li value="79"><sub>max</sub></li>
+                            <li value="80">We know that, Smax = k So,</li>
+                            <li value="81"><strong>Efficiency</strong></li>
+                            <li value="82">= S / k</li>
+                            <li value="83"><strong>Throughput</strong></li>
+                            <li value="84">= Number of instructions / Total time to complete the instructions So,</li>
+                            <li value="85"><strong>Throughput</strong></li>
+                            <li value="86">= n / (k + n &ndash; 1) * Tp Note: The cycles per instruction (CPI) value of an ideal pipelined processor is 1</li>
+                            <li value="87"><a href="https://www.geeksforgeeks.org/computer-organization-and-architecture-pipelining-set-3-types-and-stalling/" target="_blank" rel="noopener"><strong>Performance of pipeline with stalls</strong></a></li>
+                            <li value="88"><strong>Speed Up (S) = CPI</strong></li>
+                            <li value="89"><strong><sub>non-pipeline</sub></strong></li>
+                            <li value="90"><strong>/ (1 + Number of stalls per instruction)</strong></li>
+                            <li value="91">&nbsp;</li>
+                            <li value="92"><a href="https://www.geeksforgeeks.org/computer-organization-and-architecture-pipelining-set-2-dependencies-and-data-hazard/" target="_blank" rel="noopener"><strong>Dependencies and Data Hazard</strong></a></li>
+                            <li value="93">
+                            <ol>
+                            <li value="1">There are mainly three types of dependencies possible in a pipelined processor. These are :</li>
+                            <li value="2">
+                            <ul>
+                            <li value="1"><strong>Structural dependency:</strong></li>
+                            <li value="2">This dependency arises due to the resource conflict in the pipeline. A resource conflict is a situation when more than one instruction tries to access the same resource in the same cycle. A resource can be a register, memory, or ALU.</li>
+                            <li value="3">To minimize structural dependency stalls in the pipeline, we use a hardware mechanism called Renaming.</li>
+                            </ul>
+                            </li>
+                            <li value="2">
+                            <ul>
+                            <li value="1"><strong>Control Dependency (Branch Hazards):</strong></li>
+                            <li value="2">This type of dependency occurs during the transfer of control instructions such as BRANCH, CALL, JMP, etc. On many instruction architectures, the processor will not know the target address of these instructions when it needs to insert the new instruction into the pipeline. Due to this, unwanted instructions are fed to the pipeline.</li>
+                            <li value="3">Branch Prediction is the method through which stalls due to control dependency can be eliminated. In this at 1st stage prediction is done about which branch will be taken.</li>
+                            <li value="4">For branch prediction Branch penalty is zero. The number of stalls introduced during the branch operations in the pipelined processor is known as branch penalty.</li>
+                            </ul>
+                            </li>
+                            <li value="2">
+                            <ul>
+                            <li value="1"><strong>Data Dependency (Data Hazard):</strong></li>
+                            <li value="2">Data hazards occur when instructions that exhibit data dependence, modify data in different stages of a pipeline. Hazard cause delays in the pipeline. There are mainly three types of data hazards: 1) RAW (Read after Write) [Flow/True data dependency] 2) WAR (Write after Read) [Anti-Data dependency] 3) WAW (Write after Write) [Output data dependency]</li>
+                            <li value="3">To minimize data dependency stalls in the pipeline, operand forwarding is used.</li>
+                            <li value="4">In operand forwarding, we use the interface registers present between the stages to hold intermediate output so that dependent instruction can access new value from the interface register directly.</li>
+                            </ul>
+                            </li>
+                            </ol>
+                            </li>
+                            <li value="93">&nbsp;</li>
+                            </ul>
+                            </li>
+                            </ul>
+                            <h3><a href="https://www.geeksforgeeks.org/io-interface-interrupt-dma-mode/" target="_blank" rel="noopener">Input/Output Organization</a></h3>
+<p>The input/output (I/O) architecture is computer system&rsquo;s interface to the outside world. Each I/O module interfaces to the system bus and controls one or more peripheral devices.</p>
+<p>There are three basic forms of input and output systems &ndash;</p>
+<p>Programmed I/O: In programmed I/O, the processor executes a program that gives its direct control of the I/O operation, including sensing device status, sending a read or write command, and transferring the data.</p>
+<p>Interrupt driven I/O: In interrupt driven I/O, the processor issues an I/O command, continues to execute other instructions, and is interrupted by the I/O module when the I/O module completes its work.</p>
+<p>Direct Memory Access(DMA): In Direct Memory Access (DMA), the I/O module and main memory exchange data directly without processor involvement.</p>
+<h3><a href="https://www.geeksforgeeks.org/ieee-standard-754-floating-point-numbers/" target="_blank" rel="noopener">IEEE Standard 754 Floating Point Numbers:</a></h3>
+<p>There are several ways to represent floating point number but IEEE 754 is the most efficient in most cases. IEEE 754 has 3 basic components:</p>
+<p><strong>The Sign of Mantissa &ndash;</strong>&nbsp;This is as simple as the name. 0 represents a positive number while 1 represents a negative number.</p>
+<p><strong>The Biased exponent &ndash;</strong>&nbsp;The exponent field needs to represent both positive and negative exponents. A bias is added to the actual exponent in order to get the stored exponent.</p>
+<p><strong>The Normalised Mantisa &ndash;</strong>&nbsp;The mantissa is part of a number in scientific notation or a floating-point number, consisting of its significant digits. Here we have only 2 digits, i.e. O and 1. So a normalised mantissa is one with only one 1 to the left of the decimal.</p>
+<table>
+<thead>
+<tr>
+<th>TYPES</th>
+<th>SIGN</th>
+<th>BIASED EXPONENT</th>
+<th>NORMALISED MANTISA</th>
+<th>BIAS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single precision</td>
+<td>1(31st bit)</td>
+<td>8(30-23)</td>
+<td>23(22-0)</td>
+<td>127</td>
+</tr>
+<tr>
+<td>Double precision</td>
+<td>1(63rd bit)</td>
+<td>11(62-52)</td>
+<td>52(52-0)</td>
+<td>1023</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p><strong>Formula for finding decimal value:</strong></p>
+<p>Decimal value = (-1)</p>
+<p><sup>s</sup></p>
+<p>* 1.F * 2</p>
+<p><sup>(E-Bias)</sup></p>
+<p>, Where E is decimal value of exponent field, F is mantissa and s is sign bit.</p>
+<h3>Flag register</h3>
+<p><strong>(a) Status Flags</strong></p>
+<p><strong>Zero Flag (Z):</strong>&nbsp;When an arithmetic operation results in zero, the flip-flop called the Zero flag &ndash; which is set to one.</p>
+<p><strong>Carry flag (CY):</strong>&nbsp;After an addition of two numbers, if the sum in the accumulator is larger than eight bits, then the flip-flop uses to indicate a carry called the Carry flag, which is set to one.</p>
+<p><strong>Parity (P):</strong>&nbsp;If the result has an even number of 1s, the flag is set to 1; for an odd number of 1s the flag is reset.</p>
+<p><strong>Auxiliary Carry (AC):</strong>&nbsp;In an arithmetic operation, when a carry is generated from lower nibble and passed on to higher nibble then this register is set to 1.</p>
+<p><strong>Sign flag(S):</strong>&nbsp;It is a single bit in a system status (flag) register used to indicate whether the result of the last mathematical operation resulted in a value in which the most significant bit was set.</p>
+<p><strong>(b) Control Flags</strong></p>
+<p><strong>Trap Flag (TF):</strong>&nbsp;It sets to enable one step execution of program. This is used for debug purpose.</p>
+<p><strong>Interrupt Flag (IF):</strong>&nbsp;It is used to enable or disable interrupt during execution.</p>
+<p><strong>Direction Flag (DF):</strong>&nbsp;The direction flag is a flag that controls the left-to-right or right-to-left direction of string processing.</p>
+</body>
+</html>

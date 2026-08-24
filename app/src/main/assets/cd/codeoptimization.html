@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    <div class="text">
+        <div class="main_wrapper">
+        <div class="article-title">
+        <div class="main_wrapper">
+        <div class="article-title">
+        <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>Code Optimization</h1>
+        </div>
+        </div>
+        </div>
+        <div class="text">
+        <p>The code optimization in the synthesis phase is a program transformation technique, which tries to improve the intermediate code by making it consume fewer resources (i.e. CPU, Memory) so that faster-running machine code will result. Compiler optimizing process should meet the following objectives :</p>
+        <ul>
+        <li>The optimization must be correct, it must not, in any way, change the meaning of the program.</li>
+        <li>Optimization should increase the speed and performance of the program.</li>
+        <li>The compilation time must be kept reasonable.</li>
+        <li>The optimization process should not delay the overall compiling process.</li>
+        </ul>
+        <h3>When to Optimize?&nbsp;</h3>
+        <p>Optimization of the code is often performed at the end of the development stage since it reduces readability and adds code that is used to increase the performance.&nbsp;</p>
+        <h3>Why Optimize?&nbsp;</h3>
+        <p>Optimizing an algorithm is beyond the scope of the code optimization phase. So the program is optimized. And it may involve reducing the size of the code. So optimization helps to:</p>
+        <ul>
+        <li>Reduce the space consumed and increases the speed of compilation.</li>
+        <li>Manually analyzing datasets involves a lot of time. Hence we make use of software like Tableau for data analysis. Similarly manually performing the optimization is also tedious and is better done using a code optimizer.</li>
+        <li>An optimized code often promotes re-usability.</li>
+        </ul>
+        <p><strong>Types of Code Optimization:&nbsp;</strong>The optimization process can be broadly classified into two types :</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <ol>
+        <li><strong>Machine Independent Optimization:</strong>&nbsp;This code optimization phase attempts to improve the&nbsp;<strong>intermediate code</strong>&nbsp;to get a better target code as the output. The part of the intermediate code which is transformed here does not involve any CPU registers or absolute memory locations.</li>
+        <li><strong>Machine Dependent Optimization:</strong>&nbsp;Machine-dependent optimization is done after the&nbsp;<strong>target code</strong>&nbsp;has been generated and when the code is transformed according to the target machine architecture. It involves CPU registers and may have absolute memory references rather than relative references. Machine-dependent optimizers put efforts to take maximum&nbsp;<strong>advantage</strong>&nbsp;of the memory hierarchy.</li>
+        </ol>
+        <h3>Where to apply Optimization?&nbsp;</h3>
+        <p>Now that we learned the need for optimization and its two types,now let&rsquo;s see where to apply these optimization.</p>
+        <ul>
+        <li><strong>Source program:&nbsp;</strong>Optimizing the source program involves making changes to the algorithm or changing the loop structures. The user is the actor here.</li>
+        <li><strong>Intermediate Code:&nbsp;</strong>Optimizing the intermediate code involves changing the address calculations and transforming the procedure calls involved. Here compiler is the actor.</li>
+        <li><strong>Target Code:&nbsp;</strong>Optimizing the target code is done by the compiler. Usage of registers, and select and move instructions are part of the optimization involved in the target code.</li>
+        <li><strong>Local Optimization:</strong>&nbsp;Transformations are applied to small basic blocks of statements. Techniques followed are &nbsp;Local Value Numbering and Tree Height Balancing.</li>
+        <li><strong>Regional Optimization:&nbsp;</strong>Transformations are applied to Extended Basic Blocks. Techniques followed are Super Local Value Numbering and Loop Unrolling.</li>
+        <li><strong>Global Optimization:</strong>&nbsp;Transformations are applied to large program segments that include functions, procedures, and loops. Techniques followed are Live Variable Analysis and Global Code Replacement.</li>
+        <li><strong>Interprocedural Optimization: &nbsp;</strong>As the name indicates, the optimizations are applied inter procedurally. Techniques followed are Inline Substitution and Procedure Placement.</li>
+        </ul>
+        <h3>Advantages of Code Optimization:</h3>
+        <p><strong>Improved performance:&nbsp;</strong>Code optimization can result in code that executes faster and uses fewer resources, leading to improved performance.</p>
+        <p><strong>Reduction in code size:</strong>&nbsp;Code optimization can help reduce the size of the generated code, making it easier to distribute and deploy.</p>
+        <p><strong>Increased portability:</strong>&nbsp;Code optimization can result in code that is more portable across different platforms, making it easier to target a wider range of hardware and software.</p>
+        <p><strong>Reduced power consumption:</strong>&nbsp;Code optimization can lead to code that consumes less power, making it more energy-efficient.</p>
+        <p><strong>Improved maintainability:</strong>&nbsp;Code optimization can result in code that is easier to understand and maintain, reducing the cost of software maintenance.</p>
+        <h3>Disadvantages of Code Optimization:</h3>
+        <p><strong>Increased compilation time:</strong>&nbsp;Code optimization can significantly increase the compilation time, which can be a significant drawback when developing large software systems.</p>
+        <p><strong>Increased complexity:&nbsp;</strong>Code optimization can result in more complex code, making it harder to understand and debug.</p>
+        <p><strong>Potential for introducing bugs:</strong>&nbsp;Code optimization can introduce bugs into the code if not done carefully, leading to unexpected behavior and errors.</p>
+        <p><strong>Difficulty in assessing the effectiveness:&nbsp;</strong>It can be difficult to determine the effectiveness of code optimization, making it hard to justify the time and resources spent on the process.</p>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+</body>
+</html>

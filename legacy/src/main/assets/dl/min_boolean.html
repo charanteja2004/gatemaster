@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    <div class="article-title">
+        <h1>Minimization of Boolean Functions</h1>
+        </div>
+        <div class="three_dot_dropdown">
+        <div>
+        <p>&nbsp;</p>
+        </div>
+        </div>
+        <div class="text">As discussed in the&nbsp;<a href="rep_boolean.html" target="_blank" rel="noopener">&ldquo;Representation of Boolean Functions&rdquo;</a>&nbsp;every boolean function can be expressed as a sum of minterms or a product of maxterms. Since the number of literals in such an expression is usually high, and the complexity of the digital logic gates that implement a Boolean function is directly related to the complexity of the algebraic expression from which the function is implemented, it is preferable to have the most simplified form of the algebraic expression. The process of simplifying the algebraic expression of a boolean function is called&nbsp;<strong>minimization</strong>. Minimization is important since it reduces the cost and complexity of the associated circuit. For example, the function<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-b6cecb39e8ca1aa84b0f76fb562ba87e_l3.svg" alt="F=x^\prime y^\prime z + x^\prime yz + xy^\prime" width="259" height="26" />can be minimized to<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-d284fead245091145cfd26a97f17ab43_l3.svg" alt="F=x^\prime z + xy^\prime" width="157" height="26" />. The circuits associated with above expressions is &ndash;<img class="aligncenter wp-image-246038" src="https://media.geeksforgeeks.org/wp-content/uploads/minimizaton-boolean-gate.jpg" alt="" width="375" height="337" /></div>
+        <div class="text">&nbsp;</div>
+        <div class="text">It is clear from the above image that the minimized version of the expression takes a less number of logic gates and also reduces the complexity of the circuit substantially. Minimization is hence important to find the most economic equivalent representation of a boolean function. Minimization can be done using Algebraic Manipulation or&nbsp;<a href="kmap.html" target="_blank" rel="noopener">K-Map</a>&nbsp;method. Each method has it&rsquo;s own merits and demerits.
+        <p><strong>Minimization using Algebraic Manipulation &ndash;</strong></p>
+        This method is the simplest of all methods used for minimization. It is suitable for medium sized expressions involving 4 or 5 variables. Algebraic manipulation is a manual method, hence it is prone to human error. Common Laws used in algebraic manipulation :
+        <ol>
+        <li><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-88f110c1f7215c53dc5523e49ce6b5a7_l3.svg" alt="\:A + A^\prime = 1 " width="125" height="24" /></li>
+        <li><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-9ebdc01019be1b67eb0ebd69ab45d85c_l3.svg" alt="\:A + A^\prime B = A + B" width="207" height="24" /></li>
+        <li><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-9e90b3b0264976c5f0db4fdaca8b0d3a_l3.svg" alt="\:A + AB = A" width="147" height="23" /></li>
+        </ol>
+        <ul>
+        <li><strong>Example 1 &ndash;</strong>&nbsp;Minimize the following boolean function using algebraic manipulation-<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-14025c22fec29ed291f40037c3b5003e_l3.svg" alt="F=ABC^\prime D^\prime + ABC^\prime D + AB^\prime C^\prime D + ABCD + AB^\prime CD + ABCD^\prime \\        + AB^\prime CD^\prime" width="454" height="33" /></li>
+        <li><strong>Solution &ndash;</strong>&nbsp;Properties refer to the three common laws mentioned above.
+        <p class="ql-center-displayed-equation"><span class="ql-right-eqno">&nbsp;</span><span class="ql-left-eqno">&nbsp;</span><img class="ql-img-displayed-equation quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-37871e657f02442cad9bb842f2a9f71f_l3.svg" alt=" \begin{align*} F=\:&amp;ABC^\prime(D^\prime + D) +AB^\prime C^\prime D + ACD(B + B^\prime) &amp;&amp;\\ &amp;\:+ ACD^\prime(B + B^\prime)&amp;&amp;\\ =\:&amp;ABC^\prime +AB^\prime C^\prime D + ACD +ACD^\prime &amp;&amp; \text{Using Property-1}\\ =\:&amp;ABC^\prime +AB^\prime C^\prime D + AC(D +D^\prime )&amp;&amp;\\ =\:&amp;ABC^\prime +AB^\prime C^\prime D + AC &amp;&amp; \text{Using Property-1}\\ =\:&amp;A(BC^\prime +C)+AB^\prime C^\prime D &amp;&amp;\\ =\:&amp;A(B+C)+AB^\prime C^\prime D&amp;&amp; \text{Using Property-2}\\ =\:&amp;AB +AC+AB^\prime C^\prime D &amp;&amp;\\ =\:&amp;AB + AC + A C^\prime D &amp;&amp; \text{Using Property-2}\\ =\:&amp;AB + AC + AD &amp;&amp; \text{Using Property-2}\\ \end{align*} " width="428" height="210" /></p>
+        </li>
+        </ul>
+        </div>
+        <div class="article-title">
+            <p><strong>Minimization using K-Map &ndash;</strong></p>
+            <p>The Algebraic manipulation method is tedious and cumbersome. The K-Map method is faster and can be used to solve boolean functions of upto 5 variables. Please refer this&nbsp;link&nbsp;to learn more about K-Map.</p>
+            <ul>
+            <li><strong>Example 2 &ndash;</strong>&nbsp;Consider the same expression from example-1 and minimize it using K-Map.</li>
+            <li><strong>Solution &ndash;</strong>&nbsp;The following is a 4 variable K-Map of the given expression.<img class="aligncenter size-medium wp-image-246036" src="https://media.geeksforgeeks.org/wp-content/uploads/minimizaton-boolean-Kmap.jpg" alt="" width="300" height="241" />The above figure highlights the prime implicants in green, red and blue. The green one spans the whole third row, which gives us &ndash;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-0a4ecbed763dc297c0944697379867fd_l3.svg" alt="AB" width="40" height="20" />The red one spans 4 squares, which gives us &ndash;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-fa6ce844ca57d04426800393ff2603b4_l3.svg" alt="AD" width="42" height="20" />The blue one spans 4 squares, which gives us &ndash;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-1aac3a559ed9b9dab6c0587324bbcbf9_l3.svg" alt="AC" width="40" height="21" />So, the minimized boolean expression is-</li>
+            </ul>
+            <p>&nbsp;</p>
+            <ul>
+            <li><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-690829cfb305a9cbcf70c71089beddad_l3.svg" alt="AB+AC+AD" width="188" height="23" /></li>
+            </ul>
+            </div>
+</body>
+</html>

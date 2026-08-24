@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    
+><h2>Pointers</h2>
+
+<p>Pointers are one of the core components of the C programming language. A pointer can be used to store the memory address of other variables, functions, or even other pointers. The use of pointers allows low-level memory access, dynamic memory allocation, and many other functionality in C.</p>
+
+<h2>What is a Pointer in C?</h2>
+<blockquote>
+<p dir="ltr">A pointer is defined as a derived data type that can store the address of other C variables or a memory location. We can access and manipulate the data stored in that memory location using pointers.</p>
+</blockquote>
+<p dir="ltr">As the pointers in C store the memory addresses, their size is independent of the type of data they are pointing to. This size of pointers in C only depends on the system architecture.</p>
+<div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+<div id="GFG_AD_InContent_Desktop_728x280">&nbsp;</div>
+
+
+<h2><strong>Syntax of C Pointers</strong></h2>
+<p dir="ltr">The syntax of pointers is similar to the variable declaration in C, but we use the&nbsp;<strong>( * ) dereferencing operator</strong>&nbsp;in the pointer declaration.</p>
+<div class="gray">datatype <strong>*</strong> <em><strong><strong class="GFGEditorTheme__textItalic">ptr</strong></strong></em>;<br /><br /></div>
+<p dir="ltr">where</p>
+<ul>
+<li value="1"><strong>ptr&nbsp;</strong>is the name of the pointer.</li>
+<li value="2"><strong>datatype&nbsp;</strong>is the type of data it is pointing to.</li>
+</ul>
+<p dir="ltr">The above syntax is used to define a pointer to a variable. We can also define pointers to functions, structures, etc.</p>
+<div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+<div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+<h2>How to Use Pointers?</h2>
+<p dir="ltr">The use of pointers in C can be divided into three steps:</p>
+<ol>
+<li value="1"><strong>Pointer Declaration</strong></li>
+<li value="2"><strong>Pointer Initialization</strong></li>
+<li value="3"><strong>Pointer Dereferencing</strong></li>
+</ol>
+<h3>1. Pointer Declaration</h3>
+<p dir="ltr">In pointer declaration, we only declare the pointer but do not initialize it. To declare a pointer, we use the&nbsp;<strong>( * ) dereference operator&nbsp;</strong>before its name.</p>
+<p dir="ltr"><strong>Example</strong></p>
+<div class="gray">int *<strong>ptr</strong>;<br /><br /></div>
+<p dir="ltr">The pointer declared here will point to some random memory address as it is not initialized. Such pointers are called wild pointers.</p>
+<h3>2. Pointer Initialization</h3>
+<p dir="ltr">Pointer initialization is the process where we assign some initial value to the pointer variable. We generally use the&nbsp;<strong>( &amp; ) addressof operator</strong>&nbsp;to get the memory address of a variable and then store it in the pointer variable.</p>
+<p dir="ltr"><strong>Example</strong></p>
+<div id="GFG_AD_gfg_outstream_incontent" data-google-query-id="CIbnt5KcnoYDFRRWnQkd-Y8KJg">&nbsp;</div>
+
+
+<div class="gray">int var = 10;<br />int * <strong>ptr</strong>;<br />ptr = <strong>&amp;</strong>var;<br /><br /></div>
+<p dir="ltr">We can also declare and initialize the pointer in a single step. This method is called<strong>&nbsp;pointer definition&nbsp;</strong>as the pointer is declared and initialized at the same time.</p>
+<p dir="ltr"><strong>Example</strong></p>
+<div class="gray">int *<strong>ptr = &amp;</strong>var;<br /><br /></div>
+<blockquote>
+<p dir="ltr"><strong>Note:</strong>&nbsp;It is recommended that the pointers should always be initialized to some value before starting using it. Otherwise, it may lead to number of errors.</p>
+</blockquote>
+<h3>3. Pointer Dereferencing</h3>
+<p dir="ltr">Dereferencing a pointer is the process of accessing the value stored in the memory address specified in the pointer. We use the same&nbsp;<strong>( * ) dereferencing operator</strong>&nbsp;that we used in the pointer declaration.</p>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230223170531/2.png" alt="dereferencing a pointer in c" width="350" height="350" />
+<p class="wp-caption-text">Dereferencing a Pointer in C</p>
+</div>
+
+<h2>C Pointer Example</h2>
+<div class="codeblock-container" data-mode="light">C
+<div class="code-container">
+<div class="code-box">
+<div id="editor-buttons-div" class="editor-buttons-div">
+<div id="editor-buttons" class="editor-buttons">&nbsp;</div>
+</div>
+<div id="slot-panel" class="gfg-code"><code class="language-c"></code>
+<div class="highlight">
+<div class="gray"><span class="o">//</span> <span class="n">C</span> <span class="n">program</span> <span class="n">to</span> <span class="n">illustrate</span> <span class="n">Pointers</span>
+<span class="c1">#include &lt;stdio.h&gt;</span>
+
+<span class="n">void</span> <span class="n">geeks</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nb">int</span> <span class="n">var</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">declare</span> <span class="n">pointer</span> <span class="n">variable</span>
+    <span class="nb">int</span><span class="o">*</span> <span class="n">ptr</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">note</span> <span class="n">that</span> <span class="n">data</span> <span class="nb">type</span> <span class="n">of</span> <span class="n">ptr</span> <span class="ow">and</span> <span class="n">var</span> <span class="n">must</span> <span class="n">be</span> <span class="n">same</span>
+    <span class="n">ptr</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">var</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">assign</span> <span class="n">the</span> <span class="n">address</span> <span class="n">of</span> <span class="n">a</span> <span class="n">variable</span> <span class="n">to</span> <span class="n">a</span> <span class="n">pointer</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">"Value at ptr = %p </span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">ptr</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">"Value at var = </span><span class="si">%d</span> <span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">var</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">"Value at *ptr = </span><span class="si">%d</span> <span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="o">*</span><span class="n">ptr</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">Driver</span> <span class="n">program</span>
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">geeks</span><span class="p">();</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="code-output ck-widget"><strong>Output</strong>
+<div class="gray">Value at ptr = 0x7fff1038675c 
+Value at var = 10 
+Value at *ptr = 10 
+
+</div>
+</div>
+<h2>Types of Pointers in C</h2>
+<p dir="ltr">Pointers in C can be classified into many different types based on the parameter on which we are defining their types. If we consider the type of variable stored in the memory location pointed by the pointer, then the pointers can be classified into the following types:</p>
+<h3>1. Integer Pointers</h3>
+<p dir="ltr">As the name suggests, these are the pointers that point to the integer values.</p>
+<p dir="ltr"><strong>Syntax</strong></p>
+<div class="gray">int *ptr;<br /><br /></div>
+<p dir="ltr">These pointers are pronounced as&nbsp;<strong>Pointer to Integer.</strong></p>
+<p dir="ltr">Similarly, a pointer can point to any primitive data type. It can point also point to derived data types such as arrays and user-defined data types such as structures.</p>
+<h3>2. Array Pointer</h3>
+<p dir="ltr">Pointers and Array are closely related to each other. Even the array name is the pointer to its first element. They are also known as&nbsp;<a href="https://www.geeksforgeeks.org/pointer-array-array-pointer/">Pointer to Arrays</a>. We can create a pointer to an array using the given syntax.</p>
+<div id="GFG_AD_gfg_outstream_incontent-1">&nbsp;</div>
+<p dir="ltr"><strong>Syntax</strong></p>
+<div class="gray">char *ptr = &amp;<em><em class="GFGEditorTheme__textItalic">array_name</em></em>;<br /><br /></div>
+<p dir="ltr">Pointer to Arrays exhibits some interesting properties which we discussed later in this article.</p>
+<h3>3. Structure Pointer</h3>
+<p dir="ltr">The pointer pointing to the structure type is called&nbsp;<a href="https://www.geeksforgeeks.org/structure-pointer-in-c/">Structure Pointer</a>&nbsp;or Pointer to Structure. It can be declared in the same way as we declare the other primitive data types.</p>
+<p dir="ltr"><strong>Syntax</strong></p>
+<div class="gray">struct <em><em class="GFGEditorTheme__textItalic">struct_name</em></em> *ptr;<br /><br /></div>
+<p dir="ltr">In C, structure pointers are used in data structures such as linked lists, trees, etc.</p>
+<h3>4. Function Pointers</h3>
+<p dir="ltr">Function pointers point to the functions. They are different from the rest of the pointers in the sense that instead of pointing to the data, they point to the code. Let&rsquo;s consider a function prototype &ndash;&nbsp;<strong>int func (int, char)</strong>,<strong>&nbsp;</strong>the&nbsp;<a href="https://www.geeksforgeeks.org/function-pointer-in-c/">function pointer</a>&nbsp;for this function will be</p>
+<p dir="ltr"><strong>Syntax</strong></p>
+<div class="gray">int (*ptr)(int, char);<br /><br /></div>
+<blockquote>
+<p dir="ltr">Note: The syntax of the function pointers changes according to the function prototype.</p>
+</blockquote>
+
+<h3>5. Double Pointers</h3>
+<p dir="ltr">In C language, we can define a pointer that stores the memory address of another pointer. Such pointers are called double-pointers or&nbsp;<a href="https://www.geeksforgeeks.org/c-pointer-to-pointer-double-pointer/">pointers-to-pointer</a>. Instead of pointing to a data value, they point to another pointer.</p>
+<p dir="ltr"><strong>Syntax</strong></p>
+<div id="GFG_AD_gfg_outstream_incontent-2" data-google-query-id="CIfnt5KcnoYDFRRWnQkd-Y8KJg">&nbsp;</div>
+
+
+<div class="gray">datatype ** pointer_name;<br /><br /></div>
+<p dir="ltr"><strong>Dereferencing Double Pointer</strong></p>
+<div class="gray">*pointer_name; // get the address stored in the inner level pointer<br />**pointer_name; // get the value pointed by inner level pointer<br /><br /></div>
+<blockquote>
+<p dir="ltr"><strong>Note:</strong>&nbsp;In C, we can create&nbsp;<a href="https://www.geeksforgeeks.org/chain-of-pointers-in-c-with-examples/">multi-level pointers&nbsp;</a>with any number of levels such as &ndash; ***ptr3, ****ptr4, ******ptr5 and so on.</p>
+</blockquote>
+<h3>6. NULL Pointer</h3>
+<p dir="ltr">The&nbsp;<a href="https://www.geeksforgeeks.org/few-bytes-on-null-pointer-in-c/">Null Pointers</a>&nbsp;are those pointers that do not point to any memory location. They can be created by assigning a NULL value to the pointer. A pointer of any type can be assigned the NULL value.</p>
+<p dir="ltr"><strong>Syntax</strong></p>
+<div class="gray"><em><em class="GFGEditorTheme__textItalic">data_type</em></em> *<em><em class="GFGEditorTheme__textItalic">pointer_name</em></em> = NULL;<br />        or<br /><em><em class="GFGEditorTheme__textItalic">pointer_name</em></em> = NULL<br /><br /></div>
+<p dir="ltr">It is said to be good practice to assign NULL to the pointers currently not in use.</p>
+<h3>7. Void Pointer</h3>
+<p dir="ltr">The&nbsp;<a href="https://www.geeksforgeeks.org/void-pointer-c-cpp/">Void pointers</a>&nbsp;in C are the pointers of type void. It means that they do not have any associated data type. They are also called&nbsp;<strong>generic pointers</strong>&nbsp;as they can point to any type and can be typecasted to any type.</p>
+<p dir="ltr"><strong>Syntax</strong></p>
+<div class="gray">void * <em><em class="GFGEditorTheme__textItalic">pointer_name</em></em>;<br /><br /></div>
+<p dir="ltr">One of the main properties of void pointers is that they cannot be dereferenced.</p>
+<h3>8. Wild Pointers</h3>
+<p dir="ltr">The&nbsp;<a href="https://www.geeksforgeeks.org/what-are-wild-pointers-how-can-we-avoid/">Wild Pointers</a>&nbsp;are pointers that have not been initialized with something yet. These types of C-pointers can cause problems in our programs and can eventually cause them to crash. If values is updated using wild pointers, they could cause data abort or data corruption.</p>
+<p dir="ltr"><strong>Example</strong></p>
+<div id="GFG_AD_gfg_outstream_incontent-3" data-google-query-id="CIjnt5KcnoYDFRRWnQkd-Y8KJg">
+<div id="google_ads_iframe_/27823234/gfg_outstream_incontent_5_0__container__">&nbsp;</div>
+</div>
+<div class="gray">int *ptr;<br />char *str;<br /><br /></div>
+<h3>9. Constant Pointers</h3>
+<p dir="ltr">In constant pointers, the memory address stored inside the pointer is constant and cannot be modified once it is defined. It will always point to the same memory address.</p>
+<p dir="ltr"><strong>Syntax</strong></p>
+<div class="gray"><em><em class="GFGEditorTheme__textItalic">data_type</em></em> * const <em><em class="GFGEditorTheme__textItalic">pointer_name</em></em>;<br /><br /></div>
+<h3>10. Pointer to Constant</h3>
+<p dir="ltr">The pointers pointing to a constant value that cannot be modified are called pointers to a constant. Here we can only access the data pointed by the pointer, but cannot modify it. Although, we can change the address stored in the pointer to constant.</p>
+<p dir="ltr"><strong>Syntax</strong></p>
+<div class="gray">const <em><em class="GFGEditorTheme__textItalic">data_type</em></em> * <em><em class="GFGEditorTheme__textItalic">pointer_name</em></em>;</div>
+
+<h2>Size of Pointers in C</h2>
+<p dir="ltr">The size of the pointers in C is equal for every pointer type. The size of the pointer does not depend on the type it is pointing to. It only depends on the operating system and CPU architecture. The size of pointers in C is&nbsp;</p>
+<ul>
+<li value="1"><strong>8 bytes&nbsp;</strong>for a&nbsp;<strong>64-bit System</strong></li>
+<li value="2"><strong>4 bytes</strong>&nbsp;for a<strong>&nbsp;32-bit System</strong></li>
+</ul>
+<p dir="ltr">The reason for the same size is that the pointers store the memory addresses, no matter what type they are. As the space required to store the addresses of the different memory locations is the same, the memory required by one pointer type will be equal to the memory required by other pointer types.</p>
+<h3>How to find the size of pointers in C?</h3>
+<p dir="ltr">We can find the size of pointers using the&nbsp;<a href="https://www.geeksforgeeks.org/sizeof-operator-c/"><strong>sizeof operator</strong></a><strong>&nbsp;</strong>as shown in the following program:</p>
+
+
+<h3><strong>Example: C Program to find the size of different pointer types.</strong></h3>
+<div class="codeblock-container" data-mode="light">C
+<div class="code-container">
+<div class="code-box">
+<div id="editor-buttons-div" class="editor-buttons-div">
+<div id="editor-buttons" class="editor-buttons">&nbsp;</div>
+</div>
+<div id="slot-panel" class="gfg-code"><code class="language-c"></code>
+<div class="highlight">
+<div class="gray"><span class="o">//</span> <span class="n">C</span> <span class="n">Program</span> <span class="n">to</span> <span class="n">find</span> <span class="n">the</span> <span class="n">size</span> <span class="n">of</span> <span class="n">different</span> <span class="n">pointers</span> <span class="n">types</span>
+<span class="c1">#include &lt;stdio.h&gt;</span>
+
+<span class="o">//</span> <span class="n">dummy</span> <span class="n">structure</span>
+<span class="n">struct</span> <span class="nb">str</span> <span class="p">{</span>
+<span class="p">};</span>
+
+<span class="o">//</span> <span class="n">dummy</span> <span class="n">function</span>
+<span class="n">void</span> <span class="n">func</span><span class="p">(</span><span class="nb">int</span> <span class="n">a</span><span class="p">,</span> <span class="nb">int</span> <span class="n">b</span><span class="p">){};</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="o">//</span> <span class="n">dummy</span> <span class="n">variables</span> <span class="n">definitions</span>
+    <span class="nb">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="n">char</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">'G'</span><span class="p">;</span>
+    <span class="n">struct</span> <span class="nb">str</span> <span class="n">x</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">pointer</span> <span class="n">definitions</span> <span class="n">of</span> <span class="n">different</span> <span class="n">types</span>
+    <span class="nb">int</span><span class="o">*</span> <span class="n">ptr_int</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+    <span class="n">char</span><span class="o">*</span> <span class="n">ptr_char</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">;</span>
+    <span class="n">struct</span> <span class="nb">str</span><span class="o">*</span> <span class="n">ptr_str</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>
+    <span class="n">void</span> <span class="p">(</span><span class="o">*</span><span class="n">ptr_func</span><span class="p">)(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">func</span><span class="p">;</span>
+    <span class="n">void</span><span class="o">*</span> <span class="n">ptr_vn</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">printing</span> <span class="n">sizes</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">"Size of Integer Pointer  </span><span class="se">\t</span><span class="s2">:</span><span class="se">\t</span><span class="si">%d</span><span class="s2"> bytes</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
+           <span class="n">sizeof</span><span class="p">(</span><span class="n">ptr_int</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">"Size of Character Pointer</span><span class="se">\t</span><span class="s2">:</span><span class="se">\t</span><span class="si">%d</span><span class="s2"> bytes</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
+           <span class="n">sizeof</span><span class="p">(</span><span class="n">ptr_char</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">"Size of Structure Pointer</span><span class="se">\t</span><span class="s2">:</span><span class="se">\t</span><span class="si">%d</span><span class="s2"> bytes</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
+           <span class="n">sizeof</span><span class="p">(</span><span class="n">ptr_str</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">"Size of Function Pointer</span><span class="se">\t</span><span class="s2">:</span><span class="se">\t</span><span class="si">%d</span><span class="s2"> bytes</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
+           <span class="n">sizeof</span><span class="p">(</span><span class="n">ptr_func</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">"Size of NULL Void Pointer</span><span class="se">\t</span><span class="s2">:</span><span class="se">\t</span><span class="si">%d</span><span class="s2"> bytes"</span><span class="p">,</span>
+           <span class="n">sizeof</span><span class="p">(</span><span class="n">ptr_vn</span><span class="p">));</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</div>
+</div>
+</div>
+</div>
+<div id="code-output-box" class="code-output-box">
+<div class="editor-buttons w-56 output-box" title="Close Output">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="code-output ck-widget"><br /><strong>Output</strong>
+<div class="gray">Size of Integer Pointer      :    8 bytes
+Size of Character Pointer    :    8 bytes
+Size of Structure Pointer    :    8 bytes
+Size of Function Pointer    :    8 bytes
+Size of NULL Void Pointer    :    8 bytes
+</div>
+</div>
+
+
+<h2><strong>C Pointer Arithmetic</strong></h2>
+<p dir="ltr">The&nbsp;<a href="https://www.geeksforgeeks.org/pointer-arithmetics-in-c-with-examples/">Pointer Arithmetic</a>&nbsp;refers to the legal or valid arithmetic operations that can be performed on a pointer. It is slightly different from the ones that we generally use for mathematical calculations as only a limited set of operations can be performed on pointers. These operations include:</p>
+<ul>
+<li value="1">Increment in a Pointer</li>
+<li value="2">Decrement in a Pointer</li>
+<li value="3">Addition of integer to a pointer</li>
+<li value="4">Subtraction of integer to a pointer</li>
+<li value="5">Subtracting two pointers of the same type</li>
+<li value="6">Comparison of pointers of the same type.</li>
+<li value="7">Assignment of pointers of the same type.</li>
+</ul>
+<div class="codeblock-container" data-mode="light">C
+<div class="code-container">
+<div class="code-box">
+<div id="editor-buttons-div" class="editor-buttons-div">
+<div id="editor-buttons" class="editor-buttons">&nbsp;</div>
+</div>
+<div id="slot-panel" class="gfg-code"><code class="language-c"></code>
+<div class="highlight">
+<div class="gray"><span class="o">//</span> <span class="n">C</span> <span class="n">program</span> <span class="n">to</span> <span class="n">illustrate</span> <span class="n">Pointer</span> <span class="n">Arithmetic</span>
+
+<span class="c1">#include &lt;stdio.h&gt;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+
+    <span class="o">//</span> <span class="n">Declare</span> <span class="n">an</span> <span class="n">array</span>
+    <span class="nb">int</span> <span class="n">v</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span> <span class="p">};</span>
+
+    <span class="o">//</span> <span class="n">Declare</span> <span class="n">pointer</span> <span class="n">variable</span>
+    <span class="nb">int</span><span class="o">*</span> <span class="n">ptr</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Assign</span> <span class="n">the</span> <span class="n">address</span> <span class="n">of</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="n">to</span> <span class="n">ptr</span>
+    <span class="n">ptr</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="o">//</span> <span class="nb">print</span> <span class="n">value</span> <span class="n">at</span> <span class="n">address</span> <span class="n">which</span> <span class="ow">is</span> <span class="n">stored</span> <span class="ow">in</span> <span class="n">ptr</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">"Value of *ptr = </span><span class="si">%d</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="o">*</span><span class="n">ptr</span><span class="p">);</span>
+
+        <span class="o">//</span> <span class="nb">print</span> <span class="n">value</span> <span class="n">of</span> <span class="n">ptr</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">"Value of ptr = %p</span><span class="se">\n\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">ptr</span><span class="p">);</span>
+
+        <span class="o">//</span> <span class="n">Increment</span> <span class="n">pointer</span> <span class="n">ptr</span> <span class="n">by</span> <span class="mi">1</span>
+        <span class="n">ptr</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</div>
+</div>
+</div>
+</div>
+<div id="code-output-box" class="code-output-box">
+<div class="editor-buttons w-56 output-box" title="Close Output">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="code-output ck-widget"><br /><strong>Output</strong>
+<div class="gray">Value of *ptr = 10
+Value of ptr = 0x7ffe8ba7ec50
+
+Value of *ptr = 100
+Value of ptr = 0x7ffe8ba7ec54
+
+Value of *ptr = 200
+Value of ptr = 0x7ffe8ba7ec58</div>
+</div>
+
+
+
+<h2>C Pointers and Arrays</h2>
+<p dir="ltr">In C programming language, pointers and arrays are closely related. An array name acts like a pointer constant. The value of this pointer constant is the address of the first element.&nbsp;For example, if we have an array named val then&nbsp;<strong>val</strong>&nbsp;and&nbsp;<strong>&amp;val[0]</strong>&nbsp;can be used interchangeably.</p>
+<p dir="ltr">If we assign this value to a non-constant pointer of the same type, then we can access the elements of the array using this pointer.</p>
+<h3>Example 1: Accessing Array Elements using Pointer with Array Subscript</h3>
+<p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230223170733/3.png" alt="relationship between array and pointer" width="350" height="350" /></p>
+<div class="codeblock-container" data-mode="light">C
+<div class="code-container">
+<div class="code-box">
+<div id="editor-buttons-div" class="editor-buttons-div">
+<div id="editor-buttons" class="editor-buttons">&nbsp;</div>
+</div>
+<div id="slot-panel" class="gfg-code"><code class="language-c"></code>
+<div class="highlight">
+<div class="gray"><span class="o">//</span> <span class="n">C</span> <span class="n">Program</span> <span class="n">to</span> <span class="n">access</span> <span class="n">array</span> <span class="n">elements</span> <span class="n">using</span> <span class="n">pointer</span>
+<span class="c1">#include &lt;stdio.h&gt;</span>
+
+<span class="n">void</span> <span class="n">geeks</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="o">//</span> <span class="n">Declare</span> <span class="n">an</span> <span class="n">array</span>
+    <span class="nb">int</span> <span class="n">val</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span> <span class="p">};</span>
+
+    <span class="o">//</span> <span class="n">Declare</span> <span class="n">pointer</span> <span class="n">variable</span>
+    <span class="nb">int</span><span class="o">*</span> <span class="n">ptr</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Assign</span> <span class="n">address</span> <span class="n">of</span> <span class="n">val</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="n">to</span> <span class="n">ptr</span><span class="o">.</span>
+    <span class="o">//</span> <span class="n">We</span> <span class="n">can</span> <span class="n">use</span> <span class="n">ptr</span><span class="o">=&amp;</span><span class="n">val</span><span class="p">[</span><span class="mi">0</span><span class="p">];(</span><span class="n">both</span> <span class="n">are</span> <span class="n">same</span><span class="p">)</span>
+    <span class="n">ptr</span> <span class="o">=</span> <span class="n">val</span><span class="p">;</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s2">"Elements of the array are: "</span><span class="p">);</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s2">"</span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">"</span><span class="p">,</span> <span class="n">ptr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ptr</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">ptr</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+
+    <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">Driver</span> <span class="n">program</span>
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">geeks</span><span class="p">();</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</div>
+</div>
+</div>
+</div>
+<div id="code-output-box" class="code-output-box">
+<div class="editor-buttons w-56 output-box" title="Close Output">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="code-output ck-widget"><br /><strong>Output</strong>
+<div class="gray">Elements of the array are: 5 10 15
+
+</div>
+</div>
+<p dir="ltr">Not only that, as the array elements are stored continuously, we can pointer arithmetic operations such as increment, decrement, addition, and subtraction of integers on pointer to move between array elements.</p>
+
+
+<h3>Example 2: Accessing Array Elements using Pointer Arithmetic</h3>
+<p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230223170849/4.png" alt="accessing array elements using pointer arithmetic" width="350" height="350" /></p>
+<div class="codeblock-container" data-mode="light">C
+<div class="code-container">
+<div class="code-box">
+<div id="editor-buttons-div" class="editor-buttons-div">
+<div id="editor-buttons" class="editor-buttons">&nbsp;</div>
+</div>
+<div id="slot-panel" class="gfg-code"><code class="language-c"></code>
+<div class="highlight">
+<div class="gray"><span class="o">//</span> <span class="n">C</span> <span class="n">Program</span> <span class="n">to</span> <span class="n">access</span> <span class="n">array</span> <span class="n">elements</span> <span class="n">using</span> <span class="n">pointers</span>
+<span class="c1">#include &lt;stdio.h&gt;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+
+    <span class="o">//</span> <span class="n">defining</span> <span class="n">array</span>
+    <span class="nb">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">};</span>
+
+    <span class="o">//</span> <span class="n">defining</span> <span class="n">the</span> <span class="n">pointer</span> <span class="n">to</span> <span class="n">array</span>
+    <span class="nb">int</span><span class="o">*</span> <span class="n">ptr_arr</span> <span class="o">=</span> <span class="n">arr</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">traversing</span> <span class="n">array</span> <span class="n">using</span> <span class="n">pointer</span> <span class="n">arithmetic</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">"</span><span class="si">%d</span><span class="s2"> "</span><span class="p">,</span> <span class="o">*</span><span class="n">ptr_arr</span><span class="o">++</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</div>
+</div>
+</div>
+</div>
+<div id="code-output-box" class="code-output-box">
+<div class="editor-buttons w-56 output-box" title="Close Output">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="code-output ck-widget"><br /><strong>Output</strong>
+<div class="gray">1 2 3 4 5 
+
+</div>
+</div>
+<p dir="ltr">This concept is not limited to the one-dimensional array, we can refer to a multidimensional array element as well using pointers.</p>
+<p dir="ltr">To know more about pointers to an array, refer to this article &ndash;&nbsp;<a href="https://www.geeksforgeeks.org/pointer-array-array-pointer/">Pointer to an Array</a></p>
+<h2>Uses of Pointers in C</h2>
+<p dir="ltr">The C pointer is a very powerful tool that is widely used in C programming to perform various useful operations. It is used to achieve the following functionalities in C:</p>
+<ol>
+<li value="1">Pass Arguments by Reference</li>
+<li value="2">Accessing Array Elements</li>
+<li value="3"><a href="https://www.geeksforgeeks.org/how-to-return-a-pointer-from-a-function-in-c/">Return Multiple Values from Function</a></li>
+<li value="4"><a href="https://www.geeksforgeeks.org/dynamic-memory-allocation-in-c-using-malloc-calloc-free-and-realloc/">Dynamic Memory Allocation</a></li>
+<li value="5"><a href="https://www.geeksforgeeks.org/data-structures/">Implementing Data Structures</a></li>
+<li value="6">In System-Level Programming where memory addresses are useful.</li>
+<li value="7">In locating the exact value at some memory location.</li>
+<li value="8">To avoid compiler confusion for the same variable name.</li>
+<li value="9">To use in Control Tables.</li>
+</ol>
+<h2>Advantages of Pointers</h2>
+<p dir="ltr">Following are the major advantages of pointers in C:</p>
+<div id="GFG_AD_gfg_outstream_incontent-5" data-google-query-id="CIrnt5KcnoYDFRRWnQkd-Y8KJg">
+<div id="google_ads_iframe_/27823234/gfg_outstream_incontent_6_0__container__">&nbsp;</div>
+</div>
+<ul>
+<li value="1">Pointers are used for dynamic memory allocation and deallocation.</li>
+<li value="2">An Array or a structure can be accessed efficiently with pointers</li>
+<li value="3">Pointers are useful for accessing memory locations.</li>
+<li value="4">Pointers are used to form complex data structures such as linked lists, graphs, trees, etc.</li>
+<li value="5">Pointers reduce the length of the program and its execution time as well.</li>
+</ul>
+<h2>Disadvantages of Pointers</h2>
+<p dir="ltr">Pointers are vulnerable to errors and have following disadvantages:</p>
+<ul>
+<li value="1">Memory corruption can occur if an incorrect value is provided to pointers.</li>
+<li value="2">Pointers are a little bit complex to understand.</li>
+<li value="3">Pointers are majorly responsible for&nbsp;<a href="https://www.geeksforgeeks.org/what-is-memory-leak-how-can-we-avoid/">memory leaks in C</a>.</li>
+<li value="4">Pointers are comparatively slower than variables in C.</li>
+<li value="5">Uninitialized pointers might cause a segmentation fault.</li>
+</ul>
+
+
+<h2>Passing Pointers to Functions</h2>
+
+<p>Passing the pointers to the function means the memory location of the variables is passed to the parameters in the function, and then the operations are performed. The function definition accepts these addresses using pointers, addresses are stored using pointers.</p>
+<div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
+<h2>Arguments Passing without pointer&nbsp;</h2>
+<p>When we pass arguments without pointers the changes made by the function would be done to the local variables of the function.</p>
+<p>Below is the C program to pass arguments to function without a pointer:</p>
+
+<div class="responsive-tabs-wrapper">
+<div class="responsive-tabs responsive-tabs--enabled">
+<div id="tablist1-panel1" class="tabcontent responsive-tabs__panel responsive-tabs__panel--active" role="tabpanel" aria-hidden="false" aria-labelledby="tablist1-tab1">
+<div class="code-block">
+<div class="code-gutter">
+<div class="editor-buttons-container">
+<div class="editor-buttons">
+<div class="editor-buttons-div" title="Run and Edit">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+</div>
+<div class="code-container">
+<div id="highlighter_673193" class="syntaxhighlighter nogutter  ">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="comments">// C program to swap two values </code></div>
+<div class="line number2 index1 alt1"><code class="comments">//&nbsp; without passing pointer to&nbsp; </code></div>
+<div class="line number3 index2 alt2"><code class="comments">// swap function. </code></div>
+<div class="line number4 index3 alt1"><code class="preprocessor">#include &lt;stdio.h&gt; </code></div>
+<div class="line number5 index4 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number6 index5 alt1"><code class="keyword bold">void</code> <code class="plain">swap(</code><code class="color1 bold">int</code> <code class="plain">a, </code><code class="color1 bold">int</code> <code class="plain">b) </code></div>
+<div class="line number7 index6 alt2"><code class="plain">{ </code></div>
+<div class="line number8 index7 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">temp = a; </code></div>
+<div class="line number9 index8 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="plain">a = b; </code></div>
+<div class="line number10 index9 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="plain">b = temp; </code></div>
+<div class="line number11 index10 alt2"><code class="plain">} </code></div>
+<div class="line number12 index11 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number13 index12 alt2"><code class="comments">// Driver code </code></div>
+<div class="line number14 index13 alt1"><code class="color1 bold">int</code> <code class="plain">main()&nbsp; </code></div>
+<div class="line number15 index14 alt2"><code class="plain">{ </code></div>
+<div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">a = 10, b = 20; </code></div>
+<div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="plain">swap(a, b); </code></div>
+<div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Values after swap function are: %d, %d"</code><code class="plain">, </code></div>
+<div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">a, b); </code></div>
+<div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
+<div class="line number21 index20 alt2"><code class="plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="code-output"><strong>Output</strong>
+<div class="gray">Values after swap function are: 10, 20</div>
+</div>
+<h2>Arguments Passing with pointers&nbsp;</h2>
+<p>A pointer to a function is passed in this example. As an argument, a pointer is passed instead of a variable and its address is passed instead of its value. As a result, any change made by the function using the pointer is permanently stored at the address of the passed variable. In C, this is referred to as call by reference.</p>
+<p>Below is the C program to pass arguments to function with pointers:</p>
+
+<div class="responsive-tabs-wrapper">
+<div class="responsive-tabs responsive-tabs--enabled">
+<div id="tablist2-panel1" class="tabcontent responsive-tabs__panel responsive-tabs__panel--active" role="tabpanel" aria-hidden="false" aria-labelledby="tablist2-tab1">
+<div class="code-block">
+<div class="code-gutter">
+<div class="editor-buttons-container">
+<div class="editor-buttons">
+<div class="editor-buttons-div" title="Run and Edit">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+</div>
+<div class="code-container">
+<div id="highlighter_395818" class="syntaxhighlighter nogutter  ">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="comments">// C program to swap two values </code></div>
+<div class="line number2 index1 alt1"><code class="comments">// without passing pointer to&nbsp; </code></div>
+<div class="line number3 index2 alt2"><code class="comments">// swap function. </code></div>
+<div class="line number4 index3 alt1"><code class="preprocessor">#include &lt;stdio.h&gt; </code></div>
+<div class="line number5 index4 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number6 index5 alt1"><code class="keyword bold">void</code> <code class="plain">swap(</code><code class="color1 bold">int</code><code class="plain">* a, </code><code class="color1 bold">int</code><code class="plain">* b) </code></div>
+<div class="line number7 index6 alt2"><code class="plain">{ </code></div>
+<div class="line number8 index7 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">temp; </code></div>
+<div class="line number9 index8 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="plain">temp = *a; </code></div>
+<div class="line number10 index9 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="plain">*a = *b; </code></div>
+<div class="line number11 index10 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="plain">*b = temp; </code></div>
+<div class="line number12 index11 alt1"><code class="plain">} </code></div>
+<div class="line number13 index12 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number14 index13 alt1"><code class="comments">// Driver code </code></div>
+<div class="line number15 index14 alt2"><code class="color1 bold">int</code> <code class="plain">main() </code></div>
+<div class="line number16 index15 alt1"><code class="plain">{ </code></div>
+<div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">a = 10, b = 20; </code></div>
+<div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Values before swap function are: %d, %d\n"</code><code class="plain">,&nbsp; </code></div>
+<div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">a, b); </code></div>
+<div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="plain">swap(&amp;a, &amp;b); </code></div>
+<div class="line number21 index20 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Values after swap function are: %d, %d"</code><code class="plain">,&nbsp; </code></div>
+<div class="line number22 index21 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">a, b); </code></div>
+<div class="line number23 index22 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
+<div class="line number24 index23 alt1"><code class="plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="code-output"><strong>Output</strong>
+<div class="gray">Values before swap function are: 10, 20
+Values after swap function are: 20, 10</div>
+</div>
+
+<h2>Pointer Arithmetics with Examples</h2>
+
+<p>Pointer Arithmetic is the set of valid arithmetic operations that can be performed on pointers. The&nbsp;<a href="https://www.geeksforgeeks.org/c-pointers/">pointer</a>&nbsp;variables store the memory address of another variable. It doesn&rsquo;t store any value.&nbsp;</p>
+<p>Hence, there are only a few operations that are allowed to perform on Pointers in C language. The C pointer arithmetic operations are slightly different from the ones that we generally use for mathematical calculations. These operations are:</p>
+<div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
+<ol>
+<li>Increment/Decrement of a Pointer</li>
+<li>Addition of integer to a pointer</li>
+<li>Subtraction of integer to a pointer</li>
+<li>Subtracting two pointers of the same type</li>
+<li>Comparison of pointers</li>
+</ol>
+<h2>1. Increment/Decrement of a Pointer</h2>
+<p><strong>Increment:</strong>&nbsp;It is a condition that also comes under addition. When a pointer is incremented, it actually increments by the number equal to the size of the data type for which it is a pointer.&nbsp;</p>
+<p><strong>For Example:</strong><br />If an integer pointer that stores&nbsp;<strong>address 1000</strong>&nbsp;is incremented, then it will increment by 4(<strong>size of an int</strong>), and the new address will point to&nbsp;<strong>1004</strong>. While if a float type pointer is incremented then it will increment by 4(<strong>size of a float</strong>) and the new address will be&nbsp;<strong>1004</strong>.</p>
+
+<p><strong>Decrement:</strong>&nbsp;It is a condition that also comes under subtraction. When a pointer is decremented, it actually decrements by the number equal to the size of the data type for which it is a pointer.&nbsp;</p>
+<p><strong>For Example:</strong><br />If an integer pointer that stores&nbsp;<strong>address 1000</strong>&nbsp;is decremented, then it will decrement by 4(<strong>size of an int</strong>), and the new address will point to&nbsp;<strong>996</strong>. While if a float type pointer is decremented then it will decrement by 4(<strong>size of a float</strong>) and the new address will be&nbsp;<strong>996</strong>.</p>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230424100855/Pointer-Increment-Decrement.webp" alt="pointer increment and decrement" />
+<p class="wp-caption-text">&nbsp;</p>
+</div>
+<blockquote>
+<p><strong>Note:&nbsp;</strong>It is assumed here that the architecture is 64-bit and all the data types are sized accordingly. For example, integer is of 4 bytes.</p>
+</blockquote>
+<div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+<div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+<h3>Example of Pointer Increment and Decrement</h3>
+<p>Below is the program to illustrate pointer increment/decrement:</p>
+
+
+<div class="code-gutter">
+<div class="editor-buttons-container">
+<div class="editor-buttons">
+<div class="editor-buttons-div" title="Run and Edit">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+</div>
+<div class="code-container">
+<div id="highlighter_393586" class="syntaxhighlighter nogutter  ">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+<div class="line number2 index1 alt1"><code class="comments">// pointer increment and decrement</code></div>
+<div class="line number3 index2 alt2"><code class="comments">//pointers are incremented and decremented by the size of the data type they point to </code></div>
+<div class="line number4 index3 alt1"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
+<div class="line number5 index4 alt2"><code class="plain">{</code></div>
+<div class="line number6 index5 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">a = 22;</code></div>
+<div class="line number7 index6 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">*p = &amp;a;</code></div>
+<div class="line number8 index7 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"p = %u\n"</code><code class="plain">, p); </code><code class="comments">// p = 6422288</code></div>
+<div class="line number9 index8 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">p++;</code></div>
+<div class="line number10 index9 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"p++ = %u\n"</code><code class="plain">, p); </code><code class="comments">//p++ = 6422292&nbsp;&nbsp;&nbsp; +4&nbsp;&nbsp; // 4 bytes</code></div>
+<div class="line number11 index10 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">p--;</code></div>
+<div class="line number12 index11 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"p-- = %u\n"</code><code class="plain">, p); </code><code class="comments">//p-- = 6422288&nbsp;&nbsp;&nbsp;&nbsp; -4&nbsp;&nbsp; // restored to original value</code></div>
+<div class="line number13 index12 alt2">&nbsp;</div>
+<div class="line number14 index13 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">float</code> <code class="plain">b = 22.22;</code></div>
+<div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">float</code> <code class="plain">*q = &amp;b;</code></div>
+<div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"q = %u\n"</code><code class="plain">, q);&nbsp; </code><code class="comments">//q = 6422284</code></div>
+<div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">q++;</code></div>
+<div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"q++ = %u\n"</code><code class="plain">, q); </code><code class="comments">//q++ = 6422288&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +4&nbsp;&nbsp; // 4 bytes</code></div>
+<div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">q--;</code></div>
+<div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"q-- = %u\n"</code><code class="plain">, q); </code><code class="comments">//q-- = 6422284&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -4&nbsp; // restored to original value</code></div>
+<div class="line number21 index20 alt2">&nbsp;</div>
+<div class="line number22 index21 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">char</code> <code class="plain">c = </code><code class="string">'a'</code><code class="plain">;</code></div>
+<div class="line number23 index22 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">char</code> <code class="plain">*r = &amp;c;</code></div>
+<div class="line number24 index23 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"r = %u\n"</code><code class="plain">, r);&nbsp;&nbsp; </code><code class="comments">//r = 6422283</code></div>
+<div class="line number25 index24 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">r++;</code></div>
+<div class="line number26 index25 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"r++ = %u\n"</code><code class="plain">, r);&nbsp;&nbsp; </code><code class="comments">//r++ = 6422284&nbsp;&nbsp;&nbsp;&nbsp; +1&nbsp;&nbsp; // 1 byte</code></div>
+<div class="line number27 index26 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">r--;</code></div>
+<div class="line number28 index27 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"r-- = %u\n"</code><code class="plain">, r);&nbsp;&nbsp; </code><code class="comments">//r-- = 6422283&nbsp;&nbsp;&nbsp;&nbsp; -1&nbsp; // restored to original value</code></div>
+<div class="line number29 index28 alt2">&nbsp;</div>
+<div class="line number30 index29 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div class="code-output"><strong>Output</strong>
+<div class="gray">p = 1441900792
+p++ = 1441900796
+p-- = 1441900792
+q = 1441900796
+q++ = 1441900800
+q-- = 1441900796
+r = 1441900791
+r++ = 1441900792
+r-- = 1441900791</div>
+</div>
+<blockquote>
+<p><strong>Note:</strong>&nbsp;Pointers can be outputted using %p, since, most of the computers store the address value in hexadecimal form using %p gives the value in that form. But for simplicity and understanding we can also use %u to get the value in Unsigned int form.</p>
+</blockquote>
+<h2>2. Addition of Integer to Pointer</h2>
+<p>When a pointer is added with an integer value, the value is first multiplied by the size of the data type and then added to the pointer.</p>
+<p><strong>For Example:</strong><br />Consider the same example as above where the&nbsp;<strong>ptr&nbsp;</strong>is an&nbsp;<strong>integer pointer&nbsp;</strong>that stores&nbsp;<strong>1000&nbsp;</strong>as an address. If we add integer 5 to it using the expression,&nbsp;<strong>ptr = ptr + 5,</strong>&nbsp;then, the final address stored in the ptr will be&nbsp;<strong>ptr = 1000 + sizeof(int) * 5 = 1020.</strong></p>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230424100935/Pointer-Addition.webp" alt="pointer addition" />
+<p class="wp-caption-text">&nbsp;</p>
+</div>
+<h3>Example of Addition of Integer to Pointer</h3>
+
+
+<div>// C program to illustrate pointer Addition</div>
+<div>#include &lt;stdio.h&gt;</div>
+<div>&nbsp;</div>
+<div>// Driver Code</div>
+<div>int main()</div>
+<div>{</div>
+<div>// Integer variable</div>
+<div>int N = 4;</div>
+<div>&nbsp;</div>
+<div>// Pointer to an integer</div>
+<div>int *ptr1, *ptr2;</div>
+<div>&nbsp;</div>
+<div>// Pointer stores the address of N</div>
+<div>ptr1 = &amp;N;</div>
+<div>ptr2 = &amp;N;</div>
+<div>&nbsp;</div>
+<div>printf("Pointer ptr2 before Addition: ");</div>
+<div>printf("%p \n", ptr2);</div>
+<div>&nbsp;</div>
+<div>// Addition of 3 to ptr2</div>
+<div>ptr2 = ptr2 + 3;</div>
+<div>printf("Pointer ptr2 after Addition: ");</div>
+<div>printf("%p \n", ptr2);</div>
+<div>&nbsp;</div>
+<div>return 0;</div>
+<div>}</div>
+<p><strong>Output</strong></p>
+<div id="GFG_AD_gfg_outstream_incontent" data-google-query-id="CIHOk9egnoYDFZhEnQkdeiwGOQ">&nbsp;</div>
+
+
+<div class="code-output">
+<div class="gray">Pointer ptr2 before Addition: 0x7ffca373da9c 
+Pointer ptr2 after Addition: 0x7ffca373daa8 </div>
+</div>
+<h2>3. Subtraction &nbsp;of Integer to Pointer</h2>
+<p>When a pointer is subtracted with an integer value, the value is first multiplied by the size of the data type and then subtracted from the pointer similar to addition.</p>
+<p><strong>For Example:</strong><br />Consider the same example as above where the&nbsp;<strong>ptr&nbsp;</strong>is an&nbsp;<strong>integer pointer&nbsp;</strong>that stores&nbsp;<strong>1000&nbsp;</strong>as an address. If we subtract integer 5 from it using the expression,&nbsp;<strong>ptr = ptr &ndash; 5,</strong>&nbsp;then, the final address stored in the ptr will be&nbsp;<strong>ptr = 1000 &ndash; sizeof(int) * 5 = 980.</strong></p>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230424101002/Pointer-Subtraction.webp" alt="pointer substraction" />
+<p class="wp-caption-text">&nbsp;</p>
+</div>
+<h3>Example of Subtraction of Integer from Pointer</h3>
+<p>Below is the program to illustrate pointer Subtraction:</p>
+
+
+<div class="responsive-tabs-wrapper">
+<div class="responsive-tabs responsive-tabs--enabled">
+<div id="tablist3-panel1" class="tabcontent responsive-tabs__panel responsive-tabs__panel--active" role="tabpanel" aria-hidden="false" aria-labelledby="tablist3-tab1">
+<div class="code-block">
+<div class="code-gutter">
+<div class="editor-buttons-container">
+<div class="editor-buttons">
+<div class="editor-buttons-div" title="Run and Edit">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+</div>
+<div class="code-container">
+<div id="highlighter_814958" class="syntaxhighlighter nogutter  ">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="comments">// C program to illustrate pointer Subtraction</code></div>
+<div class="line number2 index1 alt1"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+<div class="line number3 index2 alt2">&nbsp;</div>
+<div class="line number4 index3 alt1"><code class="comments">// Driver Code</code></div>
+<div class="line number5 index4 alt2"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
+<div class="line number6 index5 alt1"><code class="plain">{</code></div>
+<div class="line number7 index6 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Integer variable</code></div>
+<div class="line number8 index7 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">N = 4;</code></div>
+<div class="line number9 index8 alt2">&nbsp;</div>
+<div class="line number10 index9 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Pointer to an integer</code></div>
+<div class="line number11 index10 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">*ptr1, *ptr2;</code></div>
+<div class="line number12 index11 alt1">&nbsp;</div>
+<div class="line number13 index12 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Pointer stores the address of N</code></div>
+<div class="line number14 index13 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">ptr1 = &amp;N;</code></div>
+<div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">ptr2 = &amp;N;</code></div>
+<div class="line number16 index15 alt1">&nbsp;</div>
+<div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Pointer ptr2 before Subtraction: "</code><code class="plain">);</code></div>
+<div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%p \n"</code><code class="plain">, ptr2);</code></div>
+<div class="line number19 index18 alt2">&nbsp;</div>
+<div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Subtraction of 3 to ptr2</code></div>
+<div class="line number21 index20 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">ptr2 = ptr2 - 3;</code></div>
+<div class="line number22 index21 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Pointer ptr2 after Subtraction: "</code><code class="plain">);</code></div>
+<div class="line number23 index22 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%p \n"</code><code class="plain">, ptr2);</code></div>
+<div class="line number24 index23 alt1">&nbsp;</div>
+<div class="line number25 index24 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
+<div class="line number26 index25 alt1"><code class="plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="code-output"><strong>Output</strong>
+<div class="gray">Pointer ptr2 before Subtraction: 0x7ffd718ffebc 
+Pointer ptr2 after Subtraction: 0x7ffd718ffeb0 </div>
+</div>
+
+
+<h2>4. Subtraction of Two Pointers</h2>
+<p>The subtraction of two pointers is possible only when they have the same data type. The result is generated by calculating the difference between the addresses of the two pointers and calculating how many bits of data it is according to the pointer data type. The subtraction of two pointers gives the increments between the two pointers.&nbsp;</p>
+<p><strong>For Example:</strong>&nbsp;<br />Two integer pointers say&nbsp;<strong>ptr1(address:1000)</strong>&nbsp;and&nbsp;<strong>ptr2(address:1004)</strong>&nbsp;are subtracted. The difference between addresses is 4 bytes. Since the size of int is 4 bytes, therefore the&nbsp;<strong>increment between ptr1 and ptr2</strong>&nbsp;is given by&nbsp;<strong>(4/4) = 1</strong>.</p>
+<h3>Example of Subtraction of Two Pointer</h3>
+<p>Below is the implementation to illustrate the Subtraction of Two Pointers:</p>
+
+
+<div class="responsive-tabs-wrapper">
+<div class="responsive-tabs responsive-tabs--enabled">
+<div id="tablist4-panel1" class="tabcontent responsive-tabs__panel responsive-tabs__panel--active" role="tabpanel" aria-hidden="false" aria-labelledby="tablist4-tab1">
+<div class="code-block">
+<div class="code-gutter">
+<div class="editor-buttons-container">
+<div class="editor-buttons">
+<div class="editor-buttons-div" title="Run and Edit">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+</div>
+<div class="code-container">
+<div id="highlighter_86643" class="syntaxhighlighter nogutter  ">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="comments">// C program to illustrate Subtraction</code></div>
+<div class="line number2 index1 alt1"><code class="comments">// of two pointers</code></div>
+<div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+<div class="line number4 index3 alt1">&nbsp;</div>
+<div class="line number5 index4 alt2"><code class="comments">// Driver Code</code></div>
+<div class="line number6 index5 alt1"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
+<div class="line number7 index6 alt2"><code class="plain">{</code></div>
+<div class="line number8 index7 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">x = 6; </code><code class="comments">// Integer variable declaration</code></div>
+<div class="line number9 index8 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">N = 4;</code></div>
+<div class="line number10 index9 alt1">&nbsp;</div>
+<div class="line number11 index10 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Pointer declaration</code></div>
+<div class="line number12 index11 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">*ptr1, *ptr2;</code></div>
+<div class="line number13 index12 alt2">&nbsp;</div>
+<div class="line number14 index13 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">ptr1 = &amp;N; </code><code class="comments">// stores address of N</code></div>
+<div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">ptr2 = &amp;x; </code><code class="comments">// stores address of x</code></div>
+<div class="line number16 index15 alt1">&nbsp;</div>
+<div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">" ptr1 = %u, ptr2 = %u\n"</code><code class="plain">, ptr1, ptr2);</code></div>
+<div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// %p gives an hexa-decimal value,</code></div>
+<div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// We convert it into an unsigned int value by using %u</code></div>
+<div class="line number20 index19 alt1">&nbsp;</div>
+<div class="line number21 index20 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Subtraction of ptr2 and ptr1</code></div>
+<div class="line number22 index21 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">x = ptr1 - ptr2;</code></div>
+<div class="line number23 index22 alt2">&nbsp;</div>
+<div class="line number24 index23 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Print x to get the Increment</code></div>
+<div class="line number25 index24 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// between ptr1 and ptr2</code></div>
+<div class="line number26 index25 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Subtraction of ptr1 "</code></div>
+<div class="line number27 index26 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="string">"&amp; ptr2 is %d\n"</code><code class="plain">,</code></div>
+<div class="line number28 index27 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">x);</code></div>
+<div class="line number29 index28 alt2">&nbsp;</div>
+<div class="line number30 index29 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
+<div class="line number31 index30 alt2"><code class="plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="code-output"><strong>Output</strong>
+<div class="gray"> ptr1 = 2715594428, ptr2 = 2715594424
+Subtraction of ptr1 &amp; ptr2 is 1</div>
+</div>
+
+
+<h2>5. Comparison of Pointers</h2>
+<p>We can compare the two pointers by using the comparison operators in C. We can implement this by using all operators in C&nbsp;<strong>&gt;, &gt;=, &lt;, &lt;=, ==, !=. &nbsp;</strong>It returns true for the valid condition and returns false for the unsatisfied condition.&nbsp;</p>
+<ol>
+<li><strong>Step 1:</strong>&nbsp;Initialize the integer values and point these integer values to the pointer.</li>
+<li><strong>Step 2:</strong>&nbsp;Now, check the condition by using comparison or relational operators on pointer variables.</li>
+<li><strong>Step 3:</strong>&nbsp;Display the output.</li>
+</ol>
+<h3>Example of Pointer Comparision</h3>
+
+
+<div class="responsive-tabs-wrapper">
+<div class="responsive-tabs responsive-tabs--enabled">
+<div id="tablist5-panel1" class="tabcontent responsive-tabs__panel responsive-tabs__panel--active" role="tabpanel" aria-hidden="false" aria-labelledby="tablist5-tab1">
+<div class="code-block">
+<div class="code-gutter">
+<div class="editor-buttons-container">
+<div class="editor-buttons">
+<div class="editor-buttons-div" title="Run and Edit">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+</div>
+<div class="code-container">
+<div id="highlighter_517886" class="syntaxhighlighter nogutter  ">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="comments">// C Program to illustrare pointer comparision</code></div>
+<div class="line number2 index1 alt1"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+<div class="line number3 index2 alt2">&nbsp;</div>
+<div class="line number4 index3 alt1"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
+<div class="line number5 index4 alt2"><code class="plain">{</code></div>
+<div class="line number6 index5 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// declaring array</code></div>
+<div class="line number7 index6 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">arr[5];</code></div>
+<div class="line number8 index7 alt1">&nbsp;</div>
+<div class="line number9 index8 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// declaring pointer to array name</code></div>
+<div class="line number10 index9 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code><code class="plain">* ptr1 = &amp;arr;</code></div>
+<div class="line number11 index10 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// declaring pointer to first element</code></div>
+<div class="line number12 index11 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code><code class="plain">* ptr2 = &amp;arr[0];</code></div>
+<div class="line number13 index12 alt2">&nbsp;</div>
+<div class="line number14 index13 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">if</code> <code class="plain">(ptr1 == ptr2) {</code></div>
+<div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Pointer to Array Name and First Element "</code></div>
+<div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="string">"are Equal."</code><code class="plain">);</code></div>
+<div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div>
+<div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">else</code> <code class="plain">{</code></div>
+<div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Pointer to Array Name and First Element "</code></div>
+<div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="string">"are not Equal."</code><code class="plain">);</code></div>
+<div class="line number21 index20 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div>
+<div class="line number22 index21 alt1">&nbsp;</div>
+<div class="line number23 index22 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
+<div class="line number24 index23 alt1"><code class="plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="code-output"><strong>Output</strong>
+<div id="GFG_AD_gfg_outstream_incontent-1">&nbsp;</div>
+<div class="gray">Pointer to Array Name and First Element are Equal.</div>
+</div>
+
+<h3>Comparison to NULL</h3>
+<p>A pointer can be compared or assigned a NULL value irrespective of what is the pointer type. Such pointers are called NULL pointers and are used in various pointer-related error-handling methods.</p>
+<div class="responsive-tabs-wrapper">
+<div class="responsive-tabs responsive-tabs--enabled">
+<ul class="responsive-tabs__list" role="tablist">
+<li id="tablist6-tab1" class="responsive-tabs__list__item responsive-tabs__list__item--active" tabindex="0" role="tab" aria-controls="tablist6-panel1">C</li>
+</ul>
+<div id="tablist6-panel1" class="tabcontent responsive-tabs__panel responsive-tabs__panel--active" role="tabpanel" aria-hidden="false" aria-labelledby="tablist6-tab1">
+<div class="code-block">
+<div class="code-gutter">
+<div class="editor-buttons-container">
+<div class="editor-buttons">
+<div class="editor-buttons-div" title="Run and Edit"><em id="copy-code-button" class="gfg-icon gfg-icon_copy code-sidebar-button padding-2px copy-code-button" title="Copy Code"></em>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+</div>
+<div class="code-container">
+<div id="highlighter_667981" class="syntaxhighlighter nogutter  ">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="comments">// C Program to demonstrate the pointer comparison with NULL</code></div>
+<div class="line number2 index1 alt1"><code class="comments">// value</code></div>
+<div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+<div class="line number4 index3 alt1">&nbsp;</div>
+<div class="line number5 index4 alt2"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
+<div class="line number6 index5 alt1"><code class="plain">{</code></div>
+<div class="line number7 index6 alt2">&nbsp;</div>
+<div class="line number8 index7 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code><code class="plain">* ptr = NULL;</code></div>
+<div class="line number9 index8 alt2">&nbsp;</div>
+<div class="line number10 index9 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">if</code> <code class="plain">(ptr == NULL) {</code></div>
+<div class="line number11 index10 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"The pointer is NULL"</code><code class="plain">);</code></div>
+<div class="line number12 index11 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div>
+<div class="line number13 index12 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">else</code> <code class="plain">{</code></div>
+<div class="line number14 index13 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"The pointer is not NULL"</code><code class="plain">);</code></div>
+<div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div>
+<div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
+<div class="line number17 index16 alt2"><code class="plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="code-output"><strong>Output</strong>
+<div class="gray">The pointer is NULL</div>
+</div>
+
+<h3><strong>Comparison operators on Pointers using an array</strong></h3>
+<p>In the below approach, it results in the count of odd numbers and even numbers in an array. We are going to implement this by using a pointer.</p>
+<ol>
+<li><strong>Step 1:</strong>&nbsp;First, declare the length of an array and array elements.</li>
+<li><strong>Step 2:</strong>&nbsp;Declare the pointer variable and point it to the first element of an array.</li>
+<li><strong>Step 3:</strong>&nbsp;Initialize the count_even and count_odd. Iterate the for loop and check the conditions for the number of odd elements and even elements in an array</li>
+<li><strong>Step 4:</strong>&nbsp;Increment the pointer location ptr++ to the next element in an array for further iteration.</li>
+<li><strong>Step 5:</strong>&nbsp;Print the result.</li>
+</ol>
+<h3>Example of Pointer Comparison in Array</h3>
+
+<div class="responsive-tabs-wrapper">
+<div class="responsive-tabs responsive-tabs--enabled">
+<div id="tablist7-panel1" class="tabcontent responsive-tabs__panel responsive-tabs__panel--active" role="tabpanel" aria-hidden="false" aria-labelledby="tablist7-tab1">
+<div class="code-block">
+<div class="code-gutter">
+<div class="editor-buttons-container">
+<div class="editor-buttons">
+<div class="editor-buttons-div" title="Run and Edit">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+</div>
+<div class="code-container">
+<div id="highlighter_84390" class="syntaxhighlighter nogutter  ">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="comments">// Pointer Comparision in Array</code></div>
+<div class="line number2 index1 alt1"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+<div class="line number3 index2 alt2">&nbsp;</div>
+<div class="line number4 index3 alt1"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
+<div class="line number5 index4 alt2"><code class="plain">{</code></div>
+<div class="line number6 index5 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">n = 10; </code><code class="comments">// length of an array</code></div>
+<div class="line number7 index6 alt2">&nbsp;</div>
+<div class="line number8 index7 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };</code></div>
+<div class="line number9 index8 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code><code class="plain">* ptr; </code><code class="comments">// Declaration of pointer variable</code></div>
+<div class="line number10 index9 alt1">&nbsp;</div>
+<div class="line number11 index10 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">ptr = arr; </code><code class="comments">// Pointer points the first (0th index)</code></div>
+<div class="line number12 index11 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// element in an array</code></div>
+<div class="line number13 index12 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">count_even = 0;</code></div>
+<div class="line number14 index13 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">count_odd = 0;</code></div>
+<div class="line number15 index14 alt2">&nbsp;</div>
+<div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">for</code> <code class="plain">(</code><code class="color1 bold">int</code> <code class="plain">i = 0; i &lt; n; i++) {</code></div>
+<div class="line number17 index16 alt2">&nbsp;</div>
+<div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">if</code> <code class="plain">(*ptr % 2 == 0) {</code></div>
+<div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">count_even++;</code></div>
+<div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div>
+<div class="line number21 index20 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">if</code> <code class="plain">(*ptr % 2 != 0) {</code></div>
+<div class="line number22 index21 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">count_odd++;</code></div>
+<div class="line number23 index22 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div>
+<div class="line number24 index23 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">ptr++; </code><code class="comments">// Pointing to the next element in an array</code></div>
+<div class="line number25 index24 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div>
+<div class="line number26 index25 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"No of even elements in an array is : %d"</code><code class="plain">,</code></div>
+<div class="line number27 index26 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">count_even);</code></div>
+<div class="line number28 index27 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"\nNo of odd elements in an array is : %d"</code><code class="plain">,</code></div>
+<div class="line number29 index28 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">count_odd);</code></div>
+<div class="line number30 index29 alt1"><code class="plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="code-output"><strong>Output</strong>
+<div class="gray">No of even elements in an array is : 5
+No of odd elements in an array is : 5</div>
+</div>
+
+
+<h2>Pointer Arithmetic on Arrays</h2>
+<p>Pointers contain addresses. Adding two addresses makes no sense because there is no idea what it would point to. Subtracting two addresses lets you compute the offset between the two addresses. An array name acts like a pointer constant. The value of this pointer constant is the address of the first element.</p>
+<p><strong>For Example:</strong>&nbsp;if an array is named&nbsp;<strong>arr</strong>&nbsp;then&nbsp;<strong>arr and &amp;arr[0]</strong>&nbsp;can be used to reference the array as a pointer.</p>
+<p>Below is the program to illustrate the Pointer Arithmetic on arrays:</p>
+<p><strong>Program 1:</strong>&nbsp;</p>
+<div class="responsive-tabs-wrapper">
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="comments">// C program to illustrate the array</code></div>
+<div class="line number2 index1 alt1"><code class="comments">// traversal using pointers</code></div>
+<div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+<div class="line number4 index3 alt1">&nbsp;</div>
+<div class="line number5 index4 alt2"><code class="comments">// Driver Code</code></div>
+<div class="line number6 index5 alt1"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
+<div class="line number7 index6 alt2"><code class="plain">{</code></div>
+<div class="line number8 index7 alt1">&nbsp;</div>
+<div class="line number9 index8 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">N = 5;</code></div>
+<div class="line number10 index9 alt1">&nbsp;</div>
+<div class="line number11 index10 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// An array</code></div>
+<div class="line number12 index11 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">arr[] = { 1, 2, 3, 4, 5 };</code></div>
+<div class="line number13 index12 alt2">&nbsp;</div>
+<div class="line number14 index13 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Declare pointer variable</code></div>
+<div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code><code class="plain">* ptr;</code></div>
+<div class="line number16 index15 alt1">&nbsp;</div>
+<div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Point the pointer to first</code></div>
+<div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// element in array arr[]</code></div>
+<div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">ptr = arr;</code></div>
+<div class="line number20 index19 alt1">&nbsp;</div>
+<div class="line number21 index20 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Traverse array using ptr</code></div>
+<div class="line number22 index21 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">for</code> <code class="plain">(</code><code class="color1 bold">int</code> <code class="plain">i = 0; i &lt; N; i++) {</code></div>
+<div class="line number23 index22 alt2">&nbsp;</div>
+<div class="line number24 index23 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Print element at which</code></div>
+<div class="line number25 index24 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// ptr points</code></div>
+<div class="line number26 index25 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%d "</code><code class="plain">, ptr[0]);</code></div>
+<div class="line number27 index26 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">ptr++;</code></div>
+<div class="line number28 index27 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div>
+<div class="line number29 index28 alt2"><code class="plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="code-output"><strong>Output</strong>
+<div class="gray">1 2 3 4 5 </div>
+</div>
+</body>
+</html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

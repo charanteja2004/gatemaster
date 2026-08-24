@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Applications of various Automata</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+<h2><b>Swapping</b></h2>
+
+Swapping is a process out means removing all of its pages from memory, or marking them so that they will be removed by the normal page replacement process. Suspending a process ensures that it is not runnable while it is swapped out. At some later time, the system swaps back the process from the secondary storage to the main memory. When a process is busy swapping pages in and out then this situation is called thrashing. <br><br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20230711080232/VirtualDiagram-2.webp" width="400" height="350"><br><br>
+
+
+<h2><b>Thrashing</b></h2>
+At any given time, only a few pages of any process are in the main memory, and therefore more processes can be maintained in memory. Furthermore, time is saved because unused pages are not swapped in and out of memory. However, the OS must be clever about how it manages this scheme. In the steady state practically, all of the main memory will be occupied with process pages, so that the processor and OS have direct access to as many processes as possible. Thus when the OS brings one page in, it must throw another out. If it throws out a page just before it is used, then it will just have to get that page again almost immediately. Too much of this leads to a condition called Thrashing. The system spends most of its time swapping pages rather than executing instructions. So a good page replacement algorithm is required.<br><br>
+
+In the given diagram, the initial degree of multiprogramming up to some extent of point(lambda), the CPU utilization is very high and the system resources are utilized 100%. But if we further increase the degree of multiprogramming the CPU utilization will drastically fall down and the system will spend more time only on the page replacement and the time taken to complete the execution of the process will increase. This situation in the system is called thrashing.<br><br>
+
+
+<h3><b>Causes of Thrashing</b></h3>
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20230711080259/VirtualDiagram-3.webp" width="350" height="300"><br><br>
+
+
+<b>1. High Degree of Multiprogramming:</b> If the number of processes keeps on increasing in the memory then the number of frames allocated to each process will be decreased. So, fewer frames will be available for each process. Due to this, a page fault will occur more frequently and more CPU time will be wasted in just swapping in and out of pages and the utilization will keep on decreasing. <br><br>
+
+For example:<br>
+Let free frames = 400<br>
+<b>Case 1:</b> Number of processes = 100<br>
+Then, each process will get 4 frames. <br><br>
+
+<b>Case 2:</b> Number of processes = 400 <br>
+Each process will get 1 frame. <br>
+Case 2 is a condition of thrashing, as the number of processes is increased, frames per process are decreased. Hence CPU time will be consumed just by swapping pages.<br><br>
+
+<b>2. Lacks of Frames:</b> If a process has fewer frames then fewer pages of that process will be able to reside in memory and hence more frequent swapping in and out will be required. This may lead to thrashing. Hence a sufficient amount of frames must be allocated to each process in order to prevent thrashing.<br><br>
+
+<h3><b>Recovery of Thrashing</b></h3>
+<li>Do not allow the system to go into thrashing by instructing the long-term scheduler not to bring the processes into memory after the threshold.</li>
+<li>If the system is already thrashing then instruct the mid-term scheduler to suspend some of the processes so that we can recover the system from thrashing.</li><br>
+
+<h3><b>Performance in Virtual Memory</b></h3>
+<li>Let p be the page fault rate( 0 <= p <= 1).</li>
+<li>if p = 0 no page faults</li>
+<li>if p =1, every reference is a fault.</li><br><br>
+
+<b>Effective access time (EAT)</b> = (1-p)* Memory Access Time + p * Page fault time.<br><br>
+Page fault time = page fault overhead + swap out + swap in +restart overhead<br><br>
+
+The performance of a virtual memory management system depends on the total number of page faults, which depend on “paging policies” and “frame allocation“<br><br>
+
+<h4><b>Frame Allocation</b></h4>
+A number of frames allocated to each process in either static or dynamic.<br><br>
+
+<li><b>Static Allocation:</b> The number of frame allocations to a process is fixed.</li>
+<li><b>Dynamic Allocation:</b>  The number of frames allocated to a process changes.</li>
+
+<h4><b> Paging Policies</b></h4>
+<p><li><b>Fetch Policy:</b> It decides when a page should be loaded into memory.</li>
+<li><b>Replacement Policy:</b> It decides which page in memory should be replaced.</li>
+<li><b>Placement Policy:</b> It decides where in memory should a page be loaded.</li></p><br><br>
+</body>
+</html>

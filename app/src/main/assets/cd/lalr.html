@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    <div class="main_wrapper">
+        <div>
+            <div class="article-title">
+                <h1>LALR Parser&nbsp;</h1>
+            </div>
+        </div>
+    </div>
+    <div class="text">
+        <p><strong>LALR Parser :</strong><br />LALR Parser is lookahead LR parser. It is &nbsp;the most powerful parser which can handle large classes of grammar. The size of CLR parsing table is quite large as compared to other parsing table. LALR reduces the size of this table.LALR works similar to CLR. The only difference is , it combines the similar states of CLR parsing table &nbsp;into one single state.&nbsp;<br />The general syntax becomes &nbsp;[A-&gt;&prop;.B, a ]<br />where A-&gt;&prop;.B is production and a is a terminal or right end marker $<br />LR(1) items=LR(0) items + look ahead</p>
+        <p><strong>How to add lookahead with the production?</strong></p>
+        <p><strong>CASE 1 &ndash;</strong></p>
+        <pre>A-&gt;&prop;.BC, a</pre>
+        <p>Suppose this is the 0th production.Now, since &lsquo; . &lsquo; precedes B,so we have to write B&rsquo;s productions as well.</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <pre>B-&gt;.D [1st production]</pre>
+        <p>Suppose this is B&rsquo;s production. The look ahead of this production is given as- we look at previous production i.e. &ndash; 0th production. Whatever is after B, we find FIRST(of that value) , that is the lookahead of 1st production. So, here in 0th production, after B, C is there. Assume FIRST(C)=d, then 1st production become.</p>
+        <pre>B-&gt;.D, d</pre>
+    <p><strong>CASE 2 &nbsp;&ndash;</strong><br />Now if the 0th production was like this,</p>
+    <pre>A-&gt;&prop;.B, a</pre>
+    <p>Here,we can see there&rsquo;s nothing after B. So the lookahead of 0th production will be the lookahead of 1st production. ie-</p>
+    <pre>B-&gt;.D, a</pre>
+    <p><strong>CASE 3 &ndash;</strong><br />Assume a production A-&gt;a|b</p>
+    <pre>A-&gt;a,$ [0th production]
+        A-&gt;b,$ [1st production]</pre>
+        <p>Here, the 1st production is a part of the previous production, so the lookahead will be the same as that of its previous production.</p>
+        <p><strong>Steps for constructing the LALR parsing table :</strong></p>
+        <ol>
+            <li>Writing augmented grammar</li>
+            <li>LR(1) collection of items to be found</li>
+            <li>Defining 2 functions: goto[list of terminals] and action[list of non-terminals] in the LALR parsing table</li>
+        </ol>
+        <p><strong>EXAMPLE</strong><br /><strong>Construct CLR parsing table for the given context free grammar</strong></p>
+        <pre>S--&gt;AA    
+            A--&gt;aA|b</pre>
+            <p><strong>Solution:</strong></p>
+    <p><strong>STEP1-</strong>&nbsp;Find augmented grammar<br />The augmented grammar of the given grammar is:-</p>
+    <pre>S'--&gt;.S ,$   [0th production]    
+        S--&gt;.AA ,$ [1st production]    
+        A--&gt;.aA ,a|b [2nd production]      
+        A--&gt;.b ,a|b [3rd production]</pre>
+        <p>Let&rsquo;s apply the rule of lookahead to the above productions.</p>
+    <ul>
+        <li>The initial look ahead is always $</li>
+        <li>Now,the 1st production came into existence because of &lsquo; . &lsquo; before &lsquo;S&rsquo; in 0th production.There is nothing after &lsquo;S&rsquo;, so the lookahead of 0th production will be the lookahead of 1st production. i.e. : &nbsp;S&ndash;&gt;.AA ,$</li>
+        <li>Now,the 2nd production came into existence because of &lsquo; . &lsquo; before &lsquo;A&rsquo; in the 1st production.<br />After &lsquo;A&rsquo;, there&rsquo;s &nbsp;&lsquo;A&rsquo;. So, FIRST(A) is a,b. Therefore, the lookahead of the 2nd production becomes a|b.</li>
+        <li>Now,the 3rd production is a part of the 2nd production.So, the look ahead will be the same.</li>
+    </ul>
+    <p><strong>STEP2 &ndash;</strong>&nbsp;Find LR(0) collection of items<br />Below is the figure showing the LR(0) collection of items. We will understand everything one by one.</p>
+    <p>&nbsp;</p>
+    <img src="image.png" alt="STEP2" height="300px" width="300px">
+    <p>The terminals of this grammar are {a,b}<br />The non-terminals of this grammar are {S,A}</p>
+</div>
+<div class="main_wrapper">
+    <div class="article-title">
+        <p><strong>RULES &ndash;</strong></p>
+        <ol>
+            <li>If any non-terminal has &lsquo; . &lsquo; preceding it, we have to write all its production and add &lsquo; . &lsquo; preceding each of its production.</li>
+            <li>from each state to the next state, the &lsquo; . &lsquo; shifts to one place to the right.</li>
+        </ol>
+        <ul>
+            <li>In the figure, I0 consists of augmented grammar.</li>
+            <li>Io goes to I1 when &nbsp;&lsquo; . &lsquo; of 0th production is shifted towards the right of S(S&rsquo;-&gt;S.). This state is the accept state . S is seen by the compiler. Since I1 is a part of the 0th production, the lookahead is same i.e. $</li>
+            <li>Io goes to I2 when &nbsp;&lsquo; . &lsquo; of 1st production is shifted towards right (S-&gt;A.A) . A is seen by the compiler. Since I2 is a part of the 1st production, the lookahead is &nbsp;same i.e. $.</li>
+            <li>I0 goes to I3 when &nbsp;&lsquo; . &lsquo; of 2nd production is shifted towards the right (A-&gt;a.A) . a is seen by the compiler.since I3 is a part of 2nd production, the lookahead is same i.e. a|b.</li>
+            <li>I0 goes to I4 when &nbsp;&lsquo; . &lsquo; of 3rd production is shifted towards right (A-&gt;b.) . b is seen by the compiler. Since I4 is a part of 3rd production, the lookahead is same i.e. a|b.</li>
+            <li>I2 goes to I5 when &nbsp;&lsquo; . &lsquo; of 1st production is shifted towards right (S-&gt;AA.) . A is seen by the compiler. Since I5 is a part of the 1st production, the lookahead is same i.e. $.</li>
+            <li>I2 goes to I6 when &nbsp;&lsquo; . &lsquo; of 2nd production is shifted towards the right (A-&gt;a.A) . A is seen by the compiler. Since I6 is a part of the 2nd production, the lookahead is same i.e. $.</li>
+            <li>I2 goes to I7 when &nbsp;&lsquo; . &lsquo; of 3rd production is shifted towards right (A-&gt;b.) . A is seen by the compiler. Since I6 is a part of the 3rd production, the lookahead is same i.e. $.</li>
+            <li>I3 goes to I3 when &nbsp;&lsquo; . &lsquo; of the 2nd production is shifted towards right (A-&gt;a.A) . a is seen by the compiler. Since I3 is a part of the 2nd production, the lookahead is same i.e. a|b.</li>
+            <li>I3 goes to I8 when &nbsp;&lsquo; . &lsquo; of 2nd production is shifted towards the right (A-&gt;aA.) . A is seen by the compiler. Since I8 is a part of the 2nd production, the lookahead is same i.e. a|b.</li>
+            <li>I6 goes to I9 when &nbsp;&lsquo; . &lsquo; of 2nd production is shifted towards the right (A-&gt;aA.) . A is seen by the compiler. Since I9 is a part of the 2nd production, the lookahead is same i.e. $.</li>
+            <li>I6 goes to I6 when &nbsp;&lsquo; . &lsquo; of the 2nd production is shifted towards right (A-&gt;a.A) . a is seen by the compiler. Since I6 is a part of the 2nd production, the lookahead is same i.e. $.</li>
+            <li>I6 goes to I7 when &nbsp;&lsquo; . &lsquo; of the 3rd production is shifted towards right (A-&gt;b.) . b is seen by the compiler. Since I6 is a part of the 3rd production, the lookahead is same i.e. $.</li>
+        </ul>
+        <p><strong>STEP 3 &ndash;</strong><br />Defining 2 functions: goto[list of terminals] and action[list of non-terminals] in the parsing table.Below is the CLR parsing table</p>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20210622142437/CLR.png" sizes="100vw" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20210622142437/CLR-660x297.png  660w, https://media.geeksforgeeks.org/wp-content/uploads/20210622142437/CLR-768x345.png  768w, https://media.geeksforgeeks.org/wp-content/uploads/20210622142437/CLR.png, " width="547" height="246" /></p>
+        <p>Once we make a CLR parsing table, we can easily make a LALR parsing table from it.</p>
+        <p>In the step2 diagram, we can see that&nbsp;</p>
+        <ul>
+            <li>I3 and I6 are similar except their lookaheads.</li>
+            <li>I4 and I7 are similar except their lookaheads.</li>
+            <li>I8 and I9 are similar except their lookaheads.</li>
+        </ul>
+        <p>In LALR parsing table construction , we merge these similar states.&nbsp;</p>
+        <ul>
+            <li>Wherever there is 3 or 6, make it &nbsp;36(combined form)</li>
+            <li>Wherever there is 4 or 7, make it &nbsp;47(combined form)</li>
+            <li>Wherever there is 8 or 9, make it &nbsp;89(combined form)</li>
+        </ul>
+        <p>Below is the LALR parsing table.&nbsp;</p>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20210623093821/55.png" sizes="100vw" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20210623093821/55-660x295.png  660w, https://media.geeksforgeeks.org/wp-content/uploads/20210623093821/55-768x343.png  768w, https://media.geeksforgeeks.org/wp-content/uploads/20210623093821/55.png, " width="538" height="240" /></p>
+        <p>Now we have to remove the unwanted rows</p>
+        <ul>
+            <li>As we can see, 36 row has same data twice, so we delete 1 row.</li>
+            <li>We combine two 47 row into one by combining each value in the single 47 row.</li>
+        <li>We combine two 89 row into one by combining each value in the single 89 row.</li>
+        </ul>
+        <p>The final LALR table looks like the below.</p>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20210623094220/4.png" sizes="100vw" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20210623094220/4-660x297.png  660w, https://media.geeksforgeeks.org/wp-content/uploads/20210623094220/4-768x345.png  768w, https://media.geeksforgeeks.org/wp-content/uploads/20210623094220/4.png, " width="478" height="215" /></p>
+    </div>
+</div>
+
+</body>
+</html>

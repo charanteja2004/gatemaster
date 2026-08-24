@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+</head>
+<body>
+    <div class="main_wrapper">
+        <div class="article-title">
+        <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>Syntax Directed Translation in Compiler Design</h1>
+        </div>
+        </div>
+        <div class="text">
+        <p>Parser uses a CFG(Context-free-Grammar) to validate the input string and produce output for the next phase of the compiler. Output could be either a parse tree or an abstract syntax tree. Now to interleave semantic analysis with the syntax analysis phase of the compiler, we use Syntax Directed Translation.&nbsp;</p>
+        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220526122512/ConceptualviewofSyntaxdirectedtranslation-660x47.jfif" width="548" height="39" />
+        <p class="wp-caption-text">&nbsp;</p>
+        </div>
+        <p>Conceptually, with both syntax-directed definition and translation schemes, we parse the input token stream, build the parse tree, and then traverse the tree as needed to evaluate the semantic rules at the parse tree nodes. Evaluation of the semantic rules may generate code, save information in a symbol table, issue error messages, or perform any other activities. The translation of the token stream is the result obtained by evaluating the semantic rules.</p>
+        <p><strong>Definition</strong>&nbsp;<br />Syntax Directed Translation has augmented rules to the grammar that facilitate semantic analysis. SDT involves passing information bottom-up and/or top-down to the parse tree in form of attributes attached to the nodes. Syntax-directed translation rules use 1) lexical values of nodes, 2) constants &amp; 3) attributes associated with the non-terminals in their definitions.&nbsp;</p>
+        <p>The general approach to Syntax-Directed Translation is to construct a parse tree or syntax tree and compute the values of attributes at the nodes of the tree by visiting them in some order. In many cases, translation can be done during parsing without building an explicit tree.&nbsp;<br />Example&nbsp;<br />&nbsp;</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <pre>E -&gt; E+T | T
+        T -&gt; T*F | F
+        F -&gt; INTLIT </pre>
+        <p>This is a grammar to syntactically validate an expression having additions and multiplications in it. Now, to carry out semantic analysis we will augment SDT rules to this grammar, in order to pass some information up the parse tree and check for semantic errors, if any. In this example, we will focus on the evaluation of the given expression, as we don&rsquo;t have any semantic assertions to check in this very basic example.&nbsp;<br />&nbsp;</p>
+        <pre>E -&gt; E+T     { E.val = E.val + T.val }   PR#1
+        E -&gt; T       { E.val = T.val }           PR#2
+        T -&gt; T*F     { T.val = T.val * F.val }   PR#3
+        T -&gt; F       { T.val = F.val }           PR#4
+        F -&gt; INTLIT  { F.val = INTLIT.lexval }   PR#5</pre>
+        <p>For understanding translation rules further, we take the first SDT augmented to [ E -&gt; E+T ] production rule. The translation rule in consideration has val as an attribute for both the non-terminals &ndash; E &amp; T. Right-hand side of the translation rule corresponds to attribute values of the right-side nodes of the production rule and vice-versa. Generalizing, SDT are augmented rules to a CFG that associate 1) set of attributes to every node of the grammar and 2) a set of translation rules to every production rule using attributes, constants, and lexical values.&nbsp;</p>
+        <p>Let&rsquo;s take a string to see how semantic analysis happens &ndash; S = 2+3*4. Parse tree corresponding to S would be&nbsp;</p>
+        <p>&nbsp;</p>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/vineet_article.png" alt="vineet_article" /></p>
+        <p>To evaluate translation rules, we can employ one depth-first search traversal on the parse tree. This is possible only because SDT rules don&rsquo;t impose any specific order on evaluation until children&rsquo;s attributes are computed before parents for a grammar having all synthesized attributes. Otherwise, we would have to figure out the best-suited plan to traverse through the parse tree and evaluate all the attributes in one or more traversals. For better understanding, we will move bottom-up in the left to right fashion for computing the translation rules of our example.&nbsp;</p>
+        <p>&nbsp;</p>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/Syntax_Directed_Translation.jpg" width="509" height="338" /></p>
+        <p>The above diagram shows how semantic analysis could happen. The flow of information happens bottom-up and all the children&rsquo;s attributes are computed before parents, as discussed above. Right-hand side nodes are sometimes annotated with subscript 1 to distinguish between children and parents.&nbsp;<br />Additional Information&nbsp;<br /><strong>Synthesized Attributes</strong>&nbsp;are such attributes that depend only on the attribute values of children nodes.&nbsp;<br />Thus [ E -&gt; E+T { E.val = E.val + T.val } ] has a synthesized attribute val corresponding to node E. If all the semantic attributes in an augmented grammar are synthesized, one depth-first search traversal in any order is sufficient for the semantic analysis phase.&nbsp;</p>
+        <p><strong>Inherited Attributes</strong>&nbsp;are such attributes that depend on parent and/or sibling&rsquo;s attributes.&nbsp;<br />Thus [ Ep -&gt; E+T { Ep.val = E.val + T.val, T.val = Ep.val } ], where E &amp; Ep are same production symbols annotated to differentiate between parent and child, has an inherited attribute val corresponding to node T.&nbsp;</p>
+        </div>
+        </div>
+        
+            <div class="article-title">
+            <h1>Parse Tree&nbsp;</h1>
+            </div>
+            </div>
+            </div>
+            <div class="text">
+            <p>Here we will study the concept and uses of Parse Tree in Compiler Design. First, let us check out two terms :</p>
+            <ul>
+            <li><strong>Parse :</strong>&nbsp;It means to resolve (a sentence) into its component parts and describe their syntactic roles or simply it is an act of parsing a string or a text.</li>
+            <li><strong>Tree:</strong>&nbsp;A tree may be a widely used abstract data type that simulates a hierarchical tree structure, with a root value and sub-trees of youngsters with a parent node, represented as a group of linked nodes.</li>
+            </ul>
+            <p><strong>Parse Tree:</strong></p>
+            <ul>
+            <li>Parse tree is the hierarchical representation of terminals or non-terminals.</li>
+            <li>These symbols (terminals or non-terminals) represent the derivation of the grammar to yield input strings.</li>
+            <li>In parsing, the string springs using the beginning symbol.</li>
+            <li>The starting symbol of the grammar must be used as the root of the Parse Tree.</li>
+            <li>Leaves of parse tree represent terminals.</li>
+            <li>Each interior node represents productions of a grammar.</li>
+            </ul>
+            <p><strong>Rules to Draw a Parse Tree:</strong></p>
+            <ol>
+            <li>All leaf nodes need to be terminals.</li>
+            <li>All interior nodes need to be non-terminals.</li>
+            <li>In-order traversal gives the original input string.</li>
+            </ol>
+            <p><strong>Example 1:</strong>&nbsp;Let us take an example of Grammar (Production Rules).</p>
+            <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+            <pre>S -&gt; sAB
+            A -&gt; a
+            B -&gt; b</pre>
+            <p>The input string is &ldquo;sab&rdquo;, then the Parse Tree is:</p>
+            <p><a href="https://media.geeksforgeeks.org/wp-content/uploads/20200913131917/cd2-299x300.PNG"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20200913131917/cd2-299x300.PNG" /></a></p>
+            </div>
+           
+        </div>
+</body>
+</html>

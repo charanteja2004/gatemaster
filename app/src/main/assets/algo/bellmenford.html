@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    <h2>Bellman–Ford Algorithm</h2>
+
+    <P>Imagine you have a map with different cities connected by roads, each road having a certain distance. The
+        Bellman–Ford algorithm is like a guide that helps you find the shortest path from one city to all other cities,
+        even if some roads have negative lengths. It’s like a GPS for computers, useful for figuring out the quickest
+        way to get from one point to another in a network. In this article, we’ll take a closer look at how this
+        algorithm works and why it’s so handy in solving everyday problems.</p>
+
+
+    <h2 id="bellmanford-algorithm"><u><span class="GFGEditorTheme__textUnderline">Bellman-Ford Algorithm</span></u></h2>
+    <blockquote>
+        <p dir="ltr"><strong>Bellman-Ford</strong>&nbsp;is a&nbsp;<strong>single source</strong>&nbsp;shortest path
+            algorithm that determines the shortest path between a given source vertex and every other vertex in a graph.
+            This algorithm can be used on
+            both&nbsp;<strong>weighted</strong>&nbsp;and&nbsp;<strong>unweighted</strong>&nbsp;graphs.</p>
+    </blockquote>
+    <p dir="ltr">A&nbsp;<strong>Bellman-Ford&nbsp;</strong>algorithm is also guaranteed to find the shortest path in a
+        graph, similar to&nbsp;<a href="https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/"
+            rel="noopener"><strong>Dijkstra&rsquo;s algorithm</strong></a>. Although Bellman-Ford is slower
+        than&nbsp;<strong>Dijkstra&rsquo;s algorithm</strong>, it is capable of handling graphs
+        with&nbsp;<strong>negative edge weights</strong>, which makes it more versatile. The shortest path cannot be
+        found if there exists a&nbsp;<strong>negative cycle</strong>&nbsp;in the graph. If we continue to go around the
+        negative cycle an infinite number of times, then the cost of the path will continue to decrease (even though the
+        length of the path is increasing). As a result,&nbsp;<strong>Bellman-Ford</strong>&nbsp;is also capable of
+        detecting&nbsp;<strong>negative cycles</strong>, which is an important feature.</p>
+    <h2 id="the-idea-behind-bellman-ford-algorithm"><u><span class="GFGEditorTheme__textUnderline">The idea behind
+                Bellman Ford Algorithm:</span></u></h2>
+    <blockquote>
+        <p dir="ltr">The Bellman-Ford algorithm&rsquo;s primary principle is that it starts with a single source and
+            calculates the distance to each node. The distance is initially unknown and assumed to be infinite, but as
+            time goes on, the algorithm relaxes those paths by identifying a few shorter paths. Hence it is said that
+            Bellman-Ford is based on &ldquo;<strong>Principle of Relaxation</strong>&ldquo;.</p>
+    </blockquote>
+    <h2 id="principle-of-relaxation-of-edges-for-bellmanford"><u><span class="GFGEditorTheme__textUnderline">Principle
+                of Relaxation of Edges for Bellman-Ford:</span></u></h2>
+    <ul>
+        <li value="1">It states that for the graph having&nbsp;<strong>N</strong>&nbsp;vertices, all the edges should be
+            relaxed&nbsp;<strong>N-1&nbsp;</strong>times to compute the single source shortest path.</li>
+        <li value="2">In order to detect whether a negative cycle exists or not, relax all the edge one more time and if
+            the shortest distance for any node reduces then we can say that a negative cycle exists. In short if we
+            relax the edges&nbsp;<strong>N</strong>&nbsp;times, and there is any change in the shortest distance of any
+            node between the&nbsp;<strong>N-1th</strong>&nbsp;and&nbsp;<strong>Nth</strong>&nbsp;relaxation than a
+            negative cycle exists, otherwise not exist.</li>
+    </ul>
+    <h2 id="why-relaxing-edges-n1-times-gives-us-single-source-shortest-path"><u><span
+                class="GFGEditorTheme__textUnderline">Why Relaxing Edges N-1 times, gives us Single Source Shortest
+                Path?</span></u></h2>
+    <p dir="ltr">In the worst-case scenario, a shortest path between two vertices can have at
+        most&nbsp;<strong>N-1&nbsp;</strong>edges, where&nbsp;<strong>N</strong>&nbsp;is the number of vertices. This is
+        because a simple path in a graph with&nbsp;<strong>N</strong>&nbsp;vertices can have at
+        most&nbsp;<strong>N-1&nbsp;</strong>edges, as it&rsquo;s impossible to form a closed loop without revisiting a
+        vertex.</p>
+    <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+    <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+    <p dir="ltr">By relaxing edges&nbsp;<strong>N-1</strong>&nbsp;times, the Bellman-Ford algorithm ensures that the
+        distance estimates for all vertices have been updated to their optimal values, assuming the graph doesn&rsquo;t
+        contain any negative-weight cycles reachable from the source vertex. If a graph contains a negative-weight cycle
+        reachable from the source vertex, the algorithm can detect it after&nbsp;<strong>N-1</strong>&nbsp;iterations,
+        since the negative cycle disrupts the shortest path lengths.</p>
+    <p dir="ltr">In summary, relaxing edges&nbsp;<strong>N-1&nbsp;</strong>times in the Bellman-Ford algorithm
+        guarantees that the algorithm has explored all possible paths of length up to<strong>&nbsp;N-1</strong>, which
+        is the maximum possible length of a shortest path in a graph with&nbsp;<strong>N&nbsp;</strong>vertices. This
+        allows the algorithm to correctly calculate the shortest paths from the source vertex to all other vertices,
+        given that there are no negative-weight cycles.</p>
+    <h2 id="why-does-the-reduction-of-distance-in-the-nth-relaxation-indicates-the-existence-of-a-negative-cycle">
+        <u><span class="GFGEditorTheme__textUnderline">Why Does the Reduction of Distance in the N&rsquo;th Relaxation
+                Indicates the Existence of a Negative Cycle?</span></u></h2>
+    <p dir="ltr">As previously discussed, achieving the single source shortest paths to all other nodes
+        takes&nbsp;<strong>N-1</strong>&nbsp;relaxations. If the N&rsquo;th relaxation further reduces the shortest
+        distance for any node, it implies that a certain edge with negative weight has been traversed once more. It is
+        important to note that during the&nbsp;<strong>N-1</strong>&nbsp;relaxations, we presumed that each vertex is
+        traversed only once. However, the reduction of distance during the N&rsquo;th relaxation indicates revisiting a
+        vertex.</p>
+
+
+    <h2 id="working-of-bellmanford-algorithm-to-detect-the-negative-cycle-in-the-graph"><u><span
+                class="GFGEditorTheme__textUnderline">Working of Bellman-Ford Algorithm to Detect the Negative cycle in
+                the graph:</span></u></h2>
+    <blockquote>
+        <p dir="ltr">Let&rsquo;s suppose we have a graph which is given below and we want to find whether there exists a
+            negative cycle or not using Bellman-Ford.</p>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230816131246/Bellman-Ford-To-Detect-A-Negative-Cycle-In-A-Graph.png"
+                width="768" height="384" />
+            <p class="wp-caption-text">Initial Graph</p>
+        </div>
+        <p dir="ltr"><strong>Step 1:&nbsp;</strong>Initialize a distance array Dist[] to store the shortest distance for
+            each vertex from the source vertex. Initially distance of source will be 0 and Distance of other vertices
+            will be INFINITY.</p>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230816131322/file.png" width="798"
+                height="399" />
+            <p class="wp-caption-text">Initialize a distance array</p>
+        </div>
+        <p dir="ltr"><strong>Step 2:&nbsp;</strong>Start relaxing the edges, during 1st Relaxation:</p>
+        <div id="GFG_AD_gfg_outstream_incontent" data-google-query-id="CMvLs6-wo4YDFcFLnQkdMXYN9Q">
+            <div id="google_ads_iframe_/27823234/gfg_outstream_incontent_0__container__">&nbsp;</div>
+        </div>
+        <ul>
+            <li value="1">Current Distance of B &gt; (Distance of A) + (Weight of A to B) i.e. Infinity &gt; 0 + 5
+                <ul>
+                    <li value="1">Therefore, Dist[B] = 5</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230816153449/file.png" width="698"
+                height="349" />
+            <p class="wp-caption-text">1st Relaxation</p>
+        </div>
+        <strong>Step 3:</strong>&nbsp;During 2nd Relaxation:
+        <ul>
+            <li value="1">Current Distance of D &gt; (Distance of B) + (Weight of B to D) i.e. Infinity &gt; 5 + 2
+                <ul>
+                    <li value="1">Dist[D] = 7</li>
+                </ul>
+            </li>
+            <li value="2">Current Distance of C &gt; (Distance of B) + (Weight of B to C) i.e. Infinity &gt; 5 + 1
+                <ul>
+                    <li value="1">Dist[C] = 6</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230816131450/file.png" width="744"
+                height="372" />
+            <p class="wp-caption-text">2nd Relaxation</p>
+        </div>
+        <p dir="ltr"><strong>Step 4:&nbsp;</strong>During 3rd Relaxation:</p>
+        <ul>
+            <li value="1">Current Distance of F &gt; (Distance of D ) + (Weight of D to F) i.e. Infinity &gt; 7 + 2
+                <ul>
+                    <li value="1">Dist[F] = 9</li>
+                </ul>
+            </li>
+            <li value="2">Current Distance of E &gt; (Distance of C ) + (Weight of C to E) i.e. Infinity &gt; 6 + 1
+                <ul>
+                    <li value="1">Dist[E] = 7</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230816132008/file.png" width="838"
+                height="419" />
+            <p class="wp-caption-text">3rd Relaxation</p>
+        </div>
+        <p dir="ltr"><strong>Step 5:</strong>&nbsp;During 4th Relaxation:</p>
+        <ul>
+            <li value="1">Current Distance of D &gt; (Distance of E) + (Weight of E to D) i.e. 7 &gt; 7 + (-1)
+                <ul>
+                    <li value="1">Dist[D] = 6</li>
+                </ul>
+            </li>
+            <li value="2">Current Distance of E &gt; (Distance of F ) + (Weight of F to E) i.e. 7 &gt; 9 + (-3)
+                <ul>
+                    <li value="1">Dist[E] = 6</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230816132039/file.png" width="772"
+                height="386" />
+            <p class="wp-caption-text">4th Relaxation</p>
+        </div>
+        <p dir="ltr"><strong>Step 6:&nbsp;</strong>During 5th Relaxation:</p>
+        <ul>
+            <li value="1">Current Distance of F &gt; (Distance of D) + (Weight of D to F) i.e. 9 &gt; 6 + 2
+                <ul>
+                    <li value="1">Dist[F] = 8</li>
+                </ul>
+            </li>
+            <li value="2">Current Distance of D &gt; (Distance of E ) + (Weight of E to D) i.e. 6 &gt; 6 + (-1)
+                <ul>
+                    <li value="1">Dist[D] = 5</li>
+                </ul>
+            </li>
+            <li value="3">Since the graph h 6 vertices, So during the 5th relaxation the shortest distance for all the
+                vertices should have been calculated.</li>
+        </ul>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230816132100/file.png" width="804"
+                height="402" /></div>
+    </blockquote>
+
+
+    <blockquote>
+        <p dir="ltr"><strong>Step 7:&nbsp;</strong>Now the final relaxation i.e. the 6th relaxation should indicate the
+            presence of negative cycle if there is any changes in the distance array of 5th relaxation.</p>
+        <p dir="ltr">During the 6th relaxation, following changes can be seen:</p>
+        <ul>
+            <li value="1">Current Distance of E &gt; (Distance of F) + (Weight of F to E) i.e. 6 &gt; 8 + (-3)
+                <ul>
+                    <li value="1">Dist[E]=5</li>
+                </ul>
+            </li>
+            <li value="2">Current Distance of F &gt; (Distance of D ) + (Weight of D to F) i.e. 8 &gt; 5 + 2
+                <ul>
+                    <li value="1">Dist[F]=7</li>
+                </ul>
+            </li>
+        </ul>
+        <p dir="ltr">Since, we observer changes in the Distance array Hence ,we can conclude the presence of a negative
+            cycle in the graph.</p>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230816132118/file.png" width="788"
+                height="394" />
+            <p class="wp-caption-text">6th Relaxation</p>
+        </div>
+        <p dir="ltr"><strong>Result:</strong>&nbsp;A negative cycle (D-&gt;F-&gt;E) exists in the graph.</p>
+    </blockquote>
+    <h2 id="algorithm-to-find-negative-cycle-in-a-directed-weighted-graph-using-bellmanford"><u><span
+                class="GFGEditorTheme__textUnderline">Algorithm to Find Negative Cycle in a Directed Weighted Graph
+                Using Bellman-Ford:</span></u></h2>
+    <ul>
+        <li value="1">Initialize distance array dist[] for each vertex &lsquo;<strong>v</strong>&lsquo;
+            as&nbsp;<strong>dist[v] = INFINITY</strong>.</li>
+        <li value="2">Assume any vertex (let&rsquo;s say &lsquo;0&rsquo;) as source and assign&nbsp;<strong>dist =
+                0</strong>.</li>
+        <li value="3">Relax all the&nbsp;<strong>edges(u,v,weight) N-1</strong>&nbsp;times as per the below condition:
+            <ul>
+                <li value="1"><strong>dist[v] = minimum(dist[v], distance[u] + weight)</strong></li>
+            </ul>
+        </li>
+        <li value="4">Now, Relax all the edges one more time i.e. the&nbsp;<strong>Nth</strong>&nbsp;time and based on
+            the below two cases we can detect the negative cycle:
+            <ul>
+                <li value="1">Case 1 (Negative cycle exists): For any&nbsp;<strong>edge(u, v, weight), if dist[u] +
+                        weight &lt; dist[v]</strong></li>
+                <li value="2">Case 2 (No Negative cycle) : case 1 fails for all the edges.</li>
+            </ul>
+        </li>
+    </ul>
+    <h2 id="handling-disconnected-graphs-in-the-algorithm"><u><span class="GFGEditorTheme__textUnderline">Handling
+                Disconnected Graphs in the Algorithm:</span></u></h2>
+    <blockquote>
+        <p dir="ltr">The above algorithm and program might not work if the given graph is disconnected. It works when
+            all vertices are reachable from source vertex&nbsp;<strong>0</strong>.<br />To handle disconnected graphs,
+            we can repeat the above algorithm for vertices having&nbsp;<strong>distance = INFINITY,</strong>&nbsp;or
+            simply for the vertices that are not visited.</p>
+    </blockquote>
+    <h2 id="complexity-analysis-of-bellmanford-algorithm"><a
+            href="https://www.geeksforgeeks.org/time-and-space-complexity-of-bellman-ford-algorithm/" target="_blank"
+            rel="noreferrer noopener"><u><strong><strong class="GFGEditorTheme__textUnderline">Complexity Analysis of
+                        Bellman-Ford Algorithm</strong></strong></u></a><u><strong><strong
+                    class="GFGEditorTheme__textUnderline">:</strong></strong></u></h2>
+    <ul>
+        <li value="1"><u><strong><strong class="GFGEditorTheme__textUnderline">Time Complexity when graph is
+                        connected:</strong></strong></u>
+            <ul>
+                <li value="1"><strong>Best Case:</strong>&nbsp;O(E), when distance array after 1st and 2nd relaxation
+                    are same , we can simply stop further processing</li>
+                <li value="2"><strong>Average Case:&nbsp;</strong>O(V*E)</li>
+                <li value="3"><strong>Worst Case:</strong>&nbsp;O(V*E)</li>
+            </ul>
+        </li>
+        <li value="2"><u><strong><strong class="GFGEditorTheme__textUnderline">Time Complexity when graph is
+                        disconnected</strong></strong></u><strong>:</strong>
+            <ul>
+                <li value="1"><strong>All the cases:&nbsp;</strong>O(E*(V^2))</li>
+            </ul>
+        </li>
+        <li value="3"><strong>Auxiliary Space:&nbsp;</strong>O(V), where V is the number of vertices in the graph.</li>
+    </ul>
+    <h2 id="bellman-fords-algorithm-applications"><u><span class="GFGEditorTheme__textUnderline">Bellman Ford&rsquo;s
+                Algorithm Applications:</span></u></h2>
+    <ul>
+        <li value="1"><strong>Network Routing:&nbsp;</strong>Bellman-Ford is used in computer networking to find the
+            shortest paths in routing tables, helping data packets navigate efficiently across networks.</li>
+        <li value="2">GPS Navigation: GPS devices use Bellman-Ford to calculate the shortest or fastest routes between
+            locations, aiding navigation apps and devices.</li>
+        <li value="3"><strong>Transportation and Logistics:&nbsp;</strong>Bellman-Ford&rsquo;s algorithm can be applied
+            to determine the optimal paths for vehicles in transportation and logistics, minimizing fuel consumption and
+            travel time.</li>
+        <li value="4"><strong>Game Development:&nbsp;</strong>Bellman-Ford can be used to model movement and navigation
+            within virtual worlds in game development, where different paths may have varying costs or obstacles.</li>
+        <li value="5"><strong>Robotics and Autonomous Vehicles:&nbsp;</strong>The algorithm aids in path planning for
+            robots or autonomous vehicles, considering obstacles, terrain, and energy consumption.</li>
+    </ul>
+    <h2 id="drawback-of-bellman-fords-algorithm"><u><span class="GFGEditorTheme__textUnderline">Drawback of Bellman
+                Ford&rsquo;s Algorithm:</span></u></h2>
+    <ul>
+        <li value="1">Bellman-Ford algorithm will fail if the graph contains any negative edge cycle.</li>
+    </ul>
+
+</body>
+</html>

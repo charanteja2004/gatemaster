@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:padding="15dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:minWidth="48dp"
+                android:onClick="goback"
+                android:text="&lt;"
+                android:textSize="23dp"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="342dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="30dp"
+                android:shadowColor="#0B0A0A"
+                android:text="Linear Algebra"
+                android:textColor="@color/black"
+                android:textColorHighlight="#E4A2A2"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="com.example.topics.math.linearAlgebar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="-16dp"
+                tools:layout_editor_absoluteY="-16dp">
+
+                <!-- Item 1 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="107dp"
+                    android:layout_margin="6dp"
+                    android:background="@drawable/rounded_corners"
+                    android:clickable="true"
+                    android:elevation="8dp"
+                    android:onClick="onItemClick"
+                    android:padding="16dp"
+                    android:tag="doc">
+
+                    <ImageView
+                        android:id="@+id/imageView1"
+                        android:layout_width="85dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:src="@drawable/doc"
+                        tools:ignore="InefficientWeight" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="68dp"
+                        android:paddingStart="12dp"
+                        android:paddingTop="12dp"
+
+                        android:text="Linear Algebra Document"
+                        android:textColor="#000000"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <!-- Item 2 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="97dp"
+                    android:layout_margin="6dp"
+                    android:background="@drawable/rounded_corners"
+                    android:clickable="true"
+                    android:elevation="8dp"
+                    android:onClick="onItemClick"
+                    android:padding="16dp"
+                    android:tag="imp">
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="85dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:src="@drawable/doc" />
+
+                    <TextView
+                        android:layout_width="228dp"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="0dp"
+                        android:text="Important Formulas"
+                        android:textColor="#000000"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <!-- Item 3 -->
+
+                <!-- Item 4 -->
+
+                <!-- Item 6 -->
+                <!-- Item 5 -->
+
+
+                <!-- Repeat similar structure for other items -->
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

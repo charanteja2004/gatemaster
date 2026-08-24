@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+
+<body>
+    <div class="article-title">
+        <h1>Intermediate Code Generation&nbsp;</h1>
+    </div>
+    <div class="text">
+        <p dir="ltr">In the analysis-synthesis model of a compiler, the front end of a compiler translates a source
+            program into an independent intermediate code, then the back end of the compiler uses this intermediate code
+            to generate the target code (which can be understood by the machine). The benefits of using
+            machine-independent intermediate code are:</p>
+        <ul>
+            <li value="1">Because of the machine-independent intermediate code, portability will be enhanced. For ex,
+                suppose, if a compiler translates the source language to its target machine language without having the
+                option for generating intermediate code, then for each new machine, a full native compiler is required.
+                Because, obviously, there were some modifications in the compiler itself according to the machine
+                specifications.</li>
+            <li value="2">Retargeting is facilitated.</li>
+            <li value="3">It is easier to apply source code modification to improve the performance of source code by
+                optimizing the intermediate code.</li>
+        </ul>
+        <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/1-34.png" alt="1" width="381"
+                height="393" />&nbsp;<br />If we generate machine code directly from source code then for n target
+            machine we will have optimizers and n code generator but if we will have a machine-independent intermediate
+            code, we will have only one optimizer. Intermediate code can be either language-specific (e.g., Bytecode for
+            Java) or language. independent (three-address code). The following are commonly used intermediate code
+            representations:</p>
+        <ol>
+            <li value="1"><strong>Postfix Notation:</strong>
+                <ul>
+                    <li value="1">Also known as reverse Polish notation or suffix notation.</li>
+                    <li value="2">In the infix notation, the operator is placed between operands, e.g.,&nbsp;<em><em
+                                class="GFGEditorTheme__textItalic">a + b.&nbsp;</em></em>Postfix notation positions the
+                        operator at the right end, as in&nbsp;<em><em class="GFGEditorTheme__textItalic">ab +</em></em>.
+                    </li>
+                    <li value="3">For any postfix expressions&nbsp;<em><em
+                                class="GFGEditorTheme__textItalic">e1</em></em>&nbsp;and&nbsp;<em><em
+                                class="GFGEditorTheme__textItalic">e2&nbsp;</em></em>with a binary operator&nbsp;<em><em
+                                class="GFGEditorTheme__textItalic">(+) ,&nbsp;</em></em>applying the operator
+                        yields&nbsp;<em><em class="GFGEditorTheme__textItalic">e1e2+.</em></em></li>
+                    <li value="4">Postfix notation eliminates the need for parentheses, as the operator&rsquo;s position
+                        and arity allow unambiguous expression decoding.</li>
+                    <li value="5">In postfix notation, the operator consistently follows the
+                        operand.<br /><strong>Example 1:</strong>&nbsp;The postfix representation of the expression (a +
+                        b) * c is : ab + c *<br /><strong>Example 2:&nbsp;</strong>The postfix representation of the
+                        expression (a &ndash; b) * (c + d) + (a &ndash; b) is : &nbsp; ab &ndash; cd + *ab -+<br />Read
+                        more:&nbsp;Infix to Postfix<br />&nbsp;</li>
+                </ul>
+            </li>
+            <li value="2"><strong>Three-Address Code:</strong>
+                <ul>
+                    <li value="1">A three address statement involves a maximum of three references, consisting of two
+                        for operands and one for the result.</li>
+                    <li value="2">A sequence of three address statements collectively forms a three address code.</li>
+                    <li value="3">The typical form of a three address statement is expressed as&nbsp;<em><em
+                                class="GFGEditorTheme__textItalic">x = y op z</em></em>, where&nbsp;<em><em
+                                class="GFGEditorTheme__textItalic">x, y</em></em>, and&nbsp;<em><em
+                                class="GFGEditorTheme__textItalic">z</em></em>&nbsp;represent memory addresses.</li>
+                    <li value="4">Each variable&nbsp;<em><em class="GFGEditorTheme__textItalic">(x, y,
+                                z)&nbsp;</em></em>in a three address statement is associated with a specific memory
+                        location.</li>
+                    <li value="5">While a standard three address statement includes three references, there are
+                        instances where a statement may contain fewer than three references, yet it is still categorized
+                        as a three address statement.<br /><strong>Example:&nbsp;</strong>The three address code for the
+                        expression a + b * c + d : T1 = b * c T2 = a + T1 T3 = T2 + d; T 1 , T2 , T3 are temporary
+                        variables.
+                        <p>There are 3 ways to represent a Three-Address Code in compiler design:&nbsp;<br />i)
+                            Quadruples<br />ii) Triples<br />iii) Indirect &nbsp;Triples<br />Read more:<a
+                                href="threeaddress.html">&nbsp;Three-address code</a><br />&nbsp;</p>
+                    </li>
+                </ul>
+            </li>
+            <li value="3"><strong>Syntax Tree:</strong>
+                <ul>
+                    <li value="1">A syntax tree serves as a condensed representation of a parse tree.</li>
+                    <li value="2">The operator and keyword nodes present in the parse tree undergo a relocation process
+                        to become part of their respective parent nodes in the syntax tree. the internal nodes are
+                        operators and child nodes are operands.</li>
+                    <li value="3">Creating a syntax tree involves strategically placing parentheses within the
+                        expression. This technique contributes to a more intuitive representation, making it easier to
+                        discern the sequence in which operands should be processed.</li>
+                    <li value="4">The syntax tree not only condenses the parse tree but also offers an improved visual
+                        representation of the program&rsquo;s syntactic structure,<br /><strong>Example:</strong>&nbsp;x
+                        = (a + b * c) / (a &ndash; b * c)<br />&nbsp;<img
+                            src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/2-19.png" alt="2" width="355"
+                            height="320" />
+                        <p>&nbsp;</p>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+</body>
+
+</html>

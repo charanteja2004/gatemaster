@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    <div class="main_wrapper">
+        <div class="article-title">
+        <div class="main_wrapper">
+        <div class="article-title">
+        <div>
+        <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>What is Priority Queue</h1>
+        </div>
+        </div>
+        </div>
+        <div class="text">
+        <p>A&nbsp;<strong>priority queue</strong>&nbsp;is a type of queue that arranges elements based on their priority values. Elements with higher priority values are typically retrieved before elements with lower priority values.</p>
+        <p>In a priority queue, each element has a priority value associated with it. When you add an element to the queue, it is inserted in a position based on its priority value. For example, if you add an element with a high priority value to a priority queue, it may be inserted near the front of the queue, while an element with a low priority value may be inserted near the back.</p>
+        <p>There are several ways to implement a priority queue, including using an array, linked list, heap, or binary search tree. Each method has its own advantages and disadvantages, and the best choice will depend on the specific needs of your application.</p>
+        <p>Priority queues are often used in real-time systems, where the order in which elements are processed can have significant consequences. They are also used in algorithms to improve their efficiencies, such as&nbsp;<strong>Dijkstra&rsquo;s algorithm</strong>&nbsp;for finding the shortest path in a graph and the A* search algorithm for pathfinding.</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <h2><strong>Properties of Priority Queue</strong></h2>
+        <p><em><strong>So, a priority Queue is an extension of the&nbsp;</strong></em><a href="queue.html"><em><strong>queue&nbsp;</strong></em></a><em><strong>with the following properties.&nbsp;</strong></em></p>
+        <ul>
+        <li>Every item has a priority associated with it.</li>
+        <li>An element with high priority is dequeued before an element with low priority.</li>
+        <li>If two elements have the same priority, they are served according to their order in the queue.</li>
+        </ul>
+        <p>In the below priority queue, an element with a maximum ASCII value will have the highest priority. The elements with higher priority are served first.&nbsp;</p>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Priority-Queue-min-1024x512.png" alt="" width="520" height="260" /></p>
+        <h2><strong>How is Priority assigned to the elements in a Priority Queue?</strong></h2>
+        <p>In a priority queue, generally, the value of an element is considered for assigning the priority.&nbsp;</p>
+        <p>For example, the element with the highest value is assigned the highest priority and the element with the lowest value is assigned the lowest priority. The reverse case can also be used i.e., the element with the lowest value can be assigned the highest priority. Also, the priority can be assigned according to our needs.&nbsp;</p>
+        <h2><strong>Operations of a Priority Queue:</strong></h2>
+        <p>A typical priority queue supports the following operations:</p>
+        <h3><strong>1) Insertion in a Priority Queue</strong></h3>
+        <p>When a new element is inserted in a priority queue, it moves to the empty slot from top to bottom and left to right. However, if the element is not in the correct place then it will be compared with the parent node. If the element is not in the correct order, the elements are swapped. The swapping process continues until all the elements are placed in the correct position.</p>
+        <h3><strong>2) Deletion in a Priority Queue&nbsp;</strong>&nbsp;</h3>
+        <p>As you know that in a max heap, the maximum element is the root node. And it will remove the element which has maximum priority first. Thus, you remove the root node from the queue. This removal creates an empty slot, which will be further filled with new insertion. Then, it compares the newly inserted element with all the elements inside the queue to maintain the heap invariant.</p>
+        <h3><strong>3) Peek in a Priority Queue</strong></h3>
+        <p>This operation helps to return the maximum element from Max Heap or the minimum element from Min Heap without deleting the node from the priority queue.</p>
+        <h2>Types of Priority Queue:</h2>
+        <h3><strong>1) Ascending Order Priority Queue</strong></h3>
+        <p>As the name suggests, in ascending order priority queue, the element with a lower priority value is given a higher priority in the priority list. For example, if we have the following elements in a priority queue arranged in ascending order like 4,6,8,9,10. Here, 4 is the smallest number, therefore, it will get the highest priority in a priority queue and so when we dequeue from this type of priority queue, 4 will remove from the queue and dequeue returns 4.</p>
+        <h3><strong>2) Descending order Priority Queue&nbsp;</strong></h3>
+        <p>The root node is the maximum element in a max heap, as you may know. It will also remove the element with the highest priority first. As a result, the root node is removed from the queue. This deletion leaves an empty space, which will be filled with fresh insertions in the future. The heap invariant is then maintained by comparing the newly inserted element to all other entries in the queue.</p>
+        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220623153252/priorityqueue.jpg" alt="Types of Priority Queues" width="411" height="337" />
+        <p class="wp-caption-text">Types of Priority Queues</p>
+        </div>
+        <h2><strong>Difference between Priority Queue and Normal Queue?</strong></h2>
+        <p>There is no priority attached to elements in a queue, the rule of first-in-first-out(FIFO) is implemented whereas, in a priority queue, the elements have a priority. The elements with higher priority are served first.</p>
+        <h2><strong>How to Implement Priority Queue?</strong>&nbsp;</h2>
+        <p>Priority queue can be implemented using the following data structures:&nbsp;</p>
+        <ul>
+        <li>Arrays</li>
+        <li>Linked list</li>
+        <li>Heap data structure</li>
+        <li>Binary search tree</li>
+        </ul>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="main_wrapper">
+            <div class="article-title">
+            <div class="main_wrapper">
+            <div class="article-title">
+            <div class="main_wrapper">
+            <div class="article-title">
+            <h3><strong>Implement Priority Queue Using Array:</strong><em>&nbsp;</em></h3>
+            <p>A simple implementation is to use an array of the following structure.&nbsp;</p>
+            <blockquote>
+            <p>struct item {<br />&nbsp; &nbsp; &nbsp; &nbsp; int item;<br />&nbsp; &nbsp; &nbsp; &nbsp; int priority;<br />}</p>
+            </blockquote>
+            <ul>
+            <li><strong>enqueue():</strong>&nbsp;This function is used to insert new data into the queue.</li>
+            <li><strong>dequeue():</strong>&nbsp;This function removes the element with the highest priority from the queue.</li>
+            <li><strong>peek()/top():</strong>&nbsp;This function is used to get the highest priority element in the queue without removing it from the queue.</li>
+            </ul>
+            <figure class="table">
+            <table>
+            <thead>
+            <tr>
+            <th>
+            <p>Arrays</p>
+            </th>
+            <th>
+            <p>enqueue()</p>
+            </th>
+            <th>
+            <p>dequeue()</p>
+            </th>
+            <th>
+            <p>peek()</p>
+            </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <th>
+            <p>Time Complexity</p>
+            </th>
+            <td>
+            <p>O(1)</p>
+            </td>
+            <td>
+            <p>O(n)</p>
+            </td>
+            <td>
+            <p>O(n)</p>
+            </td>
+            </tr>
+            </tbody>
+            </table>
+            <p>&nbsp;</p>
+            <h3><strong>2) Implement Priority Queue Using Linked List:&nbsp;</strong></h3>
+            <p>In a LinkedList implementation, the entries are sorted in descending order based on their priority. The highest priority element is always added to the front of the priority queue, which is formed using linked lists. The functions like&nbsp;<strong>push()</strong>,&nbsp;<strong>pop()</strong>, and<strong>&nbsp;peek()</strong>&nbsp;are used to implement a priority queue using a linked list and are explained as follows:</p>
+            <ul>
+            <li><strong>push():&nbsp;</strong>This function is used to insert new data into the queue.</li>
+            <li><strong>pop():&nbsp;</strong>This function removes the element with the highest priority from the queue.</li>
+            <li><strong>peek() / top():&nbsp;</strong>This function is used to get the highest priority element in the queue without removing it from the queue.</li>
+            </ul>
+            <figure class="table">
+            <table>
+            <thead>
+            <tr>
+            <th>
+            <p>Linked List</p>
+            </th>
+            <th>
+            <p>push()</p>
+            </th>
+            <th>
+            <p>pop()</p>
+            </th>
+            <th>
+            <p>peek()</p>
+            </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <th>
+            <p>Time Complexity</p>
+            </th>
+            <td>
+            <p>&nbsp;O(n) &nbsp;&nbsp;</p>
+            </td>
+            <td>
+            <p>&nbsp;O(1) &nbsp;</p>
+            </td>
+            <td>
+            <p>O(1)</p>
+            </td>
+            </tr>
+            </tbody>
+            </table>
+            <h3><strong>3) Implement Priority Queue Using Heaps:</strong>&nbsp;</h3>
+            <p>Binary Heap is generally preferred for priority queue implementation because heaps provide better performance compared to arrays or LinkedList. Considering the properties of a heap, The entry with the largest key is on the top and can be removed immediately. It will, however, take time O(log n) to restore the heap property for the remaining keys. However if another entry is to be inserted immediately, then some of this time may be combined with the O(log n) time needed to insert the new entry. Thus the representation of a priority queue as a heap proves advantageous for large n, since it is represented efficiently in contiguous storage and is guaranteed to require only logarithmic time for both insertions and deletions. Operations on Binary Heap are as follows:&nbsp;</p>
+            <ul>
+            <li><strong>insert(p):</strong>&nbsp;Inserts a new element with priority p.</li>
+            <li><strong>extractMax():</strong>&nbsp;Extracts an element with maximum priority.</li>
+            <li><strong>remove(i):&nbsp;</strong>Removes an element pointed by an iterator i.</li>
+            <li><strong>getMax():</strong>&nbsp;Returns an element with maximum priority.</li>
+            <li><strong>changePriority(i, p):</strong>&nbsp;Changes the priority of an element pointed by&nbsp;<strong>i to p</strong>.</li>
+            </ul>
+            <figure class="table">
+            <table>
+            <thead>
+            <tr>
+            <th>
+            <p>Binary Heap</p>
+            </th>
+            <th>
+            <p>insert()</p>
+            </th>
+            <th>
+            <p>remove()</p>
+            </th>
+            <th>
+            <p>peek()</p>
+            </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <th>
+            <p>Time Complexity</p>
+            </th>
+            <td>
+            <p>O(log n)</p>
+            </td>
+            <td>
+            <p>O(log n)</p>
+            </td>
+            <td>
+            <p>O(1)</p>
+            </td>
+            </tr>
+            </tbody>
+            </table>
+            </figure>
+            </figure>
+            </figure>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            <div class="gray"><div class="main_wrapper">
+                <div class="article-title">
+                <div class="main_wrapper">
+                <div class="article-title">
+                <div class="main_wrapper">
+                <div class="article-title">
+                <div>// Java program to implement Priority Queue</div>
+                <div>// using Arrays</div>
+                <div>import java.util.*;</div>
+                <div>&nbsp;</div>
+                <div>// Structure for the elements in the</div>
+                <div>// priority queue</div>
+                <div>class item {</div>
+                <div>public int value;</div>
+                <div>public int priority;</div>
+                <div>};</div>
+                <div>&nbsp;</div>
+                <div>class GFG {</div>
+                <div>&nbsp;</div>
+                <div>// Store the element of a priority queue</div>
+                <div>static item[] pr = new item[100000];</div>
+                <div>&nbsp;</div>
+                <div>// Pointer to the last index</div>
+                <div>static int size = -1;</div>
+                <div>// Function to insert a new element</div>
+                <div>// into priority queue</div>
+                <div>static void enqueue(int value, int priority)</div>
+                <div>{</div>
+                <div>// Increase the size</div>
+                <div>size++;</div>
+                <div>&nbsp;</div>
+                <div>// Insert the element</div>
+                <div>pr[size] = new item();</div>
+                <div>pr[size].value = value;</div>
+                <div>pr[size].priority = priority;</div>
+                <div>}</div>
+                <div>&nbsp;</div>
+                <div>// Function to check the top element</div>
+                <div>static int peek()</div>
+                <div>{</div>
+                <div>int highestPriority = Integer.MIN_VALUE;</div>
+                <div>int ind = -1;</div>
+                <div>&nbsp;</div>
+                <div>// Check for the element with</div>
+                <div>// highest priority</div>
+                <div>for (int i = 0; i &lt;= size; i++) {</div>
+                <div>&nbsp;</div>
+                <div>// If priority is same choose</div>
+                <div>// the element with the</div>
+                <div>// highest value</div>
+                <div>if (highestPriority == pr[i].priority</div>
+                <div>&amp;&amp; ind &gt; -1</div>
+                <div>&amp;&amp; pr[ind].value &lt; pr[i].value) {</div>
+                <div>highestPriority = pr[i].priority;</div>
+                <div>ind = i;</div>
+                <div>}</div>
+                <div>else if (highestPriority &lt; pr[i].priority) {</div>
+                <div>highestPriority = pr[i].priority;</div>
+                <div>ind = i;</div>
+                <div>}</div>
+                <div>}</div>
+                <div>&nbsp;</div>
+                <div>// Return position of the element</div>
+                <div>return ind;</div>
+                <div>}</div>
+                <div>&nbsp;</div>
+                <div>// Function to remove the element with</div>
+                <div>// the highest priority</div>
+                <div>static void dequeue()</div>
+                <div>{</div>
+                <div>// Find the position of the element</div>
+                <div>// with highest priority</div>
+                <div>int ind = peek();</div>
+                <div>&nbsp;</div>
+                <div>// Shift the element one index before</div>
+                <div>// from the position of the element</div>
+                <div>// with highest priority is found</div>
+                <div>for (int i = ind; i &lt; size; i++) {</div>
+                <div>pr[i] = pr[i + 1];</div>
+                <div>}</div>
+                <div>&nbsp;</div>
+                <div>// Decrease the size of the</div>
+                <div>// priority queue by one</div>
+                <div>size--;</div>
+                <div>}</div>
+                <div>&nbsp;</div>
+                <div>public static void main(String[] args)</div>
+                <div>{</div>
+                <div>// Function Call to insert elements</div>
+                <div>// as per the priority</div>
+                <div>enqueue(10, 2);</div>
+                <div>enqueue(14, 4);</div>
+                <div>enqueue(16, 4);</div>
+                <div>enqueue(12, 3);</div>
+                <div>&nbsp;</div>
+                <div>// Stores the top element</div>
+                <div>// at the moment</div>
+                <div>int ind = peek();</div>
+                <div>&nbsp;</div>
+                <div>System.out.println(pr[ind].value);</div>
+                <div>&nbsp;</div>
+                <div>// Dequeue the top element</div>
+                <div>dequeue();</div>
+                <div>&nbsp;</div>
+                <div>// Check the top element</div>
+                <div>ind = peek();</div>
+                <div>System.out.println(pr[ind].value);</div>
+                <div>&nbsp;</div>
+                <div>// Dequeue the top element</div>
+                <div>dequeue();</div>
+                <div>&nbsp;</div>
+                <div>// Check the top element</div>
+                <div>ind = peek();</div>
+                <div>System.out.println(pr[ind].value);</div>
+                <div>}</div>
+                <div>}</div>
+                <div>&nbsp;</div>
+                <div>// this code is contributed by phasing17</div>
+                <p>&nbsp;</p>
+                <figure class="table">
+                <figure class="table"></figure>
+                </figure>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div></div>
+</body>
+</html>

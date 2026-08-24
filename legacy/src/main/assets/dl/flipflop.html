@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    <div class="article-title">
+        <h1>Flip-Flop types, their Conversion and Applications</h1>
+        </div>
+        <div class="text">
+        <p dir="ltr">In this article, we will go through the Flip-Flop types, their Conversion and their Applications, First, we will go through the definition of the flip-flop with its types in brief, and then we will go through the conversion of the flip-flop with its applications, At last, we will conclude our article with some FAQs.</p>
+        <div id="table_of_content">
+        <p>Table of Content</p>
+        <ul>
+        <li><a href="#what-is-a-flipflop">Flip-Flop</a></li>
+        <li><a href="#types-of-flipflops">Types</a></li>
+        <li><a href="#sr-flip-flop">S-R Flip Flop</a></li>
+        <li><a href="#jk-flip-flop">J-K Flip Flop</a></li>
+        <li><a href="#d-flip-flop">D Flip Flop</a></li>
+        <li><a href="#t-flip-flop">T Flip Flop</a></li>
+        <li><a href="#conversion-for-flip-flops">Conversion for Flip Flops</a></li>
+        <li><a href="#applications-of-flipflops">&nbsp;Applications</a></li>
+        </ul>
+        </div>
+        <h2 id="what-is-a-flipflop">What is a Flip-Flop?</h2>
+        <p dir="ltr">The flip-flop is a circuit that maintains a state until directed by input to change the state. A basic flip-flop can be constructed using four-NAND&nbsp;or four-NOR gates. Flip-flop is popularly known as the basic digital memory circuit. It has its two states as logic 1(High) and logic 0(low) states. A flip flop is a sequential circuit which consist of single binary state of information or data. The digital circuit is a flip flop which has two outputs and are of opposite states. It is also known as a&nbsp;Bistable Multivibrator.</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <h2 id="types-of-flipflops"><strong>Types of Flip-Flops</strong></h2>
+        <p dir="ltr">Given Below are the Types of Flip-Flop</p>
+        <ul>
+        <li value="1">SR Flip Flop</li>
+        <li value="2">JK Flip Flop</li>
+        <li value="3">D Flip Flop</li>
+        <li value="4">T Flip Flop</li>
+        </ul>
+        <p dir="ltr">Logic diagrams and truth tables of the different types of flip-flops are as follows:&nbsp;&nbsp;</p>
+        <h2 id="sr-flip-flop">S-R Flip Flop</h2>
+        <p dir="ltr">In the flip flop, with the help of preset and clear when the power is switched ON, the states of the circuit keeps on changing, that is it is uncertain. It may come to set(Q=1) or reset(Q&rsquo;=0) state. In many applications, it is desired to initially set or reset the flip flop that is the initial state of the flip flop that needs to be assigned. This thing is accomplished by the preset(PR) and the clear(CLR).</p>
+        <h3 id="block-diagram-of-sr-flip-flop">Block Diagram of S-R Flip Flop</h3>
+        <p dir="ltr">Given Below is the Block Diagram of&nbsp;S-R Flip Flop</p>
+        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20200619163301/SR-Flip-Flop1.png" alt="SR-Flip-Flop1" width="314" height="264" />
+        <p class="wp-caption-text">S-R Flip Flop</p>
+        </div>
+        <h3 id="circuit-diagram-and-truth-table-of-sr-flip-flop">Circuit Diagram and Truth Table of S-R Flip Flop</h3>
+        <p dir="ltr">Given Below is the Diagram of S-R Flip Flop with its Truth Table</p>
+        <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2017/01/SR_flip.png" alt="SR_flip" width="197" height="405" /></p>
+        <h3 id="operations-of-sr-flip-flop">Operations of S-R Flip Flop</h3>
+        <p dir="ltr">Given Below is the Operations of S-R Flip Flop</p>
+        <ul>
+        <li value="1"><strong>Case 1(PR=CLR=1):</strong>&nbsp;The asynchronous inputs are inactive and the flip flop responds freely to the S,R and the CLK inputs in the normal way.</li>
+        <li value="2"><strong>Case 2(PR=0 and CLR=1):</strong>This is used when the Q is set to 1.</li>
+        <li value="3"><strong>Case 3(PR=1 and CLR=0):</strong>This is used when the Q&rsquo; is set to 1.</li>
+        <li value="4"><strong>Case 4(PR=CLR=0):&nbsp;</strong>This is an invalid state.</li>
+        </ul>
+        <blockquote>
+        <p dir="ltr">Characteristics Equation for SR Flip Flop</p>
+        <p dir="ltr"><strong>Q</strong><strong><sub>N+1</sub></strong><strong>&nbsp;= &nbsp;Q</strong><strong><sub>N</sub></strong><strong>R&rsquo; + SR&rsquo;</strong></p>
+        </blockquote>
+        <h2 id="jk-flip-flop">J-K Flip Flop</h2>
+        <p dir="ltr">In JK flip flops, The basic structure of the flip flop which consists of Clock (CLK), Clear (CLR), Preset (PR).</p>
+        <h3 id="block-diagram-of-jk-flip-flop">Block Diagram of J-K Flip Flop</h3>
+        <p dir="ltr">Given Below is Block Diagram of&nbsp;J-K Flip Flop</p>
+        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20200619163347/JK-Flip-Flop1.png" alt="JK-Flip-Flop1" width="276" height="224" />
+        <p class="wp-caption-text">J-K Flip Flop</p>
+        </div>
+        <h3 id="circuit-diagram-and-truth-table-of-jk-flip-flop">Circuit Diagram and Truth Table of J-K Flip Flop</h3>
+        <p dir="ltr">Given Below is the Diagram of J-K Flip Flop with its Truth Table</p>
+        <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2017/01/JK_flip.png" alt="JK_flip" width="257" height="429" /></p>
+        <h3 id="operations-of-jk-flip-flop">Operations of J-K Flip Flop</h3>
+        <p dir="ltr">Given Below is the Operations of J-K Flip Flop</p>
+        <ul>
+        <li value="1"><strong>Case 1 (PR=CLR=0 ):</strong>This condition is in its invalid state.</li>
+        <li value="2"><strong>Case 2 (PR=0 and CLR=1):</strong>The PR is activated which means the output in the Q is set to 1. Therefore, the flip flop is in the set state.</li>
+        <li value="3"><strong>Case 3 (PR=1 and CLR=0):</strong>The CLR is activated which means the output in the Q&rsquo; is set to 1. Therefore, the flip flop is in the reset state.</li>
+        <li value="4"><strong>Case 4 (PR=CLR=1):</strong>In this condition the flip flop works in its normal way whereas the PR and CLR gets deactivated.</li>
+        </ul>
+        </div>
+        <div class="article-title">
+            <h3 id="race-around-condition-in-jk-flip-flop">Race Around Condition in J-K Flip Flop</h3>
+            <p dir="ltr">When the J and K both are set to 1, the input remains high for a longer duration of time, then the output keeps on toggling. Toggle means that switching in the output instantly i.e. Q=0, Q&rsquo;=1 will immediately change to Q=1 and Q&rsquo;=0 and this continuation keeps on changing. This change in output leads to race around condition.</p>
+            <blockquote>
+            <p dir="ltr">Characteristics Equation for JK Flip Flop</p>
+            <p dir="ltr"><strong>Q</strong><strong><sub>N+1</sub></strong><strong>&nbsp;= JQ&rsquo;</strong><strong><sub>N</sub></strong><strong>&nbsp;+ K&rsquo;Q</strong><strong><sub>N</sub></strong></p>
+            </blockquote>
+            <h2 id="d-flip-flop">D Flip Flop</h2>
+            <p dir="ltr">The D Flip Flop Consists a single data input(D), a clock input(CLK),and two outputs: Q and Q&rsquo; (the complement of Q).</p>
+            <h3 id="block-diagram-of-d-flip-flop">Block Diagram of D Flip Flop</h3>
+            <p dir="ltr">Given Below is the Block Diagram of&nbsp;D Flip Flop</p>
+            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20200619163117/D-Flip-Flop.png" alt="D-Flip-Flop" width="361" height="265" />
+            <p class="wp-caption-text">D FLIP FLOP</p>
+            </div>
+            <h3 id="circuit-diagram-and-truth-table-of-d-flip-flop">Circuit Diagram and Truth Table of D Flip Flop</h3>
+            <p dir="ltr">Given Below is the Diagram of D Flip Flop with its Truth Table</p>
+            <p><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2017/01/D-logic-diag-300x123.png" alt="D- logic diag" width="234" height="96" /><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2017/01/D-flip-flop.png" alt="D flip flop" width="inherit" height="inherit" /></p>
+            <h3 id="operation-of-the-d-flipflop">Operation of the D Flip-Flop</h3>
+            <p dir="ltr">Given Below is the operation of D Flip-Flip</p>
+            <ul>
+            <li value="1"><strong>Case 1 (PR=CLR=0):</strong>This conditions is represents as invalid state where both PR(present) and CLR(clear) inputs are inactive.</li>
+            <li value="2"><strong>Case 2 (PR=0 and CLR=1)</strong>:This state is set state in which PR is inactive (0) and CLR is active(1) and the output Q is set to 1.</li>
+            <li value="3"><strong>Case 3 (PR=1 and CLR=0):</strong>This state is reset state in which PR is active (1) and CLR is inactive (0) and the complementary output Q&rsquo; is set to 1.</li>
+            <li value="4"><strong>Case 4 (PR=CLR=1):</strong>In This state the flip flop behaves as normal, both PR and CLR inputs are active(1).</li>
+            </ul>
+            <blockquote>
+            <p dir="ltr">Characteristics Equation for D Flip Flop</p>
+            <p dir="ltr"><strong>Q</strong><strong><sub>N+1</sub></strong><strong>&nbsp;= D</strong></p>
+            </blockquote>
+            <h2 id="t-flip-flop">T Flip Flop</h2>
+            <p dir="ltr">The T Flip Flop consists of data input (T), a clock input (CLK), and two outputs: Q and Q&rsquo; (the complement of Q).</p>
+            <h3 id="block-diagram-of-t-flip-flop">Block Diagram of T Flip Flop</h3>
+            <p dir="ltr">Given Below is the Block Diagram of&nbsp;T Flip Flop</p>
+            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20200619163035/T-Flip-Flop.png" alt="T-Flip-Flop" width="259" height="200" />
+            <p class="wp-caption-text">T FLIP FLOP</p>
+            </div>
+            <h3 id="circuit-diagram-and-truth-table-of-t-flip-flop">Circuit Diagram and Truth Table of T Flip Flop</h3>
+            <p dir="ltr">Given Below is the Circuit Diagram and Truth Table of T Flip Flop</p>
+            <h3><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2017/01/T-logic-diag-300x143.png" alt="T- logic diag" width="inherit" height="inherit" /><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2017/01/T-flip-flop-300x127.png" alt="T flip flop" width="inherit" height="inherit" /></h3>
+            <p>Operation of the T Flip-Flop</p>
+            <p dir="ltr">Given Below is the Operation of T Flip-Flop</p>
+            <ul>
+            <li value="1"><strong>Case 1 (T=0):</strong>In this condition the&nbsp;<strong>fl</strong>ip-flop remains in its current state regardless of clock input,Also the Output Q will remain unchanged unit the value of T will not change.</li>
+            <li value="2"><strong>Case 2 (T=1):</strong>In this condition the flip flop will change when T input is 1,At each rising or falling edge of the clock signal the output Q will be in complementary state.</li>
+            </ul>
+            <blockquote>
+            <p dir="ltr">Characteristics Equation for T Flip Flop</p>
+            <p dir="ltr"><strong>Q</strong><strong><sub>N+1</sub></strong><strong>&nbsp;= Q&rsquo;</strong><strong><sub>N</sub></strong><strong>T + Q</strong><strong><sub>N</sub></strong><strong>T&rsquo; = Q</strong><strong><sub>N</sub></strong><strong>&nbsp;XOR T</strong></p>
+            </blockquote>
+            </div>
+            <div class="article-title">
+                <h2 id="conversion-for-flip-flops">Conversion for Flip Flops</h2>
+                <p dir="ltr">The Excitation Table of the Flip Flop can be given as</p>
+                <p dir="ltr"><strong>EXCITATION TABLE</strong>:</p>
+                <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2017/01/flip_1.png" alt="flip_1" width="305" height="126" /></p>
+                <p><strong>Steps To Convert from One Flip Flop to Other</strong></p>
+                <p dir="ltr">Let there be required flipflop to be constructed using sub-flipflop:</p>
+                <ol>
+                <li value="1">Draw the truth table of the required flip-flop.</li>
+                <li value="2">Write the corresponding outputs of sub-flipflop to be used from the excitation table.</li>
+                <li value="3">Draw K-Maps using required flipflop inputs and obtain excitation functions for sub-flipflop inputs.</li>
+                <li value="4">Construct a logic diagram according to the functions obtained.</li>
+                </ol>
+                <p dir="ltr"><strong>Convert SR To JK Flip Flop</strong></p>
+                <p dir="ltr">The Table for the SR To JK is given as</p>
+                <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2017/01/flip_2.png" alt="flip_2" width="288" height="244" /></p>
+                <h3 id="excitation-functions-and-logic-diagram"><strong>Excitation Functions and Logic Diagram</strong></h3>
+                <p dir="ltr">Function and Logic Diagram for the conversion is given below</p>
+                <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2017/01/flip_3.png" alt="flip_3" width="263" height="364" />&nbsp;</p>
+                <p><strong>Convert SR To D Flip Flop</strong></p>
+                <p dir="ltr">The Table for the SR To JK is given as</p>
+                <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2017/01/flip_4.png" alt="flip_4" width="217" height="159" /></p>
+                <p dir="ltr"><strong>Excitation Functions and Logic Diagram</strong></p>
+                <p dir="ltr">Function and Logic Diagram for the conversion is given below</p>
+                <h2><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2017/01/flip_5.png" alt="flip_5" width="inherit" height="inherit" /><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2017/01/flip_6.png" alt="flip_6" width="243" height="179" />&nbsp;</h2>
+                <p>Applications of Flip-Flops</p>
+                <p dir="ltr">These are the various types of flip-flops being used in digital electronic circuits and the applications of Flip-flops are as specified below.</p>
+                <ul>
+                <li value="1"><strong>Counters:&nbsp;</strong>The Flip Flop are used in the&nbsp;<a href="counters.html" target="_blank" rel="noopener">Counter</a>&nbsp;Circuits for Counting pulse or events.</li>
+                <li value="2"><strong>Frequency Dividers:&nbsp;</strong>The Flip Flop are used in&nbsp;Frequency Dividers&nbsp;to divide the frequency of a input signal by a specific factor.</li>
+                <li value="3"><strong>Shift Registers:&nbsp;</strong>The&nbsp;<a href="shiftregisters.html" target="_blank" rel="noopener">Shift registers</a>&nbsp;consist of interconnected flip-flops that shift data serially.</li>
+                <li value="4"><strong>Storage Registers:&nbsp;</strong>The Storage Resistor uses Flip Flop to store data in binary information.</li>
+                <li value="5"><strong>Bounce elimination switch:&nbsp;</strong>The Flip Flop are used in Bounce elimination switch to eliminate the contact bounce.</li>
+                <li value="6"><strong>Data storage:&nbsp;</strong>The Flip Flop are used in the Data Storage to store binary data temporarily or permanently.</li>
+                <li value="7"><strong>Data transfer:&nbsp;</strong>The Flip Flops are used for data transfer in different&nbsp;electronic parts.</li>
+                <li value="8"><strong>Latch:&nbsp;</strong>The Latches are the&nbsp;<a href="introsequential.html" target="_blank" rel="noopener">Sequential circuit</a>&nbsp;which uses Flip Flop for temporary storage of data</li>
+                <li value="9"><strong>Registers:&nbsp;</strong>The&nbsp;Registers&nbsp;are mode from the array of flip flop which are used to store data temporarily<strong>.</strong></li>
+                <li value="10"><strong>Memory:&nbsp;</strong>The Flip Flops are the main components in the&nbsp;memory unit&nbsp;for data storage.</li>
+                </ul>
+                </div>
+</body>
+</html>

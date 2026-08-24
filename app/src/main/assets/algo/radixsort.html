@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    <h3>Radix Sort</h3>
+    <blockquote>
+        <p dir="ltr"><strong>Radix Sort&nbsp;</strong>is a linear sorting algorithm that sorts elements by processing
+            them digit by digit. It is an efficient sorting algorithm for integers or strings with fixed-size
+            keys.&nbsp;</p>
+    </blockquote>
+    <p dir="ltr">Rather than comparing elements directly, Radix Sort distributes the elements into buckets based on each
+        digit&rsquo;s value. By repeatedly sorting the elements by their significant digits, from the least significant
+        to the most significant, Radix Sort achieves the final sorted order.</p>
+    <div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
+    <h2>Radix Sort Algorithm</h2>
+    <p dir="ltr">The key idea behind Radix Sort is to exploit the concept of place value. It assumes that sorting
+        numbers digit by digit will eventually result in a fully sorted list. Radix Sort can be performed using
+        different variations, such as Least Significant Digit (LSD) Radix Sort or Most Significant Digit (MSD) Radix
+        Sort.</p>
+    <h2>How does Radix Sort Algorithm work?</h2>
+    <blockquote>
+        <p dir="ltr">To perform radix sort on the array [170, 45, 75, 90, 802, 24, 2, 66], we follow these steps:</p>
+    </blockquote>
+    <div class="wp-caption alignnone"><img
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20230609164537/Radix-Sort.png" width="385"
+            height="314" />
+        <p class="wp-caption-text">How does Radix Sort Algorithm work | Step 1</p>
+    </div>
+    <p dir="ltr"><strong>Step 1:&nbsp;</strong>Find the largest element in the array, which is 802. It has three digits,
+        so we will iterate three times, once for each significant place.</p>
+    <p dir="ltr"><strong>Step 2:</strong>&nbsp;Sort the elements based on the unit place digits (X=0). We use a stable
+        sorting technique, such as counting sort, to sort the digits at each significant place.</p>
+    <p dir="ltr"><strong>Sorting based on the unit place:</strong></p>
+    <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+    <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+    <ul>
+        <li value="1">Perform counting sort on the array based on the unit place digits.</li>
+        <li value="2">The sorted array based on the unit place is [170, 90, 802, 2, 24, 45, 75, 66].</li>
+    </ul>
+    <div class="wp-caption alignnone"><img
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20230609164536/Radix-Sort--1.png" width="340"
+            height="336" />
+        <p class="wp-caption-text">How does Radix Sort Algorithm work | Step 2</p>
+    </div>
+    <p dir="ltr"><strong>Step 3:&nbsp;</strong>Sort the elements based on the tens place digits.</p>
+    <p dir="ltr"><strong>Sorting based on the tens place:</strong></p>
+    <ul>
+        <li value="1">Perform counting sort on the array based on the tens place digits.</li>
+        <li value="2">The sorted array based on the tens place is [802, 2, 24, 45, 66, 170, 75, 90].</li>
+    </ul>
+    <div class="wp-caption alignnone"><img
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20230609164535/Radix-Sort--2.png" width="313"
+            height="325" />
+        <p class="wp-caption-text">How does Radix Sort Algorithm work | Step 3</p>
+    </div>
+    <p dir="ltr"><strong>Step 4:&nbsp;</strong>Sort the elements based on the hundreds place digits.</p>
+    <p dir="ltr"><strong>Sorting based on the hundreds place:</strong></p>
+    <ul>
+        <li value="1">Perform counting sort on the array based on the hundreds place digits.</li>
+        <li value="2">The sorted array based on the hundreds place is [2, 24, 45, 66, 75, 90, 170, 802].</li>
+    </ul>
+    <div class="wp-caption alignnone"><img
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20230609164535/Radix-Sort--3.png" width="305"
+            height="322" />
+        <p class="wp-caption-text">How does Radix Sort Algorithm work | Step 4</p>
+    </div>
+    <p dir="ltr"><strong>Step 5:&nbsp;</strong>The array is now sorted in ascending order.</p>
+    <p dir="ltr">The final sorted array using radix sort is [2, 24, 45, 66, 75, 90, 170, 802].</p>
+    <div id="GFG_AD_gfg_outstream_incontent" data-google-query-id="CObrmpLdoIYDFUlknQkd3cEMmw">
+        <div id="google_ads_iframe_/27823234/gfg_outstream_incontent_0__container__">&nbsp;</div>
+    </div>
+    <div class="wp-caption alignnone"><img
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20230609164534/Radix-Sort--4.png" width="305"
+            height="322" />
+        <p class="wp-caption-text">How does Radix Sort Algorithm work | Step 5</p>
+    </div>
+
+    <div class="line number1 index0 alt2"><code class="comments">// C Program to implement Radix Sort</code></div>
+    <div class="line number2 index1 alt1"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+    <div class="line number3 index2 alt2">&nbsp;</div>
+    <div class="line number4 index3 alt1"><code
+            class="comments">// A utility function to get maximum value in arr[]</code></div>
+    <div class="line number5 index4 alt2"><code class="color1 bold">int</code> <code class="plain">getMax(</code><code
+            class="color1 bold">int</code> <code class="plain">arr[], </code><code class="color1 bold">int</code> <code
+            class="plain">n)</code></div>
+    <div class="line number6 index5 alt1"><code class="plain">{</code></div>
+    <div class="line number7 index6 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="color1 bold">int</code> <code class="plain">mx = arr[0];</code></div>
+    <div class="line number8 index7 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="keyword bold">for</code> <code class="plain">(</code><code class="color1 bold">int</code> <code
+            class="plain">i = 1; i &lt; n; i++)</code></div>
+    <div class="line number9 index8 alt2"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="keyword bold">if</code> <code class="plain">(arr[i] &gt; mx)</code></div>
+    <div class="line number10 index9 alt1"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="plain">mx = arr[i];</code></div>
+    <div class="line number11 index10 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="keyword bold">return</code> <code class="plain">mx;</code></div>
+    <div class="line number12 index11 alt1"><code class="plain">}</code></div>
+    <div class="line number13 index12 alt2">&nbsp;</div>
+    <div class="line number14 index13 alt1"><code
+            class="comments">// A function to do counting sort of arr[] according to</code></div>
+    <div class="line number15 index14 alt2"><code class="comments">// the digit represented by exp.</code></div>
+    <div class="line number16 index15 alt1"><code class="keyword bold">void</code> <code
+            class="plain">countSort(</code><code class="color1 bold">int</code> <code class="plain">arr[], </code><code
+            class="color1 bold">int</code> <code class="plain">n, </code><code class="color1 bold">int</code> <code
+            class="functions bold">exp</code><code class="plain">)</code></div>
+    <div class="line number17 index16 alt2"><code class="plain">{</code></div>
+    <div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// output array</code></div>
+    <div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="color1 bold">int</code> <code class="plain">output[n];</code></div>
+    <div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="color1 bold">int</code> <code class="plain">i, count[10] = { 0 };</code></div>
+    <div class="line number21 index20 alt2">&nbsp;</div>
+    <div class="line number22 index21 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// Store count of occurrences in count[]</code></div>
+    <div class="line number23 index22 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="keyword bold">for</code> <code class="plain">(i = 0; i &lt; n; i++)</code></div>
+    <div class="line number24 index23 alt1"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="plain">count[(arr[i] / </code><code class="functions bold">exp</code><code
+            class="plain">) % 10]++;</code></div>
+    <div class="line number25 index24 alt2">&nbsp;</div>
+    <div class="line number26 index25 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// Change count[i] so that count[i] now contains actual</code></div>
+    <div class="line number27 index26 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// position of this digit in output[]</code></div>
+    <div class="line number28 index27 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="keyword bold">for</code> <code class="plain">(i = 1; i &lt; 10; i++)</code></div>
+    <div class="line number29 index28 alt2"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="plain">count[i] += count[i - 1];</code></div>
+    <div class="line number30 index29 alt1">&nbsp;</div>
+    <div class="line number31 index30 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// Build the output array</code></div>
+    <div class="line number32 index31 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="keyword bold">for</code> <code class="plain">(i = n - 1; i &gt;= 0; i--) {</code></div>
+    <div class="line number33 index32 alt2"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="plain">output[count[(arr[i] / </code><code class="functions bold">exp</code><code
+            class="plain">) % 10] - 1] = arr[i];</code></div>
+    <div class="line number34 index33 alt1"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="plain">count[(arr[i] / </code><code class="functions bold">exp</code><code
+            class="plain">) % 10]--;</code></div>
+    <div class="line number35 index34 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="plain">}</code></div>
+    <div class="line number36 index35 alt1">&nbsp;</div>
+    <div class="line number37 index36 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// Copy the output array to arr[], so that arr[] now</code></div>
+    <div class="line number38 index37 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// contains sorted numbers according to current digit</code></div>
+    <div class="line number39 index38 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="keyword bold">for</code> <code class="plain">(i = 0; i &lt; n; i++)</code></div>
+    <div class="line number40 index39 alt1"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="plain">arr[i] = output[i];</code></div>
+    <div class="line number41 index40 alt2"><code class="plain">}</code></div>
+    <div class="responsive-tabs">
+        <div class="tabcontent">
+            <div class="code-block">
+                <div class="code-container">
+                    <div id="highlighter_601255" class="syntaxhighlighter nogutter  ">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tbody>
+                                <tr>
+                                    <td class="code">
+                                        <div class="container">
+                                            <div class="line number43 index42 alt2"><code
+                                                    class="comments">// The main function to that sorts arr[] of size n using</code>
+                                            </div>
+                                            <div class="line number44 index43 alt1"><code
+                                                    class="comments">// Radix Sort</code></div>
+                                            <div class="line number45 index44 alt2"><code
+                                                    class="keyword bold">void</code> <code
+                                                    class="plain">radixsort(</code><code class="color1 bold">int</code>
+                                                <code class="plain">arr[], </code><code class="color1 bold">int</code>
+                                                <code class="plain">n)</code></div>
+                                            <div class="line number46 index45 alt1"><code class="plain">{</code></div>
+                                            <div class="line number47 index46 alt2"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="comments">// Find the maximum number to know number of digits</code>
+                                            </div>
+                                            <div class="line number48 index47 alt1"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="color1 bold">int</code> <code
+                                                    class="plain">m = getMax(arr, n);</code></div>
+                                            <div class="line number49 index48 alt2">&nbsp;</div>
+                                            <div class="line number50 index49 alt1"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="comments">// Do counting sort for every digit. Note that instead</code>
+                                            </div>
+                                            <div class="line number51 index50 alt2"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="comments">// of passing digit number, exp is passed. exp is 10^i</code>
+                                            </div>
+                                            <div class="line number52 index51 alt1"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="comments">// where i is current digit number</code></div>
+                                            <div class="line number53 index52 alt2"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="keyword bold">for</code> <code class="plain">(</code><code
+                                                    class="color1 bold">int</code> <code
+                                                    class="functions bold">exp</code> <code
+                                                    class="plain">= 1; m / </code><code
+                                                    class="functions bold">exp</code> <code
+                                                    class="plain">&gt; 0; </code><code class="functions bold">exp</code>
+                                                <code class="plain">*= 10)</code></div>
+                                            <div class="line number54 index53 alt1"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="plain">countSort(arr, n, </code><code
+                                                    class="functions bold">exp</code><code class="plain">);</code></div>
+                                            <div class="line number55 index54 alt2"><code class="plain">}</code></div>
+                                            <div class="line number56 index55 alt1">&nbsp;</div>
+                                            <div class="line number57 index56 alt2"><code
+                                                    class="comments">// A utility function to print an array</code>
+                                            </div>
+                                            <div class="line number58 index57 alt1"><code
+                                                    class="keyword bold">void</code> <code
+                                                    class="plain">print(</code><code class="color1 bold">int</code>
+                                                <code class="plain">arr[], </code><code class="color1 bold">int</code>
+                                                <code class="plain">n)</code></div>
+                                            <div class="line number59 index58 alt2"><code class="plain">{</code></div>
+                                            <div class="line number60 index59 alt1"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="keyword bold">for</code> <code class="plain">(</code><code
+                                                    class="color1 bold">int</code> <code
+                                                    class="plain">i = 0; i &lt; n; i++)</code></div>
+                                            <div class="line number61 index60 alt2"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="functions bold">printf</code><code
+                                                    class="plain">(</code><code class="string">"%d "</code><code
+                                                    class="plain">, arr[i]);</code></div>
+                                            <div class="line number62 index61 alt1"><code class="plain">}</code></div>
+                                            <div class="line number63 index62 alt2">&nbsp;</div>
+                                            <div class="line number64 index63 alt1"><code
+                                                    class="comments">// Driver program to test above functions</code>
+                                            </div>
+                                            <div class="line number65 index64 alt2"><code class="color1 bold">int</code>
+                                                <code class="plain">main()</code></div>
+                                            <div class="line number66 index65 alt1"><code class="plain">{</code></div>
+                                            <div class="line number67 index66 alt2"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="color1 bold">int</code> <code
+                                                    class="plain">arr[] = { 170, 45, 75, 90, 802, 24, 2, 66 };</code>
+                                            </div>
+                                            <div class="line number68 index67 alt1"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="color1 bold">int</code> <code class="plain">n = </code><code
+                                                    class="keyword bold">sizeof</code><code
+                                                    class="plain">(arr) / </code><code
+                                                    class="keyword bold">sizeof</code><code
+                                                    class="plain">(arr[0]);</code></div>
+                                            <div class="line number69 index68 alt2"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;</code>&nbsp;</div>
+                                            <div class="line number70 index69 alt1"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="comments">// Radix sort function</code></div>
+                                            <div class="line number71 index70 alt2"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="plain">radixsort(arr, n);</code></div>
+                                            <div class="line number72 index71 alt1"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;</code>&nbsp;</div>
+                                            <div class="line number73 index72 alt2"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="plain">print(arr, n);</code></div>
+                                            <div class="line number74 index73 alt1"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="keyword bold">return</code> <code class="plain">0;</code>
+                                            </div>
+                                            <div class="line number75 index74 alt2"><code class="plain">}</code></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="code-output"><strong>Output</strong>
+        <div class="gray">2 24 45 66 75 90 170 802 </div>
+    </div>
+    <h2><a href="https://www.geeksforgeeks.org/time-and-space-complexity-of-radix-sort-algorithm/" target="_blank"
+            rel="noreferrer noopener"><strong>Complexity Analysis of Radix Sort</strong></a><strong>:</strong></h2>
+    <p dir="ltr"><strong>Time Complexity:</strong>&nbsp;</p>
+    <ul>
+        <li value="1">Radix sort is a non-comparative integer sorting algorithm that sorts data with integer keys by
+            grouping the keys by the individual digits which share the same significant position and value. It has a
+            time complexity of&nbsp;<strong>O(d * (n + b))</strong>, where d is the number of digits, n is the number of
+            elements, and b is the base of the number system being used.</li>
+        <li value="2">In practical implementations, radix sort is often faster than other comparison-based sorting
+            algorithms, such as quicksort or merge sort, for large datasets, especially when the keys have many digits.
+            However, its time complexity grows linearly with the number of digits, and so it is not as efficient for
+            small datasets.</li>
+    </ul>
+    <p dir="ltr"><strong>Auxiliary Space:&nbsp;</strong></p>
+    <ul>
+        <li value="1">Radix sort also has a space complexity of&nbsp;<strong>O(n + b),</strong>&nbsp;where n is the
+            number of elements and b is the base of the number system. This space complexity comes from the need to
+            create buckets for each digit value and to copy the elements back to the original array after each digit has
+            been sorted.</li>
+    </ul>
+    <br>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+
+<body>
+    <div class="text">
+        <div class="main_wrapper">
+            <div>
+                <div class="article-title">
+                    <h1>Error detection and Recovery in Compiler</h1>
+                </div>
+            </div>
+            
+        <div class="text">
+            <p>In this phase of compilation, all possible errors made by the user are detected and reported to the user
+                in form of error messages. This process of locating errors and reporting them to users is called
+                the&nbsp;<strong>Error Handling process</strong>.&nbsp;</p>
+            <p><strong>Functions of an Error handler.</strong></p>
+            <ul>
+                <li>Detection</li>
+                <li>Reporting</li>
+                <li>Recovery</li>
+            </ul>
+            <h2>Classification of Errors</h2>
+            <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/we.png" alt="" width="438" height="231" />
+            </p>
+            <h3>Compile-time errors</h3>
+            <p>Compile-time errors are of three types:-&nbsp;</p>
+            <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+            <h4><strong>Lexical phase errors</strong></h4>
+            <p>These errors are detected during the lexical analysis phase. Typical lexical errors are:</p>
+            <ul>
+                <li>Exceeding length of identifier or numeric constants.</li>
+                <li>The appearance of illegal characters</li>
+                <li>Unmatched string</li>
+            </ul>
+            <pre>Example 1 : <strong>printf("Geeksforgeeks");$</strong>
+        This is a lexical error since an illegal character $ appears at the end of statement.
+        
+        Example 2 : <strong>This is a comment */</strong>
+        This is an lexical error since end of comment is present but beginning is not present</pre>
+            <p><strong>Error recovery for lexical errors:</strong>&nbsp;</p>
+            <p><em>Panic Mode Recovery</em>&nbsp;</p>
+            <ul>
+                <li>In this method, successive characters from the input are removed one at a time until a designated
+                    set of synchronizing tokens is found. Synchronizing tokens are delimiters such as; or }</li>
+                <li>The advantage is that it is easy to implement and guarantees not to go into an infinite loop</li>
+                <li>The disadvantage is that a considerable amount of input is skipped without checking it for
+                    additional errors</li>
+            </ul>
+            <h4><strong>Syntactic phase errors:</strong></h4>
+            <p>These errors are detected during the syntax analysis phase. Typical syntax errors are:</p>
+            <ul>
+                <li>Errors in structure</li>
+                <li>Missing operator</li>
+                <li>Misspelled keywords</li>
+                <li>Unbalanced parenthesis</li>
+            </ul>
+            <div class="gray"><strong>Example : </strong>swich(ch)
+                      {
+                         .......
+                         .......
+                      }</div>
+            <p>The keyword&nbsp;<strong>switch</strong>&nbsp;is incorrectly written as a swich. Hence,
+                an&nbsp;<strong>&ldquo;Unidentified keyword/identifier&rdquo;</strong>&nbsp;error occurs.&nbsp;</p>
+        </div>
+        <p>&nbsp;</p>
+    </div>
+    <div class="text">
+        <div class="main_wrapper">
+            <div>
+                <div class="article-title">
+                    <p><strong>Error recovery for syntactic phase error:&nbsp;</strong></p>
+                    <p><strong>1. Panic Mode Recovery</strong>&nbsp;</p>
+                    <ul>
+                        <li>In this method, successive characters from the input are removed one at a time until a
+                            designated set of synchronizing tokens is found. Synchronizing tokens are deli-meters such
+                            as; or }</li>
+                        <li>The advantage is that it&rsquo;s easy to implement and guarantees not to go into an infinite
+                            loop</li>
+                        <li>The disadvantage is that a considerable amount of input is skipped without checking it for
+                            additional errors</li>
+                    </ul>
+                    <p><strong>2. Statement Mode recovery</strong>&nbsp;</p>
+                    <ul>
+                        <li>In this method, when a parser encounters an error, it performs the necessary correction on
+                            the remaining input so that the rest of the input statement allows the parser to parse
+                            ahead.</li>
+                        <li>The correction can be deletion of extra semicolons, replacing the comma with semicolons, or
+                            inserting a missing semicolon.</li>
+                        <li>While performing correction, utmost care should be taken for not going in an infinite loop.
+                        </li>
+                        <li>A disadvantage is that it finds it difficult to handle situations where the actual error
+                            occurred before pointing of detection.</li>
+                    </ul>
+                    <p><strong>3. Error production</strong>&nbsp;</p>
+                    <ul>
+                        <li>If a user has knowledge of common errors that can be encountered then, these errors can be
+                            incorporated by augmenting the grammar with error productions that generate erroneous
+                            constructs.</li>
+                        <li>If this is used then, during parsing appropriate error messages can be generated and parsing
+                            can be continued.</li>
+                        <li>The disadvantage is that it&rsquo;s difficult to maintain.</li>
+                    </ul>
+                    <p><strong>4. Global Correction</strong>&nbsp;</p>
+                    <ul>
+                        <li>The parser examines the whole program and tries to find out the closest match for it which
+                            is error-free.</li>
+                        <li>The closest match program has less number of insertions, deletions, and changes of tokens to
+                            recover from erroneous input.</li>
+                        <li>Due to high time and space complexity, this method is not implemented practically.</li>
+                    </ul>
+                    <h3><strong>Semantic errors</strong></h3>
+                    <p>These errors are detected during the semantic analysis phase. Typical semantic errors are&nbsp;
+                    </p>
+                    <ul>
+                        <li>Incompatible type of operands</li>
+                        <li>Undeclared variables</li>
+                        <li>Not matching of actual arguments with a formal one</li>
+                    </ul>
+                    <div class="gray"><strong>Example : </strong>int a[10], b;
+                         .......
+                         .......
+                         a = b;</div>
+                    <p>It generates a semantic error because of an incompatible type of a and b.&nbsp;</p>
+                    <p><strong>Error recovery for Semantic errors</strong></p>
+                    <ul>
+                        <li>If the error&nbsp;<strong>&ldquo;Undeclared Identifier&rdquo;</strong>&nbsp;is encountered
+                            then, to recover from this a symbol table entry for the corresponding identifier is made.
+                        </li>
+                        <li>If data types of two operands are incompatible then, automatic type conversion is done by
+                            the compiler.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

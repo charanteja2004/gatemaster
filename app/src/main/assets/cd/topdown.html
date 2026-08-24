@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+
+<body>
+
+    <div>
+        <div class="article-title">
+            <h1>Top Down Parsers</h1>
+        </div>
+    </div>
+    </div>
+    <div class="text">
+        <p dir="ltr">Parsing is classified into two categories, i.e. Top-Down Parsing, and Bottom-Up Parsing.&nbsp;<a
+                href="topdown.html">Top-Down Parsing</a>&nbsp;is
+            based on Left Most Derivation whereas Bottom-Up Parsing is dependent on Reverse Right Most Derivation.&nbsp;
+        </p>
+        <p dir="ltr">The process of constructing the parse tree which starts from the root and goes down to the leaf is
+            Top-Down Parsing.&nbsp;</p>
+        <ol>
+            <li value="1">Top-Down Parsers constructs from the Grammar which is free from&nbsp;
+                   ambiguity&nbsp;and&nbsp;
+                  left
+                    recursion.</li>
+            <li value="2">Top-Down Parsers use leftmost derivation to construct a parse tree.</li>
+            <li value="3">It does not allow Grammar With Common divfixes.</li>
+        </ol>
+        <h2><strong>Classification of Top-Down Parsing</strong></h2>
+        <p dir="ltr"><strong>1. With Backtracking:</strong>&nbsp;Brute Force Technique</p>
+        <p dir="ltr"><strong>2. Without Backtracking:</strong>&nbsp;</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <ol>
+            <li value="1">Recursive Descent Parsing</li>
+            <li value="2">divdictive Parsing or Non-Recursive Parsing or LL(1) Parsing or Table Driver Parsing.</li>
+        </ol>
+        <h2><strong>Recursive Descent Parsing</strong></h2>
+        <ol>
+            <li value="1">Whenever a Non-terminal spends the first time then go with the first alternative and compare
+                it with the given I/P String</li>
+            <li value="2">If matching doesn&rsquo;t occur then go with the second alternative and compare it with the
+                given I/P String.</li>
+            <li value="3">If matching is not found again then go with the alternative and so on.</li>
+            <li value="4">Moreover, If matching occurs for at least one alternative, then the I/P string is parsed
+                successfully.</li>
+        </ol>
+        <p dir="ltr"><strong>Recursive Descent Parsing</strong></p>
+        <div>S()<br />{     Choose any S production, S -&gt;X<sub>1</sub>X<sub>2</sub>&hellip;..Xk;<br />      for (i = 1 to k)<br />      {<br />          If ( Xi is a non-terminal)<br />          Call procedure Xi();<br />          else if ( Xi equals the current input, increment input)<br />          Else /* error has occurred, backtrack and try another possibility */<br />      }<br />}</div>
+        <p dir="ltr">Let&rsquo;s understand it better with an example:</p>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/Recursive-Decent-Parsing.jpg" width="393"
+                height="240" />
+            <p class="wp-caption-text">&nbsp;</p>
+        </div>
+        <p dir="ltr">A recursive descent parsing program consists of a set of procedures, one for each nonterminal.
+            Execution begins with the procedure for the start symbol which halts if its procedure body scans the entire
+            input string.&nbsp;</p>
+        <p><strong>Non-Recursive divdictive Parsing:</strong>&nbsp;This type of parsing does not require backtracking.
+            divdictive parsers can be constructed for LL(1) grammar, the first &lsquo;L&rsquo; stands for scanning the
+            input from left to right, the second &lsquo;L&rsquo; stands for leftmost derivation, and &lsquo;1&rsquo; for
+            using one input symbol lookahead at each step to make parsing action decisions.&nbsp;&nbsp;</p>
+        <h2><strong>LL(1) or Table Driver or divdictive Parser</strong></h2>
+        <ol>
+            <li value="1">In&nbsp;LL1,
+                the first L stands for Left to Right, and the second L stands for Left-most Derivation. 1 stands for the
+                number of Looks Ahead tokens used by the parser while parsing a sentence.</li>
+            <li value="2">LL(1) parsing is constructed from the grammar which is free from left recursion, common
+                divfix, and ambiguity.</li>
+            <li value="3">LL(1) parser depends on 1 look ahead symbol to divdict the production to expand the parse
+                tree.</li>
+            <li value="4">This parser is Non-Recursive</li>
+        </ol>
+        <p dir="ltr"><strong>Construction of LL(1)divdictive parsing table</strong>&nbsp;</p>
+        <p dir="ltr">For each production A -&gt; &alpha; repeat the following steps:&nbsp;</p>
+        <ul>
+            <li value="1">Add A -&gt; &alpha; under M[A, b] for all b in FIRST(&alpha;)&nbsp;</li>
+            <li value="2">If FIRST(&alpha;) contains &epsilon; then add A -&gt; &alpha; under M[A,c] for all c in
+                FOLLOW(A).&nbsp;</li>
+            <li value="3">Size of parsing table = (No. of terminals + 1) * #variables&nbsp;</li>
+        </ul>
+        <p dir="ltr"><strong>Example:</strong>&nbsp;&nbsp;</p>
+        <p dir="ltr">Consider the grammar&nbsp;<br />S &rarr; (L) | a&nbsp;<br />L &rarr; SL&rsquo;&nbsp;<br />L&rsquo;
+            &rarr; &epsilon; | SL&rsquo;&nbsp;</p>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/Construction-of-LL1.jpg" width="515"
+                height="204" />
+            <p class="wp-caption-text">&nbsp;</p>
+        </div>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/multipleentriesllgrammar.jpg" width="525"
+                height="176" />
+            <p class="wp-caption-text">&nbsp;</p>
+        </div>
+        <p dir="ltr">For any grammar, if M has multiple entries then it is not LL(1) grammar.</p>
+        <p dir="ltr"><strong>Example:</strong><br />S &rarr; iEtSS&rsquo;/a&nbsp;<br />S&rsquo;
+            &rarr;eS/&epsilon;&nbsp;<br />E &rarr; b&nbsp;</p>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/nomultipleentriesllgrammar.jpg" width="inherit"
+                height="inherit" />
+            <p class="wp-caption-text">&nbsp;</p>
+        </div>
+        <p dir="ltr"><strong>Important Notes</strong></p>
+        <p dir="ltr">If a grammar contains left factoring then it can not be LL(1).&nbsp;</p>
+        <div class="gray">Eg - S -&gt; aS | a      <br />---- both productions go in a</div>
+        <p dir="ltr">If a grammar contains left recursion it can not be LL(1)</p>
+        <div class="gray"> Eg - S -&gt; Sa | b <br />      S -&gt; Sa goes to FIRST(S) = b<br />      S -&gt; b goes to b, thus b has 2 entries hence not LL(1)</div>
+        <p dir="ltr">&nbsp;If the grammar is ambiguous then it can not be LL(1).</p>
+    </div>
+
+    <div class="article-title">
+        <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>Bottom-up or Shift Reduce Parsers</h1>
+        </div>
+        </div>
+        </div>
+        <div class="text">
+        <p>In this article, we are discussing the Bottom Up parser.&nbsp;<strong>Bottom-up Parsers / Shift Reduce Parsers</strong>&nbsp;Build the parse tree from leaves to root. Bottom-up parsing can be defined as an attempt to reduce the input string w to the start symbol of grammar by tracing out the rightmost derivations of w in reverse. Eg.&nbsp;</p>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/Parsing1.png" alt="" width="529" height="228" />&nbsp;</p>
+        <p><strong><u>Classification of Bottom-up Parsers:</u></strong></p>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/Parsing2.png" alt="" width="432" height="305" /></p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <p>A general shift reduce parsing is LR parsing. The L stands for scanning the input from left to right and R stands for constructing a rightmost derivation in reverse.&nbsp;</p>
+        <p><strong>Benefits of LR parsing:</strong></p>
+        <ol>
+        <li>Many programming languages using some variations of an LR parser. It should be noted that C++ and Perl are exceptions to it.</li>
+        <li>LR Parser can be implemented very efficiently.</li>
+        <li>Of all the Parsers that scan their symbols from left to right, LR Parsers detect syntactic errors, as soon as possible.</li>
+        </ol>
+        <p>In this discussion, we will explore the construction of the GOTO graph for a grammar using all four LR parsing techniques. The GOTO graph is particularly useful in solving questions in the GATE exam as it allows for a more efficient analysis of the given grammar.</p>
+        <p>To construct the GOTO graph using LR(0) parsing, we rely on two essential functions:&nbsp;<strong>Closure()</strong>&nbsp;and&nbsp;<strong>Goto()</strong>.</p>
+        <p>Firstly, we introduce the concept of an augmented grammar. In the augmented grammar, a new start symbol, S&rsquo;, is added, along with a production S&rsquo; -&gt; S. This addition helps the parser determine when to stop parsing and signal the acceptance of input. For example, if we have a grammar S -&gt; AA and A -&gt; aA | b, the augmented grammar will be S&rsquo; -&gt; S and S -&gt; AA.</p>
+        <p>Next, we define LR(0) items. An LR(0) item of a grammar G is a production of G with a dot (.) positioned at some point on the right-hand side. For instance, given the production S -&gt; ABC, we obtain four LR(0) items: S -&gt; .ABC, S -&gt; A.BC, S -&gt; AB.C, and S -&gt; ABC. It is worth noting that the production A -&gt; ? generates only one item: A -&gt; .?.</p>
+        <p>By utilizing the Closure() function, we can calculate the closure of a set of LR(0) items. The closure operation involves expanding the items by considering the productions that have the dot right before the non-terminal symbol. This step helps us identify all the possible items that can be derived from the current set.</p>
+        <p>The Goto() function is employed to construct the transitions between LR(0) items in the GOTO graph. It determines the next set of items by shifting the dot one position to the right. This process allows us to navigate through the graph and track the parsing progress.</p>
+        <p><strong>Augmented Grammar:</strong>&nbsp;If G is a grammar with start symbol S then G&rsquo;, the augmented grammar for G, is the grammar with new start symbol S&rsquo; and a production S&rsquo; -&gt; S. The purpose of this new starting production is to indicate to the parser when it should stop parsing and announce acceptance of input. Let a grammar be S -&gt; AA A -&gt; aA | b, The augmented grammar for the above grammar will be S&rsquo; -&gt; S S -&gt; AA A -&gt; aA | b.</p>
+        </div>
+        </div>
+        <div class="article-title">
+            <div class="main_wrapper">
+            <div class="article-title">
+            <p><strong>LR(0) Items:</strong>&nbsp;An LR(0) is the item of a grammar G is a production of G with a dot at some position in the right side. S -&gt; ABC yields four items S -&gt; .ABC S -&gt; A.BC S -&gt; AB.C S -&gt; ABC. The production A -&gt; ? generates only one item A -&gt; .?&nbsp;</p>
+            <p><strong>Closure Operation</strong>: If I is a set of items for a grammar G, then closure(I) is the set of items constructed from I by the two rules:</p>
+            <ol>
+            <li>Initially every item in I is added to closure(I).</li>
+            <li>If A -&gt; ?.B? is in closure(I) and B -&gt; ? is a production then add the item B -&gt; .? to I, If it is not already there. We apply this rule until no more items can be added to closure(I).</li>
+            </ol>
+            <p>Eg:<img src="https://media.geeksforgeeks.org/wp-content/uploads/Parsing3.png" alt="" width="404" height="163" />&nbsp;<br />&nbsp;</p>
+            <p><strong>Goto Operation&nbsp;</strong>: Goto(I, X) =&nbsp;</p>
+            <ol>
+            <li>Add I by moving dot after X.</li>
+            <li>Apply closure to first step.&nbsp;</li>
+            </ol>
+            <p>\<img src="https://media.geeksforgeeks.org/wp-content/uploads/Parsing4.png" alt="" width="442" height="215" /></p>
+            <p>&nbsp;<br /><strong>Construction of GOTO graph-</strong></p>
+            <ul>
+            <li>State I<sub>0</sub>&nbsp;&ndash; closure of augmented LR(0) item</li>
+            <li>Using I<sub>0</sub>&nbsp;find all collection of sets of LR(0) items with the help of DFA</li>
+            <li>Convert DFA to LR(0) parsing table</li>
+            </ul>
+            <p><strong>Construction of LR(0) parsing table</strong>:</p>
+            <ul>
+            <li>The action function takes as arguments a state i and a terminal a (or $ , the input end marker). The value of ACTION[i, a] can have one of four forms:
+            <ol>
+            <li>Shift j, where j is a state.</li>
+            <li>Reduce A -&gt; ?.</li>
+            <li>Accept</li>
+            <li>Error</li>
+            </ol>
+            </li>
+            <li>We extend the GOTO function, defined on sets of items, to states: if GOTO[I<sub>i</sub>&nbsp;, A] = I<sub>j</sub>&nbsp;then GOTO also maps a state i and a nonterminal A to state j.</li>
+            </ul>
+            <p>Eg: Consider the grammar S -&gt;AA A -&gt; aA | b Augmented grammar S&rsquo; -&gt; S S -&gt; AA A -&gt; aA | b The LR(0) parsing table for above GOTO graph will be &ndash;<img src="https://media.geeksforgeeks.org/wp-content/uploads/parsing5.png" alt="" width="524" height="295" /></p>
+            <p>Action part of the table contains all the terminals of the grammar whereas the goto part contains all the nonterminals. For every state of goto graph we write all the goto operations in the table. If goto is applied to a terminal then it is written in the action part if goto is applied on a nonterminal it is written in goto part. If on applying goto a production is reduced ( i.e if the dot reaches at the end of production and no further closure can be applied) then it is denoted as R<sub>i</sub>&nbsp;and if the production is not reduced (shifted) it is denoted as S<sub>i</sub>. If a production is reduced it is written under the terminals given by follow of the left side of the production which is reduced for ex: in I<sub>5</sub>&nbsp;S-&gt;AA is reduced so R<sub>1</sub>&nbsp;is written under the terminals in follow(S)={$} (To know more about how to calculate follow function:&nbsp;<a href="https://www.geeksforgeeks.org/compiler-design-follow-set-in-syntax-analysis/">Click here</a>&nbsp;) in LR(0) parser. If in a state the start symbol of grammar is reduced it is written under $ symbol as accepted.&nbsp;</p>
+            </div>
+            </div>
+            </div>
+</body>
+
+</html>

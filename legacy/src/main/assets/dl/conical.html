@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    <div class="article-title">
+        <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>Canonical and Standard Form</h1>
+        </div>
+        </div>
+        <div class="three_dot_dropdown">
+        <div>&nbsp;</div>
+        </div>
+        </div>
+        <div class="text">
+        <p dir="ltr"><strong>Canonical Form &ndash;</strong>&nbsp;In Boolean algebra, the Boolean function can be expressed as Canonical Disjunctive Normal Form known as&nbsp;<strong>minterm&nbsp;</strong>and some are expressed as Canonical Conjunctive Normal Form known as&nbsp;<strong>maxterm</strong>.&nbsp;<br />In Minterm, we look for the functions where the output results in &ldquo;1&rdquo; while in Maxterm we look for functions where the output results in &ldquo;0&rdquo;.&nbsp;<br />We perform the&nbsp;<strong>Sum of minterm&nbsp;</strong>also known as the Sum of products (SOP).&nbsp;<br />We perform&nbsp;<strong>Product of Maxterm&nbsp;</strong>also known as Product of sum (POS).&nbsp;<br />Boolean functions expressed as a sum of minterms or product of maxterms are said to be in canonical form.&nbsp;</p>
+        <p><strong>Standard Form &ndash;</strong>&nbsp;A Boolean variable can be expressed in either true or complementary forms. In standard form Boolean function will contain all the variables in either true form or complemented form while in canonical number of variables depends on the output of SOP or POS.&nbsp;</p>
+        <p>A Boolean function can be expressed algebraically from a given truth table by forming a :&nbsp;</p>
+        <ul>
+        <li value="1">minterm for each combination of the variables that produces a 1 in the function and then takes the OR of all those terms.</li>
+        <li value="2">maxterm for each combination of the variables that produces a 0 in the function and then takes the AND of all those terms.</li>
+        </ul>
+        <p dir="ltr"><strong>Truth table representing minterm and maxterm &ndash;</strong>&nbsp;</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/11-3.jpg" width="436" height="252" />From the above table it is clear that minterm is expressed in product format and maxterm is expressed in sum format.&nbsp;</p>
+        <p><strong>Sum of minterms &ndash;</strong>&nbsp;<br />The minterms whose sum defines the Boolean function are those which give the 1&rsquo;s of the function in a truth table. Since the function can be either 1 or 0 for each minterm, and since there are 2^n minterms, one can calculate all the functions that can be formed with n variables to be (2^(2^n)). It is sometimes convenient to express a Boolean function in its sum of minterm form.&nbsp;<br />&nbsp;</p>
+        <p dir="ltr"><strong>Product of maxterms &ndash;</strong></p>
+        <p dir="ltr">When dealing with Boolean algebra, the product of maxterms is a handy way to express how combinations of inputs lead to a result of 0. Maxterms basically tell us which combinations of inputs won&rsquo;t give us a 1 as an output. They are the opposite of minterms, which tell us when we get a 1.</p>
+        <ul>
+        <li value="1"><strong>Example &ndash;</strong>&nbsp;Express the Boolean function F = A + B&rsquo;C as standard sum of minterms.
+        <ul>
+        <li value="1"><strong>Solution &ndash;</strong>&nbsp;<br />A = A(B + B&rsquo;) = AB + AB&rsquo;&nbsp;<br />This function is still missing one variable, so&nbsp;<br />A = AB(C + C&rsquo;) + AB'(C + C&rsquo;) = ABC + ABC&rsquo;+ AB&rsquo;C + AB&rsquo;C&rsquo;&nbsp;<br />The second term B&rsquo;C is missing one variable; hence,&nbsp;<br />B&rsquo;C = B&rsquo;C(A + A&rsquo;) = AB&rsquo;C + A&rsquo;B&rsquo;C&nbsp;<br />Combining all terms, we have&nbsp;<br />F = A + B&rsquo;C = ABC + ABC&rsquo; + AB&rsquo;C + AB&rsquo;C&rsquo; + AB&rsquo;C + A&rsquo;B&rsquo;C&nbsp;<br />But AB&rsquo;C appears twice, and&nbsp;<br />according to theorem 1 (x + x = x), it is possible to remove one of those occurrences. Rearranging the minterms in ascending order, we finally obtain&nbsp;<br />F = A&rsquo;B&rsquo;C + AB&rsquo;C&rsquo; + AB&rsquo;C + ABC&rsquo; + ABC&nbsp;<br />= m1 + m4 + m5 + m6 + m7&nbsp;<br />SOP is represented as Sigma(1, 4, 5, 6, 7)</li>
+        </ul>
+        </li>
+        <li value="2"><strong><strong>Example &ndash;</strong></strong>&nbsp;Express the Boolean function F = xy + x&rsquo;z as a product of maxterms
+        <ul>
+        <li value="1"><strong><strong>Solution &ndash;</strong></strong>&nbsp;<br />F = xy + x&rsquo;z&nbsp;= (xy + x&rsquo;)(xy + z)&nbsp;= (x + x&rsquo;)(y + x&rsquo;)(x + z)(y + z)&nbsp;= (x&rsquo; + y)(x + z)(y + z)&nbsp;<br />x&rsquo; + y = x&rsquo; + y + zz&rsquo;&nbsp;= (x&rsquo;+ y + z)(x&rsquo; + y + z&rsquo;)<br />x + z&nbsp;= x + z + yy&rsquo;&nbsp;= (x + y + z)(x + y&rsquo; + z)<br />y + z&nbsp;= y + z + xx&rsquo;&nbsp;= (x + y + z)(x&rsquo; + y + z)&nbsp;<br />F = (x + y + z)(x + y&rsquo; + z)(x&rsquo; + y + z)(x&rsquo; + y + z&rsquo;)&nbsp;<br />= M0*M2*M4*M5&nbsp;<br />POS is represented as Pi(0, 2, 4, 5)</li>
+        </ul>
+        </li>
+        <li value="3"><strong><strong>Example &ndash;</strong></strong>&nbsp;
+        <ul>
+        <li value="1"><strong><strong>Solution &ndash;</strong></strong>&nbsp;F(A, B, C) = Sigma(1, 4, 5, 6, 7)&nbsp;<br />F'(A, B, C) = Sigma(0, 2, 3) = m0 + m2 + m3&nbsp;<br />Now, if we take the complement of F&rsquo; by DeMorgan&rsquo;s theorem, we obtain F in a different form:&nbsp;<br />F = (m0 + m2 + m3)&rsquo;&nbsp;<br />= m0&rsquo;m2&rsquo;m3&prime;&nbsp;<br />= M0*M2*M3&nbsp;<br />= PI(0, 2, 3)&nbsp;</li>
+        </ul>
+        </li>
+        <li value="4"><strong><strong>Example &ndash;</strong></strong>&nbsp;Convert Boolean expression in standard form F=y&rsquo;+xz&rsquo;+xyz
+        <ul>
+        <li value="1"><strong><strong>Solution &ndash;</strong></strong>&nbsp;F = (x+x&rsquo;)y'(z+z&rsquo;)+x(y+y&rsquo;)z&rsquo; +xyz&nbsp;<br />F = xy&rsquo;z+ xy&rsquo;z&rsquo;+x&rsquo;y&rsquo;z+x&rsquo;y&rsquo;z&rsquo;+ xyz&rsquo;+xy&rsquo;z&rsquo;+xyz&nbsp;</li>
+        </ul>
+        </li>
+        </ul>
+        </div>
+        <p>&nbsp;</p>
+        </div>
+</body>
+</html>

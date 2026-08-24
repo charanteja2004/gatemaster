@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    <h2>Bucket Sort</h2>
+    <blockquote>
+        <p dir="ltr"><strong>Bucket sort</strong>&nbsp;is a sorting technique that involves dividing elements into
+            various groups, or buckets. These buckets are formed by uniformly distributing the elements. Once the
+            elements are divided into buckets, they can be sorted using any other sorting algorithm. Finally, the sorted
+            elements are gathered together in an ordered fashion.</p>
+    </blockquote>
+    <h2>Bucket Sort Algorithm:</h2>
+    <p dir="ltr">Create&nbsp;<strong>n</strong>&nbsp;empty buckets (Or lists) and do the following for every array
+        element arr[i].</p>
+    <div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
+    <ul>
+        <li value="1">Insert arr[i] into bucket[n*array[i]]</li>
+        <li value="2">Sort individual buckets using insertion sort.</li>
+        <li value="3">Concatenate all sorted buckets.</li>
+    </ul>
+    <h2>How does Bucket Sort work?</h2>
+    <p dir="ltr">To apply bucket sort on the input array&nbsp;<strong>[0.78, 0.17, 0.39, 0.26, 0.72, 0.94, 0.21, 0.12,
+            0.23, 0.68]</strong>, we follow these steps:</p>
+    <p dir="ltr"><strong>Step 1:</strong>&nbsp;Create an array of size 10, where each slot represents a bucket.</p>
+
+    <div class="wp-caption alignnone"><img
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20230705162208/file.png"
+            alt="Creating Buckets for sorting" width="360" height="380" />
+        <p class="wp-caption-text">Creating Buckets for sorting</p>
+    </div>
+    <p dir="ltr"><strong>Step 2:&nbsp;</strong>Insert elements into the buckets from the input array based on their
+        range.</p>
+    <p dir="ltr">Inserting elements into the buckets:</p>
+    <ul>
+        <li value="1">Take each element from the input array.</li>
+        <li value="2">Multiply the element by the size of the bucket array (10 in this case). For example, for element
+            0.23, we get 0.23 * 10 = 2.3.</li>
+        <li value="3">Convert the result to an integer, which gives us the bucket index. In this case, 2.3 is converted
+            to the integer 2.</li>
+        <li value="4">Insert the element into the bucket corresponding to the calculated index.</li>
+        <li value="5">Repeat these steps for all elements in the input array.</li>
+    </ul>
+    <div class="wp-caption alignnone"><img
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20230705162234/file.png"
+            alt="Inserting Array elements into respective buckets" width="356" height="378" />
+        <p class="wp-caption-text">Inserting Array elements into respective buckets</p>
+    </div>
+    <p dir="ltr"><strong>Step 3:&nbsp;</strong>Sort the elements within each bucket. In this example, we use quicksort
+        (or any stable sorting algorithm) to sort the elements within each bucket.</p>
+    <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+    <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+    <p dir="ltr">Sorting the elements within each bucket:</p>
+    <ul>
+        <li value="1">Apply a stable sorting algorithm (e.g., Bubble Sort, Merge Sort) to sort the elements within each
+            bucket.</li>
+        <li value="2">The elements within each bucket are now sorted.</li>
+    </ul>
+    <div class="wp-caption alignnone"><img
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20230705162300/file.png"
+            alt="Sorting individual bucket" width="348" height="424" />
+        <p class="wp-caption-text">Sorting individual bucket</p>
+    </div>
+    <p dir="ltr"><strong>Step 4:&nbsp;</strong>Gather the elements from each bucket and put them back into the original
+        array.</p>
+    <p dir="ltr">Gathering elements from each bucket:</p>
+    <ul>
+        <li value="1">Iterate through each bucket in order.</li>
+        <li value="2">Insert each individual element from the bucket into the original array.</li>
+        <li value="3">Once an element is copied, it is removed from the bucket.</li>
+        <li value="4">Repeat this process for all buckets until all elements have been gathered.</li>
+    </ul>
+    <div class="wp-caption alignnone"><img
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20230705162320/file.png"
+            alt="Inserting buckets in ascending order into the resultant array" width="342" height="421" />
+        <p class="wp-caption-text">Inserting buckets in ascending order into the resultant array</p>
+    </div>
+
+    <p dir="ltr"><strong>Step 5:&nbsp;</strong>The original array now contains the sorted elements.</p>
+    <p dir="ltr">The final sorted array using bucket sort for the given input is [0.12, 0.17, 0.21, 0.23, 0.26, 0.39,
+        0.68, 0.72, 0.78, 0.94].</p>
+    <div class="wp-caption alignnone"><img
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20230705162345/file.png"
+            alt="Return the Sorted Array" width="358" height="379" />
+        <p class="wp-caption-text">Return the Sorted Array</p>
+    </div>
+    <h2>Complexity Analysis of Bucket Sort Algorithm:</h2>
+    <p dir="ltr"><strong>Time Complexity:</strong>&nbsp;O(n<sup>2</sup>),</p>
+    <ul>
+        <li value="1">If we assume that insertion in a bucket takes O(1) time then steps 1 and 2 of the above algorithm
+            clearly take O(n) time.</li>
+        <li value="2">The O(1) is easily possible if we use a linked list to represent a bucket.</li>
+        <li value="3">Step 4 also takes O(n) time as there will be n items in all buckets.&nbsp;</li>
+        <li value="4">The main step to analyze is step 3. This step also takes O(n) time on average if all numbers are
+            uniformly distributed.</li>
+    </ul>
+    <p dir="ltr"><strong>Auxiliary Space:&nbsp;</strong>O(n+k)</p>
+</body>
+</html>

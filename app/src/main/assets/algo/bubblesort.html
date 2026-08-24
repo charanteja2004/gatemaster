@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    <h2>Bubble Sort</h2>
+
+    <p dir="ltr"><strong>Bubble Sort</strong>&nbsp;is the simplest&nbsp;<a
+            href="https://www.geeksforgeeks.org/sorting-algorithms/">sorting algorithm</a>&nbsp;that works by repeatedly
+        swapping the adjacent elements if they are in the wrong order. This algorithm is not suitable for large data
+        sets as its average and worst-case time complexity is quite high.</p>
+    <h2>Bubble Sort Algorithm</h2>
+    <blockquote>
+        <p dir="ltr">In Bubble Sort algorithm,&nbsp;</p>
+        <div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
+        <ul>
+            <li value="1">traverse from left and compare adjacent elements and the higher one is placed at right
+                side.&nbsp;</li>
+            <li value="2">In this way, the largest element is moved to the rightmost end at first.&nbsp;</li>
+            <li value="3">This process is then continued to find the second largest and place it and so on until the
+                data is sorted.</li>
+        </ul>
+    </blockquote>
+
+    <h2>How does Bubble Sort Work?</h2>
+    <p dir="ltr">Let us understand the working of bubble sort with the help of the following illustration:</p>
+    <blockquote>
+        <p dir="ltr"><strong>Input:</strong>&nbsp;arr[] = {6, 0, 3, 5}</p>
+        <p dir="ltr"><strong>First Pass:</strong>&nbsp;</p>
+        <p dir="ltr">The largest element is placed in its correct position, i.e., the end of the array.</p>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230526103842/1.webp"
+                alt="Bubble Sort Algorithm : Placing the largest element at correct position" width="313"
+                height="335" />
+            <p class="wp-caption-text">Bubble Sort Algorithm : Placing the largest element at correct position</p>
+        </div>
+        <p dir="ltr"><strong>Second Pass:</strong>&nbsp;</p>
+        <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+        <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+        <p dir="ltr">Place the second largest element at correct position</p>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230526103914/2.webp"
+                alt="Bubble Sort Algorithm : Placing the second largest element at correct position" width="360"
+                height="357" />
+            <p class="wp-caption-text">Bubble Sort Algorithm : Placing the second largest element at correct position
+            </p>
+        </div>
+        <p dir="ltr"><strong>Third Pass:</strong></p>
+        <p dir="ltr">Place the remaining two elements at their correct positions.</p>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230526103949/3.webp"
+                alt="Bubble Sort Algorithm : Placing the remaining elements at their correct positions" width="734"
+                height="345" />
+            <p class="wp-caption-text">Bubble Sort Algorithm : Placing the remaining elements at their correct positions
+            </p>
+        </div>
+    </blockquote>
+
+    <ul>
+        <li value="1"><strong>Total no. of passes:&nbsp;</strong>n-1</li>
+        <li value="2"><strong>Total no. of comparisons:&nbsp;</strong>n*(n-1)/2</li>
+    </ul>
+    <h2>Implementation of Bubble Sort</h2>
+    <p dir="ltr">Below is the implementation of the bubble sort. It can be optimized by stopping the algorithm if the
+        inner loop didn&rsquo;t cause any swap.</p>
+
+    <div class="gray"><span class="c1">// Optimized implementation of Bubble sort</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdbool.h&gt;</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">xp</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">yp</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="o">*</span><span class="n">xp</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">xp</span> <span class="o">=</span> <span class="o">*</span><span class="n">yp</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">yp</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// An optimized version of Bubble Sort</span>
+<span class="kt">void</span> <span class="nf">bubbleSort</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+    <span class="kt">bool</span> <span class="n">swapped</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">swapped</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="p">{</span>
+                <span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">arr</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]);</span>
+                <span class="n">swapped</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// If no two elements were swapped by inner loop,</span>
+        <span class="c1">// then break</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">swapped</span> <span class="o">==</span> <span class="nb">false</span><span class="p">)</span>
+            <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Function to print an array</span>
+<span class="kt">void</span> <span class="nf">printArray</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">size</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"%d "</span><span class="p">,</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="c1">// Driver program to test above functions</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">arr</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">90</span> <span class="p">};</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="n">bubbleSort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Sorted array: </span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="n">printArray</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></div>
+
+    <div class="code-output"><strong>Output</strong>
+        <div class="gray">Sorted array: 
+ 11 12 22 25 34 64 90</div>
+    </div>
+    <h2><a href="https://www.geeksforgeeks.org/time-and-space-complexity-analysis-of-bubble-sort/">Complexity Analysis
+            of Bubble Sort</a>:</h2>
+    <p dir="ltr"><strong>Time Complexity:&nbsp;</strong>O(N<sup>2</sup>)<br /><strong>Auxiliary
+            Space:</strong>&nbsp;O(1)</p>
+    <h2><strong>Advantages of Bubble Sort:</strong></h2>
+    <ul>
+        <li value="1">Bubble sort is easy to understand and implement.</li>
+        <li value="2">It does not require any additional memory space.</li>
+        <li value="3">It is a stable sorting algorithm, meaning that elements with the same key value maintain their
+            relative order in the sorted output.</li>
+    </ul>
+    <h2><strong>Disadvantages of Bubble Sort:</strong></h2>
+    <ul>
+        <li value="1">Bubble sort has a time complexity of O(N<sup>2</sup>) which makes it very slow for large data
+            sets.</li>
+        <li value="2">Bubble sort is a comparison-based sorting algorithm, which means that it requires a comparison
+            operator to determine the relative order of elements in the input data set. It can limit the efficiency of
+            the algorithm in certain cases.</li>
+    </ul>
+    <br><br>
+
+</body>
+</html>

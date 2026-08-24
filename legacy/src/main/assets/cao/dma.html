@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    <h2><b>Direct Memory Access</b></h2>
+
+<p dir="ltr">DMA (Direct memory access) is the special feature within the computer system that transfers the data between memory and peripheral devices(like hard drives) without the intervention of the CPU. In other words, for large data transfer like disk drives, it will be wasteful to use expensive general-purpose processors in which status bits are to be watched and fed the data into the controller register one byte at a time which is termed&nbsp;<strong>Programmed I/O</strong>. Computers avoid burdening the CPU so, they shift the work to a Direct Memory Access controller.&nbsp;Let&rsquo;s see the workings of this in detail.</p>
+<p dir="ltr">To initiate the DMA transfer the host writes a DMA command block into the memory. This block contains the pointer to the source of the transfer, the pointer to the destination of the transfer, and the count of the number of bytes to be transferred. This command block can be more complex which includes the list of sources and destination addresses that are not contiguous. CPU writes the address of this command block and goes to other work. DMA controller proceeds to operate the memory bus directly, placing the address on it without the intervention of the main CPU. Nowadays simple DMA controller is a standard component in all modern computers.</p>
+
+<h2>Block Diagram of DMA</h2>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230918200929/Screenshot-2023-09-18-200858.png" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20230918200929/Screenshot-2023-09-18-200858.png 762w,https://media.geeksforgeeks.org/wp-content/uploads/20230918200929/Screenshot-2023-09-18-200858-100.png 100w,https://media.geeksforgeeks.org/wp-content/uploads/20230918200929/Screenshot-2023-09-18-200858-200.png 200w,https://media.geeksforgeeks.org/wp-content/uploads/20230918200929/Screenshot-2023-09-18-200858-300.png 300w,https://media.geeksforgeeks.org/wp-content/uploads/20230918200929/Screenshot-2023-09-18-200858-660.png 660w" alt="DMA" width="400" height="500" />
+<p class="wp-caption-text">Block Diagram of DMA</p>
+</div>
+<p dir="ltr">The mutual understanding between the device controller and DMA controller is performed via pair of wires called<strong>&nbsp;DMA request&nbsp;</strong>and&nbsp;<strong>DMA acknowledge.&nbsp;</strong>Let&rsquo;s see what is the role of these wires in the DMA transfer,</p>
+
+
+<h2>Working of DMA Transfer</h2>
+<p dir="ltr">The device controller places a signal on the DMA request wire when a word of data is available for transfer. This cause DMA controller to seize the memory bus of CPU and place the desired address on the DMA acknowledge wire. Up on successful data transfer the device controller receives the DMA acknowledge and then it removes the DMA request signal.</p>
+<p>When the entire transfer is finished, DMA controller interrupts the CPU. This entire process is depicted in the above diagram. DMA controller seizes the memory bus and CPU momentarily prevented from accessing main memory. Although it can access the data items in its cache. This&nbsp;<strong>cycle stealing (</strong>Seizing the memory bus temporarily and preventing the CPU from accessing it<strong>)&nbsp;</strong>slows down the CPU computation, shifting the data transfer to DMA controller generally improves the total system performance. Some of the computer architecture used physical memory address for DMA, but other uses virtual addresses (DVMA). Direct virtual memory access performs data transfer between memory mapped I/O without the use of main memory.</p>
+
+<h2><b>Storage Structure</b></h2>
+
+<p>Basically we want the programs and data to reside in&nbsp;<a href="https://www.geeksforgeeks.org/levels-of-memory-in-operating-system/" target="_blank" rel="noopener">main memory</a>&nbsp;permanently.</p>
+<p>This arrangement is usually not possible for the following two reasons:</p>
+
+<ol>
+<li>Main memory is usually too small to store all needed programs and data permanently.</li>
+<li>Main memory is a volatile storage device that loses its contents when power is turned off or otherwise lost.</li>
+</ol>
+<p>There are two types of storage devices:-</p>
+<ul>
+<li><strong>Volatile Storage Device &ndash;</strong><br />It loses its contents when the power of the device is removed.</li>
+</ul>
+
+
+<ul>
+<li><strong>Non-Volatile Storage device &ndash;</strong><br />It does not loses its contents when the power is removed. It holds all the data when the power is removed.</li>
+</ul>
+<p><a href="https://www.geeksforgeeks.org/introduction-of-secondary-memory/" target="_blank" rel="noopener">Secondary Storage</a>&nbsp;is used as an extension of main memory. Secondary storage devices can hold the data permanently.<br />Storage devices consists of&nbsp;Registers,&nbsp;<a href="cache.html" target="_blank" rel="noopener">Cache</a>, Main-Memory, Electronic-Disk,&nbsp;Magnetic-Disk Optical-Disk Magnetic-Tapes. Each storage system provides the basic system of storing a datum and of holding the datum until it is retrieved at a later time. All the storage devices differ in speed, cost, size and volatility. The most common Secondary-storage device is a Magnetic-disk, which provides storage for both programs and data.</p>
+<p>In this fig Hierarchy of storage is shown &ndash;</p>
+<p><img class="aligncenter size-full" src="https://media.geeksforgeeks.org/wp-content/uploads/20200518084828/Storage-Structure-heirarchy.png" width="400" height="700" /></p>
+<p>In this hierarchy all the storage devices are arranged according to speed and cost. The higher levels are expensive, but they are fast. As we move down the hierarchy, the cost per bit generally decreases, where as the access time generally increases.</p>
+<p>The storage systems above the Electronic disk are Volatile, where as those below are Non-Volatile.<br />An Electronic disk can be either designed to be either Volatile or Non-Volatile. During normal operation, the electronic disk stores data in a large&nbsp;DRAM&nbsp;array, which is Volatile. But many electronic disk devices contain a hidden magnetic hard disk and a battery for backup power. If external power is interrupted, the electronic disk controller copies the data from RAM to the magnetic disk. When external power is restored, the controller copies the data back into the&nbsp;<a href="https://www.geeksforgeeks.org/different-types-ram-random-access-memory/" target="_blank" rel="noopener">RAM</a>.</p>
+<p>The design of a complete memory system must balance all the factors. It must use only as much expensive memory as necessary while providing as much inexpensive, Non-Volatile memory as possible. Caches can be installed to improve performance where a large access-time or transfer-rate disparity exists between two components.</p>
+
+</body>
+</html>

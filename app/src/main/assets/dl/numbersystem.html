@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    <div class="article-title">
+        <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>Number System and Base Conversions</h1>
+        </div>
+        </div>
+        </div>
+        <div class="text">
+        <p dir="ltr">Electronic and Digital systems may use a variety of different number systems, (e.g. Decimal, Hexadecimal, Octal, Binary), or even Duodecimal or less well known but better named Uncial. All the other bases other than Decimal result from computer usage. Uncial (named from Latin for 1/12 &ldquo;uncia&rdquo; the base twelve analogue of Decimal from the Latin word for 1/10 &ldquo;decima&rdquo;).&nbsp;</p>
+        <div id="table_of_content">
+        <p>Table of Content</p>
+        <ul>
+        <li><a href="#what-is-number-system-">What is Number System ?</a></li>
+        <li><a href="#number-system-conversion-methods">Number System Conversion Methods</a></li>
+        <li><a href="#1-decimal-to-binary-number-system">1. Decimal to Binary Number System</a></li>
+        <li><a href="#2-binary-to-decimal-number-system">2. Binary to Decimal Number System</a></li>
+        <li><a href="#3-decimal-to-octal-number-system">3. Decimal to Octal Number System</a></li>
+        <li><a href="#4-octal-to-decimal-number-system">4. Octal to Decimal Number System</a></li>
+        <li><a href="#5-hexadecimal-to-binary-number-system">5. Hexadecimal to Binary Number System</a></li>
+        <li><a href="#6-binary-to-hexadecimal-number-system">6. Binary to Hexadecimal Number System</a></li>
+        <li><a href="#7-binary-to-octal-number-system">7. Binary to Octal Number System</a></li>
+        </ul>
+        </div>
+        <h2 id="what-is-number-system-">What is Number System ?</h2>
+        <p dir="ltr">A number system is a method to represent numbers mathematically. It can use&nbsp;arithmetic operations&nbsp;to represent every number uniquely. To represent a number, it requires a base or radix.</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <h2 id="types-of-number-system">Types of Number System</h2>
+        <p dir="ltr">There are four common types of&nbsp;number systems&nbsp;based on the radix or base of the number :</p>
+        <ol>
+        <li value="1">Decimal number system&nbsp;or Base 10 number system</li>
+        <li value="2">Binary number system or Base 2 number system</li>
+        <li value="3">Octal number system or Base 8 number system</li>
+        <li value="4">Hexadecimal number system&nbsp;or Base 16 number system</li>
+        </ol>
+        <h2 id="number-system-conversion-methods">Number System Conversion Methods</h2>
+        <p dir="ltr">A number N in base or radix b can be written as:&nbsp;</p>
+        <pre>(N)<sub>b</sub> = d<sub>n-1</sub> d<sub>n-2</sub> -- -- -- -- d<sub>1</sub> d<sub>0</sub> . d<sub>-1</sub> d<sub>-2</sub> -- -- -- -- d<sub>-m</sub></pre>
+        <p dir="ltr">In the above, d<sub>n-1</sub>&nbsp;to d<sub>0</sub>&nbsp;is the integer part, then follows a radix point, and then d<sub>-1</sub>&nbsp;to d<sub>-m</sub>&nbsp;is the fractional part.&nbsp;</p>
+        <p>d<sub>n-1</sub>&nbsp;= Most significant bit (MSB)&nbsp;<br />d<sub>-m</sub>&nbsp;= Least significant bit (LSB)<br />&nbsp;</p>
+        <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/1-44.jpg" width="inherit" height="inherit" /></p>
+        <h2 id="1-decimal-to-binary-number-system">1. Decimal to Binary Number System</h2>
+        <p dir="ltr">To convert from decimal to binary, start dividing decimal number by 2, and whatever the reminder getting, writing down from bottom to top, and that will be the&nbsp;binary number representation&nbsp;of the decimal number. And the number contains fractional part, then multiply 2 in the fractional part.</p>
+        <h3 id="example"><strong>Example</strong></h3>
+        <p>(10.25)<sub>10</sub>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/2-47.png" width="279" height="271" /></p>
+        <p dir="ltr">&nbsp;</p>
+        <p><strong>Note:&nbsp;</strong>Keep multiplying the fractional part with 2 until decimal part 0.00 is obtained.&nbsp;<br />(0.25)<sub>10</sub>&nbsp;= (0.01)<sub>2</sub>&nbsp;</p>
+        <p><strong>Answer:</strong>&nbsp;(10.25)<sub>10</sub>&nbsp;= (1010.01)<sub>2</sub>&nbsp;&nbsp;</p>
+        <h2 id="2-binary-to-decimal-number-system">2. Binary to Decimal Number System</h2>
+        <p dir="ltr">To convert from binary to decimal, start multiplying the exponent of 2 with each digit of the number in decreasing order. If the number contains fractional part then will divide it by the exponent of 2.</p>
+        <h3 id="example-1"><strong>Example</strong></h3>
+        <pre>(1010.01)<sub>2</sub>&nbsp;
+        1x2<sup>3</sup> + 0x2<sup>2</sup> + 1x2<sup>1</sup>+ 0x2<sup>0</sup> + 0x2 <sup>-1</sup> + 1x2 <sup>-2</sup> = 8+0+2+0+0+0.25 = 10.25&nbsp;
+        (1010.01)<sub>2</sub> = (10.25)<sub>10</sub>&nbsp;</pre>
+        </div>
+        </div>
+        <h2 id="3-decimal-to-octal-number-system">3. Decimal to Octal Number System</h2>
+<p dir="ltr">To convert from decimal to octal, start dividing decimal number by 8, and whatever the reminder getting, writing down from bottom to top, and that will be the&nbsp;octal number representation&nbsp;of the decimal number. And the number contains fractional part, then multiply 8 in the fractional part.</p>
+<h3 id="example-2"><strong>Example</strong></h3>
+<pre>(10.25)<sub>10</sub>&nbsp;
+(10)<sub>10</sub> = (12)<sub>8</sub>&nbsp;
+Fractional part:&nbsp;
+0.25 x 8 = 2.00&nbsp;</pre>
+<p dir="ltr"><strong>Note:</strong>&nbsp;Keep multiplying the fractional part with 8 until decimal part .00 is obtained.&nbsp;<br />(.25)<sub>10</sub>&nbsp;= (.2)<sub>8</sub></p>
+<p><strong>Answer:</strong>&nbsp;(10.25)<sub>10</sub>&nbsp;= (12.2)<sub>8</sub>&nbsp;<br />&nbsp;</p>
+<h2 id="4-octal-to-decimal-number-system">4. Octal to Decimal Number System</h2>
+<p dir="ltr">To convert from octal to decimal, start multiplying the exponent of 8 with each digit of the number in decreasing order. If the number contains fractional part then will divide it by the exponent of 8.</p>
+<h3 id="example-3"><strong>Example</strong></h3>
+<pre>(12.2)<sub>8</sub>
+1 x 8<sup>1</sup> + 2 x 8<sup>0</sup> +2 x 8<sup>-1</sup> = 8+2+0.25 = 10.25&nbsp;
+(12.2)<sub>8</sub> = (10.25)<sub>10</sub>&nbsp;</pre>
+<h2 id="5-hexadecimal-to-binary-number-system">5. Hexadecimal to Binary Number System</h2>
+<p dir="ltr">To convert from Hexadecimal to Binary, write the 4-bit binary equivalent of hexadecimal.</p>
+<p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/3-29.jpg" width="291" height="297" /></p>
+<h3 id="example-4"><strong>Example</strong></h3>
+<p dir="ltr">(3A)<sub>16</sub>&nbsp;= (00111010)<sub>2</sub>&nbsp;</p>
+<h2 id="6-binary-to-hexadecimal-number-system">6. Binary to Hexadecimal Number System</h2>
+<p dir="ltr">To convert from Binary to Hexadecimal, start grouping the&nbsp;<a href="https://www.geeksforgeeks.org/what-is-bit/" target="_blank" rel="noopener">bits</a>&nbsp;in groups of 4 from the right-end and write the equivalent hexadecimal for the 4-bit binary. Add extra 0&rsquo;s on the left to adjust the groups.&nbsp;</p>
+<h3 id="example-5"><strong>Example</strong></h3>
+<pre>1111011011
+<u><span class="GFGEditorTheme__textUnderline">0011</span></u> <u><span class="GFGEditorTheme__textUnderline">1101</span></u> <u><span class="GFGEditorTheme__textUnderline">1011</span></u>
+(001111011011 )<sub>2</sub> = (3DB)<sub>16</sub>&nbsp;</pre>
+<h2 id="7-binary-to-octal-number-system">7. Binary to Octal Number System</h2>
+<p dir="ltr">To convert from binary to octal, start grouping the bits in groups of 3 from the right end and write the equivalent octal for the 3-bit&nbsp;binary. Add 0&rsquo;s on the left to adjust the groups.</p>
+<h3 id="example-6"><strong>Example</strong></h3>
+<p>111101101</p>
+<p><u><span class="GFGEditorTheme__textUnderline">111</span></u>&nbsp;<u><span class="GFGEditorTheme__textUnderline">101</span></u>&nbsp;<u><span class="GFGEditorTheme__textUnderline">101</span></u></p>
+<p>(111101101)<sub>2</sub>&nbsp;= (755)<sub>8</sub></p>
+</body>
+</html>

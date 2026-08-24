@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Applications of various Automata</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+                            <div class="article-title">
+                                <div class="main_wrapper">
+                                    <div>
+                                        <div class="article-title">
+                                            <h1>Longest Remaining Time First (LRTF) or Preemptive Longest Job First CPU Scheduling Algorithm</h1>
+                                        </div>
+                                        <div><span class="strong">Last Updated :&nbsp;</span>12 Mar, 2024</div>
+                                    </div>
+                                    <div class="three_dot_dropdown">
+                                        <div>
+                                            <div class="article--viewer_improve tooltip">
+                                                <div class="three_dot_dropdown_div three_dot_dropdown_improve">
+                                                    <div class="improve_dot_dropdown_inner_div">&nbsp;</div>
+                                                </div>
+                                            </div>
+                                            <ul class="dropbtn icons btn-right showLeft">
+                                                <li>&nbsp;</li>
+                                                <li>&nbsp;</li>
+                                                <li>&nbsp;</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text">
+                                    <p dir="ltr"><strong>Longest Remaining Time First (LRTF)</strong>&nbsp;is a&nbsp;<a href="https://www.geeksforgeeks.org/preemptive-and-non-preemptive-scheduling/">preemptive</a>&nbsp;version of&nbsp;<a href="https://www.geeksforgeeks.org/longest-job-first-ljf-cpu-scheduling-algorithm">Longest Job First (LJF) scheduling algorithm</a>. In this scheduling algorithm, we find the process with the maximum remaining time and then process it, i.e. check for the maximum remaining time after some interval of time(say 1 unit each) to check if another process having more<a href="https://www.geeksforgeeks.org/difference-between-arrival-time-and-burst-time-in-cpu-scheduling/">&nbsp;Burst Time&nbsp;</a>arrived up to that time.&nbsp;</p>
+                                    <h2><strong>Characteristics of Longest Remaining Time First (LRTF)&nbsp;</strong></h2>
+                                    <ul>
+                                        <li value="1">Among all the processes waiting in a waiting queue, CPU is always assigned to the process having largest burst time.</li>
+                                        <li value="2">If two processes have the same burst time then the tie is broken using&nbsp;<a href="https://www.geeksforgeeks.org/program-for-fcfs-cpu-scheduling-set-1/">FCFS&nbsp;</a>i.e. the process that arrived first is processed first.&nbsp;</li>
+                                        <li value="3">LJF CPU Scheduling can be of both preemptive and non-preemptive type.</li>
+                                    </ul>
+                                    <h2><strong>Advantages of Longest Remaining Time First (LRTF)&nbsp;</strong></h2>
+                                    <ul>
+                                        <li value="1">No other process can execute until the longest job or process executes completely.</li>
+                                        <li value="2">All the jobs or processes finishes at the same time approximately.</li>
+                                    </ul>
+                                    <h2><strong>Disadvantages of Longest Remaining Time First (LRTF)&nbsp;</strong></h2>
+                                    <ul>
+                                        <li value="1">This algorithm gives very high&nbsp;<a href="https://www.geeksforgeeks.org/difference-between-turn-around-time-tat-and-waiting-time-wt-in-cpu-scheduling/">average waiting time</a>&nbsp;and<a href="https://www.geeksforgeeks.org/difference-between-turn-around-time-tat-and-waiting-time-wt-in-cpu-scheduling/">&nbsp;average turn-around time</a>&nbsp;for a given set of processes.</li>
+                                        <li value="2">This may lead to convoy effect.</li>
+                                        <li value="3">It may happen that a short process may never get executed and the system keeps on executing the longer processes.</li>
+                                        <li value="4">It reduces the processing speed and thus reduces the efficiency and utilization of the system.</li>
+                                    </ul>
+                                    <h2><strong>Longest Remaining Time First (LRTF) CPU Scheduling Algorithm</strong></h2>
+                                    <ul>
+                                        <li value="1"><strong>Step-1:</strong>&nbsp;First, sort the processes in increasing order of their Arrival Time.&nbsp;</li>
+                                        <li value="2"><strong>Step-2:</strong>&nbsp;Choose the process having least arrival time but with most Burst Time.&nbsp;</li>
+                                        <li value="3"><strong>Step-3</strong>: Then process it for 1 unit. Check if any other process arrives upto that time of execution or not.&nbsp;</li>
+                                        <li value="4"><strong>Step-4:</strong>&nbsp;Repeat the above both steps until execute all the processes.&nbsp;<br />&nbsp;</li>
+                                    </ul>
+                                    <h2>Examples to show working of Preemptive Longest Job First CPU Scheduling Algorithm:</h2>
+                                    <p dir="ltr"><strong>Example-1:</strong>&nbsp;Consider the following table of arrival time and burst time for four processes P1, P2, P3 and P4.&nbsp;</p>
+                                    <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+                                    <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /></colgroup>
+                                        <thead>
+                                        <tr>
+                                            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Processes</th>
+                                            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Arrival time</th>
+                                            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">&nbsp;Burst Time</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td class="GFGEditorTheme__tableCell">P1 &nbsp;</td>
+                                            <td class="GFGEditorTheme__tableCell">
+                                                <p dir="ltr">&nbsp; &nbsp; 1 ms &nbsp;&nbsp;</p>
+                                            </td>
+                                            <td class="GFGEditorTheme__tableCell">
+                                                <p dir="ltr">&nbsp; 2 ms</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="GFGEditorTheme__tableCell">P2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
+                                            <td class="GFGEditorTheme__tableCell">
+                                                <p dir="ltr">2 ms</p>
+                                            </td>
+                                            <td class="GFGEditorTheme__tableCell">
+                                                <p dir="ltr">&nbsp;4 ms</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="GFGEditorTheme__tableCell">P3&nbsp;</td>
+                                            <td class="GFGEditorTheme__tableCell">
+                                                <p dir="ltr">3 ms</p>
+                                            </td>
+                                            <td class="GFGEditorTheme__tableCell">
+                                                <p dir="ltr">6 ms</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="GFGEditorTheme__tableCell">P4 &nbsp; &nbsp;&nbsp;</td>
+                                            <td class="GFGEditorTheme__tableCell">
+                                                <p dir="ltr">&nbsp; 4 ms &nbsp;</p>
+                                            </td>
+                                            <td class="GFGEditorTheme__tableCell">
+                                                <p dir="ltr">&nbsp; 8 ms &nbsp;</p>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <p dir="ltr">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br /><strong>The Longest Remaining Time First CPU Scheduling Algorithm will work on the basis of steps as mentioned below:</strong><br />&nbsp;</p>
+                                </div>
+                            </div>
+
+                                                        <div class="article-title">
+                                                            <div class="main_wrapper">
+                                                                <div class="article-title">
+                                                                    <p dir="ltr"><strong>At time = 1,&nbsp;</strong></p>
+                                                                    <ul>
+                                                                        <li value="1">Available Process : P1. So, select P1 and execute 1 ms.&nbsp;</li>
+                                                                    </ul>
+                                                                    <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                                                        <thead>
+                                                                        <tr>
+                                                                            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
+                                                                            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Process</th>
+                                                                            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Arrival Time</th>
+                                                                            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Waiting Table</th>
+                                                                            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Execution Time</th>
+                                                                            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Initial Burst Time</th>
+                                                                            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Remaining Burst&nbsp;<br />Time</th>
+                                                                        </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                        <tr>
+                                                                            <td class="GFGEditorTheme__tableCell"><strong>1-2ms</strong></td>
+                                                                            <td class="GFGEditorTheme__tableCell"><strong>P1</strong></td>
+                                                                            <td class="GFGEditorTheme__tableCell"><strong>1ms</strong></td>
+                                                                            <td class="GFGEditorTheme__tableCell">&nbsp;</td>
+                                                                            <td class="GFGEditorTheme__tableCell"><strong>1ms</strong></td>
+                                                                            <td class="GFGEditorTheme__tableCell"><strong>2ms</strong></td>
+                                                                            <td class="GFGEditorTheme__tableCell"><strong>1ms</strong></td>
+                                                                        </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                    <p dir="ltr"><strong>At time = 2,&nbsp;</strong></p>
+                                                                    <ul>
+                                                                        <li value="1">Available Process : P1, P2.&nbsp;</li>
+                                                                        <li value="2">So, select P2 and execute 1 ms (since B.T(P1) = 1 which is less than B.T(P2) = 4)&nbsp;</li>
+                                                                    </ul>
+                                                                    <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                                                        <thead>
+                                                                        <tr>
+                                                                            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
+                                                                            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Process</th>
+                                                                            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Arrival Time</th>
+                                                                            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Waiting Table</th>
+                                                                            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Execution Time</th>
+                                                                            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Initial Burst Time</th>
+                                                                            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Remaining Burst&nbsp;<br />Time</th>
+                                                                        </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                        <tr>
+                                                                            <td class="GFGEditorTheme__tableCell" rowspan="2"><strong>2-3ms</strong></td>
+                                                                            <td class="GFGEditorTheme__tableCell">P1</td>
+                                                                            <td class="GFGEditorTheme__tableCell">1ms</td>
+                                                                            <td class="GFGEditorTheme__tableCell" rowspan="2">P1</td>
+                                                                            <td class="GFGEditorTheme__tableCell">0ms</td>
+                                                                            <td class="GFGEditorTheme__tableCell">1ms</td>
+                                                                            <td class="GFGEditorTheme__tableCell">1ms</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="GFGEditorTheme__tableCell"><strong>P2</strong></td>
+                                                                            <td class="GFGEditorTheme__tableCell"><strong>2ms</strong></td>
+                                                                            <td class="GFGEditorTheme__tableCell"><strong>1ms</strong></td>
+                                                                            <td class="GFGEditorTheme__tableCell"><strong>4ms</strong></td>
+                                                                            <td class="GFGEditorTheme__tableCell"><strong>3ms</strong></td>
+                                                                        </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                    <p dir="ltr"><strong>At time = 3,</strong>&nbsp;</p>
+                                                                    <ul>
+                                                                        <li value="1">Available Process : P1, P2, P3.&nbsp;</li>
+                                                                        <li value="2">So, select P3 and execute 1 ms (since, B.T(P1) = 1 , B.T(P2) = 3 , B.T(P3) = 6).&nbsp;</li>
+                                                                    </ul>
+                                                                    <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                                                        <thead>
+                                                                        <tr>
+                                                                            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
+                                                                            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Process</th>
+                                                                            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Arrival Time</th>
+                                                                            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Waiting Table</th>
+                                                                            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Execution Time</th>
+                                                                            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Initial Burst Time</th>
+                                                                            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Remaining Burst&nbsp;<br />Time</th>
+                                                                        </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                        <tr>
+                                                                            <td class="GFGEditorTheme__tableCell" rowspan="3"><strong>3-4ms</strong></td>
+                                                                            <td class="GFGEditorTheme__tableCell">P1</td>
+                                                                            <td class="GFGEditorTheme__tableCell">1ms</td>
+                                                                            <td class="GFGEditorTheme__tableCell" rowspan="3">P1, P2</td>
+                                                                            <td class="GFGEditorTheme__tableCell">0ms</td>
+                                                                            <td class="GFGEditorTheme__tableCell">1ms</td>
+                                                                            <td class="GFGEditorTheme__tableCell">1ms</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="GFGEditorTheme__tableCell">P2</td>
+                                                                            <td class="GFGEditorTheme__tableCell">2ms</td>
+                                                                            <td class="GFGEditorTheme__tableCell">0ms</td>
+                                                                            <td class="GFGEditorTheme__tableCell">3ms</td>
+                                                                            <td class="GFGEditorTheme__tableCell">3ms</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="GFGEditorTheme__tableCell"><strong>P3</strong></td>
+                                                                            <td class="GFGEditorTheme__tableCell"><strong>3ms</strong></td>
+                                                                            <td class="GFGEditorTheme__tableCell"><strong>1ms</strong></td>
+                                                                            <td class="GFGEditorTheme__tableCell"><strong>6ms</strong></td>
+                                                                            <td class="GFGEditorTheme__tableCell"><strong>5ms</strong></td>
+                                                                        </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="article-title">
+                                                            <div class="main_wrapper">
+                                                                <p dir="ltr"><strong>At time = 4,</strong></p>
+                                                                <ul>
+                                                                    <li value="1">Available processes: P1, P2, P3, P4.&nbsp;</li>
+                                                                    <li value="2">So, select P4 (as burst time of P4 is largest) and execute 1 ms (since, B.T(P1) = 1 , B.T(P2) = 3 , B.T(P3) = 5, B.T(P4) = 8).&nbsp;</li>
+                                                                </ul>
+                                                                <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                                                    <thead>
+                                                                    <tr>
+                                                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
+                                                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Process</th>
+                                                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Arrival Time</th>
+                                                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Waiting Table</th>
+                                                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Execution Time</th>
+                                                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Initial Burst Time</th>
+                                                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Remaining Burst&nbsp;<br />Time</th>
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td class="GFGEditorTheme__tableCell" rowspan="4"><strong>4-5ms</strong></td>
+                                                                        <td class="GFGEditorTheme__tableCell">P1</td>
+                                                                        <td class="GFGEditorTheme__tableCell">1ms</td>
+                                                                        <td class="GFGEditorTheme__tableCell" rowspan="4">P1, P2, P3</td>
+                                                                        <td class="GFGEditorTheme__tableCell">0ms</td>
+                                                                        <td class="GFGEditorTheme__tableCell">1ms</td>
+                                                                        <td class="GFGEditorTheme__tableCell">1ms</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="GFGEditorTheme__tableCell">P2</td>
+                                                                        <td class="GFGEditorTheme__tableCell">2ms</td>
+                                                                        <td class="GFGEditorTheme__tableCell">0ms</td>
+                                                                        <td class="GFGEditorTheme__tableCell">3ms</td>
+                                                                        <td class="GFGEditorTheme__tableCell">3ms</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="GFGEditorTheme__tableCell">P3</td>
+                                                                        <td class="GFGEditorTheme__tableCell">3ms</td>
+                                                                        <td class="GFGEditorTheme__tableCell">0ms</td>
+                                                                        <td class="GFGEditorTheme__tableCell">5ms</td>
+                                                                        <td class="GFGEditorTheme__tableCell">5ms</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="GFGEditorTheme__tableCell"><strong>P4</strong></td>
+                                                                        <td class="GFGEditorTheme__tableCell"><strong>4ms</strong></td>
+                                                                        <td class="GFGEditorTheme__tableCell"><strong>1ms</strong></td>
+                                                                        <td class="GFGEditorTheme__tableCell"><strong>8ms</strong></td>
+                                                                        <td class="GFGEditorTheme__tableCell"><strong>7ms</strong></td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                                <p dir="ltr"><strong>At time = 5,</strong></p>
+                                                                <ul>
+                                                                    <li value="1">Available processes: P1, P2, P3, P4,&nbsp;</li>
+                                                                    <li value="2">Process P4 will continue its execution as no other process has burst time larger than the Process P4</li>
+                                                                </ul>
+                                                                <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                                                    <thead>
+                                                                    <tr>
+                                                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
+                                                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Process</th>
+                                                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Arrival Time</th>
+                                                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Waiting Table</th>
+                                                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Execution Time</th>
+                                                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Initial Burst Time</th>
+                                                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Remaining Burst&nbsp;<br />Time</th>
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td class="GFGEditorTheme__tableCell" rowspan="4"><strong>5-7ms</strong></td>
+                                                                        <td class="GFGEditorTheme__tableCell">P1</td>
+                                                                        <td class="GFGEditorTheme__tableCell">1ms</td>
+                                                                        <td class="GFGEditorTheme__tableCell" rowspan="4">P1, P2, P3</td>
+                                                                        <td class="GFGEditorTheme__tableCell">0ms</td>
+                                                                        <td class="GFGEditorTheme__tableCell">1ms</td>
+                                                                        <td class="GFGEditorTheme__tableCell">1ms</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="GFGEditorTheme__tableCell">P2</td>
+                                                                        <td class="GFGEditorTheme__tableCell">2ms</td>
+                                                                        <td class="GFGEditorTheme__tableCell">0ms</td>
+                                                                        <td class="GFGEditorTheme__tableCell">3ms</td>
+                                                                        <td class="GFGEditorTheme__tableCell">3ms</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="GFGEditorTheme__tableCell">P3</td>
+                                                                        <td class="GFGEditorTheme__tableCell">3ms</td>
+                                                                        <td class="GFGEditorTheme__tableCell">0ms</td>
+                                                                        <td class="GFGEditorTheme__tableCell">5ms</td>
+                                                                        <td class="GFGEditorTheme__tableCell">5ms</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="GFGEditorTheme__tableCell"><strong>P4</strong></td>
+                                                                        <td class="GFGEditorTheme__tableCell"><strong>4ms</strong></td>
+                                                                        <td class="GFGEditorTheme__tableCell"><strong>2ms</strong></td>
+                                                                        <td class="GFGEditorTheme__tableCell"><strong>7ms</strong></td>
+                                                                        <td class="GFGEditorTheme__tableCell"><strong>5ms</strong></td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+
+                                                    <div class="main_wrapper">
+                                                        <div class="article-title">
+                                                            <p dir="ltr"><strong>At time = 7,</strong></p>
+                                                            <ul>
+                                                                <li value="1">The processes P3 and P4 have same remaining burst time,&nbsp;</li>
+                                                                <li value="2">hence If two processes have the same burst time then the tie is broken using&nbsp;<a href="https://www.geeksforgeeks.org/program-for-fcfs-cpu-scheduling-set-1/">FCFS&nbsp;</a>i.e. the process that arrived first is processed first.&nbsp;</li>
+                                                                <li value="3">Therefore P3 will get executed for 1ms</li>
+                                                            </ul>
+                                                            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                                                <thead>
+                                                                <tr>
+                                                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
+                                                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Process</th>
+                                                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Arrival Time</th>
+                                                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Waiting Table</th>
+                                                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Execution Time</th>
+                                                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Initial Burst Time</th>
+                                                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Remaining Burst&nbsp;<br />Time</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td class="GFGEditorTheme__tableCell" rowspan="4"><strong>7-8ms</strong></td>
+                                                                    <td class="GFGEditorTheme__tableCell">P1</td>
+                                                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                                                    <td class="GFGEditorTheme__tableCell" rowspan="4">P1, P2, P4</td>
+                                                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="GFGEditorTheme__tableCell">P2</td>
+                                                                    <td class="GFGEditorTheme__tableCell">2ms</td>
+                                                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                                                    <td class="GFGEditorTheme__tableCell">3ms</td>
+                                                                    <td class="GFGEditorTheme__tableCell">3ms</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="GFGEditorTheme__tableCell"><strong>P3</strong></td>
+                                                                    <td class="GFGEditorTheme__tableCell"><strong>3ms</strong></td>
+                                                                    <td class="GFGEditorTheme__tableCell"><strong>1ms</strong></td>
+                                                                    <td class="GFGEditorTheme__tableCell"><strong>5ms</strong></td>
+                                                                    <td class="GFGEditorTheme__tableCell"><strong>4ms</strong></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="GFGEditorTheme__tableCell">P4</td>
+                                                                    <td class="GFGEditorTheme__tableCell">4ms</td>
+                                                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                                                    <td class="GFGEditorTheme__tableCell">5ms</td>
+                                                                    <td class="GFGEditorTheme__tableCell">5ms</td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            <p dir="ltr"><strong>At time = 8,</strong></p>
+                                                            <ul>
+                                                                <li value="1">Available processes: P1, P2, P3, P4,&nbsp;</li>
+                                                                <li value="2">Process P4 will again continue its execution as no other process has burst time larger than the Process P4</li>
+                                                            </ul>
+                                                            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                                                <thead>
+                                                                <tr>
+                                                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
+                                                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Process</th>
+                                                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Arrival Time</th>
+                                                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Waiting Table</th>
+                                                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Execution Time</th>
+                                                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Initial Burst Time</th>
+                                                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Remaining Burst&nbsp;<br />Time</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td class="GFGEditorTheme__tableCell" rowspan="4"><strong>8-9ms</strong></td>
+                                                                    <td class="GFGEditorTheme__tableCell">P1</td>
+                                                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                                                    <td class="GFGEditorTheme__tableCell" rowspan="4">P1, P2, P3</td>
+                                                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="GFGEditorTheme__tableCell">P2</td>
+                                                                    <td class="GFGEditorTheme__tableCell">2ms</td>
+                                                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                                                    <td class="GFGEditorTheme__tableCell">3ms</td>
+                                                                    <td class="GFGEditorTheme__tableCell">3ms</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="GFGEditorTheme__tableCell">P3</td>
+                                                                    <td class="GFGEditorTheme__tableCell">3ms</td>
+                                                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                                                    <td class="GFGEditorTheme__tableCell">4ms</td>
+                                                                    <td class="GFGEditorTheme__tableCell">4ms</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="GFGEditorTheme__tableCell"><strong>P4</strong></td>
+                                                                    <td class="GFGEditorTheme__tableCell"><strong>4ms</strong></td>
+                                                                    <td class="GFGEditorTheme__tableCell"><strong>1ms</strong></td>
+                                                                    <td class="GFGEditorTheme__tableCell"><strong>5ms</strong></td>
+                                                                    <td class="GFGEditorTheme__tableCell"><strong>4ms</strong></td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+
+                            <div class="main_wrapper">
+                                <p dir="ltr"><strong>At time = 9,</strong></p>
+                                <ul>
+                                    <li value="1">Available processes: P1, P2, P3, P4,&nbsp;</li>
+                                    <li value="2">Process P3 continue its execution on the basis of FCFS rule.</li>
+                                </ul>
+                                <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                    <thead>
+                                    <tr>
+                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
+                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Process</th>
+                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Arrival Time</th>
+                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Waiting Table</th>
+                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Execution Time</th>
+                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Initial Burst Time</th>
+                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Remaining Burst&nbsp;<br />Time</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td class="GFGEditorTheme__tableCell" rowspan="4"><strong>9-10ms</strong></td>
+                                        <td class="GFGEditorTheme__tableCell">P1</td>
+                                        <td class="GFGEditorTheme__tableCell">1ms</td>
+                                        <td class="GFGEditorTheme__tableCell" rowspan="4">P1, P2, P4</td>
+                                        <td class="GFGEditorTheme__tableCell">0ms</td>
+                                        <td class="GFGEditorTheme__tableCell">1ms</td>
+                                        <td class="GFGEditorTheme__tableCell">1ms</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="GFGEditorTheme__tableCell">P2</td>
+                                        <td class="GFGEditorTheme__tableCell">2ms</td>
+                                        <td class="GFGEditorTheme__tableCell">0ms</td>
+                                        <td class="GFGEditorTheme__tableCell">3ms</td>
+                                        <td class="GFGEditorTheme__tableCell">3ms</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="GFGEditorTheme__tableCell"><strong>P3</strong></td>
+                                        <td class="GFGEditorTheme__tableCell"><strong>3ms</strong></td>
+                                        <td class="GFGEditorTheme__tableCell"><strong>1ms</strong></td>
+                                        <td class="GFGEditorTheme__tableCell"><strong>4ms</strong></td>
+                                        <td class="GFGEditorTheme__tableCell"><strong>3ms</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="GFGEditorTheme__tableCell">P4</td>
+                                        <td class="GFGEditorTheme__tableCell">4ms</td>
+                                        <td class="GFGEditorTheme__tableCell">0ms</td>
+                                        <td class="GFGEditorTheme__tableCell">4ms</td>
+                                        <td class="GFGEditorTheme__tableCell">4ms</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <p dir="ltr"><strong>At time = 10,</strong></p>
+                                <ul>
+                                    <li value="1">Available processes: P1, P2, P3, P4,&nbsp;</li>
+                                    <li value="2">Now again the burst time of P4 is largest, thus it will execute further.</li>
+                                </ul>
+                                <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                    <thead>
+                                    <tr>
+                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
+                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Process</th>
+                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Arrival Time</th>
+                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Waiting Table</th>
+                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Execution Time</th>
+                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Initial Burst Time</th>
+                                        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Remaining Burst&nbsp;<br />Time</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td class="GFGEditorTheme__tableCell" rowspan="4"><strong>10-11ms</strong></td>
+                                        <td class="GFGEditorTheme__tableCell">P1</td>
+                                        <td class="GFGEditorTheme__tableCell">1ms</td>
+                                        <td class="GFGEditorTheme__tableCell" rowspan="4">P1, P2, P3</td>
+                                        <td class="GFGEditorTheme__tableCell">0ms</td>
+                                        <td class="GFGEditorTheme__tableCell">1ms</td>
+                                        <td class="GFGEditorTheme__tableCell">1ms</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="GFGEditorTheme__tableCell">P2</td>
+                                        <td class="GFGEditorTheme__tableCell">2ms</td>
+                                        <td class="GFGEditorTheme__tableCell">0ms</td>
+                                        <td class="GFGEditorTheme__tableCell">3ms</td>
+                                        <td class="GFGEditorTheme__tableCell">3ms</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="GFGEditorTheme__tableCell">P3</td>
+                                        <td class="GFGEditorTheme__tableCell">3ms</td>
+                                        <td class="GFGEditorTheme__tableCell">0ms</td>
+                                        <td class="GFGEditorTheme__tableCell">3ms</td>
+                                        <td class="GFGEditorTheme__tableCell">3ms</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="GFGEditorTheme__tableCell"><strong>P4</strong></td>
+                                        <td class="GFGEditorTheme__tableCell"><strong>4ms</strong></td>
+                                        <td class="GFGEditorTheme__tableCell"><strong>1ms</strong></td>
+                                        <td class="GFGEditorTheme__tableCell"><strong>4ms</strong></td>
+                                        <td class="GFGEditorTheme__tableCell"><strong>3ms</strong></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p dir="ltr"><strong>At time = 11,</strong></p>
+                            <ul>
+                                <li value="1">Available processes: P1, P2, P3, P4,&nbsp;</li>
+                                <li value="2">Process P2 will continue its execution as the burst time of P2, P3, P4 is same&nbsp;</li>
+                                <li value="3">Thus, in this case the further execution will be decided on the basis of FCFS i.e. the process that arrived first is processed first.&nbsp;</li>
+                            </ul>
+                            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                <thead>
+                                <tr>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Process</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Arrival Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Waiting Table</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Execution Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Initial Burst Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Remaining Burst&nbsp;<br />Time</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell" rowspan="4"><strong>11-12ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell">P1</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                    <td class="GFGEditorTheme__tableCell" rowspan="4">P1, P3, P4</td>
+                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                </tr>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell"><strong>P2</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><strong>2ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><strong>1ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><strong>3ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><strong>2ms</strong></td>
+                                </tr>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell">P3</td>
+                                    <td class="GFGEditorTheme__tableCell">3ms</td>
+                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                    <td class="GFGEditorTheme__tableCell">3ms</td>
+                                    <td class="GFGEditorTheme__tableCell">3ms</td>
+                                </tr>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell">P4</td>
+                                    <td class="GFGEditorTheme__tableCell">4ms</td>
+                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                    <td class="GFGEditorTheme__tableCell">3ms</td>
+                                    <td class="GFGEditorTheme__tableCell">3ms</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <p dir="ltr"><strong>At time = 12,&nbsp;</strong></p>
+                            <ul>
+                                <li value="1">Available processes: P1, P2, P3, P4,&nbsp;</li>
+                                <li value="2">Process P3 continue its execution on the basis of above explanation.</li>
+                            </ul>
+                            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                <thead>
+                                <tr>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Process</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Arrival Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Waiting Table</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Execution Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Initial Burst Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Remaining Burst&nbsp;<br />Time</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell" rowspan="4"><strong>12-13ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell">P1</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                    <td class="GFGEditorTheme__tableCell" rowspan="4">P1, P2, P4</td>
+                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                </tr>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell">P2</td>
+                                    <td class="GFGEditorTheme__tableCell">2ms</td>
+                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                    <td class="GFGEditorTheme__tableCell">2ms</td>
+                                    <td class="GFGEditorTheme__tableCell">2ms</td>
+                                </tr>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell"><strong>P3</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><strong>3ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><strong>1ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><strong>3ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><strong>2ms</strong></td>
+                                </tr>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell">P4</td>
+                                    <td class="GFGEditorTheme__tableCell">4ms</td>
+                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                    <td class="GFGEditorTheme__tableCell">3ms</td>
+                                    <td class="GFGEditorTheme__tableCell">3ms</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <p dir="ltr"><strong>At time = 13,</strong></p>
+                            <ul>
+                                <li value="1">Available processes: P1, P2, P3, P4,&nbsp;</li>
+                                <li value="2">Now again the burst time of P4 is largest, thus it will execute further.</li>
+                            </ul>
+                            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                <thead>
+                                <tr>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Process</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Arrival Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Waiting Table</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Execution Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Initial Burst Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Remaining Burst&nbsp;<br />Time</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell" rowspan="4"><strong>13-14ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell">P1</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                    <td class="GFGEditorTheme__tableCell" rowspan="4">P1, P2, P3</td>
+                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                </tr>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell">P2</td>
+                                    <td class="GFGEditorTheme__tableCell">2ms</td>
+                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                    <td class="GFGEditorTheme__tableCell">2ms</td>
+                                    <td class="GFGEditorTheme__tableCell">2ms</td>
+                                </tr>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell">P3</td>
+                                    <td class="GFGEditorTheme__tableCell">3ms</td>
+                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                    <td class="GFGEditorTheme__tableCell">2ms</td>
+                                    <td class="GFGEditorTheme__tableCell">2ms</td>
+                                </tr>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell"><strong>P4</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><strong>4ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><strong>1ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><strong>3ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><strong>2ms</strong></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <p dir="ltr"><strong>At time = 14,</strong></p>
+                            <ul>
+                                <li value="1">Available processes: P1, P2, P3, P4&nbsp;</li>
+                                <li value="2">Now, the process P2 will again begin to execute first among all</li>
+                            </ul>
+                            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                <thead>
+                                <tr>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Process</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Arrival Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Waiting Table</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Execution Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Initial Burst Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Remaining Burst&nbsp;<br />Time</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell" rowspan="4"><strong>14-15ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell">P1</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                    <td class="GFGEditorTheme__tableCell" rowspan="4">P1, P3, P4</td>
+                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                </tr>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell"><strong>P2</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><strong>2ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><strong>1ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><strong>2ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><strong>1ms</strong></td>
+                                </tr>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell">P3</td>
+                                    <td class="GFGEditorTheme__tableCell">3ms</td>
+                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                    <td class="GFGEditorTheme__tableCell">2ms</td>
+                                    <td class="GFGEditorTheme__tableCell">2ms</td>
+                                </tr>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell">P4</td>
+                                    <td class="GFGEditorTheme__tableCell">4ms</td>
+                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                    <td class="GFGEditorTheme__tableCell">2ms</td>
+                                    <td class="GFGEditorTheme__tableCell">2ms</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <p dir="ltr"><strong>At time = 15,</strong></p>
+                            <ul>
+                                <li value="1">Available processes: P1, P2, P3, P4, now P3 will execute</li>
+                            </ul>
+                            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                <thead>
+                                <tr>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Process</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Arrival Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Waiting Table</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Execution Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Initial Burst Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Remaining Burst&nbsp;<br />Time</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell" rowspan="4"><strong>15-16ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell">P1</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                    <td class="GFGEditorTheme__tableCell" rowspan="4">P1, P2, P4</td>
+                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                </tr>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell">P2</td>
+                                    <td class="GFGEditorTheme__tableCell">2ms</td>
+                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                </tr>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell"><strong>P3</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><strong>3ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><strong>1ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><strong>2ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><strong>1ms</strong></td>
+                                </tr>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell">P4</td>
+                                    <td class="GFGEditorTheme__tableCell">4ms</td>
+                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                    <td class="GFGEditorTheme__tableCell">2ms</td>
+                                    <td class="GFGEditorTheme__tableCell">2ms</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <p dir="ltr"><br /><br /></p>
+                            <p dir="ltr"><strong>At time = 16,</strong></p>
+                            <ul>
+                                <li value="1">Available processes: P1, P2, P3, P4,&nbsp;</li>
+                                <li value="2">here, P4 will execute as it has the largest Burst time among all</li>
+                            </ul>
+                            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                <thead>
+                                <tr>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Process</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Arrival Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Waiting Table</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Execution Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Initial Burst Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Remaining Burst&nbsp;<br />Time</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell" rowspan="4"><strong>16-17ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell">P1</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                    <td class="GFGEditorTheme__tableCell" rowspan="4">P1, P2, P3</td>
+                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                </tr>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell">P2</td>
+                                    <td class="GFGEditorTheme__tableCell">2ms</td>
+                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                </tr>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell">P3</td>
+                                    <td class="GFGEditorTheme__tableCell">3ms</td>
+                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                </tr>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell"><strong>P4</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><strong>4ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><strong>1ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><strong>2ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><strong>1ms</strong></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <p dir="ltr"><strong>At time = 17,</strong></p>
+                            <ul>
+                                <li value="1">Available processes: P1, P2, P3, P4,&nbsp;</li>
+                                <li value="2">Process P1 will execute here on the basis of above explanation</li>
+                            </ul>
+                            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                <thead>
+                                <tr>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Process</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Arrival Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Waiting Table</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Execution Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Initial Burst Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Remaining Burst&nbsp;<br />Time</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell" rowspan="4"><strong>17-18ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><s><strong><strong class="GFGEditorTheme__textStrikethrough">P1</strong></strong></s></td>
+                                    <td class="GFGEditorTheme__tableCell"><s><strong><strong class="GFGEditorTheme__textStrikethrough">1ms</strong></strong></s></td>
+                                    <td class="GFGEditorTheme__tableCell" rowspan="4">P2, P3, P4</td>
+                                    <td class="GFGEditorTheme__tableCell"><s><strong><strong class="GFGEditorTheme__textStrikethrough">1ms</strong></strong></s></td>
+                                    <td class="GFGEditorTheme__tableCell"><s><strong><strong class="GFGEditorTheme__textStrikethrough">1ms</strong></strong></s></td>
+                                    <td class="GFGEditorTheme__tableCell"><s><strong><strong class="GFGEditorTheme__textStrikethrough">0ms</strong></strong></s></td>
+                                </tr>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell">P2</td>
+                                    <td class="GFGEditorTheme__tableCell">2ms</td>
+                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                </tr>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell">P3</td>
+                                    <td class="GFGEditorTheme__tableCell">3ms</td>
+                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                </tr>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell">P4</td>
+                                    <td class="GFGEditorTheme__tableCell">4ms</td>
+                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <p>&nbsp;</p>
+                            <p dir="ltr"><strong>At time = 18,</strong></p>
+                            <ul>
+                                <li value="1">Available processes: P2, P3, P4, &nbsp;</li>
+                                <li value="2">Process P2 will execute.</li>
+                            </ul>
+                            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                <thead>
+                                <tr>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Process</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Arrival Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Waiting Table</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Execution Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Initial Burst Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Remaining Burst&nbsp;<br />Time</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell" rowspan="3"><strong>18-19ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><s><strong><strong class="GFGEditorTheme__textStrikethrough">P2</strong></strong></s></td>
+                                    <td class="GFGEditorTheme__tableCell"><s><strong><strong class="GFGEditorTheme__textStrikethrough">2ms</strong></strong></s></td>
+                                    <td class="GFGEditorTheme__tableCell" rowspan="3">P3, P4</td>
+                                    <td class="GFGEditorTheme__tableCell"><s><strong><strong class="GFGEditorTheme__textStrikethrough">1ms</strong></strong></s></td>
+                                    <td class="GFGEditorTheme__tableCell"><s><strong><strong class="GFGEditorTheme__textStrikethrough">1ms</strong></strong></s></td>
+                                    <td class="GFGEditorTheme__tableCell"><s><strong><strong class="GFGEditorTheme__textStrikethrough">0ms</strong></strong></s></td>
+                                </tr>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell">P3</td>
+                                    <td class="GFGEditorTheme__tableCell">3ms</td>
+                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                </tr>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell">P4</td>
+                                    <td class="GFGEditorTheme__tableCell">4ms</td>
+                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <p dir="ltr"><strong>At time = 19,</strong></p>
+                            <ul>
+                                <li value="1">Available processes: P3, P4, &nbsp;</li>
+                                <li value="2">Process P3 will execute.</li>
+                            </ul>
+                            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                <thead>
+                                <tr>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Process</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Arrival Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Waiting Table</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Execution Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Initial Burst Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Remaining Burst&nbsp;<br />Time</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell" rowspan="2"><strong>19-20ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><s><strong><strong class="GFGEditorTheme__textStrikethrough">P3</strong></strong></s></td>
+                                    <td class="GFGEditorTheme__tableCell"><s><strong><strong class="GFGEditorTheme__textStrikethrough">3ms</strong></strong></s></td>
+                                    <td class="GFGEditorTheme__tableCell" rowspan="2">P4</td>
+                                    <td class="GFGEditorTheme__tableCell"><s><strong><strong class="GFGEditorTheme__textStrikethrough">1ms</strong></strong></s></td>
+                                    <td class="GFGEditorTheme__tableCell"><s><strong><strong class="GFGEditorTheme__textStrikethrough">1ms</strong></strong></s></td>
+                                    <td class="GFGEditorTheme__tableCell"><s><strong><strong class="GFGEditorTheme__textStrikethrough">0ms</strong></strong></s></td>
+                                </tr>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell">P4</td>
+                                    <td class="GFGEditorTheme__tableCell">4ms</td>
+                                    <td class="GFGEditorTheme__tableCell">0ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                    <td class="GFGEditorTheme__tableCell">1ms</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <p dir="ltr"><strong>At time = 20,</strong></p>
+                            <ul>
+                                <li value="1">Process P4 will execute at the end.</li>
+                            </ul>
+                            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                <thead>
+                                <tr>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Process</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Arrival Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Waiting Table</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Execution Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Initial Burst Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Remaining Burst&nbsp;<br />Time</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell"><strong>20-21ms</strong></td>
+                                    <td class="GFGEditorTheme__tableCell"><s><strong><strong class="GFGEditorTheme__textStrikethrough">P4</strong></strong></s></td>
+                                    <td class="GFGEditorTheme__tableCell"><s><strong><strong class="GFGEditorTheme__textStrikethrough">4ms</strong></strong></s></td>
+                                    <td class="GFGEditorTheme__tableCell">&nbsp;</td>
+                                    <td class="GFGEditorTheme__tableCell"><s><strong><strong class="GFGEditorTheme__textStrikethrough">1ms</strong></strong></s></td>
+                                    <td class="GFGEditorTheme__tableCell"><s><strong><strong class="GFGEditorTheme__textStrikethrough">1ms</strong></strong></s></td>
+                                    <td class="GFGEditorTheme__tableCell"><s><strong><strong class="GFGEditorTheme__textStrikethrough">0ms</strong></strong></s></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <p dir="ltr"><strong>Note:</strong>&nbsp;CPU will be idle for 0 to 1 unit time since there is no process available in the given interval.&nbsp;</p>
+                            <p><strong>Gantt chart</strong>&nbsp;will be as following below:&nbsp;<br />&nbsp;</p>
+                            <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/88888888.png" width="inherit" height="inherit" /></p>
+                            <p dir="ltr">&nbsp;</p>
+                            <p>Since, completion time (C.T) can be directly determined by Gantt chart, and&nbsp;<br />&nbsp;</p>
+                            <blockquote>
+                                <p dir="ltr"><strong>Turn Around Time (TAT)</strong><br />= (Completion Time) &ndash; (Arrival Time)</p>
+                                <p dir="ltr">Also,<strong>&nbsp;Waiting Time (WT)</strong><br />= (Turn Around Time) &ndash; (Burst Time)&nbsp;</p>
+                            </blockquote>
+                            <p dir="ltr">Therefore, final table look like,&nbsp;</p>
+                            <p>&nbsp;<img src="https://media.geeksforgeeks.org/wp-content/uploads/222223333.png" width="inherit" height="inherit" /></p>
+                            <blockquote>
+                                <p dir="ltr">Total Turn Around Time = 68 ms<br />So,&nbsp;<strong>Average Turn Around Time</strong>&nbsp;= 68/4 = 17.00 ms</p>
+                                <p dir="ltr">And, Total Waiting Time = 48 ms<br />So&nbsp;<strong>Average Waiting Time</strong>&nbsp;= 48/4 = 12.00 ms&nbsp;</p>
+                            </blockquote>
+                            <p dir="ltr"><br /><br /></p>
+</body>
+</html>

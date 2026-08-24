@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+
+<body>
+    <div class="article-title">
+        <h1>Representation of Boolean Functions</h1>
+    </div>
+    <div class="text">
+        <p>A&nbsp;<strong>Boolean function</strong>&nbsp;is described by an algebraic expression consisting of binary
+            variables, the constants 0 and 1, and the logic operation symbols&nbsp;<img
+                class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-aea9745ff3e4828fcc71eb6a31e258f4_l3.svg"
+                alt="+,\:.\:,\:^\prime   " width="74" height="26" />For a given set of values of the binary variables
+            involved, the boolean function can have a value of 0 or 1. For example, the boolean function&nbsp;<img
+                class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-4b6948356b0170c8ed6b83baab5e2e1f_l3.svg"
+                alt="F= x^\prime y + z   " width="137" height="26" />is defined in terms of three binary
+            variables&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-c71eb1cbc5e7a5764a915fb5da1d5eca_l3.svg"
+                alt="x,\:y,\:z   " width="77" height="17" />. The function is equal to 1 if&nbsp;<img
+                class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-a3b58fdbb9db9aa1cfd7e38c87a935a4_l3.svg"
+                alt="x=0   " width="63" height="18" />and&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format"
+                title="Rendered by QuickLaTeX.com"
+                src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-429b9e650f1cc728e6ff88194486f689_l3.svg"
+                alt="y=1   " width="60" height="23" />simultaneously or&nbsp;<img
+                class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-26267ff0bc3545258f17d623462503c4_l3.svg"
+                alt="z=1   " width="59" height="18" />. Every boolean function can be expressed by an algebraic
+            expression, such as one mentioned above, or in terms of a Truth Table. A function may be expressed through
+            several algebraic expressions, on account of them being logically equivalent, but there is only one unique
+            truth table for every function. A Boolean function can be transformed from an algebraic expression into a
+            circuit diagram composed of logic gates connected in a particular structure. Circuit diagram for&nbsp;<img
+                class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-5b29c3634b54d516048b0fe8e001da82_l3.svg"
+                alt="F   " width="20" height="18" />&ndash;<img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/1-62.png" alt="" width="419"
+                height="130" />&nbsp;</p>
+        <div class="article-title">
+            <p><strong>Canonical and Standard Forms &ndash;</strong>&nbsp;Any binary variable can take one of two
+                forms,&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-85c262d564e30b486ad61b81b5d26de0_l3.svg"
+                    alt="x   " width="14" height="12" />or&nbsp;<img
+                    class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-70f0e100dd70802b2bac0b3ae7941544_l3.svg"
+                    alt="x^\prime   " width="21" height="21" />. A boolean function can be expressed in terms
+                of&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-be1ebbdc56e94d2fc20b248676946c99_l3.svg"
+                    alt="n   " width="15" height="12" />binary variables. If all the binary variables are combined
+                together using the AND operation, then there are a total of&nbsp;<img
+                    class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-6a8706c356c0eac62b5a6fedfb4b412d_l3.svg"
+                    alt="2^n   " width="24" height="19" />combinations since each variable can take two forms. Each of
+                the combinations is called a&nbsp;<strong>minterm</strong>&nbsp;or&nbsp;<strong>standard
+                    product</strong>. A minterm is represented by&nbsp;<img
+                    class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-0e004aef52bfe0c7df078021b1e1a398_l3.svg"
+                    alt="m_i   " width="30" height="16" />where&nbsp;<img
+                    class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-dc5167a8e639ae0c1ed27407c82ac1f3_l3.svg"
+                    alt="i   " width="8" height="18" />is the decimal equivalent of the binary number the minterm is
+                designated.&nbsp;<strong>Important Note &ndash;</strong>&nbsp;In a minterm, the binary variable is
+                un-primed if the variable is 1 and it is primed if the variable is 0 i.e. if the minterm is&nbsp;<img
+                    class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-36315da234957ff2a8da7aa97002f5c3_l3.svg"
+                    alt="xy^\prime   " width="35" height="26" />then that means&nbsp;<img
+                    class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-a15a745eab208c5f0fbd6d5077de920f_l3.svg"
+                    alt="x=1   " width="61" height="18" />and&nbsp;<img
+                    class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-6730ffbfc8dcf82218ddb51f899ede00_l3.svg"
+                    alt="y'=0   " width="69" height="26" />. For example, for a boolean function in two variables the
+                minterms are &ndash;&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format"
+                    title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-85f119c14cc66fb2bb45cd6d6c4f37a2_l3.svg"
+                    alt="m_0=x^\prime y^\prime,\:m_1=x^\prime y,\:m_2=x y^\prime,\:m_3=x y   " width="474"
+                    height="26" />In a similar way, if the variables are combined together with OR operation, then the
+                term obtained is called a&nbsp;<strong>maxterm</strong>&nbsp;or&nbsp;<strong>standard sum</strong>. A
+                maxterm is represented by&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format"
+                    title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-4afa35778fcd08e33dc93b883f6d4293_l3.svg"
+                    alt="M_i   " width="32" height="22" />where&nbsp;<img
+                    class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-dc5167a8e639ae0c1ed27407c82ac1f3_l3.svg"
+                    alt="i   " width="8" height="18" />is the decimal equivalent of the binary number the maxterm is
+                designated.&nbsp;<strong>Important Note &ndash;</strong>&nbsp;In a maxterm, the binary variable is
+                un-primed if the variable is 0 and it is primed if the variable is 1 i.e. if the maxterm is&nbsp;<img
+                    class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-615c255b3be367cbe4d67d2789da4672_l3.svg"
+                    alt="x^\prime+y   " width="67" height="26" />then that means&nbsp;<img
+                    class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-b810552541e66ab059aa7fa95f81f3cc_l3.svg"
+                    alt="x^\prime=1   " width="68" height="21" />and&nbsp;<img
+                    class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-c45be877b9297c00ceffaba81eb7ae0d_l3.svg"
+                    alt="y=0   " width="62" height="23" />. For example, for a boolean function in two variables the
+                maxterms are &ndash;&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format"
+                    title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-9d30ddbf1131a0ad912607c74ca07adf_l3.svg"
+                    alt="M_0=x+y,\:M_1=x+y^\prime,\:M_2=x^\prime + y,\:M_3=x^\prime + y^\prime   " width="611"
+                    height="26" />Minterms and Maxterms for function in 3 variables &ndash;</p>
+            <p>&nbsp;<img src="https://media.geeksforgeeks.org/wp-content/uploads/Capture-50.jpg" alt="" /></p>
+        </div>
+        <div class="article-title">
+            <p><strong>Relation between Minterms and Maxterms &ndash;</strong>&nbsp;Each minterm is the complement of
+                it&rsquo;s corresponding maxterm. For example, for a boolean function in two variables &ndash;</p>
+            <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+            <pre><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-07fd4fd1b79919854f3f6f7e24334289_l3.svg" alt="m_0=x^\prime y^\prime" width="111" height="26" />[Tex](m_0)^\prime=(x^\prime y^\prime)^\prime[/Tex]<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-c30beb64d6b983ced578bc30df9aa83e_l3.svg" alt="(m_0)^\prime=(x^\prime)^\prime + (y^\prime)^\prime" width="223" height="28" />[Tex](m_0)^\prime=x+y=M_0[/Tex]In general <img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-8ef05a4aa3ffd49d0accb9603995f728_l3.svg" alt="m_i = (M_i)^\prime" width="126" height="28" /> or <img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-c3f4a127df1eeb1b93bd272ee288d509_l3.svg" alt="M_i = (m_i)^\prime" width="125" height="28" /></pre>
+            <p><strong>Constructing Boolean Functions &ndash;</strong>&nbsp;Now that we know what minterms and maxterms
+                are, we can use them to construct boolean expressions. &ldquo;A Boolean function can be expressed
+                algebraically from a given truth table by forming a minterm for each combination of the variables that
+                produces a 1 in the function and then taking the OR of all those terms.&rdquo; For example, consider two
+                functions&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format"
+                    title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-0b5cbd45c91758d49c0b56dc2d7e25e3_l3.svg"
+                    alt="f_1   " width="21" height="23" />and&nbsp;<img
+                    class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-155235c9e45ec945e018f3654c8233d1_l3.svg"
+                    alt="f_2   " width="22" height="23" />with the following truth tables &ndash;</p>
+            <figure class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>x</th>
+                            <th>y</th>
+                            <th>z</th>
+                            <th>f<sub>&nbsp;1&nbsp;</sub></th>
+                            <th>f<sub>&nbsp;2&nbsp;</sub></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </figure>
+        </div>
+        <div class="article-title">
+            <p><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-fc2dbbe4c7ca9e03b98af4ad01585538_l3.svg"
+                    alt="\begin{tabular}{||c||c||c||c||c||} \hline x&amp;y&amp;z&amp;f_1&amp;f_2\\ \hline \hline 0&amp;0&amp;0&amp;0&amp;0\\ \hline 0&amp;0&amp;1&amp;1&amp;0\\ \hline 0&amp;1&amp;0&amp;0&amp;0\\ \hline 0&amp;1&amp;1&amp;0&amp;1\\ \hline 1&amp;0&amp;0&amp;1&amp;0\\ \hline 1&amp;0&amp;1&amp;0&amp;1\\ \hline 1&amp;1&amp;0&amp;0&amp;1\\ \hline 1&amp;1&amp;1&amp;1&amp;1\\ \hline \end{tabular}   "
+                    width="254" height="309" />The function&nbsp;<img
+                    class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-0b5cbd45c91758d49c0b56dc2d7e25e3_l3.svg"
+                    alt="f_1   " width="21" height="23" />is 1 for the following combinations of&nbsp;<img
+                    class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-c71eb1cbc5e7a5764a915fb5da1d5eca_l3.svg"
+                    alt="x,\:y,\:z   " width="77" height="17" />&ndash; 001,100,111 The corresponding minterms
+                are-&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-8cc065c3d90e1fd8fa914d60e40e7e0e_l3.svg"
+                    alt="x^\prime y^\prime z   " width="55" height="26" />,&nbsp;<img
+                    class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-3552ede948b1b4fec08b92c1d77ba5d5_l3.svg"
+                    alt="x y^\prime z^\prime   " width="55" height="26" />,&nbsp;<img
+                    class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-8db0cd97490c0855690bbb3bb09689cc_l3.svg"
+                    alt="xyz   " width="42" height="17" />. Therefore the algebraic expression for&nbsp;<img
+                    class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-0b5cbd45c91758d49c0b56dc2d7e25e3_l3.svg"
+                    alt="f_1   " width="21" height="23" />is-&nbsp;<img
+                    class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-81c42b226ad62e9b44d9c60cb86ac230_l3.svg"
+                    alt="f_1(x,y,z) = x^\prime y^\prime z + x y^\prime z^\prime + xyz   " width="363"
+                    height="28" />[Tex]f_1(x,y,z) = m_1 + m_4 +m_7&nbsp;&nbsp;&nbsp;[/Tex]Similarly, the algebraic
+                expression for&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format"
+                    title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-155235c9e45ec945e018f3654c8233d1_l3.svg"
+                    alt="f_2   " width="22" height="23" />is-&nbsp;<img
+                    class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-a28c3bfa848f37fa260681735f6f45da_l3.svg"
+                    alt="f_2(x,y,z) = m_3 + m_5 + m_6 + m_7   " width="378" height="27" />If we use De Morgans Law
+                on&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-0b5cbd45c91758d49c0b56dc2d7e25e3_l3.svg"
+                    alt="f_1   " width="21" height="23" />and&nbsp;<img
+                    class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-155235c9e45ec945e018f3654c8233d1_l3.svg"
+                    alt="f_2   " width="22" height="23" />all 1&rsquo;s become 0 and all 0&rsquo;s become 1. Therefore
+                we get-&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format"
+                    title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-d4ab986f12034d244f92d3a1f8466f53_l3.svg"
+                    alt="f_1(x,y,z)^\prime = m_0 + m_2 +m_3 + m_5 + m_6   " width="452"
+                    height="28" />[Tex]f_2(x,y,z)^\prime = m_0 + m_1 + m_2 + m_4&nbsp;&nbsp;&nbsp;[/Tex]On using De
+                Morgans Law again-&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format"
+                    title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-3c12e35a7d02c16ead8b5a7e20c18052_l3.svg"
+                    alt="f_1(x,y,z) = (m_0 + m_2 +m_3 + m_5 + m_6)^\prime   " width="473" height="28" />[Tex]f_1(x,y,z)
+                = m_0^\prime . m_2^\prime . m_3^\prime . m_5^\prime . m_6^\prime&nbsp;&nbsp;&nbsp;[/Tex]<img
+                    class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-7bd4d31ead50e69bca7384f4e7fad95c_l3.svg"
+                    alt="f_1(x,y,z) = M_0 . M_2 . M_3 . M_5 . M_6   " width="358" height="27" />and&nbsp;<img
+                    class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-bba122f643621bedc8a7a63021efea80_l3.svg"
+                    alt="f_2(x,y,z) = (m_0 + m_1 + m_2 + m_4)^\prime   " width="406" height="28" />[Tex]f_2(x,y,z) =
+                m_0^\prime . m_1^\prime . m_2^\prime . m_4^\prime&nbsp;&nbsp;&nbsp;[/Tex]<img
+                    class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                    src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-637772c82e88b2e405f1fac993bdb357_l3.svg"
+                    alt="f_2(x,y,z) = M_0 . M_1 . M_2 . M_4   " width="313" height="27" />We can conclude from the above
+                that boolean functions can be expressed as a&nbsp;<strong>sum of minterms</strong>&nbsp;or
+                a&nbsp;<strong>product of maxterms</strong>. &ldquo;Boolean functions expressed as a sum of minterms or
+                product of maxterms are said to be in&nbsp;<strong>canonical form</strong>.</p>
+            <p>&nbsp;</p>
+        </div>
+        <div class="article-title">
+            <ul>
+                <li><strong>Example 1 &ndash;</strong>&nbsp;Express the following boolean expression in SOP and POS
+                    forms-&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format"
+                        title="Rendered by QuickLaTeX.com"
+                        src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-853d6ae4ed99c38278d9e260def20a0f_l3.svg"
+                        alt="F=x+y^\prime z " width="137" height="26" /></li>
+                <li><strong>Solution &ndash;</strong>&nbsp;The expression can be transformed into SOP form by adding
+                    missing variables in each term by multiplying by&nbsp;<img
+                        class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                        src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-e5c2ffa23cafa80803e55e533a0b3003_l3.svg"
+                        alt="k+k^\prime = 1   " width="113" height="23" />where&nbsp;<img
+                        class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                        src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-a2e490c0796ad6489b42b767b90575b0_l3.svg"
+                        alt="k   " width="13" height="18" />is the missing variable. It follows from the fact that
+                    &ndash;&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format"
+                        title="Rendered by QuickLaTeX.com"
+                        src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-7dfc2b269da69bfedffce0657df8d98b_l3.svg"
+                        alt="1.x = x.1 = x   " width="153" height="18" />[Tex]F=x(y+y^\prime)+y^\prime z\\
+                    F=xy+xy^\prime+y^\prime z\\ F=xy(z+z^\prime)+xy^\prime(z+z^\prime)+(x+x^\prime)y^\prime z\\ F=xyz +
+                    xyz^\prime + xy^\prime z + xy^\prime z^\prime + xy^\prime z + x^\prime y^\prime
+                    z&nbsp;&nbsp;&nbsp;[/Tex]On rearranging the minterms in ascending order&nbsp;<img
+                        class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                        src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-9d8ac9af141511ed5cc1551d4565ec2f_l3.svg"
+                        alt="F=x^\prime y^\prime z + xy^\prime z^\prime + xy^\prime z + xyz^\prime + xyz\\ F=m_1 + m_4 + m_5 + m_6 + m_7   "
+                        width="437" height="57" />If we want the POS form, we can double negate the SOP form as stated
+                    above to get-&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format"
+                        title="Rendered by QuickLaTeX.com"
+                        src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-0d9000a692bff7cbaf9adb64705d431d_l3.svg"
+                        alt="F=M_0.M_2.M_3   " width="180" height="22" />The SOP and POS forms have a short notation of
+                    representation-&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format"
+                        title="Rendered by QuickLaTeX.com"
+                        src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-3f95684f13ee830146d731c336d82025_l3.svg"
+                        alt="F(x,y,z) = \sum(1,4,5,6,7)\\ F(x,y,z) = \prod(0,2,3)\\ " width="301" height="59" /></li>
+            </ul>
+            <p><strong>Standard Forms &ndash;</strong>&nbsp;Canonical forms are basic forms obtained from the truth
+                table of the function. These forms are usually not used to represent the function as they are cumbersome
+                to write and it is preferable to represent the function in the least number of literals possible. There
+                are two types of standard forms &ndash;</p>
+            <ol>
+                <li><strong>Sum of Products(SOP)-</strong>&nbsp;A boolean expression involving AND terms with one or
+                    more literals each, OR&rsquo;ed together.</li>
+                <li><strong>Product of Sums(POS)</strong>&nbsp;A boolean expression involving OR terms with one or more
+                    literals each, AND&rsquo;ed together, e.g.</li>
+            </ol>
+            <pre>SOP- <img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-789a9155efb0ca2fc9e14557c8064eb8_l3.svg" alt="x^\prime + xy +yz^\prime" width="148" height="26" />POS- <img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-8589bb6b55607c24582205f5bd87af8f_l3.svg" alt="(x^\prime).(x + y).(y + z^\prime)" width="221" height="28" /></pre>
+        </div>
+    </div>
+</body>
+
+</html>

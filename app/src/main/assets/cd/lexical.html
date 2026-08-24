@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+
+<body>
+    <div>
+        <div class="article-title">
+            <h1>Introduction of Lexical Analysis</h1>
+        </div>
+    </div>
+    <div class="text">
+        <p dir="ltr">Lexical Analysis is the first phase of the compiler also known as a scanner. It converts the High
+            level input program into a sequence of&nbsp;<strong>Tokens</strong>.</p>
+        <ol>
+            <li value="1">Lexical Analysis can be implemented with the&nbsp;Deterministic finite Automata.</li>
+            <li value="2">The output is a sequence of tokens that is sent to the parser for syntax analysis</li>
+        </ol>
+        <h2><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190301115936/lexical.png"
+                alt="Lexical_analysis" width="500px" height="300px" /><strong>What is a Token?</strong></h2>
+        <p dir="ltr">A lexical token is a sequence of characters that can be treated as a unit in the grammar of the
+            programming languages.&nbsp;<strong>Example of tokens:</strong></p>
+        <ul>
+            <li value="1">Type token (id, number, real, . . . )</li>
+            <li value="2">Punctuation tokens (IF, void, return, . . . )</li>
+            <li value="3">Alphabetic tokens (keywords)</li>
+        </ul>
+        <div class="gray">Keywords; Examples-for, while, if etc.
+        Identifier; Examples-Variable name, function name, etc.
+        Operators; Examples '+', '++', '-' etc.
+        Separators; Examples ',' ';' etc</div>
+        <p dir="ltr"><strong>Example of Non-Tokens:</strong></p>
+        <ul>
+            <li value="1">Comments, divprocessor directive, macros, blanks, tabs, newline, etc.</li>
+        </ul>
+        <p dir="ltr"><strong>Lexeme</strong>: The sequence of characters matched by a pattern to form the corresponding
+            token or a sequence of input characters that comprises a single token is called a lexeme. eg-
+            &ldquo;float&rdquo;, &ldquo;abs_zero_Kelvin&rdquo;, &ldquo;=&rdquo;, &ldquo;-&rdquo;, &ldquo;273&rdquo;,
+            &ldquo;;&rdquo; .&nbsp;</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <h2><strong>How Lexical Analyzer Works?</strong></h2>
+        <ol>
+            <li value="1"><u><span class="GFGEditorTheme__textUnderline">Input divprocessing:</span></u>&nbsp;This stage
+                involves cleaning up the input text and divparing it for lexical analysis. This may include removing
+                comments, whitespace, and other non-essential characters from the input text.</li>
+            <li value="2"><u><span class="GFGEditorTheme__textUnderline">Tokenization</span></u>: This is the process of
+                breaking the input text into a sequence of tokens. This is usually done by matching the characters in
+                the input text against a set of patterns or regular exdivssions that define the different types of
+                tokens.</li>
+            <li value="3"><u><span class="GFGEditorTheme__textUnderline">Token classification</span></u>: In this stage,
+                the lexer determines the type of each token. For example, in a programming language, the lexer might
+                classify keywords, identifiers, operators, and punctuation symbols as separate token types.</li>
+            <li value="4"><u><span class="GFGEditorTheme__textUnderline">Token validation</span></u>: In this stage, the
+                lexer checks that each token is valid according to the rules of the programming language. For example,
+                it might check that a variable name is a valid identifier, or that an operator has the correct syntax.
+            </li>
+            <li value="5"><u><span class="GFGEditorTheme__textUnderline">Output generation</span></u>: In this final
+                stage, the lexer generates the output of the lexical analysis process, which is typically a list of
+                tokens. This list of tokens can then be passed to the next stage of compilation or interdivtation.</li>
+        </ol>
+    </div>
+    <div class="article-title">
+        <ol>
+            <li value="5"><img
+                    src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Compiler_design_lexical_analysis.jpg"
+                    alt="lexical_analysis" width="400px" height="400px" /></li>
+        </ol>
+        <ul>
+            <li value="1">The lexical analyzer identifies the error with the help of the automation machine and the
+                grammar of the given language on which it is based like C, C++, and gives row number and column number
+                of the error.</li>
+        </ul>
+        <p dir="ltr">Suppose we pass a statement through lexical analyzer &ndash;&nbsp;<strong>a&nbsp;= b +
+                c;</strong>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;It will generate token sequence
+            like this:&nbsp;<strong>id=id+id</strong>; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Where
+            each id refers to it&rsquo;s variable in the symbol table referencing all details For example, consider the
+            program</p>
+        <div class="gray">int main()
+            {
+              // 2 variables
+              int a, b;
+              a = 10;
+             return 0;
+            }
+            
+            </div>
+        <p dir="ltr">All the valid tokens are:</p>
+        <div class="gray">'int'  'main'  '('  ')'  '{'  'int'  'a' ','  'b'  ';'
+             'a'  '='  '10'  ';' 'return'  '0'  ';'  '}'
+            
+            </div>
+        <p dir="ltr">Above are the valid tokens. You can observe that we have omitted comments. As another example,
+            consider below printf statement.<img
+                src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2015/07/token-300x126.png" alt="token"
+                width="inherit" height="inherit" />There are 5 valid token in this printf
+            statement.&nbsp;<strong>Exercise 1:</strong>&nbsp;Count number of tokens:</p>
+        <div class="gray">int main()
+            {
+              int a = 10, b = 20;
+              printf("sum is:%d",a+b);
+              return 0;
+            }
+            Answer: Total number of token: 27.
+            
+            </div>
+        <p dir="ltr"><strong>Exercise 2:</strong>&nbsp;Count number of tokens: int max(int i);</p>
+        <ul>
+            <li value="1">Lexical analyzer first read&nbsp;<strong>int</strong>&nbsp;and finds it to be valid and
+                accepts as token.</li>
+            <li value="2"><strong>max</strong>&nbsp;is read by it and found to be a valid function name after
+                reading<strong>&nbsp;(</strong></li>
+            <li value="3"><strong>int is</strong>&nbsp;also a token , then again<strong>&nbsp;I</strong>&nbsp;as another
+                token&nbsp;and finally&nbsp;<strong>;</strong></li>
+        </ul>
+        <div class="gray"> Answer:  Total number of tokens 7:     
+            int, max, ( ,int, i, ), ;
+            
+            </div>
+        <ul>
+            <li value="1">We can redivsent in the form of lexemes and tokens as under</li>
+        </ul>
+        <table>
+            <thead></thead>
+            <tbody>
+                <tr>
+                    <td>Lexemes</td>
+                    <td>Tokens</td>
+                    <td>Lexemes</td>
+                    <td>Tokens</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;while</td>
+                    <td>&nbsp;WHILE</td>
+                    <td>a</td>
+                    <td>IDENTIEFIER</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp; (</td>
+                    <td>LAdivN</td>
+                    <td>=</td>
+                    <td>ASSIGNMENT</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp; &nbsp;a</td>
+                    <td>IDENTIFIER</td>
+                    <td>a</td>
+                    <td>IDENTIFIER</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp; &gt;=</td>
+                    <td>COMPARISON</td>
+                    <td>&ndash;</td>
+                    <td>ARITHMETIC</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp; &nbsp;b</td>
+                    <td>IDENTIFIER</td>
+                    <td>2</td>
+                    <td>INTEGER</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp; )</td>
+                    <td>RPAREN</td>
+                    <td>;</td>
+                    <td>SEMICOLON</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

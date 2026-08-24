@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    
+<div class="article-title">
+    <h1>Parallel Adder and Parallel Subtractor</h1>
+    </div>
+
+    <div class="text">
+    <p><strong>Parallel Adder &ndash;</strong><br />A single full adder performs the addition of two one bit numbers and an input carry. But a&nbsp;<strong>Parallel Adder</strong>&nbsp;is a digital circuit capable of finding the arithmetic&nbsp;<strong>sum</strong>&nbsp;of two binary numbers that is&nbsp;<strong>greater than one bit</strong>&nbsp;in length by operating on corresponding pairs of bits in parallel. It consists of<strong>&nbsp;full adders connected in a chain</strong>&nbsp;where the output carry from each full adder is connected to the carry input of the next higher order full adder in the chain.<strong>&nbsp;A n bit parallel adder requires n full adders to perform the operation.</strong>&nbsp;So for the two-bit number, two adders are needed while for four bit number, four adders are needed and so on. Parallel adders normally incorporate carry lookahead logic to ensure that carry propagation between subsequent stages of addition does not limit addition speed.</p>
+    <p><img class="aligncenter size-full" src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/full_adder.png" width="505" height="180" /></p>
+    <p><strong>Working of parallel Adder &ndash;</strong></p>
+    <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+    <ol>
+    <li>As shown in the figure, firstly the full adder FA1 adds A1 and B1 along with the carry C1 to generate the sum S1 (the first bit of the output sum) and the carry C2 which is connected to the next adder in chain.</li>
+    <li>Next, the full adder FA2 uses this carry bit C2 to add with the input bits A2 and B2 to generate the sum S2(the second bit of the output sum) and the carry C3 which is again further connected to the next adder in chain and so on.</li>
+    <li>The process continues till the last full adder FAn uses the carry bit Cn to add with its input An and Bn to generate the last bit of the output along last carry bit Cout.</li>
+    </ol>
+    <p><strong>Parallel Subtractor &ndash;</strong></p>
+    <p>A Parallel Subtractor is a digital circuit capable of finding the arithmetic difference of two binary numbers that is greater than one bit in length by operating on corresponding pairs of bits in parallel. The parallel subtractor can be designed in several ways including combination of half and full subtractors, all full subtractors or all full adders with subtrahend complement input.</p>
+    <p><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/subtracter.png" alt="" width="403" height="172" /></p>
+    <p><strong>Working of Parallel Subtractor &ndash;</strong></p>
+    <ol>
+    <li>As shown in the figure, the parallel binary subtractor is formed by combination of all full adders with subtrahend complement input.</li>
+    <li>This operation considers that the addition of minuend along with the 2&rsquo;s complement of the subtrahend is equal to their subtraction.</li>
+    <li>Firstly the 1&rsquo;s complement of B is obtained by the NOT gate and 1 can be added through the carry to find out the 2&rsquo;s complement of B. This is further added to A to carry out the arithmetic subtraction.</li>
+    <li>The process continues till the last full adder FAn uses the carry bit Cn to add with its input An and 2&rsquo;s complement of Bn to generate the last bit of the output along last carry bit Cout.</li>
+    </ol>
+    </div>
+</body>
+</html>

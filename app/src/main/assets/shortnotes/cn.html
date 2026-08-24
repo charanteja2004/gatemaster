@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    
+<h1>&nbsp;Notes &ndash; Computer Networks</h1>
+</div>
+</div>
+<div>
+</div>
+</div>
+<div>
+<p dir="ltr">See Last Minute Notes on all subjects&nbsp;<a href="https://www.geeksforgeeks.org/lmns-gq/">here</a>.&nbsp;</p>
+<ol>
+<li value="1">OSI Model</li>
+<li value="2">Physical Layer</li>
+<li value="3">Data Link layer</li>
+<li value="4">Network Layer</li>
+<li value="5">Transport Layer</li>
+<li value="6">Presentation &amp; Session layer</li>
+<li value="7">Application Layer</li>
+</ol>
+<h2>OSI Model</h2>
+<p dir="ltr">OSI stands for&nbsp;<strong>Open Systems Interconnection</strong>. It has been developed by ISO&ndash; <strong>International Organization for Standardization</strong>, in the year 1984. It is a seven-layer architecture with each layer having specific functionality to perform.&nbsp;</p>
+<p dir="ltr"><a href="https://www.geeksforgeeks.org/layers-of-osi-model/"><strong>OSI Layers</strong></a><strong>, Data Units, and Functions:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Layers</th>
+<th>Data Units</th>
+<th>Functions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>Application Layer</th>
+<td>Data</td>
+<td>Mail Services, Directory Services, FTAM</td>
+</tr>
+<tr>
+<th>Presentation Layer</th>
+<td>Data</td>
+<td>Encryption/Decryption, Compression</td>
+</tr>
+<tr>
+<th>Session Layer</th>
+<td>Data</td>
+<td>Session Establishment, Synchronization, Dialog Controller</td>
+</tr>
+<tr>
+<th>Transport Layer</th>
+<td>Segments, Datagram</td>
+<td>Segmentation</td>
+</tr>
+<tr>
+<th>Network Layer</th>
+<td>Packets</td>
+<td>Traffic control, Fragmentation, Routing</td>
+</tr>
+<tr>
+<th>Data Link Layer</th>
+<td>Frames</td>
+<td>Flow control, Error control, Access control</td>
+</tr>
+<tr>
+<th>Physical Layer</th>
+<td>Bits</td>
+<td>Bit Synchronization, Bit rate control, Physical Topologies</td>
+</tr>
+</tbody>
+</table>
+<h3><strong>Layers and their uses:</strong></h3>
+<div><img src="https://media.geeksforgeeks.org/wp-content/uploads/3-30.jpg" width="391" height="111" />
+</div>
+<h2>Physical Layer</h2>
+<p dir="ltr"><a href="https://www.geeksforgeeks.org/network-topologies-computer-networks/"><strong>Network Topologies:&nbsp;</strong></a></p>
+<ul>
+<li value="1"><strong>Mesh Topology:</strong>&nbsp;In a mesh topology, every device is connected to another device via a particular channel. If suppose, N number of devices are connected with each other, then a total number of links is required to connect NC<sub>2</sub>.</li>
+<li value="2"><strong>Bus Topology:</strong>&nbsp;Bus topology is a network type in which every computer and network device is connected to a single cable. If N devices are connected, then the number of cables required is 1 which is known as backbone cable, and N drop lines are required.</li>
+<li value="3"><strong>Star Topology:</strong>&nbsp;In star topology, all the devices are connected to a single hub through a cable. If N devices are connected to each other, then the no. of cables required N.</li>
+<li value="4"><strong>Ring Topology:</strong>&nbsp;In this topology, it forms a ring connecting devices with exactly two neighboring devices.</li>
+</ul>
+<p dir="ltr"><a href="https://www.geeksforgeeks.org/transmission-modes-computer-networks/"><strong>Transmission Modes:&nbsp;</strong></a></p>
+<ul>
+<li value="1"><strong>Simplex Mode</strong>: the communication is unidirectional, as on a one-way street. Only one of the two devices on a link can transmit, and the other can only receive.</li>
+<li value="2"><strong>Half-duplex Mode</strong>: each station can both transmit and receive, but not at the same time.</li>
+<li value="3"><strong>Full-duplex Mode</strong>: both stations can transmit and receive simultaneously.</li>
+</ul>
+<p dir="ltr"><a href="https://www.geeksforgeeks.org/computer-network-manchester-encoding/"><strong>Manchester Encoding</strong></a>: When there is a long sequence of 0s and 1s, there is a problem at the receiving end. The problem is that the synchronization is lost due to a lack of transmissions.</p>
+<ul>
+<li value="1"><strong>NRZ-level encoding</strong>: The polarity of signals changes when the incoming signal changes from &lsquo;1&rsquo; to &lsquo;0&rsquo; or from &lsquo;0&rsquo; to &lsquo;1&rsquo;. It considers the first bit of data as polarity change.</li>
+<li value="2"><strong>NRZ-Inverted/ Differential encoding</strong>: In this, the transitions at the beginning of the bit interval are equal to 1 and if there is no transition at the beginning of the bit interval are equal to 0.</li>
+</ul>
+</div>
+<div style="text-align: center; color: #345; padding-top: 10px;">
+    <h2>Data Link Layer</h2>
+    <ul>
+    <li value="1"><strong>Flow Control:&nbsp;</strong>The methods to maintain the flow of the data while the transmission is known as flow control methods. Mainly we have two approaches:&nbsp;
+    <ul>
+    <li value="1"><strong>Stop &amp; Wait:&nbsp;</strong>Only one data packet can be shared over the link and the sender has to wait for the positive acknowledgment so that it can send another packet. It leads to poor efficiency and poor resource utilization.&nbsp;</li>
+    <li value="2">Sliding Window Protocol
+    <ul>
+    <li value="1"><strong>Go Back N:&nbsp;</strong>It is also known as &ldquo;conservative protocol&rdquo;, and uses cumulative/piggybacking acknowledgments. The receiver window size is 1, and the sender window size is 2<sup>k</sup>&nbsp;-1 where K is the number of bits received for the window size in the header.&nbsp;</li>
+    <li value="2"><strong>Selective Repeat:&nbsp;</strong>It accepts out-of-order packets and accepts cumulative/ independent/ piggybacking acknowledgments. &nbsp;<br />&nbsp;</li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/2-40.jpg" width="426" height="135" />
+    <p class="wp-caption-text">&nbsp;</p>
+    </div>
+    <ul>
+    <li value="1"><strong>Round Trip Time&nbsp;</strong>is the overall time taken in transmitting a packet, it is also known as minimum acknowledgment waiting time.&nbsp;</li>
+    <li value="2"><strong>Sequence Number &lt;= (Sender&rsquo;s Window Size) + (Receiver&rsquo;s Window Size )</strong></li>
+    <li value="3">Efficiency in TDM(polling) = T<sub>t</sub>&nbsp;/ (T<sub>poll</sub>&nbsp;+ T<sub>t</sub>)</li>
+    <li value="4"><a href="https://www.geeksforgeeks.org/collision-detection-csmacd/">In CSMA/CD</a>, T<sub>t</sub>&nbsp;&gt;= 2*T<sub>p</sub>&nbsp;Hence, min frame length = 2*T<sub>p</sub>*B and&nbsp;<a href="https://www.geeksforgeeks.org/efficiency-of-csma-cd/">Efficiency in CSMA</a>&nbsp;= 1/(1 + 6.44a)</li>
+    <li value="5"><a href="https://www.geeksforgeeks.org/back-off-algorithm-csmacd/"><strong>Back-off Algorithm for CSMA/CD</strong></a>&nbsp;Waiting time = back&ndash;off time Let n = collision number or re-transmission serial number. Then, Waiting time = K * T<sub>slot</sub>&nbsp;where K = [0, 2<sup>n</sup>&nbsp;&ndash; 1 ]</li>
+    <li value="6">N = No. of stations Early Token Reinsertion : Efficiency = 1/(1 + a/N) Delayed Token Reinsertion : Efficiency = 1/(1 + (N+1)a/N)</li>
+    <li value="7">Pure Aloha Efficiency = 18.4 % Slotted Aloha Efficiency = 36.8%</li>
+    <li value="8"><a href="https://www.geeksforgeeks.org/computer-network-maximum-data-rate-channel-capacity-noiseless-noisy-channels/"><strong>Maximum data rate (channel capacity) for noiseless and noisy channels</strong></a>
+    <ul>
+    <li value="1"><strong>Noiseless Channel: Nyquist Bit Rate</strong>&nbsp;BitRate = 2 * Bandwidth * log2(L) where L is the number of signal levels used to represent data.</li>
+    <li value="2"><strong>Noisy Channel : Shannon Capacity</strong>&nbsp;Capacity = bandwidth * log2(1 + SNR) where, SNR is the signal-to-noise ratio</li>
+    </ul>
+    </li>
+    <li value="9"><strong>Error Control</strong>
+    <ul>
+    <li value="1"><a href="https://www.geeksforgeeks.org/computer-network-hamming-code/"><strong>Hamming Code</strong></a>: It is a set of error-correction codes that can be used to detect and correct the errors that can occur when the data is moved or stored from the sender to the receiver.&nbsp;
+    <ul>
+    <li value="1"><strong>Redundant bits:</strong>&nbsp;2<sup>r</sup>&nbsp;&ge; m + r + 1 where, r = redundant bit, m = data bit</li>
+    </ul>
+    </li>
+    <li value="2"><a href="https://www.geeksforgeeks.org/modulo-2-binary-division/"><strong>CRC:&nbsp;</strong></a>CRC stands for Cyclic Redundancy Check and this uses a polynomial generator on both the sender and receiver sides to detect the error in the transmitted data.&nbsp;</li>
+    <li value="3"><a href="https://www.geeksforgeeks.org/error-detection-code-checksum/"><strong>Checksum:</strong></a>&nbsp;It is more reliable than other modes of error detection, it uses a checksum generator on the sender side and a checksum checker on the receiver side</li>
+    <li value="4"><a href="https://www.geeksforgeeks.org/computer-network-framing-data-link-layer/"><strong>Framing in DLL</strong></a>: It provides a way for a sender to transmit a set of bits that are meaningful to the receiver.
+    <ul>
+    <li value="1"><strong>Character/Byte Stuffing:</strong>&nbsp;Used when frames consist of character. If data contains ED then, a byte is stuffed into the data to differentiate it from ED.&nbsp;</li>
+    <li value="2"><strong>Bit stuffing</strong>: Sender stuffs a bit to break the pattern i.e. here appends a 0 in data = 0111<strong>0</strong>1.</li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    <h2>Network Layer</h2>
+    <p><a href="https://www.geeksforgeeks.org/ip-addressing-introduction-and-classful-addressing/"><strong>Class Full Addressing Table</strong></a>:&nbsp;</p>
+    <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/1-45.jpg" width="inherit" height="inherit" />
+    <p class="wp-caption-text">&nbsp;</p>
+    </div>
+    <p><a href="https://www.geeksforgeeks.org/network-layer-introduction-ipv4/"><strong>IPv4 header datagram</strong></a>:&nbsp;</p>
+    <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/contentArticle-1.png" width="514" height="211" />
+    <p class="wp-caption-text">&nbsp;</p>
+    </div>
+    <p>&nbsp;<a href="https://www.geeksforgeeks.org/computer-network-internet-protocol-version-6-ipv6-header/"><strong>IP version 6 Header Format</strong></a><strong>:</strong></p>
+    <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/ipv6-header.png" width="295" height="182" />
+    <p class="wp-caption-text">&nbsp;</p>
+    </div>
+    <p dir="ltr"><a href="https://www.geeksforgeeks.org/introduction-to-subnetting/"><strong>Subnetting:&nbsp;</strong></a>Dividing a bigger network into a smaller network to maintain the security of the network is known as subnetting.</p>
+    <p dir="ltr"><a href="https://www.geeksforgeeks.org/supernetting-in-network-layer/"><strong>Supernetting:</strong></a><strong>&nbsp;</strong>Multiple smaller networks are combined to form a bigger network. It is mainly used in router summarization, etc.&nbsp;</p>
+    <p dir="ltr"><a href="https://www.geeksforgeeks.org/introduction-of-variable-length-subnet-mask-vlsm/"><strong>VLSM:</strong></a><strong>&nbsp;</strong>Variable Length Subnet Mask is where the subnet design uses more than one mask in the same network which means more than one mask is used for different subnets of a single class A, B, C, or a network. It is also defined as the process of subnetting a subnet. It is used to increase the usability of subnets as they can be of variable size.&nbsp;</p>
+    <p>&nbsp;</p>
+    </div>
+    <div style="text-align: center; color: #345; padding-top: 10px;">
+        <p dir="ltr"><a href="https://www.geeksforgeeks.org/internet-control-message-protocol-icmp/"><strong>Internet Control Message Protocol</strong></a>: Since IP does not have an inbuilt mechanism for sending error and control messages. It depends on Internet Control Message Protocol(ICMP) to provide error control.</p>
+        <ol>
+        <li value="1">Source quench message</li>
+        <li value="2">Parameter problem</li>
+        <li value="3">Time exceeded message</li>
+        <li value="4">Destination un-reachable</li>
+        </ol>
+        </div>
+        <div style="text-align: center; color: #345; padding-top: 10px;">
+            <p><a href="https://www.geeksforgeeks.org/difference-between-distance-vector-routing-and-link-state-routing/"><strong>Difference between DVR and LSR</strong></a><strong>:</strong></p>
+            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/po-1.png" width="401" height="317" />
+            <p class="wp-caption-text">&nbsp;</p>
+            </div>
+            <ul>
+            <li value="1">The router having the highest router priority will be declared as DR.</li>
+            <li value="2">If there is a tie-in router priority then the highest router will be considered. First, the highest loopback address is considered. If no loopback is configured then the highest active IP address on the router&rsquo;s interface is considered.</li>
+            </ul>
+            <p dir="ltr">Hop Count: Hop count is the number of routers between the source and destination network. The path with the lowest hop count is considered the best route to reach a network and therefore placed in the routing table.&nbsp;</p>
+            <p dir="ltr">The maximum hop count allowed for RIP is 15 and a hop count of 16 is considered as network unreachable.</p>
+            <p dir="ltr"><a href="https://www.geeksforgeeks.org/open-shortest-path-first-ospf-protocol-fundamentals/"><strong>Open shortest path first (OSPF):</strong></a><strong>&nbsp;</strong>Open the shortest path first (OSPF) is a link-state routing protocol that is used to find the best path between the source and the destination router using its own SPF algorithm.<br />Designated Router(DR) and Backup Designated Router(BDR) election takes place in the broadcast network or multi-access network.</p>
+            <p dir="ltr"><a href="https://www.geeksforgeeks.org/routing-information-protocol-rip/"><strong>Routing Information Protocol (RIP)</strong>:</a>&nbsp;RIP is a dynamic routing protocol that uses hop count as a routing metric to find the best path between the source and the destination network. It is a distance vector routing protocol that has an AD value of 120 and works on the application layer of the OSI model. RIP uses port number 520.</p>
+            <h2>Transport Layer</h2>
+            <p dir="ltr"><a href="https://www.geeksforgeeks.org/services-and-segment-structure-in-tcp/"><strong>TCP header</strong></a></p>
+            <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/TCPSegmentHeader-1.png" width="349" height="302" /></p>
+            <p dir="ltr">In TCP congestion control Algorithm</p>
+            <ul>
+            <li value="1">When Time Out Occurs Algorithm Enters Slow Start Phase</li>
+            <li value="2">When 3 Duplicate occurs algorithm enters the congestion avoidance phase</li>
+            </ul>
+            <p dir="ltr"><a href="https://www.geeksforgeeks.org/tcp-3-way-handshake-process/"><strong>TCP 3-Way Handshake Process:</strong></a></p>
+            <ul>
+            <li value="1"><strong>Step 1 (SYN):</strong>&nbsp;In the first step, the client wants to establish a connection with the server, so it sends a segment with SYN(Synchronize Sequence Number) which informs the server that the client is likely to start communication and with what sequence number it starts segments with</li>
+            <li value="2"><strong>Step 2 (SYN + ACK)</strong>: Server responds to the client request with SYN-ACK signal bits set. Acknowledgment (ACK) signifies the response of the segment it received and SYN signifies with what sequence number it is likely to start the segments with</li>
+            <li value="3"><strong>Step 3 (ACK):</strong>&nbsp;In the final part client acknowledges the response of the server and they both establish a reliable connection with which they will start eh actual data transfer.</li>
+            </ul>
+            <p><a href="https://www.geeksforgeeks.org/user-datagram-protocol-udp/"><strong>UDP header</strong></a><strong>:</strong></p>
+            <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/UDP-header.png" width="inherit" height="inherit" /></p>
+            </div>
+            <div style="text-align: center; color: #345; padding-top: 10px;">
+                <h2>Session &amp; Presentation Layer</h2>
+                <p dir="ltr"><a href="https://www.geeksforgeeks.org/session-layer-in-osi-model/"><strong>Session Layer:</strong></a></p>
+                <ul>
+                <li value="1">The session layer is responsible for establishing, maintaining, and terminating sessions in a network. The session layer manages data transmission for a certain time period.</li>
+                <li value="2">The session layer is responsible for the identification of entities participating in a session.&nbsp;</li>
+                <li value="3">It provides synchronization services to the data stream.</li>
+                </ul>
+                <p dir="ltr"><a href="https://www.geeksforgeeks.org/presentation-layer-in-osi-model/"><strong>Presentation Layer:</strong></a></p>
+                <ul>
+                <li value="1">The presentation layer translates the data packet from the network layer to the application layer and vice versa.</li>
+                <li value="2">The main responsibility of the Presentation layer is protocol conversion, data encryption/decryption, character conversion, and data compression.&nbsp;</li>
+                <li value="3">It sets standards for different systems to provide flawless communication.&nbsp;</li>
+                </ul>
+                <h2>Application Layer</h2>
+                <p dir="ltr"><a href="https://www.geeksforgeeks.org/application-layer-in-osi-model/"><strong>Application Layer:</strong></a><strong>&nbsp;</strong>It is the topmost layer of the OSI model and it directly interacts with web applications or application services. This layer provides several ways for manipulating the data (information) which actually enables any type of user to access the network with ease.</p>
+                <p dir="ltr"><strong>Functions of Application Layer:&nbsp;</strong></p>
+                <ul>
+                <li value="1">Application Layer facilitates email sending and storing features.&nbsp;</li>
+                <li value="2">This layer allows users to access, retrieve and manage files from a remote computer.</li>
+                <li value="3">This layer provides services that include: E-mail, File transfer, directory services, network resources, etc.&nbsp;</li>
+                </ul>
+                <p dir="ltr"><strong>Domain Name Server:</strong>&nbsp;DNS is a hostname for IP address translation service. DNS is a distributed database implemented in a hierarchy of name servers. It is an application layer protocol for message exchange between clients and servers.</p>
+                <p dir="ltr"><a href="https://www.geeksforgeeks.org/protocols-application-layer/"><strong>Protocols in Application Layer</strong></a></p>
+                <ul>
+                <li value="1"><a href="https://www.geeksforgeeks.org/dynamic-host-configuration-protocol-dhcp/"><strong>Dynamic Host Configuration Protocol(DHCP)</strong></a>&nbsp;is an application layer protocol that is used to provide:
+                <ul>
+                <li value="1">Subnet Mask (Option 1 &ndash; e.g., 255.255.255.0)</li>
+                <li value="2">Router Address (Option 3 &ndash; e.g., 192.168.1.1)</li>
+                <li value="3">DNS Address (Option 6 &ndash; e.g., 8.8.8.8)</li>
+                <li value="4">Vendor Class Identifier (Option 43 &ndash; e.g., &lsquo;unifi&rsquo; = 192.168.1.9 ##where unifi = controller)</li>
+                </ul>
+                </li>
+                <li value="2"><a href="https://www.geeksforgeeks.org/simple-network-management-protocol-snmp/"><strong>Simple Network Management Protocol (SNMP):</strong></a>&nbsp;SNMP is an application layer protocol that uses UDP port number 161/162.SNMP is used to monitor networks, detect network faults, and sometimes even used to configure remote devices.</li>
+                <li value="3"><a href="https://www.geeksforgeeks.org/simple-mail-transfer-protocol-smtp/"><strong>Simple Mail Transfer Protocol (SMTP):</strong></a>&nbsp;SMTP is an application layer protocol. The client who wants to send the mail opens a TCP connection to the SMTP server and then sends the mail across the connection. The SMTP server is always in listening mode. As soon as it listens for a TCP connection from any client, the SMTP process initiates a connection on that port (25). After successfully establishing the TCP connection the client process sends the mail instantly.</li>
+                <li value="4"><a href="https://www.geeksforgeeks.org/file-transfer-protocol-ftp/"><strong>File Transfer Protocol (FTP):&nbsp;</strong></a>File Transfer Protocol(FTP) is an application layer protocol that moves files between local and remote file systems. It runs on top of TCP, like HTTP. To transfer a file, 2 TCP connections are used by FTP in parallel: control connection and data connection.</li>
+                <li value="5"><a href="https://www.geeksforgeeks.org/http-full-form/"><strong>Hypertext Transfer Protocol (HTTP):</strong></a><strong>&nbsp;</strong>is an application-level protocol that uses TCP as an underlying transport and typically runs on port 80. HTTP is a stateless protocol i.e. server maintains no information about past client requests.</li>
+                </ul>
+                <p dir="ltr"><strong>Port number and transport mode used by Protocols:</strong></p>
+                <table>
+                <thead>
+                <tr>
+                <th>Port Number</th>
+                <th>TCP/UDP</th>
+                <th>Protocol Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                <td>20, 21</td>
+                <td>TCP</td>
+                <td>File Transfer Protocol (FTP)</td>
+                </tr>
+                <tr>
+                <td>22</td>
+                <td>TCP and UDP</td>
+                <td>Secure Shell (SSH)</td>
+                </tr>
+                <tr>
+                <td>23</td>
+                <td>TCP</td>
+                <td>Telnet</td>
+                </tr>
+                <tr>
+                <td>25</td>
+                <td>TCP</td>
+                <td>Simple Mail Transfer Protocol (SMTP)</td>
+                </tr>
+                <tr>
+                <td>53</td>
+                <td>TCP and UDP</td>
+                <td>Domain Name Server (DNS)</td>
+                </tr>
+                <tr>
+                <td>67, 68</td>
+                <td>UDP</td>
+                <td>Dynamic Host Configuration Protocol (DHCP)</td>
+                </tr>
+                <tr>
+                <td>69</td>
+                <td>UDP</td>
+                <td>Trivial File Transfer Protocol (TFTP)</td>
+                </tr>
+                <tr>
+                <td>80</td>
+                <td>TCP</td>
+                <td>HyperText Transfer Protocol (HTTP)</td>
+                </tr>
+                <tr>
+                <td>110</td>
+                <td>TCP</td>
+                <td>Post Office Protocol (POP3)</td>
+                </tr>
+                <tr>
+                <td>119</td>
+                <td>TCP</td>
+                <td>Network News Transport Protocol (NNTP)</td>
+                </tr>
+                <tr>
+                <td>123</td>
+                <td>UDP</td>
+                <td>Network Time Protocol (NTP)</td>
+                </tr>
+                <tr>
+                <td>135-139</td>
+                <td>TCP and UDP</td>
+                <td>NetBIOS</td>
+                </tr>
+                <tr>
+                <td>143</td>
+                <td>TCP and UDP</td>
+                <td>Internet Message Access Protocol (IMAP4)</td>
+                </tr>
+                <tr>
+                <td>161, 162</td>
+                <td>TCP and UDP</td>
+                <td>Simple Network Management Protocol (SNMP)</td>
+                </tr>
+                <tr>
+                <td>179</td>
+                <td>TCP</td>
+                <td>Border Gateway Protocol (BGP)</td>
+                </tr>
+                <tr>
+                <td>389</td>
+                <td>TCP and UDP</td>
+                <td>Lightweight Directory Access Protocol</td>
+                </tr>
+                <tr>
+                <td>443</td>
+                <td>TCP and UDP</td>
+                <td>HTTP with Secure Sockets Layer (SSL)</td>
+                </tr>
+                <tr>
+                <td>500</td>
+                <td>UDP</td>
+                <td>Internet Security Association and Key Management Protocol (ISAKMP) / Internet Key Exchange (IKE)</td>
+                </tr>
+                <tr>
+                <td>636</td>
+                <td>TCP and UDP</td>
+                <td>Lightweight Directory Access Protocol over TLS/SSL (LDAPS</td>
+                </tr>
+                <tr>
+                <td>989/990</td>
+                <td>TCP</td>
+                <td>FTP over TLS/SSL</td>
+                </tr>
+                </tbody>
+                </table>
+                </div>
+</body>
+</html>

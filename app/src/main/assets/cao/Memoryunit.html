@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    <h2><b>Introduction to memory and memory units</b></h2>
+
+<p>In order to save data and instructions, memory is required. Memory is divided into cells, and they are stored in the storage space present in the computer. Every cell has its unique location/address. Memory is very essential for a computer as this is the way it becomes somewhat more similar to a human brain.<br><br>
+
+<h3><b>What is Memory?</b></h3>
+
+Memory devices are digital systems that store data either temporarily or for a long term. Digital computers to hard disks have built-in memory devices that can store the data of users or manufacturers. The data either be in the form of control programs or programs that boot the system. Hence, to store such a huge amount of data the memory devices must have enormous capacity. The challenge is to build memory devices that have large capacities but are cost-effective. The memory devices must be capable of storing both permanent data and instantaneous data.<br><br>
+
+Memories are made up of registers. Each register in the memory is one storage location. The storage location is also called a memory location. Memory locations are identified using Address. The total number of bits a memory can store is its capacity.  A storage element is called a Cell. Each register is made up of a storage element in which one bit of data is stored. The data in a memory are stored and retrieved by the process called writing and reading respectively. <br><br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/Read-and-write.png" width="350" height="300"><br><br>
+
+
+A word is a group of bits where a memory unit stores binary information. A word with a group of 8 bits is called a byte. <br>
+A memory unit consists of data lines, address selection lines, and control lines that specify the direction of transfer.<br><br>
+
+The block diagram of a memory unit is shown below<br><br>
+
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/memory-unit.png" width="350" height="300"><br><br>
+
+Data lines provide the information to be stored in memory. The control inputs specify the direct transfer. The k-address lines specify the word chosen. <br><br>
+
+When there are k address lines, 2k memory words can be accessed.<br><br>
+
+ 
+<h3><b>Types of Computer Memory</b></h3>
+
+<li><b>Cache memory.</b> This temporary storage area, known as a cache, is more readily available to the processor than the computer’s main memory source. It is also called CPU memory because it is typically integrated directly into the CPU chip or placed on a separate chip with a bus interconnect with the CPU.</li><br><br>
+<li><b>RAM.</b>  It is one of the parts of the Main memory, also famously known as Read Write Memory. Random Access memory is present on the motherboard and the computer’s data is temporarily stored in RAM. As the name says, RAM can help in both Read and write.</li><br><br>
+<li><b>D RAM (Dynamic RAM):</b> D RAM uses capacitors and transistors and stores the data as a charge on the capacitors. They contain thousands of memory cells. It needs refreshing of charge on capacitor after a few milliseconds. This memory is slower than S RAM.</li><br><br>
+<li><b>S RAM (Static RAM):</b> S RAM uses transistors and the circuits of this memory are capable of retaining their state as long as the power is applied. This memory consists of the number of flip flops with each flip flop storing 1 bit. It has less access time and hence, it is faster.</li><br><br>
+<li><b>ROM:</b> ROM full form is Read Only Memory. ROM is a non volatile memory and it is used to store important information which is used to operate the system. We can only read the programs and data stored on it and can not modify of delete it.</li><br><br>
+<li><b>MROM(Masked ROM):</b> Hard-wired devices with a pre-programmed collection of data or instructions were the first ROMs. Masked ROMs are a type of low-cost ROM that works in this way.</li><br><br>
+<li><b>PROM (Programmable Read Only Memory):</b> This read-only memory is modifiable once by the user. The user purchases a blank PROM and uses a PROM program to put the required contents into the PROM. Its content can’t be erased once written.</li><br><br>
+
+<li><b>EPROM (Erasable Programmable Read Only Memory):</b> EPROM is an extension to PROM where you can erase the content of ROM by exposing it to Ultraviolet rays for nearly 40 minutes.</li><br><br>
+
+<li><b>EEPROM (Electrically Erasable Programmable Read Only Memory):</b> Here the written contents can be erased electrically. You can delete and reprogramme EEPROM up to 10,000 times. Erasing and programming take very little time, i.e., nearly  4 -10 ms(milliseconds). Any area in an EEPROM can be wiped and programmed selectively.</li><br><br>
+<li><b>Virtual memory.</b> A memory management technique where secondary memory can be used as if it were a part of the main memory. Virtual memory uses hardware and software to enable a computer to compensate for physical memory shortages by temporarily transferring data from RAM to disk storage.</li><br><br>
+
+<h3><b>Units of Memory</b></h3>
+
+Memory units are used to measure the size and represent data. Some of the commonly used memory units are:<br><br>
+
+ <b>1. Bit</b><br>
+The first memory location in a computer is bit. The smallest measurement unit for data held in primary memory and storage devices is a bit. Out of the binary values 0 and 1, a bit can only have one.<br><br>
+
+<li>The smallest measurement unit for data in primary memory and storage devices.</li>
+<li>Represents binary values 0 and 1.</li><br><br>
+
+<b>2. Nibble</b><br>
+<li>It means the group of 4 bits.</li><br><br>
+ 
+<b>3. Word</b><br>
+It is a fixed number of bits, it is different from computer to computer, but the same for each device. Compute store information in the form of words.<br><br> 
+
+<li>A fixed number of bits that varies across computers but remains consistent within each device.</li>
+<li>Used to store information in computers.</li><br><br>
+
+<b>4. Bytes</b><br>
+The fundamental unit used to measure data is the byte. It has 8 bits in it. A byte can therefore represent 2 * 8 or 256 values. They determine the size of files, documents, photos, and other kinds of data.<br>
+
+<li>The fundamental unit for measuring data, consisting of 8 bits.</li>
+<li>Represents 256 values and determines file, document, photo, and data sizes.</li><br><br>
+
+<b>5. Kilobyte</b><br>
+
+1024 bytes is equal to one kilobyte. It is widely used to denote small file sizes and data storage capacities. One kilobyte can hold a small image or around 1024 characters of text. It frequently shows up in text documents, spreadsheets, and small image files.<br>
+
+<li>Equal to 1024 bytes.</li>
+<li>Denotes small file sizes and storage capacities.</li>
+<li>Can hold small images or around 1024 characters of text.</li><br><br>
+
+<b>6. Meghabyte</b><br>
+A megabyte is 1024 kilobytes in size. It contains more info as compared to a kilobyte. A megabyte can hold longer texts, high-resolution images, and short audio clips. It is used to calculate the size of files comprising music and short films, software packages, and documents. Megabytes are still important and frequently used, even though larger units of measurement are being used more frequently as a result of the growing number of data files.<br>
+
+<li>Comprising 1024 kilobytes.</li>
+<li>Contains more information compared to a kilobyte.</li>
+<li>Holds longer texts, high-resolution images, and short audio clips.</li>
+<li>Measures file sizes of music, short films, software packages, and documents.</li><br><br>
+
+<b>7. Gigabyte</b><br>
+
+1024 megabytes is equal to one gigabyte. It has a substantial amount of data storage space. Larger files, such full photo albums, high-definition movies, and software programs can fit within a gigabit. The storage capabilities of hard drives, solid-state drives, and other forms of data storage devices are routinely assessed utilizing this technique.<br>
+
+<li>Equal to 1024 megabytes.</li>
+<li>Offers substantial data storage space.</li>
+<li>Suitable for larger files, such as full photo albums, high-definition movies, and software programs.</li><br><br>
+
+<b>8. Terabyte</b><br>
+
+A terabyte is made up of 1024 gigabytes. It has a substantial amount of data storing capacity. A terabyte can hold a lot of data in large databases, massive media collections, and enterprise-level storage systems. It is frequently used by data centers, cloud storage services, and external hard drives with large storage capacities. As the demand for large-scale data processing and storage grows, terabytes are becoming more and more important.<br>
+
+<li>Comprising 1024 gigabytes.</li>
+<li>Provides substantial data storing capacity.</li>
+<li>Holds large databases, media collections, and enterprise-level storage systems.</li><br><br>
+
+<b>9. Petabyte</b><br>
+
+A petabyte is a colossal unit of data storage capacity. A petabyte may hold massive amounts of data, including significant video libraries, sizable databases, and sizable collections of high-resolution pictures. It is often used in data centers, cloud storage, and scientific research that uses a lot of data.<br>
+
+<li>A colossal unit of data storage capacity.</li>
+<li>Stores massive data quantities, like video libraries and large databases.</li><br><br>
+
+<b>10. Exabyte (1024 petabytes)</b><br>
+An exabyte is equal to one EB. It has a substantial amount of data storage space. Exabytes can store vast film archives, massive data warehouses, and global internet traffic. It is extensively used in large-scale scientific simulations, cloud computing infrastructures, and enterprise-level storage systems.<br>
+
+<li>Equal to 1024 petabytes.</li>
+<li>Holds vast film archives, data warehouses, and global internet traffic.</li><br><br>
+
+<b>11. Zettabyte (1024 exabytes)</b><br>
+A zettabyte. It represents a capacity for data storage that is almost unimaginable. Zettabytes have the capacity to store unfathomably large amounts of data, including worldwide internet content, long-term archival storage, and in-depth global data analysis.<br>
+
+<li>Represents an almost unimaginable data storage capacity.</li>
+<li>Stores worldwide internet content, long-term archival data, and extensive global analysis.</li><br><br>
+
+<b>12. Yottabyte</b><br>
+1024 zettabytes make up a yottabyte (abbreviated YB). It stands for an incredible amount of data storage. Unimaginable amounts of data, such as the equivalent of storing all of the material on the internet numerous times or tracking vast amounts, may be stored in yottabytes.<br>
+
+<li>Comprising 1024 zettabytes.</li>
+<li>Stands for an incredible amount of data storage.</li>
+<li>Can hold vast amounts equivalent to storing internet content numerous times.<p ></li><br><br>
+
+
+</body>
+</html>

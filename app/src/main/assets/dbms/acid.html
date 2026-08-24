@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    <div class="main_wrapper">
+        <div class="article-title">
+        <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>ACID Properties in DBMS</h1>
+        </div>
+        </div>
+        </div>
+        <div class="text">
+        <p>A&nbsp;<strong>transaction</strong>&nbsp;is a single logical unit of work that accesses and possibly modifies the contents of a database. Transactions access data using read and write operations.&nbsp;<br />In order to maintain consistency in a database, before and after the transaction, certain properties are followed. These are called&nbsp;<strong>ACID</strong>&nbsp;properties.&nbsp;</p>
+        <h3><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20191121102921/ACID-Properties.jpg" alt="" width="427" height="263" /></h3>
+        <h3><strong>Atomicity:</strong></h3>
+        <p>By this, we mean that either the entire transaction takes place at once or doesn&rsquo;t happen at all. There is no midway i.e. transactions do not occur partially. Each transaction is considered as one unit and either runs to completion or is not executed at all. It involves the following two operations.&nbsp;<br />&mdash;<strong>Abort</strong>: If a transaction aborts, changes made to the database are not visible.&nbsp;<br />&mdash;<strong>Commit</strong>: If a transaction commits, changes made are visible.&nbsp;<br />Atomicity is also known as the &lsquo;All or nothing rule&rsquo;.&nbsp;</p>
+        <p>Consider the following transaction&nbsp;<strong>T</strong>&nbsp;consisting of&nbsp;<strong>T1</strong>&nbsp;and&nbsp;<strong>T2</strong>: Transfer of 100 from account&nbsp;<strong>X</strong>&nbsp;to account&nbsp;<strong>Y</strong>.&nbsp;&nbsp;</p>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/11-6.jpg" alt="" /></p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <p>If the transaction fails after completion of&nbsp;<strong>T1</strong>&nbsp;but before completion of&nbsp;<strong>T2</strong>.( say, after&nbsp;<strong>write(X)</strong>&nbsp;but before&nbsp;<strong>write(Y)</strong>), then the amount has been deducted from&nbsp;<strong>X</strong>&nbsp;but not added to&nbsp;<strong>Y</strong>. This results in an inconsistent database state. Therefore, the transaction must be executed in its entirety in order to ensure the correctness of the database state.&nbsp;</p>
+        <h3>Consistency:</h3>
+        <p>This means that integrity constraints must be maintained so that the database is consistent before and after the transaction. It refers to the correctness of a database. Referring to the example above,&nbsp;<br />The total amount before and after the transaction must be maintained.&nbsp;<br />Total&nbsp;<strong>before T</strong>&nbsp;occurs =&nbsp;<strong>500 + 200 = 700</strong>.&nbsp;<br />Total&nbsp;<strong>after T occurs</strong>&nbsp;=&nbsp;<strong>400 + 300 = 700</strong>.&nbsp;<br />Therefore, the database is&nbsp;<strong>consistent</strong>. Inconsistency occurs in case&nbsp;<strong>T1</strong>&nbsp;completes but&nbsp;<strong>T2</strong>&nbsp;fails. As a result, T is incomplete.&nbsp;</p>
+        <h3>Isolation:</h3>
+        <p>This property ensures that multiple transactions can occur concurrently without leading to the inconsistency of the database state. Transactions occur independently without interference. Changes occurring in a particular transaction will not be visible to any other transaction until that particular change in that transaction is written to memory or has been committed. This property ensures that the execution of transactions concurrently will result in a state that is equivalent to a state achieved these were executed serially in some order.&nbsp;<br />Let&nbsp;<strong>X</strong>= 500,&nbsp;<strong>Y</strong>&nbsp;= 500.&nbsp;<br />Consider two transactions&nbsp;<strong>T</strong>&nbsp;and&nbsp;<strong>T&rdquo;.</strong>&nbsp;</p>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20210402015259/isolation-300x137.jpg" /></p>
+        <p>Suppose&nbsp;<strong>T</strong>&nbsp;has been executed till&nbsp;<strong>Read (Y)</strong>&nbsp;and then&nbsp;<strong>T&rsquo;&rsquo;</strong>&nbsp;starts. As a result, interleaving of operations takes place due to which&nbsp;<strong>T&rsquo;&rsquo;</strong>&nbsp;reads the correct value of&nbsp;<strong>X</strong>&nbsp;but the incorrect value of&nbsp;<strong>Y</strong>&nbsp;and sum computed by&nbsp;<br /><strong>T&rsquo;&rsquo;: (X+Y = 50, 000+500=50, 500)</strong>&nbsp;<br />is thus not consistent with the sum at end of the transaction:&nbsp;<br /><strong>T: (X+Y = 50, 000 + 450 = 50, 450)</strong>.&nbsp;<br />This results in database inconsistency, due to a loss of 50 units. Hence, transactions must take place in isolation and changes should be visible only after they have been made to the main memory.&nbsp;</p>
+        <h3>Durability:&nbsp;</h3>
+        <p>This property ensures that once the transaction has completed execution, the updates and modifications to the database are stored in and written to disk and they persist even if a system failure occurs. These updates now become permanent and are stored in non-volatile memory. The effects of the transaction, thus, are never lost.&nbsp;</p>
+        <p><strong>Some important points:</strong></p>
+        <figure class="table">
+        <table>
+        <thead>
+        <tr>
+        <th><strong>Property</strong></th>
+        <th><strong>Responsibility for maintaining properties</strong></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>Atomicity</td>
+        <td>Transaction Manager</td>
+        </tr>
+        <tr>
+        <td>Consistency</td>
+        <td>Application programmer</td>
+        </tr>
+        <tr>
+        <td>Isolation</td>
+        <td>Concurrency Control Manager</td>
+        </tr>
+        <tr>
+        <td>Durability</td>
+        <td>Recovery Manager</td>
+        </tr>
+        </tbody>
+        </table>
+        </figure>
+        <p>The&nbsp;<strong>ACID</strong>&nbsp;properties, in totality, provide a mechanism to ensure the correctness and consistency of a database in a way such that each transaction is a group of operations that acts as a single unit, produces consistent results, acts in isolation from other operations, and updates that it makes are durably stored.&nbsp;</p>
+        <div class="main_wrapper">
+            <div class="article-title">
+            
+            <p>ACID properties are the four key characteristics that define the reliability and consistency of a transaction in a Database Management System (DBMS). The acronym ACID stands for Atomicity, Consistency, Isolation, and Durability. Here is a brief description of each of these properties:</p>
+            <ol>
+            <li>Atomicity: Atomicity ensures that a transaction is treated as a single, indivisible unit of work. Either all the operations within the transaction are completed successfully, or none of them are. If any part of the transaction fails, the entire transaction is rolled back to its original state, ensuring data consistency and integrity.</li>
+            <li>Consistency: Consistency ensures that a transaction takes the database from one consistent state to another consistent state. The database is in a consistent state both before and after the transaction is executed. Constraints, such as unique keys and foreign keys, must be maintained to ensure data consistency.</li>
+            <li>Isolation: Isolation ensures that multiple transactions can execute concurrently without interfering with each other. Each transaction must be isolated from other transactions until it is completed. This isolation prevents dirty reads, non-repeatable reads, and phantom reads.</li>
+            <li>Durability: Durability ensures that once a transaction is committed, its changes are permanent and will survive any subsequent system failures. The transaction&rsquo;s changes are saved to the database permanently, and even if the system crashes, the changes remain intact and can be recovered.</li>
+            </ol>
+            <p>Overall, ACID properties provide a framework for ensuring data consistency, integrity, and reliability in DBMS. They ensure that transactions are executed in a reliable and consistent manner, even in the presence of system failures, network issues, or other problems. These properties make DBMS a reliable and efficient tool for managing data in modern organizations.</p>
+            
+        </div>
+        </div>
+        </div>
+</body>
+</html>

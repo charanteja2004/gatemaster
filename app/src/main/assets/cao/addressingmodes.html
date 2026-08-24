@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    <h2><b>Addressing Modes</b></h2>
+
+<b>Addressing Modes–</b> The term addressing modes refers to the way in which the operand of an instruction is specified. The addressing mode specifies a rule for interpreting or modifying the address field of the instruction before the operand is actually executed.<br><br>
+
+<b>Addressing modes for 8086 instructions are divided into two categories:</b>
+
+1) Addressing modes for data<br>
+
+2) Addressing modes for branch<br>
+
+
+The 8086 memory addressing modes provide flexible access to memory, allowing you to easily access variables, arrays, records, pointers, and other complex data types.  The key to good assembly language programming is the proper use of memory addressing modes.<br><br>
+
+An assembly language program instruction consists of two parts<br><br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Addressing_Modes_1.jpg" width="350" height="100"><br><br>
+
+
+The memory address of an operand consists of two components: <br><br>
+
+<h4><b>IMPORTANT TERMS</b></h4>
+
+<li><b>Starting address </b>of memory segment.</li>
+<li><b>Effective address or Offset:</b> An offset is determined by adding any combination of three address elements:<b> displacement, base and index.</b></li><br>
+<li><b>Displacement:</b> It is an 8 bit or 16 bit immediate value given in the instruction.</li>
+<li><b>Base:</b> Contents of base register, BX or BP.</li>
+<li><b>Index:</b> Content of index register SI or DI.</li><br><br>
+
+According to different ways of specifying an operand by 8086 microprocessor, different addressing modes are used by 8086.<br><br>
+
+<b>Addressing modes</b> used by 8086 microprocessor are discussed below:<br><br>
+
+<li><b>Implied mode::</b> In implied addressing the operand is specified in the instruction itself. In this mode the data is 8 bits or 16 bits long and data is the part of instruction.Zero address instruction are designed with implied addressing mode.</li><br><br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Addressing_Modes_2.jpg" width="250" height="100"><br><br>
+
+Example:  CLC (used to reset Carry flag to 0)<br><br>
+
+
+<li><b>Immediate addressing mode (symbol #):</b>In this mode data is present in address field of instruction .Designed like one address instruction format.</li><br>
+<b>Note:</b>Limitation in the immediate mode is that the range of constants are restricted by size of address field.<br><br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20190305161651/co-300x159.png" width="250" height="100"><br><br>
+<div class="gray">
+Example:  MOV AL, 35H (move the data 35H into AL register)<br><br>
+</div>
+<li><b>Register mode:</b> In register addressing the operand is placed in one of 8 bit or 16 bit general purpose registers. The data is in the register that is specified by the instruction.</li><br>
+Here one register reference is required to access the data.<br><br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Addressing_Modes_3.jpg" width="250" height="100"><br><br>
+    <div class="gray">
+    Example: MOV AX,CX (move the contents of CX register to AX register)<br><br></div>
+
+<li><b>Register Indirect mode:</b> In this addressing the operand’s offset is placed in any one of the registers BX,BP,SI,DI as specified in the instruction. The effective address of the data is in the base register or an index register that is specified by the instruction.</li><br>
+Here two register reference is required to access the data.<br><br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Addressing_Modes_4.jpg" width="300" height="100"><br><br>
+
+
+The 8086 CPUs let you access memory indirectly through a register using the register indirect addressing modes.<br><br>
+MOV AX, [BX](move the contents of memory location s<br> 
+addressed by the register BX to the register AX)<br><br>
+
+<li><b>Auto Indexed (increment mode):</b> Effective address of the operand is the contents of a register specified in the instruction. After accessing the operand, the contents of this register are automatically incremented to point to the next consecutive memory location.(R1)+.</li><br><br>
+
+Here one register reference,one memory reference and one ALU operation is required to access the data.<br><br>
+    <div class="gray">Example:<br>
+Add R1, (R2)+  // OR<br>
+R1 = R1 +M[R2]<br>
+R2 = R2 + d <br>
+        Useful for stepping through arrays in a loop. R2 – start of array d – size of an element<br><br></div>
+
+<li><b>Auto indexed ( decrement mode):</b> Effective address of the operand is the contents of a register specified in the instruction. Before accessing the operand, the contents of this register are automatically decremented to point to the previous consecutive memory location. –(R1)</li><br><br>
+Here one register reference,one memory reference and one ALU operation is required to access the data.<br><br>
+    <div class="gray">Example:<br>
+
+Add R1,-(R2)   //OR<br>
+R2 = R2-d<br>
+        R1 = R1 + M[R2]<br><br> </div>
+Auto decrement mode is same as  auto increment mode. Both can also be used to implement a stack as push and pop . Auto increment and Auto decrement modes are useful for implementing “Last-In-First-Out” data structures.<br><br>
+
+<li><b>Direct addressing/ Absolute addressing Mode (symbol [ ]):</b> The operand’s offset is given in the instruction as an 8 bit or 16 bit displacement element. In this addressing mode the 16 bit effective address of the data is the part of the instruction.</li><br>
+Here only one memory reference operation is required to access the data.<br><br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Addressing_Modes_5.jpg" width="350" height="150"><br><br>
+
+    <div class="gray">
+        Example:ADD AL,[0301]   //add the contents of offset address 0301 to AL<br><br></div>
+
+<li><b>Indirect addressing Mode (symbol @ or () ):</b>In this mode address field of instruction contains the address of effective address.Here two references are required.
+1st reference to get effective address.</li><br>
+
+2nd reference to access the data.<br>
+Based on the availability of Effective address, Indirect mode is of two kind:<br>
+
+1.Register Indirect:In this mode effective address is in the register, and corresponding register name will be maintained in the address field of an instruction.<br>
+Here one register reference,one memory reference is required to access the data.<br><br>
+2.Memory Indirect:In this mode effective address is in the memory, and corresponding memory address will be maintained in the address field of an instruction.<br><br>
+Here two memory reference is required to access the data.<br><br>
+
+<li><b>Indexed addressing mode:</b> The operand’s offset is the sum of the content of an index register SI or DI and an 8 bit or 16 bit displacement.</li><br><br>
+    <div class="gray">Example:MOV AX, [SI +05] <br><br></div>
+
+<li><b> Based Indexed Addressing:</b> The operand’s offset is sum of the content of a base register BX or BP and an index register SI or DI.</li><br>
+    <div class="gray">
+        Example: ADD AX, [BX+SI] <br><br></div>
+<b>Based on Transfer of control, addressing modes are:</b><br><br>
+
+<li><b>PC relative addressing mode:</b> PC relative addressing mode is used to implement intra segment transfer of control, In this mode effective address is obtained by adding displacement to PC.</li><br>
+    <div class="gray">
+EA= PC + Address field value<br>
+        PC= PC + Relative value.<br></div>
+
+<li><b>Base register addressing mode:</b>Base register addressing mode is used to implement inter segment transfer of control.In this mode effective address is obtained by adding base register value to address field value.</li><br>
+
+EA= Base register + Address field value.<br>
+PC= Base register + Relative value.<br><br>
+
+<b>Note:</b><br>
+
+1.PC relative and based register both addressing modes are suitable for program relocation at runtime.<br>
+2.Based register addressing mode is best suitable to write position independent codes.<br><br>
+
+<b>Advantages of Addressing Modes</b>
+
+1.To give programmers to facilities such as Pointers, counters for loop controls, indexing of data and program relocation.<br>
+2.To reduce the number bits in the addressing field of the Instruction.<br><br>
+
+<h2><b>Difference between Memory based and Register based Addressing Modes</b></h2>
+
+<b>Addressing modes</b> are the operations field specifies the operations which need to be performed. The operation must be executed on some data which is already stored in computer registers or in the memory. The way of choosing operands during program execution is dependent on addressing modes of instruction. “The addressing mode specifies a rule for interpreting or modifying the address field of the instruction before the operand is actually referenced. “Basically how we are interpreting the operand which is given in the instruction is known as addressing mode.<br><br> 
+
+Addressing mode very much depends on the type of CPU organization. There are three types of CPU organization: <br><br>
+
+1.Single Accumulator organization <br>
+2.General register organization <br>
+3.Stack organization <br><br
+
+Addressing modes is used for one or both of the purposes. These can also be said as the advantages of using addressing mode:<br><br>
+
+1.To give programming versatility to the user by providing such facilities as pointers to memory, counter for loop control, indexing of data, and program relocation. <br><br>
+2.To reduce the number of bits in the addressing field of the instruction. <br><br>
+
+There is a number of addressing modes available and it depends on the architecture and CPU organization which of the addressing modes can be applied. <br><br>
+
+
+<h3>Difference between Memory based and Register based Addressing Modes:</h3>
+<figure class="table">
+<table border="1">
+<thead>
+<tr>
+<th>Memory Based Addressing Modes</th>
+<th>Register Based Addressing Modes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The operand is present in memory and its address is given in the instruction itself. This addressing mode is taking proper advantage of a memory address, e.g., Direct addressing mode</td>
+<td>An operand will be given in one of the registers and the register&rsquo;s number will be provided in the instruction. With the register number present in instruction, an operand is fetched, e.g., Register mode&nbsp;<br />&nbsp;</td>
+</tr>
+<tr>
+<td>The memory address specified in the instruction may give the address where the effective address is stored in the memory. In this case, an effective memory address is present in the memory address which is specified in the instruction, e.g., Indirect Addressing Mode</td>
+<td>The register contains the address of the operand. The effective address can be derived from the content of the register specified in the instruction. The content of the register might not be the effective address. This mode takes full advantage of registers, e.g., Register indirect mode&nbsp;<br />&nbsp;</td>
+</tr>
+<tr>
+<td>The content of the base register is added to the address part of the instruction to obtain the effective address. A base register is assumed to hold a base address and the address field of the instruction gives displacement relative to the base address, e.g., Base Register Addressing Mode.</td>
+<td>If we are having a table of data and our program needs to access all the values one by one we need something which decrements the program counter/or any register which has a base address. Though in this case register is basically decreased, it is register-based addressing mode, e.g., In Auto decrements mode.<br />&nbsp;</td>
+</tr>
+<tr>
+<td>The content of the index register is added to the address part that is given in the instruction to obtain the effective address. Index Mode is used to access an array whose elements are in successive memory locations, e.g., Indexed Addressing Mode</td>
+<td>If we are having a table of data and our program needs to access all the values one by one we need something which increments the program counter/or any register which has a base address, e.g., Autoincrement mode</td>
+</tr>
+<tr>
+<td>The content of the program counter is added to the address part of the instruction in order to obtain the effective address. The address part of the instruction, in this case, is usually a signed number that can be either positive or negative, e.g., Relative addressing mode</td>
+<td>Instructions generally used for initializing registers to a constant value are register-based addressing mode, and this technique is a very useful approach, e.g., Immediate mode.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</figure>
+
+Memory-based addressing modes are mostly relying on Memory address and content present at some memory location. Register-based addressing modes are mostly relying on registers and content present at some register whether it is data or some memory address. <br><br>
+</body>
+</html>

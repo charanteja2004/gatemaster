@@ -1,0 +1,153 @@
+/*
+ * Shared stylesheet for every bundled article.
+ *
+ * The source documents were written for a desktop browser: fixed margins, a
+ * hardcoded cream background, no viewport tag. This is injected as the last
+ * stylesheet in <head> by tools/normalize_content_html.py so it wins over the
+ * per-file <style> blocks, and it uses !important only where those blocks set
+ * a colour directly on the element.
+ */
+
+:root {
+  --ink: #1b1b21;
+  --ink-muted: #46464f;
+  --ground: #fbf8ff;
+  --panel: #eef0f7;
+  --rule: #dcdfe8;
+  --accent: #2b4bb8;
+  --code-ground: #f1f2f7;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #e4e1e9;
+    --ink-muted: #c7c5d0;
+    --ground: #121318;
+    --panel: #1e2029;
+    --rule: #33353f;
+    --accent: #b8c3ff;
+    --code-ground: #1a1c24;
+  }
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--ground) !important;
+  color: var(--ink) !important;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 17px;
+  line-height: 1.65;
+  margin: 0 !important;
+  padding: 18px 16px 56px !important;
+  max-width: 46rem;
+  overflow-wrap: break-word;
+}
+
+/* Headings ---------------------------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--ink) !important;
+  line-height: 1.25;
+  margin: 1.6em 0 0.5em;
+  text-wrap: balance;
+}
+
+h1 { font-size: 1.65rem; margin-top: 0; }
+h2 { font-size: 1.3rem; }
+h3 { font-size: 1.1rem; }
+h4, h5, h6 { font-size: 1rem; }
+
+p, li, td, th, blockquote, div, span, strong, em, b, i {
+  color: inherit;
+}
+
+p { margin: 0 0 1em; }
+
+/* Lists ------------------------------------------------------------------- */
+
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin-bottom: 0.4em; }
+
+/* Quotes and callouts ----------------------------------------------------- */
+
+blockquote {
+  background: var(--panel) !important;
+  border-left: 3px solid var(--accent);
+  margin: 0 0 1.2em;
+  padding: 0.8em 1em;
+  border-radius: 0 6px 6px 0;
+}
+
+blockquote p:last-child { margin-bottom: 0; }
+
+/* The source documents use .gray for code-ish call-outs. */
+.gray {
+  background: var(--code-ground) !important;
+  color: var(--ink) !important;
+  border-radius: 8px;
+  padding: 0.75em 0.9em !important;
+  margin-bottom: 1em;
+  overflow-x: auto;
+}
+
+/* Code -------------------------------------------------------------------- */
+
+pre, code, kbd, samp {
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  font-size: 0.9em;
+}
+
+pre {
+  background: var(--code-ground) !important;
+  color: var(--ink) !important;
+  padding: 0.9em 1em;
+  border-radius: 8px;
+  overflow-x: auto;
+  line-height: 1.5;
+}
+
+code { background: var(--code-ground); padding: 0.1em 0.35em; border-radius: 4px; }
+pre code { background: none; padding: 0; }
+
+/* Tables ------------------------------------------------------------------ */
+
+/* Wide tables scroll inside their own box instead of stretching the page. */
+table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 0 0 1.2em;
+  font-size: 0.95em;
+}
+
+th, td {
+  border: 1px solid var(--rule) !important;
+  padding: 0.5em 0.7em;
+  text-align: left;
+}
+
+th { background: var(--panel) !important; font-weight: 600; }
+
+/* Media ------------------------------------------------------------------- */
+
+img, svg, video, iframe {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* Diagrams in these articles are screenshots on a white canvas; without this
+   they become dark rectangles with invisible labels in dark mode. */
+@media (prefers-color-scheme: dark) {
+  img { background: #ffffff; padding: 4px; }
+}
+
+/* Links ------------------------------------------------------------------- */
+
+a { color: var(--accent) !important; text-underline-offset: 2px; }
+
+hr { border: 0; border-top: 1px solid var(--rule); margin: 2em 0; }

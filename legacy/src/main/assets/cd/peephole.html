@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    
+<div class="article-title">
+    <h1>Peephole Optimization</h1>
+    </div>
+    </div>
+    </div>
+    <div class="text">
+    <p dir="ltr"><strong>Peephole optimization</strong>&nbsp;is a type of&nbsp;<a class="GFGEditorTheme__link" href="codeoptimization.html">code Optimization</a>&nbsp;performed on a small part of the code. It is performed on a very small set of instructions in a segment of code.</p>
+    <blockquote>
+    <p dir="ltr">The small set of instructions or small part of code on which peephole optimization is performed is known as&nbsp;<strong>peephole</strong>&nbsp;or&nbsp;<strong>window</strong>.</p>
+    </blockquote>
+    <p dir="ltr">It basically works on the theory of replacement in which a part of code is replaced by shorter and faster code without a change in output. The peephole is machine-dependent optimization.&nbsp;</p>
+    <h3><strong>Objectives of Peephole Optimization:</strong>&nbsp;</h3>
+    <p dir="ltr">The objective of peephole optimization is as follows:</p>
+    <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+    <ol>
+    <li value="1">To improve performance</li>
+    <li value="2">To reduce memory footprint</li>
+    <li value="3">To reduce code size</li>
+    </ol>
+    <h3><strong>Peephole Optimization Techniques</strong></h3>
+    <p dir="ltr"><strong>A. Redundant load and store elimination:</strong>&nbsp;In this technique, redundancy is eliminated.</p>
+    <pre><strong>Initial code:</strong><br />y = x + 5;<br />i = y;<br />z = i;<br />w = z * 3;<br /><br /><strong>Optimized code:</strong><br />y = x + 5;<br />w = y * 3; //* there is no i now <br /><br />//* We've removed two redundant variables i &amp; z whose value were just being copied from one another.</pre>
+    <p dir="ltr"><strong>B. Constant folding:</strong>&nbsp;The code that can be simplified by the user itself, is simplified. Here simplification to be done at runtime are replaced with simplified code to avoid additional computation.</p>
+    <pre><strong>Initial code:</strong><br />x = 2 * 3;<br /><br /><strong>Optimized code:</strong><br />x = 6; </pre>
+    <p dir="ltr"><strong>C. Strength Reduction:</strong>&nbsp;The operators that consume higher execution time are replaced by the operators consuming less execution time.</p>
+    <pre><strong>Initial code:</strong><br />y = x * 2;<br /><br /><strong>Optimized code:</strong><br />y = x + x;    or     y = x &lt;&lt; 1;<br /><br /><strong>Initial code:</strong><br />y = x / 2;<br /><br /><strong>Optimized code:</strong><br />y = x &gt;&gt; 1; </pre>
+    <p dir="ltr"><strong>D. Null sequences/ Simplify Algebraic Expressions :</strong>&nbsp;Useless operations are deleted.</p>
+    <pre>a := a + 0;<br />a := a * 1;<br />a := a/1;<br />a := a - 0;</pre>
+    <p dir="ltr"><strong>E. Combine operations:</strong>&nbsp;Several operations are replaced by a single equivalent operation.</p>
+    <p dir="ltr"><strong>F. Deadcode Elimination:-&nbsp;</strong>Dead code refers to portions of the program that are never executed or do not affect the program&rsquo;s observable behavior. Eliminating dead code helps improve the efficiency and performance of the compiled program by reducing unnecessary computations and memory usage.</p>
+    <pre><strong>Initial Code:-</strong><br />int Dead(void)<br />{<br />    int a=10;<br />    int z=50;<br />    int c;<br />    c=z*5;<br />    printf(c);<br />    a=20; <br />    a=a*10; //No need of These Two Lines <br />    return 0;<br />    }<br /><strong>Optimized Code:-</strong><br />int Dead(void)<br />{<br />    int a=10;<br />    int z=50;<br />    int c;<br />    c=z*5;<br />    printf(c);<br />    return 0;<br />    }    <br /><br /><br /></pre>
+    </div>
+    
+</body>
+</html>

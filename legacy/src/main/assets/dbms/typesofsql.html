@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>SQL Commands | DDL, DQL, DML, DCL and TCL Commands</h1>
+        </div>
+        </div>
+        </div>
+        <div class="text">
+        <p dir="ltr"><strong>SQL commands&nbsp;</strong>are very used to interact with the database. These commands allow users to perform various actions on a database. This article will teach us about&nbsp;<strong>SQL commands</strong>&nbsp;or&nbsp;<strong>SQL sublanguage commands</strong>&nbsp;like&nbsp;<strong>DDL</strong>,&nbsp;<strong>DQL</strong>,&nbsp;<strong>DML</strong>,&nbsp;<strong>DCL</strong>, and&nbsp;<strong>TCL</strong>.</p>
+        <p dir="ltr">All important SQL commands with their syntax and examples are covered in this article.</p>
+        <p dir="ltr">But before heading to the SQL command section, let&rsquo;s briefly introduce SQL.</p>
+        <div id="table_of_content">
+        <p>Table of Content</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <ul>
+        <li><a href="#short-overview-of-sql">Short Overview of SQL</a></li>
+        <li><a href="#ddl-data-definition-language">DDL (Data Definition Language)</a></li>
+        <li><a href="#dql-data-query-language">DQL (Data Query Language)</a></li>
+        <li><a href="#dmldata-manipulation-language">DML(Data Manipulation Language)</a></li>
+        <li><a href="#dcl-data-control-language">DCL (Data Control Language)</a></li>
+        <li><a href="#tcl-transaction-control-language">TCL (Transaction Control Language)</a></li>
+        <li><a href="#important-sql-commands">Important SQL Commands</a></li>
+        <li><a href="#sql-commands-with-examples">SQL Commands with Examples</a></li>
+        </ul>
+        </div>
+        <h2 id="short-overview-of-sql">Short Overview of SQL</h2>
+        <p dir="ltr"><strong>Structured Query Language (SQL)</strong>, as we all know, is the database language by which we can perform certain operations on the existing database, and we can also use this language to create a database.&nbsp;<a href="sql.html">SQL</a>&nbsp;uses certain commands like CREATE, DROP, INSERT, etc. to carry out the required tasks.&nbsp;</p>
+        <p dir="ltr">SQL commands&nbsp;are like instructions to a table. It is used to interact with the database with some operations. It is also used to perform specific tasks, functions, and queries of data. SQL can perform various tasks like creating a table, adding data to tables, dropping the table, modifying the table, set permission for users.</p>
+        <p>These SQL commands are mainly categorized into five categories:&nbsp;</p>
+        <ol>
+        <li value="1"><strong>DDL&nbsp;</strong>&ndash; Data Definition Language</li>
+        <li value="2"><strong>DQL&nbsp;</strong>&ndash; Data Query Language</li>
+        <li value="3"><strong>DML&nbsp;</strong>&ndash; Data Manipulation Language</li>
+        <li value="4"><strong>DCL&nbsp;</strong>&ndash; Data Control Language</li>
+        <li value="5"><strong>TCL&nbsp;</strong>&ndash; Transaction Control Language</li>
+        </ol>
+        <p dir="ltr">Now, we will see all of these in detail.</p>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20210920153429/new.png" alt="sql commands categories" width="380" height="319" /></p>
+        <h2 id="ddl-data-definition-language"><strong>DDL (Data Definition Language)</strong></h2>
+        <p dir="ltr">DDL&nbsp;or Data Definition Language actually consists of the SQL commands that can be used to define the database schema. It simply deals with descriptions of the database schema and is used to create and modify the structure of database objects in the database.</p>
+        <p dir="ltr">DDL is a set of SQL commands used to create, modify, and delete database structures but not data. These commands are normally not used by a general user, who should be accessing the database via an application.</p>
+        <h3>List of DDL Commands</h3>
+        <p dir="ltr">Some DDL commands and their syntax are:</p>
+        <table>
+        <thead>
+        <tr>
+        <th>Command</th>
+        <th>Description</th>
+        <th>Syntax</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>CREATE</td>
+        <td>Create database or its objects (table, index, function, views, store procedure, and triggers)</td>
+        <td><code>CREATE TABLE table_name (column1 data_type, column2 data_type, ...);</code></td>
+        </tr>
+        <tr>
+        <td>DROP</td>
+        <td>Delete objects from the database</td>
+        <td><code>DROP TABLE table_name;</code></td>
+        </tr>
+        <tr>
+        <td>ALTER</td>
+        <td>Alter the structure of the database</td>
+        <td><code>ALTER TABLE table_name ADD COLUMN column_name data_type;</code></td>
+        </tr>
+        <tr>
+        <td>TRUNCATE</td>
+        <td>Remove all records from a table, including all spaces allocated for the records are removed</td>
+        <td><code>TRUNCATE TABLE table_name;</code></td>
+        </tr>
+        <tr>
+        <td>COMMENT</td>
+        <td>Add comments to the data dictionary</td>
+        <td><code>COMMENT 'comment_text' ON TABLE table_name;</code></td>
+        </tr>
+        <tr>
+        <td>RENAME</td>
+        <td>Rename an object existing in the database</td>
+        <td><code>RENAME TABLE old_table_name TO new_table_name;</code></td>
+        </tr>
+        </tbody>
+        </table>
+        </div>
+        <div class="main_wrapper">
+            <div class="article-title">
+            <h2 id="dql-data-query-language"><strong>DQL (Data Query Language)</strong></h2>
+            <p dir="ltr"><strong>DQL&nbsp;</strong>statements are used for performing queries on the data within schema objects. The purpose of the DQL Command is to get some schema relation based on the query passed to it.&nbsp;We can define DQL as follows it is a component of SQL statement that allows getting data from the database and imposing order upon it. It includes the SELECT statement.</p>
+            <p dir="ltr">This command allows getting the data out of the database to perform operations with it. When a SELECT is fired against a table or tables the result is compiled into a further temporary table, which is displayed or perhaps received by the program i.e. a front-end.</p>
+            <h3>DQL Command</h3>
+            <p dir="ltr">There is only one DQL command in SQL i.e.</p>
+            <table>
+            <thead>
+            <tr>
+            <th>Command</th>
+            <th>Description</th>
+            <th>Syntax</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>
+            <p dir="ltr"><strong>SELECT</strong></p>
+            </td>
+            <td>
+            <p dir="ltr">It is used to retrieve data from the database</p>
+            </td>
+            <td>
+            <p dir="ltr"><code>SELECT column1, column2, ...FROM table_name&lt;br&gt;WHERE condition;</code></p>
+            </td>
+            </tr>
+            </tbody>
+            </table>
+            <h2 id="dmldata-manipulation-language"><strong>DML(Data Manipulation Language)</strong></h2>
+            <p dir="ltr">The SQL commands that deal with the manipulation of data present in the database belong to DML or Data Manipulation Language and this includes most of the SQL statements.&nbsp;</p>
+            <p dir="ltr">It is the component of the SQL statement that controls access to data and to the database. Basically, DCL statements are grouped with DML statements.</p>
+            <h3>List of DML commands</h3>
+            <p dir="ltr">Some DML commands and their syntax are:</p>
+            <table>
+            <thead>
+            <tr>
+            <th>Command</th>
+            <th>Description</th>
+            <th>Syntax</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>INSERT</td>
+            <td>Insert data into a table</td>
+            <td><code>INSERT INTO table_name (column1, column2, ...) VALUES (value1, value2, ...);</code></td>
+            </tr>
+            <tr>
+            <td>UPDATE</td>
+            <td>Update existing data within a table</td>
+            <td><code>UPDATE table_name SET column1 = value1, column2 = value2 WHERE condition;</code></td>
+            </tr>
+            <tr>
+            <td>DELETE</td>
+            <td>Delete records from a database table</td>
+            <td><code>DELETE FROM table_name WHERE condition;</code></td>
+            </tr>
+            <tr>
+            <td>LOCK</td>
+            <td>Table control concurrency</td>
+            <td><code>LOCK TABLE table_name IN lock_mode;</code></td>
+            </tr>
+            <tr>
+            <td>CALL</td>
+            <td>Call a PL/SQL or JAVA subprogram</td>
+            <td><code>CALL procedure_name(arguments);</code></td>
+            </tr>
+            <tr>
+            <td>EXPLAIN PLAN</td>
+            <td>Describe the access path to data</td>
+            <td><code>EXPLAIN PLAN FOR SELECT * FROM table_name;</code></td>
+            </tr>
+            </tbody>
+            </table>
+            <h2 id="dcl-data-control-language"><strong>DCL (Data Control Language)</strong></h2>
+            <p dir="ltr">DCL includes commands such as GRANT and REVOKE which mainly deal with the rights, permissions, and other controls of the database system.&nbsp;</p>
+            <h3>List of &nbsp;DCL commands:</h3>
+            <p dir="ltr">Two important DCL commands and their syntax are:</p>
+            <table>
+            <thead>
+            <tr>
+            <th>Command</th>
+            <th>Description</th>
+            <th>Syntax</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>GRANT</td>
+            <td>Assigns new privileges to a user account, allowing access to specific database objects, actions, or functions.</td>
+            <td><code>GRANT privilege_type [(column_list)] ON [object_type] object_name TO user [WITH GRANT OPTION];</code></td>
+            </tr>
+            <tr>
+            <td>REVOKE</td>
+            <td>Removes previously granted privileges from a user account, taking away their access to certain database objects or actions.</td>
+            <td><code>REVOKE [GRANT OPTION FOR] privilege_type [(column_list)] ON [object_type] object_name FROM user [CASCADE];</code></td>
+            </tr>
+            </tbody>
+            </table>
+            <h2 id="tcl-transaction-control-language"><strong>TCL (Transaction Control Language)</strong></h2>
+            <p dir="ltr">Transactions group a set of tasks into a single execution unit. Each transaction begins with a specific task and ends when all the tasks in the group are successfully completed. If any of the tasks fail, the transaction fails.</p>
+            <p dir="ltr">Therefore, a transaction has only two results: success or failure. You can explore more about transactions<em><strong><strong class="GFGEditorTheme__textItalic">&nbsp;</strong></strong></em><em><strong><strong class="GFGEditorTheme__textItalic">here</strong></strong></em>. Hence, the following TCL commands are used to control the execution of a transaction:&nbsp;</p>
+            <h3>List of TCL Commands</h3>
+            <p dir="ltr">Some TCL commands and their syntax are:</p>
+            <table>
+            <thead>
+            <tr>
+            <th>Command</th>
+            <th>Description</th>
+            <th>Syntax</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>BEGIN TRANSACTION</td>
+            <td>Starts a new transaction</td>
+            <td><code>BEGIN TRANSACTION [transaction_name];</code></td>
+            </tr>
+            <tr>
+            <td>COMMIT</td>
+            <td>Saves all changes made during the transaction</td>
+            <td><code>COMMIT;</code></td>
+            </tr>
+            <tr>
+            <td>ROLLBACK</td>
+            <td>Undoes all changes made during the transaction</td>
+            <td><code>ROLLBACK;</code></td>
+            </tr>
+            <tr>
+            <td>SAVEPOINT</td>
+            <td>Creates a savepoint within the current transaction</td>
+            <td><code>SAVEPOINT savepoint_name;</code></td>
+            </tr>
+            </tbody>
+            </table>
+            </div>
+            </div>
+            <div class="main_wrapper">
+                <h2 id="important-sql-commands">Important SQL Commands</h2>
+                <p dir="ltr">Some of the most important SQL commands are:</p>
+                <ol>
+                <li value="1"><strong>SELECT</strong>: Used to retrieve data from a database.</li>
+                <li value="2"><strong>INSERT</strong>: Used to add new data to a database.</li>
+                <li value="3"><strong>UPDATE</strong>: Used to modify existing data in a database.</li>
+                <li value="4"><strong>DELETE</strong>: Used to remove data from a database.</li>
+                <li value="5"><strong>CREATE TABLE</strong>: Used to create a new table in a database.</li>
+                <li value="6"><strong>ALTER TABLE</strong>: Used to modify the structure of an existing table.</li>
+                <li value="7"><strong>DROP TABLE</strong>: Used to delete an entire table from a database.</li>
+                <li value="8"><strong>WHERE</strong>: Used to filter rows based on a specified condition.</li>
+                <li value="9"><strong>ORDER BY</strong>: Used to sort the result set in ascending or descending order.</li>
+                <li value="10"><strong>JOIN</strong>: Used to combine rows from two or more tables based on a related column between them.</li>
+                </ol>
+                <h2 id="sql-commands-with-examples">SQL Commands With Examples</h2>
+                <p dir="ltr">The examples demonstrates how to use an SQL command. Here is the list of popular SQL commands with Examples.</p>
+                <table>
+                <thead>
+                <tr>
+                <th>SQL Command</th>
+                <th>Example</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                <th>SELECT</th>
+                <td><code>SELECT * FROM employees;</code></td>
+                </tr>
+                <tr>
+                <th>INSERT</th>
+                <td><code>INSERT INTO employees (first_name, last_name, email) VALUES ('John', 'Doe', 'john.doe@example.com');</code></td>
+                </tr>
+                <tr>
+                <th>UPDATE</th>
+                <td><code>UPDATE employees SET email = 'jane.doe@example.com' WHERE first_name = 'Jane' AND last_name = 'Doe';</code></td>
+                </tr>
+                <tr>
+                <th>DELETE</th>
+                <td><code>DELETE FROM employees WHERE employee_id = 123;</code></td>
+                </tr>
+                <tr>
+                <th>CREATE TABLE</th>
+                <td><code>CREATE TABLE employees ( employee_id INT PRIMARY KEY, first_name VARCHAR(50), last_name VARCHAR(50));</code></td>
+                </tr>
+                <tr>
+                <th>ALTER TABLE</th>
+                <td><code>ALTER TABLE employees ADD COLUMN phone VARCHAR(20);</code></td>
+                </tr>
+                <tr>
+                <th>DROP TABLE</th>
+                <td><code>DROP TABLE employees;</code></td>
+                </tr>
+                <tr>
+                <th>WHERE</th>
+                <td><code>SELECT * FROM employees WHERE department = 'Sales';</code></td>
+                </tr>
+                <tr>
+                <th>ORDER BY</th>
+                <td><code>SELECT * FROM employees ORDER BY hire_date DESC;</code></td>
+                </tr>
+                <tr>
+                <th>JOIN</th>
+                <td><code>SELECT e.first_name, e.last_name, d.department_name FROM employees e JOIN departments d ON e.department_id = d.department_id;</code></td>
+                </tr>
+                </tbody>
+                </table>
+                </div>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    <h2><b>Locality of Reference and Cache Operation in Cache Memory</b></h2>
+
+Locality of reference refers to a phenomenon in which a computer program tends to access same set of memory locations for a particular time period. In other words, Locality of Reference refers to the tendency of the computer program to access instructions whose addresses are near one another. The property of locality of reference is mainly shown by loops and subroutine calls in a program.<br><br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-Diagram-14.jpg" width="350" height="300"><br><br>
+
+1.In case of loops in program control processing unit repeatedly refers to the set of instructions that constitute the loop.<br>
+2.In case of subroutine calls, everytime the set of instructions are fetched from memory.<br>
+3.References to data items also get localized that means same data item is referenced again and again.<br><br>
+
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-Diagram1-2.jpg" width="350" height="200"><br><br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-Diagram2-3.jpg" width="350" height="300"><br><br>
+
+
+In the above figure, you can see that the CPU wants to read or fetch the data or instruction. First, it will access the cache memory as it is near to it and provides very fast access. If the required data or instruction is found, it will be fetched. This situation is known as a cache hit. But if the required data or instruction is not found in the cache memory then this situation is known as a cache miss. Now the main memory will be searched for the required data or instruction that was being searched and if found will go through one of the two ways:<br><br>
+
+1.First way is that the CPU should fetch the required data or instruction and use it and that’s it but what, when the same data or instruction is required again.CPU again has to access the same main memory location for it and we already know that main memory is the slowest to access.<br><br>
+2.The second way is to store the data or instruction in the cache memory so that if it is needed soon again in the near future it could be fetched in a much faster way.<br><br>
+
+
+<b>Cache Operation:</b> It is based on the principle of locality of reference. There are two ways with which data or instruction is fetched from main memory and get stored in cache memory. These two ways are the following:<br><br>
+
+<b>1.Temporal Locality –</b> Temporal locality means current data or instruction that is being fetched may be needed soon. So we should store that data or instruction in the cache memory so that we can avoid again searching in main memory for the same data.<br><br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-Diagram3.jpg" width="350" height="300"><br><br>
+
+
+When CPU accesses the current main memory location for reading required data or instruction, it also gets stored in the cache memory which is based on the fact that same data or instruction may be needed in near future. This is known as temporal locality. If some data is referenced, then there is a high probability that it will be referenced again in the near future.<br><br>
+
+<b>2.Spatial Locality –</b> Spatial locality means instruction or data near to the current memory location that is being fetched, may be needed soon in the near future. This is slightly different from the temporal locality. Here we are talking about nearly located memory locations while in temporal locality we were talking about the actual memory location that was being fetched.<br><br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-Diagram4.jpg" width=350" height="300"><br><br>
+
+
+<b>Cache Performance:</b> The performance of the cache is measured in terms of hit ratio. When CPU refers to memory and find the data or instruction within the Cache Memory, it is known as cache hit. If the desired data or instruction is not found in the cache memory and CPU refers to the main memory to find that data or instruction, it is known as a cache miss.<br><br>
+    <div class="gray">
+Hit + Miss  = Total CPU Reference<br>
+Hit Ratio(h) = Hit / (Hit+Miss) <br>
+Miss Ratio = 1 - Hit Ratio(h)<br>
+        Miss Ratio = Miss / (Hit+Miss)<br><br></div>
+
+Average access time of any memory system consists of two levels: Cache and Main Memory. If Tc is time to access cache memory and Tm is the time to access main memory then we can write:<br><br>
+
+    <div class="gray">
+Tavg = Average time to access memory<br>
+For simultaneous access<br>
+Tavg = h * Tc + (1-h)*Tm  <br>
+For hierarchial access<br>
+        Tavg = h * Tc + (1-h)*(Tm + Tc)<br><br></div>
+
+ 
+<h3><b>Cache Memory in Computer Organization</b></h3>
+
+Cache Memory is a special very high-speed memory. The cache is a smaller and faster memory that stores copies of the data from frequently used main memory locations. There are various different independent caches in a CPU, which store instructions and data. The most important use of cache memory is that it is used to reduce the average time to access data from the main memory.<br><br>
+
+<h3><b>Characteristics of Cache Memory</b></h3>
+
+<li>Cache memory is an extremely fast memory type that acts as a buffer between RAM and the CPU.</li>
+<li>Cache Memory holds frequently requested data and instructions so that they are immediately available to the CPU when needed.</li>
+<li>Cache memory is costlier than main memory or disk memory but more economical than CPU registers.</li>
+<li>Cache Memory is used to speed up and synchronize with a high-speed CPU.</li><br><br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/cache.png" width="350" height="200"><br><br>
+
+
+<h4><b>Levels of Memory</b></h4>
+<li><b>Level 1 or Register:</b> It is a type of memory in which data is stored and accepted that are immediately stored in the CPU. The most commonly used register is Accumulator, Program counter, Address Register, etc.</li>
+<li><b>Level 2 or Cache memory:</b> It is the fastest memory that has faster access time where data is temporarily stored for faster access.</li>
+<li><b>Level 3 or Main Memory:</b> It is the memory on which the computer works currently. It is small in size and once power is off data no longer stays in this memory.</li>
+<li><b>Level 4 or Secondary Memory:</b> It is external memory that is not as fast as the main memory but data stays permanently in this memory.</li><br><br>
+
+
+<h3><b>Cache Performance</b></h3>
+
+When the processor needs to read or write a location in the main memory, it first checks for a corresponding entry in the cache.<br><br>
+
+<li>If the processor finds that the memory location is in the cache, a Cache Hit has occurred and data is read from the cache.</li><br>
+<li>If the processor does not find the memory location in the cache, a cache miss has occurred. For a cache miss, the cache allocates a new entry and copies in data from the main memory, then the request is fulfilled from the contents of the cache.</li><br><br>
+
+The performance of cache memory is frequently measured in terms of a quantity called<b> Hit ratio.</b><br><br>
+
+    <div class="gray">
+Hit Ratio(H) = hit / (hit + miss) =  no. of hits/total accesses<br>
+        Miss Ratio = miss / (hit + miss) =  no. of miss/total accesses = 1 - hit ratio(H)<br><br></div>
+
+We can improve Cache performance using higher cache block size, and higher associativity, reduce miss rate, reduce miss penalty, and reduce the time to hit in the cache. <br><br>
+
+
+<h3><b>Cache Mapping</b></h3>
+There are three different types of mapping used for the purpose of cache memory which is as follows:<br><br>
+
+<li>Direct Mapping</li>
+<li>Associative Mapping</li>
+<li>Set-Associative Mapping</li>
+<br><br>
+
+<h4><b>1. Direct Mapping</b></h4>
+
+The simplest technique, known as direct mapping, maps each block of main memory into only one possible cache line. or In Direct mapping, assign each memory block to a specific line in the cache. If a line is previously taken up by a memory block when a new block needs to be loaded, the old block is trashed. An address space is split into two parts index field and a tag field. The cache is used to store the tag field whereas the rest is stored in the main memory. Direct mapping`s performance is directly proportional to the Hit ratio.<br><br>
+    <div class="gray">
+i = j modulo m<br>
+where<br>
+i = cache line number<br>
+j = main memory block number<br>
+        m = number of lines in the cache<br><br></div>
+
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20190305171558/1232.png" width="350" height="200"><br><br>
+
+
+For purposes of cache access, each main memory address can be viewed as consisting of three fields. The least significant w bits identify a unique word or byte within a block of main memory. In most contemporary machines, the address is at the byte level. The remaining s bits specify one of the 2s blocks of main memory. The cache logic interprets these s bits as a tag of s-r bits (the most significant portion) and a line field of r bits. This latter field identifies one of the m=2r lines of the cache. Line offset is index bits in the direct mapping.<br><br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/cache1.png" width="350" height="300"><br><br>
+
+
+<h4><b>2. Associative Mapping</b></h4>
+
+In this type of mapping, associative memory is used to store the content and addresses of the memory word. Any block can go into any line of the cache. This means that the word id bits are used to identify which word in the block is needed, but the tag becomes all of the remaining bits. This enables the placement of any word at any place in the cache memory. It is considered to be the fastest and most flexible mapping form. In associative mapping, the index bits are zero.<br><br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/cache2.png" wwidth="300" height="300"><br><br>
+
+
+<h4><b>3. Set-Associative Mapping</b></h4>
+
+This form of mapping is an enhanced form of direct mapping where the drawbacks of direct mapping are removed. Set associative addresses the problem of possible thrashing in the direct mapping method. It does this by saying that instead of having exactly one line that a block can map to in the cache, we will group a few lines together creating a set. Then a block in memory can map to any one of the lines of a specific<b> set.</b> Set-associative mapping allows each word that is present in the cache can have two or more words in the main memory for the same index address. Set associative cache mapping combines the best of direct and associative cache mapping techniques. In set associative mapping the index bits are given by the set offset bits. In this case, the cache consists of a number of sets, each of which consists of a number of lines. <br><br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20190305171821/setassociative.png" width="350" height="200"><br><br>
+
+
+Relationships in the Set-Associative Mapping can be defined as:<br><br>
+    <div class="gray">
+m = v * k<br>
+        i= j mod v<br><br></div>
+
+where<br>
+i = cache set number<br>
+j = main memory block number<br>
+v = number of sets<br>
+m = number of lines in the cache number of sets<br> 
+k = number of lines in each set<br><br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/cache4.png" width="300" height="350"><br><br>
+
+
+<h2><b>Block Replacement methods</b></h2>
+
+<h3><b>LRU Cache with Implementations</b></h3>
+
+<h4><b>What is LRU Cache?</b></h4>
+Cache replacement algorithms are efficiently designed to replace the cache when the space is full. The <b>Least Recently Used </b>(LRU) is one of those algorithms. As the name suggests when the cache memory is full, LRU picks the data that is least recently used and removes it in order to make space for the new data. The priority of the data in the cache changes according to the need of that data i.e. if some data is fetched or updated recently then the priority of that data would be changed and assigned to the highest priority, and the priority of the data decreases if it remains unused operations after operations.<br><br>
+
+
+LRU algorithm is a standard problem and it may have variations as per need for example, in operating systems LRU plays a crucial role as it can be used as a page replacement algorithm in order to minimize page faults.<br><br>
+
+
+<h3><b>Operations on LRU Cache:</b></h3>
+<li><b>LRUCache (Capacity c):</b> Initialize LRU cache with positive size capacity c.</li><br>
+<li><b>get (key):</b> Returns the value of Key ‘k’ if it is present in the cache otherwise it returns -1. Also updates the priority of data in the LRU cache.</li><br>
+<li><b>put (key, value):</b> Update the value of the key if that key exists, Otherwise, add key-value pair to the cache. If the number of keys exceeded the capacity of LRU cache then dismiss the least recently used key.</li><br><br>
+
+<h4><b>Working of LRU Cache:</b></h4>
+Let’s suppose we have an LRU cache of capacity 3, and we would like to perform following operations:<br>
+<div class="gray">
+Put (key=1, value=A) into the cache<br>
+Put (key=2, value=B) into the cache<br>
+Put (key=3, value=C) into the cache<br>
+Get (key=2) from the cache<br>
+Get (key=4) from the cache<br>
+Put (key=4, value=D) into the cache<br>
+Put (key=3, value=E) into the cache<br>
+Get (key=4) from the cache<br>
+Put (key=1, value=A) into the cache<br><br>
+</div>
+
+The above operations are performed one after another as shown in the image below:<br><br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20230817150709/Working-of-LRU-Cache-(1).png" width="350" height="350"><br><br>
+</body>
+</html>

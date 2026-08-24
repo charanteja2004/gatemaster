@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+
+<body>
+
+    <h2>GREEDY ALGORITHM</h2>
+
+    <p>Greedy Algorithm is defined as a method for solving optimization problems by taking decisions that result in the
+        most evident and immediate benefit irrespective of the final outcome. It works for cases where minimization or
+        maximization leads to the required solution.</p><br>
+    <h2 id="what-is-greedy-algorithm">What is Greedy Algorithm?</h2>
+    <p dir="ltr">A&nbsp;<strong>greedy algorithm</strong>&nbsp;is a problem-solving technique that makes the best local
+        choice at each step in the hope of finding the global optimum solution. It prioritizes immediate benefits over
+        long-term consequences, making decisions based on the current situation without considering future implications.
+        While this approach can be efficient and straightforward, it doesn&rsquo;t guarantee the best overall outcome
+        for all problems.</p>
+    <p dir="ltr">However, it&rsquo;s important to note that not all problems are suitable for greedy algorithms. They
+        work best when the problem exhibits the following properties:</p>
+    <ul>
+        <li value="1"><strong>Greedy Choice Property:</strong>&nbsp;The optimal solution can be constructed by making
+            the best local choice at each step.</li>
+        <li value="2"><strong>Optimal Substructure:&nbsp;</strong>The optimal solution to the problem contains the
+            optimal solutions to its subproblems.</li>
+    </ul>
+    <h2 id="characteristics-of-greedy-algorithm">Characteristics of Greedy Algorithm</h2>
+    <p dir="ltr">Here are the characteristics of a greedy algorithm:</p>
+    <ul>
+        <li value="1">Greedy algorithms are simple and easy to implement.</li>
+        <li value="2">They are efficient in terms of time complexity, often providing quick solutions.</li>
+        <li value="3">Greedy algorithms are used for optimization problems where a<strong>&nbsp;locally
+                optimal</strong>&nbsp;choice leads to a&nbsp;<strong>globally optimal</strong>&nbsp;solution.</li>
+        <li value="4">These algorithms do not reconsider previous choices, as they make decisions based on current
+            information without looking ahead.</li>
+        <li value="5">Greedy algorithms are suitable for problems for optimal substructure.</li>
+    </ul>
+    <p dir="ltr">These characteristics help to define the nature and usage of greedy algorithms in problem-solving.</p>
+    <h2 id="examples-of-greedy-algorithm">Examples of Greedy Algorithm</h2>
+    <p dir="ltr">Several well-known algorithms fall under the category of greedy algorithms. Here are a few examples:
+    </p>
+    <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+    <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+    <ul>
+        <li value="1"><strong>Dijkstra&rsquo;s Algorithm:&nbsp;</strong>This algorithm finds the shortest path between
+            two nodes in a graph. It works by repeatedly choosing the shortest edge available from the current node.
+        </li>
+        <li value="2"><strong>Kruskal&rsquo;s Algorithm:&nbsp;</strong>This algorithm finds the minimum spanning tree of
+            a graph. It works by repeatedly choosing the edge with the minimum weight that does not create a cycle.</li>
+        <li value="3"><strong>Fractional Knapsack Problem:&nbsp;</strong>This problem involves selecting items with the
+            highest value-to-weight ratio to fill a knapsack with a limited capacity. The greedy algorithm selects items
+            in decreasing order of their value-to-weight ratio until the knapsack is full.</li>
+        <li value="4"><strong>Scheduling and Resource Allocation</strong>: The greedy algorithm can be used to schedule
+            jobs or allocate resources in an efficient manner.</li>
+        <li value="5"><strong>Coin Change Problem</strong>: The greedy algorithm can be used to make change for a given
+            amount with the minimum number of coins, by always choosing the coin with the highest value that is less
+            than the remaining amount to be changed.</li>
+        <li value="6"><strong>Huffman Coding</strong>: The greedy algorithm can be used to generate a prefix-free code
+            for data compression, by constructing a binary tree in a way that the frequency of each character is taken
+            into consideration.</li>
+    </ul>
+
+    <h2 id="why-to-use-greedy-approach">Why to use Greedy Approach?</h2>
+    <p dir="ltr">Here are some reasons why you might use the Greedy Approach:</p>
+    <ul>
+        <li value="1"><strong>Simple and easy to understand:&nbsp;</strong>The Greedy Approach is straightforward and
+            easy to implement, making it a good choice for beginners.</li>
+        <li value="2"><strong>Fast and efficient:</strong>&nbsp;It usually finds a solution quickly, making it suitable
+            for problems where time is a constraint.</li>
+        <li value="3"><strong>Provides a good enough solution:</strong>&nbsp;While not always optimal, the Greedy
+            Approach often finds a solution that is close to the best possible solution.</li>
+        <li value="4"><strong>Can be used as a building block for other algorithms:&nbsp;</strong>The Greedy Approach
+            can be used as a starting point for developing more complex algorithms.</li>
+        <li value="5"><strong>Useful for a variety of problems:&nbsp;</strong>The Greedy Approach can be applied to a
+            wide range of optimization problems, including knapsack problems, scheduling problems, and routing problems.
+        </li>
+    </ul>
+    <p dir="ltr">However, it&rsquo;s important to remember that the Greedy Approach doesn&rsquo;t always find
+        the&nbsp;<strong>optimal solution</strong>. There are cases where it can lead to suboptimal solutions.
+        Therefore, it is necessary to carefully consider the problem and the potential drawbacks before using the Greedy
+        Approach.</p>
+    <h2 id="how-does-the-greedy-algorithm-works">How does the Greedy Algorithm works?</h2>
+    <p dir="ltr"><strong>Greedy Algorithm</strong>&nbsp;solve optimization problems by making the best local choice at
+        each step in the hope of finding the global optimum. It&rsquo;s like taking the best option available at each
+        moment, hoping it will lead to the best overall outcome.</p>
+    <p dir="ltr">Here&rsquo;s how it works:</p>
+    <ol>
+        <li value="1">Start with the initial state of the problem. This is the starting point from where you begin
+            making choices.</li>
+        <li value="2">Evaluate all possible choices you can make from the current state. Consider all the options
+            available at that specific moment.</li>
+        <li value="3">Choose the option that seems best at that moment, regardless of future consequences. This is the
+            &ldquo;greedy&rdquo; part &ndash; you take the best option available now, even if it might not be the best
+            in the long run.</li>
+        <li value="4">Move to the new state based on your chosen option. This becomes your new starting point for the
+            next iteration.</li>
+        <li value="5">Repeat steps 2-4 until you reach the goal state or no further progress is possible. Keep making
+            the best local choices until you reach the end of the problem or get stuck..&nbsp;</li>
+    </ol>
+    <p dir="ltr"><strong>Example:</strong></p>
+    <p dir="ltr">Let&rsquo;s say you have a set of coins with values<strong>&nbsp;{1, 2, 5, 10, 20, 50,
+            100}&nbsp;</strong>and you need to give minimum number of coin to someone change
+        for&nbsp;<strong>36</strong>.</p>
+
+    <blockquote>
+        <p dir="ltr">The greedy algorithm for making change would work as follows:</p>
+        <ol>
+            <li value="1">Start with the largest coin value that is less than or equal to the amount to be changed. In
+                this case, the largest coin less than&nbsp;<strong>36&nbsp;</strong>is&nbsp;<strong>20</strong>.</li>
+            <li value="2">Subtract the largest coin value from the amount to be changed, and add the coin to the
+                solution. In this case,
+                subtracting&nbsp;<strong>20&nbsp;</strong>from&nbsp;<strong>36&nbsp;</strong>gives&nbsp;<strong>16</strong>,
+                and we add a&nbsp;<strong>20&nbsp;</strong>coin to the solution.</li>
+            <li value="3">Repeat steps 1 and 2 until the amount to be changed becomes 0.</li>
+        </ol>
+        <p dir="ltr">So, using the greedy algorithm, the solution for making change for 36 would be one 20 coins, one 10
+            coin, one 5 coins and one 1 coin needed.</p>
+    </blockquote>
+    <p dir="ltr"><strong>Note:</strong>&nbsp;This is just one example, and other greedy choices could have been made at
+        each step. However, in this case, the greedy approach leads to the optimal solution.</p>
+    <p dir="ltr">The greedy algorithm is not always the optimal solution for every optimization problem, as shown in the
+        example below.</p>
+    <blockquote>
+        <ul>
+            <li value="1">One such example where the Greedy Approach fails is to&nbsp;<a
+                    href="https://www.geeksforgeeks.org/maximum-weighted-edge-in-path-between-two-nodes-in-an-n-ary-tree-using-binary-lifting/">find
+                    the Maximum weighted path of nodes in the given graph</a>.</li>
+        </ul>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20220907181654/Questiongraph.png"
+                alt="Graph with weighted vertices" width="398" height="407" />
+            <p class="wp-caption-text">Graph with weighted vertices</p>
+        </div>
+        <ul>
+            <li value="1">In the above graph starting from the root node&nbsp;<strong>10&nbsp;</strong>if we greedily
+                select the next node to obtain the most weighted path the next selected node will
+                be&nbsp;<strong>5&nbsp;</strong>that will take the total sum to&nbsp;<strong>15&nbsp;</strong>and the
+                path will end as there is no child of&nbsp;<strong>5&nbsp;</strong>but the path&nbsp;<strong>10 -&gt;
+                    5</strong>&nbsp;is not the maximum weight path.</li>
+        </ul>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20220907183302/FailingGreedyapproach.png"
+                width="421" height="387" />
+            <p class="wp-caption-text">Greedy Approach fails</p>
+        </div>
+        <ul>
+            <li value="1">In order to find the most weighted path all possible path sum must be computed and their path
+                sum must be compared to get the desired result, it is visible that the most weighted path in the above
+                graph is&nbsp;<strong>10 -&gt; 1 -&gt; 30&nbsp;</strong>that gives the path
+                sum&nbsp;<strong>41</strong>.&nbsp;</li>
+        </ul>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20220907183708/correctapproach.png" width="391"
+                height="374" />
+            <p class="wp-caption-text">Correct Approach</p>
+        </div>
+        <ul>
+            <li value="1">In such cases Greedy approach wouldn&rsquo;t work instead complete paths
+                from&nbsp;<strong>root&nbsp;</strong>to&nbsp;<strong>leaf node</strong>&nbsp;has to be considered to get
+                the correct answer i.e. the most weighted path, This can be achieved by recursively checking all the
+                paths and calculating their weight.&nbsp;</li>
+        </ul>
+    </blockquote>
+
+
+    <h2 id="greedy-algorithm-vs-dynamic-programming"><a
+            href="https://www.geeksforgeeks.org/greedy-approach-vs-dynamic-programming/">Greedy Algorithm Vs Dynamic
+            Programming</a></h2>
+    <p dir="ltr">Below are the comparison of&nbsp;<strong>Greedy Algorithm</strong>&nbsp;and<strong>&nbsp;Dynamic
+            Programming</strong>&nbsp;based on various criteria:</p>
+    <table border="1" style="height: 493px;" width="844">
+        <thead>
+            <tr>
+                <th style="width: 155.531px;">Criteria</th>
+                <th style="width: 330.062px;">Greedy Algorithm</th>
+                <th style="width: 336.406px;">Dynamic Programming</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th style="width: 155.531px;">Basic Idea</th>
+                <td style="width: 330.062px;">Makes the locally optimal choice at each stage</td>
+                <td style="width: 336.406px;">Solves subproblems and builds up to the optimal solution</td>
+            </tr>
+            <tr>
+                <th style="width: 155.531px;">Optimal Solution</th>
+                <td style="width: 330.062px;">Not always guaranteed to provide the globally optimal solution</td>
+                <td style="width: 336.406px;">Guarantees the globally optimal solution</td>
+            </tr>
+            <tr>
+                <th style="width: 155.531px;">Time Complexity</th>
+                <td style="width: 330.062px;">Typically faster; often linear or polynomial time</td>
+                <td style="width: 336.406px;">Usually slower due to solving overlapping subproblems</td>
+            </tr>
+            <tr>
+                <th style="width: 155.531px;">Space Complexity</th>
+                <td style="width: 330.062px;">Requires less memory; often constant or linear space</td>
+                <td style="width: 336.406px;">Requires more memory due to storing intermediate results</td>
+            </tr>
+            <tr>
+                <th style="width: 155.531px;">Subproblems Overlapping</th>
+                <td style="width: 330.062px;">Does not handle overlapping subproblems</td>
+                <td style="width: 336.406px;">Handles overlapping subproblems efficiently</td>
+            </tr>
+            <tr>
+                <th style="width: 155.531px;">Examples</th>
+                <td style="width: 330.062px;">Finding minimum spanning tree, Huffman coding</td>
+                <td style="width: 336.406px;">Matrix chain multiplication, shortest path problems</td>
+            </tr>
+            <tr>
+                <th style="width: 155.531px;">Applications</th>
+                <td style="width: 330.062px;">Used when a greedy choice at each step leads to the globally optimal
+                    solution</td>
+                <td style="width: 336.406px;">Applied when the problem can be broken down into overlapping subproblems
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2 id="applications-of-greedy-algorithms">Applications of Greedy Algorithms:</h2>
+    <ul>
+        <li value="1"><strong>Dijkstra&rsquo;s shortest path algorithm:</strong>&nbsp;Finds the shortest path between
+            two nodes in a graph.</li>
+        <li value="2"><strong>Kruskal&rsquo;s minimum spanning tree algorithm:&nbsp;</strong>Finds the minimum spanning
+            tree for a weighted graph.</li>
+        <li value="3"><strong>Huffman coding:&nbsp;</strong>Creates an optimal prefix code for a set of symbols based on
+            their frequencies.</li>
+        <li value="4"><strong>Fractional knapsack problem:</strong>&nbsp;Determines the most valuable items to carry in
+            a knapsack with a limited weight capacity.</li>
+        <li value="5"><strong>Activity selection problem:</strong>&nbsp;Chooses the maximum number of non-overlapping
+            activities from a set of activities.</li>
+    </ul>
+
+
+    <h2 id="advantages-of-greedy-algorithms">Advantages of Greedy Algorithms:</h2>
+    <ul>
+        <li value="1"><strong>Simple and easy to understand:</strong>&nbsp;Greedy algorithms are often straightforward
+            to implement and reason about.</li>
+        <li value="2"><strong>Efficient for certain problems:&nbsp;</strong>They can provide optimal solutions for
+            specific problems, like finding the shortest path in a graph with non-negative edge weights.</li>
+        <li value="3"><strong>Fast execution time:&nbsp;</strong>Greedy algorithms generally have lower time complexity
+            compared to other algorithms for certain problems.</li>
+        <li value="4"><strong>Intuitive and easy to explain</strong>: The decision-making process in a greedy algorithm
+            is often easy to understand and justify.</li>
+        <li value="5"><strong>Can be used as building blocks for more complex algorithms:</strong>&nbsp;Greedy
+            algorithms can be combined with other techniques to design more sophisticated algorithms for challenging
+            problems.</li>
+    </ul>
+    <h2 id="disadvantages-of-the-greedy-approach">Disadvantages of the Greedy Approach:</h2>
+    <ul>
+        <li value="1"><strong>Not always optimal:&nbsp;</strong>Greedy algorithms prioritize local optima over global
+            optima, leading to suboptimal solutions in some cases.</li>
+        <li value="2"><strong>Difficult to prove optimality:</strong>&nbsp;Proving the optimality of a greedy algorithm
+            can be challenging, requiring careful analysis.</li>
+        <li value="3"><strong>Sensitive to input order:&nbsp;</strong>The order of input data can affect the solution
+            generated by a greedy algorithm.</li>
+        <li value="4"><strong>Limited applicability:</strong>&nbsp;Greedy algorithms are not suitable for all problems
+            and may not be applicable to problems with complex constraints.</li>
+    </ul>
+</body>
+
+</html>

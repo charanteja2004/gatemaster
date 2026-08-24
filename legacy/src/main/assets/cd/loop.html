@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    <div class="article-title">
+        <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>Loop Optimization&nbsp;</h1>
+        </div>
+        </div>
+        </div>
+        <div class="text">
+        <p><strong>Loop Optimization</strong> is the process of increasing execution speed and reducing the overheads associated with loops. It plays an important role in improving cache performance and making effective use of parallel processing capabilities. Most execution time of a scientific program is spent on loops.&nbsp;</p>
+        <p>Decreasing the number of instructions in an inner loop improves the running time of a program even if the amount of code outside that loop is increased.</p>
+        <h2>Loop Optimization Techniques</h2>
+        <p>In the compiler, we have various loop optimization techniques, which are as follows:</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <h3>1. Code Motion (Frequency Reduction)</h3>
+        <p>In&nbsp;frequency reduction, the amount of code in the loop is decreased. A statement or expression, which can be moved outside the loop body without affecting the semantics of the program, is moved outside the loop.&nbsp;</p>
+        <p><strong>Example:</strong></p>
+        <pre><strong>Before optimization:</strong>
+        while(i&lt;100)
+        {
+         a = Sin(x)/Cos(x) + i;
+         i++;
+        }
+        
+        <strong>After optimization:</strong>
+        
+        t = Sin(x)/Cos(x);
+        while(i&lt;100)
+        {
+         a = t + i;
+         i++;
+        } </pre>
+        <h3>2. Induction Variable Elimination</h3>
+        <p>If the value of any variable in any loop gets changed every time, then such a variable is known as an induction variable. With each iteration, its value either gets incremented or decremented by some constant value.&nbsp;</p>
+        <p><strong>Example:</strong></p>
+        <pre><strong>Before optimization:</strong>
+        B1
+        i:= i+1
+        x:= 3*i
+        y:= a[x]
+        if y&lt; 15, goto B2</pre>
+        <p>In the above example, i and x are locked, if i is incremented by 1 then x is incremented by 3. So, i and x are induction variables.</p>
+        <pre><strong>After optimization:</strong>
+        B1
+        i:= i+1
+        x:= x+4
+        y:= a[x]
+        if y&lt; 15, goto B2</pre>
+        <h3>3. Strength Reduction</h3>
+        <p>Strength reduction deals with replacing expensive operations with cheaper ones like multiplication is costlier than addition, so multiplication can be replaced by addition in the loop.&nbsp;</p>
+        <p><strong>Example:</strong></p>
+        <pre><strong>Before optimization:</strong>
+        while (x&lt;10)  
+           {  
+             y := 3 * x+1;  
+             a[y] := a[y]-2;  
+             x := x+2;  
+            }  
+        <strong>After optimization:</strong>
+        t= 3 * x+1;  
+              while (x&lt;10)  
+                 {  
+                    y=t;  
+                    a[y]= a[y]-2;  
+                    x=x+2;  
+                    t=t+6;  
+                 }  </pre>
+        <h3>4. Loop Invariant Method</h3>
+        <p>In the&nbsp;<a href="https://www.geeksforgeeks.org/loop-invariant-condition-examples-sorting-algorithms/">loop invariant</a> <a href="https://www.geeksforgeeks.org/loop-invariant-condition-examples-sorting-algorithms/">method</a>, the expression with computation is avoided inside the loop. That computation is performed outside the loop as computing the same expression each time was overhead to the system, and this reduces computation overhead and hence optimizes the code.&nbsp;</p>
+        <p><strong>Example:</strong></p>
+        <pre><strong>Before optimization:</strong>
+        for (int i=0; i&lt;10;i++)
+        t= i+(x/y);
+        ...
+        end;
+        
+        <strong>After optimization:</strong>
+        s = x/y;
+        for (int i=0; i&lt;10;i++)
+        t= i+ s;
+        ...
+        end;<br /><br /></pre>
+        <h3>5. Loop Unrolling</h3>
+        <p><a href="https://www.geeksforgeeks.org/loop-unrolling/">Loop unrolling</a>&nbsp;is a loop transformation technique that helps to optimize the execution time of a program. We basically remove or reduce iterations. Loop unrolling increases the program&rsquo;s speed by eliminating loop control instruction and loop test instructions.&nbsp;</p>
+        <p><strong>Example:</strong></p>
+        <pre><strong>Before optimization:</strong>
+        
+        for (int i=0; i&lt;5; i++)
+            printf("Pankaj\n");
+        
+        <strong>After optimization:</strong>
+        
+        printf("Pankaj\n");
+        printf("Pankaj\n");
+        printf("Pankaj\n");
+        printf("Pankaj\n");
+        printf("Pankaj\n"); </pre>
+        <h3>6. Loop Jamming</h3>
+        <p>Loop jamming is combining two or more loops in a single loop. It reduces the time taken to compile the many loops.&nbsp;</p>
+        <p><strong>Example:</strong></p>
+        <pre><strong>Before optimization:</strong>
+        
+        for(int i=0; i&lt;5; i++)
+            a = i + 5;
+        for(int i=0; i&lt;5; i++)
+            b = i + 10;
+        
+        <strong>After optimization:</strong>
+        
+        for(int i=0; i&lt;5; i++)
+        {
+         a = i + 5;
+         b = i + 10;
+        } </pre>
+        <h3>7. Loop Fission</h3>
+        <p>Loop fission improves the locality of reference, in loop fission a single loop is divided into multiple loops over the same index range, and each divided loop contains a particular part of the original loop.</p>
+        <p><strong>Example:</strong></p>
+        <pre><strong>Before optimization:</strong>
+        
+        
+        for(x=0;x&lt;10;x++)                          
+        {
+          a[x]=&hellip;
+          b[x]=&hellip;
+        }
+        <strong>After optimization:</strong>
+        
+        
+        for(x=0;x&lt;10;x++)
+           a[x]=&hellip;
+        for(x=0;x&lt;10;x++)
+           b[x]=&hellip;<br /><br /></pre>
+        <h3>8. Loop Interchange</h3>
+        <p>In loop interchange, inner loops are exchanged with outer loops. This optimization technique also improves the locality of reference.</p>
+        <p><strong>Example:</strong></p>
+        <pre><strong>Before optimization:</strong>
+        
+        for(x=0;x&lt;10;x++)
+        for(y=0;y&lt;10;y++)
+        a[y][x]=&hellip;
+        
+        <strong>After optimization:</strong>
+        for(y=0;y&lt;10;y++)
+        for(x=0;x&lt;10;x++)
+        a[y][x]=&hellip;</pre>
+        <h3>9. Loop Reversal</h3>
+        <p>Loop reversal reverses the order of values that are assigned to index variables. This help in removing dependencies.&nbsp;</p>
+        <p><strong>Example:</strong></p>
+        <pre><strong>Before optimization:</strong>
+        
+        
+        for(x=0;x&lt;10;x++)
+        a[9-x]=&hellip; 
+         
+        <strong>After optimization:</strong>
+        
+        
+        for(x=9;x&gt;=0;x--)
+        a[x]=&hellip;</pre>
+        <h3>10. Loop Splitting</h3>
+        <p>Loop Splitting simplifies a loop by dividing it into numerous loops, and all the loops have some bodies but they will iterate over different index ranges. Loop splitting helps in reducing dependencies and hence making code more optimized.&nbsp;</p>
+        <p><strong>Example:</strong></p>
+        <pre><strong>Before optimization:</strong>
+        
+        
+        for(x=0;x&lt;10;x++)
+        if(x&lt;5)
+        a[x]=&hellip;
+        else
+        b[x]=&hellip;
+        
+        <strong>After optimization:</strong>
+        
+        
+        for(x=0;x&lt;5;x++)
+        a[x]=&hellip;
+        for(;x&lt;10;x++)
+        b[x]=&hellip;</pre>
+        </div>
+        </div>
+</body>
+</html>

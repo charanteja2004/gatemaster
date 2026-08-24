@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    
+        <div class="article-title">
+        <h1>Shift Registers in Digital Logic</h1>
+        </div>
+
+        <div class="text">
+        <p>Flip flops can be used to store a single bit of binary data (1 or 0). However, in order to store multiple bits of data, we need multiple flip-flops. N flip flops are to be connected in order to store n bits of data. A&nbsp;<strong>Register</strong>&nbsp;is a device that is used to store such information. It is a group of flip-flops connected in series used to store multiple bits of data. The information stored within these registers can be transferred with the help of&nbsp;<strong>shift registers</strong>.&nbsp;</p>
+        <p>Shift Register is a group of flip flops used to store multiple bits of data. The bits stored in such registers can be made to move within the registers and in/out of the registers by applying clock pulses. An n-bit shift register can be formed by connecting n flip-flops where each flip-flop stores a single bit of data. The registers which will shift the bits to the left are called &ldquo;Shift left registers&rdquo;. The registers which will shift the bits to the right are called &ldquo;Shift right registers&rdquo;. Shift registers are basically of following types.</p>
+        <h2>Types of Shift Registers</h2>
+        <ul>
+        <li>Serial In Serial Out shift register</li>
+        <li>Serial In parallel Out shift register</li>
+        <li>Parallel In Serial Out shift register</li>
+        <li>Parallel In parallel Out shift register</li>
+        <li>Bidirectional Shift Register</li>
+        <li>Universal Shift Register</li>
+        <li>Shift Register Counter</li>
+        </ul>
+        <h3>Serial-In Serial-Out Shift Register (SISO)</h3>
+        <p>The shift register, which allows serial input (one bit after the other through a single data line) and produces a serial output is known as a Serial-In Serial-Out shift register. Since there is only one output, the data leaves the shift register one bit at a time in a serial pattern, thus the name Serial-In Serial-Out Shift Register. The logic circuit given below shows a serial-in serial-out shift register. The circuit consists of four&nbsp;<a href="https://www.geeksforgeeks.org/flip-flop-types-their-conversion-and-applications/">D flip-flops</a>&nbsp;which are connected in a serial manner. All these flip-flops are synchronous with each other since the same clock signal is applied to each flip-flop.&nbsp;</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/FlipFlop.png" alt="Serial-In Serial-Out Shift Register (SISO)" width="443" height="139" />
+        <p class="wp-caption-text">Serial-In Serial-Out Shift Register (SISO)</p>
+        </div>
+        <p>The above circuit is an example of a shift right register, taking the serial data input from the left side of the flip flop. The main use of a SISO is to act as a delay element.</p>
+        <h3>Serial-In Parallel-Out Shift Register (SIPO)</h3>
+        <p>The shift register, which allows serial input (one bit after the other through a single data line) and produces a parallel output is known as the Serial-In Parallel-Out shift register. The logic circuit given below shows a serial-in-parallel-out shift register. The circuit consists of four D flip-flops which are connected. The clear (CLR) signal is connected in addition to the clock signal to all 4 flip flops in order to RESET them. The output of the first flip-flop is connected to the input of the next flip flop and so on. All these flip-flops are synchronous with each other since the same clock signal is applied to each flip-flop.&nbsp;</p>
+        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/FlipFlop1.png" alt="Serial-In Parallel-Out shift Register (SIPO)" width="435" height="177" />
+        <p class="wp-caption-text">Serial-In Parallel-Out shift Register (SIPO)</p>
+        </div>
+        <p>The above circuit is an example of a shift right register, taking the serial data input from the left side of the flip-flop and producing a parallel output. They are used in communication lines where demultiplexing of a data line into several parallel lines is required because the main use of the SIPO register is to convert serial data into parallel data.</p>
+        <h3>Parallel-In Serial-Out Shift Register (PISO)</h3>
+        <p>The shift register, which allows parallel input (data is given separately to each flip flop and in a simultaneous manner) and produces a serial output is known as a Parallel-In Serial-Out shift register. The logic circuit given below shows a parallel-in-serial-out shift register. The circuit consists of four D flip-flops which are connected. The clock input is directly connected to all the flip-flops but the input data is connected individually to each flip-flop through a<a href="https://www.geeksforgeeks.org/multiplexers-in-digital-logic/">&nbsp;multiplexer&nbsp;</a>at the input of every flip-flop. The output of the previous flip-flop and parallel data input are connected to the input of the MUX and the output of MUX is connected to the next flip-flop. All these flip-flops are synchronous with each other since the same clock signal is applied to each flip-flop.&nbsp;</p>
+        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/FIL.jpg" alt="Parallel-In Serial-Out Shift Register (PISO)" width="418" height="245" />
+        <p class="wp-caption-text">Parallel-In Serial-Out Shift Register (PISO)</p>
+        </div>
+        <p>A Parallel in Serial Out (PISO) shift register is used to convert parallel data to serial data.</p>
+        <p>The shift register, which allows parallel input (data is given separately to each flip flop and in a simultaneous manner) and produces a serial output is known as a Parallel-In Serial-Out shift register. The logic circuit given below shows a parallel-in-serial-out shift register. The circuit consists of four D flip-flops which are connected. The clock input is directly connected to all the flip-flops but the input data is connected individually to each flip-flop through a&nbsp;multiplexer&nbsp;at the input of every flip-flop. The output of the previous flip-flop and parallel data input are connected to the input of the MUX and the output of MUX is connected to the next flip-flop. All these flip-flops are synchronous with each other since the same clock signal is applied to each flip-flop.&nbsp;</p>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/FIL.jpg" alt="Parallel-In Serial-Out Shift Register (PISO)" width="365" height="214" />
+<p class="wp-caption-text">Parallel-In Serial-Out Shift Register (PISO)</p>
+</div>
+<p>A Parallel in Serial Out (PISO) shift register is used to convert parallel data to serial data.</p>
+<h3>Parallel-In Parallel-Out Shift Register (PIPO)</h3>
+<p>The shift register, which allows parallel input (data is given separately to each flip flop and in a simultaneous manner) and also produces a parallel output is known as Parallel-In parallel-Out shift register. The logic circuit given below shows a parallel-in-parallel-out shift register. The circuit consists of four D flip-flops which are connected. The clear (CLR) signal and clock signals are connected to all 4 flip-flops. In this type of register, there are no interconnections between the individual flip-flops since no serial shifting of the data is required. Data is given as input separately for each flip flop and in the same way, output is also collected individually from each flip flop.&nbsp;</p>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/FlipFlop2.png" alt="Parallel-In Parallel-Out Shift Register (PIPO)" width="420" height="182" />
+<p class="wp-caption-text">Parallel-In Parallel-Out Shift Register (PIPO)</p>
+</div>
+<p>A Parallel in Parallel out (PIPO) shift register is used as a temporary storage device and like SISO Shift register it acts as a delay element.</p>
+<h3>Bidirectional Shift Register</h3>
+<p>If we shift a binary number to the left by one position, it is equivalent to multiplying the number by 2 and if we shift a binary number to the right by one position, it is equivalent to dividing the number by 2. To perform these operations we need a register which can shift the data in either direction. Bidirectional shift registers are the registers that are capable of shifting the data either right or left depending on the mode selected. If the mode selected is 1(high), the data will be shifted toward the right direction and if the mode selected is 0(low), the data will be shifted towards the left direction. The logic circuit given below shows a Bidirectional shift register. The circuit consists of four D flip-flops which are connected. The input data is connected at two ends of the circuit and depending on the mode selected only one gate is in the active state.&nbsp;</p>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Fil.jpg" alt="Bidirectional Shift Register" width="427" height="247" />
+<p class="wp-caption-text">Bidirectional Shift Register</p>
+</div>
+<h3>Universal Shift Register</h3>
+<p><a href="https://www.geeksforgeeks.org/universal-shift-register-in-digital-logic/">Universal Shift Register</a>&nbsp;is a type of register that contains the both right shift and the left shift. It has also parallel load capabilities. Generally, these types of registers are taken as memory elements in computers. But, the problem with this type of register is that it shifts only in one direction. In simple words, you mean that the universal shift register is a combination of the&nbsp;<strong>bidirectional shift register</strong>&nbsp;and the&nbsp;<strong>unidirectional shift register</strong>.</p>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/USR12.png" alt="Universal Shift Register" width="372" height="239" />
+<p class="wp-caption-text">Universal Shift Register</p>
+</div>
+<p>N-bit universal shift register consists of flip-flops and multiplexers. Both are N in size. In this, all the n multiplexers share the same select lines and this select input selects the suitable input for flip-flops.</p>
+<h3>Shift Register Counter</h3>
+<p>Shift Register Counters are the shift registers in which the outputs are connected back to the inputs in order to produce particular sequences. There are basically two types:</p>
+<ul>
+<li>Ring Counter</li>
+<li>Johnson Counter</li>
+</ul>
+<h4>Ring Counter</h4>
+<p>A ring counter is basically a shift register counter in which the output of the first flip-flop is connected to the next flip-flop and so on and the output of the last flip-flop is again fed back to the input of the first flip-flop, thus the name ring counter. The data pattern within the shift register will circulate as long as clock pulses are applied. The logic circuit given below shows a Ring Counter.&nbsp;</p>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/RingTT-copy.jpg" alt="Ring Counter Truth Table" width="371" height="202" />
+<p class="wp-caption-text">Ring Counter Truth Table</p>
+</div>
+<p>The circuit consists of four D flip-flops which are connected. Since the circuit consists of four flip-flops the data pattern will repeat after every four clock pulses as shown in the truth table. A Ring counter is generally used because it is self-decoding. No extra decoding circuit is needed to determine what state the counter is in.</p>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/FlipFlop3.png" alt="Ring Counter" width="495" height="184" /></div>
+<h4>Johnson Counter</h4>
+<p>A Johnson counter is basically a shift register counter in which the output of the first flip flop is connected to the next flip flop and so on and the inverted output of the last flip flop is again fed back to the input of the first flip flop. They are also known as twisted ring counters. The logic circuit given below shows a Johnson Counter. The circuit consists of four D flip-flops which are connected.&nbsp;</p>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/JohnsonTT-copy.jpg" alt="Johnson Counter Truth Table" width="316" height="236" />
+<p class="wp-caption-text">Johnson Counter Truth Table</p>
+</div>
+<p>An n-stage Johnson counter yields a count sequence of 2n different states, thus also known as a mod-2n counter. Since the circuit consists of four flip-flops the data pattern will repeat every eight clock pulses as shown in the truth table. The main advantage of the Johnson counter is that it only needs n number of flip-flops compared to the ring counter to circulate a given data to generate a sequence of 2n states.</p>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/FlipFlop4.png" alt="Johnson Counter" width="441" height="164" />
+<p class="wp-caption-text">Johnson Counter</p>
+</div>
+<h2>Applications of Shift Registers</h2>
+<ul>
+<li>The shift registers are used for temporary data storage.</li>
+<li>The shift registers are also used for data transfer and data manipulation.</li>
+<li>The serial-in serial-out and parallel-in parallel-out shift registers are used to produce time delay to digital circuits.</li>
+<li>The serial-in parallel-out shift register is used to convert serial data into parallel data thus they are used in communication lines where demultiplexing of a data line into several parallel lines is required.</li>
+<li>A Parallel in Serial out shift register is used to convert parallel data to serial data.</li>
+</ul>
+        </div>
+</body>
+</html>

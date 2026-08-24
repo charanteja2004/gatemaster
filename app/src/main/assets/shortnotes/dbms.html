@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+
+<body>
+    <div class="text">
+        <p dir="ltr" style="text-align: justify;"><span>Database Management System is an organized collection of
+                interrelated data that helps in accessing data quickly, along with efficient insertion, and deletion of
+                data into the DBMS. DBMS organizes data in the form of tables, schemas, records, etc. </span></p>
+
+        <p dir="ltr" style="text-align: justify;"><b><strong>DBMS over File System</strong></b></p>
+        <div id="GFG_AD_gfg_mobile_336x280" style="margin: 5px 0;"></div>
+
+        <p dir="ltr" style="text-align: justify;"><span>The file system has numerous issues, which were resolved with
+                the help of DBMS, the issues with the file system are:</span></p>
+
+        <ul>
+            <li value="1"><b><strong>Data Redundancy: </strong></b><span>Same data can be stored at multiple places.
+                </span></li>
+            <li value="2"><b><strong>Data Inconsistency:</strong></b><span> If multiple copies of the same data have
+                    different content in each copy. Like, the phone number of students is different in academic and
+                    accounts files. </span></li>
+            <li value="3"><b><strong>Data access:</strong></b><span> In a file system, accessing data was difficult and
+                    insecure as well. Accessing data concurrently was not possible.</span></li>
+            <li value="4"><b><strong>No Backup and Recovery:</strong></b><span> There is no backup and recovery in the
+                    file system that can lead to data loss.</span></li>
+        </ul>
+        <h2><span>ER-Model</span></h2>
+        <p dir="ltr" style="text-align: justify;"><b><strong>ER Diagram: </strong></b><span>An ER diagram is a model of
+                a logical view of the database which is represented using the following components:</span></p>
+        <ul>
+            <li value="1"><b><strong>Entity: </strong></b><span>The entity is a real-world object, represented using a
+                    rectangular box.</span>
+                <ul>
+                    <li value="1"><b><strong>Strong Entity: </strong></b><span>A strong entity set has a primary key and
+                            all the tuples of the set can be identified using that primary key</span></li>
+                    <li value="2"><b><strong>Weak entity: </strong></b><span>When an entity does not have sufficient
+                            attributes to form a primary key. Weak entities are associated with another strong entity
+                            set also known as identifying an entity. A weak entity&#8217;s existence depends upon the
+                            existence of its identifying entity. The weak entity is represented using a double-lined or
+                            bold-lined rectangle. </span></li>
+                </ul>
+            </li>
+            <li value="2"><b><strong>Attribute:</strong></b><span> Attribute is the properties or characteristics of the
+                    real-world object. It is represented using an oval. </span>
+                <ul>
+                    <li value="1"><b><strong>Key attribute:</strong></b><span> The attribute which determines each
+                            entity uniquely is known as the Key attribute. It is represented by an oval with an
+                            underlying line. </span></li>
+                    <li value="2"><b><strong>Composite Attribute: </strong></b><span>An attribute that is composed of
+                            many other attributes. E.g. address is an attribute it is formed of other attributes like
+                            state, district, city, street, etc. It is represented using an oval comprises of many other
+                            ovals. </span></li>
+                    <li value="3"><b><strong>Multivalued Attribute:</strong></b><span> An attribute that can have
+                            multiple values, like a mobile number. It is represented using a double-lined oval. </span>
+                    </li>
+                    <li value="4"><b><strong>Derived attribute: </strong></b><span>An attribute that can be derived from
+                            other attributes. E.g. Age is an attribute that can be derived from another attribute Data
+                            of Birth. It is represented using a dashed oval.</span></li>
+                </ul>
+            </li>
+            <li value="3"><b><strong>Relationship: </strong></b><span>A relationship is an association between two or
+                    more entities. Entities are connected or related to each other and this relationship is represented
+                    using a diamond. </span></li>
+        </ul>
+        <h3><b><strong>Some Important Terms</strong></b></h3>
+        <p dir="ltr" style="text-align: justify;"><b><strong>Cardinality of DBMS: </strong></b><span>Cardinality of
+                relation expresses the maximum number of possible relationship occurrences for an entity participating
+                in a relationship. Cardinality of a relationship can be defined as the number of times an entity of an
+                entity set participates in a relationship set. Let&#8217;s suppose a binary relationship R between two
+                entity sets A and B. The relationship must have one of the following mapping cardinalities:</span></p>
+
+        <ul>
+            <li value="1"><b><strong>One-to-One: </strong></b><span>When one entity of A is related to at most one
+                    entity of B, and vice-versa.</span></li>
+            <li value="2"><b><strong>One-to-Many:</strong></b><span> When one entity of A is related to one or more than
+                    one entity of B. Whereas B is associated with at most one entity in A. </span></li>
+            <li value="3"><b><strong>Many-to-One: </strong></b><span>When one entity of B is related to one or more than
+                    one entity of A. Whereas A is associated with at most one entity in B. </span></li>
+            <li value="4"><b><strong>Many-to-Many: </strong></b><span>Any number of entities of A is related to any
+                    number of entities of B, and vice-versa. </span></li>
+        </ul>
+        <p dir="ltr" style="text-align: justify;"><span>The most commonly asked question in ER diagram is the minimum
+                number of tables required for a given ER diagram. Generally, the following criteria are used: </span>
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th><b><strong>Cardinality</strong></b></th>
+                    <th><b><strong>Minimum No. of tables</strong></b></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span>1:1 cardinality with partial participation of both entities</span></td>
+                    <td><span>2</span></td>
+                </tr>
+                <tr>
+                    <td><span>1:1 cardinality with a total participation of at least 1 entity</span></td>
+                    <td><span>1</span></td>
+                </tr>
+                <tr>
+                    <td><span>1:n cardinality</span></td>
+                    <td><span>2</span></td>
+                </tr>
+                <tr>
+                    <td><span>m:n cardinality</span></td>
+                    <td><span>3</span></td>
+                </tr>
+            </tbody>
+        </table>
+        <ul>
+            <li value="1"><span>If the relation is one-to-many or many-to-one then two or more relational tables can be
+                    combined.</span></li>
+            <li value="2"><span>If the relation is many-to-many two tables cannot be combined. </span></li>
+            <li value="3"><span>If the relation is one-to-one and there is total participation of one entity then that
+                    entity can be combined with a relational table. </span></li>
+            <li value="4"><span>If there is total participation of both entities then one table can be obtained by
+                    combining one table and both entities of the relation. </span></li>
+        </ul>
+        <p dir="ltr" style="text-align: justify;"><b><strong>Note:</strong></b><span> This is a general observation.
+                Special cases need to be taken care of. We may need an extra table if the attribute of a relationship
+                can&#8217;t be moved to any entity side. </span></p>
+        <div id="GFG_AD_Desktop_InContent_ATF_336x280" style="text-align:center;max-height: 280px;"></div>
+        <div id="GFG_AD_gfg_mobile_336x280_1" style="margin: 5px 0;"></div>
+
+        <p dir="ltr" style="text-align: justify;"><b><strong>Specialization: </strong></b><span>It is a top-down
+                approach in which one entity is divided/specialized into two or more sub-entities based on its
+                characteristics.</span></p>
+
+        <p dir="ltr" style="text-align: justify;"><b><strong>Generalization: </strong></b><span>It is a bottom-up
+                approach in which common properties of two or more subentities are combined/generalized to form one
+                entity. It is exactly the reverse of Specialization. In this, two or lower level entities are
+                generalized to one higher level entity.</span></p>
+
+        <p dir="ltr" style="text-align: justify;"><b><strong>Aggregation: </strong></b><span>Aggregation is an
+                abstraction process through which relationships are represented as higher-level entity sets. </span></p>
+
+        <p dir="ltr" style="text-align: justify;"><b><strong>Participation Constraint: </strong></b><span>It specifies
+                the maximum or a minimum number of relationship instances in which any entity can participate. In simple
+                words, participation means how an entity is linked to a relationship.</span></p>
+
+        <ul>
+            <li value="1"><b><strong>Total Participation: </strong></b><span>Each entity of an entity set participates
+                    in at least one relationship. </span></li>
+            <li value="2"><b><strong>Partial Participation:</strong></b><span> Some entities of the entity set may not
+                    participate in any relationship. </span></li>
+        </ul>
+        <h2><span>Database Design</span></h2>
+        <p dir="ltr" style="text-align: justify;"><span>Database design Goals: The prime goal of designing a database
+                is:</span></p>
+
+        <ul>
+            <li value="1"><span>To have zero redundancy in the system</span></li>
+            <li value="2"><span>Loss-less join</span></li>
+            <li value="3"><span>Dependency preservation</span></li>
+            <li value="4"><span>Overcome all the shortcomings of conventional file system</span></li>
+        </ul>
+        <p dir="ltr" style="text-align: justify;"><span>According to </span><a
+                href="https://www.geeksforgeeks.org/introduction-of-relational-model-and-codd-rules-in-dbms/"><span>E.F.
+                    Codd</span></a><span>, &#8220;All the records of the table must be unique&#8221;. </span></p>
+        <div style="text-align:center;margin:20px 0;max-height: 280px;" id="GFG_AD_gfg_outstream_incontent"></div>
+
+        <p dir="ltr" style="text-align: justify;"><a
+                href="https://www.geeksforgeeks.org/dbms-keys-candidate-super-primary-alternate-and-foreign/"><b><strong>Keys
+                        of a relation</strong></b></a><span>: There are various types of keys in a relation which
+                are:</span></p>
+
+        <ul>
+            <li value="1"><b><strong>Candidate Key: </strong></b><span>The minimal set of attributes that can determine
+                    a tuple uniquely. There can be more than 1 candidate key of a relation and its proper subset
+                    can&#8217;t determine tuple uniquely and it can&#8217;t be NULL.</span></li>
+            <li value="2"><b><strong>Super Key: </strong></b><span>The set of attributes that can determine a tuple
+                    uniquely. A candidate key is always a super key but vice versa is not true. </span></li>
+            <li value="3"><b><strong>Primary Key and Alternate Key:</strong></b><span> Among various candidate keys, one
+                    key is taken as the primary key and others are alternate keys.</span></li>
+            <li value="4"><b><strong>Foreign Key:</strong></b><span> Foreign Key is a set of attributes in a table that
+                    is used to refer to the primary key or alternative key of the same or another table. </span></li>
+        </ul>
+        <p dir="ltr" style="text-align: justify;"><a
+                href="https://www.geeksforgeeks.org/types-of-functional-dependencies-in-dbms/"><b><strong>Functional
+                        Dependency</strong></b></a><b><strong>: </strong></b><span>It is a constraint that specifies the
+                association/ relationship between a set of attributes. In functional dependency, one set can accurately
+                determine the value of another set. It is represented as A-&gt;B, where set A can determine the values
+                of set B correctly. The A is known as the </span><b><strong>Determinant</strong></b><span>, and B is
+                known as the </span><b><strong>Dependent. </strong></b></p>
+
+        <p dir="ltr" style="text-align: justify;"><span>Functional dependencies are further categorized into two
+                types:</span></p>
+
+        <ul>
+            <li value="1"><b><strong>Trival Functional Dependency: </strong></b><span>In functional dependency, if B is
+                    a subset of A, then such dependency is known as trivial functional dependency.</span></li>
+            <li value="2"><b><strong>Non-Trivial Functional Dependency: </strong></b><span>In functional dependency, if
+                    B is not a subset of A, then such dependency is known as non-trivial functional dependency.</span>
+            </li>
+        </ul>
+        <p dir="ltr" style="text-align: justify;"><b><strong>Armstrong&#8217;s Axioms: </strong></b><span>It is a
+                statement that is always considered true and used as a starting point for further arguments. Armstrong
+                axiom is used to generate a closure set in a relational database. </span></p>
+
+        <div style="width: 810px" class="wp-caption alignnone"><img alt="Armstrong Axiom" height="inherit"
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20220728154854/Armstrongaxiomdrawio-660x211.png"
+                width="660" />
+            <p class="wp-caption-text">Armstrong Axiom</p>
+        </div>
+        <p dir="ltr" style="text-align: justify;"><a
+                href="https://www.geeksforgeeks.org/functional-dependency-and-attribute-closure/"><b><strong>Attribute
+                        Closure(X</strong></b><b><sup><strong>+</strong></sup></b><b><strong>):</strong></b></a><b><strong>
+                </strong></b><span>All attributes of the set are functionally determined by X. </span></p>
+
+        <ul>
+            <li value="1"><b><strong>Prime Attribute:</strong></b><span> An attribute that is part of one candidate key.
+                </span></li>
+            <li value="2"><b><strong>Non-prime Attribute: </strong></b><span>An attribute that is not a part of any
+                    candidate key. </span></li>
+        </ul>
+        <p dir="ltr" style="text-align: justify;"><b><strong>Example:</strong></b><span> If the relation R(ABCD)
+                {A-&gt;B, B-&gt;C, C-&gt;D}, then the attribute closure of </span></p>
+
+        <p dir="ltr" style="text-align: justify;"><span>A will be (A</span><sup><span>+</span></sup><span>)={ABCD} [A
+                can determine B, B can determine C, C can determine D]</span><br /><span>B will be
+                (B</span><sup><span>+</span></sup><span>)={BCD} [B can determine C, C can determine
+                D]</span><br /><span>C will be (C</span><sup><span>+</span></sup><span>)={CD} [C can determine D]
+            </span><br /><span>D will be (D</span><sup><span>+</span></sup><span>)={D} [D can determine itself] </span>
+        </p>
+
+        <p dir="ltr" style="text-align: justify;"><span>Note: With the help of Attribute closure, we can easily
+                determine the Superkey [</span><i><em class="GFGEditorTheme__textItalic">The set of attributes whose
+                    closure contains all attributes of a relation</em></i><span>] of a relation, So in the above example
+                A is the superkey of the given relation. There can be more than one superkey in a relationship. </span>
+        </p>
+
+        <p dir="ltr" style="text-align: justify;"><b><strong>Example: </strong></b><span>If the relation R(ABCDE)
+                {A-&gt;BC, CD-&gt;E, B-&gt;D, E-&gt;A}, then the attribute closure will be</span></p>
+
+        <p dir="ltr" style="text-align: justify;"><span>A</span><sup><span>+</span></sup><span>=
+                {ABCDE}</span><br /><span>B</span><sup><span>+</span></sup><span>=
+                {BD}</span><br /><span>C</span><sup><span>+</span></sup><span>=
+                {C}</span><br /><span>D</span><sup><span>+</span></sup><span>=
+                {D}</span><br /><span>E</span><sup><span>+</span></sup><span>= {ABCDE}</span></p>
+        <div style="text-align:center;margin:20px 0;max-height:280px" id="GFG_AD_gfg_outstream_incontent-1"></div>
+
+        <p dir="ltr" style="text-align: justify;"><a
+                href="https://www.geeksforgeeks.org/equivalence-of-functional-dependencies-sets/"><b><strong>Equivalence
+                        sets of Functional Dependency</strong></b></a><b><strong>: </strong></b><span>If two sets of a
+                functional dependency are equivalent, i.e. if A</span><sup><span>+</span></sup><span>=
+                B</span><sup><span>+</span></sup><span>. Every FD in A can be inferred from B, and every FD in B can be
+                inferred from A, then A and B are functionally equivalent. </span></p>
+
+        <p dir="ltr" style="text-align: justify;"><a
+                href="https://www.geeksforgeeks.org/canonical-cover-of-functional-dependencies-in-dbms/"><b><strong>Minimal
+                        set of Functional Dependency</strong></b></a><b><strong>: </strong></b><span>A set of FD will be
+                minimal if it satisfies the following conditions:</span></p>
+
+        <ul>
+            <li value="1"><span>F logically implies all dependencies in F</span><sup><span>+</span></sup></li>
+            <li value="2"><span>F</span><sup><span>+</span></sup><span> logically implies all dependencies in F.</span>
+            </li>
+            <li value="3"><span>No functional dependency in F</span><sup><span>+ </span></sup><span>contains an
+                    extraneous attribute.</span></li>
+            <li value="4"><span>Each left side of a functional dependency in F+ is unique. That is, there are no two
+                    dependencies A-&gt;B and C-&gt;D in such that A-&gt;C.</span></li>
+        </ul>
+        <p dir="ltr" style="text-align: justify;"><a
+                href="https://www.geeksforgeeks.org/introduction-of-database-normalization/"><b><strong>Normalization:</strong></b></a><b><strong>
+                </strong></b><span>Normalization is used to eliminate the following </span><a
+                href="https://www.geeksforgeeks.org/anomalies-in-relational-model/"><span>anomalies</span></a><span>:</span>
+        </p>
+
+        <ul>
+            <li value="1"><b><strong>Insertion anomaly</strong></b></li>
+            <li value="2"><b><strong>Deletion anomaly</strong></b></li>
+            <li value="3"><b><strong>Updation Anomaly</strong></b></li>
+            <li value="4"><b><strong>Join anomaly</strong></b></li>
+        </ul>
+        <p dir="ltr" style="text-align: justify;"><span>Normalization was introduced to achieve integrity in the
+                database and make the database more maintainable.</span></p>
+
+        <p dir="ltr" style="text-align: justify;"><b><strong>1. First Normal Form: </strong></b><span>A relation is in
+                first normal form if it does not contain any multi-valued or composite attribute. If the data is in 1NF
+                then it will have high redundancy. </span></p>
+
+        <p dir="ltr" style="text-align: justify;"><b><strong>2. Second Normal Form: </strong></b><span>A relation is in
+                the second normal form if it is in the first normal form and if it does not contain any partial
+                dependency.</span></p>
+
+        <ul>
+            <li value="1"><b><strong>Partial Dependency: </strong></b><span>A dependency is called partial dependency if
+                    any proper subset of candidate key determines non-prime (which are not part of candidate key)
+                    attribute.</span><br /><span>Let R be the relational schema and X, Y, A is the set of attributes.
+                    Suppose X is any candidate key, Y is a proper subset of candidate key, and A is a Non-prime
+                    attribute.</span><br /><span> </span></li>
+        </ul>
+        <div style="width: 810px" class="wp-caption alignnone"><img height="inherit" loading="lazy"
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20220728165842/partial.jfif" width="267" />
+            <p class="wp-caption-text">Partial Dependency</p>
+        </div>
+        <p dir="ltr" style="text-align: justify;"><span> Y-&gt;A will be partial dependency iff, Y is a proper subset of
+                candidate key, and A is a non-prime attribute. </span></p>
+
+        <ul>
+            <li value="1"><b><strong>Full Functional Dependency:</strong></b><span> If A and B are an attribute set of a
+                    relation, B is fully functional dependent on A, if B is functionally dependent on A but not on any
+                    proper subset of A.</span></li>
+        </ul>
+        <p dir="ltr" style="text-align: justify;"><b><strong>3. Third Normal Form: </strong></b><span>A relation is in
+                the third normal form if it is in the second normal form and it does not contain any transitive
+                dependency. For a relation to be in Third Normal Form, either LHS of FD should be super key or RHS
+                should be the prime attribute.</span></p>
+
+        <p dir="ltr" style="text-align: justify;"><b><strong>4. Boyce-Codd Normal Form: </strong></b><span>A relation is
+                in</span><b><strong> </strong></b><span>Boyce-Codd</span><b><strong> </strong></b><span>Normal Form if
+                the LHS of every FD is super key. The relationship between Normal Forms can be represented as
+            </span><b><strong>1NF, 2NF, 3NF or BCNF.</strong></b></p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th><span>Design Goal</span></th>
+                    <th><span>1NF</span></th>
+                    <th><span>2NF</span></th>
+                    <th><span>3NF</span></th>
+                    <th><span>BCNF</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span>Zero Redundancy</span></td>
+                    <td><span>High redundancy</span></td>
+                    <td><span>Less than 1NF</span></td>
+                    <td><span>Less than 2NF</span></td>
+                    <td><span>No redundancy</span></td>
+                </tr>
+                <tr>
+                    <td><span>Loss-less decomposition</span></td>
+                    <td><span>Always</span></td>
+                    <td><span>Always</span></td>
+                    <td><span>Always</span></td>
+                    <td><span>Always</span></td>
+                </tr>
+                <tr>
+                    <td><span>Dependency preservation</span></td>
+                    <td><span>Always</span></td>
+                    <td><span>Always</span></td>
+                    <td><span>Always</span></td>
+                    <td><span>Sometimes Not possible</span></td>
+                </tr>
+            </tbody>
+        </table>
+        <p dir="ltr" style="text-align: justify;"><b><strong>Properties of Decomposition:</strong></b></p>
+        <div style="text-align:center;margin:20px 0;max-height:280px" id="GFG_AD_gfg_outstream_incontent-2"></div>
+
+        <ul>
+            <li value="1"><b><strong>Loss-less Join Decomposition: </strong></b><span>There should not be the generation
+                    of any new tuple because of the decomposition. </span></li>
+        </ul>
+        <ul>
+            <li value="1"><b><strong>Dependency Preserving Decomposition: </strong></b><span>There should not be the
+                    loss of any tuple because of the decomposition. Let R be a relation with Functional dependency F.
+                    After decomposition R is decomposed into R</span><sub><span>1</span></sub><span>,
+                    R</span><sub><span>2</span></sub><span>,
+                    R</span><sub><span>3</span></sub><span>&#8230;&#8230;R</span><sub><span>n</span></sub><span> with FD
+                    set F</span><sub><span>1</span></sub><span>, F</span><sub><span>2</span></sub><span>,
+                    F</span><sub><span>3</span></sub><span>&#8230;&#8230;F</span><sub><span>n</span></sub><span>
+                    respectively. </span></li>
+        </ul>
+        <p dir="ltr" style="text-align: justify;"><span>If F</span><sub><span>1</span></sub><span>,
+                F</span><sub><span>2</span></sub><span>,
+                F</span><sub><span>3</span></sub><span>&#8230;..F</span><sub><span>n</span></sub><span> ≣ F, then the
+                decomposition is dependency preserving otherwise not. </span></p>
+
+        <h2><span>Data Retrieval (SQL, RA)</span></h2>
+        <p dir="ltr" style="text-align: justify;"><b><strong>Commands to Access Database: </strong></b><span>For
+                efficient data retrieval, insertion, deletion, updation, etc. The commands in the Database are
+                categorized into three categories, which are as follows:</span></p>
+
+        <ul>
+            <li value="1"><b><strong>DDL [Data Definition language]: </strong></b><span>It deals with how data should
+                    store in the database. DDL commands include CREATE, ALTER, DROP, COMMENT, and TRUNCATE </span></li>
+            <li value="2"><b><strong>DML [Data Manipulation language]: </strong></b><span>It deals with data
+                    manipulation like modifying, updating, deleting, etc. DML commands include SELECT, INSERT, DELETE,
+                    UPDATE, LOCK TABLE, MERGE, CALL, AND EXPLAIN PLAN.</span></li>
+            <li value="3"><b><strong>DCL [Data Control Language]: </strong></b><span>It acts as an access specifier, and
+                    includes GRANT, AND REVOKE.</span></li>
+        </ul>
+        <p dir="ltr" style="text-align: justify;"><b><strong>Query Language:</strong></b><span> Language using which any
+                user can retrieve some data from the database. </span></p>
+
+        <img height="inherit" loading="lazy"
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20220728173513/sql.jpg" width="531" />
+        <p dir="ltr" style="text-align: justify;"><b><strong>Note: </strong></b><span>Relational model is a theoretical
+                framework RDBMS is its implementation. </span></p>
+
+        <p dir="ltr" style="text-align: justify;"><a
+                href="https://www.geeksforgeeks.org/database-management-system-relational-algebra/"><b><strong>Relational
+                        Algebra</strong></b></a><span>: Procedural language with basic and extended operators. </span>
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th><b><strong>Basic Operator</strong></b></th>
+                    <th><b><strong>Semantic</strong></b></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span>σ(Selection)</span></td>
+                    <td><span>Select rows based on a given condition</span></td>
+                </tr>
+                <tr>
+                    <td><span>π (Projection)</span></td>
+                    <td><span>Project some columns</span></td>
+                </tr>
+                <tr>
+                    <td><span>X (Cross Product/ Cartesian Product)</span></td>
+                    <td><span>Cross product of relations, returns </span><b><strong>m*n</strong></b><span> rows where m
+                            and n are numbers of rows in R1 and R2 respectively.</span></td>
+                </tr>
+                <tr>
+                    <td><span>U (Union)</span></td>
+                    <td><span>Return those tuples which are either in R1 or R2. </span><br /><span>Maximum number of
+                            rows returned </span><b><strong>= m+n </strong></b><br /><span>Minimum number of rows
+                            returned = </span><b><strong>max(m,n)</strong></b></td>
+                </tr>
+                <tr>
+                    <td><span>&#8211; (Minus)</span></td>
+                    <td><span>R1-R2 returns those tuples which are in R1 but not in R2. </span><br /><span>Maximum
+                            number of rows returned = </span><b><strong>m </strong></b><br /><span>Minimum number of
+                            rows returned = </span><b><strong>m-n</strong></b></td>
+                </tr>
+                <tr>
+                    <td><span>ρ(Rename)</span></td>
+                    <td><span>Renaming a relation to another relation.</span></td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <thead>
+                <tr>
+                    <th><b><strong>Extended Operator</strong></b></th>
+                    <th><b><strong>Semantic</strong></b></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span> (Intersection)</span></td>
+                    <td><span>Returns those tuples which are in both relation R1 and R2. </span><br /><span>Maximum
+                            number of rows returned = min(m,n) </span><br /><span>Minimum number of rows returned =
+                            0</span></td>
+                </tr>
+                <tr>
+                    <td><span>⋈</span><br /><span>(Conditional Join)</span></td>
+                    <td><span>Selection from two or more tables based on some condition (Cross product followed by
+                            selection)</span></td>
+                </tr>
+                <tr>
+                    <td><span>⋈(Equi Join)</span></td>
+                    <td><span>It is a special case of conditional join when only an equality condition is applied
+                            between attributes.</span></td>
+                </tr>
+                <tr>
+                    <td><span>⋈</span><br /><span>(Natural Join)</span></td>
+                    <td><span>In natural join, equality condition on common attributes holds, and duplicate attributes
+                            are removed by default. </span><b><strong>Note:</strong></b><span> Natural Join is
+                            equivalent to the cross product of two relations have no attribute in common and the natural
+                            join of a relation R with itself will return R only.</span></td>
+                </tr>
+                <tr>
+                    <td><span>⟕(Left Outer Join)</span></td>
+                    <td><span>When applying join on two relations R and S, Left Outer Joins gives all tuples of R in the
+                            result set. The tuples of R which do not satisfy the join condition will have values as NULL
+                            for attributes of S.</span></td>
+                </tr>
+                <tr>
+                    <td><span>⟖(Right Outer Join)</span></td>
+                    <td><span>When applying join on two relations R and S, Right Outer Joins gives all tuples of S in
+                            the result set. The tuples of S which do not satisfy the join condition will have values as
+                            NULL for attributes of R.</span></td>
+                </tr>
+                <tr>
+                    <td><span>⟗(Full Outer Join)</span></td>
+                    <td><span>When applying join on two relations R and S, Full Outer Joins gives all tuples of S and
+                            all tuples of R in the result set. The tuples of S which do not satisfy the join condition
+                            will have values as NULL for attributes of R and vice versa.</span></td>
+                </tr>
+                <tr>
+                    <td><span>/ (Division Operator)</span></td>
+                    <td><span>Division operator A/B will return those tuples in A which is associated with every tuple
+                            of B.</span><br /><b><strong>Note: </strong></b><span>Attributes of B should be a proper
+                            subset of attributes of A. </span><br /><span>The attributes in A/B will be Attributes of A-
+                            Attribute of B.</span></td>
+                </tr>
+            </tbody>
+        </table>
+        <p dir="ltr" style="text-align: justify;"><b><strong>Relational Calculus: </strong></b><span>Relational calculus
+                is a non-procedural query language. It explains what to do but not how to do it. It is of two
+                types:</span></p>
+
+        <ul>
+            <li value="1"><a href="https://www.geeksforgeeks.org/tuple-relational-calculus-trc-in-dbms/"><b><strong>Tuple
+                            Relational Calculus:</strong></b></a><b><strong> </strong></b><span>The tuple relational
+                    calculus is based on specifying the number of tuple variables. Each variable usually ranges over a
+                    particular database relation. It is of the form </span><br /><b><strong>{t| cond(t)}
+                    </strong></b><br /><span>where</span><b><strong> t</strong></b><span> is the tuple variable and
+                </span><b><strong>cond(t)</strong></b><span> is a conditional expression involving t. The result of such
+                    query is the set of tuples of t that satisfy cond(t). </span></li>
+            <li value="2"><a href="https://www.geeksforgeeks.org/domain-relational-calculus-in-dbms/"><b><strong>Domain
+                            Relational Calculus:</strong></b></a><b><strong> </strong></b><span>Unlike tuple calculus in
+                    Domain calculus variables range oer single values from domains of attributes. It is of the
+                    form</span><br /><b><strong>{x</strong></b><b><sub><strong>1</strong></sub></b><b><strong>,
+                        x</strong></b><b><sub><strong>2</strong></sub></b><b><strong>, &#8230;&#8230;,
+                        x</strong></b><b><sub><strong>n</strong></sub></b><b><strong> | cond
+                        (x</strong></b><b><sub><strong>1</strong></sub></b><b><strong>,
+                        x</strong></b><b><sub><strong>2</strong></sub></b><b><strong>, &#8230;&#8230;.,
+                        x</strong></b><b><sub><strong>n</strong></sub></b><b><strong>,
+                        x</strong></b><b><sub><strong>n+1</strong></sub></b><b><strong>,
+                        x</strong></b><b><sub><strong>n+2</strong></sub></b><b><strong>, &#8230;&#8230;..,
+                        x</strong></b><b><sub><strong>n+m</strong></sub></b><b><strong>)}</strong></b><br /><span>where</span><b><strong>,
+                        x</strong></b><b><sub><strong>1</strong></sub></b><b><strong>,
+                        x</strong></b><b><sub><strong>2</strong></sub></b><b><strong>, &#8230;&#8230;.,
+                        x</strong></b><b><sub><strong>n</strong></sub></b><b><strong>,
+                        x</strong></b><b><sub><strong>n+1</strong></sub></b><b><strong>,
+                        x</strong></b><b><sub><strong>n+2</strong></sub></b><b><strong>, &#8230;&#8230;..,
+                        x</strong></b><b><sub><strong>n+m</strong></sub></b><b><strong> </strong></b><span>are domain
+                    variables ranging over domains, and</span><b><strong> cond </strong></b><span>is a
+                    condition.</span><b><strong> </strong></b></li>
+        </ul>
+        <p dir="ltr" style="text-align: justify;"><a
+                href="https://www.geeksforgeeks.org/sql-tutorial/"><b><strong>SQL</strong></b></a><span>: Structured
+                Query Language, lets you access or modify databases. SQL can execute queries, retrieve data, insert
+                records, update records, delete records, create a new database, create new tables, create views, and set
+                permissions on tables, procedures, or views. </span></p>
+
+        <p dir="ltr" style="text-align: justify;"><a
+                href="https://www.geeksforgeeks.org/sql-ddl-dql-dml-dcl-tcl-commands/"><b><strong>SQL
+                        Commands:</strong></b></a></p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th><b><strong>Operator</strong></b></th>
+                    <th><b><strong>Meaning</strong></b></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="https://www.geeksforgeeks.org/sql-select-query/"><b><strong>SELECT</strong></b></a>
+                    </td>
+                    <td><span>Selects columns from a relation or set of relations. It defines WHAT is to be returned.
+                        </span><br /><b><strong>Note: </strong></b><span>As opposed to Relational Algebra, it may give
+                            duplicate tuples for the repeated values of an attribute.</span></td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.geeksforgeeks.org/sql-sub-queries-clause/"><b><strong>FROM</strong></b></a>
+                    </td>
+                    <td><b><strong>FROM</strong></b><span> is used to define the Table(s) or View(s) used by the SELECT
+                            or WHERE statements</span></td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.geeksforgeeks.org/sql-where-clause/"><b><strong>WHERE</strong></b></a></td>
+                    <td><b><strong>WHERE </strong></b><span>is used to define what records are to be included in the
+                            query. It uses conditional operators. </span></td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.geeksforgeeks.org/sql-exists/"><b><strong>EXISTS</strong></b></a></td>
+                    <td><b><strong>EXISTS </strong></b><span>is used to check whether the result of a correlated nested
+                            query is empty (contains no tuples) or not.</span></td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.geeksforgeeks.org/sql-group-by/"><b><strong>GROUP BY</strong></b></a></td>
+                    <td><b><strong>GROUP BY </strong></b><span>is used to group the tuples based on some attribute or
+                            set of attributes like counting the number of students GROUP BY the department.</span></td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.geeksforgeeks.org/sql-order-by/"><b><strong>ORDER BY</strong></b></a></td>
+                    <td><b><strong>ORDER BY </strong></b><span>is used to sort the fetched data in either ascending or
+                            descending according to one or more columns.</span></td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.geeksforgeeks.org/database-management-system-aggregate-functions/"><b><strong>Aggregate
+                                    functions</strong></b></a></td>
+                    <td><span>Find the aggregated value of an attribute. Used mostly with GROUP BY. e.g.; count, sum,
+                            min max. </span><br /><b><strong>select count(*) from the student group by
+                                dept_id</strong></b><br /><b><strong>Note:</strong></b><span> we can select only those
+                            columns which are part of GROUP BY.</span></td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.geeksforgeeks.org/nested-queries-sql/"><b><strong>Nested
+                                    Queries</strong></b></a></td>
+                    <td><span>When one query is a part of another query. </span></td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.geeksforgeeks.org/sql-update-statement/"><b><strong>UPDATE</strong></b></a>
+                    </td>
+                    <td><span>It is used to update records in a table.</span></td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.geeksforgeeks.org/sql-delete-statement/"><b><strong>DELETE</strong></b></a>
+                    </td>
+                    <td><span>It is used to delete rows in a table.</span></td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.geeksforgeeks.org/sql-like/"><b><strong>LIKE</strong></b></a></td>
+                    <td><span>LIKE operator is used with the WHERE clause to search a specified pattern in a
+                            column.</span></td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.geeksforgeeks.org/sql-between-in-operator/"><b><strong>IN </strong></b></a>
+                    </td>
+                    <td><span>IN operator is used to specify multiple values in the WHERE clause.</span></td>
+                </tr>
+                <tr>
+                    <td><a
+                            href="https://www.geeksforgeeks.org/sql-between-in-operator/"><b><strong>BETWEEN</strong></b></a>
+                    </td>
+                    <td><span>It selects values within a range. </span></td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.geeksforgeeks.org/sql-aliases/"><b><strong>Aliases</strong></b></a></td>
+                    <td><span>It is used to temporarily rename a table or a column heading. </span></td>
+                </tr>
+                <tr>
+                    <td><a
+                            href="https://www.geeksforgeeks.org/having-clause-in-ms-sql-server/"><b><strong>HAVING</strong></b></a>
+                    </td>
+                    <td><span>The HAVING clause was added because the WHERE keyword could be used with aggregate
+                            functions. </span></td>
+                </tr>
+            </tbody>
+        </table>
+        <h2><span>File Structure</span></h2>
+        <p dir="ltr" style="text-align: justify;"><a
+                href="https://www.geeksforgeeks.org/file-organization-in-dbms-set-1/"><b><strong>File
+                        organization:</strong></b></a><b><strong> </strong></b><span>It is</span><b><strong>
+                </strong></b><span>the logical relation between records and it defines how file records are mapped into
+                disk blocks(memory). A database is a collection of files, each file is a collection of records, and each
+                record contains a sequence of fields. </span><b><strong>The blocking Factor</strong></b><span> is the
+                average number of records per block. </span></p>
+
+        <p dir="ltr" style="text-align: justify;"><span>Strategies for storing files of records in block:</span></p>
+        <div style="text-align:center;margin:20px 0;max-height:280px" id="GFG_AD_gfg_outstream_incontent-3"></div>
+
+        <ul>
+            <li value="1"><b><strong>Spanned Strategy: </strong></b><span>It allows a partial part of the record to be
+                    stored in the block. It is suitable for variable-length records. No wastage of memory in spanned
+                    strategy but block access time gets increases. </span></li>
+            <li value="2"><b><strong>Unspanned Strategy: </strong></b><span> Data cannot be stored partially, the whole
+                    block will be occupied, this can lead to internal fragmentation and wastage of memory but block
+                    access time is reduced. This is suitable for fixed-length records. </span></li>
+        </ul>
+        <p dir="ltr" style="text-align: justify;"><span>File organizations is of following types:</span></p>
+
+        <ul>
+            <li value="1"><a href="https://www.geeksforgeeks.org/file-organization-in-dbms-set-1/"><span>Sequential File
+                        Organization</span></a></li>
+            <li value="2"><a href="https://www.geeksforgeeks.org/file-organization-in-dbms-set-1/"><span>Heap File
+                        Organization</span></a><span> </span></li>
+            <li value="3"><a href="https://www.geeksforgeeks.org/file-organization-in-dbms-set-4/"><span>Hash File
+                        Organization </span></a></li>
+            <li value="4"><a
+                    href="https://www.geeksforgeeks.org/file-organization-in-dbms-set-3/"><span>B</span><sup><span>+</span></sup><span>
+                        Tree File Organization </span></a></li>
+            <li value="5"><a href="https://www.geeksforgeeks.org/file-organization-in-dbms-set-3/"><span>Clustered File
+                        Organization </span></a></li>
+        </ul>
+        <p dir="ltr" style="text-align: justify;"><b><strong>Sequential File: </strong></b><span>In this method, files
+                are stored in sequential order one after another.</span></p>
+
+        <ul>
+            <li value="1"><b><strong>Blocking factor: </strong></b>[Tex]\left \lfloor \frac{Block\ Size}{Record\ Size}
+                \right \rfloor
+
+                [/Tex]</li>
+            <li value="2"><b><strong>Number of record blocks: </strong></b>[Tex]\left \lceil \frac{Total\ number\ of\
+                records}{Blocking\ factor} \right \rceil
+
+                [/Tex]</li>
+            <li value="3"><b><strong>Average number of blocks accessed by linear search: </strong></b>[Tex]\left \lfloor
+                \frac{number\ of\ record\ blocks}{2} \right \rfloor
+
+                [/Tex]</li>
+            <li value="4"><b><strong>Average number of blocks accessed by binary search: </strong></b>[Tex]\left \lfloor
+                { log_2 \ number\ of\ record\ blocks} \right \rfloor
+
+                [/Tex]</li>
+        </ul>
+        <p dir="ltr" style="text-align: justify;"><b><strong>Index File: </strong></b></p>
+
+        <ul>
+            <li value="1"><b><strong>Index blocking factor: </strong></b>[Tex]\left \lfloor \frac{number\ of\ record\
+                blocks \ +\ 1}{2} \right \rfloor
+
+                [/Tex]</li>
+            <li value="2"><b><strong>First level index block: </strong></b>[Tex]\left \lfloor \frac{number\ of\ record\
+                blocks}{index\ blocking\ factor} \right \rfloor
+
+                [/Tex]</li>
+            <li value="3"><b><strong>Number of block accesses: </strong></b>[Tex]\left \lfloor { log_2 \ (first\ level\
+                index\ blocks)} \right \rfloor + 1
+
+                [/Tex]</li>
+        </ul>
+        <h2><a href="https://www.geeksforgeeks.org/indexing-in-databases-set-1/"><b><strong>Indexing
+                        Type</strong></b></a><b><strong>:</strong></b></h2>
+        <h3><b><strong>1. Single level Index</strong></b></h3>
+        <ul>
+            <li value="1"><b><strong>Primary Index(Sparse): </strong></b><span>A primary index is an ordered
+                    file(ordered with key field), records of fixed length with two fields. The first field is the same
+                    as the primary key of the data file and the second field is a pointer to a data block, where the key
+                    is available. In Sparse indexing, for a set of database records there exists a single entry in the
+                    index file.</span>
+                <ul>
+                    <li value="1"><b><strong>Number of index file entries </strong></b><span>≤</span><b><strong> Number
+                                of database records.</strong></b></li>
+                </ul>
+            </li>
+            <li value="2"><b><strong>Secondary Index (Dense):</strong></b><span> Secondary index provides secondary
+                    means of accessing a file for which primary access already exists. In Dense indexing, for every
+                    database record, there exists an entry in the index file. The index blocking factor is the same for
+                    all indexes. </span>
+                <ul>
+                    <li value="1"><b><strong>Number of database records = Number of entries in the index
+                                file</strong></b></li>
+                    <li value="2"><b><strong>Number of block accesses= </strong></b>[Tex]\left \lceil{log_2\ ( single\
+                        level\ index\ block)} \right \rceil + 1
+
+                        [/Tex]</li>
+                </ul>
+            </li>
+            <li value="3"><b><strong>Clustered Index(Sparse):</strong></b><span> A clustering index is created on a data
+                    file whose records are physically ordered on a non-key field (called a Clustering
+                    field).</span><b><strong> </strong></b><span>Almost one clustering index is possible. </span>
+                <ul>
+                    <li value="1"><b><strong>Single-level index blocks= </strong></b>[Tex]\left \lceil \frac{Number\ of\
+                        distinct\ values\ over\ non\ key\ field}{Index\ blocking\ factor} \right \rceil + 1
+
+                        [/Tex]</li>
+                    <li value="2"><b><strong>Number of block accesses= </strong></b>[Tex]\left \lceil{log_2\ ( single\
+                        level\ index\ block)} \right \rceil + 1
+
+                        [/Tex]</li>
+                </ul>
+            </li>
+        </ul>
+        <h3><b><strong>2. Multilevel Index</strong></b></h3>
+        <ul>
+            <li value="1"><b><strong>Indexed sequential access method: </strong></b><span>Second level index is always
+                    sparse. </span>
+                <ul>
+                    <li value="1"><b><strong>Level 1 </strong></b><span>= &#8220;first-level index blocks&#8221;
+                            computed by index</span></li>
+                    <li value="2"><b><strong>Level 2</strong></b><span> = </span>[Tex]\left \lceil \frac{Number\ of\
+                        blocks\ in\ level\ (1)}{index\ blocking\ factor} \right \rceil
+
+                        [/Tex]</li>
+                    <li value="3"><b><strong>Level n </strong></b><span>= </span>[Tex]\left \lceil \frac{Number\ of\
+                        blocks\ in\ level\ (n-1)}{index\ blocking\ factor} \right \rceil =1
+
+                        [/Tex]</li>
+                    <li value="4"><b><strong>Number of blocks</strong></b><span> = </span>[Tex]\sum_{i=1}^{n} (Number\
+                        of\ blocks\ in\ level\ i)
+
+                        [/Tex]</li>
+                    <li value="5"><b><strong>Number of block access </strong></b><span>= n+1</span></li>
+                </ul>
+            </li>
+            <li value="2"><b><strong>B-Tree: </strong></b><span>Also known as Baye&#8217;s or balanced Search Tree. At
+                    every level, we have Key and Data pointers, and data pointer points either block or record. </span>
+                <ul>
+                    <li value="1"><b><strong>Root node: </strong></b><span>B-tree can have children between
+                        </span><b><strong>2</strong></b><span> and </span><b><strong>p</strong></b><span>, where p is
+                            the Order of the tree.</span></li>
+                    <li value="2"><b><strong>Internal Node: </strong></b>[Tex]\left \lceil \frac {n}{2} \right \rceil
+
+                        [/Tex]<span> to n children.</span></li>
+                    <li value="3"><b><strong>Leaf nodes</strong></b><span> all are at the same level.</span></li>
+                    <li value="4"><b><strong>Block size </strong></b><span>= p × (size of block pointer) + (p-1)× (Size
+                            of key field + size of record pointer)</span></li>
+                    <li value="5"><b><strong>Minimum number of nodes</strong></b><span> = </span>[Tex]1 +
+                        (\frac{2[(\frac{p}{2})^h -1]}{(\frac{p}{2}) -2})
+
+                        [/Tex]</li>
+                    <li value="6"><b><strong>Maximum number of nodes</strong></b><span> = \frac{p^{h+1}-1}{p-1}</span>
+                    </li>
+                    <li value="7"><b><strong>Minimum height </strong></b><span>= \left ( \left \lceil log_p \ l \right
+                            \rceil \right ) l is the number of leaves</span></li>
+                    <li value="8"><b><strong>Maximum height</strong></b><span> = \left \lfloor 1 +log_{\frac {p}{2}}
+                            \frac{l}{2} \right \rfloor</span></li>
+                </ul>
+            </li>
+            <li value="3"><b><strong>B</strong></b><b><sup><strong>+</strong></sup></b><b><strong> Tree:
+                    </strong></b><span>It is the same as B-tree. All the records are available at the leaf (last) level.
+                    B</span><sup><span>+</span></sup><span> tree allows both sequential and random access whereas in
+                    B-tree only random access was allowed. Each leaf node has one block pointer and all the leaf nodes
+                    are connected to the next leaf node using a block pointer.</span>
+                <ul>
+                    <li value="1"><b><strong>Order of non-leaf node</strong></b><span>= [p × size of block pointer] +
+                            [(p-1) × size of key field] &lt;= Block size.</span></li>
+                    <li value="2"><b><strong>Order of Leaf node</strong></b><span>=
+                            [(p</span><sub><span>leaf</span></sub><span> -1) × (size of key field + size of record
+                            pointer) + p × (size of block pointer) &lt;= Block size]</span></li>
+                </ul>
+            </li>
+        </ul>
+        <h2><span>Transaction and Concurrency Control</span></h2>
+        <p dir="ltr" style="text-align: justify;"><span>A transaction is a unit of instruction or set of instructions
+                that performs a logical unit of work. Transaction processes are always atomic in nature either they will
+                execute completely or do not execute. </span></p>
+
+        <p dir="ltr" style="text-align: justify;"><a
+                href="https://www.geeksforgeeks.org/acid-properties-in-dbms/"><b><strong>Transaction
+                        Properties:</strong></b></a></p>
+
+        <ul>
+            <li value="1"><b><strong>Atomicity:</strong></b><span> Either execute all operations or none of them. It is
+                    managed by the transaction Management Component.</span></li>
+            <li value="2"><b><strong>Consistency:</strong></b><span> Database must be consistent before and after the
+                    execution of the transaction. If atomicity, isolation, and durability are implemented accurately,
+                    consistency will be achieved automatically. </span></li>
+            <li value="3"><b><strong>Isolation:</strong></b><span> In concurrent transactions, the execution of one
+                    transaction must not affect the execution of another transaction. It is managed by the Concurrency
+                    Control component. </span></li>
+            <li value="4"><b><strong>Durability:</strong></b><span> After the commit operation, the changes should be
+                    durable and persist always in the database. It is managed by the Recovery Management component.
+                </span></li>
+        </ul>
+        <p dir="ltr" style="text-align: justify;"><b><strong>Schedule: </strong></b><span>Sequences in which
+                instructions of the concurrent transactions get executed. Schedules are of two types: </span></p>
+
+        <ul>
+            <li value="1"><b><strong>Serial Schedule: </strong></b><span>Transactions execute one by one, another
+                    transaction will begin after the commit of the first transaction. It is inconsistent and the
+                    system&#8217;s efficiency is so poor due to no concurrency. </span>
+                <ul>
+                    <li value="1"><span>The number of possible serial schedules with n transactions =
+                        </span><b><strong>n!</strong></b></li>
+                </ul>
+            </li>
+            <li value="2"><b><strong>Non-Serial Schedule: </strong></b><span>When two or more transactions can execute
+                    simultaneously. This may lead to inconsistency, but have better throughput and less response time.
+                </span>
+                <ul>
+                    <li value="1"><span>The number of possible non-serial schedules with n transactions = Total Schedule
+                            &#8211; Serial Schedule</span><br />[Tex](\frac {n_1 + n_2 +n_3+ &#8230;&#8230;..+n_n}{n_1!\
+                        n_2!\ n_3!&#8230;&#8230;.n_n!} )-n!
+
+                        [/Tex]</li>
+                </ul>
+            </li>
+        </ul>
+        <p dir="ltr" style="text-align: justify;"><b><strong>∩ (Intersection)Serializability: </strong></b><span> A
+                schedule is said to be serializable if it is equivalent to a serial schedule. It is categorized into two
+                categories: Conflict Seriablizability, and View Serializability. </span></p>
+
+        <p dir="ltr" style="text-align: justify;"><a
+                href="https://www.geeksforgeeks.org/conflict-serializability-in-dbms/"><b><strong>Conflict
+                        Serializability: </strong></b></a><span>A schedule will be conflict serializable if it can be
+                transformed into a serial schedule by swapping non-conflicting operations. It is a polynomial-time
+                problem. </span></p>
+
+        <ul>
+            <li value="1"><b><strong>Conflicting operations: </strong></b><span>Two operations will be conflicting
+                    if</span><b><strong> </strong></b>
+                <ul>
+                    <li value="1"><span>They belong to different transactions.</span></li>
+                    <li value="2"><span>They are working on the same data item.</span></li>
+                    <li value="3"><span>At least one of them is the Write operation.</span></li>
+                </ul>
+            </li>
+        </ul>
+        <p dir="ltr" style="text-align: justify;"><a
+                href="https://www.geeksforgeeks.org/view-serializability-in-dbms/"><b><strong>View Serializability:
+                    </strong></b></a><span>A schedule will be view serializable if it is view equivalent to a serial
+                schedule. It is an NP-Complete Problem. </span></p>
+
+        <ul>
+            <li value="1"><span>Check whether it is conflict serializable or not, if Yes then it is view
+                    serializable.</span></li>
+            <li value="2"><span>If the schedule does not conflict with serializable then check whether it has blind
+                    write or not. If it does not have blind write then it is not view serializable. [To be view
+                    serializable a schedule must have a blind write]</span></li>
+            <li value="3"><span>If the schedule has blind write, Now check whether the schedule is view-equivalent to
+                    any other serial schedule. </span></li>
+            <li value="4"><span>Now, draw a precedence graph using given dependencies. If no cycle/loop exists in the
+                    graph, then the schedule would be a View-Serializable otherwise not.</span></li>
+        </ul>
+        <p dir="ltr" style="text-align: justify;"><a
+                href="https://www.geeksforgeeks.org/types-of-schedules-based-recoverability-in-dbms/"><b><strong>Types
+                        of Schedule based recoverability:</strong></b></a></p>
+        <div style="text-align:center;margin:20px 0;max-height:280px" id="GFG_AD_gfg_outstream_incontent-4"></div>
+
+        <ul>
+            <li value="1"><b><strong>Irrecoverable Schedule:</strong></b><span> A transaction is impossible to roll back
+                    once the commit operation is done. </span></li>
+            <li value="2"><a href="https://www.geeksforgeeks.org/recoverability-in-dbms/"><b><strong>Recoverable
+                            Schedule:</strong></b></a><b><strong> </strong></b><span>A schedule is recoverable if a
+                    transaction T</span><sub><span>i</span></sub><span> reads a data item previously written by
+                    Transaction T</span><sub><span>j</span></sub><span>, the commit operation
+                    T</span><sub><span>j</span></sub><span> appears before the commit operation of
+                    T</span><sub><span>i</span></sub><span>. </span></li>
+            <li value="3"><a href="https://www.geeksforgeeks.org/cascadeless-in-dbms/"><b><strong>Cascadeless
+                            Recoverable Schedule</strong></b></a><b><strong>: </strong></b><span>Cascadeless Schedule
+                    avoids cascading aborts/rollbacks (ACA). Schedules in which transactions read values only after all
+                    transactions whose changes they are going to read commit are called cascadeless schedules. Avoids
+                    that a single transaction abort leads to a series of transaction rollbacks.</span>
+                <ul>
+                    <li value="1"><b><strong>Cascading rollback:</strong></b><span> When failure of a single transaction
+                            leads to a series of transaction rollbacks.</span></li>
+                </ul>
+            </li>
+            <li value="4"><b><strong>Strict Recoverable Schedule:</strong></b><span> If there is no read or write in the
+                    schedule before the commit, then such schedule are known as a Strict recoverable schedule. </span>
+            </li>
+        </ul><img height="inherit" loading="lazy"
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20220729163900/serializability.jpg" width="642" />
+        <p dir="ltr" style="text-align: justify;"><b><strong>Concurrency Control with Locks: </strong></b></p>
+
+        <p dir="ltr" style="text-align: justify;"><span>To achieve consistency, isolation is the most important concept.
+                Isolation can be achieved using locking very easily. A schedule acquires a lock prior to accessing the
+                transaction and the lock is released when the transaction is completed. A locking protocol is a set of
+                rules followed by all transactions while requesting and releasing locks. Locking protocols restrict the
+                set of possible schedules. </span></p>
+
+        <p dir="ltr" style="text-align: justify;"><b><strong>Lock Types:</strong></b></p>
+
+        <p dir="ltr" style="text-align: justify;"><b><strong>Binary Locks</strong></b></p>
+
+        <ul>
+            <li value="1"><span>It is in two states: Locked(1) or Unlocked(0)</span></li>
+            <li value="2"><span>When an object is locked it is unavailable to other objects.</span></li>
+            <li value="3"><span>When an object is unlocked then it is open to transactions.</span></li>
+            <li value="4"><span>An object is unlocked when the transaction is unlocked. </span></li>
+            <li value="5"><span>Every transaction locks a data item before use and unlocks/releases it after use.</span>
+            </li>
+            <li value="6"><span>Issues with binary locks: Irrecoverability, Deadlock, and Low concurrency.</span></li>
+        </ul>
+        <p dir="ltr" style="text-align: justify;"><b><strong>Shared/Exclusive Locks:</strong></b></p>
+
+        <ul>
+            <li value="1"><b><strong>Shared (S Mode): </strong></b><span>It is denoted by lock-S(Q), the transaction can
+                    perform a read operation, and any other transaction can also obtain the same lock on same data item
+                    at the same time and can also perform a read operation only. </span></li>
+            <li value="2"><b><strong>Exclusive (X Mode): </strong></b><span>It is denoted by lock- X(Q), the transaction
+                    can perform both read and write operations, any other transaction can not obtain either
+                    shared/exclusive lock.</span></li>
+        </ul>
+        <p dir="ltr" style="text-align: justify;"><b><strong>Two-Phase Locking: </strong></b><span>This protocol
+                requires that each transaction in a schedule will be two phases: i.e. Growing phase and the shrinking
+                phase. </span></p>
+
+        <ul>
+            <li value="1"><span>In the growing phase, transactions can only obtain locks but cannot release any lock.
+                </span></li>
+            <li value="2"><span>In the shrinking phase, transactions can only release locks but can not obtain any
+                    lock.</span></li>
+            <li value="3"><span>The transaction can perform read/write operations in both the growing as well as in
+                    shrinking phase.</span></li>
+            <li value="4"><b><strong>Rules for 2-PL:</strong></b>
+                <ul>
+                    <li value="1"><span>Two transactions cannot have conflicting locks.</span></li>
+                    <li value="2"><span>No unlock operation can precede a lock operation in the same transaction.</span>
+                    </li>
+                    <li value="3"><span>No data are affected until all locks are obtained.</span></li>
+                </ul>
+            </li>
+            <li value="5"><b><strong>Basic 2-PL:</strong></b>
+                <ul>
+                    <li value="1"><span>Equal serial schedule based on lock point. </span></li>
+                    <li value="2"><span>It has recoverability, deadlock, and starvation. </span></li>
+                </ul>
+            </li>
+            <li value="6"><b><strong>Strict 2-PL:</strong></b>
+                <ul>
+                    <li value="1"><span>Basic 2-PL with all exclusive locks should be hold until commit/roll
+                            back.</span></li>
+                    <li value="2"><span>It ensures serializability strict recoverable, but it has starvation and
+                            irrecoverability.</span></li>
+                </ul>
+            </li>
+            <li value="7"><b><strong>Rigorous 2-PL:</strong></b>
+                <ul>
+                    <li value="1"><span>Basic 2PL with all locks (S/X) should be hold until commit.</span></li>
+                    <li value="2"><span>Equivalent serial schedule based on the order of commit. </span></li>
+                </ul>
+            </li>
+        </ul>
+       
+               
+</body>
+
+</html>

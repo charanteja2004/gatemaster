@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    <div class="main_wrapper">
+        <div class="article-title">
+        <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>Introduction of 3-Tier Architecture in DBMS&nbsp;</h1>
+        </div>
+        </div>
+        </div>
+        <div class="text">
+        <p dir="ltr">The 3-tier architecture is a commonly used architectural approach in Database Management Systems (DBMSs) for the design and development of applications that work with databases. The 3-tier architecture divides an application&rsquo;s components into three tiers or layers. Each layer has its own set of responsibilities.</p>
+        <p dir="ltr">DBMS 3-Tier architecture divides the complete system into three inter-related but independent modules as shown below:</p>
+        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231031161957/dbms-3tier-(1).jpg" alt="dbms-3tier" width="453" height="296" />
+        <p class="wp-caption-text">DBMS 3-tier architecture</p>
+        </div>
+        <ul>
+        <li value="1"><strong>Physical Level:</strong>&nbsp;At the physical level, the information about the location of database objects in the data store is kept. Various users of DBMS are unaware of the locations of these objects.In simple terms,physical level of a database describes how the data is being stored in secondary storage devices like disks and tapes and also gives insights on additional storage details.</li>
+        </ul>
+        <ul>
+        <li value="1"><strong>Conceptual Level:&nbsp;</strong>At conceptual level, data is represented in the form of various database tables. For Example, STUDENT database may contain STUDENT and COURSE tables which will be visible to users but users are unaware of their storage.Also referred as logical schema,it describes what kind of data is to be stored in the database.</li>
+        </ul>
+        <ul>
+        <li value="1"><strong>External Level:&nbsp;</strong>&nbsp;An external level specifies a&nbsp;view&nbsp;of the data in terms of conceptual level tables.&nbsp; Each external level view is used to cater to the needs of a particular category of users. For Example, FACULTY of a university is interested in looking course details of students, STUDENTS are interested in looking at all details related to academics, accounts, courses and hostel details as well. So, different views can be generated for different users. The main focus of external level is data abstraction.</li>
+        </ul>
+        <h2><strong>Data Independence</strong></h2>
+        <p dir="ltr">Data independence means a change of data at one level should not affect another level. Two types of data independence are present in this architecture:</p>
+        <ul>
+        <li value="1"><strong>Physical Data Independence:</strong>&nbsp;Any change in the physical location of tables and indexes should not affect the conceptual level or external view of data. This data independence is easy to achieve and implemented by most of the DBMS.</li>
+        </ul>
+        <ul>
+        <li value="1"><strong>Conceptual Data Independence:</strong>&nbsp;The data at conceptual level schema and external level schema must be independent. This means a change in conceptual schema should not affect external schema. e.g.; Adding or deleting attributes of a table should not affect the user&rsquo;s view of the table. But this type of independence is difficult to achieve as compared to physical data independence because the changes in conceptual schema are reflected in the user&rsquo;s view.</li>
+        </ul>
+        <h3><strong>Phases of Database Design</strong></h3>
+        <p dir="ltr">Database designing for a real-world application starts from capturing the requirements to physical implementation using DBMS software which consists of following steps shown below:</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231031162057/dbms-phases.jpg" alt="dbms-phases" width="260" height="470" />
+        <p class="wp-caption-text">DBMS Phases</p>
+        </div>
+        <ul>
+        <li value="1"><strong>Conceptual Design:&nbsp;</strong>The requirements of database are captured using high level conceptual data model. For Example, the&nbsp;<a href="https://www.geeksforgeeks.org/introduction-of-er-model/" rel="">ER model&nbsp;</a>is used for the conceptual design of the database.</li>
+        <li value="2"><strong>Logical Design:&nbsp;</strong>Logical Design represents data in the form of relational model. ER diagram produced in the conceptual design phase is used to convert the data into the Relational Model.</li>
+        <li value="3"><strong>Physical Design:</strong>&nbsp;In physical design, data in relational model is implemented using commercial DBMS like Oracle, DB2.</li>
+        </ul>
+        </div>
+        </div>
+        </div>
+        <div class="main_wrapper">
+            <div class="article-title">
+            <div class="main_wrapper">
+            <div class="article-title">
+            <h1>3 Tier Schema Architecture in DBMS</h1>
+            <p dir="ltr">In DBMS, the 3-tier architecture is a client-server architecture that separates the user interface, application processing, and data management into three distinct tiers or layers. The 3-tier architecture is widely used in modern web applications and enterprise systems because it offers scalability, flexibility, and security. Here is a brief description of each tier in the 3-tier architecture:</p>
+            <ul>
+            <li value="1"><strong>Presentation Tier:</strong>&nbsp;The presentation tier is the user interface or client layer of the application. It is responsible for presenting data to the user and receiving input from the user. This tier can be a web browser, mobile app, or desktop application.</li>
+            </ul>
+            <ul>
+            <li value="1"><strong>Application Tier:&nbsp;</strong>The application tier is the middle layer of the 3-tier architecture. It is responsible for processing and managing the business logic of the application. This tier communicates with the presentation tier to receive user input and communicates with the data management tier to retrieve or store data. This tier may include application servers, web servers, or APIs.</li>
+            </ul>
+            <ul>
+            <li value="1"><strong>Data Management Tier:</strong>&nbsp;The data management tier is the bottom layer of the 3-tier architecture. It is responsible for managing and storing data. This tier can include databases, data warehouses, or data lakes. The data management tier communicates with the application tier to receive or store data.</li>
+            </ul>
+            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231101172935/Introduction-of-3-Tier-Architecture-in-DBMS.webp" alt="Introduction-of-3-Tier-Architecture-in-DBMS" width="382" height="364" />
+            <p class="wp-caption-text">3rd tier Architecture</p>
+            </div>
+            <h2>Benefits of 3-Tier Architecture</h2>
+            <p dir="ltr">The 3-tier architecture in DBMS provides several benefits, including:</p>
+            <ul>
+            <li value="1"><strong>Scalability:&nbsp;</strong>The architecture separates the application processing and data management layers, which allows for easy scalability of each layer independently.</li>
+            <li value="2"><strong>Flexibility:</strong>&nbsp;The architecture allows for the replacement or upgrade of one layer without affecting the other layers.</li>
+            <li value="3"><strong>Security:&nbsp;</strong>The architecture provides an additional layer of security, as the data management tier can be isolated from the application and presentation tiers, reducing the risk of unauthorized access.</li>
+            </ul>
+            <p dir="ltr">Overall, the 3-tier architecture in DBMS is a flexible, scalable, and secure approach to building modern web applications and enterprise systems. It separates the user interface, application processing, and data management into distinct layers, providing clear boundaries between each layer and improving system performance, reliability, and maintainability.</p>
+            <h2>Conclusion</h2>
+            <p dir="ltr">In conclusion, a<a href="intotoDBMS.html">&nbsp;Database Management System</a>&nbsp;(DBMS) employs the 3-Tier Architecture, a tried-and-true structure that separates an application into three main layers: Presentation, Application Logic, and Data. This architectural technique is increasingly popular for creating dependable and maintainable software systems that communicate with databases because it improves the modularity, scalability, security, reusability, and flexibility of applications.</p>
+            </div>
+            </div>
+            </div>
+            </div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    <div class="article-title">
+        <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>CLR Parser</h1>
+        </div>
+        </div>
+        </div>
+        <div class="text">
+        <p><strong>LR parsers :</strong><br />It is an efficient bottom-up syntax analysis technique that can be used to parse large classes of context-free grammar is called LR(k) parsing.&nbsp;<br />L stands for the left to right scanning<br />R stands for rightmost &nbsp;derivation in reverse<br />k stands for no. of input symbols of lookahead<br />&nbsp;</p>
+        <p><strong>Advantages of LR parsing :</strong></p>
+        <ul>
+        <li>It recognizes virtually &nbsp;all programming language constructs for which CFG can be written</li>
+        <li>It is able to detect syntactic errors</li>
+        <li>It is an efficient non-backtracking shift reducing parsing method.</li>
+        </ul>
+        <p><strong>Types of LR parsing methods :</strong></p>
+        <ol>
+        <li>SLR</li>
+        <li>CLR</li>
+        <li>LALR</li>
+        </ol>
+        <p><strong>CLR Parser :</strong><br />The CLR parser stands for canonical LR parser.It is a more powerful LR parser.It makes use of lookahead symbols. This method uses a large set of items called LR(1) items.The main difference between LR(0) &nbsp;and LR(1) items is that, in LR(1) items, it is possible to carry more information in a state, which will rule out useless reduction states.This extra information is incorporated into the state by the lookahead symbol. The general syntax becomes &nbsp;[A-&gt;&prop;.B, a ]<br />where A-&gt;&prop;.B is the production and a is a terminal or right end marker $<br />LR(1) items=LR(0) items + look ahead</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <p><strong>How to add lookahead with the production?</strong><br /><strong>CASE 1 &ndash;</strong></p>
+        <div>A-&gt;&prop;.BC, a </div>
+        <p>Suppose this is the 0th production.Now, since &lsquo; . &lsquo; divcedes B,so we have to write B&rsquo;s productions as well.</p>
+        <div>B-&gt;.D [1st production]</div>
+        <p>Suppose this is B&rsquo;s production. The look ahead of this production is given as we look at divvious productions ie 0th production. Whatever is after B, we find FIRST(of that value) , that is the lookahead of 1st production.So,here in 0th production, after B, C is there. assume FIRST(C)=d, then 1st production become</p>
+        <div>B-&gt;.D, d</div>
+        <p><strong>CASE 2 &ndash;</strong><br />Now if the 0th production was like this,</p>
+        <div class="gray">A-&gt;&prop;.B, a </div>
+        <p>Here, we can see there&rsquo;s nothing after B. So the lookahead of 0th production will be the lookahead of 1st production. ie-</p>
+        <div class="gray">B-&gt;.D, a</div>
+        <p><strong>CASE 3 &ndash;</strong><br />Assume a production A-&gt;a|b</p>
+        <div class="gray">A-&gt;a,$ [0th production]
+        A-&gt;b,$ [1st production]</div>
+        <p>Here, the 1st production is a part of the divvious production, so the lookahead will be the same as that of its divvious production.<br />These are the 2 rules of look ahead.</p>
+        <p><strong>Steps for constructing CLR parsing table :</strong></p>
+        <ol>
+        <li>Writing augmented grammar</li>
+        <li>LR(1) collection of items to be found</li>
+        <li>Defining 2 functions: goto[list of terminals] and action[list of non-terminals] in the CLR parsing table</li>
+        </ol>
+        <p><strong>EXAMPLE&nbsp;</strong><br /><strong>Construct a CLR parsing table for the given context-free grammar</strong></p>
+        <div class="gray">S--&gt;AA    
+        A--&gt;aA|b</div>
+        <p><strong>Solution :</strong><br /><strong>STEP 1 &ndash;</strong>&nbsp;Find augmented grammar</p>
+        <p>The augmented grammar of the given grammar is:-</p>
+        <div class="gray">S'--&gt;.S ,$   [0th production]    
+        S--&gt;.AA ,$ [1st production]    
+        A--&gt;.aA ,a|b [2nd production]      
+        A--&gt;.b ,a|b [3rd production]</div>
+        <p>Let&rsquo;s apply the rule of lookahead to the above productions</p>
+        <ul>
+        <li>The initial look ahead is always $</li>
+        <li>Now, the 1st production came into existence because of &lsquo; . &lsquo; Before &lsquo;S&rsquo; in 0th production.There is nothing after &lsquo;S&rsquo;, so the lookahead of 0th production will be the lookahead of 1st production. ie: &nbsp;S&ndash;&gt;.AA ,$</li>
+        <li>Now, the 2nd production came into existence because of &lsquo; . &lsquo; Before &lsquo;A&rsquo; in the 1st production.After &lsquo;A&rsquo;, there&rsquo;s &nbsp;&lsquo;A&rsquo;. So, FIRST(A) is a,b<br />Therefore,the look ahead for the 2nd production becomes a|b.</li>
+        <li>Now, the 3rd production is a part of the 2nd production.So, the look ahead will be the same.</li>
+        </ul>
+        <p><strong>STEP 2 &ndash;&nbsp;</strong>Find LR(1) collection of items<br />Below is the figure showing the LR(1) collection of items. We will understand everything one by one.</p>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20210622142046/22.png" width="367" height="247" /></p>
+        <p>The terminals of this grammar are {a,b}<br />The non-terminals of this grammar are {S,A}</p>
+        </div>
+        
+<p><strong>RULE-</strong></p>
+<ol>
+<li>If any non-terminal has &lsquo; . &lsquo; divceding it, we have to write all its production and add &lsquo; . &lsquo; divceding each of its production.</li>
+<li>from each state to the next state, the &lsquo; . &lsquo; shifts to one place to the right.</li>
+<li>All the rules of lookahead apply here.</li>
+</ol>
+<ul>
+<li>In the figure, I0 consists of augmented grammar.</li>
+<li>Io goes to I1 when &nbsp;&lsquo; . &lsquo; of 0th production is shifted towards the right of S(S&rsquo;-&gt;S.). This state is the accept state . S is seen by the compiler. Since I1 is a part of the 0th production, the lookahead is the same ie $</li>
+<li>Io goes to I2 when &nbsp;&lsquo; . &lsquo; of 1st production is shifted towards right (S-&gt;A.A) . A is seen by the compiler. Since I2 is a part of the 1st production, the lookahead is the same i.e. $.</li>
+<li>I0 goes to I3 when &nbsp;&lsquo; . &lsquo; of the 2nd production is shifted towards right (A-&gt;a.A) . a is seen by the compiler. Since I3 is a part of the 2nd production, the lookahead is the same ie a|b.</li>
+<li>I0 goes to I4 when &nbsp;&lsquo; . &lsquo; of the 3rd production is shifted towards right (A-&gt;b.) . b is seen by the compiler. Since I4 is a part of the 3rd production, the lookahead is the same i.e. a | b.</li>
+<li>I2 goes to I5 when &nbsp;&lsquo; . &lsquo; of 1st production is shifted towards right (S-&gt;AA.) . A is seen by the compiler. Since I5 is a part of the 1st production, the lookahead is the same i.e. $.</li>
+<li>I2 goes to I6 when &nbsp;&lsquo; . &lsquo; of 2nd production is shifted towards the right (A-&gt;a.A) . A is seen by the compiler. Since I6 is a part of the 2nd production, the lookahead is the same i.e. $.</li>
+<li>I2 goes to I7 when &nbsp;&lsquo; . &lsquo; of 3rd production is shifted towards right (A-&gt;b.) . A is seen by the compiler. Since I6 is a part of the 3rd production, the lookahead is the same i.e. $.</li>
+<li>I3 goes to I3 when &nbsp;&lsquo; . &lsquo; of the 2nd production is shifted towards right (A-&gt;a.A) . a is seen by the compiler. Since I3 is a part of the 2nd production, the lookahead is the same i.e. a|b.</li>
+<li>I3 goes to I8 when &nbsp;&lsquo; . &lsquo; of 2nd production is shifted towards the right (A-&gt;aA.) . A is seen by the compiler. Since I8 is a part of the 2nd production, the lookahead is the same i.e. a|b.</li>
+<li>I6 goes to I9 when &nbsp;&lsquo; . &lsquo; of 2nd production is shifted towards the right (A-&gt;aA.) . A is seen by the compiler. Since I9 is a part of the 2nd production, the lookahead is the same i.e. $.</li>
+<li>I6 goes to I6 when &nbsp;&lsquo; . &lsquo; of the 2nd production is shifted towards right (A-&gt;a.A) . a is seen by the compiler. Since I6 is a part of the 2nd production, the lookahead is the same i.e. $.</li>
+<li>I6 goes to I7 when &nbsp;&lsquo; . &lsquo; of the 3rd production is shifted towards right (A-&gt;b.) . b is seen by the compiler. Since I6 is a part of the 3rd production, the lookahead is the same ie $.</li>
+</ul>
+<p><strong>STEP 3-&nbsp;</strong>&nbsp;defining 2 functions:goto[list of terminals] and action[list of non-terminals] in the parsing table.Below is the CLR parsing table</p>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20210621160336/CLR.png" width="739" height="332" /></p>
+<ul>
+<li>$ is by default a non terminal which takes accepting state.</li>
+<li>0,1,2,3,4,5,6,7,8,9 denotes I0,I1,I2,I3,I4,I5,I6,I7,I8,I9</li>
+<li>I0 gives A in I2, so 2 is added to the A column and 0 row.</li>
+<li>I0 gives S in I1,so 1 is added to the S column and 1st row.</li>
+<li>similarly &nbsp;5 is written in &nbsp;A column and 2nd &nbsp;row, 8 is written in A column and 3rd row, 9 is written in A column and 6th row.</li>
+<li>I0 gives a in I3, so S3(shift 3) is added to a column and 0 row.</li>
+<li>I0 gives b in I4, so S4(shift 4) is added to the b column and 0 row.</li>
+<li>Similarly, S6(shift 6) is added on &lsquo;a&rsquo; column and 2,6 row ,S7(shift 7) is added on b column and 2,6 row,S3(shift 3) is added on &lsquo;a&rsquo; column and 3 row ,S4(shift 4) is added on b column and 3 row.</li>
+<li>I4 is reduced as &lsquo; . &lsquo; is at the end. I4 is the 3rd production of grammar. So write r3(reduce 3) in lookahead columns. The lookahead of I4 are a and b, so write R3 in a and b column.</li>
+<li>I5 is reduced as &lsquo; . &lsquo; is at the end. I5 is the 1st production of grammar. So write r1(reduce 1) in lookahead columns. The lookahead of I5 is $ so write R1 in $ column.</li>
+<li>Similarly, write R2 in a,b column and 8th row, write R2 in $ column and 9th row.</li>
+</ul>
+
+        </div>
+</body>
+</html>

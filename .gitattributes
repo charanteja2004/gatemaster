@@ -1,0 +1,15 @@
+# Normalise line endings so the repo stays clean across machines.
+* text=auto eol=lf
+
+*.bat       text eol=crlf
+gradlew     text eol=lf
+
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.webp binary
+*.pdf  binary
+*.zip  binary
+*.jar  binary
+*.keystore binary
+*.jks  binary

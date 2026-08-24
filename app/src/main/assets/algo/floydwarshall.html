@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    <h2>Floyd Warshall Algorithm</h2>
+
+    <p>The Floyd-Warshall algorithm, named after its creators Robert Floyd and Stephen Warshall, is a fundamental
+        algorithm in computer science and graph theory. It is used to find the shortest paths between all pairs of nodes
+        in a weighted graph. This algorithm is highly efficient and can handle graphs with both positive and negative
+        edge weights, making it a versatile tool for solving a wide range of network and connectivity problems.</p>
+
+    <h2 id="floyd-warshall-algorithm"><u><strong><strong class="GFGEditorTheme__textUnderline">Floyd Warshall
+                    Algorithm:</strong></strong></u></h2>
+    <blockquote>
+        <p dir="ltr">The&nbsp;<strong>Floyd Warshall Algorithm</strong>&nbsp;is an all pair shortest path algorithm
+            unlike&nbsp;<a href="https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/"
+                rel="">Dijkstra</a>&nbsp;and&nbsp;<a href="https://www.geeksforgeeks.org/bellman-ford-algorithm-dp-23/"
+                rel="">Bellman Ford</a>&nbsp;which are single source shortest path algorithms. This algorithm works for
+            both the&nbsp;<strong>directed</strong>&nbsp;and&nbsp;<strong>undirected weighted</strong>&nbsp;graphs. But,
+            it does not work for the graphs with negative cycles (where the sum of the edges in a cycle is negative). It
+            follows&nbsp;<a
+                href="https://www.geeksforgeeks.org/introduction-to-dynamic-programming-data-structures-and-algorithm-tutorials/"
+                rel="">Dynamic Programming</a>&nbsp;approach to check every possible path going via every possible node
+            in order to calculate shortest distance between every pair of nodes.</p>
+    </blockquote>
+
+    <h2 id="idea-behind-floyd-warshall-algorithm"><u><span class="GFGEditorTheme__textUnderline">Idea Behind Floyd
+                Warshall Algorithm:</span></u></h2>
+    <blockquote>
+        <p dir="ltr">Suppose we have a graph&nbsp;<strong>G[][]&nbsp;</strong>with&nbsp;<strong>V</strong>&nbsp;vertices
+            from&nbsp;<strong>1&nbsp;</strong>to&nbsp;<strong>N</strong>. Now we have to evaluate
+            a&nbsp;<strong>shortestPathMatrix[][]&nbsp;</strong>where
+            s<strong>hortestPathMatrix[i][j]</strong>&nbsp;represents the shortest path between
+            vertices&nbsp;<strong>i</strong>&nbsp;and&nbsp;<strong>j</strong>.</p>
+        <p dir="ltr">Obviously the shortest path
+            between&nbsp;<strong>i&nbsp;</strong>to&nbsp;<strong>j</strong>&nbsp;will have
+            some<strong>&nbsp;k</strong>&nbsp;number of intermediate nodes. The idea behind floyd warshall algorithm is
+            to treat each and every vertex from&nbsp;<strong>1</strong>&nbsp;to&nbsp;<strong>N</strong>&nbsp;as an
+            intermediate node one by one.</p>
+        <p dir="ltr">The following figure shows the above optimal substructure property in floyd warshall algorithm:</p>
+        <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+        <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+        <img src="https://media.geeksforgeeks.org/wp-content/uploads/dpFloyd-Warshall-.jpg" width="350"
+            height="350" />
+    </blockquote>
+    <h2 id="floyd-warshall-algorithm-algorithm"><u><span class="GFGEditorTheme__textUnderline">Floyd Warshall Algorithm
+                Algorithm:</span></u></h2>
+    <ul>
+        <li value="1">Initialize the solution matrix same as the input graph matrix as a first step.&nbsp;</li>
+        <li value="2">Then update the solution matrix by considering all vertices as an intermediate vertex.&nbsp;</li>
+        <li value="3">The idea is to pick all vertices one by one and updates all shortest paths which include the
+            picked vertex as an intermediate vertex in the shortest path.&nbsp;</li>
+        <li value="4">When we pick vertex number&nbsp;<strong>k</strong>&nbsp;as an intermediate vertex, we already have
+            considered vertices&nbsp;<strong>{0, 1, 2, .. k-1}&nbsp;</strong>as intermediate vertices.&nbsp;</li>
+        <li value="5">For every pair<strong>&nbsp;(i, j)</strong>&nbsp;of the source and destination vertices
+            respectively, there are two possible cases.&nbsp;
+            <ul>
+                <li value="1"><strong>k</strong>&nbsp;is not an intermediate vertex in shortest path
+                    from<strong>&nbsp;i&nbsp;</strong>to<strong>&nbsp;j</strong>. We keep the value
+                    of<strong>&nbsp;dist[i][j]&nbsp;</strong>as it is.&nbsp;</li>
+                <li value="2"><strong>k</strong>&nbsp;is an intermediate vertex in shortest path
+                    from&nbsp;<strong>i</strong>&nbsp;to<strong>&nbsp;j</strong>. We update the value
+                    of<strong>&nbsp;dist[i][j]&nbsp;</strong>as&nbsp;<strong>dist[i][k] +
+                        dist[k][j],</strong>&nbsp;if&nbsp;<strong>dist[i][j] &gt; dist[i][k] + dist[k][j]</strong></li>
+            </ul>
+        </li>
+    </ul>
+    <h2 id="pseudocode-of-floyd-warshall-algorithm-"><u><span class="GFGEditorTheme__textUnderline">Pseudo-Code of Floyd
+                Warshall Algorithm :</span></u><u><code></code></u></h2>
+    <blockquote>
+        <p dir="ltr">For k = 0 to n &ndash; 1<br />For i = 0 to n &ndash; 1<br />For j = 0 to n &ndash;
+            1<br />Distance[i, j] = min(Distance[i, j], Distance[i, k] + Distance[k, j])</p>
+        <p dir="ltr">where i = source Node, j = Destination Node, k = Intermediate Node</p>
+    </blockquote>
+    <h2 id="illustration-of-floyd-warshall-algorithm-"><u><span class="GFGEditorTheme__textUnderline">Illustration of
+                Floyd Warshall Algorithm :</span></u></h2>
+    <blockquote>
+        <p dir="ltr">Suppose we have a graph as shown in the image:</p>
+        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20231018105930/dryRun1drawio.png"
+            alt="dryRun1drawio" width="574" height="523" />
+        <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step
+                        1</strong></strong></u><strong>:</strong>&nbsp;Initialize the Distance[][] matrix using the
+            input graph such that Distance[i][j]= weight of edge
+            from<strong>&nbsp;i&nbsp;</strong>to&nbsp;<strong>j</strong>, also Distance[i][j] = Infinity if there is no
+            edge from&nbsp;<strong>i</strong>&nbsp;to&nbsp;<strong>j.</strong></p>
+        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20231018110503/step1drawio.png" alt="step1drawio"
+            width="521" height="361" />
+        <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 2</strong></strong></u>: Treat
+            node&nbsp;<strong>A</strong>&nbsp;as an intermediate node and calculate the Distance[][] for every {i,j}
+            node pair using the formula:</p>
+        <p dir="ltr">= Distance[i][j] = minimum (Distance[i][j], (Distance from i to&nbsp;<strong>A</strong>) +
+            (Distance from&nbsp;<strong>A&nbsp;</strong>to j ))<br />= Distance[i][j] = minimum (Distance[i][j],
+            Distance[i][<strong>A</strong>] + Distance[<strong>A</strong>][j])</p>
+    </blockquote>
+
+    <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231018110522/step2drawio.png" alt="step2drawio"
+            width="721" height="381" /></p>
+    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 3</strong></strong></u>: Treat
+        node&nbsp;<strong>B</strong>&nbsp;as an intermediate node and calculate the Distance[][] for every {i,j} node
+        pair using the formula:</p>
+    <p dir="ltr">= Distance[i][j] = minimum (Distance[i][j], (Distance from i to&nbsp;<strong>B</strong>) + (Distance
+        from&nbsp;<strong>B</strong>&nbsp;to j ))<br />= Distance[i][j] = minimum (Distance[i][j],
+        Distance[i][<strong>B</strong>] + Distance[<strong>B</strong>][j])</p>
+    <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231018110544/step3drawio.png" alt="step3drawio"
+            width="721" height="381" /></p>
+    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 4</strong></strong></u>: Treat
+        node&nbsp;<strong>C&nbsp;</strong>as an intermediate node and calculate the Distance[][] for every {i,j} node
+        pair using the formula:</p>
+    <p dir="ltr">= Distance[i][j] = minimum (Distance[i][j], (Distance from i to&nbsp;<strong>C</strong>) + (Distance
+        from&nbsp;<strong>C&nbsp;</strong>to j ))<br />= Distance[i][j] = minimum (Distance[i][j],
+        Distance[i][<strong>C</strong>] + Distance[<strong>C</strong>][j])</p>
+    <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231018110559/step4drawio.png" alt="step4drawio"
+            width="721" height="381" /></p>
+    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 5</strong></strong></u>: Treat
+        node&nbsp;<strong>D&nbsp;</strong>as an intermediate node and calculate the Distance[][] for every {i,j} node
+        pair using the formula:</p>
+    <p dir="ltr">= Distance[i][j] = minimum (Distance[i][j], (Distance from i to<strong>&nbsp;D</strong>) + (Distance
+        from&nbsp;<strong>D&nbsp;</strong>to j ))<br />= Distance[i][j] = minimum (Distance[i][j],
+        Distance[i][<strong>D</strong>] + Distance[<strong>D</strong>][j])</p>
+    <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231018110612/step5drawio.png" alt="step5drawio"
+            width="721" height="381" /></p>
+    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 6</strong></strong></u>: Treat
+        node&nbsp;<strong>E&nbsp;</strong>as an intermediate node and calculate the Distance[][] for every {i,j} node
+        pair using the formula:</p>
+    <p dir="ltr">= Distance[i][j] = minimum (Distance[i][j], (Distance from i to&nbsp;<strong>E</strong>) + (Distance
+        from&nbsp;<strong>E</strong>&nbsp;to j ))<br />= Distance[i][j] = minimum (Distance[i][j],
+        Distance[i][<strong>E</strong>] + Distance[<strong>E</strong>][j])</p>
+    <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231018110626/step6drawio.png" alt="step6drawio"
+            width="721" height="381" /></p>
+    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 7</strong></strong></u>: Since all the
+        nodes have been treated as an intermediate node, we can now return the updated Distance[][] matrix as our answer
+        matrix.</p>
+    <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231018110639/step7drawio.png" alt="step7drawio"
+            width="641" height="371" /></p>
+
+    Below is the implementation of the above approach:<br>
+
+    <div class="gray"><span class="c1">// C Program for Floyd Warshall Algorithm</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="c1">// Number of vertices in the graph</span>
+<span class="cp">#define V 4</span>
+
+<span class="cm">/* Define Infinite as a large enough</span>
+<span class="cm">  value. This value will be used</span>
+<span class="cm">  for vertices not connected to each other */</span>
+<span class="cp">#define INF 99999</span>
+
+<span class="c1">// A function to print the solution matrix</span>
+<span class="kt">void</span> <span class="nf">printSolution</span><span class="p">(</span><span class="kt">int</span> <span class="n">dist</span><span class="p">[][</span><span class="n">V</span><span class="p">]);</span>
+
+<span class="c1">// Solves the all-pairs shortest path</span>
+<span class="c1">// problem using Floyd Warshall algorithm</span>
+<span class="kt">void</span> <span class="nf">floydWarshall</span><span class="p">(</span><span class="kt">int</span> <span class="n">dist</span><span class="p">[][</span><span class="n">V</span><span class="p">])</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
+
+    <span class="cm">/* Add all vertices one by one to</span>
+<span class="cm">      the set of intermediate vertices.</span>
+<span class="cm">      ---&gt; Before start of an iteration, we</span>
+<span class="cm">      have shortest distances between all</span>
+<span class="cm">      pairs of vertices such that the shortest</span>
+<span class="cm">      distances consider only the</span>
+<span class="cm">      vertices in set {0, 1, 2, .. k-1} as</span>
+<span class="cm">      intermediate vertices.</span>
+<span class="cm">      ----&gt; After the end of an iteration,</span>
+<span class="cm">      vertex no. k is added to the set of</span>
+<span class="cm">      intermediate vertices and the set</span>
+<span class="cm">      becomes {0, 1, 2, .. k} */</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">V</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Pick all vertices as source one by one</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">V</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Pick all vertices as destination for the</span>
+            <span class="c1">// above picked source</span>
+            <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">V</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// If vertex k is on the shortest path from</span>
+                <span class="c1">// i to j, then update the value of</span>
+                <span class="c1">// dist[i][j]</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">dist</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
+                    <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">dist</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</div>
+    <div class="gray"> <span class="c1">// Print the shortest distance matrix</span>
+    <span class="n">printSolution</span><span class="p">(</span><span class="n">dist</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cm">/* A utility function to print solution */</span>
+<span class="kt">void</span> <span class="nf">printSolution</span><span class="p">(</span><span class="kt">int</span> <span class="n">dist</span><span class="p">[][</span><span class="n">V</span><span class="p">])</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span>
+        <span class="s">"The following matrix shows the shortest distances"</span>
+        <span class="s">" between every pair of vertices </span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">V</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">V</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">INF</span><span class="p">)</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"%7s"</span><span class="p">,</span> <span class="s">"INF"</span><span class="p">);</span>
+            <span class="k">else</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"%7d"</span><span class="p">,</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// driver's code</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="cm">/* Let us create the following weighted graph</span>
+<span class="cm">            10</span>
+<span class="cm">       (0)-------&gt;(3)</span>
+<span class="cm">        |         /|\</span>
+<span class="cm">      5 |          |</span>
+<span class="cm">        |          | 1</span>
+<span class="cm">       \|/         |</span>
+<span class="cm">       (1)-------&gt;(2)</span>
+<span class="cm">            3           */</span>
+    <span class="kt">int</span> <span class="n">graph</span><span class="p">[</span><span class="n">V</span><span class="p">][</span><span class="n">V</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="p">{</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">INF</span><span class="p">,</span> <span class="mi">10</span> <span class="p">},</span>
+                        <span class="p">{</span> <span class="n">INF</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">INF</span> <span class="p">},</span>
+                        <span class="p">{</span> <span class="n">INF</span><span class="p">,</span> <span class="n">INF</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="p">},</span>
+                        <span class="p">{</span> <span class="n">INF</span><span class="p">,</span> <span class="n">INF</span><span class="p">,</span> <span class="n">INF</span><span class="p">,</span> <span class="mi">0</span> <span class="p">}</span> <span class="p">};</span>
+
+    <span class="c1">// Function call</span>
+    <span class="n">floydWarshall</span><span class="p">(</span><span class="n">graph</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></div>
+
+
+    <div class="code-output"><br /><strong>Output</strong>
+        <div class="gray">The following matrix shows the shortest distances between every pair of vertices 
+0   5   8   9   
+INF 0   3   4   
+INF INF 0   1   
+INF INF INF 0   
+</div>
+    </div>
+    <h2 id="complexity-analysis-of-floyd-warshall-algorithm"><a
+            href="https://www.geeksforgeeks.org/time-and-space-complexity-of-floyd-warshall-algorithm/" target="_blank"
+            rel="noreferrer noopener"><u><strong><strong class="GFGEditorTheme__textUnderline">Complexity Analysis of
+                        Floyd Warshall Algorithm:</strong></strong></u></a></h2>
+    <ul>
+        <li value="1"><strong>Time Complexity:&nbsp;</strong>O(V<sup>3</sup>), where V is the number of vertices in the
+            graph and we run three nested loops each of size V</li>
+        <li value="2"><strong>Auxiliary Space:&nbsp;</strong>O(V<sup>2</sup>), to create a 2-D matrix in order to store
+            the shortest distance for each pair of nodes.</li>
+    </ul>
+    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Note</strong></strong></u>: The above program
+        only prints the shortest distances. We can modify the solution to print the shortest paths also by storing the
+        predecessor information in a separate 2D matrix.&nbsp;</p>
+    <h2 id="why-floydwarshall-algorithm-better-for-dense-graphs-and-not-for-sparse-graphs"><u><span
+                class="GFGEditorTheme__textUnderline">Why Floyd-Warshall Algorithm better for Dense Graphs and not for
+                Sparse Graphs?</span></u></h2>
+    <blockquote>
+        <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Dense Graph</strong></strong></u>: A graph
+            in which the number of edges are significantly much higher than the number of
+            vertices.<br /><u><strong><strong class="GFGEditorTheme__textUnderline">Sparse Graph</strong></strong></u>:
+            A graph in which the number of edges are very much low.</p>
+        <p dir="ltr">No matter how many edges are there in the graph the&nbsp;<strong>Floyd Warshall
+                Algorithm</strong>&nbsp;runs for O(V<sup>3</sup>) times therefore it is best suited
+            for&nbsp;<strong>Dense graphs</strong>. In the case of sparse graphs,&nbsp;<a
+                href="https://www.geeksforgeeks.org/johnsons-algorithm/" rel=""><strong>Johnson&rsquo;s
+                    Algorithm</strong></a>&nbsp;is more suitable.</p>
+    </blockquote>
+
+    <h2 id="real-world-applications-of-floydwarshall-algorithm"><u><span class="GFGEditorTheme__textUnderline">Real
+                World Applications of Floyd-Warshall Algorithm:</span></u></h2>
+    <ul>
+        <li value="1">In computer networking, the algorithm can be used to find the shortest path between all pairs of
+            nodes in a network. This is termed as&nbsp;<strong>network routing</strong>.</li>
+        <li value="2">Flight Connectivity In the aviation industry to find the shortest path between the airports.</li>
+        <li value="3"><strong>GIS</strong>(<strong>Geographic Information Systems</strong>) applications often involve
+            analyzing spatial data, such as road networks, to find the shortest paths between locations.</li>
+        <li value="4"><a href="https://www.geeksforgeeks.org/kleenes-theorem-in-toc-part-1/" rel="">Kleene&rsquo;s
+                algorithm</a>&nbsp;which is a generalization of floyd warshall, can be used to find regular expression
+            for a regular language.</li>
+    </ul>
+
+
+    <h2>Time and Space Complexity of Floyd Warshall Algorithm</h2>
+
+
+    <p dir="ltr">The&nbsp;<a href="https://www.geeksforgeeks.org/floyd-warshall-algorithm-dp-16/"
+            rel="noreferrer noopener"><strong>Floyd Warshall Algorithm</strong>&nbsp;</a>has a&nbsp;<strong>time
+            complexity</strong>&nbsp;of&nbsp;<strong>O(V</strong><strong><sup>3</sup></strong><strong>)</strong>&nbsp;and
+        a&nbsp;<strong>space
+            complexity</strong>&nbsp;of&nbsp;<strong>O(V</strong><strong><sup>2</sup></strong><strong>)</strong>,
+        where&nbsp;<strong>V</strong>&nbsp;represents the number of vertices in the graph. This algorithm computes the
+        shortest paths between all pairs of vertices in a weighted graph. The time complexity arises from the triple
+        nested loops used to update the<a
+            href="https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/" target="_blank"
+            rel="noopener">&nbsp;shortest path</a>&nbsp;matrix, while the space complexity is determined by the need to
+        store the distances between all pairs of vertices in a 2D array.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Aspect</th>
+                <th>Complexity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Time Complexity</td>
+                <td>O(V<sup>3</sup>)</td>
+            </tr>
+            <tr>
+                <td>Space Complexity</td>
+                <td>O(V<sup>2</sup>)</td>
+            </tr>
+        </tbody>
+    </table>
+    <p dir="ltr">Let&rsquo;s explore the detailed time and space complexity of the&nbsp;<strong>Floyd Warshall
+            Algorithm</strong>:</p>
+    <div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
+    <h2><strong>Time Complexity of Floyd Warshall Algorithm:</strong></h2>
+    <p dir="ltr"><strong>Best Case:&nbsp;O(V</strong><strong><sup>3</sup></strong><strong>)</strong></p>
+    <ul>
+        <li value="1">In the best-case scenario, the algorithm completes all iterations of the nested loops without any
+            relaxation steps needed.</li>
+        <li value="2">This implies that the shortest paths between all pairs of vertices are already determined and no
+            updates are necessary.</li>
+        <li value="3">Because of this, the three nested loops each of which iterates through every vertex&mdash;are the
+            only factors influencing the algorithm&rsquo;s time complexity.</li>
+        <li value="4">With<strong>&nbsp;V&nbsp;</strong>vertices, each loop iterates V times, resulting in a time
+            complexity of<strong>&nbsp;O(V</strong><strong><sup>3</sup></strong><strong>)&nbsp;</strong>for the best
+            case.</li>
+    </ul>
+    <p dir="ltr"><strong>Average Case:&nbsp;O(V</strong><strong><sup>3</sup></strong><strong>)</strong></p>
+
+    <ul>
+        <li value="1">The average-case time complexity of the Floyd-Warshall algorithm is
+            also&nbsp;<strong>O(V</strong><strong><sup>3</sup></strong><strong>).</strong></li>
+        <li value="2">This complexity holds true across various graph structures and densities, as the algorithm&rsquo;s
+            performance primarily depends on the number of vertices and the number of iterations needed to compute
+            shortest paths between all pairs of vertices.</li>
+        <li value="3">The algorithm&rsquo;s inherent nature of iterating through all pairs of vertices and updating
+            distances contributes to the cubic time complexity, regardless of the specific graph characteristics.</li>
+    </ul>
+    <p dir="ltr"><strong>Worst Case:&nbsp;O(V</strong><strong><sup>3</sup></strong><strong>)</strong></p>
+    <ul>
+        <li value="1">Conversely, in the worst-case scenario, the algorithm performs relaxation steps for each pair of
+            vertices during all iterations of the nested loops.</li>
+        <li value="2">This means that the algorithm needs to update distances between vertices multiple times until the
+            shortest paths are determined.</li>
+        <li value="3">Again, the time complexity is determined by the three nested loops, each iterating through all
+            vertices.</li>
+        <li value="4">With<strong>&nbsp;V</strong>&nbsp;vertices, each loop iterates<strong>&nbsp;V</strong>&nbsp;times,
+            resulting in a time complexity
+            of<strong>&nbsp;O(V</strong><strong><sup>3</sup></strong><strong>)</strong>&nbsp;for the worst case as well.
+        </li>
+    </ul>
+    <h2><strong>Auxiliary Space Complexity of Floyd Warshall Algorithm:</strong></h2>
+    <p dir="ltr">The auxiliary space complexity of the&nbsp;<strong>Floyd-Warshall
+            algorithm</strong>&nbsp;is<strong>&nbsp;O(V</strong><strong><sup>2</sup></strong><strong>)</strong>,
+        where&nbsp;<strong>V&nbsp;</strong>is the number of vertices in the graph. To create a 2-D matrix in order to
+        store the shortest distance for each pair of nodes.</p>
+    <p dir="ltr"><strong>Distance Matrix</strong>: Utilizes a 2D array to store shortest distances between all pairs of
+        vertices.</p>
+    <ul>
+        <li value="1">Matrix size:&nbsp;<strong>V x V</strong>, where V is the number of vertices.</li>
+        <li value="2">Each entry represents the shortest distance between two vertices.</li>
+        <li value="3">Space complexity:&nbsp;<strong>O(V</strong><strong><sup>2</sup></strong><strong>)</strong>.</li>
+    </ul>
+    <p dir="ltr"><strong>Additional Variables</strong>: May require supplementary variables for iteration and
+        calculation.</p>
+    <ul>
+        <li value="1">Space occupied by these variables is typically minimal compared to the distance matrix.</li>
+        <li value="2">Doesn&rsquo;t significantly affect overall space complexity.</li>
+    </ul>
+</body>
+</html>

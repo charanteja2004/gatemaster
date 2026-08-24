@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style></head>
+
+<body>
+
+    <div class="article-title">
+        <h1>Properties of Boolean Algebra</h1>
+    </div>
+
+    <div class="text">
+        <p dir="ltr">In this article, we will be going through the Properties or Laws of the Boolean algebra. So first
+            we will start our article by defining what are the properties of Boolean Algebra, and then we will go
+            through what are Boolean Addition and Multiplication. Then we will go through the different properties of
+            Boolean Algebra such as Annulment, Identity law, Idempotent law, etc.</p>
+        <div id="table_of_content">
+            <p>Table of Content</p>
+
+                <li><a
+                        href="#what-are-the-properties-of-boolean-algebra">What
+                        are The Properties of Boolean Algebra?</a></li>
+                <li><a
+                        href="#properties-of-boolean-algebra">Properties
+                        of Boolean Algebra</a></li>
+
+                    <li><a
+                            href="#properties-of-switching-algebra">Properties
+                            of Switching Algebra</a></li>
+                    <li><a href="#annulment-law">Annulment
+                            law</a></li>
+                    <li><a href="#identity-law">Identity
+                            law</a></li>
+                    <li><a href="#idempotent-law">Idempotent
+                            law</a></li>
+                    <li><a href="#complement-law">Complement
+                            law</a></li>
+                    <li><a href="#commutative-law">Commutative
+                            law</a></li>
+                    <li><a href="#associative-law">Associative
+                            law</a></li>
+                    <li><a href="#distributive-law">Distributive
+                            law</a></li>
+                </ul>
+            </ul>
+        </div>
+        <h2 id="what-are-the-properties-of-boolean-algebra">What are the Properties of Boolean Algebra?</h2>
+        <p dir="ltr">The&nbsp;Boolean Algebra&nbsp;uses sets of rules for analyzing digital gates and circuits
+            which are known as Laws or properties of Boolean Algebra. These laws or properties help to simplify complex
+            Boolean expressions by reducing the number of logic gates required for a given operation.</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <p dir="ltr">Variables in the Boolean Algebra are binary which takes only values of either 0 or 1. While
+            expression can be written in an infinite number of variables, each variable can only assume one of these two
+            values. For example, variables labelled as A, B, C, etc., can be utilized to formulate logical expressions
+            such as A + B = C.</p>
+        <h3 id="boolean-addition">Boolean Addition</h3>
+        <p dir="ltr">It is the fundamental operation in Boolean algebra, it is similar to the&nbsp;<a
+                href="logicGates.html" target="_blank" rel="noopener">OR&nbsp;</a>Operation. In
+            digital circuits, it is used to compute the sum term without necessitating the&nbsp;<a
+                href="logicGates.html" target="_blank" rel="noopener">AND&nbsp;</a>operation.
+            The sum term evaluates to true if one or more literals are true, and false if all literals are false. Some
+            of the examples of it are A+B, A&rsquo;+B, A&rsquo;+C&rsquo;.</p>
+        <h3 id="boolean-multiplication">Boolean Multiplication</h3>
+        <p dir="ltr">It is also one of the fundamental operations in Boolean algebra and it is similar to the AND
+            operation. In a digital&nbsp;circuit, it is used to determine the product term, without using the OR operations.
+            The product term evaluates to true only if all literals are true; otherwise, false. Some of the examples of
+            the AND operation are A.C, A.D.E.</p>
+        <h2 id="properties-of-boolean-algebra">Properties of Boolean Algebra</h2>
+        <p dir="ltr">Switching algebra is also known as Boolean Algebra. It is used to analyze digital gates and
+            circuits It is logical to perform a mathematical operation on binary numbers i.e., on &lsquo;0&rsquo; and
+            &lsquo;1&rsquo;. Boolean Algebra contains basic operators like AND, OR, and<a
+                href="logicGates.html" target="_blank" rel="noopener">&nbsp;NOT</a>, etc.
+            Operations are represented by &lsquo;.&rsquo; for AND, and &lsquo;+&rsquo; for OR. Operations can be
+            performed on variables that are represented using capital letters eg &lsquo;A&rsquo;, &lsquo;B&rsquo;
+            etc.&nbsp;</p>
+        <h3 id="properties-of-switching-algebra">Properties of Switching Algebra</h3>
+        <p dir="ltr">The Primary objective of the logic design is to solve the expression to its simplest form. This
+            simplification process is Important to ensure that the final implementation of a logic circuit is as Simple
+            as possible. By reducing complexity, we can increase efficiency and ease of implementation and making the
+            overall design process more simple.</p>
+        <h3 id="annulment-law"><strong>Annulment law</strong></h3>
+        <p dir="ltr">a variable ANDed with 0 gives 0, while a variable ORed with 1 gives 1, i.e.,&nbsp;</p>
+        <div class="gray">
+            <p dir="ltr"><strong>A.0 = 0&nbsp;</strong></p>
+            <p dir="ltr"><strong>A + 1 = 1&nbsp;</strong></p>
+        </div>
+        <h3 id="identity-law"><strong>Identity law</strong></h3>
+        <p dir="ltr">In this law variable remains unchanged it is ORed with &lsquo;0&rsquo; or ANDed with
+            &lsquo;1&rsquo;, i.e.,&nbsp;</p>
+        <div class="gray">
+            <p dir="ltr"><strong>A.1 = A&nbsp;</strong></p>
+            <p dir="ltr"><strong>A + 0 = A&nbsp;</strong></p>
+        </div>
+        <h3 id="idempotent-law"><strong>Idempotent law</strong></h3>
+        <p dir="ltr">A variable remains unchanged when it is ORed or ANDed with itself, i.e.,&nbsp;</p>
+        <div class="gray">
+            <p dir="ltr"><strong>A + A = A&nbsp;</strong></p>
+            <p dir="ltr"><strong>A.A = A&nbsp;</strong></p>
+        </div>
+        <h3 id="complement-law"><strong>Complement law</strong></h3>
+        <p dir="ltr">In this Law if a complement is added to a variable it gives one, if a variable is multiplied with
+            its complement it results in &lsquo;0&rsquo;, i.e.,&nbsp;</p>
+        <div class="gray">
+            <p dir="ltr"><strong>A + A&rsquo; = 1&nbsp;</strong></p>
+            <p dir="ltr"><strong>A.A&rsquo; = 0&nbsp;</strong></p>
+        </div>
+        <h3 id="double-negation-law"><strong>Double Negation Law</strong></h3>
+        <p dir="ltr">A variable with two negations, its symbol gets cancelled out and original variable is obtained,
+            i.e.,&nbsp;</p>
+        <div class="gray">
+            <p dir="ltr"><strong>((A)&rsquo;)&rsquo;=A&nbsp;</strong></p>
+        </div>
+        <h3 id="commutative-law"><strong>Commutative law</strong></h3>
+        <p dir="ltr">A variable order does not matter in this law, i.e.,&nbsp;</p>
+        <div class="gray">
+            <p dir="ltr"><strong>A + B = B + A&nbsp;</strong></p>
+            <p dir="ltr"><strong>A.B = B.A&nbsp;</strong></p>
+        </div>
+        <p dir="ltr">&nbsp;</p>
+        <div class="article-title">
+            <h3 id="associative-law"><strong>Associative law</strong></h3>
+            <p dir="ltr">The order of operation does not matter if the priority of variables are the same like
+                &lsquo;*&rsquo; and &lsquo;/&rsquo;, i.e.,&nbsp;</p>
+            <div class="gray">
+                <p dir="ltr"><strong>A+(B+C) = (A+B)+C&nbsp;</strong></p>
+                <p dir="ltr"><strong>A.(B.C) = (A.B).C&nbsp;</strong></p>
+            </div>
+            <h3 id="distributive-law"><strong>Distributive law</strong></h3>
+            <p dir="ltr">This law governs the opening up of brackets, i.e.,&nbsp;</p>
+            <div class="gray">
+                <p dir="ltr"><strong>A.(B+C) = (A.B)+(A.C)</strong></p>
+                <p dir="ltr"><strong>(A+B)(A+C) = A + BC&nbsp;</strong></p>
+            </div>
+            <h3 id="absorption-law"><strong>Absorption law</strong></h3>
+            <p dir="ltr">This law involved absorbing similar variables, i.e.,&nbsp;</p>
+            <p dir="ltr"><strong>A.(A+B) = A&nbsp;A + AB</strong></p>
+            <p dir="ltr"><strong>A.(A+B) = A A+ A&rsquo;B</strong></p>
+            <p dir="ltr"><strong>A.(A+B) = A+B A(A&rsquo; + B)</strong></p>
+            <p dir="ltr"><strong>A.(A+B) = AB</strong></p>
+            <h3 id="de-morgan-law"><strong>De Morgan law</strong></h3>
+            <p dir="ltr">In&nbsp;Demorgan law, the operation of an AND or OR logic circuit is unchanged if all inputs
+                are inverted, the operator is changed from AND to OR, and the output is inverted, i.e.,&nbsp;</p>
+            <p dir="ltr">(A.B)&rsquo; = A&rsquo; + B&rsquo;&nbsp;(A+B)&rsquo; = A&rsquo;.B&rsquo;</p>
+            <div class="gray">
+                <p dir="ltr"><strong>Consensus theorem</strong></p>
+                <p dir="ltr"><strong>AB + A&rsquo;C + BC = AB + A&rsquo;C</strong></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

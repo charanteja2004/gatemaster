@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    <h2>Asymptotic Notations</h2>
+
+    <p dir="ltr"><strong>Asymptotic Notations:</strong></p>
+    <ul>
+        <li value="1">Asymptotic Notations are mathematical tools used to analyze the performance of algorithms by
+            understanding how their efficiency changes as the input size grows.</li>
+        <li value="2">These notations provide a concise way to express the behavior of an algorithm&rsquo;s time or
+            space complexity as the input size approaches infinity.</li>
+        <li value="3">Rather than comparing algorithms directly, asymptotic analysis focuses on understanding the
+            relative growth rates of algorithms&rsquo; complexities.</li>
+        <li value="4">It enables comparisons of algorithms&rsquo; efficiency by abstracting away machine-specific
+            constants and implementation details, focusing instead on fundamental trends.</li>
+        <li value="5">Asymptotic analysis allows for the comparison of algorithms&rsquo; space and time complexities by
+            examining their performance characteristics as the input size varies.</li>
+        <li value="6">By using asymptotic notations, such as Big O, Big Omega, and Big Theta, we can categorize
+            algorithms based on their worst-case, best-case, or average-case time or space complexities, providing
+            valuable insights into their efficiency.</li>
+    </ul>
+    <blockquote>
+        <p dir="ltr"><strong>There are mainly three asymptotic notations:</strong></p>
+        <ol>
+            <li value="1"><strong>Big-O Notation (O-notation)</strong></li>
+            <li value="2"><strong>Omega Notation (&Omega;-notation)</strong></li>
+            <li value="3"><strong>Theta Notation (&Theta;-notation)</strong></li>
+        </ol>
+    </blockquote>
+    <h2><u><span class="GFGEditorTheme__textUnderline">1. Theta Notation (&Theta;-Notation)</span></u>:</h2>
+    <blockquote>
+        <p dir="ltr">Theta notation encloses the function from above and below. Since it represents the upper and the
+            lower bound of the running time of an algorithm, it is used for analyzing
+            the&nbsp;<strong>average-case</strong>&nbsp;complexity of an algorithm.</p>
+    </blockquote>
+    <blockquote>
+        <p dir="ltr">Theta (Average Case) You add the running times for each possible input combination and take the
+            average in the average case.</p>
+    </blockquote>
+    <p dir="ltr">Let g and f be the function from the set of natural numbers to itself. The function f is said to be
+        &Theta;(g), if there are constants c1, c2 &gt; 0 and a natural number n0 such that c1* g(n) &le; f(n) &le; c2 *
+        g(n) for all n &ge; n0</p>
+    <div class="wp-caption alignnone"><img
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20220822015828/thetanotation.png" width="350"
+            height="350" />
+        <p class="wp-caption-text">Theta notation</p>
+    </div>
+    <h3><strong>Mathematical Representation of Theta notation:</strong></h3>
+    <blockquote>
+        <p dir="ltr">&Theta; (g(n)) = {f(n): there exist positive constants c1, c2 and n0 such that 0 &le; c1 * g(n)
+            &le; f(n) &le; c2 * g(n) for all n &ge; n0}</p>
+        <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+        <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+        <p dir="ltr"><strong>Note:</strong>&nbsp;&Theta;(g) is a set</p>
+    </blockquote>
+    <p dir="ltr">The above expression can be described as if f(n) is theta of g(n), then the value f(n) is always
+        between c1 * g(n) and c2 * g(n) for large values of n (n &ge; n0). The definition of theta also requires that
+        f(n) must be non-negative for values of n greater than n0.</p>
+    <p dir="ltr"><strong>The execution time serves as both a lower and upper bound on the algorithm&rsquo;s time
+            complexity.&nbsp;</strong></p>
+    <p dir="ltr"><strong>It exist as both, most, and least boundaries for a given input value.</strong></p>
+    <p dir="ltr">A simple way to get the Theta notation of an expression is to drop low-order terms and ignore leading
+        constants. For example<strong>,</strong>&nbsp;Consider the
+        expression&nbsp;<strong>3n</strong><strong><sup>3</sup></strong><strong>&nbsp;+
+            6n</strong><strong><sup>2</sup></strong><strong>&nbsp;+ 6000 =
+            &Theta;(n</strong><strong><sup>3</sup></strong><strong>)</strong>,&nbsp;the dropping lower order terms is
+        always fine because there will always be a number(n) after which &Theta;(n<sup>3</sup>) has higher values
+        than<strong>&nbsp;</strong>&Theta;(n<sup>2</sup>) irrespective of the constants involved.&nbsp;For a given
+        function g(n), we denote &Theta;(g(n)) is following set of functions.&nbsp;</p>
+    <p dir="ltr"><strong>Examples :</strong></p>
+
+    <blockquote>
+        <p dir="ltr">{ 100 , log (2000) , 10^4 } belongs to&nbsp;<strong>&Theta;(1)</strong><br />{ (n/4) , (2n+3) ,
+            (n/100 + log(n)) } belongs to&nbsp;<strong>&Theta;(n)</strong><br />{ (n^2+n) , (2n^2) , (n^2+log(n))}
+            belongs to&nbsp;<strong>&Theta;( n</strong><strong><sup>2</sup></strong><strong>)</strong></p>
+        <p dir="ltr"><strong>Note: &Theta; provides exact bounds.</strong></p>
+    </blockquote>
+    <h2><u><strong><strong class="GFGEditorTheme__textUnderline">2. Big-O Notation
+                    (O-notation)</strong></strong></u><strong>:</strong></h2>
+    <blockquote>
+        <p dir="ltr">Big-O notation represents the upper bound of the running time of an algorithm. Therefore, it gives
+            the worst-case complexity of an algorithm.</p>
+        <p dir="ltr">.It is the most widely used notation for Asymptotic analysis.<br />.It specifies the upper bound of
+            a function.<br />.The maximum time required by an algorithm or the worst-case time complexity.<br />.It
+            returns the highest possible output value(big-O) for a given input.<br />.Big-Oh(Worst Case) It is defined
+            as the condition that allows an algorithm to complete statement execution in the longest amount of time
+            possible.<br />&nbsp;</p>
+    </blockquote>
+    <p dir="ltr">If f(n) describes the running time of an algorithm, f(n) is O(g(n)) if there exist a positive constant
+        C and n0 such that, 0 &le; f(n) &le; cg(n) for all n &ge; n0</p>
+    <p dir="ltr"><strong>It returns the highest possible output value (big-O)for a given input.</strong></p>
+    <p dir="ltr"><strong>The execution time serves as an upper bound on the algorithm&rsquo;s time complexity.</strong>
+    </p>
+    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/AlgoAnalysis-2.png" alt="BigO"
+            width="350" height="350" /></p>
+    <h3><strong>Mathematical Representation of Big-O Notation:</strong></h3>
+    <blockquote>
+        <p dir="ltr">O(g(n)) = { f(n): there exist positive constants c and n0 such that 0 &le; f(n) &le; cg(n) for all
+            n &ge; n0 }</p>
+    </blockquote>
+    <p dir="ltr">For example<strong>,</strong>&nbsp;Consider the case of&nbsp;<a
+            href="http://www.geeksforgeeks.org/insertion-sort/">Insertion Sort</a>. It takes linear time in the best
+        case and quadratic time in the worst case. We can safely say that the time complexity of the Insertion sort is
+        O(n<sup>2</sup>).&nbsp;<br /><strong>Note</strong>: O(n<sup>2</sup>) also covers linear time.&nbsp;</p>
+    <div id="GFG_AD_gfg_outstream_incontent-1">&nbsp;</div>
+    <p dir="ltr">If we use &Theta; notation to represent the time complexity of Insertion sort, we have to use two
+        statements for best and worst cases:&nbsp;</p>
+    <ul>
+        <li value="1">The worst-case time complexity of Insertion Sort is &Theta;(n<sup>2</sup>).</li>
+        <li value="2">The best case time complexity of Insertion Sort is &Theta;(n).&nbsp;</li>
+    </ul>
+    <p dir="ltr">The Big-O notation is useful when we only have an upper bound on the time complexity of an algorithm.
+        Many times we easily find an upper bound by simply looking at the algorithm.&nbsp;&nbsp;</p>
+    <p dir="ltr">&nbsp;<strong>Examples :</strong></p>
+    <blockquote>
+        <p dir="ltr">{ 100 , log (2000) , 10^4 } belongs to&nbsp;<strong>O(1)</strong><br /><strong>U&nbsp;</strong>{
+            (n/4) , (2n+3) , (n/100 + log(n)) } belongs to&nbsp;<strong>O(n)</strong><br /><strong>U</strong>&nbsp;{
+            (n^2+n) , (2n^2) , (n^2+log(n))} belongs to<strong>&nbsp;O( n^2)&nbsp;</strong></p>
+        <p dir="ltr"><strong>Note:</strong>&nbsp;Here,<strong>&nbsp;U represents union</strong>, we can write it in
+            these manner because<strong>&nbsp;O provides exact or upper bounds .</strong></p>
+    </blockquote>
+
+
+    <h2><u><span class="GFGEditorTheme__textUnderline">3. Omega Notation (&Omega;-</span></u><u><strong><strong
+                    class="GFGEditorTheme__textUnderline">Notation)</strong></strong></u><strong>:</strong></h2>
+    <blockquote>
+        <p dir="ltr">Omega notation represents the lower bound of the running time of an algorithm. Thus, it provides
+            the best case complexity of an algorithm.</p>
+    </blockquote>
+    <p dir="ltr"><strong>The execution time serves as a lower bound on the algorithm&rsquo;s time complexity.</strong>
+    </p>
+    <p dir="ltr"><strong>It is defined as the condition that allows an algorithm to complete statement execution in the
+            shortest amount of time.</strong></p>
+    <p dir="ltr">Let g and f be the function from the set of natural numbers to itself. The function f is said to be
+        Ω(g), if there is a constant c &gt; 0 and a natural number n0 such that c*g(n) &le; f(n) for all n &ge; n0</p>
+    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/AlgoAnalysis-3.png" alt="BigOmega"
+            width="350" height="350" /></p>
+
+    <h3><strong>Mathematical Representation of Omega notation :</strong></h3>
+    <blockquote>
+        <p dir="ltr">&Omega;(g(n)) = { f(n): there exist positive constants c and n0 such that 0 &le; cg(n) &le; f(n)
+            for all n &ge; n0 }</p>
+    </blockquote>
+    <p dir="ltr">Let us consider the same Insertion sort example here. The time complexity of Insertion Sort can be
+        written as &Omega;(n), but it is not very useful information about insertion sort, as we are generally
+        interested in worst-case and sometimes in the average case.&nbsp;</p>
+    <p dir="ltr"><strong>Examples :</strong></p>
+    <blockquote>
+        <p dir="ltr">{ (n^2+n) , (2n^2) , (n^2+log(n))} belongs to&nbsp;<strong>&Omega;(
+                n^2)</strong><br /><strong>U</strong>&nbsp;{ (n/4) , (2n+3) , (n/100 + log(n)) } belongs
+            to&nbsp;<strong>&Omega;(n)</strong><br /><strong>U&nbsp;</strong>{ 100 , log (2000) , 10^4 } belongs
+            to&nbsp;<strong>&Omega;(1)</strong></p>
+        <p dir="ltr"><strong>Note:</strong>&nbsp;Here,&nbsp;<strong>U represents union,</strong>&nbsp;we can write it in
+            these manner because&nbsp;<strong>&Omega; provides exact or lower bounds.</strong></p>
+    </blockquote>
+    <h2><strong>Properties of Asymptotic Notations:</strong>&nbsp;</h2>
+    <h3><strong>1. General Properties:</strong></h3>
+    <p dir="ltr">
+        If&nbsp;<strong>f(n)</strong>&nbsp;is&nbsp;<strong>O(g(n))</strong>&nbsp;then&nbsp;<strong>a*f(n)</strong>&nbsp;is
+        also&nbsp;<strong>O(g(n))</strong>, where&nbsp;<strong>a</strong>&nbsp;is a constant.</p>
+    <p dir="ltr"><strong>Example:</strong></p>
+    <blockquote>
+        <p dir="ltr">f(n) = 2n&sup2;+5 is O(n&sup2;)&nbsp;<br />then, 7*f(n) = 7(2n&sup2;+5)&nbsp;= 14n&sup2;+35 is also
+            O(n&sup2;).</p>
+        <p dir="ltr">Similarly, this property satisfies both &Theta; and &Omega; notation.</p>
+    </blockquote>
+    <p dir="ltr"><strong>We can say,</strong></p>
+    <div id="GFG_AD_gfg_outstream_incontent-3" data-google-query-id="CKCZ6dX_noYDFRtLnQkdi48DMw">
+        <div id="google_ads_iframe_/27823234/gfg_outstream_incontent_5_0__container__">&nbsp;</div>
+    </div>
+    <blockquote>
+        <p dir="ltr">If f(n) is &Theta;(g(n)) then a*f(n) is also &Theta;(g(n)), where a is a constant.&nbsp;<br />If
+            f(n) is &Omega; (g(n)) then a*f(n) is also &Omega; (g(n)), where a is a constant.</p>
+    </blockquote>
+    <h3><strong>2. Transitive Properties:</strong></h3>
+    <p dir="ltr">
+        If&nbsp;<strong>f(n)</strong>&nbsp;is<strong>&nbsp;O(g(n))</strong>&nbsp;and&nbsp;<strong>g(n)</strong>&nbsp;is&nbsp;<strong>O(h(n))</strong>&nbsp;then&nbsp;<strong>f(n)
+            = O(h(n))</strong>.</p>
+    <p dir="ltr"><strong>Example:</strong></p>
+    <blockquote>
+        <p dir="ltr">If f(n) = n, g(n) = n&sup2; and h(n)=n&sup3;<br />n is O(n&sup2;) and n&sup2; is O(n&sup3;) then, n
+            is O(n&sup3;)</p>
+        <p dir="ltr">Similarly, this property satisfies both &Theta; and &Omega; notation.</p>
+    </blockquote>
+    <p dir="ltr"><strong>We can say,</strong></p>
+    <blockquote>
+        <p dir="ltr">If f(n) is &Theta;(g(n)) and g(n) is &Theta;(h(n)) then f(n) = &Theta;(h(n)) .<br />If f(n) is
+            &Omega; (g(n)) and g(n) is &Omega; (h(n)) then f(n) = &Omega; (h(n))</p>
+    </blockquote>
+    <h3><strong>3. Reflexive Properties</strong>:&nbsp;</h3>
+    <p dir="ltr">Reflexive properties are always easy to understand after transitive.<br />If f(n) is given then f(n) is
+        O(f(n)). Since&nbsp;<em><em class="GFGEditorTheme__textItalic">MAXIMUM VALUE OF f(n) will be f(n)
+                ITSELF!</em></em><br />Hence x = f(n) and y = O(f(n) tie themselves in reflexive relation always.</p>
+    <p dir="ltr"><strong>Example:</strong></p>
+    <blockquote>
+        <p dir="ltr">f(n) = n&sup2; ; O(n&sup2;) i.e O(f(n))<br />Similarly, this property satisfies both &Theta; and
+            &Omega; notation. &nbsp;</p>
+    </blockquote>
+
+    <p dir="ltr"><strong>We can say that,</strong></p>
+    <blockquote>
+        <p dir="ltr">If f(n) is given then f(n) is &Theta;(f(n)).<br />If f(n) is given then f(n) is &Omega; (f(n)).</p>
+    </blockquote>
+    <h3><strong>4. Symmetric Properties:&nbsp;</strong></h3>
+    <p dir="ltr">
+        If&nbsp;<strong>f(n)</strong>&nbsp;is&nbsp;<strong>&Theta;(g(n))&nbsp;</strong>then&nbsp;<strong>g(n)</strong>&nbsp;is<strong>&nbsp;&Theta;(f(n))</strong>.
+    </p>
+    <p dir="ltr"><strong>Example:</strong></p>
+    <blockquote>
+        <p dir="ltr">If(n) = n&sup2; and g(n) = n&sup2;<br />then, f(n) = &Theta;(n&sup2;) and g(n) = &Theta;(n&sup2;)
+        </p>
+        <p dir="ltr">This property only satisfies for &Theta; notation.</p>
+    </blockquote>
+    <h3><strong>5. Transpose Symmetric Properties:</strong></h3>
+    <p dir="ltr">
+        If&nbsp;<strong>f(n)</strong>&nbsp;is&nbsp;<strong>O(g(n))</strong>&nbsp;then&nbsp;<strong>g(n)</strong>&nbsp;is<strong>&nbsp;&Omega;
+            (f(n))</strong>.</p>
+    <p dir="ltr"><strong>Example:</strong></p>
+    <blockquote>
+        <p dir="ltr">If(n) = n , g(n) = n&sup2;<br />then n is O(n&sup2;) and n&sup2; is &Omega; (n)&nbsp;</p>
+        <p dir="ltr"><em><em class="GFGEditorTheme__textItalic">This property only satisfies O and &Omega;
+                    notations.</em></em></p>
+    </blockquote>
+    <h3><strong>6. Some More Properties:&nbsp;</strong></h3>
+    <p dir="ltr">1. If&nbsp;<strong>f(n) = O(g(n))</strong>&nbsp;and&nbsp;<strong>f(n) =
+            &Omega;(g(n))</strong>&nbsp;then&nbsp;<strong>f(n) = &Theta;(g(n))</strong><br />2. If<strong>&nbsp;f(n) =
+            O(g(n))</strong>&nbsp;and&nbsp;<strong>d(n)=O(e(n))&nbsp;</strong>then<strong>&nbsp;f(n) + d(n) = O( max(
+            g(n), e(n) ))&nbsp;</strong></p>
+    <div id="GFG_AD_gfg_outstream_incontent-5" data-google-query-id="CKKZ6dX_noYDFRtLnQkdi48DMw">
+        <div id="google_ads_iframe_/27823234/gfg_outstream_incontent_6_0__container__">&nbsp;</div>
+    </div>
+    <p dir="ltr"><strong>Example:</strong></p>
+    <blockquote>
+        <p dir="ltr">f(n) = n i.e O(n)&nbsp;<br />d(n) = n&sup2; i.e O(n&sup2;)&nbsp;<br />then f(n) + d(n) = n +
+            n&sup2; i.e O(n&sup2;)</p>
+    </blockquote>
+    <p dir="ltr">3.
+        If&nbsp;<strong>f(n)=O(g(n))</strong>&nbsp;and&nbsp;<strong>d(n)=O(e(n))&nbsp;</strong>then&nbsp;<strong>f(n) *
+            d(n) = O( g(n) * e(n))</strong></p>
+    <p dir="ltr"><strong>Example:&nbsp;</strong></p>
+    <blockquote>
+        <p dir="ltr">f(n) = n i.e O(n)&nbsp;<br />d(n) = n&sup2; i.e O(n&sup2;)<br />then f(n) * d(n) = n * n&sup2; =
+            n&sup3; i.e
+            O(n&sup3;)<br /><strong>_______________________________________________________________________________</strong><br /><strong>Note:&nbsp;</strong>If
+            &nbsp;f(n) = O(g(n)) then g(n) = &Omega;(f(n)) &nbsp;</p>
+    </blockquote>
+
+    <h2>Popular Notations in Complexity Analysis of Algorithms</h2>
+    <h3><strong>1. Big-O Notation</strong></h3>
+    <p dir="ltr">We define an algorithm&rsquo;s&nbsp;<strong>worst-case</strong>&nbsp;time complexity by using the Big-O
+        notation, which determines the set of functions grows slower than or at the same rate as the expression.
+        Furthermore, it explains the maximum amount of time an algorithm requires to consider all input values.</p>
+    <div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
+    <h3><strong>2. Omega Notation</strong></h3>
+    <p dir="ltr">It defines the<strong>&nbsp;best case</strong>&nbsp;of an algorithm&rsquo;s time complexity, the Omega
+        notation defines whether the set of functions will grow faster or at the same rate as the expression.
+        Furthermore, it explains the minimum amount of time an algorithm requires to consider all input values.</p>
+    <h3><strong>3. Theta Notation</strong></h3>
+    <p dir="ltr">It defines the&nbsp;<strong>average case</strong>&nbsp;of an algorithm&rsquo;s time complexity, the
+        Theta notation defines when the set of functions lies in
+        both&nbsp;<strong>O(expression)</strong>&nbsp;and&nbsp;<strong>Omega(expression)</strong>, then Theta notation
+        is used. This is how we define a time complexity average case for an algorithm.&nbsp;</p>
+
+    <h2>Measurement of Complexity of an Algorithm</h2>
+    <p dir="ltr">Based on the above three notations of Time Complexity there are three cases to analyze an algorithm:
+    </p>
+    <h3><strong>1. Worst Case Analysis (Mostly used)</strong>&nbsp;</h3>
+    <p dir="ltr">In the worst-case analysis, we calculate the upper bound on the running time of an algorithm. We must
+        know the case that causes a maximum number of operations to be executed. For Linear Search, the worst case
+        happens when the element to be searched (x) is not present in the array. When x is not present, the
+        search()<strong>&nbsp;</strong>function compares it with all the elements of arr[] one by one. Therefore, the
+        worst-case time complexity of the linear search would be&nbsp;<strong>O(n)</strong>.</p>
+    <h3><strong>2. Best Case Analysis (Very Rarely used)&nbsp;</strong></h3>
+    <p dir="ltr">In the best-case analysis, we calculate the lower bound on the running time of an algorithm. We must
+        know the case that causes a minimum number of operations to be executed. In the linear search problem, the best
+        case occurs when x is present at the first location. The number of operations in the best case is constant (not
+        dependent on n). So time complexity in the best case would be ?(1)&nbsp;</p>
+    <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+    <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+    <h3><strong>3. Average Case Analysis (Rarely used)&nbsp;</strong></h3>
+    <p dir="ltr">In&nbsp;<a href="https://www.geeksforgeeks.org/average/" target="_blank"
+            rel="noopener">average&nbsp;</a>case analysis, we take all possible inputs and calculate the computing time
+        for all of the inputs. Sum all the calculated values and divide the sum by the total number of inputs. We must
+        know (or predict) the distribution of cases. For the linear search problem, let us assume that all cases
+        are&nbsp;<a href="http://en.wikipedia.org/wiki/Uniform_distribution_%28discrete%29" target="_blank"
+            rel="noopener noreferrer nofollow">uniformly distributed</a>&nbsp;(including the case of x not being present
+        in the array). So we sum all the cases and divide the sum by (n+1). Following is the value of average-case time
+        complexity.&nbsp;<br />&nbsp;</p>
+    <blockquote>
+        <p dir="ltr">Average Case Time = \sum_{i=1}^{n}\frac{\theta (i)}{(n+1)} = \frac{\theta
+            (\frac{(n+1)*(n+2)}{2})}{(n+1)} = \theta (n)</p>
+    </blockquote>
+    <h2>Which Complexity analysis is generally used?</h2>
+    <p dir="ltr">Below is the ranked mention of complexity analysis notation based on popularity:</p>
+    <h3><strong>1. Worst Case Analysis:&nbsp;</strong></h3>
+    <p dir="ltr">Most of the time, we do worst-case analyses to analyze algorithms. In the worst analysis, we guarantee
+        an upper bound on the running time of an algorithm which is good information.&nbsp;</p>
+    <h3><strong>2. Average Case Analysis&nbsp;</strong></h3>
+    <p dir="ltr">The average case analysis is not easy to do in most practical cases and it is rarely done. In
+        the&nbsp;<a href="https://www.geeksforgeeks.org/average/" target="_blank" rel="noopener">average&nbsp;</a>case
+        analysis, we must know (or predict) the mathematical distribution of all possible inputs.&nbsp;</p>
+    <h3><strong>3. Best Case Analysis&nbsp;</strong></h3>
+    <p dir="ltr">The Best Case analysis is bogus. Guaranteeing a lower bound on an algorithm doesn&rsquo;t provide any
+        information as in the worst case, an algorithm may take years to run.</p>
+    <div id="GFG_AD_gfg_outstream_incontent" data-google-query-id="CMu7t5KBn4YDFRJjnQkdHiEJXw">&nbsp;</div>
+    <h3>Interesting information about asymptotic notations:</h3>
+    <blockquote>
+        <p dir="ltr">A) For some algorithms, all the cases (worst, best, average) are asymptotically the same. i.e.,
+            there are no worst and best cases.&nbsp;</p>
+        <ul>
+            <li value="1"><strong>Example: &nbsp;</strong><a href="http://en.wikipedia.org/wiki/Merge_sort"
+                    target="_blank" rel="noopener noreferrer nofollow">Merge Sort</a>&nbsp;does ?(n log(n)) operations
+                in all cases.</li>
+        </ul>
+        <p dir="ltr">B) Where as most of the other sorting algorithms have worst and best cases.&nbsp;</p>
+        <ul>
+            <li value="1"><strong>Example 1:&nbsp;</strong>In the typical implementation of&nbsp;<a
+                    href="http://www.geeksforgeeks.org/quick-sort/">Quick Sort&nbsp;</a>(where pivot is chosen as a
+                corner element), the worst occurs when the input array is already sorted and the best occurs when the
+                pivot elements always divide the array into two halves.</li>
+            <li value="2"><strong>Example 2:&nbsp;</strong>For insertion sort, the worst case occurs when the array is
+                reverse sorted and the best case occurs when the array is sorted in the same order as output.</li>
+        </ul>
+    </blockquote>
+    <h2>Examples with their complexity analysis:</h2>
+    <h3><strong>1. Linear search algorithm:</strong></h3>
+
+
+    <div class="codeblock-container" data-mode="light">
+        <div class="code-container">
+            <div class="code-box">
+                <div id="slot-panel" class="gfg-code"><code class="language-c"></code>
+                    <div class="highlight">
+                        <div class="gray"><span class="o">//</span> <span class="n">C</span> <span class="n">implementation</span> <span class="n">of</span> <span class="n">the</span> <span class="n">approach</span>
+<span class="c1">#include &lt;stdio.h&gt;</span>
+
+<span class="o">//</span> <span class="n">Linearly</span> <span class="n">search</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">[]</span><span class="o">.</span>
+<span class="o">//</span> <span class="n">If</span> <span class="n">x</span> <span class="ow">is</span> <span class="n">present</span> <span class="n">then</span> <span class="k">return</span> <span class="n">the</span> <span class="n">index</span><span class="p">,</span>
+<span class="o">//</span> <span class="n">otherwise</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+<span class="nb">int</span> <span class="n">search</span><span class="p">(</span><span class="nb">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="nb">int</span> <span class="n">n</span><span class="p">,</span> <span class="nb">int</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nb">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">i</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">/*</span> <span class="n">Driver</span><span class="s1">'s code*/</span>
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nb">int</span> <span class="n">arr</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">15</span> <span class="p">};</span>
+    <span class="nb">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">/</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+
+    <span class="o">//</span> <span class="n">Function</span> <span class="n">call</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">"</span><span class="si">%d</span><span class="s2"> is present at index </span><span class="si">%d</span><span class="s2">"</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
+           <span class="n">search</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">));</span>
+
+    <span class="n">getchar</span><span class="p">();</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</div>
+                    </div>
+                </div>
+            </div>
+            <div id="code-output-box" class="code-output-box">
+                <div class="editor-buttons w-56 output-box" title="Close Output">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+    <div class="code-output"><br /><strong>Output</strong>
+        <div class="gray">30 is present at index 2</div>
+    </div>
+
+
+    <p dir="ltr"><strong>Time Complexity Analysis: (In Big-O notation)</strong></p>
+    <ul>
+        <li value="1"><strong>Best Case:&nbsp;</strong>O(1),<strong>&nbsp;</strong>This will take place if the element
+            to be searched is on the first index of the given list. So, the number of comparisons, in this case, is 1.
+        </li>
+        <li value="2"><strong>Average Case:&nbsp;</strong>O(n), This will take place if the element to be searched is on
+            the middle index of the given list.</li>
+        <li value="3"><strong>Worst Case:&nbsp;</strong>O(n), This will take place if:
+            <ul>
+                <li value="1">The element to be searched is on the last index</li>
+                <li value="2">The element to be searched is not present on the list</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>

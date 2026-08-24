@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Applications of various Automata</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+<h3><b> The Dining-Philosophers Problem</b></h3>
+
+<p>Consider five philosophers who spend their lives thinking and eating. The
+    philosophers share a circular table surrounded by five chairs, each belonging
+    to one philosopher. In the center of the table is a bowl of rice, and the table is laid
+    with five single chopsticks . When a philosopher thinks, she does
+    not interact with her colleagues. From time to time, a philosopher gets hungry
+    and tries to pick up the two chopsticks that are closest to her (the chopsticks
+    that are between her and her left and right neighbors). A philosopher may pick
+    up only one chopstick at a time. Obviously, she cannot pick up a chopstick that
+    is already in the hand of a neighbor. When a hungry philosopher has both her
+    chopsticks at the same time, she eats without releasing the chopsticks. When
+    she is finished eating, she puts down both chopsticks and starts thinking again.<br><br>
+
+    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20231107114729/dining_philosopher_problem.png" width="350" height="350"><br><br>
+
+    The <b>dining-philosophers problem </b>is considered a classic synchronization
+    problem neither because of its practical importance nor because computer
+    scientists dislike philosophers but because it is an example of a large class
+    of concurrency-control problems. It is a simple representation of the need
+    to allocate several resources among several processes in a deadlock-free and
+    starvation-free manner.<br>
+    One simple solution is to represent each chopstick with a semaphore. A
+    philosopher tries to grab a chopstick by executing a wait() operation on that
+    semaphore. She releases her chopsticks by executing the signal() operation
+    on the appropriate semaphores. Thus, the shared data are<br><br>
+
+    <div class="gray">
+    semaphore chopstick[5];<br>
+    do {<br>
+    wait(chopstick[i]);<br>
+    wait(chopstick[(i+1) % 5]);<br>
+    ...<br>
+    /* eat for awhile */<br>
+    ...<br>
+    signal(chopstick[i]);<br>
+    signal(chopstick[(i+1) % 5]);<br>
+    ...<br>
+    /* think for awhile */<br>
+    ...<br>
+    } while (true);<br><br>
+</div>
+
+    The structure of philosopher i<br><br>
+
+
+    where all the elements of chopstick are initialized to 1. The structure of
+    philosopher i is shown .<br>
+    Although this solution guarantees that no two neighbors are eating
+    simultaneously, it nevertheless must be rejected because it could create a
+    deadlock. Suppose that all five philosophers become hungry at the same time
+    and each grabs her left chopstick. All the elements of chopstick will now be
+    equal to 0. When each philosopher tries to grab her right chopstick, she will be
+    delayed forever.<br><br>
+    Several possible remedies to the deadlock problem are replaced by:<br><br>
+    • Allow at most four philosophers to be sitting simultaneously at the table.<br><br>
+    • Allow a philosopher to pick up her chopsticks only if both chopsticks are
+    available (to do this, she must pick them up in a critical section).<br><br>
+    • Use an asymmetric solution—that is, an odd-numbered philosopher picks
+    up first her left chopstick and then her right chopstick, whereas an evennumbered philosopher picks up her right chopstick and then her left
+    chopstick.<br><br>
+</p>
+</body>
+</html>

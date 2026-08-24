@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    <p><strong><a href="https://www.geeksforgeeks.org/analysis-of-algorithms-set-2-asymptotic-analysis/">Analyze an algorithm</a></strong></p>
+<p>1)&nbsp;<strong>Worst Case Analysis (Usually Done</strong>):In the worst case analysis, we calculate upper bound on running time of an algorithm by considering worst case&nbsp; (a situation where algorithm takes maximum time)<br />2<strong>) Average Case Analysis (Sometimes done</strong>) :In average case analysis, we take all possible inputs and calculate computing time for all of the inputs.<br />3)&nbsp;<strong>Best Case Analysis (Bogus</strong>) :In the best case analysis, we calculate lower bound on running time of an algorithm.</p>
+<p><strong><a href="https://www.geeksforgeeks.org/analysis-of-algorithms-set-3asymptotic-notations/">Asymptotic Notations</a></strong></p>
+<ul>
+<li><strong>&Theta; Notation:</strong>The theta notation bounds a functions from above and below, so it defines exact asymptotic behavior.</li>
+</ul>
+<div class="gray">&Theta;((g(n)) = {f(n): there exist positive constants c1, c2 and n0 such that
+0 &lt;= c1*g(n) &lt;= f(n) &lt;= c2*g(n) for all n &gt;= n0}</div>
+<ul>
+<li><strong>Big O Notation:</strong>&nbsp;The Big O notation defines an upper bound of an algorithm, it bounds a function only from above.</li>
+</ul>
+<div class="gray">O(g(n)) = { f(n): there exist positive constants c and n0 such that
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 &lt;= f(n) &lt;= cg(n) for all n &gt;= n0}</div>
+<ul>
+<li><strong>&Omega; Notation:&nbsp;</strong>Just as Big O notation provides an asymptotic upper bound on a function, &Omega; notation provides an asymptotic lower bound.</li>
+</ul>
+<div class="gray">&Omega; (g(n)) = {f(n): there exist positive constants c and n0 such that
+ 0 &lt;= cg(n) &lt;= f(n) for all n &gt;= n0}.</div>
+<p><strong><a href="https://www.geeksforgeeks.org/analysis-algorithm-set-4-master-method-solving-recurrences/">Solving recurrences</a></strong></p>
+<div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+<ul>
+<li><strong>Substitution Method</strong>: We make a guess for the solution and then we use mathematical induction to prove the guess is correct or incorrect.</li>
+<li><strong>Recurrence Tree Method:&nbsp;</strong>We draw a recurrence tree and calculate the time taken by every level of tree. Finally, we sum the work done at all levels.</li>
+<li><strong>Master theorem Method:&nbsp;</strong>Only for following type of recurrences or for recurrences that can be transformed to following type.</li>
+</ul>
+<div class="gray">T(n) = aT(n/b) + f(n) where a &gt;= 1 and b &gt; 1</div>
+<p><strong>Sorting</strong></p>
+<table width="85%">
+<tbody>
+<tr>
+<td><strong>Algorithm</strong></td>
+<td><strong>Worst&nbsp;Case</strong></td>
+<td><strong>Average Case</strong></td>
+<td><strong>Best Case</strong></td>
+<td><strong>Min. no. of swaps</strong></td>
+<td><strong>Max. no. of swaps</strong></td>
+</tr>
+<tr>
+<td><strong><a href="https://www.geeksforgeeks.org/bubble-sort/">Bubble</a></strong></td>
+<td>&Theta;(n<sup>2</sup>)</td>
+<td>&Theta;(n<sup>2</sup>)</td>
+<td>&Theta;(n)</td>
+<td><strong>0</strong></td>
+<td>&Theta;(n<sup>2</sup>)</td>
+</tr>
+<tr>
+<td><strong><a href="https://www.geeksforgeeks.org/selection-sort/">Selection</a></strong></td>
+<td>&Theta;(n<sup>2</sup>)</td>
+<td>&Theta;(n<sup>2</sup>)</td>
+<td>&Theta;(n<sup>2</sup>)</td>
+<td><strong>0</strong></td>
+<td>&Theta;(n)</td>
+</tr>
+<tr>
+<td><strong><a href="https://www.geeksforgeeks.org/insertion-sort/">Insertion</a></strong></td>
+<td>&Theta;(n<sup>2</sup>)</td>
+<td>&Theta;(n<sup>2</sup>)</td>
+<td>&Theta;(n)</td>
+<td><strong>0</strong></td>
+<td>&Theta;(n<sup>2</sup>)</td>
+</tr>
+<tr>
+<td><strong><u><a href="https://www.geeksforgeeks.org/quick-sort/" target="_blank" rel="noopener">Quick</a></u></strong></td>
+<td>&Theta;(n<sup>2</sup>)</td>
+<td>&Theta;(nlgn)</td>
+<td>&Theta;(nlgn)</td>
+<td><strong>0</strong></td>
+<td>&Theta;(n<sup>2</sup>)</td>
+</tr>
+<tr>
+<td><strong><u><a href="https://www.geeksforgeeks.org/merge-sort/" target="_blank" rel="noopener">Merge</a></u></strong></td>
+<td>&Theta;(nlgn)</td>
+<td>&Theta;(nlgn)</td>
+<td>&Theta;(nlgn)</td>
+<td><strong>Is not in-place sorting</strong></td>
+<td><strong>Is not in-place sorting</strong></td>
+</tr>
+<tr>
+<td><strong><u><a href="https://www.geeksforgeeks.org/heap-sort/">Heap</a></u></strong></td>
+<td>&Theta;(nlgn)</td>
+<td>&Theta;(nlgn)</td>
+<td>&Theta;(nlgn)</td>
+<td>O(nlgn)</td>
+<td>&Theta;(nlgn)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>&nbsp;</strong><strong>Searching</strong></p>
+<table width="85%">
+<tbody>
+<tr>
+<td><strong>Algorithm</strong></td>
+<td><strong>Worst Case</strong></td>
+<td><strong>Average Case</strong></td>
+<td><strong>Best Case</strong></td>
+</tr>
+<tr>
+<td><strong><a href="https://www.geeksforgeeks.org/analysis-of-algorithms-set-2-asymptotic-analysis/">Linear Search</a></strong></td>
+<td>&Theta;(n)</td>
+<td>&Theta;(n)</td>
+<td>&Theta;(1)</td>
+</tr>
+<tr>
+<td><strong><a href="https://www.geeksforgeeks.org/binary-search/" target="_blank" rel="noopener">Binary Search</a></strong></td>
+<td>O (logn)</td>
+<td>O (logn)</td>
+<td>O (1)</td>
+</tr>
+</tbody>
+</table>
+<p><strong><a href="https://www.geeksforgeeks.org/binary-tree-set-1-introduction/">Trees</a></strong></p>
+<p><strong>Trees:&nbsp;</strong>Unlike Arrays, Linked Lists, Stack and queues, which are linear data structures, trees are hierarchical data structures. Depth First&nbsp;<a href="https://www.geeksforgeeks.org/618/">Traversals:</a>&nbsp;(a) Inorder (b) Preorder (c) Postorder&nbsp;<a href="https://www.geeksforgeeks.org/binary-tree-set-2-properties/">Important Tree Properties and Formulas</a></p>
+<p><a href="https://www.geeksforgeeks.org/binary-tree-set-2-properties/">Binary Search Tree</a></p>
+<p>Binary Search Tree, is a node-based binary tree data structure which has the following properties:</p>
+<ul>
+<li>The left subtree of a node contains only nodes with keys less than the node&rsquo;s key.</li>
+<li>The right subtree of a node contains only nodes with keys greater than the node&rsquo;s key.</li>
+<li>The left and right subtree each must also be a binary search tree. There must be no duplicate nodes.</li>
+</ul>
+<ol>
+<li><a href="https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/">Insertion</a></li>
+<li><a href="https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/">Deletion</a></li>
+</ol>
+<p><a href="https://www.geeksforgeeks.org/avl-tree-set-1-insertion/">AVL Tree</a></p>
+<p>AVL tree is a self-balancing Binary Search Tree (BST) where the difference between heights of left and right subtrees cannot be more than one for all nodes.</p>
+<ol>
+<li><a href="https://www.geeksforgeeks.org/avl-tree-set-1-insertion/">Insertion</a></li>
+<li><a href="https://www.geeksforgeeks.org/avl-tree-set-2-deletion/">Deletion</a></li>
+</ol>
+<p><strong><a href="https://www.geeksforgeeks.org/b-tree-set-1-introduction-2/">B-Tree</a></strong></p>
+<p><strong>&nbsp;</strong>B-Tree is a self-balancing search tree. In most of the other self-balancing search trees (like&nbsp;<a href="https://www.geeksforgeeks.org/avl-tree-set-1-insertion/">AVL</a>&nbsp;and Red Black Trees), it is assumed that everything is in main memory. To understand use of B-Trees, we must think of huge amount of data that cannot fit in main memory.&nbsp;When the number of keys is high, the data is read from disk in the form of blocks. Disk access time is very high compared to main memory access time. The main idea of using B-Trees is to reduce the number of disk accesses.<br /><strong>Properties of&nbsp;<a href="https://www.geeksforgeeks.org/b-tree-set-1-introduction-2/">B-Tree</a></strong></p>
+<ol>
+<li><a href="https://www.geeksforgeeks.org/b-tree-set-1-insert-2/">B-Tree Insertion</a></li>
+<li><a href="https://www.geeksforgeeks.org/b-tree-set-3delete/">B-Tree Deletion</a></li>
+</ol>
+<p><strong><a href="https://www.geeksforgeeks.org/graph-and-its-representations/">Graph</a></strong></p>
+<p>Graph is a data structure that consists of following two components:<br /><strong>1.</strong>&nbsp;A finite set of vertices also called as nodes.<br /><strong>2.</strong>&nbsp;A finite set of ordered pair of the form (u, v) called as edge.&nbsp;The pair is ordered because (u, v) is not same as (v, u) in case of directed graph(di-graph). The pair of form (u, v) indicates that there is an edge from vertex u to vertex v. The edges may contain weight/value/cost. Following two are the most commonly used representations of graph.</p>
+<ol>
+<li><strong>Adjacency Matrix</strong>: Adjacency Matrix is a 2D array of size V x V where V is the number of vertices in a graph.</li>
+<li><strong>Adjacency List :</strong>&nbsp;An array of linked lists is used. Size of the array is equal to number of vertices.</li>
+</ol>
+<p><strong>&nbsp;</strong><strong>Graph Algorithms</strong></p>
+<table>
+<tbody>
+<tr>
+<td width="302">Algorithm</td>
+<td width="301"><strong>Time Complexity</strong></td>
+</tr>
+<tr>
+<td width="302"><a href="https://www.geeksforgeeks.org/breadth-first-traversal-for-a-graph/">Breadth First Traversal for a Graph</a></td>
+<td width="301">O(V+E) for adjacency list representation and O(V * V) for adjacency matrix representation.</td>
+</tr>
+<tr>
+<td width="302"><a href="https://www.geeksforgeeks.org/depth-first-traversal-for-a-graph/">Depth First Traversal for a Graph</a></td>
+<td width="301">O(V+E) for adjacency list representation and O(V * V) for adjacency matrix representation.</td>
+</tr>
+<tr>
+<td width="302"><a href="https://www.geeksforgeeks.org/greedy-algorithms-set-6-dijkstras-shortest-path-algorithm/">Dijkstra&rsquo;s shortest path algorithm</a></td>
+<td width="301">Adjacency matrix- O(V^2). Adjacency list- O(E log V)</td>
+</tr>
+<tr>
+<td width="302">Topological Sorting:&nbsp;<a href="https://www.geeksforgeeks.org/shortest-path-for-directed-acyclic-graphs/">Shortest Path in Directed Acyclic Graph</a></td>
+<td width="301">O(V+E)</td>
+</tr>
+</tbody>
+</table>
+<p><strong><a href="https://www.geeksforgeeks.org/interesting-shortest-path-questions-set-1/">Some Interesting Graph Questions</a></strong></p>
+<p><strong><a href="https://www.geeksforgeeks.org/applications-of-minimum-spanning-tree/">Minimum Spanning Tree</a></strong></p>
+<p>Minimum Spanning Tree (MST) problem: Given connected graph G with positive edge weights, find a min weight set of edges that connects all of the vertices. MST is fundamental problem with diverse applications.</p>
+<ol>
+<li>Network design&ndash; &nbsp;&nbsp;&nbsp;telephone, electrical, hydraulic, TV cable, computer, road</li>
+</ol>
+<ol start="2">
+<li>Approximation algorithms for NP-hard problems&nbsp;&ndash; &nbsp;traveling salesperson problem, Steiner tree</li>
+</ol>
+<ol start="3">
+<li>Cluster analysis-&nbsp;k clustering problem can be viewed as finding an MST and deleting the k-1 most&nbsp;expensive edges.</li>
+</ol>
+<p>Example:&nbsp;<a href="https://www.geeksforgeeks.org/greedy-algorithms-set-5-prims-minimum-spanning-tree-mst-2/">Prim&rsquo;s Minimum Spanning Tree Algorithm,</a>&nbsp;<a href="https://www.geeksforgeeks.org/greedy-algorithms-set-2-kruskals-minimum-spanning-tree-mst/">Kruskal&rsquo;s Minimum Spanning Tree Algorithm</a></p>
+<p><strong>&nbsp;</strong><strong><a href="https://www.geeksforgeeks.org/divide-and-conquer-set-1-find-closest-pair-of-points/">Divide and Conquer</a></strong></p>
+<ol>
+<li><em><strong>Divide:</strong></em>Break the given problem into subproblems of same type.</li>
+<li><em><strong>Conquer</strong></em><em>:</em>&nbsp;Recursively solve these subproblems</li>
+<li><em><strong>Combine:</strong></em>&nbsp;Appropriately combine the answers</li>
+</ol>
+<p>Following are some standard algorithms that are Divide and Conquer algorithms.<br /><strong>1)</strong><strong>&nbsp;</strong><strong><a href="https://www.geeksforgeeks.org/binary-search/" target="_blank" rel="noopener">Binary Search</a></strong>&nbsp;is a searching algorithm. In each step, the algorithm compares the input element x with the value of the middle element in array. If the values match, return the index of middle. Otherwise, if x is less than the middle element, then the algorithm recurs for left side of middle element, else recurs for right side of middle element.<br /><strong>2)</strong><strong>&nbsp;</strong><strong><a href="https://www.geeksforgeeks.org/quick-sort/">Quicksort</a></strong>&nbsp;is a sorting algorithm. The algorithm picks a pivot element, rearranges the array elements in such a way that all elements smaller than the picked pivot element move to left side of pivot, and all greater elements move to right side. Finally, the algorithm recursively sorts the subarrays on left and right of pivot element.<br /><strong>3)</strong><strong>&nbsp;</strong><strong><a href="https://www.geeksforgeeks.org/merge-sort/" target="_blank" rel="noopener">Merge Sort</a></strong>&nbsp;is also a sorting algorithm. The algorithm divides the array in two halves, recursively sorts them and finally merges the two sorted halves.<br /><strong>4)</strong><strong>&nbsp;</strong><strong><a href="http://en.wikipedia.org/wiki/Closest_pair_of_points_problem" target="_blank" rel="noopener">Closest Pair of Points</a></strong>&nbsp;The problem is to find the closest pair of points in a set of points in x-y plane. The problem can be solved in O(n^2) time by calculating distances of every pair of points and comparing the distances to find the minimum. The Divide and Conquer algorithm solves the problem in O(nLogn) time.</p>
+<p><strong><a href="https://www.geeksforgeeks.org/greedy-algorithms-set-1-activity-selection-problem/">Greedy Approach</a></strong></p>
+<p>Greedy is an algorithmic paradigm that builds up a solution piece by piece, always choosing the next piece that offers the most obvious and immediate benefit.&nbsp;Greedy algorithms are used for optimization problems. An optimization problem can be solved using Greedy if the problem has the following property:<em>&nbsp;At every step, we can make a choice that looks best at the moment, and we get the optimal solution of the complete problem</em>.&nbsp;<strong>Following are some standard algorithms that are Greedy algorithms.</strong><br /><strong>1)&nbsp;<a href="https://www.geeksforgeeks.org/greedy-algorithms-set-2-kruskals-minimum-spanning-tree-mst/" target="_blank" rel="noopener">Kruskal&rsquo;s Minimum Spanning Tree (MST)</a>:</strong>&nbsp;In Kruskal&rsquo;s algorithm, we create a MST by picking edges one by one. The Greedy Choice is to pick the smallest weight edge that doesn&rsquo;t cause a cycle in the MST constructed so far.<br /><strong>2)&nbsp;<a href="https://www.geeksforgeeks.org/greedy-algorithms-set-5-prims-minimum-spanning-tree-mst-2/" target="_blank" rel="noopener">Prim&rsquo;s Minimum Spanning Tree</a>:</strong>&nbsp;In Prim&rsquo;s algorithm also, we create a MST by picking edges one by one. We maintain two sets: set of the vertices already included in MST and the set of the vertices not yet included. The Greedy Choice is to pick the smallest weight edge that connects the two sets.<br /><strong>3)&nbsp;<a href="https://www.geeksforgeeks.org/greedy-algorithms-set-6-dijkstras-shortest-path-algorithm/" target="_blank" rel="noopener">Dijkstra&rsquo;s Shortest Path</a>:&nbsp;</strong>The Dijkstra&rsquo;s algorithm is very similar to Prim&rsquo;s algorithm. The shortest path tree is built up, edge by edge. We maintain two sets: set of the vertices already included in the tree and the set of the vertices not yet included. The Greedy Choice is to pick the edge that connects the two sets and is on the smallest weight path from source to the set that contains not yet included vertices.<br /><strong>4)&nbsp;<a href="https://www.geeksforgeeks.org/greedy-algorithms-set-3-huffman-coding/" target="_blank" rel="noopener">Huffman Coding</a>:</strong>&nbsp;Huffman Coding is a loss-less compression technique. It assigns variable length bit codes to different characters. The Greedy Choice is to assign least bit length code to the most frequent character.</p>
+<p><strong><a href="https://www.geeksforgeeks.org/dynamic-programming-set-1/">Dynamic Programming</a></strong></p>
+<p>Dynamic Programming is an algorithmic paradigm that solves a given complex problem by breaking it into subproblems and stores the results of subproblems to avoid computing the same results again.&nbsp;<strong>Properties:</strong></p>
+<ol>
+<li><strong>Overlapping Subproblems:</strong>&nbsp;Dynamic Programming is mainly used when solutions of same subproblems are needed again and again. In dynamic programming, computed solutions to subproblems are stored in a table so that these don&rsquo;t have to be recomputed.</li>
+</ol>
+<p><em>Uses:&nbsp;<a href="https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/" target="_blank" rel="noopener">Fibonacci Numbers</a></em></p>
+<ol start="2">
+<li><strong>Optimal Substructure</strong>: A given problems has Optimal Substructure Property if optimal solution of the given problem can be obtained by using optimal solutions of its subproblems.</li>
+</ol>
+<p><em>Uses:&nbsp;<a href="https://www.geeksforgeeks.org/dynamic-programming-set-3-longest-increasing-subsequence/" target="_blank" rel="noopener">Longest Increasing Subsequence</a>,&nbsp;<a href="https://www.geeksforgeeks.org/shortest-common-supersequence/" target="_blank" rel="noopener">Shortest Path</a></em>&nbsp;Two Approaches:</p>
+<ol>
+<li>Memoization (Top Down)</li>
+<li>Tabulation (Bottom Up)</li>
+</ol>
+<p>Examples:&nbsp;<a href="https://www.geeksforgeeks.org/dynamic-programming-set-16-floyd-warshall-algorithm/">Floyd Warshall Algorithm</a>,&nbsp;<a href="https://www.geeksforgeeks.org/dynamic-programming-set-23-bellman-ford-algorithm/">Bellman&ndash;Ford Algorithm for Shortest Paths</a></p>
+<p><strong>&nbsp;</strong></p>
+<p><strong>&nbsp;</strong><strong>BackTracking</strong></p>
+<p>Backtracking is an algorithmic paradigm that tries different solutions until finds a solution that &ldquo;works&rdquo;. Backtracking works in an incremental way to attack problems. Typically, we start from an empty solution vector and one by one add items .Meaning of item varies from problem to problem. Example:&nbsp;<a href="https://www.geeksforgeeks.org/backtracking-set-7-hamiltonian-cycle/">Hamiltonian Cycle</a></p>
+</body>
+</html>

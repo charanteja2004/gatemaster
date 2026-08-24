@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Applications of various Automata</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+<h2><b>Disk Scheduling Algorithms</b></h2>
+
+<b>Disk scheduling </b>is done by operating systems to schedule I/O requests arriving for the disk. Disk scheduling is also known as I/O Scheduling.<br><br>
+
+<h3><b>Importance of Disk Scheduling in Operating System</b></h3>
+
+<li>Multiple I/O requests may arrive by different processes and only one I/O request can be served at a time by the disk controller. Thus other I/O requests need to wait in the waiting queue and need to be scheduled.</li><br>
+<li>Two or more requests may be far from each other so this can result in greater disk arm movement.</li><br>
+<li>Hard drives are one of the slowest parts of the computer system and thus need to be accessed in an efficient manner.</li><br><br>
+
+
+<h3><b>Key Terms Associated with Disk Scheduling</b></h3>
+
+<li><b>Seek Time:</b> Seek time is the time taken to locate the disk arm to a specified track where the data is to be read or written. So the disk scheduling algorithm that gives a minimum average seek time is better.</li><br>
+
+<li><b>Rotational Latency:</b> Rotational Latency is the time taken by the desired sector of the disk to rotate into a position so that it can access the read/write heads. So the disk scheduling algorithm that gives minimum rotational latency is better.</li><br>
+<li><b>Transfer Time:</b> Transfer time is the time to transfer the data. It depends on the rotating speed of the disk and the number of bytes to be transferred.</li><br><br>
+
+<li><b>Disk Access Time:</b>
+
+
+    Disk Access Time = Seek Time + Rotational Latency + Transfer Time<br>
+
+    Total Seek Time = Total head Movement * Seek Time</li><br><br>
+
+
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/disc-scheduling-algorithms.png" width="350" height="300"><br><br>
+
+
+<li><b>Disk Response Time:</b> Response Time is the average time spent by a request waiting to perform its I/O operation. The average Response time is the response time of all requests. Variance Response Time is the measure of how individual requests are serviced with respect to average response time. So the disk scheduling algorithm that gives minimum variance response time is better.</li><br><br>
+
+<h3><b>Disk Scheduling Algorithms</b></h3>
+There are several Disk Several Algorithms. We will discuss each one of them.<br><br>
+
+<h4><b>FCFS (First Come First Serve)</b></h4>
+
+FCFS is the simplest of all Disk Scheduling Algorithms. In FCFS, the requests are addressed in the order they arrive in the disk queue. Let us understand this with the help of an example.<br><br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20200608201201/fcfs3.jpg" width="350" height="400"><br><br>
+
+
+<b>Example:</b><br>
+
+Suppose the order of request is- (82,170,43,140,24,16,190)<br>
+And current position of Read/Write head is: 50 <br><br>
+
+So, total overhead movement  (total distance covered by the disk arm) = <br>
+(82-50)+(170-82)+(170-43)+(140-43)+(140-24)+(24-16)+(190-16) =642<br><br>
+
+<h4><b>Advantages of FCFS</b></h4>
+
+
+Here are some of the advantages of First Come First Serve.<br><br>
+
+<li>Every request gets a fair chance</li>
+<li>No indefinite postponement</li>
+<br><br>
+
+<h4><b>Disadvantages of FCFS</b></h4>
+
+Here are some of the disadvantages of First Come First Serve.<br><br>
+
+<li>Does not try to optimize seek time</li>
+<li>May not provide the best possible service</li><br><br>
+
+<h3><b>SSTF (Shortest Seek Time First)</b></h3>
+In SSTF (Shortest Seek Time First), requests having the shortest seek time are executed first. So, the seek time of every request is calculated in advance in the queue and then they are scheduled according to their calculated seek time. As a result, the request near the disk arm will get executed first. SSTF is certainly an improvement over FCFS as it decreases the average response time and increases the throughput of the system. Let us understand this with the help of an example.<br><br>
+
+
+<b>Example:</b>
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20200608201702/sstf1.jpg" width="300" height="350"><br><br>
+
+
+Suppose the order of request is- (82,170,43,140,24,16,190)
+And current position of Read/Write head is: 50<br><br>
+
+
+So, <br>
+
+total overhead movement  (total distance covered by the disk arm) =<br>
+(50-43)+(43-24)+(24-16)+(82-16)+(140-82)+(170-140)+(190-170) =208 <br>
+<br>
+<h3><b>Advantages of Shortest Seek Time First</b></h3>
+
+Here are some of the advantages of Shortest Seek Time First.<br><br>
+
+<li>The average Response Time decreases</li>
+<li>Throughput increases</li><br><br>
+
+<h3><b>Disadvantages of Shortest Seek Time First</b></h3>
+
+Here are some of the disadvantages of Shortest Seek Time First.<br><br>
+
+<li>Overhead to calculate seek time in advance</li>
+<li>Can cause Starvation for a request if it has a higher seek time as compared to incoming requests</li>
+<li>The high variance of response time as SSTF favors only some requests</li><br><br>
+
+<h3><b>SCAN</b></h3>
+
+In the SCAN algorithm the disk arm moves in a particular direction and services the requests coming in its path and after reaching the end of the disk, it reverses its direction and again services the request arriving in its path. So, this algorithm works as an elevator and is hence also known as an elevator algorithm. As a result, the requests at the midrange are serviced more and those arriving behind the disk arm will have to wait.<br><br>
+
+<b>Example:</b>
+<br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20200608202008/scan4.jpg" width="300" height="350"><br><br>
+
+
+Suppose the requests to be addressed are-82,170,43,140,24,16,190. And the Read/Write arm is at 50, and it is also given that the disk arm should move “towards the larger value”.<br><br>
+
+Therefore, the total overhead movement  (total distance covered by the disk arm)  is calculated as<br><br>
+
+= (199-50) + (199-16) = 332<br><br>
+
+<h4><b>Advantages of SCAN Algorithm</b></h4>
+
+Here are some of the advantages of the SCAN Algorithm.<br>
+
+<li>High throughput</li>
+<li>Low variance of response time</li>
+<li>Average response time</li><br><br>
+
+<h3><b>Disadvantages of SCAN Algorithm</b></h3>
+
+Here are some of the disadvantages of the SCAN Algorithm.<br><br>
+
+<li>Long waiting time for requests for locations just visited by disk arm</li><br><br>
+
+<h3><b>C-SCAN</b></h3>
+In the SCAN algorithm, the disk arm again scans the path that has been scanned, after reversing its direction. So, it may be possible that too many requests are waiting at the other end or there may be zero or few requests pending at the scanned area.<br><br>
+
+These situations are avoided in the CSCAN algorithm in which the disk arm instead of reversing its direction goes to the other end of the disk and starts servicing the requests from there. So, the disk arm moves in a circular fashion and this algorithm is also similar to the SCAN algorithm hence it is known as C-SCAN (Circular SCAN).<br><br>
+
+<b>Example:</b><br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20200608202230/cscan1.jpg" width="350" heighht="3500"><br><br>
+
+
+
+Suppose the requests to be addressed are-82,170,43,140,24,16,190. And the Read/Write arm is at 50, and it is also given that the disk arm should move <b>“towards the larger value”.</b><br><br>
+
+So, the total overhead movement  (total distance covered by the disk arm) is calculated as:<br><br>
+
+=(199-50) + (199-0) + (43-0) = 391<br><br>
+
+<h4><b>Advantages of C-SCAN Algorithm</b></h4>
+
+Here are some of the advantages of C-SCAN.<br><br>
+
+<li>Provides more uniform wait time compared to SCAN.</li><br><br>
+
+<h3><b>LOOK</b></h3>
+LOOK Algorithm is similar to the SCAN disk scheduling algorithm except for the difference that the disk arm in spite of going to the end of the disk goes only to the last request to be serviced in front of the head and then reverses its direction from there only. Thus it prevents the extra delay which occurred due to unnecessary traversal to the end of the disk.<br><br>
+
+<b>Example:</b>
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20200608202613/look1.jpg" width="350" height="350"><br><br>
+
+
+
+suppose the requests to be addressed are-82,170,43,140,24,16,190. And the Read/Write arm is at 50, and it is also given that the disk arm should move <b>“towards the larger value”. </b><br><br>
+
+So, the total overhead movement  (total distance covered by the disk arm) is calculated as:<br><br>
+
+= (190-50) + (190-16) = 314<br><br>
+
+<h3><b>C-LOOK</b></h3>
+As LOOK is similar to the SCAN algorithm, in a similar way, C-LOOK is similar to the CSCAN disk scheduling algorithm. In CLOOK, the disk arm in spite of going to the end goes only to the last request to be serviced in front of the head and then from there goes to the other end’s last request. Thus, it also prevents the extra delay which occurred due to unnecessary traversal to the end of the disk.<br><br>
+
+
+<b>Example:</b>
+1.Suppose the requests to be addressed are-82,170,43,140,24,16,190. And the Read/Write arm is at 50, and it is also given that the disk arm should move<b> “towards the larger value”</b>
+<br><br>
+
+<img src=" https://media.geeksforgeeks.org/wp-content/uploads/20200608202846/clook1.jpg" width="350" height="350"><br><br>
+
+
+So, the total overhead movement  (total distance covered by the disk arm) is calculated as<br>
+
+= (190-50) + (190-16) + (43-16) = 341<br><br>
+
+<h3><b>RSS (Random Scheduling)</b></h3>
+It stands for Random Scheduling and just like its name it is natural. It is used in situations where scheduling involves random attributes such as random processing time, random due dates, random weights, and stochastic machine breakdowns this algorithm sits perfectly. Which is why it is usually used for analysis and simulation.<br><br>
+
+<h3><b>LIFO (Last-In First-Out)</b></h3>
+In LIFO (Last In, First Out) algorithm, the newest jobs are serviced before the existing ones i.e. in order of requests that get serviced the job that is newest or last entered is serviced first, and then the rest in the same order.<br><br>
+
+<h4><b>Advantages of LIFO (Last-In First-Out)</b></h4>
+
+Here are some of the advantages of the Last In First Out Algorithm.<br><br>
+
+<li>Maximizes locality and resource utilization</li>
+<li>Can seem a little unfair to other requests and if new requests keep coming in, it cause starvation to the old and existing ones.</li><br><br>
+
+<h3><b>N-STEP SCAN</b></h3>
+It is also known as the N-STEP LOOK algorithm. In this, a buffer is created for N requests. All requests belonging to a buffer will be serviced in one go. Also once the buffer is full no new requests are kept in this buffer and are sent to another one. Now, when these N requests are serviced, the time comes for another top N request and this way all get requests to get a guaranteed service <br><br>
+
+<h4><b>Advantages of N-STEP SCAN</b></h4>
+
+Here are some of the advantages of the N-Step Algorithm.<br>
+
+<li>It eliminates the starvation of requests completely</li><br><br>
+
+<h3><b>F-SCAN</b></h3>
+This algorithm uses two sub-queues. During the scan, all requests in the first queue are serviced and the new incoming requests are added to the second queue. All new requests are kept on halt until the existing requests in the first queue are serviced. <br><br>
+
+<h4><b>Advantages of F-SCAN</b></h4>
+
+Here are some of the advantages of the F-SCAN Algorithm.<br>
+
+<li>F-SCAN along with N-Step-SCAN prevents “arm stickiness” (phenomena in I/O scheduling where the scheduling algorithm continues to service requests at or near the current sector and thus prevents any seeking)</li><br><br>
+
+Each algorithm is unique in its own way. Overall Performance depends on the number and type of requests. <br><br>
+
+<b>Note: Average Rotational latency</b> is generally taken as 1/2(Rotational latency).<br><br>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    <header class="entry-header page__main__wrapper">
+        <h1 class="entry-title">Compiler Desige</h1>
+        </header>
+        <div class="page_content">
+        <p><a href="https://www.geeksforgeeks.org/compiler-design-phases-compiler/"><strong>Phases of Compiler</strong></a>:<br /><img class="aligncenter size-full wp-image-31037" title="Click to enlarge" src="https://media.geeksforgeeks.org/wp-content/uploads/compilerDesign.jpg" alt="compilerphases" width="372" height="332" /></p>
+        <p><a href="https://www.geeksforgeeks.org/symbol-table-compiler/"><strong>Symbol Table</strong></a>&nbsp;: It is a data structure being used and maintained by the compiler, consists all the identifier&rsquo;s name along with their types. It helps the compiler to function smoothly by finding the identifiers quickly.</p>
+        <ol>
+        <li><strong>Lexical Analysis</strong>&nbsp;: Lexical analyzer reads a source program character by character to produce tokens. Tokens can be identifiers, keywords, operators, separators etc.</li>
+        <li><strong>Syntax Analysis</strong>&nbsp;: Syntax analyzer is also known as parser. It constructs the parse tree. It takes all the tokens one by one and uses Context Free Grammar to construct the parse tree.</li>
+        <li><strong>Semantic Analyzer</strong>&nbsp;: It verifies the parse tree, whether it&rsquo;s meaningful or not. It furthermore produces a verified parse tree.</li>
+        <li><strong>Intermediate Code Generator&nbsp;</strong>: It generates intermediate code, that is a form which can be readily executed by machine We have many popular intermediate codes.</li>
+        <li><strong>Code Optimizer</strong>&nbsp;: It transforms the code so that it consumes fewer resources and produces more speed.</li>
+        <li><strong>Target Code Generator</strong>&nbsp;: The main purpose of Target Code generator is to write a code that the machine can understand. The output is dependent on the type of assembler.</li>
+        </ol>
+        <p><a href="https://www.geeksforgeeks.org/error-handling-compiler-design/"><strong>Error handling</strong></a>&nbsp;:<br />The tasks of the Error Handling process are to detect each error, report it to the user, and then make some recover strategy and implement them to handle error. An Error is the blank entries in the symbol table. There are two types of error :<br /><strong>Run-Time Error</strong>&nbsp;: A run-time error is an error which takes place during the execution of a program, and usually happens because of adverse system parameters or invalid input data.<br /><strong>Compile-Time Error</strong>: Compile-time errors rises at compile time, before execution of the program.</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <ol>
+        <li><strong>Lexical :</strong>This includes misspellings of identifiers, keywords or operators.</li>
+        <li><strong>Syntactical :</strong>missing semicolon or unbalanced parenthesis.</li>
+        <li><strong>Semantical :</strong>incompatible value assignment or type mismatches between operator and operand.</li>
+        <li><strong>Logical :</strong>code not reachable, infinite loop.</li>
+        </ol>
+        <p><strong>Left Recursion</strong>&nbsp;: The grammar : A -&gt; Aa | a is left recursive. Top down parsing techniques cannot handle left recursive grammar so we convert left recursion into right recursion.<br />Left recursion elimination : A -&gt; Aa | a &rArr; A -&gt; aA&rsquo;<br />A&rsquo; -&gt; aA&rsquo; | a</p>
+        <p><strong>Left Factoring</strong>&nbsp;: If a grammar has common prefixes in r.h.s of nonterminal then suh grammar needs to be left factored by eliminating common prefixes as follows :<br />A -&gt; ab1 | ac2 &rArr; A -&gt; A -&gt; aA&rsquo;<br />A&rsquo; -&gt; A -&gt; b1 | c2</p>
+        <p><a href="https://www.geeksforgeeks.org/compiler-design-first-in-syntax-analysis/"><strong>FIRST(A)</strong></a>&nbsp;is a set of the terminal symbols which occur as first symbols in string derived from A</p>
+        <p><a href="https://www.geeksforgeeks.org/compiler-design-follow-set-in-syntax-analysis/"><strong>FOLLOW(A)</strong></a>&nbsp;is the set of terminals which occur immediately after the nonterminal A in the strings derived from the starting symbol.</p>
+        <p><img class="aligncenter size-full wp-image-31038" title="Click to enlarge" src="https://media.geeksforgeeks.org/wp-content/uploads/compiler-design2.jpg" alt="Screenshot from 2017-02-09 11-17-55" width="486" height="164" /></p>
+        <p><strong>LL(1) Parser</strong>&nbsp;: LL(1) grammar is unambiguous, left factored and non left recursive.<br />To check whether a grammar is LL(1) or not :<br />1. If A -&gt; B1 | C2 &rArr; { FIRST(B1) &cap; FIRST(C2 ) = &phi; }<br />2. If A -&gt; B | &isin; &rArr; { FIRST(B) &cap; FOLLOW(A) = &phi; }</p>
+        <p><img class="aligncenter size-full wp-image-31039" title="Click to enlarge" src="https://media.geeksforgeeks.org/wp-content/uploads/compiler-design3.jpg" alt="bottomupparser" width="519" height="163" /></p>
+        <p><strong>LR(0) Parser</strong>&nbsp;: Closure() and goto() functions are used to create canonical collection of LR items.<br />Conflicts in LR(0) parser :<br />1.&nbsp;<strong>Shift Reduce (SR) conflict :</strong>&nbsp;when the same state in DFA contains both shift and reduce items. A -&gt; B . xC (shifting) B -&gt; a. (reduced)<br />2.&nbsp;<strong>Reduced Reduced (RR) conflict :</strong>&nbsp;two reductions in same state of DFA A -&gt; a. (reduced) B -&gt; b. (reduced)</p>
+        <p><strong>SLR Parser&nbsp;</strong>: It is powerful than LR(0).<br />Ever LR(0) is SLR but every SLR need not be LR(0).<br />Conflicts in SLR<br />1. SR conflict : A -&gt; B . xC (shifting) B -&gt; a. (reduced) if FOLLOW(B) &cap; {x} &ne; &phi;<br />2. RR conflict : A -&gt; a. (reduced) B -&gt; b. (reduced) if FOLLOW(A) &cap; FOLLOW(B) &ne; &phi;</p>
+        <p><strong>CLR Parser</strong>&nbsp;: It is same as SLR parser except that the reduced entries in CLR parsing table go only in the FOLLOW of the l.h.s nonterminal.</p>
+        <p><strong>LALR Parser</strong>&nbsp;: It is constructed from CLR parser, if two states having same productions but may contain different lookaheads, those two states of CLR are combined into single state in LALR.<br />Every LALR grammar is CLR but every CLR grammar need not be LALR.</p>
+        </div>
+        <div style="text-align: center; color: #345; padding-top: 10px;">
+            <p><strong>Parsers Comparison :</strong><br />LR(0) &sub; SLR &sub; LALR &sub; CLR<br />LL(1) &sub; LALR &sub; CLR<br />If number of states LR(0) = n1, number of states SLR = n2, number of states LALR = n3, number of states CLR = n4 then, n1 = n2 = n3 &lt;= n4</p>
+            <p><img class="aligncenter size-full" title="Click to enlarge" src="https://media.geeksforgeeks.org/wp-content/uploads/compiler-design4.jpg" alt="" width="423" height="275" /></p>
+            <p><a href="https://www.geeksforgeeks.org/compiler-design-syntax-directed-translation/"><strong>Syntax Directed Translation</strong></a>: Syntax Directed Translation are augmented rules to the grammar that facilitate semantic analysis.<br />Eg &ndash; S -&gt; AB {print (*)}<br />A -&gt; a {print (1)}<br />B -&gt; b {print (2)}<br /><strong>Synthesized Attribute&nbsp;</strong>: attribute whose value is evaluated in terms of attribute values of its children.<br /><strong>Inherited Attribute</strong>&nbsp;: attribute whose value is evaluated in terms of attribute values of siblings or parents.</p>
+            <p><a href="https://www.geeksforgeeks.org/s-attributed-and-l-attributed-sdts-in-syntax-directed-translation/"><strong>S-attributed SDT</strong></a>: If an SDT uses only synthesized attributes, it is called as S-attributed SDT. S-attributed SDTs are evaluated in bottom-up parsing, as the values of the parent nodes depend upon the values of the child nodes.<br /><a href="https://www.geeksforgeeks.org/s-attributed-and-l-attributed-sdts-in-syntax-directed-translation/"><strong>L-attributed SDT&nbsp;</strong></a>: If an SDT uses either synthesized attributes or inherited attributes with a restriction that it can inherit values from left siblings only, it is called as L-attributed SDT. Attributes in L-attributed SDTs are evaluated by depth-first and left-to-right parsing manner.</p>
+            <p><strong>Activation Record&nbsp;</strong>: Information needed by a single execution of a procedure is managed using a contiguous block of storage called activation record. An activation record is allocated when a procedure is entered and it is deallocated when that procedure is exited.</p>
+            <p><a href="https://www.geeksforgeeks.org/intermediate-code-generation-in-compiler-design/"><strong>Intermediate Code&nbsp;</strong></a>: They are machine independent codes. Syntax trees, postfix notation, 3-address codes can be used to represent intermediate code.</p>
+            <p><a href="https://www.geeksforgeeks.org/three-address-code-compiler/"><strong>Three address code</strong></a>:<br />1. Quadruples (4 fields : operator, operand1, operand2, result)<br />2. Triplets (3 fields : operator, operand1, operand2)<br />3. Indirect triples</p>
+            <p><a href="https://www.geeksforgeeks.org/compiler-design-code-optimization/"><strong>Code Optimization&nbsp;</strong></a>:</p>
+            <p>Types of machine independent optimizations &ndash;<br />1.&nbsp;<strong>Loop optimizations</strong>&nbsp;:</p>
+            <ul>
+            <li>Code motion : reduce the evaluation frequency of expression.</li>
+            <li>Loop unrolling : to execute less number of iterations</li>
+            <li>Loop jamming : combine body of two loops whenever they are sharing same index.</li>
+            </ul>
+            <p>2.&nbsp;<strong>Constant folding</strong>&nbsp;: replacing the value of constants during compilation<br />3.&nbsp;<strong>Constant propagation</strong>&nbsp;: replacing the value of an expression during compile time.<br />4.&nbsp;<strong>Strength reduction</strong>&nbsp;: replacing costly operators by simple operators.</p>
+            <h1 style="color: #317399;">&nbsp;</h1>
+            </div>
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>Queue </h1>
+        </div>
+        </div>
+        </div>
+        <div class="text">
+        <p dir="ltr"><em><em class="GFGEditorTheme__textItalic">A</em></em>&nbsp;<strong>Queue</strong>&nbsp;<em><em class="GFGEditorTheme__textItalic">is defined as a&nbsp;</em></em><em><strong><strong class="GFGEditorTheme__textItalic">linear&nbsp;</strong></strong></em><em><em class="GFGEditorTheme__textItalic">data structure that is open at both ends and the operations are performed in First In First Out (FIFO) order.&nbsp;</em></em>Queue is a list in which all additions to the list are made at one end, and all deletions from the list are made at the other end. &nbsp;The element, which is first pushed into the order, the operation is first performed on that.</p>
+        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231130123209/Queue-Data-Structures-768.png" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20231130123209/Queue-Data-Structures.png 1001w,https://media.geeksforgeeks.org/wp-content/uploads/20231130123209/Queue-Data-Structures-100.png 100w,https://media.geeksforgeeks.org/wp-content/uploads/20231130123209/Queue-Data-Structures-200.png 200w,https://media.geeksforgeeks.org/wp-content/uploads/20231130123209/Queue-Data-Structures-300.png 300w,https://media.geeksforgeeks.org/wp-content/uploads/20231130123209/Queue-Data-Structures-660.png 660w,https://media.geeksforgeeks.org/wp-content/uploads/20231130123209/Queue-Data-Structures-768.png 768w" alt="Queue-Data-Structures" width="356" height="178" />
+        <p class="wp-caption-text">FIFO Property in Queue</p>
+        </div>
+        <div id="table_of_content">
+        <p>Table of Content</p>
+        <ul>
+        <li><a href="#implementing-queues-using-arrays">Implementing Queues using Arrays:</a></li>
+        <li><a href="#implementing-queues-using-linked-list">Implementing Queues using Linked List:</a></li>
+        <li><a href="#implementation-of-queue-using-stack">Implementation of Queue using Stack:</a></li>
+        </ul>
+        </div>
+        <h2 id="implementing-queues-using-arrays"><u><span class="GFGEditorTheme__textUnderline">Implementing Queues using Arrays:</span></u></h2>
+        <p dir="ltr">To implement a&nbsp;<a href="https://www.geeksforgeeks.org/queue-data-structure/">queue</a>&nbsp;using an array,&nbsp;</p>
+        <ul>
+        <li value="1">Create an array&nbsp;<strong>arr&nbsp;</strong>of size&nbsp;<strong>n</strong>&nbsp;and&nbsp;</li>
+        <li value="2">Take two variables&nbsp;<strong>front</strong>&nbsp;and&nbsp;<strong>rear</strong>&nbsp;both of which will be initialized to 0 which means the queue is currently empty.&nbsp;</li>
+        <li value="3">Element&nbsp;
+        <ul>
+        <li value="1">rear is the index up to which the elements are stored in the array and&nbsp;</li>
+        <li value="2">front is the index of the first element of the array.</li>
+        </ul>
+        </li>
+        </ul>
+        <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231130124638/queue-1-300.png" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20231130124638/queue-1.png 624w,https://media.geeksforgeeks.org/wp-content/uploads/20231130124638/queue-1-100.png 100w,https://media.geeksforgeeks.org/wp-content/uploads/20231130124638/queue-1-200.png 200w,https://media.geeksforgeeks.org/wp-content/uploads/20231130124638/queue-1-300.png 300w" alt="queue-1" width="300" height="284" /></p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <p dir="ltr">Now, some of the implementations of queue operations are as follows:&nbsp;</p>
+        <blockquote>
+        <ul>
+        <li value="1"><strong>Enqueue:</strong>&nbsp;Addition of an element to the queue. Adding an element will be performed after checking whether the queue is full or not. If&nbsp;<em><strong><strong class="GFGEditorTheme__textItalic">rear &lt; n</strong></strong></em>&nbsp;which indicates that the array is not full then store the element at arr[rear] and increment rear by 1 but if&nbsp;<strong>rear == n</strong>&nbsp;then it is said to be an&nbsp;<strong>Overflow</strong>&nbsp;condition as the array is full. Enqueue has&nbsp;<strong>O(1)</strong>&nbsp;time complexity.</li>
+        <li value="2"><strong>Dequeue:</strong>&nbsp;Removal of an element from the queue. An element can only be deleted when there is at least an element to delete i.e.&nbsp;<em><strong><strong class="GFGEditorTheme__textItalic">rear &gt; 0</strong></strong></em>. Now, the element at arr[front] can be deleted but all the remaining elements have to shift to the left by one position in order for the dequeue operation to delete the second element from the left on another dequeue operation. Dequeue has&nbsp;<strong>O(N)</strong>&nbsp;time complexity.</li>
+        <li value="3"><strong>Front:</strong>&nbsp;Get the front element from the queue i.e. arr[front] if the queue is not empty. Accessing the front of the queue has&nbsp;<strong>O(1)</strong>&nbsp;time complexity.</li>
+        <li value="4"><strong>Display:</strong>&nbsp;Print all elements of the queue. If the queue is non-empty, traverse and print all the elements from the index front to rear. Displaying all the elements has&nbsp;<strong>O(N)</strong>&nbsp;time complexity.</li>
+        <li value="5">Overall Space Complexity:&nbsp;<strong>O(N)</strong></li>
+        </ul>
+        </blockquote>
+        </div>
+        <div class="main_wrapper">
+            <div class="article-title">
+            <h2 id="implementing-queues-using-linked-list"><u><span class="GFGEditorTheme__textUnderline">Implementing Queues using Linked List:</span></u></h2>
+            <p dir="ltr">To implement a&nbsp;queue&nbsp;using a Linked List,</p>
+            <ul>
+            <li value="1">Maintain two pointers,&nbsp;<strong>front</strong>&nbsp;and&nbsp;<strong>rear</strong>. The front<strong>&nbsp;</strong>points to the first item of the queue and<strong>&nbsp;</strong>rear<strong>&nbsp;</strong>points to the last item.
+            <ul>
+            <li value="1"><strong>enQueue():</strong>&nbsp;This operation adds a new node after the rear<strong>&nbsp;</strong>and moves the rear<strong>&nbsp;</strong>to the next node.</li>
+            <li value="2"><strong>deQueue():</strong>&nbsp;This operation removes the front node and moves the front<strong>&nbsp;</strong>to the next node.</li>
+            </ul>
+            </li>
+            </ul>
+            <p dir="ltr">Now, some of the implementations of queue operations are as follows:&nbsp;</p>
+            <blockquote>
+            <ul>
+            <li value="1">Create a class&nbsp;<strong>QNode&nbsp;</strong>with data members integer&nbsp;<strong>data&nbsp;</strong>and&nbsp;<strong>QNode* next&nbsp;</strong>(pointer to the next node)</li>
+            <li value="2">Create a class&nbsp;<strong>Queue&nbsp;</strong>with data members QNode front<strong>&nbsp;</strong>and rear</li>
+            <li value="3">Enqueue Operation with parameter x:
+            <ul>
+            <li value="1">Initialize QNode* temp<strong>&nbsp;</strong>with data = x</li>
+            <li value="2">If the rear is set to NULL then set the front and rear to temp<strong>&nbsp;</strong>and return (Base Case)</li>
+            <li value="3">Else set rear next to<strong>&nbsp;</strong>temp and then move rear to temp</li>
+            <li value="4">Enqueue has&nbsp;<strong>O(1)&nbsp;</strong>time complexity.</li>
+            </ul>
+            </li>
+            <li value="4">Dequeue Operation:
+            <ul>
+            <li value="1">If the front is set to NULL return (Base Case)</li>
+            <li value="2">Initialize QNode temp<strong>&nbsp;</strong>with front and set front to its next</li>
+            <li value="3">If the front is equal to NULL<strong>&nbsp;</strong>then set the rear to NULL</li>
+            <li value="4">Delete temp from the memory.</li>
+            <li value="5">Dequeue has&nbsp;<strong>O(1)</strong>&nbsp;time complexity.</li>
+            </ul>
+            </li>
+            <li value="5">Overall Space Complexity:&nbsp;<strong>O(N)</strong></li>
+            </ul>
+            </blockquote>
+            </div>
+            </div>
+            <div class="gray"><div class="main_wrapper">
+                <div class="article-title">
+                <div>// Java program for linked-list implementation of queue</div>
+                <div>&nbsp;</div>
+                <div>// A linked list (LL) node to store a queue entry</div>
+                <div>class QNode {</div>
+                <div>int key;</div>
+                <div>QNode next;</div>
+                <div>&nbsp;</div>
+                <div>// constructor to create a new linked list node</div>
+                <div>public QNode(int key)</div>
+                <div>{</div>
+                <div>this.key = key;</div>
+                <div>this.next = null;</div>
+                <div>}</div>
+                <div>}</div>
+                <div>&nbsp;</div>
+                <div>// A class to represent a queue</div>
+                <div>// The queue, front stores the front node of LL and rear</div>
+                <div>// stores the last node of LL</div>
+                <div>class Queue {</div>
+                <div>QNode front, rear;</div>
+                <div>&nbsp;</div>
+                <div>public Queue() { this.front = this.rear = null; }</div>
+                <div>&nbsp;</div>
+                <div>// Method to add an key to the queue.</div>
+                <div>void enqueue(int key)</div>
+                <div>{</div>
+                <div>&nbsp;</div>
+                <div>// Create a new LL node</div>
+                <div>QNode temp = new QNode(key);</div>
+                <div>&nbsp;</div>
+                <div>// If queue is empty, then new node is front and</div>
+                <div>// rear both</div>
+                <div>if (this.rear == null) {</div>
+                <div>this.front = this.rear = temp;</div>
+                <div>return;</div>
+                <div>}</div>
+                <div>&nbsp;</div>
+                <div>// Add the new node at the end of queue and change</div>
+                <div>// rear</div>
+                <div>this.rear.next = temp;</div>
+                <div>this.rear = temp;</div>
+                <div>}</div>
+                <div>&nbsp;</div>
+                <div>// Method to remove an key from queue.</div>
+                <div>void dequeue()</div>
+                <div>{</div>
+                <div>// If queue is empty, return NULL.</div>
+                <div>if (this.front == null)</div>
+                <div>return;</div>
+                <div>&nbsp;</div>
+                <div>// Store previous front and move front one node</div>
+                <div>// ahead</div>
+                <div>QNode temp = this.front;</div>
+                <div>this.front = this.front.next;</div>
+                <div>&nbsp;</div>
+                <div>// If front becomes NULL, then change rear also as</div>
+                <div>// NULL</div>
+                <div>if (this.front == null)</div>
+                <div>this.rear = null;</div>
+                <div>}</div>
+                <div>}</div>
+                <div>&nbsp;</div>
+                <div>// Driver code</div>
+                <div>public class Test {</div>
+                <div>public static void main(String[] args)</div>
+                <div>{</div>
+                <div>Queue q = new Queue();</div>
+                <div>q.enqueue(10);</div>
+                <div>q.enqueue(20);</div>
+                <div>q.dequeue();</div>
+                <div>q.dequeue();</div>
+                <div>q.enqueue(30);</div>
+                <div>q.enqueue(40);</div>
+                <div>q.enqueue(50);</div>
+                <div>q.dequeue();</div>
+                <div>System.out.println("Queue Front : " + ((q.front != null) ? (q.front).key : -1));</div>
+                <div>System.out.println("Queue Rear : " + ((q.rear != null) ? (q.rear).key : -1));</div>
+                <div>}</div>
+                <div>}</div>
+                <div>// This code is contributed by Gaurav Miglani</div>
+                <p>&nbsp;</p>
+                </div>
+                </div></div>
+            <div class="main_wrapper">
+                <div class="article-title">
+                <h2 id="implementation-of-queue-using-stack"><u><span class="GFGEditorTheme__textUnderline">Implementation of Queue using Stack:</span></u></h2>
+                <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231130125050/Stack-Queue-660.png" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20231130125050/Stack-Queue.png 755w,https://media.geeksforgeeks.org/wp-content/uploads/20231130125050/Stack-Queue-100.png 100w,https://media.geeksforgeeks.org/wp-content/uploads/20231130125050/Stack-Queue-200.png 200w,https://media.geeksforgeeks.org/wp-content/uploads/20231130125050/Stack-Queue-300.png 300w,https://media.geeksforgeeks.org/wp-content/uploads/20231130125050/Stack-Queue-660.png 660w" alt="Stack-Queue" width="391" height="277" /></p>
+                <p dir="ltr">A queue can be implemented using two stacks. Let queue to be implemented be q and stacks used to implement q be stack1 and stack2. q can be implemented in three ways:&nbsp;</p>
+                <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Method 1 (By making enQueue operation costly):</strong></strong></u>&nbsp;This method makes sure that oldest entered element is always at the top of stack 1, so that deQueue operation just pops from stack1. To put the element at top of stack1, stack2 is used.</p>
+                <p dir="ltr"><strong>enQueue(q, x):&nbsp;</strong></p>
+                <ul>
+                <li value="1">While stack1 is not empty, push everything from stack1 to stack2.</li>
+                <li value="2">Push x to stack1 (assuming size of stacks is unlimited).</li>
+                <li value="3">Push everything back to stack1.</li>
+                <li value="4">Time complexity will be<strong>&nbsp;O(N).</strong></li>
+                </ul>
+                <p dir="ltr"><strong>deQueue(q):&nbsp;</strong></p>
+                <ul>
+                <li value="1">If stack1 is empty, then error</li>
+                <li value="2">Pop an item from stack1 and return it.</li>
+                <li value="3">Time complexity will be&nbsp;<strong>O(1).</strong></li>
+                </ul>
+                <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Method 2 (By making deQueue operation costly):</strong></strong></u><strong>&nbsp;</strong>In this method, in en-queue operation, the new element is entered at the top of stack1. In de-queue operation, if stack2 is empty then all the elements are moved to stack2 and finally top of stack2 is returned.&nbsp;</p>
+                <p dir="ltr"><strong>enQueue(q, x):</strong></p>
+                <ul>
+                <li value="1">Push x to stack1 (assuming size of stacks is unlimited).</li>
+                <li value="2">Time complexity will be&nbsp;<strong>O(1)</strong></li>
+                </ul>
+                <p dir="ltr"><strong>deQueue(q):</strong></p>
+                <ul>
+                <li value="1">If both stacks are empty then error.</li>
+                <li value="2">If stack2 is empty, while stack1 is not empty, push everything from stack1 to stack2.</li>
+                <li value="3">Pop the element from stack2 and return it.</li>
+                <li value="4">Time complexity will be&nbsp;<strong>O(N)</strong></li>
+                </ul>
+                <p dir="ltr">Method 2 is definitely better than method 1.&nbsp;Method 1 moves all the elements twice in enQueue operation, while method 2 (in deQueue operation) moves the elements once and moves elements only if stack2 empty. So, the amortized complexity of the dequeue operation becomes&nbsp;<strong>&Theta;(1)</strong></p>
+                <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Method 3 (Using one user stack and one function call stack):</strong></strong></u><strong>&nbsp;</strong>&nbsp;Method 2 can be modified where recursion (or Function Call Stack) is used to implement queue using only one user defined stack.</p>
+                <p dir="ltr"><em><strong><strong class="GFGEditorTheme__textItalic">enQueue(x):</strong></strong></em></p>
+                <ul>
+                <li value="1">Push&nbsp;<em><em class="GFGEditorTheme__textItalic">x&nbsp;</em></em>to&nbsp;<em><em class="GFGEditorTheme__textItalic">stack1</em></em>.</li>
+                <li value="2">Time complexity will be&nbsp;<strong>O(1)</strong></li>
+                </ul>
+                <p dir="ltr"><em><strong><strong class="GFGEditorTheme__textItalic">deQueue():</strong></strong></em></p>
+                <ul>
+                <li value="1">If&nbsp;<em><em class="GFGEditorTheme__textItalic">stack1&nbsp;</em></em>is empty, then error.</li>
+                <li value="2">If&nbsp;<em><em class="GFGEditorTheme__textItalic">stack1&nbsp;</em></em>has only one element, then return it.</li>
+                <li value="3">Recursively pop everything from the stack1, store the popped item in variable&nbsp;<em><em class="GFGEditorTheme__textItalic">res, push</em></em>&nbsp;the&nbsp;<em><em class="GFGEditorTheme__textItalic">res</em></em>&nbsp;back to stack1 and return&nbsp;<em><em class="GFGEditorTheme__textItalic">res.</em></em></li>
+                <li value="4"><em><em class="GFGEditorTheme__textItalic">Time Complexity will be&nbsp;</em></em><strong>O(N)</strong>.</li>
+                </ul>
+                </div>
+                </div>
+                <div class="gray"><div class="main_wrapper">
+                    <div class="article-title">
+                    <div>
+                    <div>// Java program to implement Queue using&nbsp;</div>
+                    <div>// two stacks with costly enQueue()&nbsp;</div>
+                    <div>import java.util.*;</div>
+                    <div>&nbsp;</div>
+                    <div>class GFG&nbsp;</div>
+                    <div>{&nbsp;</div>
+                    <div>static class Queue&nbsp;</div>
+                    <div>{&nbsp;</div>
+                    <div>static Stack&lt;Integer&gt; s1 = new Stack&lt;Integer&gt;();&nbsp;</div>
+                    <div>static Stack&lt;Integer&gt; s2 = new Stack&lt;Integer&gt;();&nbsp;</div>
+                    <div>&nbsp;</div>
+                    <div>static void enQueue(int x)&nbsp;</div>
+                    <div>{&nbsp;</div>
+                    <div>// Move all elements from s1 to s2&nbsp;</div>
+                    <div>while (!s1.isEmpty())</div>
+                    <div>{&nbsp;</div>
+                    <div>s2.push(s1.pop());&nbsp;</div>
+                    <div>//s1.pop();&nbsp;</div>
+                    <div>}&nbsp;</div>
+                    <div>&nbsp;</div>
+                    <div>// Push item into s1&nbsp;</div>
+                    <div>s1.push(x);&nbsp;</div>
+                    <div>&nbsp;</div>
+                    <div>// Push everything back to s1&nbsp;</div>
+                    <div>while (!s2.isEmpty())&nbsp;</div>
+                    <div>{&nbsp;</div>
+                    <div>s1.push(s2.pop());&nbsp;</div>
+                    <div>//s2.pop();&nbsp;</div>
+                    <div>}&nbsp;</div>
+                    <div>}&nbsp;</div>
+                    <div>&nbsp;</div>
+                    <div>// Dequeue an item from the queue&nbsp;</div>
+                    <div>static int deQueue()&nbsp;</div>
+                    <div>{&nbsp;</div>
+                    <div>// if first stack is empty&nbsp;</div>
+                    <div>if (s1.isEmpty())&nbsp;</div>
+                    <div>{&nbsp;</div>
+                    <div>return -1;</div>
+                    <div>}&nbsp;</div>
+                    <div>&nbsp;</div>
+                    <div>// Return top of s1&nbsp;</div>
+                    <div>int x = s1.peek();&nbsp;</div>
+                    <div>s1.pop();&nbsp;</div>
+                    <div>return x;&nbsp;</div>
+                    <div>}&nbsp;</div>
+                    <div>};&nbsp;</div>
+                    <div>&nbsp;</div>
+                    <div>// Driver code&nbsp;</div>
+                    <div>public static void main(String[] args)&nbsp;</div>
+                    <div>{&nbsp;</div>
+                    <div>Queue q = new Queue();&nbsp;</div>
+                    <div>q.enQueue(1);&nbsp;</div>
+                    <div>q.enQueue(2);&nbsp;</div>
+                    <div>q.enQueue(3);&nbsp;</div>
+                    <div>&nbsp;</div>
+                    <div>System.out.println(q.deQueue());&nbsp;</div>
+                    <div>System.out.println(q.deQueue());</div>
+                    <div>System.out.println(q.deQueue());</div>
+                    <div>}&nbsp;</div>
+                    <div>}&nbsp;</div>
+                    <div>&nbsp;</div>
+                    <div>// This code is contributed by Prerna Saini</div>
+                    <p>&nbsp;</p>
+                    </div>
+                    </div>
+                    </div></div>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+  
+
+<h1>Data Structures and Algorithms</h1>
+
+<h1>INTRODUCTION TO C PROGRAMMING</h1>
+
+<p>C is a procedural programming language initially developed by Dennis Ritchie in the year 1972 at Bell Laboratories of AT&T Labs. It was mainly developed as a system programming language to write the UNIX operating system.</p>
+
+<h3><b>The main features of the C language include:</b></h3>
+
+<li>General Purpose and Portable</li>
+<li>Low-level Memory Access</li>
+<li>Fast Speed</li>
+<li>Clean Syntax</li><br><br>
+
+These features make the C language suitable for system programming like an operating system or compiler development.<br><br>
+
+
+<h3>Why Should We Learn C?</h3>
+Many later languages have borrowed syntax/features directly or indirectly from the C language. Like syntax of Java, PHP, JavaScript, and many other languages are mainly based on the C language. C++ is nearly a superset of C language (Only a few programs may compile in C, but not in C++).<br><br>
+
+So,  if a person learns C programming first, it will help him to learn any modern programming language as well. As learning C help to understand a lot of the underlying architecture of the operating system. Like pointers, working with memory locations, etc.<br><br>
+
+<h2>Difference Between C and C++</h2>
+<p dir="ltr">C++ was created to add the OOPs concept into C language so they both have very similar syntax but both are a bit different from each other. Following are some main differences between C and C++ Programming language.</p>
+<ul>
+<li value="1">C++ supports OOPs paradigm while C only have procedural concept of programming.</li>
+<li value="2">C++ have exception handling capablities. In C, we have to resolve manually.</li>
+<li value="3">There are no references in C.</li>
+</ul>
+<p dir="ltr">There are many more differences between C and C++ which are discussed here:&nbsp;<a href="https://www.geeksforgeeks.org/difference-between-c-and-c/" target="_blank" rel="noopener">Difference between C and C++</a></p>
+<h2>Beginning with C Programming</h2>
+<h3><strong>Writing the First Program in C</strong></h3>
+<p dir="ltr">The following code is one of the simplest C programs that will help us the basic syntax structure of a C program.</p>
+<p dir="ltr"><strong>Example:</strong></p>
+
+<p dir="ltr"><strong>Example:</strong></p>
+<div class="codeblock-container" data-mode="light">C
+<div class="code-container">
+<div class="code-box">
+<div id="editor-buttons-div" class="editor-buttons-div">
+<div id="editor-buttons" class="editor-buttons">&nbsp;</div>
+</div>
+<div id="slot-panel" class="gfg-code"><code class="language-c"></code>
+<div class="highlight">
+<div class="gray"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+  
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>  
+<span class="p">}</span>
+</div>
+</div>
+</div>
+</div>
+<div id="code-output-box" class="code-output-box">
+<div class="editor-buttons w-56 output-box" title="Close Output">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="code-output"><br /><strong>Output</strong>
+<div class="gray">10</div>
+</div>
+<p dir="ltr">Let us analyze the structure of our program line by line.</p>
+<h3><strong>Structure of the C program</strong></h3>
+<p dir="ltr">After the above discussion, we can formally assess the structure of a C program. By structure, it is meant that any program can be written in this structure only. Writing a C program in any other structure will hence lead to a Compilation Error. The structure of a C program is as follows:</p>
+
+
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20221219163357/Structure-of-C-Program.png" alt="structure of c program" width="350" height="350" /></p>
+<h2>Components of a C Program:</h2>
+<h3><strong>1. Header Files Inclusion &ndash; Line 1 [#include &lt;stdio.h&gt;]</strong></h3>
+<p dir="ltr">The first and foremost component is the inclusion of the Header files in a C program.&nbsp;A header file is a file with extension .h which contains C function declarations and macro definitions to be shared between several source files. All lines that start with&nbsp;<strong>#&nbsp;</strong>are processed by a preprocessor which is a program invoked by the compiler. In the above example, the preprocessor copies the preprocessed code of stdio.h to our file. The .h files are called header files in C.<br />Some of the C Header files:</p>
+<ul>
+<li value="1">stddef.h &ndash; Defines several useful types and macros.</li>
+<li value="2">stdint.h &ndash; Defines exact width integer types.</li>
+<li value="3">stdio.h &ndash; Defines core input and output functions</li>
+<li value="4">stdlib.h &ndash; Defines numeric conversion functions, pseudo-random number generator, and memory allocation</li>
+<li value="5">string.h &ndash; Defines string handling functions</li>
+<li value="6">math.h &ndash; Defines common mathematical functions.</li>
+</ul>
+<h3><strong>2. Main Method Declaration &ndash; Line 2 [int main()]</strong></h3>
+<p dir="ltr">The next part of a C program is to declare the main() function. It is the entry point of a C program and the execution typically begins with the first line of the main(). The empty brackets indicate that the main doesn&rsquo;t take any parameter (See&nbsp;<a href="https://www.geeksforgeeks.org/difference-int-main-int-mainvoid/">this&nbsp;</a>for more details). The int that was written before the main indicates the return type of main(). The value returned by the main indicates the status of program termination. See&nbsp;<a href="https://www.geeksforgeeks.org/fine-write-void-main-cc/">this&nbsp;</a>post for more details on the return type.</p>
+<h3><strong>3. Body of Main Method &ndash; Line 3 to Line 6 [enclosed in {}]</strong></h3>
+<p dir="ltr">The body of a function in the C program refers to statements that are a part of that function. It can be anything like manipulations, searching, sorting, printing, etc. A pair of curly brackets define the body of a function. All functions must start and end with curly brackets.</p>
+<h3><strong>4. Statement &ndash; Line 4 [printf(&ldquo;Hello World&rdquo;);]</strong></h3>
+<p dir="ltr">Statements are the instructions given to the compiler. In C, a statement is always terminated by a&nbsp;<strong>semicolon (;).</strong>&nbsp;In this particular case, we use printf() function to instruct the compiler to display &ldquo;Hello World&rdquo; text on the screen.</p>
+<h3><strong>5. Return Statement &ndash; Line 5 [return 0;]</strong></h3>
+<p dir="ltr">The last part of any C function is the return statement. The return statement refers to the return values from a function. This return statement and return value depend upon the return type of the function. The return statement in our program returns the value from main(). The returned value may be used by an operating system to know the termination status of your program. The value 0 typically means successful termination.&nbsp;</p>
+<h2><strong>How to Execute the Above Program?</strong></h2>
+<p dir="ltr">In order to execute the above program, we need to first compile it using a compiler and then we can run the generated executable. There are online IDEs available for free like&nbsp;<a href="https://ide.geeksforgeeks.org/">GeeksforGeeksIDE</a>, that can be used to start development in C without installing a compiler.</p>
+<ol>
+<li value="1"><em><strong><strong class="GFGEditorTheme__textItalic">Windows:</strong></strong></em>&nbsp;There are many free IDEs available for developing programs in C like&nbsp;<a href="http://www.codeblocks.org/downloads/26" target="_blank" rel="noopener noreferrer nofollow">Code Blocks</a>&nbsp;and&nbsp;<a href="http://www.bloodshed.net/download.html" target="_blank" rel="noopener noreferrer nofollow">Dev-CPP</a>. IDEs provide us with an environment to develop code, compile it and finally execute it. We strongly recommend Code Blocks.</li>
+<li value="2"><em><strong><strong class="GFGEditorTheme__textItalic">Linux:</strong></strong></em>&nbsp;GCC compiler comes bundled with Linux which compiles C programs and generates executables for us to run. Code Blocks can also be used with Linux.&nbsp;</li>
+<li value="3"><em><strong><strong class="GFGEditorTheme__textItalic">macOS:&nbsp;</strong></strong></em>macOS already has a built-in text editor where you can just simply write the code and save it with a &ldquo;.c&rdquo; extension.</li>
+</ol>
+<h2>Application of C&nbsp;</h2>
+<ul>
+<li value="1">Operating systems: C is widely used for developing operating systems such as Unix, Linux, and Windows.</li>
+<li value="2">Embedded systems: C is a popular language for developing embedded systems such as microcontrollers, microprocessors, and other electronic devices.</li>
+<li value="3">System software: C is used for developing system software such as device drivers, compilers, and assemblers.</li>
+<li value="4">Networking: C is widely used for developing networking applications such as web servers, network protocols, and network drivers.</li>
+<li value="5">Database systems: C is used for developing database systems such as Oracle, MySQL, and PostgreSQL.</li>
+<li value="6">Gaming: C is often used for developing computer games due to its ability to handle low-level hardware interactions.</li>
+<li value="7">Artificial Intelligence: C is used for developing artificial intelligence and machine learning applications such as neural networks and deep learning algorithms.</li>
+<li value="8">Scientific applications: C is used for developing scientific applications such as simulation software and numerical analysis tools.</li>
+<li value="9">Financial applications: C is used for developing financial applications such as stock market analysis and trading systems.</li>
+</ul>
+
+<h2>Features of C Programming Language</h2>
+
+
+<p>C is a procedural programming language. It was initially developed by Dennis Ritchie in the year 1972. It was mainly developed as a system programming language to write an operating system.</p>
+<p>The main features of C language include low-level access to memory, a simple set of keywords, and a clean style, these features make C language suitable for system programming like an operating system or compiler development.</p>
+<div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
+<h2>What are the Most Important Features of C Language?</h2>
+<p>Here are some of the most important features of the C language:</p>
+<ol>
+<li>Procedural Language</li>
+<li>Fast and Efficient</li>
+<li>Modularity</li>
+<li>Statically Type</li>
+<li>General-Purpose Language</li>
+<li>Rich set of built-in Operators</li>
+<li>Libraries with Rich Functions</li>
+<li>Middle-Level Language</li>
+<li>Portability</li>
+<li>Easy to Extend<br />&nbsp;</li>
+</ol>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20200214125122/Features-of-C-Programming-Language.jpg" alt="features of C programming language" width="602" height="403" /></p>
+
+
+
+<p><strong>Let discuss these features one by one:</strong></p>
+<h3>1. Procedural Language</h3>
+<p>In a&nbsp;<a href="https://www.geeksforgeeks.org/difference-between-procedural-and-non-procedural-language/">procedural language</a>&nbsp;like C step by step, predefined instructions are carried out. C program may contain more than one function to perform a particular task. New people to programming will think that this is the only way a particular programming language works. There are other programming paradigms as well in the programming world. Most of the commonly used paradigm is an object-oriented programming language.&nbsp;</p>
+<h3>2. Fast and Efficient</h3>
+<p>Newer languages like Java, python offer more features than&nbsp;<a href="https://www.geeksforgeeks.org/c-programming-language/">c programming language</a>&nbsp;but due to additional processing in these languages, their performance rate gets down effectively. C programming language as the middle-level language provides programmers access to direct manipulation with the computer hardware but higher-level languages do not allow this. That&rsquo;s one of the reasons C language is considered the first choice to start learning programming languages. It&rsquo;s fast because statically typed languages are faster than dynamically typed languages.</p>
+<div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+<div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+<h3>3. Modularity</h3>
+<p>The concept of storing C programming language code in the form of libraries for further future uses is known as modularity. This programming language can do very little on its own most of its power is held by its libraries. C language has its own&nbsp;<a href="https://www.geeksforgeeks.org/c-library-functions/">library&nbsp;</a>to solve common problems.</p>
+<h3>4. Statically Type</h3>
+<p>C programming language is a&nbsp;<a href="https://www.geeksforgeeks.org/what-is-a-typed-language/">statically typed language</a>. Meaning the type of variable is checked at the time of compilation but not at run time. This means each time a programmer types a program they have to mention the type of variables used.</p>
+<h3>5. General-Purpose Language</h3>
+<p>From system programming to photo editing software, the C programming language is used in various applications. Some of the common applications where it&rsquo;s used are as follows:&nbsp;</p>
+<ul>
+<li><a href="https://www.geeksforgeeks.org/operating-systems/">Operating systems</a>: Windows,&nbsp;<a href="https://www.geeksforgeeks.org/linux-vs-unix/">Linux</a>, iOS,&nbsp;<a href="https://www.geeksforgeeks.org/android-app-development-fundamentals-for-beginners/">Android</a>, OXS</li>
+<li><a href="https://www.geeksforgeeks.org/dbms/">Databases</a>: PostgreSQL, Oracle,&nbsp;<a href="https://www.geeksforgeeks.org/sql-tutorial/">MySQL</a>, MS SQL Server, etc.</li>
+</ul>
+<h3>6. Rich set of built-in Operators</h3>
+<p>It is a diversified language with a rich set of built-in&nbsp;<a href="https://www.geeksforgeeks.org/operators-c-c/">operators</a>&nbsp;which are used in writing complex or simplified C programs.</p>
+<h3>7. Libraries with Rich Functions</h3>
+<p>Robust libraries and&nbsp;<a href="https://www.geeksforgeeks.org/functions-in-c/">functions in C</a>&nbsp;help even a beginner coder to code with ease.</p>
+<h3>8. Middle-Level Language</h3>
+<p>As it is a middle-level language so it has the combined form of both capabilities of assembly language and features of the&nbsp;<a href="https://www.geeksforgeeks.org/difference-between-high-level-and-low-level-languages/">high-level language</a>.</p>
+<h3>9. Portability</h3>
+<p>C language is lavishly portable as programs that are written in C language can run and compile on any system with either no or small changes.&nbsp;</p>
+<h3>10. Easy to Extend</h3>
+<p>Programs written in C language can be extended means when a program is already written in it then some more features and operations can be added to it.</p>
+
+
+<h2>C Programming Language Standard</h2>
+
+<h3>Introduction:</h3>
+<p dir="ltr">The C programming language has several standard versions, with the most commonly used ones being C89/C90, C99, C11, and C18.</p>
+<ol>
+<li value="1">C89/C90 (ANSI C or ISO C) was the first standardized version of the language, released in 1989 and 1990, respectively. This standard introduced many of the features that are still used in modern C programming, including data types, control structures, and the standard library.</li>
+<li value="2">C99 (ISO/IEC 9899:1999) introduced several new features, including variable-length arrays, flexible array members, complex numbers, inline functions, and designated initializers. This standard also includes several new library functions and updates to existing ones.</li>
+<li value="3">C11 (ISO/IEC 9899:2011) introduced several new features, including _Generic, static_assert, and the atomic type qualifier. This standard also includes several updates to the library, including new functions for math, threads, and memory manipulation.</li>
+<li value="4">C18 (ISO/IEC 9899:2018) is the most recent standard and includes updates and clarifications to the language specification and the library.</li>
+</ol>
+<p dir="ltr">When writing C code, it&rsquo;s important to know which standard version is being used and to write code that is compatible with that standard. Many compilers support multiple standard versions, and it&rsquo;s often possible to specify which version to use with a compiler flag or directive.</p>
+<div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
+<p dir="ltr">Here are some advantages and disadvantages of using the C programming language:</p>
+<h3>Advantages:</h3>
+<ol>
+<li value="1">Efficiency: C is a fast and efficient language that can be used to create high-performance applications.</li>
+<li value="2">Portability: C programs can be compiled and run on a wide range of platforms and operating systems.</li>
+<li value="3">Low-level access: C provides low-level access to system resources, making it ideal for systems programming and developing operating systems.</li>
+<li value="4">Large user community: C has a large and active user community, which means there are many resources and libraries available for developers.</li>
+<li value="5">Widely used: C is a widely used language, and many modern programming languages are built on top of it.</li>
+</ol>
+<h3>Disadvantages:</h3>
+<ol>
+<li value="1">Steep learning curve: C can be difficult to learn, especially for beginners, due to its complex syntax and low-level access to system resources.</li>
+<li value="2">Lack of memory management: C does not provide automatic memory management, which can lead to memory leaks and other memory-related bugs if not handled properly.</li>
+<li value="3">No built-in support for object-oriented programming: C does not provide built-in support for object-oriented programming, making it more difficult to write object-oriented code compared to languages like Java or Python.</li>
+<li value="4">No built-in support for concurrency: C does not provide built-in support for concurrency, making it more difficult to write multithreaded applications compared to languages like Java or Go.</li>
+<li value="5">Security vulnerabilities: C programs are prone to security vulnerabilities, such as buffer overflows, if not written carefully.<br />Overall, C is a powerful language with many advantages, but it also requires a high degree of expertise to use effectively and has some potential drawbacks, especially for beginners or developers working on complex projects.</li>
+</ol>
+<h3>Importance:</h3>
+<p dir="ltr">important for several reasons:</p>
+
+
+<ol>
+<li value="1">Choosing the right programming language: Knowing the advantages and disadvantages of C can help developers choose the right programming language for their projects. For example, if high performance is a priority, C may be a good choice, but if ease of use or built-in memory management is important, another language may be a better fit.</li>
+<li value="2">Writing efficient code: Understanding the efficiency advantages of C can help developers write more efficient and optimized code, which is especially important for systems programming and other performance-critical applications.</li>
+<li value="3">Avoiding common pitfalls: Understanding the potential disadvantages of C, such as memory management issues or security vulnerabilities, can help developers avoid common pitfalls and write safer, more secure code.</li>
+<li value="4">Collaboration and communication: Knowing the advantages and disadvantages of C can also help developers communicate and collaborate effectively with others on their team or in the wider programming community.</li>
+</ol>
+<p dir="ltr">The idea of this article is to introduce C standard.&nbsp;</p>
+<p dir="ltr"><strong>What to do when a C program produces different results in two different compilers?</strong>&nbsp;<br />For example, consider the following simple C program.&nbsp;</p>
+<div class="responsive-tabs-wrapper">
+<div class="responsive-tabs responsive-tabs--enabled">
+<ul class="responsive-tabs__list" role="tablist">
+<li id="tablist1-tab1" class="responsive-tabs__list__item responsive-tabs__list__item--active" tabindex="0" role="tab" aria-controls="tablist1-panel1">C</li>
+</ul>
+<div id="tablist1-panel1" class="tabcontent responsive-tabs__panel responsive-tabs__panel--active" role="tabpanel" aria-hidden="false" aria-labelledby="tablist1-tab1">
+<div class="code-block">
+<div class="code-gutter">
+<div class="editor-buttons-container">
+<div class="editor-buttons">&nbsp;</div>
+</div>
+</div>
+<div class="code-container">
+<div id="highlighter_273944" class="syntaxhighlighter nogutter  ">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="keyword bold">void</code> <code class="plain">main() {&nbsp; }</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p dir="ltr">The above program fails in GCC as the return type of main is void, but it compiles in Turbo C. How do we decide whether it is a legitimate C program or not?</p>
+
+<p dir="ltr">Consider the following program as another example. It produces different results in different compilers.&nbsp;</p>
+<div class="responsive-tabs">
+<h2 class="tabtitle">C</h2>
+<div class="tabcontent">
+<div class="code-block">
+<div class="code-gutter">
+<div class="editor-buttons-container">
+<div class="editor-buttons">
+<div class="editor-buttons-div" title="Run and Edit"><em id="copy-code-button" class="gfg-icon gfg-icon_copy code-sidebar-button padding-2px copy-code-button" title="Copy Code"></em>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+</div>
+<div class="code-container">
+<div id="highlighter_115368" class="syntaxhighlighter nogutter  ">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="comments">// C++ Program to illustrate the difference in different</code></div>
+<div class="line number2 index1 alt1"><code class="comments">// compiler execution</code></div>
+<div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+<div class="line number4 index3 alt1"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
+<div class="line number5 index4 alt2"><code class="plain">{</code></div>
+<div class="line number6 index5 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">i = 1;</code></div>
+<div class="line number7 index6 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%d %d %d\n"</code><code class="plain">, i++, i++, i);</code></div>
+<div class="line number8 index7 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
+<div class="line number9 index8 alt2"><code class="plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="gray">2 1 3 - using g++ 4.2.1 on Linux.i686<br />1 2 3 - using SunStudio C++ 5.9 on Linux.i686<br />2 1 3 - using g++ 4.2.1 on SunOS.x86pc<br />1 2 3 - using SunStudio C++ 5.9 on SunOS.x86pc<br />1 2 3 - using g++ 4.2.1 on SunOS.sun4u<br />1 2 3 - using SunStudio C++ 5.9 on SunOS.sun4u</div>
+<p dir="ltr">Source:&nbsp;<a href="http://stackoverflow.com/questions/376278/parameter-evaluation-order-before-a-function-calling-in-c" target="_blank" rel="noopener noreferrer nofollow">Stackoverflow</a><br />Which compiler is right?<br />The answer to all such questions is C standard. In all such cases, we need to see what C standard says about such programs.</p>
+<p dir="ltr"><strong>What is C standard?</strong>&nbsp;<br />The latest C standard is&nbsp;<a href="https://en.wikipedia.org/wiki/C17_(C_standard_revision)" target="_blank" rel="noopener noreferrer nofollow">ISO/IEC 9899:2018</a>, also known as&nbsp;<a href="https://en.wikipedia.org/wiki/C17_(C_standard_revision)" target="_blank" rel="noopener noreferrer nofollow">C17</a><a href="http://en.wikipedia.org/wiki/C11_(C_standard_revision)" target="_blank" rel="noopener noreferrer nofollow">&nbsp;</a>as the final draft was published in 2018. Before C11, there was&nbsp;<a href="http://en.wikipedia.org/wiki/C99" target="_blank" rel="noopener noreferrer nofollow">C99</a>. The C11 final draft is available&nbsp;<a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf" target="_blank" rel="noopener noreferrer nofollow">here</a>. See&nbsp;<a href="http://en.wikipedia.org/wiki/C_(programming_language)#History" target="_blank" rel="noopener noreferrer nofollow">this&nbsp;</a>for a complete history of C standards.</p>
+<p dir="ltr"><strong>Can we know&nbsp;</strong>the&nbsp;<strong>behavior of all programs from C standard?</strong>&nbsp;<br />C standard leaves some behavior of many C constructs as&nbsp;<a href="http://en.wikipedia.org/wiki/Undefined_behavior" target="_blank" rel="noopener noreferrer nofollow">undefined&nbsp;</a>and some as&nbsp;<a href="http://en.wikipedia.org/wiki/Unspecified_behavior" target="_blank" rel="noopener noreferrer nofollow">unspecified&nbsp;</a>to simplify the specification and allow some flexibility in implementation. For example, in C the use of any automatic variable before it has been initialized yields undefined behavior and order of evaluations of subexpressions is unspecified. This specifically frees the compiler to do whatever is easiest or most efficient, should such a program be submitted.</p>
+<p dir="ltr"><strong>So what is the conclusion about above two examples?</strong>&nbsp;<br />Let us consider the first example which is &ldquo;void main() {}&rdquo;, the standard says following about prototype of main().</p>
+<div class="gray">The function called at program startup is named main. The implementation <br />declares no prototype for this function. It shall be defined with a return <br />type of int and with no parameters:<br />       int main(void) { /* ... */ }<br />or with two parameters (referred to here as argc and argv, though any names <br />may be used, as they are local to the function in which they are declared):<br />       int main(int argc, char *argv[]) { /* ... */ }<br />or equivalent;10) or in some other implementation-defined manner.</div>
+<p dir="ltr">So the return type void doesn&rsquo;t follow the standard, and it&rsquo;s something allowed by certain compilers.</p>
+<p dir="ltr">Let us talk about the second example. Note the following statement in C standard is listed under unspecified behavior.&nbsp;&nbsp;</p>
+<div class="gray">The order in which the function designator, arguments, and <br />subexpressions within the arguments are evaluated in a function <br />call (6.5.2.2). </div>
+<p dir="ltr"><strong>What to do with programs whose behavior is undefined or unspecified in standard?</strong>&nbsp;<br />As a programmer, it is never a good idea to use programming constructs whose behavior is undefined or unspecified, such programs should always be discouraged. The output of such programs may change with the compiler and/or machine.</p>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

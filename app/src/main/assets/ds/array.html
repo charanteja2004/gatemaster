@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    <h1>Array&nbsp;</h1>
+<div class="text">
+<p dir="ltr"><strong>Arrays</strong>&nbsp;are fundamental data structures in computer science, and mastering them is crucial for success in the&nbsp;<strong>GATE exam</strong>. This article aims to provide concise yet comprehensive notes on&nbsp;<strong>arrays</strong>, covering essential concepts and strategies to help you tackle array-related questions in the&nbsp;<strong>GATE 2024 exam</strong>.</p>
+<div id="table_of_content">
+<p>Table of Content</p>
+<ul>
+<li><a href="#introduction-to-arrays">Introduction to Arrays</a></li>
+<li><a href="#basic-terminologies-of-the-array">Basic terminologies of the array</a></li>
+<li><a href="#representation-of-array">Representation of Array</a></li>
+<li><a href="#types-of-arrays">Types of arrays</a></li>
+<li><a href="#finding-adress-of-an-element-in-array">Finding Adress of an Element in Array</a></li>
+<li><a href="#calculating-the-address-of-any-element-in-the-1d-array">Calculating the address of any element In the 1-D array</a></li>
+<li><a href="#calculate-the-address-of-any-element-in-the-2d-array">Calculate the address of any element in the 2-D array</a></li>
+<li><a href="#calculate-the-address-of-any-element-in-the-3d-array">Calculate the address of any element in the 3-D Array</a></li>
+
+</ul>
+</div>
+<h2 id="introduction-to-arrays"><u><span class="GFGEditorTheme__textUnderline">Introduction to Arrays:</span></u></h2>
+<blockquote>
+<p dir="ltr"><em><em class="GFGEditorTheme__textItalic">An</em></em>&nbsp;<strong>array</strong>&nbsp;<em><em class="GFGEditorTheme__textItalic">is a collection of items of the same variable type that are stored at contiguous memory locations. It&rsquo;s one of the most popular and simple data structures and is often used to implement other data structures. Each item in an array is indexed starting with 0.</em></em></p>
+</blockquote>
+<h2 id="basic-terminologies-of-the-array"><u><strong><strong class="GFGEditorTheme__textUnderline">Basic terminologies of the array:</strong></strong></u></h2>
+<ul>
+<li value="1"><strong>Array Index:</strong>&nbsp;In an array, elements are identified by their indexes. Array index starts from 0.</li>
+<li value="2"><strong>Array element:&nbsp;</strong>Elements are items stored in an array and can be accessed by their index.</li>
+<li value="3"><strong>Array Length:</strong>&nbsp;The length of an array is determined by the number of elements it can contain.&nbsp;</li>
+</ul>
+<h2 id="representation-of-array"><u><strong><strong class="GFGEditorTheme__textUnderline">Representation of Array</strong></strong></u>:</h2>
+<p dir="ltr">The representation of an array can be defined by its declaration. A declaration means allocating memory for an array of a given size.</p>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220721080308/array.png" width="383" height="100" />
+<p class="wp-caption-text">Representation of Array</p>
+</div>
+<p dir="ltr">Arrays can be declared in various ways in different languages. For better illustration, below are some language-specific array declarations.</p>
+<div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+<p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220721113333/Arraydeclaration-660x168.png" width="338" height="86" /></p>
+<div class="responsive-tabs-wrapper">
+<div class="responsive-tabs responsive-tabs--enabled">
+<ul class="responsive-tabs__list" role="tablist">
+<li id="tablist1-tab1" class="responsive-tabs__list__item responsive-tabs__list__item--active" tabindex="0" role="tab" aria-controls="tablist1-panel1">C++</li>
+<li id="tablist1-tab2" class="responsive-tabs__list__item" tabindex="0" role="tab" aria-controls="tablist1-panel2">C</li>
+<li id="tablist1-tab3" class="responsive-tabs__list__item" tabindex="0" role="tab" aria-controls="tablist1-panel3">Java</li>
+<li id="tablist1-tab4" class="responsive-tabs__list__item" tabindex="0" role="tab" aria-controls="tablist1-panel4">Python3</li>
+<li id="tablist1-tab5" class="responsive-tabs__list__item" tabindex="0" role="tab" aria-controls="tablist1-panel5">C#</li>
+<li id="tablist1-tab6" class="responsive-tabs__list__item" tabindex="0" role="tab" aria-controls="tablist1-panel6">Javascript</li>
+</ul>
+<div id="tablist1-panel1" class="tabcontent responsive-tabs__panel responsive-tabs__panel--active" role="tabpanel" aria-hidden="false" aria-labelledby="tablist1-tab1">
+<div class="code-block">
+<div class="code-gutter">
+<div class="editor-buttons-container">
+<div class="editor-buttons">&nbsp;</div>
+</div>
+</div>
+<div class="code-container">
+<div id="highlighter_686356" class="syntaxhighlighter nogutter  ">
+<table style="height: 55px;" border="0" width="472" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code" style="width: 468.8px;">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="color1 bold">int</code> <code class="plain">arr[5]; </code><code class="comments">// This array will store integer type element </code></div>
+<div class="line number2 index1 alt1"><code class="color1 bold">char</code> <code class="plain">arr[10]; </code><code class="comments">// This array will store char type element </code></div>
+<div class="line number3 index2 alt2"><code class="color1 bold">float</code> <code class="plain">arr[20]; </code><code class="comments">// This array will store float type element</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p dir="ltr">&nbsp;</p>
+<div class="wp-caption alignnone">&nbsp;</div>
+<div class="wp-caption alignnone">&nbsp;</div>
+</div>
+<p dir="ltr">However, the above declaration is&nbsp;<strong>static</strong>&nbsp;or&nbsp;<strong>compile-time</strong>&nbsp;memory allocation, which means that the array element&rsquo;s memory is allocated when a program is compiled. Here only a fixed size (i,e. the size that is mentioned in square brackets&nbsp;<strong>[]</strong>) of memory will be allocated for storage, but don&rsquo;t you think it will not be the same situation as we know the size of the array every time, there might be a case where we don&rsquo;t know the size of the array. If we declare a larger size and store a lesser number of elements will result in a wastage of memory or either be a case where we declare a lesser size then we won&rsquo;t get enough memory to store the rest of the elements. In such cases, static memory allocation is not preferred.</p>
+<h2 id="types-of-arrays"><u><strong><strong class="GFGEditorTheme__textUnderline">Types of arrays:&nbsp;</strong></strong></u></h2>
+<p dir="ltr">There are mainly three types of arrays:</p>
+<ol>
+<li value="1">One Dimensional Array</li>
+<li value="2">Two Dimensional Array</li>
+<li value="3">Three-Dimensional Array</li>
+</ol>
+<h3><u><strong><strong class="GFGEditorTheme__textUnderline">1.&nbsp;</strong></strong></u><u><strong><strong class="GFGEditorTheme__textUnderline">One Dimensional Array</strong></strong></u><u><strong><strong class="GFGEditorTheme__textUnderline">:</strong></strong></u></h3>
+<ul>
+<li value="1">It is a list of the variable of similar&nbsp;data types.</li>
+<li value="2">It allows random access and all the elements can be accessed with the help of their index.</li>
+<li value="3">The size of the array is fixed.</li>
+<li value="4">For a dynamically sized array,&nbsp;vector can be used in c++</li>
+</ul>
+<p dir="ltr">Representation of 1D array:</p>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/array-2.png" width="400" height="182" />
+<p class="wp-caption-text">Representation of the 1D array</p>
+</div>
+<h3><u><strong><strong class="GFGEditorTheme__textUnderline">2. Two Dimensional Array:</strong></strong></u></h3>
+<ul>
+<li value="1">It is a list of lists of the variable of the same data type.</li>
+<li value="2">It also allows random access and all the elements can be accessed with the help of their index.</li>
+<li value="3">It can also be seen as a collection of 1D arrays. It is also known as the Matrix.</li>
+<li value="4">Its dimension can be increased from 2 to 3 and 4 so on.</li>
+<li value="5">They all are referred to as a&nbsp;<a href="https://www.geeksforgeeks.org/multidimensional-arrays-c-cpp/">multi-dimension</a>&nbsp;array.</li>
+<li value="6">The most common multidimensional array is a 2D array.</li>
+</ul>
+<p dir="ltr">Representation of 2 D array:</p>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/two-d.png" width="496" height="189" />
+<p class="wp-caption-text">Representation of 2D Array</p>
+</div>
+<h3><u><strong><strong class="GFGEditorTheme__textUnderline">3. Three-Dimensional Array:</strong></strong></u></h3>
+<p dir="ltr">A&nbsp;<strong>Three Dimensional Array</strong>&nbsp;or&nbsp;<strong>3D</strong>&nbsp;array in C is a collection of two-dimensional arrays. It can be visualized as multiple 2D arrays stacked on top of each other.</p>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/3D-array.jpg" width="346" height="172" />
+<p class="wp-caption-text">Representation of 3D array</p>
+</div>
+<p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Declaration of Three-Dimensional Array:</strong></strong></u></p>
+<p dir="ltr">We can declare a 3D array with&nbsp;<strong>x</strong>&nbsp;2D arrays each having&nbsp;<strong>y</strong>&nbsp;rows and&nbsp;<strong>z</strong>&nbsp;columns using the syntax shown below.</p>
+<p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Syntax:</strong></strong></u></p>
+<div class="gray">data_type array_name[x][y][z];<br /><br /><br /><div>
+<ul>
+<li value="1"><strong>data_type:</strong>&nbsp;Type of data to be stored in each element.</li>
+<li value="2"><strong>array_name:</strong>&nbsp;name of the array</li>
+<li value="3"><strong>x:</strong>&nbsp;Number of 2D arrays.</li>
+<li value="4"><strong>y:</strong>&nbsp;Number of rows in each 2D array.</li>
+<li value="5"><strong>z:&nbsp;</strong>Number of columns in each 2D array.</li>
+</ul>
+<h2 id="finding-adress-of-an-element-in-array"><u><span class="GFGEditorTheme__textUnderline">Finding Adress of an Element in Array</span></u></h2>
+<p dir="ltr">When it comes to organizing and accessing elements in a multi-dimensional array, two prevalent methods are&nbsp;<strong>Row Major Order</strong>&nbsp;and&nbsp;<strong>Column Major Order</strong>.</p>
+<h3><strong>1. Row Major Order</strong></h3>
+<p dir="ltr">Row major ordering&nbsp;assigns successive elements, moving across the rows and then down the next row, to successive memory locations. In simple language, the elements of an array are stored in a Row-Wise fashion.<br />To find the address of the element using row-major order uses the following formula:</p>
+<blockquote>
+<p dir="ltr"><strong>Address of A[I][J] = B + W * ((I &ndash; LR) * N + (J &ndash; LC)) &nbsp;&nbsp;</strong></p>
+<p dir="ltr">I = Row Subset of an element whose address to be found,&nbsp;<br />J = Column Subset of an element whose address to be found,&nbsp;<br />B = Base address,&nbsp;<br />W = Storage size of one element store in an array(in byte),&nbsp;<br />LR = Lower Limit of row/start row index of the matrix(If not given assume it as zero),&nbsp;<br />LC = Lower Limit of column/start column index of the matrix(If not given assume it as zero),&nbsp;<br />N = Number of column given in the matrix.</p>
+</blockquote>
+<h3><strong>2. Column Major Order</strong></h3>
+<p dir="ltr">If elements of an array are stored in a column-major fashion means moving across the column and then to the next column then it&rsquo;s in column-major order.&nbsp;To find the address of the element using column-major order use the following formula:</p>
+<blockquote>
+<p dir="ltr"><strong>Address of A[I][J] = B + W * ((J &ndash; LC) * M + (I &ndash; LR)) &nbsp;</strong></p>
+<p dir="ltr">I = Row Subset of an element whose address to be found,&nbsp;<br />J = Column Subset of an element whose address to be found,&nbsp;<br />B = Base address,&nbsp;<br />W = Storage size of one element store in any array(in byte),&nbsp;<br />LR = Lower Limit of row/start row index of matrix(If not given assume it as zero),&nbsp;<br />LC = Lower Limit of column/start column index of matrix(If not given assume it as zero),&nbsp;<br />M = Number of rows given in the matrix.</p>
+</blockquote>
+<h2 id="calculating-the-address-of-any-element-in-the-1d-array"><u><strong><strong class="GFGEditorTheme__textUnderline">Calculating the address of any element In the 1-D array:</strong></strong></u></h2>
+<p dir="ltr">A 1-dimensional array (or single-dimension array) is a type of&nbsp;linear array. Accessing its elements involves a single subscript that can either represent a row or column index.&nbsp;</p>
+<p dir="ltr"><strong>Example:</strong></p>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220809110808/1darray.jpg" width="454" height="227" />
+<p class="wp-caption-text">1D array</p>
+</div>
+<p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">To find the address of an element in an array the following&nbsp;formula is used:</strong></strong></u></p>
+<blockquote>
+<p dir="ltr"><strong>Address of A[I] = B + W * (I &ndash; LB)</strong></p>
+<p dir="ltr">I = Subset of element whose address to be found,&nbsp;<br />B = Base address,&nbsp;<br />W = Storage size of one element store in any array(in byte),&nbsp;<br />LB = Lower Limit/Lower Bound of subscript(If not specified assume zero).</p>
+</blockquote>
+<p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Example</strong></strong></u><strong>:</strong>&nbsp;Given the base address of an array&nbsp;<strong>A[1300 &hellip;&hellip;&hellip;&hellip; 1900]</strong>&nbsp;as&nbsp;<strong>1020</strong>&nbsp;and the size of each element is 2 bytes in the memory, find the address of&nbsp;<strong>A[1700].</strong>&nbsp;</p>
+<p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Solution</strong></strong></u><strong>:</strong></p>
+<blockquote>
+<p dir="ltr"><strong>Given:</strong><br />Base address B = 1020<br />Lower Limit/Lower Bound of subscript LB = 1300<br />Storage size of one element store in any array W = 2 Byte<br />Subset of element whose address to be found I = 1700</p>
+<p dir="ltr"><strong>Formula used:</strong><br />Address of A[I] = B + W * (I &ndash; LB)</p>
+<p dir="ltr"><strong>Solution:</strong><br />Address of A[1700] = 1020 + 2 * (1700 &ndash; 1300)<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 1020 + 2 * (400)<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 1020 + 800<br />Address of A[1700] = 1820</p>
+</blockquote>
+<h2 id="calculate-the-address-of-any-element-in-the-2d-array"><u><strong><strong class="GFGEditorTheme__textUnderline">Calculate the address of any element in the 2-D array:</strong></strong></u></h2>
+<p dir="ltr">The 2-dimensional array can be defined as an array of arrays. The 2-Dimensional arrays are organized as matrices which can be represented as the collection of rows and columns as array[M][N] where M is the number of rows and N is the number of columns.&nbsp;</p>
+<p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Example</strong></strong></u><strong>:</strong></p>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220809111509/Matrix.jpg" width="408" height="204" />
+<p class="wp-caption-text">2-D Array</p>
+</div>
+<p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Finding address of an element using Row Major Order</strong></strong></u><strong>:&nbsp;</strong></p>
+<p dir="ltr">Given an array,&nbsp;<strong>arr[1&hellip;&hellip;&hellip;10][1&hellip;&hellip;&hellip;15]</strong>&nbsp;with base value&nbsp;<strong>100</strong>&nbsp;and the size of each element is&nbsp;<strong>1 Byte</strong>&nbsp;in memory. Find the address of&nbsp;<strong>arr[8][6]</strong>&nbsp;with the help of row-major order.</p>
+<p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Solution</strong></strong></u><strong>:</strong></p>
+<blockquote>
+<p dir="ltr"><strong>Given:</strong><br />Base address B = 100<br />Storage size of one element store in any array W = 1 Bytes<br />Row Subset of an element whose address to be found I = 8<br />Column Subset of an element whose address to be found J = 6<br />Lower Limit of row/start row index of matrix LR = 1&nbsp;<br />Lower Limit of column/start column index of matrix = 1<br />Number of column given in the matrix N = Upper Bound &ndash; Lower Bound + 1<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 15 &ndash; 1 + 1<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 15</p>
+<p dir="ltr"><strong>Formula:</strong><br />Address of A[I][J] = B + W * ((I &ndash; LR) * N + (J &ndash; LC))&nbsp;</p>
+<p dir="ltr"><strong>Solution:</strong><br />Address of A[8][6] = 100 + 1 * ((8 &ndash; 1) * 15 + (6 &ndash; 1))<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= 100 + 1 * ((7) * 15 + (5))<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 100 + 1 * (110)<br />Address of A[I][J] = 210</p>
+</blockquote>
+<p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Finding address of an element using Column Major Order</strong></strong></u><strong>:&nbsp;</strong></p>
+<p dir="ltr">Given an array&nbsp;<strong>arr[1&hellip;&hellip;&hellip;10][1&hellip;&hellip;&hellip;15]</strong>&nbsp;with a base value of&nbsp;<strong>100</strong>&nbsp;and the size of each element is&nbsp;<strong>1 Byte</strong>&nbsp;in memory find the address of arr[8][6] with the help of column-major order.</p>
+<p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Solution</strong></strong></u><strong>:</strong></p>
+<blockquote>
+<p dir="ltr"><strong>Given:</strong><br />Base address B = 100<br />Storage size of one element store in any array W = 1 Bytes<br />Row Subset of an element whose address to be found I = 8<br />Column Subset of an element whose address to be found J = 6<br />Lower Limit of row/start row index of matrix LR = 1<br />Lower Limit of column/start column index of matrix = 1<br />Number of Rows given in the matrix M = Upper Bound &ndash; Lower Bound + 1<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 10 &ndash; 1 + 1<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= 10</p>
+<p dir="ltr"><strong>Formula: used</strong><br />Address of A[I][J] = B + W * ((J &ndash; LC) * M + (I &ndash; LR))<br />Address of A[8][6] = 100 + 1 * ((6 &ndash; 1) * 10 + (8 &ndash; 1))<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 100 + 1 * ((5) * 10 + (7))<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= 100 + 1 * (57)<br />Address of A[I][J] = 157&nbsp;</p>
+</blockquote>
+<p dir="ltr">From the above examples, it can be observed that for the same position two different address locations are obtained that&rsquo;s because in row-major order movement is done across the rows and then down to the next row, and in column-major order, first move down to the first column and then next column. So both the answers are right.</p>
+<h2 id="calculate-the-address-of-any-element-in-the-3d-array"><u><strong><strong class="GFGEditorTheme__textUnderline">Calculate the address of any element in the 3-D Array:</strong></strong></u></h2>
+<p dir="ltr">A&nbsp;<strong>3-Dimensional</strong>&nbsp;array is a collection of 2-Dimensional arrays. It is specified by using three subscripts:</p>
+<ol>
+<li value="1">Block size</li>
+<li value="2">Row size</li>
+<li value="3">Column size</li>
+</ol>
+<p dir="ltr">More dimensions in an array mean more data can be stored in that array.&nbsp;</p>
+<p dir="ltr"><strong>Example:</strong></p>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220809110901/3darray.jpg" width="390" height="195" />
+<p class="wp-caption-text">3-D Array</p>
+</div>
+<p dir="ltr">To find the address of any element in 3-Dimensional arrays there are the following two ways:</p>
+<ul>
+<li value="1">Row Major Order</li>
+<li value="2">Column Major Order</li>
+</ul>
+<p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Row Major Order:</strong></strong></u></p>
+<p dir="ltr">To find the address of the element using row-major order, use the following formula:</p>
+<blockquote>
+<p dir="ltr"><strong>Address of A[i][j][k] = B + W *(M * N * (i-x) + N *(j-y) + (k-z))</strong></p>
+<p dir="ltr">Here:</p>
+<p dir="ltr">B = Base Address (start address)<br />W = Weight (storage size of one element stored in the array)<br />M = Row (total number of rows)<br />N = Column (total number of columns)<br />P = Width (total number of cells depth-wise)<br />x = Lower Bound of Row<br />y = Lower Bound of Column<br />z = Lower Bound of Width</p>
+</blockquote>
+<p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Example</strong></strong></u><strong>:</strong>&nbsp;Given an array,&nbsp;<strong>arr[1:9, -4:1, 5:10]</strong>&nbsp;with a base value of&nbsp;<strong>400</strong>&nbsp;and the size of each element is&nbsp;<strong>2 Bytes</strong>&nbsp;in memory find the address of element&nbsp;<strong>arr[5][-1][8]</strong>&nbsp;with the help of row-major order?</p>
+<p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Solution</strong></strong></u><strong>:</strong></p>
+<blockquote>
+<p dir="ltr"><strong>Given:</strong><br />Block Subset of an element whose address to be found I = 5<br />Row Subset of an element whose address to be found J = -1&nbsp;<br />Column Subset of an element whose address to be found K = 8<br />Base address B = 400<br />Storage size of one element store in any array(in Byte) W = 2<br />Lower Limit of blocks in matrix x = 1<br />Lower Limit of row/start row index of matrix y = -4&nbsp;<br />Lower Limit of column/start column index of matrix z = 5<br />M(row) = Upper Bound &ndash; Lower Bound + 1 = 1 &ndash; (-4) + 1 = 6<br />N(Column)= Upper Bound &ndash; Lower Bound + 1 = 10 &ndash; 5 + 1 = 6<br />&nbsp;</p>
+<p dir="ltr"><strong>Formula used:</strong>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>&nbsp;&nbsp; &nbsp;</strong><br />Address of[I][J][K] =B + W (M * N(i-x) + N *(j-y) + (k-z))</p>
+<p dir="ltr"><strong>Solution:</strong><br />Address of arr[5][-1][8] = 400 + 2 * {[6 * 6 * (5 &ndash; 1)] + 6 * [(-1 + 4)]} + [8 &ndash; 5]<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= 400 + 2 * (6*6*4)+(6*3)+3<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 400 + 2 * (165)<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= 730</p>
+</blockquote>
+<p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Column Major Order:</strong></strong></u></p>
+<p dir="ltr">To find the address of the element using column-major order, use the following formula:1</p>
+<blockquote>
+<p dir="ltr"><strong>Address of A[i][j][k]= B + W(M * N(i &ndash; x) + M *(k &ndash; z) + (j &ndash; y))</strong></p>
+<p dir="ltr">Here:</p>
+<p dir="ltr">B = Base Address (start address)<br />W = Weight (storage size of one element stored in the array)<br />M = Row (total number of rows)<br />N = Column (total number of columns)<br />P = Width (total number of cells depth-wise)<br />x = Lower Bound of block (first subscipt)<br />y = Lower Bound of Row<br />z = Lower Bound of Column</p>
+</blockquote>
+</div>
+</div>
+</body>
+</html>

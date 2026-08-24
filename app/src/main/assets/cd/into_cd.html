@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+
+<body>
+    <div class="main_wrapper">
+        <div>
+            <div class="article-title">
+                <h1>Introduction of Compiler Design</h1>
+            </div>
+            
+        </div>
+    </div>
+    <div class="text">
+        <p dir="ltr">The<strong>&nbsp;compiler&nbsp;</strong>is software that converts a program written in a high-level
+            language (Source Language) to a low-level language (Object/Target/Machine Language/0, 1&rsquo;s).&nbsp;</p>
+        <p dir="ltr">A translator or language processor is a program that translates an input program written in a
+            programming language into an equivalent program in another language. The compiler is a type of translator,
+            which takes a program written in a high-level programming language as input and translates it into an
+            equivalent program in low-level languages such as machine language or assembly language.&nbsp;</p>
+        <p dir="ltr">The program written in a high-level language is known as a source program, and the program
+            converted into a low-level language is known as an object (or target) program. Without compilation, no
+            program written in a high-level language can be executed. For every programming language, we have a
+            different compiler; however, the basic tasks performed by every compiler are the same. The process of
+            translating the source code into machine code involves several stages, including lexical analysis, syntax
+            analysis, semantic analysis, code generation, and optimization.</p>
+        <p dir="ltr">Compiler is an intelligent program as compare to an assembler. Compiler verifies all types of
+            limits, ranges, errors , etc. Compiler program takes more time to run and it occupies huge amount of memory
+            space. The speed of compiler is slower than other system software. It takes time because it enters through
+            the program and then does translation of the full program. When compiler runs on same machine and produces
+            machine code for the same machine on which it is running. Then it is called as self compiler or resident
+            compiler. Compiler may run on one machine and produces the machine codes for other computer then in that
+            case it is called as cross compiler.</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <h2>High-Level Programming Language</h2>
+        <p dir="ltr">A&nbsp;high-level
+                programming language&nbsp;is a language that has an abstraction of attributes of the computer.
+            High-level programming is more convenient to the user in writing a program.</p>
+        <h2>Low-Level Programming Language</h2>
+        <p dir="ltr">A low-Level Programming language is a language that doesn&rsquo;t require programming ideas and
+            concepts.</p>
+        <h2>Stages of Compiler Design</h2>
+        <ol>
+            <li value="1"><strong>Lexical Analysis:</strong>&nbsp;The first stage of compiler design is&nbsp;<a
+                    href="lexical.html">lexical analysis</a>, also
+                known as scanning. In this stage, the compiler reads the source code character by character and breaks
+                it down into a series of tokens, such as keywords, identifiers, and operators. These tokens are then
+                passed on to the next stage of the compilation process.</li>
+            <li value="2"><strong>Syntax Analysis:</strong>&nbsp;The second stage of compiler design is&nbsp;<a
+                    href="syntax.html">syntax
+                    analysis</a>, also known as parsing. In this stage, the compiler checks the syntax of the source
+                code to ensure that it conforms to the rules of the programming language. The compiler builds a parse
+                tree, which is a hierarchical representation of the program&rsquo;s structure, and uses it to check for
+                syntax errors.</li>
+            <li value="3"><strong>Semantic Analysis:</strong>&nbsp;The third stage of compiler design is&nbsp;<a
+                    href="sematic.html">semantic analysis</a>. In
+                this stage, the compiler checks the meaning of the source code to ensure that it makes sense. The
+                compiler performs type checking, which ensures that variables are used correctly and that operations are
+                performed on compatible data types. The compiler also checks for other semantic errors, such as
+                undeclared variables and incorrect function calls.</li>
+            <li value="4"><strong>Code Generation:</strong>&nbsp;The fourth stage of compiler design is&nbsp;<a
+                    href="codeoptimization.html">code generation</a>. In this stage, the
+                compiler translates the parse tree into machine code that can be executed by the computer. The code
+                generated by the compiler must be efficient and optimized for the target platform.</li>
+            <li value="5"><strong>Optimization:&nbsp;</strong>The final stage of compiler design is optimization. In
+                this stage, the compiler analyzes the generated code and makes optimizations to improve its performance.
+                The compiler may perform optimizations such as constant folding, loop unrolling, and function inlining.
+            </li>
+        </ol>
+        <p dir="ltr">Overall, compiler design is a complex process that involves multiple stages and requires a deep
+            understanding of both the programming language and the target platform. A well-designed compiler can greatly
+            improve the efficiency and performance of software programs, making them more useful and valuable for users.
+        </p>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/compileProcess.jpg" alt="Compiler"
+                width="300px" height="300px" />
+            <p class="wp-caption-text">Compiler</p>
+        </div>
+        <ul>
+            <li value="1"><strong>Cross Compiler</strong>&nbsp;that runs on a machine &lsquo;A&rsquo; and produces a
+                code for another machine &lsquo;B&rsquo;. It is capable of creating code for a platform other than the
+                one on which the compiler is running.</li>
+            <li value="2"><strong>Source-to-source Compiler</strong>&nbsp;or transcompiler or transpiler is a compiler
+                that translates source code written in one programming language into the source code of another
+                programming language.</li>
+        </ul>
+        <h2><strong>Language Processing Systems</strong></h2>
+        <p dir="ltr">We know a computer is a logical assembly of&nbsp;<a
+                href="https://www.geeksforgeeks.org/difference-between-hardware-and-software/">Software and
+                Hardware</a>. The hardware knows a language, that is hard for us to grasp, consequently, we tend to
+            write programs in a high-level language, that is much less complicated for us to comprehend and maintain in
+            our thoughts. Now, these programs go through a series of transformations so that they can readily be used by
+            machines. This is where language procedure systems come in handy.&nbsp;</p>
+        <div class="wp-caption alignnone">&nbsp;</div>
+    </div>
+    <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/compilerP.jpg" alt="High-Level Language to Machine Code" width="inherit" height="inherit" />
+        <p class="wp-caption-text">High-Level Language to Machine Code</p>
+        </div>
+        <ul>
+        <li value="1"><strong>High-Level Language:&nbsp;</strong>If a program contains pre-processor directives such as #include or #define it is called HLL. They are closer to humans but far from machines. These (#) tags are called&nbsp;preprocessor directives..&nbsp;They direct the pre-processor about what to do.</li>
+        <li value="2"><strong>Pre-Processor:</strong>&nbsp;The pre-processor removes all the #include directives by including the files called file inclusion and all the #define directives using macro expansion. It performs file inclusion, augmentation, macro-processing, etc.</li>
+        <li value="3"><strong>Assembly Language:&nbsp;</strong>It&rsquo;s neither in binary form nor high level. It is an intermediate state that is a combination of machine instructions and some other useful data needed for execution.</li>
+        <li value="4"><strong>Assembler:</strong>&nbsp;For every platform (Hardware + OS) we will have an assembler. They are not universal since for each platform we have one. The output of the assembler is called an object file. Its translates assembly language to machine code.</li>
+        <li value="5"><strong>Interpreter:</strong>&nbsp;An interpreter converts high-level language into low-level machine language, just like a compiler. But they are different in the way they read the input. The Compiler in one go reads the inputs, does the processing, and executes the source code whereas the interpreter does the same line by line. A compiler scans the entire program and translates it as a whole into machine code whereas an interpreter translates the program one statement at a time. Interpreted programs are usually slower concerning compiled ones. For example: Let in the source program, it is written #include &ldquo;Stdio. h&rdquo;. Pre-Processor replaces this file with its contents in the produced output. The basic work of a linker is to merge object codes (that have not even been connected), produced by the compiler, assembler, standard library function, and operating system resources. The codes generated by the compiler, assembler, and linker are generally re-located by their nature, which means to say, the starting location of these codes is not determined, which means they can be anywhere in the computer memory, Thus the basic task of loaders to find/calculate the exact address of these memory locations.</li>
+        <li value="6"><strong>Relocatable Machine Code:</strong>&nbsp;It can be loaded at any point and can be run. The address within the program will be in such a way that it will cooperate with the program movement.</li>
+        <li value="7"><strong>Loader/Linker:</strong>&nbsp;Loader/Linker&nbsp;converts the relocatable code into absolute code and tries to run the program resulting in a running program or an error message (or sometimes both can happen). Linker loads a variety of object files into a single file to make it executable. Then loader loads it in memory and executes it.</li>
+        </ul>
+        <h2>Types of Compiler</h2>
+        <p dir="ltr">There are mainly three types of compilers.</p>
+        <ul>
+        <li value="1">Single Pass Compilers</li>
+        <li value="2">Two Pass Compilers</li>
+        <li value="3">Multipass Compilers</li>
+        </ul>
+        <h3>Single Pass Compiler</h3>
+        <p dir="ltr">When all the phases of the compiler are present inside a single module, it is simply called a single-pass compiler. It performs the work of converting source code to machine code.</p>
+        <h3>Two Pass Compiler</h3>
+        <p dir="ltr">Two-pass compiler is a compiler in which the program is translated twice, once from the front end and the back from the back end known as Two Pass Compiler.</p>
+        <h3>Multipass Compiler</h3>
+        <p dir="ltr">When several intermediate codes are created in a program and a syntax tree is processed many times, it is called Multi pass Compiler. It breaks codes into smaller programs.</p>
+        </div>
+        </div>
+        </div>
+</body>
+
+</html>

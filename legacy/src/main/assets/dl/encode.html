@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    
+<div class="article-title">
+    <h1>Encoders and Decoders in Digital Logic</h1>
+    </div>
+    </div>
+    </div>
+    <div class="text">
+    <p>Binary code of N digits can be used to store 2<sup>N</sup>&nbsp;distinct elements of coded information. This is what encoders and decoders are used for.&nbsp;<strong>Encoders</strong>&nbsp;convert 2<sup>N</sup>&nbsp;lines of input into a code of N bits and&nbsp;<strong>Decoders</strong>&nbsp;decode the N bits into 2<sup>N</sup>&nbsp;lines.</p>
+    <p><strong>1. Encoders &ndash;</strong><br />An encoder is a combinational circuit that converts binary information in the form of a 2<sup>N</sup>&nbsp;input lines into N output lines, which represent N bit code for the input. For simple encoders, it is assumed that only one input line is active at a time.</p>
+    <p>As an example, let&rsquo;s consider&nbsp;<strong>Octal to Binary</strong>&nbsp;encoder. As shown in the following figure, an octal-to-binary encoder takes 8 input lines and generates 3 output lines.</p>
+    <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+    <p><img class="aligncenter size-full wp-image-410587" src="https://media.geeksforgeeks.org/wp-content/uploads/111-3.png" alt="" width="361" height="211" /></p>
+    <p><strong>Truth Table &ndash;</strong></p>
+    <table width="100%">
+    <thead>
+    <tr>
+    <th>D7</th>
+    <th>D6</th>
+    <th>D5</th>
+    <th>D4</th>
+    <th>D3</th>
+    <th>D2</th>
+    <th>D1</th>
+    <th>D0</th>
+    <th>X</th>
+    <th>Y</th>
+    <th>Z</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    </tr>
+    <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    </tr>
+    <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    </tr>
+    <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>1</td>
+    </tr>
+    <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    </tr>
+    <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+    </tr>
+    <tr>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    </tr>
+    <tr>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+    </tr>
+    </tbody>
+    </table>
+    <div class="article-title">
+        <p>As seen from the truth table, the output is 000 when D0 is active; 001 when D1 is active; 010 when D2 is active and so on.</p>
+        <p><strong>Implementation &ndash;</strong><br />From the truth table, the output line Z is active when the input octal digit is 1, 3, 5 or 7. Similarly, Y is 1 when input octal digit is 2, 3, 6 or 7 and X is 1 for input octal digits 4, 5, 6 or 7. Hence, the Boolean functions would be:</p>
+        <pre>X = D4 + D5 + D6 + D7
+        Y = D2 +D3 + D6 + D7
+        Z = D1 + D3 + D5 + D7 </pre>
+        <p>Hence, the encoder can be realised with OR gates as follows:</p>
+        <p><img class="aligncenter size-full wp-image-410600" src="https://media.geeksforgeeks.org/wp-content/uploads/222-6.png" alt="" width="368" height="163" /></p>
+        <p>One limitation of this encoder is that only one input can be active at any given time. If more than one inputs are active, then the output is undefined. For example, if D6 and D3 are both active, then, our output would be 111 which is the output for D7. To overcome this, we use Priority Encoders.</p>
+        <p>Another ambiguity arises when all inputs are 0. In this case, encoder outputs 000 which actually is the output for D0 active. In order to avoid this, an extra bit can be added to the output, called the valid bit which is 0 when all inputs are 0 and 1 otherwise.</p>
+        <p><strong>Priority Encoder &ndash;</strong><br />A priority encoder is an encoder circuit in which inputs are given priorities. When more than one inputs are active at the same time, the input with higher priority takes precedence and the output corresponding to that is generated.</p>
+        <p>Let us consider the 4 to 2 priority encoder as an example.<br />From the truth table, we see that when all inputs are 0, our V bit or the valid bit is zero and outputs are not used. The x&rsquo;s in the table show the don&rsquo;t care condition, i.e, it may either be 0 or 1. Here, D3 has highest priority, therefore, whatever be the other inputs, when D3 is high, output has to be 11. And D0 has the lowest priority, therefore the output would be 00 only when D0 is high and the other input lines are low. Similarly, D2 has higher priority over D1 and D0 but lower than D3 therefore the output would be 010 only when D2 is high and D3 are low (D0 &amp; D1 are don&rsquo;t care).</p>
+        <p><strong>Truth Table &ndash;</strong></p>
+        <table width="100%">
+        <thead>
+        <tr>
+        <th>D3</th>
+        <th>D2</th>
+        <th>D1</th>
+        <th>D0</th>
+        <th>X</th>
+        <th>Y</th>
+        <th>V</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>x</td>
+        <td>x</td>
+        <td>0</td>
+        </tr>
+        <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+        </tr>
+        <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+        <td>x</td>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+        </tr>
+        <tr>
+        <td>0</td>
+        <td>1</td>
+        <td>x</td>
+        <td>x</td>
+        <td>1</td>
+        <td>0</td>
+        <td>1</td>
+        </tr>
+        <tr>
+        <td>1</td>
+        <td>x</td>
+        <td>x</td>
+        <td>x</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        </tr>
+        </tbody>
+        </table>
+        <p><strong>Implementation &ndash;</strong><br />It can clearly be seen that the condition for valid bit to be 1 is that at least any one of the inputs should be high. Hence,</p>
+        <pre>V = D0 + D1 + D2 + D3 </pre>
+        <p>For X:</p>
+        <p><img class="aligncenter size-full wp-image-410608" src="https://media.geeksforgeeks.org/wp-content/uploads/333-1.png" alt="" width="290" height="275" /></p>
+        <p>=&gt; X = D2 + D3<br />For Y:</p>
+        <p><img class="aligncenter size-full wp-image-410612" src="https://media.geeksforgeeks.org/wp-content/uploads/444-1.png" alt="" width="302" height="283" /></p>
+        <p>=&gt; Y = D1 D2&rsquo; + D3</p>
+        <p>Hence, the priority 4-to-2 encoder can be realized as follows:</p>
+        <p><img class="aligncenter size-full wp-image-410614" src="https://media.geeksforgeeks.org/wp-content/uploads/555-2.png" alt="" width="253" height="231" /></p>
+        </div>
+        <div class="article-title">
+            <p><strong>2. Decoders &ndash;</strong><br />A decoder does the opposite job of an encoder. It is a combinational circuit that converts n lines of input into 2<sup>n</sup>&nbsp;lines of output.</p>
+            <p>Let&rsquo;s take an example of 3-to-8 line decoder.</p>
+            <p><strong>Truth Table &ndash;</strong></p>
+            <table width="100%">
+            <thead>
+            <tr>
+            <th>X</th>
+            <th>Y</th>
+            <th>Z</th>
+            <th>D0</th>
+            <th>D1</th>
+            <th>D2</th>
+            <th>D3</th>
+            <th>D4</th>
+            <th>D5</th>
+            <th>D6</th>
+            <th>D7</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            </tr>
+            <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            </tr>
+            <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            </tr>
+            <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            </tr>
+            <tr>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            </tr>
+            <tr>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            </tr>
+            <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            </tr>
+            <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            </tr>
+            </tbody>
+            </table>
+            <p><strong>Implementation &ndash;</strong><br />D0 is high when X = 0, Y = 0 and Z = 0. Hence,</p>
+            <pre>D0 = X&rsquo; Y&rsquo; Z&rsquo; </pre>
+            <p>Similarly,</p>
+            <pre>D1 = X&rsquo; Y&rsquo; Z
+            D2 = X&rsquo; Y Z&rsquo;
+            D3 = X&rsquo; Y Z
+            D4 = X Y&rsquo; Z&rsquo;
+            D5 = X Y&rsquo; Z
+            D6 = X Y Z&rsquo;
+            D7 = X Y Z </pre>
+            <p>Hence,</p>
+            <p><img class="aligncenter size-full wp-image-410622" src="https://media.geeksforgeeks.org/wp-content/uploads/666.png" alt="" width="303" height="401" /></p>
+            </div>    
+</body>
+</html>

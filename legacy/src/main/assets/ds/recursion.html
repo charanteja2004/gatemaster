@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    
+<h2>RECURSION</h2>
+
+<p><strong>What is Recursion?</strong>&nbsp;<br />The process in which a function calls itself directly or indirectly is called recursion and the corresponding function is called a recursive function. Using a recursive algorithm, certain problems can be solved quite easily. Examples of such problems are&nbsp;<a href="https://www.geeksforgeeks.org/c-program-for-tower-of-hanoi/">Towers of Hanoi (TOH)</a>,&nbsp;<a href="https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/">Inorder/Preorder/Postorder Tree Traversals</a>,&nbsp;<a href="https://www.geeksforgeeks.org/depth-first-traversal-for-a-graph/">DFS of Graph</a>, etc. A recursive function solves a particular problem by calling a copy of itself and solving smaller subproblems of the original problems. Many more recursive calls can be generated as and when required. It is essential to know that we should provide a certain case in order to terminate this recursion process. So we can say that every time the function calls itself with a simpler version of the original problem.</p>
+<p><strong>Need of Recursion</strong></p>
+<p>Recursion is an amazing technique with the help of which we can reduce the length of our code and make it easier to read and write. It has certain advantages over the iteration technique which will be discussed later. A task that can be defined with its similar subtask, recursion is one of the best solutions for it. For example; The Factorial of a number.</p>
+<p><strong>Properties of Recursion:</strong></p>
+
+<ul>
+<li>Performing the same operations multiple times with different inputs.</li>
+<li>In every step, we try smaller inputs to make the problem smaller.</li>
+<li>Base condition is needed to stop the recursion otherwise infinite loop will occur.</li>
+</ul>
+<h4>Algorithm: Steps</h4>
+<div class="gray">The algorithmic steps for implementing recursion in a function are as follows:
+
+Step1 - Define a base case: Identify the simplest case for which the solution is known or trivial. This is the stopping condition for the recursion, as it prevents the function from infinitely calling itself.
+
+Step2 - Define a recursive case: Define the problem in terms of smaller subproblems. Break the problem down into smaller versions of itself, and call the function recursively to solve each subproblem.
+
+Step3 - Ensure the recursion terminates: Make sure that the recursive function eventually reaches the base case, and does not enter an infinite loop.
+
+step4 - Combine the solutions: Combine the solutions of the subproblems to solve the original problem.</div>
+<p><strong>A Mathematical Interpretation</strong></p>
+<p>Let us consider a problem that a programmer has to determine the sum of first n natural numbers, there are several ways of doing that but the simplest approach is simply to add the numbers starting from 1 to n. So the function simply looks like this,</p>
+<blockquote>
+<p><strong>approach(1) &ndash; Simply adding one by one</strong></p>
+<p><strong>f(n) = 1 + 2 + 3 +&hellip;&hellip;..+ n</strong></p>
+</blockquote>
+<p>but there is another mathematical approach of representing this,</p>
+<blockquote>
+<p><strong>approach(2) &ndash; Recursive adding&nbsp;</strong></p>
+<p><strong>f(n) = 1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;n=1</strong></p>
+<p><strong>f(n) = n + f(n-1) &nbsp; &nbsp;n&gt;1</strong></p>
+</blockquote>
+<p>There is a simple difference between the approach (1) and approach(2) and that is in&nbsp;<strong>approach(2)</strong>&nbsp;the function &ldquo;<strong>&nbsp;f( )&nbsp;</strong>&rdquo; itself is being called inside the function, so this phenomenon is named recursion, and the function containing recursion is called recursive function, at the end, this is a great tool in the hand of the programmers to code some problems in a lot easier and efficient way.</p>
+
+
+<p><strong>How are recursive functions stored in memory?</strong></p>
+<p>Recursion uses more memory, because the recursive function adds to the stack with each recursive call, and keeps the values there until the call is finished. The recursive function uses LIFO (LAST IN FIRST OUT) Structure just like the stack data structure.</p>
+<p><strong>What is the base condition in recursion?</strong>&nbsp;<br />In the recursive program, the solution to the base case is provided and the solution to the bigger problem is expressed in terms of smaller problems.&nbsp;<br />&nbsp;</p>
+<div class="gray">int fact(int n)
+{
+    if (n &lt; = 1) // base case
+        return 1;
+    else    
+        return n*fact(n-1);    
+}</div>
+<p>In the above example, the base case for n &lt; = 1 is defined and the larger value of a number can be solved by converting to a smaller one till the base case is reached.</p>
+<p><strong>How a particular problem is solved using recursion?</strong>&nbsp;<br />The idea is to represent a problem in terms of one or more smaller problems, and add one or more base conditions that stop the recursion. For example, we compute factorial n if we know the factorial of (n-1). The base case for factorial would be n = 0. We return 1 when n = 0.&nbsp;</p>
+<p><strong>Why Stack Overflow error occurs in recursion?</strong>&nbsp;<br />If the base case is not reached or not defined, then the stack overflow problem may arise. Let us take an example to understand this.</p>
+<div class="gray">int fact(int n)
+{
+    // wrong base case (it may cause
+    // stack overflow).
+    if (n == 100) 
+        return 1;
+
+    else
+        return n*fact(n-1);
+}</div>
+<p>If fact(10) is called, it will call fact(9), fact(8), fact(7), and so on but the number will never reach 100. So, the base case is not reached. If the memory is exhausted by these functions on the stack, it will cause a stack overflow error.&nbsp;</p>
+<p><strong>What is the difference between direct and indirect recursion?</strong>&nbsp;<br />A function fun is called direct recursive if it calls the same function fun. A function fun is called indirect recursive if it calls another function say fun_new and fun_new calls fun directly or indirectly. The difference between direct and indirect recursion has been illustrated in Table 1.&nbsp;</p>
+
+
+<div class="gray"><strong>// An example of direct recursion</strong>
+void directRecFun()
+{
+    // Some code....
+
+    directRecFun();
+
+    // Some code...
+}
+
+<strong>// An example of indirect recursion</strong>
+void indirectRecFun1()
+{
+    // Some code...
+
+    indirectRecFun2();
+
+    // Some code...
+}
+void indirectRecFun2()
+{
+    // Some code...
+
+    indirectRecFun1();
+
+    // Some code...
+}</div>
+<p><strong>What is the difference between tailed and non-tailed recursion?</strong>&nbsp;<br />A recursive function is tail recursive when a recursive call is the last thing executed by the function. Please refer&nbsp;<a href="https://www.geeksforgeeks.org/tail-recursion/">tail recursion article</a>&nbsp;for details.&nbsp;</p>
+<p><strong>How memory is allocated to different function calls in recursion?</strong>&nbsp;<br />When any function is called from main(), the memory is allocated to it on the stack. A recursive function calls itself, the memory for a called function is allocated on top of memory allocated to the calling function and a different copy of local variables is created for each function call. When the base case is reached, the function returns its value to the function by whom it is called and memory is de-allocated and the process continues.<br /> </p>
+
+
+<p><strong>Recursion VS Iteration</strong></p>
+<figure class="table">
+<table border="1">
+<tbody>
+<tr>
+<td><strong>SR No.</strong></td>
+<td><strong>Recursion</strong></td>
+<td><strong>Iteration</strong></td>
+</tr>
+<tr>
+<td>1)</td>
+<td>Terminates when the base case becomes true.</td>
+<td>Terminates when the condition becomes false.</td>
+</tr>
+<tr>
+<td>2)</td>
+<td>Used with functions.</td>
+<td>Used with loops.</td>
+</tr>
+<tr>
+<td>3)</td>
+<td>Every recursive call needs extra space in the stack memory.</td>
+<td>Every iteration does not require any extra space.</td>
+</tr>
+<tr>
+<td>4)</td>
+<td>Smaller code size.</td>
+<td>Larger code size.</td>
+</tr>
+</tbody>
+</table>
+</figure>
+<p>Now, let&rsquo;s discuss a few practical problems which can be solved by using recursion and understand its basic working. For basic understanding please read the following articles.&nbsp;<br /><a href="https://www.geeksforgeeks.org/recursion/">Basic understanding of Recursion.</a><br /><strong>Problem 1:&nbsp;</strong>Write a program and recurrence relation to find the Fibonacci series of n where n&gt;2 .&nbsp;<br /><em>Mathematical Equation:</em>&nbsp;&nbsp;</p>
+<div class="gray">n if n == 0, n == 1;      
+fib(n) = fib(n-1) + fib(n-2) otherwise;</div>
+<p><em>Recurrence Relation:</em>&nbsp;</p>
+<div class="gray">T(n) = T(n-1) + T(n-2) + O(1)</div>
+<p><strong>Recursive program:</strong>&nbsp;</p>
+<div class="gray"><strong>Input:</strong> n = 5 
+<strong>Output:</strong>
+Fibonacci series of 5 numbers is : 0 1 1 2 3</div>
+
+<div class="line number1 index0 alt2"><code class="comments">// C code to implement Fibonacci series </code></div>
+<div class="line number2 index1 alt1"><code class="preprocessor">#include &lt;stdio.h&gt; </code></div>
+<div class="line number3 index2 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number4 index3 alt1"><code class="comments">// Function for fibonacci </code></div>
+<div class="line number5 index4 alt2"><code class="color1 bold">int</code> <code class="plain">fib(</code><code class="color1 bold">int</code> <code class="plain">n) </code></div>
+<div class="line number6 index5 alt1"><code class="plain">{ </code></div>
+<div class="line number7 index6 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Stop condition </code></div>
+<div class="line number8 index7 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">if</code> <code class="plain">(n == 0) </code></div>
+<div class="line number9 index8 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
+<div class="line number10 index9 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number11 index10 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Stop condition </code></div>
+<div class="line number12 index11 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">if</code> <code class="plain">(n == 1 || n == 2) </code></div>
+<div class="line number13 index12 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">1; </code></div>
+<div class="line number14 index13 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Recursion function </code></div>
+<div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">else</code></div>
+<div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">(fib(n - 1) + fib(n - 2)); </code></div>
+<div class="line number18 index17 alt1"><code class="plain">} </code></div>
+<div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number20 index19 alt1"><code class="comments">// Driver Code </code></div>
+<div class="line number21 index20 alt2"><code class="color1 bold">int</code> <code class="plain">main() </code></div>
+<div class="line number22 index21 alt1"><code class="plain">{ </code></div>
+<div class="line number23 index22 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Initialize variable n. </code></div>
+<div class="line number24 index23 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">n = 5; </code></div>
+<div class="line number25 index24 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Fibonacci series "</code></div>
+<div class="line number26 index25 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="string">"of %d numbers is: "</code><code class="plain">, </code></div>
+<div class="line number27 index26 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">n); </code></div>
+<div class="line number28 index27 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number29 index28 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// for loop to print the fibonacci series. </code></div>
+<div class="line number30 index29 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">for</code> <code class="plain">(</code><code class="color1 bold">int</code> <code class="plain">i = 0; i &lt; n; i++) { </code></div>
+<div class="line number31 index30 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%d "</code><code class="plain">, fib(i)); </code></div>
+<div class="line number32 index31 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">} </code></div>
+<div class="line number33 index32 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
+<div class="line number34 index33 alt1"><code class="plain">}</code></div>
+
+
+<b>Output</b>
+
+
+<div class="code-output">
+<div class="gray">Fibonacci series of 5 numbers is: 0 1 1 2 3 </div>
+</div>
+<p><strong>Time Complexity:&nbsp;</strong>O(2<sup>n</sup>)<br /><strong>Auxiliary Space:&nbsp;</strong>O(n)</p>
+<p>Here is the recursive tree for input 5 which shows a clear picture of how a big problem can be solved into smaller ones.&nbsp;<br />fib(n) is a Fibonacci function. The time complexity of the given program can depend on the function call.&nbsp;</p>
+<blockquote>
+<p>fib(n) -&gt; level CBT (UB) -&gt; 2^n-1 nodes -&gt; 2^n function call -&gt; 2^n*O(1) -&gt; T(n) = O(2^n)&nbsp;&nbsp;</p>
+</blockquote>
+<p>For Best Case.&nbsp;</p>
+<div class="gray">T(n) =   ?(2^n\2)</div>
+<p><strong>Working:</strong>&nbsp;</p>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20191107235734/fib1.jpg" alt="" /></p>
+<p><strong>Problem 2:</strong>&nbsp;Write a program and recurrence relation to find the Factorial of n where n&gt;2 .&nbsp;<br /><strong>Mathematical Equation:</strong>&nbsp;</p>
+<div class="gray">1 if n == 0 or n == 1;      
+f(n) = n*f(n-1) if n&gt; 1;</div>
+<p><strong>Recurrence Relation:</strong>&nbsp;</p>
+<div class="gray">T(n) = 1 for n = 0
+T(n) = 1 + T(n-1) for n &gt; 0</div>
+<p><strong>Recursive Program:</strong>&nbsp;<br /><strong>Input:</strong>&nbsp;n = 5&nbsp;<br /><strong>Output:</strong>&nbsp;<br />factorial of 5 is: 120</p>
+
+
+<h2>Program for Tower of Hanoi Algorithm</h2>
+
+<p dir="ltr">Tower of Hanoi is a mathematical puzzle where we have three rods (<strong>A</strong>,&nbsp;<strong>B</strong>, and&nbsp;<strong>C</strong>) and&nbsp;<strong>N</strong>&nbsp;disks. Initially, all the disks are stacked in decreasing value of diameter i.e., the smallest disk is placed on the top and they are on rod&nbsp;<strong>A</strong>. The objective of the puzzle is to move the entire stack to another rod (here considered&nbsp;<strong>C</strong>), obeying the following simple rules:&nbsp;</p>
+<ul>
+<li value="1">Only one disk can be moved at a time.</li>
+<li value="2">Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack i.e. a disk can only be moved if it is the uppermost disk on a stack.</li>
+<li value="3">No disk may be placed on top of a smaller disk.</li>
+</ul>
+<p dir="ltr"><strong>Examples:</strong></p>
+<blockquote>
+<p dir="ltr"><strong>Input</strong>: 2<br /><strong>Output:</strong>&nbsp;Disk 1 moved from A to B<br />Disk 2 moved from A to C<br />Disk 1 moved from B to C</p>
+<p dir="ltr"><strong>Input:</strong>&nbsp;3<br /><strong>Output:</strong>&nbsp;Disk 1 moved from A to C<br />Disk 2 moved from A to B<br />Disk 1 moved from C to B<br />Disk 3 moved from A to C<br />Disk 1 moved from B to A<br />Disk 2 moved from B to C<br />Disk 1 moved from A to C</p>
+</blockquote>
+
+
+<h2><u><strong><strong class="GFGEditorTheme__textUnderline">Tower of Hanoi using Recursion:</strong></strong></u></h2>
+<blockquote>
+<p dir="ltr">&nbsp;The idea is to use the helper node to reach the destination using recursion. Below is the pattern for this problem:</p>
+<ul>
+<li value="1">Shift &lsquo;N-1&rsquo; disks from &lsquo;A&rsquo; to &lsquo;B&rsquo;, using C.</li>
+<li value="2">Shift last disk from &lsquo;A&rsquo; to &lsquo;C&rsquo;.</li>
+<li value="3">Shift &lsquo;N-1&rsquo; disks from &lsquo;B&rsquo; to &lsquo;C&rsquo;, using A.</li>
+</ul>
+</blockquote>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/tower-of-hanoi.png" alt="faq.disk3" width="350" height="350" />
+<p class="wp-caption-text">Image illustration for 3 disks</p>
+</div>
+<p dir="ltr">Follow the steps below to solve the problem:</p>
+<ul>
+<li value="1">Create a function&nbsp;<strong>towerOfHanoi&nbsp;</strong>where pass the&nbsp;<strong>N</strong>&nbsp;(current number of disk),&nbsp;<strong>from_rod</strong>,&nbsp;<strong>to_rod</strong>,&nbsp;<strong>aux_rod.</strong></li>
+<li value="2">Make a function call for N &ndash; 1 th disk.</li>
+<li value="3">Then print the current the disk along with&nbsp;<strong>from_rod</strong>&nbsp;and&nbsp;<strong>to_rod</strong></li>
+<li value="4">Again make a function call for N &ndash; 1 th disk.</li>
+</ul>
+
+
+<h2>Time Complexity Analysis-Tower Of Hanoi (Recursion)</h2>
+
+<p><a href="https://www.geeksforgeeks.org/c-program-for-tower-of-hanoi/">Tower of Hanoi</a>&nbsp;is a mathematical puzzle where we have three rods and n disks. The objective of the puzzle is to move the entire stack to another rod, obeying the following simple rules:&nbsp;<br />1) Only one disk can be moved at a time.&nbsp;<br />2) Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack i.e. a disk can only be moved if it is the uppermost disk on a stack.&nbsp;<br />3) No disk may be placed on top of a smaller disk.&nbsp;</p>
+<p><strong>Algorithm</strong></p>
+<blockquote>
+<p>&bull; Move the top n &ndash; 1 disks from Source to Auxiliary tower,<br />&bull; Move the nth disk from Source to Destination tower,<br />&bull; Move the n &ndash; 1 disks from Auxiliary tower to Destination tower.<br />&bull; Transferring the top n &ndash; 1 disks from Source to auxiliary tower can again be thought of as a fresh problem and can be solved in the same manner. Once we solve Towers of Hanoi with three disks, we can solve it with any number of disks with the above algorithm.&nbsp;</p>
+</blockquote>
+
+<div class="gray">TOH(n, x, y, z)
+{
+   if (n &gt;= 1)
+   {
+      // put (n-1) disk to z by using y
+      TOH((n-1), x, z, y)
+   
+       // move larger disk to right place
+       move:x--&gt;y
+     
+      // put (n-1) disk to right place 
+      TOH((n-1), z, y, x)
+   }
+}</div>
+<p><br /><br /><strong>Analysis of Recursion</strong>&nbsp;<br /><br />Recursive Equation :&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-90b51bf3414c73d5a5b0faa58e8d0c64_l3.svg" alt="T(n) = 2T(n-1) + 1     " width="248" height="27" />&mdash;&mdash;-equation-1&nbsp;<br /><br />Solving it by Backsubstitution :&nbsp;<br /><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-9edc6d3393323a0376d055c72e30592a_l3.svg" alt="T(n-1) = 2T(n-2) + 1     " width="293" height="27" />&mdash;&mdash;&mdash;&ndash;equation-2&nbsp;<br /><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-8ce6c10a27f10765140344aa02a21fce_l3.svg" alt="T(n-2) = 2T(n-3) + 1     " width="293" height="27" />&mdash;&mdash;&mdash;&ndash;equation-3&nbsp;<br /><br />Put the value of T(n-2) in the equation&ndash;2 with help of equation-3&nbsp;<br /><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-4bfad0e69afbdd6fec0f2a05386acadd_l3.svg" alt="T(n-1)= 2( 2T(n-3) + 1 ) + 1     " width="372" height="27" />&mdash;&mdash;equation-4&nbsp;<br /><br />Put the value of T(n-1) in equation-1 with help of equation-4&nbsp;<br /><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-13c6288a74957c83509368ba3a40f7a3_l3.svg" alt="T(n)= 2( 2( 2T(n-3) + 1 ) + 1 ) + 1     " width="406" height="27" /><br /><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-4a0829bb162ff7a2f85f12265fced9c9_l3.svg" alt="T(n) = 2^3 T(n-3) + 2^2 + 2^1 + 1     " width="373" height="30" /><br /><br />After Generalization :&nbsp;<br /><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-fc0117fd107998fb9c16d5db68fdc005_l3.svg" alt="T(n)= 2^k T(n-k) + 2^{(k-1)} + 2^{(k-2)} + ............ +2^2 + 2^1 + 1     " width="695" height="32" /><br /><br />Base condition T(1) =1&nbsp;<br />n &ndash; k = 1&nbsp;<br />k = n-1<br />put, k = n-1<br /><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-bb95547d79238c8685a81c2b6d4cdc33_l3.svg" alt="T(n) =2^{(n-1)}T(1) + + 2^{(n-2)} + ............ +2^2 +2^1 + 1     " width="611" height="32" /><br /><br />It is a GP series, and the sum is&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-62c769a868111d1bafabc32f3078d77c_l3.svg" alt="2^n - 1     " width="69" height="19" /></p>
+
+<p><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-77b397fa8ece0ee87edcf6f1e9e8f769_l3.svg" alt="T(n)= O( 2^n - 1)     " width="202" height="27" />, or you can say&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-fb5021c68d2c13e10b238a0cd9a95f72_l3.svg" alt="O(2^n)     " width="65" height="27" />which is exponential</p>
+<p>for 5 disks i.e. n=5 It will take 2^5-1=31 moves.</p>
+
+
+
+
+<h2>Types of Recursions</h2>
+
+<p><strong>Types of&nbsp;</strong><a href="https://www.geeksforgeeks.org/recursion/"><strong>Recursions</strong></a><strong>:</strong>&nbsp;<br />Recursion are mainly of<strong>&nbsp;two types</strong>&nbsp;depending on whether&nbsp;<strong>a function calls itself from within itself</strong>&nbsp;or&nbsp;<strong>more than one function call one another mutually.</strong>&nbsp;The first one is called&nbsp;<strong>direct recursion</strong>&nbsp;and another one is called&nbsp;<strong>indirect recursion</strong>. Thus, the two types of recursion are:</p>
+<p><strong>1. Direct Recursion</strong>: These can be further categorized into&nbsp;<strong>four types</strong>:</p>
+<ul>
+<li><strong>Tail Recursion</strong>: If a recursive function calling itself and that recursive call is the last statement in the function then it&rsquo;s known as&nbsp;<strong>Tail Recursion.</strong>&nbsp;After that call the recursive function performs nothing. The function has to process or perform any operation at the time of calling and it does nothing at returning time.<br /><strong>Example:</strong></li>
+</ul>
+
+<div class="responsive-tabs-wrapper">
+<div class="responsive-tabs responsive-tabs--enabled">
+<div id="tablist1-panel2" class="tabcontent responsive-tabs__panel responsive-tabs__panel--active" role="tabpanel" aria-hidden="true" aria-labelledby="tablist1-tab2">
+<div class="code-block">
+<div class="code-container">
+<div id="highlighter_610580" class="syntaxhighlighter nogutter  ">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="comments">// Code Showing Tail Recursion </code></div>
+<div class="line number2 index1 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt; </code></div>
+<div class="line number4 index3 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number5 index4 alt2"><code class="comments">// Recursion function </code></div>
+<div class="line number6 index5 alt1"><code class="keyword bold">void</code> <code class="plain">fun(</code><code class="color1 bold">int</code> <code class="plain">n) </code></div>
+<div class="line number7 index6 alt2"><code class="plain">{ </code></div>
+<div class="line number8 index7 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">if</code> <code class="plain">(n &gt; 0) { </code></div>
+<div class="line number9 index8 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%d "</code><code class="plain">, n); </code></div>
+<div class="line number10 index9 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number11 index10 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Last statement in the function </code></div>
+<div class="line number12 index11 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">fun(n - 1); </code></div>
+<div class="line number13 index12 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">} </code></div>
+<div class="line number14 index13 alt1"><code class="plain">} </code></div>
+<div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number16 index15 alt1"><code class="comments">// Driver Code </code></div>
+<div class="line number17 index16 alt2"><code class="color1 bold">int</code> <code class="plain">main() </code></div>
+<div class="line number18 index17 alt1"><code class="plain">{ </code></div>
+<div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">x = 3; </code></div>
+<div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">fun(x); </code></div>
+<div class="line number21 index20 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
+<div class="line number22 index21 alt1"><code class="plain">} </code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="code-output"><strong>Output</strong></div>
+
+
+<div class="code-output">
+<div class="gray">3 2 1 </div>
+</div>
+<p>Let&rsquo;s understand the example by&nbsp;<strong>tracing tree of recursive function.</strong>&nbsp;That is how the calls are made and how the outputs are produced.</p>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190621015455/tail1.jpg" alt="" /></p>
+<p><strong>Time Complexity For Tail Recursion : O(n)</strong>&nbsp;<br /><strong>Space Complexity For Tail Recursion : O(n)</strong><br /><strong>Note:</strong>&nbsp;Time &amp; Space Complexity is given for this specific example. It may vary for another example.</p>
+
+<p>Let&rsquo;s now converting Tail Recursion into Loop and compare each other in terms of Time &amp; Space Complexity and decide which is more efficient.</p>
+
+<div class="responsive-tabs-wrapper">
+<div class="responsive-tabs responsive-tabs--enabled">
+<div id="tablist2-panel2" class="tabcontent responsive-tabs__panel responsive-tabs__panel--active" role="tabpanel" aria-hidden="true" aria-labelledby="tablist2-tab2">
+<div class="code-block">
+<div class="code-container">
+<div id="highlighter_251394" class="syntaxhighlighter nogutter  ">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="comments">// Converting Tail Recursion into Loop </code></div>
+<div class="line number2 index1 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt; </code></div>
+<div class="line number4 index3 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number5 index4 alt2"><code class="keyword bold">void</code> <code class="plain">fun(</code><code class="color1 bold">int</code> <code class="plain">y) </code></div>
+<div class="line number6 index5 alt1"><code class="plain">{ </code></div>
+<div class="line number7 index6 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">while</code> <code class="plain">(y &gt; 0) { </code></div>
+<div class="line number8 index7 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%d "</code><code class="plain">, y); </code></div>
+<div class="line number9 index8 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">y--; </code></div>
+<div class="line number10 index9 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">} </code></div>
+<div class="line number11 index10 alt2"><code class="plain">} </code></div>
+<div class="line number12 index11 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number13 index12 alt2"><code class="comments">// Driver code </code></div>
+<div class="line number14 index13 alt1"><code class="color1 bold">int</code> <code class="plain">main() </code></div>
+<div class="line number15 index14 alt2"><code class="plain">{ </code></div>
+<div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">x = 3; </code></div>
+<div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">fun(x); </code></div>
+<div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
+<div class="line number19 index18 alt2"><code class="plain">} </code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="code-output"><strong>Output</strong>
+<div class="gray">3 2 1 </div>
+</div>
+<p><strong>Time Complexity: O(n)</strong>&nbsp;<br /><strong>Space Complexity: O(1)</strong></p>
+<p><strong>Note:</strong>&nbsp;Time &amp; Space Complexity is given for this specific example. It may vary for another example.<br />So it was seen that in case of loop the Space Complexity is O(1) so it was better to write code in loop instead of tail recursion in terms of Space Complexity which is more efficient than tail recursion.</p>
+<p><strong>Why space complexity is less in case of loop ?</strong><br />Before explaining this I am assuming that you are familiar with the knowledge that&rsquo;s how the data stored in main memory during execution of a program. In brief,when the program executes,the main memory divided into three parts. One part for code section, the second one is heap memory and another one is stack memory.&nbsp;<strong>Remember that the program can directly access only the stack memory, it can&rsquo;t directly access the heap memory so we need the help of pointer to access the heap memory.</strong></p>
+<p>Let&rsquo;s now understand why space complexity is less in case of loop ?<br />In case of loop when function &ldquo;(void fun(int y))&rdquo; executes there only one activation record created in stack memory(activation record created for only &lsquo;y&rsquo; variable) so it takes only &lsquo;one&rsquo; unit of memory inside stack so it&rsquo;s space complexity is O(1) but in case of recursive function every time it calls itself for each call a separate activation record created in stack.So if there&rsquo;s &lsquo;n&rsquo; no of call then it takes &lsquo;n&rsquo; unit of memory inside stack so it&rsquo;s space complexity is O(n).&nbsp;</p>
+
+<ul>
+<li><strong>Head Recursion</strong>: If a recursive function calling itself and that recursive call is the first statement in the function then it&rsquo;s known as&nbsp;<strong>Head Recursion.</strong>&nbsp;There&rsquo;s no statement, no operation before the call. The function doesn&rsquo;t have to process or perform any operation at the time of calling and all operations are done at returning time.<br /><strong>Example:</strong></li>
+</ul>
+
+<div class="responsive-tabs-wrapper">
+<div class="responsive-tabs responsive-tabs--enabled">
+<div id="tablist3-panel2" class="tabcontent responsive-tabs__panel responsive-tabs__panel--active" role="tabpanel" aria-hidden="true" aria-labelledby="tablist3-tab2">
+<div class="code-block">
+<div class="code-container">
+<div id="highlighter_803971" class="syntaxhighlighter nogutter  ">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="comments">// C program showing Head Recursion </code></div>
+<div class="line number2 index1 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt; </code></div>
+<div class="line number4 index3 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number5 index4 alt2"><code class="comments">// Recursive function </code></div>
+<div class="line number6 index5 alt1"><code class="keyword bold">void</code> <code class="plain">fun(</code><code class="color1 bold">int</code> <code class="plain">n) </code></div>
+<div class="line number7 index6 alt2"><code class="plain">{ </code></div>
+<div class="line number8 index7 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">if</code> <code class="plain">(n &gt; 0) { </code></div>
+<div class="line number9 index8 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number10 index9 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// First statement in the function </code></div>
+<div class="line number11 index10 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">fun(n - 1); </code></div>
+<div class="line number12 index11 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number13 index12 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%d "</code><code class="plain">, n); </code></div>
+<div class="line number14 index13 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">} </code></div>
+<div class="line number15 index14 alt2"><code class="plain">} </code></div>
+<div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number17 index16 alt2"><code class="comments">// Driver code </code></div>
+<div class="line number18 index17 alt1"><code class="color1 bold">int</code> <code class="plain">main() </code></div>
+<div class="line number19 index18 alt2"><code class="plain">{ </code></div>
+<div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">x = 3; </code></div>
+<div class="line number21 index20 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">fun(x); </code></div>
+<div class="line number22 index21 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
+<div class="line number23 index22 alt2"><code class="plain">} </code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="code-output"><strong>Output</strong>
+<div class="gray"> 1 2 3</div>
+</div>
+<p>Let&rsquo;s understand the example by&nbsp;<strong>tracing tree of recursive function.</strong>&nbsp;That is how the calls are made and how the outputs are produced.</p>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190621015721/head3.jpg" alt="" /></p>
+<p><strong>Time Complexity For Head Recursion: O(n)</strong>&nbsp;<br /><strong>Space Complexity For Head Recursion: O(n)</strong></p>
+<p><strong>Note:</strong>&nbsp;Time &amp; Space Complexity is given for this specific example. It may vary for another example.<br /><strong>Note:</strong>&nbsp;Head recursion can&rsquo;t easily convert into loop as Tail Recursion but it can. Let&rsquo;s convert the above code into the loop.</p>
+
+<div class="responsive-tabs-wrapper">
+<div class="responsive-tabs responsive-tabs--enabled">
+<div id="tablist4-panel2" class="tabcontent responsive-tabs__panel responsive-tabs__panel--active" role="tabpanel" aria-hidden="true" aria-labelledby="tablist4-tab2">
+<div class="code-block">
+<div class="code-container">
+<div id="highlighter_857607" class="syntaxhighlighter nogutter  ">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="comments">// Converting Head Recursion into Loop </code></div>
+<div class="line number2 index1 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt; </code></div>
+<div class="line number4 index3 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number5 index4 alt2"><code class="comments">// Recursive function </code></div>
+<div class="line number6 index5 alt1"><code class="keyword bold">void</code> <code class="plain">fun(</code><code class="color1 bold">int</code> <code class="plain">n) </code></div>
+<div class="line number7 index6 alt2"><code class="plain">{ </code></div>
+<div class="line number8 index7 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">i = 1; </code></div>
+<div class="line number9 index8 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">while</code> <code class="plain">(i &lt;= n) { </code></div>
+<div class="line number10 index9 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%d "</code><code class="plain">, i); </code></div>
+<div class="line number11 index10 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">i++; </code></div>
+<div class="line number12 index11 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">} </code></div>
+<div class="line number13 index12 alt2"><code class="plain">} </code></div>
+<div class="line number14 index13 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number15 index14 alt2"><code class="comments">// Driver code </code></div>
+<div class="line number16 index15 alt1"><code class="color1 bold">int</code> <code class="plain">main() </code></div>
+<div class="line number17 index16 alt2"><code class="plain">{ </code></div>
+<div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">x = 3; </code></div>
+<div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">fun(x); </code></div>
+<div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
+<div class="line number21 index20 alt2"><code class="plain">} </code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="code-output"><strong>Output</strong>
+<div class="gray"> 1 2 3</div>
+</div>
+<ul>
+<li><strong>Tree Recursion</strong>: To understand&nbsp;<strong>Tree Recursion</strong>&nbsp;let&rsquo;s first understand&nbsp;<strong>Linear Recursion</strong>. If a recursive function calling itself for one time then it&rsquo;s known as&nbsp;<strong>Linear Recursion</strong>. Otherwise if a recursive function calling itself for more than one time then it&rsquo;s known as&nbsp;<strong>Tree Recursion</strong>.<br /><strong>Example:</strong><br /><strong>Pseudo Code for linear recursion</strong></li>
+</ul>
+<div class="gray">fun(n)
+{
+    // some code
+    if(n&gt;0)
+    {
+        fun(n-1); // Calling itself only once
+    }
+    // some code
+}</div>
+<p><strong>Program for tree recursion</strong></p>
+
+
+<div class="responsive-tabs-wrapper">
+<div class="responsive-tabs responsive-tabs--enabled">
+<div id="tablist5-panel2" class="tabcontent responsive-tabs__panel responsive-tabs__panel--active" role="tabpanel" aria-hidden="true" aria-labelledby="tablist5-tab2">
+<div class="code-block">
+<div class="code-container">
+<div id="highlighter_276625" class="syntaxhighlighter nogutter  ">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="comments">// C program to show Tree Recursion </code></div>
+<div class="line number2 index1 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt; </code></div>
+<div class="line number4 index3 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number5 index4 alt2"><code class="comments">// Recursive function </code></div>
+<div class="line number6 index5 alt1"><code class="keyword bold">void</code> <code class="plain">fun(</code><code class="color1 bold">int</code> <code class="plain">n) </code></div>
+<div class="line number7 index6 alt2"><code class="plain">{ </code></div>
+<div class="line number8 index7 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">if</code> <code class="plain">(n &gt; 0) { </code></div>
+<div class="line number9 index8 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%d "</code><code class="plain">, n); </code></div>
+<div class="line number10 index9 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number11 index10 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Calling once </code></div>
+<div class="line number12 index11 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">fun(n - 1); </code></div>
+<div class="line number13 index12 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number14 index13 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Calling twice </code></div>
+<div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">fun(n - 1); </code></div>
+<div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">} </code></div>
+<div class="line number17 index16 alt2"><code class="plain">} </code></div>
+<div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number19 index18 alt2"><code class="comments">// Driver code </code></div>
+<div class="line number20 index19 alt1"><code class="color1 bold">int</code> <code class="plain">main() </code></div>
+<div class="line number21 index20 alt2"><code class="plain">{ </code></div>
+<div class="line number22 index21 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">fun(3); </code></div>
+<div class="line number23 index22 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
+<div class="line number24 index23 alt1"><code class="plain">} </code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="code-output"><strong>Output</strong>
+<div class="gray"> 3 2 1 1 2 1 1</div>
+</div>
+<p>Let&rsquo;s understand the example by&nbsp;<strong>tracing tree of recursive function.</strong>&nbsp;That is how the calls are made and how the outputs are produced.</p>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190621015814/tree4.jpg" alt="" /></p>
+<p><strong>Time Complexity For Tree Recursion: O(2^n)</strong>&nbsp;<br /><strong>Space Complexity For Tree Recursion: O(n)</strong><br /><strong>Note:</strong>&nbsp;Time &amp; Space Complexity is given for this specific example. It may vary for another example.</p>
+<ul>
+<li><strong>Nested Recursion</strong>: In this recursion, a recursive function will pass the parameter as a recursive call. That means&nbsp;<strong>&ldquo;recursion inside recursion&rdquo;.</strong>&nbsp;Let see the example to understand this recursion.<br /><strong>Example:</strong></li>
+</ul>
+
+<div class="responsive-tabs-wrapper">
+<div class="responsive-tabs responsive-tabs--enabled">
+<div id="tablist6-panel2" class="tabcontent responsive-tabs__panel responsive-tabs__panel--active" role="tabpanel" aria-hidden="true" aria-labelledby="tablist6-tab2">
+<div class="code-block">
+<div class="code-container">
+<div id="highlighter_86462" class="syntaxhighlighter nogutter  ">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="comments">// C program to show Nested Recursion </code></div>
+<div class="line number2 index1 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt; </code></div>
+<div class="line number4 index3 alt1"><code class="color1 bold">int</code> <code class="plain">fun(</code><code class="color1 bold">int</code> <code class="plain">n) </code></div>
+<div class="line number5 index4 alt2"><code class="plain">{ </code></div>
+<div class="line number6 index5 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">if</code> <code class="plain">(n &gt; 100) </code></div>
+<div class="line number7 index6 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">n - 10; </code></div>
+<div class="line number8 index7 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number9 index8 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// A recursive function passing parameter </code></div>
+<div class="line number10 index9 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// as a recursive call or recursion </code></div>
+<div class="line number11 index10 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// inside the recursion </code></div>
+<div class="line number12 index11 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">fun(fun(n + 11)); </code></div>
+<div class="line number13 index12 alt2"><code class="plain">} </code></div>
+<div class="line number14 index13 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number15 index14 alt2"><code class="comments">// Driver code </code></div>
+<div class="line number16 index15 alt1"><code class="color1 bold">int</code> <code class="plain">main() </code></div>
+<div class="line number17 index16 alt2"><code class="plain">{ </code></div>
+<div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">r; </code></div>
+<div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">r = fun(95); </code></div>
+<div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%d\n"</code><code class="plain">, r); </code></div>
+<div class="line number21 index20 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
+<div class="line number22 index21 alt1"><code class="plain">} </code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="code-output"><strong>Output</strong>
+<div class="gray"> 91</div>
+</div>
+<p>Let&rsquo;s understand the example by&nbsp;<strong>tracing tree of recursive function.</strong>&nbsp;That is how the calls are made and how the outputs are produced.</p>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190621015942/nested2.jpg" alt="" /></p>
+<p><strong>2. Indirect Recursion</strong>: In this recursion, there may be more than one functions and they are calling one another in a circular manner.</p>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190608232223/Capture34.jpg" alt="" /></p>
+<p>From the above diagram fun(A) is calling for fun(B), fun(B) is calling for fun(C) and fun(C) is calling for fun(A) and thus it makes a cycle.</p>
+
+
+<p>Let&rsquo;s understand the example by&nbsp;<strong>tracing tree of recursive function.</strong>&nbsp;That is how the calls are made and how the outputs are produced.</p>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190621015857/indirect1.jpg" alt="" /></p>
+
+
+<p>The analysis of the complexity of a recurrence relation involves finding the asymptotic upper bound on the running time of a recursive algorithm. This is usually done by finding a closed-form expression for the number of operations performed by the algorithm as a function of the input size, and then determining the order of growth of the expression as the input size becomes large.</p>
+<p><strong>Here are the general steps to analyze the complexity of a recurrence relation:</strong></p>
+<p><strong>Substitute the input size</strong>&nbsp;into the recurrence relation to obtain a sequence of terms.</p>
+<p><strong>Identify a pattern in the sequence of terms</strong>, if any, and simplify the recurrence relation to obtain a closed-form expression for the number of operations performed by the algorithm.</p>
+<div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+<div id="GFG_AD_InContent_Desktop_728x280">
+<div id="GFG_AD_InContent_Desktop_350x250_1" data-google-query-id="CKz8g-mXn4YDFZBNnQkdRfkBmg">&nbsp;</div>
+</div>
+<p><strong>Determine the order of growth</strong>&nbsp;of the closed-form expression by using techniques such as the Master Theorem, or by finding the dominant term and ignoring lower-order terms.</p>
+<p><strong>Use the order of growth</strong>&nbsp;to determine the asymptotic upper bound on the running time of the algorithm, which can be expressed in terms of big O notation.</p>
+<p>It&rsquo;s important to note that the above steps are just a general outline and that the specific details of how to analyze the complexity of a recurrence relation can vary greatly depending on the specific recurrence relation being analyzed.</p>
+
+<p>In the previous post, we discussed the&nbsp;<a href="https://www.geeksforgeeks.org/analysis-of-algorithms-set-4-analysis-of-loops/">analysis of loops</a>. Many algorithms are recursive. When we analyze them, we get&nbsp;a recurrence relation for time complexity. We get running time on an input of size n as a function of n and the running time on inputs of smaller sizes. For example in&nbsp;<a href="https://www.geeksforgeeks.org/merge-sort/">Merge Sort</a>, to sort a given array, we divide it into two halves and recursively repeat the process for the two halves. Finally, we merge the results. Time complexity of Merge Sort can be written as T(n) = 2T(n/2) + cn. There are many other algorithms like Binary Search, Tower of Hanoi, etc.&nbsp;</p>
+<p><strong>need of solving recurrences:</strong><br />The solution of recurrences is important because it provides information about the running time of a recursive algorithm. By solving a recurrence, we can determine the asymptotic upper bound on the number of operations performed by the algorithm, which is crucial for evaluating the efficiency and scalability of the algorithm.</p>
+<p><strong>Here are some of the reasons for solving recurrences:</strong></p>
+<p><strong>Algorithm Analysis</strong>: Solving a recurrence is an important step in analyzing the time complexity of a recursive algorithm. This information can then be used to determine the best algorithm for a particular problem, or to optimize an existing algorithm.</p>
+<p><strong>Performance Comparison:</strong>&nbsp;By solving recurrences, it is possible to compare the running times of different algorithms, which can be useful in selecting the best algorithm for a particular use case.</p>
+<p><strong>Optimization:</strong>&nbsp;By understanding the running time of an algorithm, it is possible to identify bottlenecks and make optimizations to improve the performance of the algorithm.</p>
+<div id="GFG_AD_gfg_outstream_incontent" data-google-query-id="CK78g-mXn4YDFZBNnQkdRfkBmg">&nbsp;</div>
+
+
+
+<p><strong>Research:&nbsp;</strong>Solving recurrences is an essential part of research in computer science, as it helps to understand the behavior of algorithms and to develop new algorithms.</p>
+<p>Overall, solving recurrences plays a crucial role in the analysis, design, and optimization of algorithms, and is an important topic in computer science.<br />There are mainly three ways of solving recurrences:</p>
+<h2><u>Substitution Method:</u>&nbsp;</h2>
+<p>We make a guess for the solution and then we use mathematical induction to prove the guess is correct or incorrect.&nbsp;</p>
+<blockquote>
+<p>For example consider the recurrence T(n) = 2T(n/2) + n</p>
+<p>We guess the solution as T(n) = O(nLogn). Now we use induction to prove our guess.</p>
+<p>We need to prove that T(n) &lt;= cnLogn. We can assume that it is true for values smaller than n.</p>
+<p>T(n) = 2T(n/2) + n<br />&nbsp; &nbsp; &nbsp;&lt;= 2cn/2Log(n/2) + n<br />&nbsp; &nbsp; &nbsp; &nbsp;= &nbsp;cnLogn &ndash; cnLog2 + n<br />&nbsp; &nbsp; &nbsp; &nbsp;= &nbsp;cnLogn &ndash; cn + n<br />&nbsp; &nbsp; &lt;= cnLogn</p>
+</blockquote>
+<h2><strong><u>Recurrence Tree Method:</u></strong></h2>
+<p>In this method, we draw a recurrence tree and calculate the time taken by every level of the tree. Finally, we sum the work done at all levels. To draw the recurrence tree, we start from the given recurrence and keep drawing till we find a pattern among levels. The pattern is typically arithmetic or geometric series.&nbsp;<br />&nbsp;</p>
+<blockquote>
+<p>For example, consider the recurrence relation&nbsp;</p>
+<p>T(n) = T(n/4) + T(n/2) + cn<sup>2</sup></p>
+<div id="GFG_AD_gfg_outstream_incontent-1">&nbsp;</div>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cn<sup>2</sup><br /><sup>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</sup>/ &nbsp; &nbsp; &nbsp;\<br />&nbsp; T(n/4) &nbsp; &nbsp; T(n/2)</p>
+<p>If we further break down the expression T(n/4) and T(n/2),&nbsp;<br />we get the following recursion tree.</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cn<sup>2</sup><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; / &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \ &nbsp; &nbsp; &nbsp;<br />&nbsp; &nbsp; c(n<sup>2</sup>)/16 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;c(n<sup>2</sup>)/4<br />&nbsp; &nbsp;/ &nbsp; &nbsp; &nbsp; &nbsp; \ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/ &nbsp; &nbsp; &nbsp; &nbsp; \<br />T(n/16) &nbsp;T(n/8) &nbsp;T(n/8) &nbsp; &nbsp;T(n/4)&nbsp;</p>
+<p>Breaking down further gives us following</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cn<sup>2</sup>&nbsp;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; / &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\ &nbsp; &nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp; &nbsp;c(n<sup>2</sup>)/16 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;c(n<sup>2</sup>)/4<br />&nbsp; &nbsp; / &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; / &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\<br />c(n<sup>2</sup>)/256 &nbsp;c(n<sup>2</sup>)/64 &nbsp;c(n<sup>2</sup>)/64 &nbsp; c(n<sup>2</sup>)/16<br />&nbsp;/ &nbsp; &nbsp;\ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/ &nbsp; &nbsp;\ &nbsp; &nbsp; &nbsp;/ &nbsp; &nbsp;\ &nbsp; &nbsp; &nbsp; &nbsp;/ &nbsp; &nbsp;\ &nbsp;</p>
+<p>To know the value of T(n), we need to calculate the sum of tree&nbsp;<br />nodes level by level. If we sum the above tree level by level,&nbsp;</p>
+<p>we get the following series T(n) &nbsp;= c(n^2 + 5(n^2)/16 + 25(n^2)/256) + &hellip;.<br />The above series is a geometrical progression with a ratio of 5/16.</p>
+<p>To get an upper bound, we can sum the infinite series. We get the sum as (n<sup>2</sup>)/(1 &ndash; 5/16) which is O(n<sup>2</sup>)</p>
+</blockquote>
+
+<h2><strong><u>Master Method:</u></strong>&nbsp;</h2>
+<p>Master Method is a direct way to get the solution. The master method works only for the following type of recurrences or for recurrences that can be transformed into the following type.&nbsp;<br />&nbsp;</p>
+<blockquote>
+<p>T(n) = aT(n/b) + f(n) where a &gt;= 1 and b &gt; 1</p>
+</blockquote>
+
+<p>There are the following three cases:&nbsp;</p>
+<ul>
+<li>If f(n) = O(n<sup>c</sup>) where c &lt; Log<sub>b</sub>a then T(n) = ?(n<sup>Log</sup><sub><sup>b</sup></sub><sup>a</sup>)&nbsp;</li>
+<li>If f(n) = ?(n<sup>c</sup>) where c = Log<sub>b</sub>a then T(n) = ?(n<sup>c</sup>Log n)&nbsp;</li>
+<li>If f(n) = ?(n<sup>c</sup>) where c &gt; Log<sub>b</sub>a then T(n) = ?(f(n))&nbsp;</li>
+</ul>
+<h3><strong>How does this work?</strong>&nbsp;</h3>
+<p>The master method is mainly derived from the recurrence tree method. If we draw the recurrence tree of T(n) = aT(n/b) + f(n), we can see that the work done at the root is f(n), and work done at all leaves is ?(n<sup>c</sup>) where c is Log<sub>b</sub>a. And the height of the recurrence tree is Log<sub>b</sub>n&nbsp;<br />&nbsp;</p>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/AlgoAnalysis.png" alt="Master Theorem" /></p>
+<p>In the recurrence tree method, we calculate the total work done. If the work done at leaves is polynomially more, then leaves are the dominant part, and our result becomes the work done at leaves (Case 1). If work done at leaves and root is asymptotically the same, then our result becomes height multiplied by work done at any level (Case 2). If work done at the root is asymptotically more, then our result becomes work done at the root (Case 3).&nbsp;</p>
+<p><strong>Examples of some standard algorithms whose time complexity can be evaluated using the Master Method&nbsp;</strong></p>
+<ul>
+<li><a href="https://www.geeksforgeeks.org/merge-sort/">Merge Sort</a>: T(n) = 2T(n/2) + ?(n). It falls in case 2 as c is 1 and Log<sub>b</sub>a] is also 1. So the solution is ?(n Logn)&nbsp;</li>
+<li><a href="https://www.geeksforgeeks.org/binary-search/">Binary Search</a>: T(n) = T(n/2) + ?(1). It also falls in case 2 as c is 0 and Log<sub>b</sub>a is also 0. So the solution is ?(Logn)&nbsp;</li>
+</ul>
+<p><strong>Notes:&nbsp;</strong></p>
+<ul>
+<li>It is not necessary that a recurrence of the form T(n) = aT(n/b) + f(n) can be solved using Master Theorem. The given three cases have some gaps between them. For example, the recurrence T(n) = 2T(n/2) + n/Logn cannot be solved using master method.&nbsp;</li>
+<li>Case 2 can be extended for f(n) = ?(n<sup>c</sup>Log<sup>k</sup>n)&nbsp;<br />If f(n) = ?(n<sup>c</sup>Log<sup>k</sup>n) for some constant k &gt;= 0 and c = Log<sub>b</sub>a, then T(n) = ?(n<sup>c</sup>Log<sup>k+1</sup>n)&nbsp;</li>
+</ul>
+
+
+<h2> master theorem for divide and conquer recurrences</h2>
+
+<p>The Master Theorem is a tool used to solve recurrence relations that arise in the analysis of divide-and-conquer algorithms. The Master Theorem provides a systematic way of solving recurrence relations of the form:</p>
+<p>T(n) = aT(n/b) + f(n)</p>
+<div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
+<ol>
+<li>where a, b, and f(n) are positive functions and n is the size of the problem. The Master Theorem provides conditions for the solution of the recurrence to be in the form of O(n^k) for some constant k, and it gives a formula for determining the value of k.</li>
+<li>The advanced version of the Master Theorem provides a more general form of the theorem that can handle recurrence relations that are more complex than the basic form. The advanced version of the Master Theorem can handle recurrences with multiple terms and more complex functions.</li>
+<li>It is important to note that the Master Theorem is not applicable to all recurrence relations, and it may not always provide an exact solution to a given recurrence. However, it is a useful tool for analyzing the time complexity of divide-and-conquer algorithms and provides a good starting point for solving more complex recurrences.</li>
+</ol>
+<p><a href="https://www.geeksforgeeks.org/analysis-algorithm-set-4-master-method-solving-recurrences/">Master Theorem</a>&nbsp;is used to determine running time of algorithms (divide and conquer algorithms) in terms of asymptotic notations.&nbsp;<br />Consider a problem that is solved using recursion.&nbsp;<br />&nbsp;</p>
+<div class="gray"><strong>function f</strong>(input x size n)
+<strong>if</strong>(n &lt; k)
+solve x directly and return 
+<strong>else</strong>
+divide x into <strong>a</strong> subproblems of size n/b
+call f recursively to solve each subproblem
+Combine the results of all sub-problems</div>
+<p>The above algorithm divides the problem into&nbsp;<strong>a</strong>&nbsp;subproblems, each of size n/b and solve them recursively to compute the problem and the extra work done for problem is given by f(n), i.e., the time to create the subproblems and combine their results in the above procedure.&nbsp;</p>
+
+<p>So, according to master theorem the runtime of the above algorithm can be expressed as:&nbsp;<br />&nbsp;</p>
+<div class="gray"><strong>T(n) = aT(n/b) + f(n)   </strong></div>
+<p>where n = size of the problem&nbsp;<br />a = number of subproblems in the recursion and a &gt;= 1&nbsp;<br />n/b = size of each subproblem&nbsp;<br />f(n) = cost of work done outside the recursive calls like dividing into subproblems and cost of combining them to get the solution.&nbsp;</p>
+<p>Not all recurrence relations can be solved with the use of the master theorem i.e. if&nbsp;<br />&nbsp;</p>
+<div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+<div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+<ul>
+<li>T(n) is not monotone, ex: T(n) = sin n</li>
+<li>f(n) is not a polynomial, ex: T(n) = 2T(n/2) + 2<sup>n</sup></li>
+</ul>
+<p>This theorem is an advance version of master theorem that can be used to determine running time of divide and conquer algorithms if the recurrence is of the following form :-&nbsp;</p>
+<p>&nbsp;</p>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/ma-1.png" alt="Formula to calculate runtime of divide and conquer algorithms" /></p>
+<p>where n = size of the problem&nbsp;<br />a = number of subproblems in the recursion and a &gt;= 1&nbsp;<br />n/b = size of each subproblem&nbsp;<br />b &gt; 1, k &gt;= 0 and p is a real number.&nbsp;</p>
+<p>Then,&nbsp;<br />&nbsp;</p>
+<ol>
+<li>if a &gt; b<sup>k</sup>, then T(n) = &theta;(n<sup>log</sup><sub><sup>b</sup></sub><sup>a</sup>)</li>
+<li>if a = b<sup>k</sup>, then&nbsp;<br />(a) if p &gt; -1, then T(n) = &theta;(n<sup>log</sup><sub><sup>b</sup></sub><sup>a</sup>&nbsp;log<sup>p+1</sup>n)&nbsp;<br />(b) if p = -1, then T(n) = &theta;(n<sup>log</sup><sub><sup>b</sup></sub><sup>a</sup>&nbsp;loglogn)&nbsp;<br />(c) if p &lt; -1, then T(n) = &theta;(n<sup>log</sup><sub><sup>b</sup></sub><sup>a</sup>)&nbsp;<br />&nbsp;</li>
+<li>if a &lt; b<sup>k</sup>, then&nbsp;<br />(a) if p &gt;= 0, then T(n) = &theta;(n<sup>k</sup>&nbsp;log<sup>p</sup>n)&nbsp;<br />(b) if p &lt; 0, then T(n) = &theta;(n<sup>k</sup>)&nbsp;<br />&nbsp;</li>
+</ol>
+<p><strong>Time Complexity Analysis &ndash;</strong>&nbsp;<br />&nbsp;</p>
+<ul>
+<li><strong>Example-1: Binary Search &ndash;</strong>&nbsp;T(n) = T(n/2) + O(1)&nbsp;<br />a = 1, b = 2, k = 0 and p = 0&nbsp;<br />b<sup>k</sup>&nbsp;= 1. So, a = b<sup>k</sup>&nbsp;and p &gt; -1 [Case 2.(a)]&nbsp;<br />T(n) = &theta;(n<sup>log</sup><sub><sup>b</sup></sub><sup>a</sup>&nbsp;log<sup>p+1</sup>n)&nbsp;<br />T(n) = &theta;(logn)</li>
+<li><strong>Example-2: Merge Sort &ndash;</strong>&nbsp;T(n) = 2T(n/2) + O(n)&nbsp;<br />a = 2, b = 2, k = 1, p = 0&nbsp;<br />b<sup>k</sup>&nbsp;= 2. So, a = b<sup>k</sup>&nbsp;and p &gt; -1 [Case 2.(a)]&nbsp;<br />T(n) = &theta;(n<sup>log</sup><sub><sup>b</sup></sub><sup>a</sup>&nbsp;log<sup>p+1</sup>n)&nbsp;<br />T(n) = &theta;(nlogn)</li>
+<li><strong>Example-3:</strong>&nbsp;T(n) = 3T(n/2) + n<sup>2</sup>&nbsp;<br />a = 3, b = 2, k = 2, p = 0&nbsp;<br />b<sup>k</sup>&nbsp;= 4. So, a &lt; b<sup>k</sup>&nbsp;and p = 0 [Case 3.(a)]&nbsp;<br />T(n) = &theta;(n<sup>k</sup>&nbsp;log<sup>p</sup>n)&nbsp;<br />T(n) = &theta;(n<sup>2</sup>)&nbsp;
+<p>&nbsp;</p>
+</li>
+<li><strong>Example-4:</strong>&nbsp;T(n) = 3T(n/2) + log<sup>2</sup>n&nbsp;<br />a = 3, b = 2, k = 0, p = 2&nbsp;<br />b<sup>k</sup>&nbsp;= 1. So, a &gt; b<sup>k</sup>&nbsp;[Case 1]&nbsp;<br />T(n) = &theta;(n<sup>log</sup><sub><sup>b</sup></sub><sup>a</sup>&nbsp;)&nbsp;<br />T(n) = &theta;(n<sup>log</sup><sub><sup>2</sup></sub><sup>3</sup>)&nbsp;
+<p>&nbsp;</p>
+</li>
+<li><strong>Example-5:</strong>&nbsp;T(n) = 2T(n/2) + nlog<sup>2</sup>n&nbsp;<br />a = 2, b = 2, k = 1, p = 2&nbsp;<br />b<sup>k</sup>&nbsp;= 2. So, a = b<sup>k</sup>&nbsp;[Case 2.(a)]&nbsp;<br />T(n) = &theta;(n<sup>log</sup><sub><sup>b</sup></sub><sup>a</sup>log<sup>p+1</sup>n )&nbsp;<br />T(n) = &theta;(n<sup>log</sup><sub><sup>2</sup></sub><sup>2</sup>log<sup>3</sup>n)&nbsp;<br />T(n) = &theta;(nlog<sup>3</sup>n)&nbsp;
+<p>&nbsp;</p>
+</li>
+<li><strong>Example-6:</strong>&nbsp;T(n) = 2<sup>n</sup>T(n/2) + n<sup>n</sup>&nbsp;<br />This recurrence can&rsquo;t be solved using above method since function is not of form T(n) = aT(n/b) + &theta;(n<sup>k</sup>&nbsp;log<sup>p</sup>n)&nbsp;</li>
+</ul>
+
+<h3>Here are some important points to keep in mind regarding the Master Theorem:</h3>
+<ol>
+<li>Divide-and-conquer recurrences: The Master Theorem is specifically designed to solve recurrence relations that arise in the analysis of divide-and-conquer algorithms.</li>
+<li>Form of the recurrence: The Master Theorem applies to recurrence relations of the form T(n) = aT(n/b) + f(n), where a, b, and f(n) are positive functions and n is the size of the problem.</li>
+<li>Time complexity: The Master Theorem provides conditions for the solution of the recurrence to be in the form of O(n^k) for some constant k, and it gives a formula for determining the value of k.</li>
+<li>Advanced version: The advanced version of the Master Theorem provides a more general form of the theorem that can handle recurrence relations that are more complex than the basic form.</li>
+<li>Limitations: The Master Theorem is not applicable to all recurrence relations, and it may not always provide an exact solution to a given recurrence.</li>
+<li>Useful tool: Despite its limitations, the Master Theorem is a useful tool for analyzing the time complexity of divide-and-conquer algorithms and provides a good starting point for solving more complex recurrences.</li>
+<li>Supplemented with other techniques: In some cases, the Master Theorem may need to be supplemented with other techniques, such as the substitution method or the iteration method, to completely solve a given recurrence relation.</li>
+</ol>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

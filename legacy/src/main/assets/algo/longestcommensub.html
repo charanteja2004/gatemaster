@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    
+    <h2>Longest Common Subsequence</h2>
+
+    <p dir="ltr">Given two strings,&nbsp;<strong>S1</strong>&nbsp;and&nbsp;<strong>S2</strong>, the task is to find the
+        length of the Longest Common Subsequence, i.e. longest subsequence present in both of the strings.&nbsp;</p>
+    <blockquote>
+        <p dir="ltr">A&nbsp;<strong>longest common subsequence (LCS)&nbsp;</strong>is defined as the longest subsequence
+            which is common in all given input sequences.</p>
+    </blockquote>
+    <p><strong>Examples:</strong></p>
+    <p dir="ltr"><strong>Input:</strong>&nbsp;S1 = &ldquo;ABC&rdquo;, S2 =
+        &ldquo;ACD&rdquo;<br /><strong>Output:</strong>&nbsp;2<br /><strong>Explanation:</strong>&nbsp;The longest
+        subsequence which is present in both strings is &ldquo;AC&rdquo;.</p>
+    <p dir="ltr"><strong>Input:</strong>&nbsp;S1 = &ldquo;AGGTAB&rdquo;, S2 =
+        &ldquo;GXTXAYB&rdquo;<br /><strong>Output:</strong>&nbsp;4<br /><strong>Explanation:</strong>&nbsp;The longest
+        common subsequence is &ldquo;GTAB&rdquo;.</p>
+    <p dir="ltr"><strong>Input:</strong>&nbsp;S1 = &ldquo;ABC&rdquo;, S2 =
+        &ldquo;CBA&rdquo;<br /><strong>Output:</strong>&nbsp;1<br /><strong>Explanation:</strong>&nbsp;There are three
+        common subsequences of length 1, &ldquo;A&rdquo;, &ldquo;B&rdquo; and &ldquo;C&rdquo; and no common
+        subsequence.of length more than 1.</p>
+    <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+    <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+    <p dir="ltr"><strong>Input:</strong>&nbsp;S1 = &ldquo;XYZW&rdquo;, S2 =
+        &ldquo;XYWZ&rdquo;<br /><strong>Output:</strong>&nbsp;3<br /><strong>Explanation:</strong>&nbsp;There are two
+        common subsequences of length 3 &ldquo;XYZ&rdquo;, and&rdquo;XYW&rdquo;, and no common subsequence. of length
+        more than 3.</p>
+
+
+    <h2><u><span class="GFGEditorTheme__textUnderline">Longest Common Subsequence (LCS) using Recursion:</span></u></h2>
+    <blockquote>
+        <p dir="ltr">Generate all the possible subsequences and find the longest among them that is present in both
+            strings using&nbsp;<a
+                href="https://www.geeksforgeeks.org/introduction-to-recursion-data-structure-and-algorithm-tutorials/">recursion</a>.
+        </p>
+    </blockquote>
+    <p dir="ltr">Follow the below steps to implement the idea:</p>
+    <ul>
+        <li value="1">Create a recursive function [say&nbsp;<strong>lcs()</strong>].</li>
+        <li value="2">Check the relation between the First characters of the strings that are not yet processed.
+            <ul>
+                <li value="1">Depending on the relation call the next recursive function as mentioned above.</li>
+            </ul>
+        </li>
+        <li value="3">Return the length of the LCS received as the answer.</li>
+    </ul>
+    <p dir="ltr">Below is the implementation of the recursive approach:</p>
+
+    <div class="gray"><span class="c1">// A Naive recursive implementation</span>
+<span class="c1">// of LCS problem</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">max</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
+
+<span class="c1">// Returns length of LCS for X[0..m-1],</span>
+<span class="c1">// Y[0..n-1]</span>
+<span class="kt">int</span> <span class="nf">lcs</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">X</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">Y</span><span class="p">,</span> <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">j</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">Y</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">Y</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+        <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">lcs</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="k">else</span>
+        <span class="k">return</span> <span class="n">max</span><span class="p">(</span><span class="n">lcs</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
+                   <span class="n">lcs</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="c1">// Utility function to get max of</span>
+<span class="c1">// 2 integers</span>
+<span class="kt">int</span> <span class="nf">max</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="o">?</span> <span class="n">a</span> <span class="o">:</span> <span class="n">b</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="c1">// Driver code</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">S1</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"BD"</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">S2</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"ABCD"</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">S1</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">S2</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="c1">// Function Call</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Length of LCS is %d"</span><span class="p">,</span> <span class="n">lcs</span><span class="p">(</span><span class="n">S1</span><span class="p">,</span> <span class="n">S2</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">));</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></div>
+
+
+    <div class="code-output"><strong>Output</strong>
+        <div class="gray">Length of LCS is 4
+</div>
+    </div>
+    <p dir="ltr"><strong>Time Complexity:</strong>&nbsp;O(2<sup>m+n</sup>)<br /><strong>Auxiliary
+            Space:</strong>&nbsp;O(1)</p>
+    <h2><u><span class="GFGEditorTheme__textUnderline">Longest Common Subsequence (LCS) using&nbsp;</span></u><a
+            href="https://www.geeksforgeeks.org/what-is-memoization-a-complete-tutorial/"><u><span
+                    class="GFGEditorTheme__textUnderline">Memoization</span></u></a><u><span
+                class="GFGEditorTheme__textUnderline">:</span></u></h2>
+    <p dir="ltr">If we notice carefully, we can observe that the above recursive solution holds the following two
+        properties:</p>
+    <div id="GFG_AD_gfg_outstream_incontent" data-google-query-id="CMv8ts6Eo4YDFQhWnQkd8lMP2w">
+        <div id="google_ads_iframe_/27823234/gfg_outstream_incontent_0__container__">&nbsp;</div>
+    </div>
+    <h3><u><span class="GFGEditorTheme__textUnderline">1. Optimal Substructure:</span></u></h3>
+    <p dir="ltr">See for solving the structure of L(X[0, 1, . . ., m-1], Y[0, 1, . . . , n-1]) we are taking the help of
+        the substructures of X[0, 1, &hellip;, m-2], Y[0, 1,&hellip;, n-2], depending on the situation (i.e., using them
+        optimally) to find the solution of the whole.</p>
+    <h3><u><span class="GFGEditorTheme__textUnderline">2. Overlapping Subproblems:</span></u></h3>
+    <p dir="ltr">If we use the above recursive approach for strings &ldquo;<strong>BD</strong>&rdquo; and
+        &ldquo;<strong>ABCD</strong>&ldquo;, we will get a partial recursion tree as shown below. Here we can see that
+        the subproblem L(&ldquo;BD&rdquo;, &ldquo;ABCD&rdquo;) is being calculated more than once. If the total tree is
+        considered there will be several such overlapping subproblems.</p>
+    <blockquote>
+        <p dir="ltr">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;L(&ldquo;AXYT&rdquo;,
+            &ldquo;AYZX&rdquo;)<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; / &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \<br />&nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;L(&ldquo;AXY&rdquo;, &ldquo;AYZX&rdquo;) &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; L(&ldquo;AXYT&rdquo;,
+            &ldquo;AYZ&rdquo;)<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; / &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\ &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; / &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\<br />L(&ldquo;AX&rdquo;, &ldquo;AYZX&rdquo;) L(&ldquo;AXY&rdquo;,
+            &ldquo;AYZ&rdquo;) &nbsp; L(&ldquo;AXY&rdquo;, &ldquo;AYZ&rdquo;) &nbsp;L(&ldquo;AXYT&rdquo;,
+            &ldquo;AY&rdquo;)</p>
+    </blockquote>
+    <p dir="ltr"><strong>Approach:</strong>&nbsp;Because of the presence of these two properties we can use Dynamic
+        programming or Memoization to solve the problem. Below is the approach for the solution using recursion.</p>
+    <blockquote>
+        <ul>
+            <li value="1">Create a recursive function. Also create a 2D array to store the result of a unique
+                state.&nbsp;</li>
+            <li value="2">During the recursion call, if the same state is called more than once, then we can directly
+                return the answer stored for that state instead of calculating again.</li>
+        </ul>
+    </blockquote>
+
+
+    Below is the implementation of the above approach:<br>
+
+
+    <div class="codeblock-container" data-mode="light">
+        <div class="code-container">
+            <div class="code-box">
+                <div id="slot-panel" class="gfg-code"><code class="language-cpp"></code>
+                    <div class="highlight">
+                        <div class="gray"><span class="c1">// A Top-Down DP implementation</span>
+<span class="c1">// of LCS problem</span>
+<span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
+
+<span class="c1">// Returns length of LCS for X[0..m-1],</span>
+<span class="c1">// Y[0..n-1]</span>
+<span class="kt">int</span> <span class="nf">lcs</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">X</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">Y</span><span class="p">,</span> <span class="kt">int</span> <span class="n">m</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span>
+        <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&gt;&amp;</span> <span class="n">dp</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">m</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">Y</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">lcs</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dp</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="n">n</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">-1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="n">n</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">lcs</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dp</span><span class="p">),</span>
+                          <span class="n">lcs</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">dp</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="c1">// Driver code</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">X</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"AGGTAB"</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">Y</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"GXTXAYB"</span><span class="p">;</span>
+
+    <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">X</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">Y</span><span class="p">);</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">dp</span><span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">-1</span><span class="p">));</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Length of LCS is "</span> <span class="o">&lt;&lt;</span> <span class="n">lcs</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">dp</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</div>
+                    </div>
+                </div>
+            </div>
+            <div id="code-output-box" class="code-output-box">
+                <div class="editor-buttons w-56 output-box" title="Close Output">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+    <div class="code-output"><br /><strong>Output</strong>
+        <div class="gray">Length of LCS is 4
+</div>
+    </div>
+    <p dir="ltr"><strong>Time Complexity:</strong>&nbsp;O(m * n) where m and n are the string
+        lengths.<br /><strong>Auxiliary Space:&nbsp;</strong>O(m * n) Here the recursive stack space is ignored.</p>
+
+    <h2><u><span class="GFGEditorTheme__textUnderline">Longest Common Subsequence (LCS) using Bottom-Up
+                (Tabulation):</span></u></h2>
+    <p dir="ltr">We can use the following steps to implement the dynamic programming approach for LCS.</p>
+    <ul>
+        <li value="1">Create a 2D array&nbsp;<strong>dp[][]</strong>&nbsp;with rows and columns equal to the length of
+            each input string plus 1 [the number of rows indicates the indices of&nbsp;<strong>S1</strong>&nbsp;and the
+            columns indicate the indices of&nbsp;<strong>S2</strong>].</li>
+        <li value="2">Initialize the first row and column of the dp array to 0.</li>
+        <li value="3">Iterate through the rows of the dp array, starting from 1 (say using
+            iterator&nbsp;<strong>i</strong>).
+            <ul>
+                <li value="1">For each&nbsp;<strong>i</strong>, iterate all the columns from&nbsp;<strong>j = 1 to
+                        n</strong>:
+                    <ul>
+                        <li value="1">If&nbsp;<strong>S1[i-1]</strong>&nbsp;is equal to&nbsp;<strong>S2[j-1]</strong>,
+                            set the current element of the dp array to the value of the element to (<strong>dp[i-1][j-1]
+                                + 1</strong>).</li>
+                        <li value="2">Else, set the current element of the dp array to the maximum value
+                            of&nbsp;<strong>dp[i-1][j]</strong>&nbsp;and&nbsp;<strong>dp[i][j-1]</strong>.</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li value="4">After the nested loops, the last element of the dp array will contain the length of the LCS.</li>
+    </ul>
+    <p dir="ltr">See the below illustration for a better understanding:</p>
+    <p dir="ltr"><strong>Illustration:</strong></p>
+    <blockquote>
+        <p dir="ltr">Say the strings are&nbsp;<strong>S1 = &ldquo;AGGTAB&rdquo;</strong>&nbsp;and&nbsp;<strong>S2 =
+                &ldquo;GXTXAYB&rdquo;</strong>.</p>
+        <div id="GFG_AD_gfg_outstream_incontent-1">&nbsp;</div>
+        <p dir="ltr"><strong>First step:</strong>&nbsp;Initially create a 2D matrix (say dp[][]) of &nbsp;size 8 x 7
+            whose first row and first column are filled with 0.</p>
+    </blockquote>
+
+    <figure class="image"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230228145703/lcs1drawio.png"
+            alt="Creating the dp table" width="350" height="350" />
+        <figcaption>Creating the dp table</figcaption>
+    </figure>
+    <p dir="ltr"><strong>Second step:</strong>&nbsp;Traverse for i = 1. When j becomes 5, S1[0] and S2[4] are equal. So
+        the dp[][] is updated. For the other elements take the maximum of dp[i-1][j] and dp[i][j-1]. (In this case, if
+        both values are equal, we have used arrows to the previous rows).</p>
+    <figure class="image"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230228145739/lcs2drawio.png"
+            alt="Filling the row no 1" width="350" height="350" />
+        <figcaption>Filling the row no 1</figcaption>
+    </figure>
+    <p dir="ltr"><strong>Third step:</strong>&nbsp;While traversed for i = 2, S1[1] and S2[0] are the same (both are
+        &lsquo;G&rsquo;). So the dp value in that cell is updated. Rest of the elements are updated as per the
+        conditions.</p>
+    <figure class="image"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230228145821/lcs3drawio.png"
+            alt="Filling the row no. 2" width="350" height="350" />
+        <figcaption>Filling the row no. 2</figcaption>
+    </figure>
+
+
+    <p dir="ltr"><strong>Fourth step:</strong>&nbsp;For i = 3, S1[2] and S2[0] are again same. The updations are as
+        follows.</p>
+    <figure class="image"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230228145851/lcs4drawio.png"
+            alt="Filling row no. 3" width="350" height="350" />
+        <figcaption>Filling row no. 3</figcaption>
+    </figure>
+    <p dir="ltr"><strong>Fifth step:</strong>&nbsp;For i = 4, we can see that S1[3] and S2[2] are same. So dp[4][3]
+        updated as dp[3][2] + 1 = 2.</p>
+    <figure class="image"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230228145958/lcs5drawio.png"
+            alt="Filling row 4" width="350" height="350" />
+        <figcaption>Filling row 4</figcaption>
+    </figure>
+    <p dir="ltr"><strong>Sixth step:</strong>&nbsp;Here we can see that for i = 5 and j = 5 the values of S1[4] and
+        S2[4] are same (i.e., both are &lsquo;A&rsquo;). So dp[5][5] is updated accordingly and becomes 3.</p>
+    <figure class="image"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230228150025/lcs6drawio.png"
+            alt="Filling row 5" width="350" height="350" />
+        <figcaption>Filling row 5</figcaption>
+    </figure>
+    <p dir="ltr"><strong>Final step:</strong>&nbsp;For i = 6, see the last characters of both strings are same (they are
+        &lsquo;B&rsquo;). Therefore the value of dp[6][7] becomes 4.</p>
+    <figure class="image"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230228150050/lcs7drawio.png"
+            alt="Filling the final row" width="350" height="350" />
+        <figcaption>Filling the final row</figcaption>
+    </figure>
+    <p dir="ltr">So we get the maximum length of common subsequence as&nbsp;<strong>4</strong>.</p>
+
+    Following is a tabulated implementation for the LCS problem. <br>
+
+    <div class="gray"><span class="c1">// Dynamic Programming C++ implementation</span>
+<span class="c1">// of LCS problem</span>
+<span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
+
+<span class="c1">// Returns length of LCS for X[0..m-1],</span>
+<span class="c1">// Y[0..n-1]</span>
+<span class="kt">int</span> <span class="nf">lcs</span><span class="p">(</span><span class="n">string</span> <span class="n">X</span><span class="p">,</span> <span class="n">string</span> <span class="n">Y</span><span class="p">,</span> <span class="kt">int</span> <span class="n">m</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+
+    <span class="c1">// Initializing a matrix of size</span>
+    <span class="c1">// (m+1)*(n+1)</span>
+    <span class="kt">int</span> <span class="n">L</span><span class="p">[</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+
+    <span class="c1">// Following steps build L[m+1][n+1]</span>
+    <span class="c1">// in bottom up fashion. Note that</span>
+    <span class="c1">// L[i][j] contains length of LCS of</span>
+    <span class="c1">// X[0..i-1] and Y[0..j-1]</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+            <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">Y</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+                <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+
+            <span class="k">else</span>
+                <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// L[m][n] contains length of LCS</span>
+    <span class="c1">// for X[0..n-1] and Y[0..m-1]</span>
+    <span class="k">return</span> <span class="n">L</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="n">n</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="c1">// Driver code</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">string</span> <span class="n">S1</span> <span class="o">=</span> <span class="s">"AGGTAB"</span><span class="p">;</span>
+    <span class="n">string</span> <span class="n">S2</span> <span class="o">=</span> <span class="s">"GXTXAYB"</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">S1</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">S2</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+
+    <span class="c1">// Function call</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Length of LCS is "</span> <span class="o">&lt;&lt;</span> <span class="n">lcs</span><span class="p">(</span><span class="n">S1</span><span class="p">,</span> <span class="n">S2</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></div>
+
+
+    <div class="code-output"><strong>Output</strong>
+        <div class="gray">Length of LCS is 4
+</div>
+    </div>
+    <p dir="ltr"><strong>Time Complexity:</strong>&nbsp;O(m * n) which is much better than the worst-case time
+        complexity of Naive Recursive implementation.&nbsp;<br /><strong>Auxiliary Space:</strong>&nbsp;O(m * n) because
+        the algorithm uses an array of size (m+1)*(n+1) to store the length of the common substrings.</p>
+    <h2><u><span class="GFGEditorTheme__textUnderline">Longest Common Subsequence (LCS) using Bottom-Up
+                (Space-Optimization):</span></u></h2>
+    <blockquote>
+        <ul>
+            <li value="1">In the above tabulation approach we are using L[i-1][j] and L[i][j] etc, here the L[i-1] will
+                refers to the matrix L&rsquo;s previous row and L[i] refers to the current row.</li>
+            <li value="2">We can do space optimization by using two vectors one is previous and another one is current.
+            </li>
+            <li value="3">When the inner for loop exits we are initializing previous equal to current.</li>
+        </ul>
+    </blockquote>
+    <p dir="ltr">Below is the implementation:</p>
+
+    <div class="gray"><span class="c1">// Dynamic Programming C++ implementation</span>
+<span class="c1">// of LCS problem</span>
+<span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">longestCommonSubsequence</span><span class="p">(</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">text1</span><span class="p">,</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">text2</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">text1</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">text2</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+
+    <span class="c1">// initializing 2 vectors of size m</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">prev</span><span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">cur</span><span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">idx2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">idx2</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">idx2</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">cur</span><span class="p">[</span><span class="n">idx2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">idx1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">idx1</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">idx1</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">idx2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">idx2</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">idx2</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// if matching</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">text1</span><span class="p">[</span><span class="n">idx1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">text2</span><span class="p">[</span><span class="n">idx2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+                <span class="n">cur</span><span class="p">[</span><span class="n">idx2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">prev</span><span class="p">[</span><span class="n">idx2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+
+            <span class="c1">// not matching</span>
+            <span class="k">else</span>
+                <span class="n">cur</span><span class="p">[</span><span class="n">idx2</span><span class="p">]</span>
+                    <span class="o">=</span> <span class="mi">0</span> <span class="o">+</span> <span class="n">max</span><span class="p">(</span><span class="n">cur</span><span class="p">[</span><span class="n">idx2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">prev</span><span class="p">[</span><span class="n">idx2</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="n">prev</span> <span class="o">=</span> <span class="n">cur</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">cur</span><span class="p">[</span><span class="n">m</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">string</span> <span class="n">S1</span> <span class="o">=</span> <span class="s">"AGGTAB"</span><span class="p">;</span>
+    <span class="n">string</span> <span class="n">S2</span> <span class="o">=</span> <span class="s">"GXTXAYB"</span><span class="p">;</span>
+
+    <span class="c1">// Function call</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Length of LCS is "</span>
+         <span class="o">&lt;&lt;</span> <span class="n">longestCommonSubsequence</span><span class="p">(</span><span class="n">S1</span><span class="p">,</span> <span class="n">S2</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></div>
+
+
+    <div class="code-output"><br /><strong>Output</strong>
+        <div class="gray">Length of LCS is 4
+</div>
+    </div>
+    <p dir="ltr"><strong>Time Complexity:</strong>&nbsp;O(m * n), which remains the same.<br /><strong>Auxiliary
+            Space:</strong>&nbsp;O(m) because the algorithm uses two arrays of size m.</p>
+</body>
+</html>

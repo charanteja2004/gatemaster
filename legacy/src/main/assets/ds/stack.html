@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>Stack </h1>
+        </div>
+        </div>
+        </div>
+        <div class="text">
+        <p dir="ltr">Stacks, a fundamental data structure in computer science, are crucial for understanding algorithmic paradigms and solving complex computational problems. As candidates gear up for the GATE Exam 2024, a solid grasp of stack concepts is indispensable. These notes are designed to provide a concise yet comprehensive overview of stacks, covering key topics that are likely to be assessed in the GATE examination.</p>
+        <div id="table_of_content">
+        <p>Table of Content</p>
+        <ul>
+        <li><a href="#introduction-to-stack">Introduction to Stack:</a></li>
+        <li><a href="#lifo-last-in-first-out-in-stack">LIFO (Last In First Out) in Stack:</a></li>
+        <li><a href="#basic-operations-on-stack">Basic Operations on Stack</a></li>
+        <li><a href="#implementation-of-stack-using-singly-linked-list">Implementation of Stack using Singly Linked List:</a></li>
+        <li><a href="#applications-advantages-and-disadvantages-of-stack">Applications, Advantages and Disadvantages of Stack:</a></li></li>
+        </ul>
+        </div>
+        <h2 id="introduction-to-stack">Introduction to Stack:</h2>
+        <blockquote>
+        <p dir="ltr"><em><em class="GFGEditorTheme__textItalic">A stack is a linear data structure in which the insertion of a new element and removal of an existing element takes place at the same end represented as the top of the stack.</em></em></p>
+        </blockquote>
+        <p dir="ltr">To implement the stack, it is required to maintain the&nbsp;<strong>pointer to the top of the stack</strong>, which is the last element to be inserted because&nbsp;<strong>we can access the elements only on the top of the stack.</strong></p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <h2 id="lifo-last-in-first-out-in-stack"><u><strong><strong class="GFGEditorTheme__textUnderline">LIFO (Last In First Out) in Stack</strong></strong></u><u><strong><strong class="GFGEditorTheme__textUnderline">:</strong></strong></u></h2>
+        <blockquote>
+        <p dir="ltr">This strategy states that the element that is inserted last will come out first. You can take a pile of plates kept on top of each other as a real-life example. The plate which we put last is on the top and since we remove the plate that is at the top, we can say that the plate that was put last comes out first.</p>
+        </blockquote>
+        <h2 id="basic-operations-on-stack"><u><span class="GFGEditorTheme__textUnderline">Basic Operations on Stack</span></u></h2>
+        <p dir="ltr">In order to make manipulations in a stack, certain operations are provided to us.</p>
+        <ul>
+        <li value="1"><strong>push()</strong>&nbsp;to insert an element into the stack</li>
+        <li value="2"><strong>pop()&nbsp;</strong>to remove an element from the stack</li>
+        <li value="3"><strong>top()</strong>&nbsp;Returns the top element of the stack.</li>
+        <li value="4"><strong>isEmpty()&nbsp;</strong>returns true if the stack is empty else false.</li>
+        <li value="5"><strong>size()</strong>&nbsp;returns the size of the stack.</li>
+        </ul>
+        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220714004311/Stack-660x566.png" width="303" height="260" />
+        <p class="wp-caption-text">Stack</p>
+        </div>
+        <h3><u><strong><strong class="GFGEditorTheme__textUnderline">Time Complexity of Stack Operations:</strong></strong></u></h3>
+        <table class="GFGEditorTheme__table"><colgroup><col /><col /></colgroup>
+        <thead>
+        <tr>
+        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader"><strong>Operations</strong>&nbsp;&nbsp;</th>
+        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader"><strong>Complexity</strong></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">push()&nbsp;</td>
+        <td class="GFGEditorTheme__tableCell">O(1)</td>
+        </tr>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">pop() &nbsp;&nbsp;</td>
+        <td class="GFGEditorTheme__tableCell">O(1)</td>
+        </tr>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">isEmpty()&nbsp;</td>
+        <td class="GFGEditorTheme__tableCell">O(1)</td>
+        </tr>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">size()</td>
+        <td class="GFGEditorTheme__tableCell">O(1)</td>
+        </tr>
+        </tbody>
+        </table>
+        </div>
+        <div class="main_wrapper">
+            <div class="article-title">
+            <h2 id="implementation-of-stack-using-singly-linked-list">Implementation of Stack using Singly Linked List:</h2>
+            <p dir="ltr">To implement a&nbsp;stack&nbsp;using the singly linked list concept, all the singly&nbsp;<a href="linkedlist.html">linked list</a>&nbsp;operations should be performed based on Stack operations LIFO(last in first out) and with the help of that knowledge, we are going to implement a stack using a singly linked list.&nbsp;</p>
+            <p dir="ltr">So we need to follow a simple rule in the implementation of a stack which is&nbsp;<strong>last in first out</strong>&nbsp;and all the operations can be performed with the help of a top variable. Let us learn how to perform&nbsp;<strong>Pop, Push, Peek, and Display</strong>&nbsp;operations in the following article:</p>
+            <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/1-354.png" width="399" height="196" /></p>
+            <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/2-260.png" width="398" height="191" /></p>
+            <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/3-186.png" width="399" height="191" /></p>
+            <p dir="ltr">In the stack Implementation, a stack contains a top pointer. which is the &ldquo;head&rdquo; of the stack where pushing and popping items happens at the head of the list. The first node has a null in the link field and second node-link has the first node address in the link field and so on and the last node address is in the &ldquo;top&rdquo; pointer.</p>
+            <p dir="ltr">The main advantage of using a linked list over arrays is that it is possible to implement a stack that can shrink or grow as much as needed. Using an array will put a restriction on the maximum capacity of the array which can lead to stack overflow. Here each new node will be dynamically allocated. so overflow is not possible.</p>
+            <p dir="ltr"><u><em><strong><strong class="GFGEditorTheme__textItalic GFGEditorTheme__textUnderline">Push Operation:</strong></strong></em></u></p>
+            <blockquote>
+            <ul>
+            <li value="1">Initialise a node</li>
+            <li value="2">Update the value of that node by data i.e.&nbsp;<strong>node-&gt;data = data</strong></li>
+            <li value="3">Now link this node to the top of the linked list</li>
+            <li value="4">And update top pointer to the current node</li>
+            </ul>
+            </blockquote>
+            <p dir="ltr"><u><em><strong><strong class="GFGEditorTheme__textItalic GFGEditorTheme__textUnderline">Pop Operation:</strong></strong></em></u></p>
+            <blockquote>
+            <ul>
+            <li value="1">First Check whether there is any node present in the linked list or not, if not then return</li>
+            <li value="2">Otherwise make pointer let say&nbsp;<strong>temp</strong>&nbsp;to the top node and move forward the top node by 1 step</li>
+            <li value="3">Now free this temp node</li>
+            </ul>
+            </blockquote>
+            <p dir="ltr"><u><em><strong><strong class="GFGEditorTheme__textItalic GFGEditorTheme__textUnderline">Peek Operation:</strong></strong></em></u></p>
+            <blockquote>
+            <ul>
+            <li value="1">Check if there is any node present or not, if not then return.</li>
+            <li value="2">Otherwise return the value of top node of the linked list</li>
+            </ul>
+            </blockquote>
+            <p dir="ltr"><u><em><strong><strong class="GFGEditorTheme__textItalic GFGEditorTheme__textUnderline">Display Operation:</strong></strong></em></u></p>
+            <blockquote>
+            <ul>
+            <li value="1">Take a&nbsp;<strong>temp&nbsp;</strong>node and initialize it with top pointer&nbsp;</li>
+            <li value="2">Now start traversing temp till it encounters NULL</li>
+            <li value="3">Simultaneously print the value of the temp node</li>
+            </ul>
+            </blockquote>
+            </div>
+            </div>
+            <div class="main_wrapper">
+<div class="article-title">
+<h2 id="applications-advantages-and-disadvantages-of-stack"><a href="https://www.geeksforgeeks.org/applications-advantages-and-disadvantages-of-stack/" target="_blank" rel="noreferrer noopener">Applications, Advantages and Disadvantages of Stack</a>:</h2>
+<h3><u><strong><strong class="GFGEditorTheme__textUnderline">Application of Stack Data Structure:</strong></strong></u></h3>
+<ul>
+<li value="1"><strong>Function calls and recursion:</strong>&nbsp;When a function is called, the current state of the program is pushed onto the stack. When the function returns, the state is popped from the stack to resume the previous function&rsquo;s execution.</li>
+<li value="2"><strong>Undo/Redo operations:</strong>&nbsp;The undo-redo feature in various applications uses stacks to keep track of the previous actions. Each time an action is performed, it is pushed onto the stack. To undo the action, the top element of the stack is popped, and the reverse operation is performed.</li>
+<li value="3"><strong>Expression evaluation:&nbsp;</strong>Stack data structure is used to evaluate expressions in infix, postfix, and prefix notations. Operators and operands are pushed onto the stack, and operations are performed based on the stack&rsquo;s top elements.</li>
+<li value="4"><strong>Browser history:</strong>&nbsp;Web browsers use stacks to keep track of the web pages you visit. Each time you visit a new page, the URL is pushed onto the stack, and when you hit the back button, the previous URL is popped from the stack.</li>
+<li value="5"><strong>Balanced Parentheses:</strong>&nbsp;Stack data structure is used to check if parentheses are balanced or not. An opening parenthesis is pushed onto the stack, and a closing parenthesis is popped from the stack. If the stack is empty at the end of the expression, the parentheses are balanced.</li>
+<li value="6"><strong>Backtracking Algorithms:&nbsp;</strong>The backtracking algorithm uses stacks to keep track of the states of the problem-solving process. The current state is pushed onto the stack, and when the algorithm backtracks, the previous state is popped from the stack.</li>
+</ul>
+<h3><u><strong><strong class="GFGEditorTheme__textUnderline">Advantages of Stack:</strong></strong></u></h3>
+<ul>
+<li value="1"><strong>Easy implementation:</strong>&nbsp;Stack data structure is easy to implement using arrays or linked lists, and its operations are simple to understand and implement.</li>
+<li value="2"><strong>Efficient memory utilization</strong>: Stack uses a contiguous block of memory, making it more efficient in memory utilization as compared to other data structures.</li>
+<li value="3"><strong>Fast access time:</strong>&nbsp;Stack data structure provides fast access time for adding and removing elements as the elements are added and removed from the top of the stack.</li>
+<li value="4"><strong>Helps in function calls:&nbsp;</strong>Stack data structure is used to store function calls and their states, which helps in the efficient implementation of recursive function calls.</li>
+<li value="5"><strong>Supports backtracking:</strong>&nbsp;Stack data structure supports backtracking algorithms, which are used in problem-solving to explore all possible solutions by storing the previous states.</li>
+<li value="6"><strong>Used in Compiler Design:</strong>&nbsp;Stack data structure is used in compiler design for parsing and syntax analysis of programming languages.</li>
+<li value="7"><strong>Enables undo/redo operations</strong>: Stack data structure is used to enable undo and redo operations in various applications like text editors, graphic design tools, and software development environments.</li>
+</ul>
+<h3><u><strong><strong class="GFGEditorTheme__textUnderline">Disadvantages of Stack:&nbsp;</strong></strong></u></h3>
+<ul>
+<li value="1"><strong>Limited capacity:</strong>&nbsp;Stack data structure has a limited capacity as it can only hold a fixed number of elements. If the stack becomes full, adding new elements may result in stack overflow, leading to the loss of data.</li>
+<li value="2"><strong>No random access:</strong>&nbsp;Stack data structure does not allow for random access to its elements, and it only allows for adding and removing elements from the top of the stack. To access an element in the middle of the stack, all the elements above it must be removed.</li>
+<li value="3"><strong>Memory management:&nbsp;</strong>Stack data structure uses a contiguous block of memory, which can result in memory fragmentation if elements are added and removed frequently.</li>
+<li value="4"><strong>Not suitable for certain applications:&nbsp;</strong>Stack data structure is not suitable for applications that require accessing elements in the middle of the stack, like searching or sorting algorithms.</li>
+<li value="5"><strong>Stack overflow and underflow</strong>: Stack data structure can result in stack overflow if too many elements are pushed onto the stack, and it can result in stack underflow if too many elements are popped from the stack.</li>
+<li value="6"><strong>Recursive function calls limitations:&nbsp;</strong>While stack data structure supports recursive function calls, too many recursive function calls can lead to stack overflow, resulting in the termination of the program.</li>
+</ul>
+</div>
+</div>
+<div class="main_wrapper">
+    <div class="article-title">
+    <h2 id="applications-advantages-and-disadvantages-of-stack">Applications, Advantages and Disadvantages of Stack:</h2>
+    <h3><u><strong><strong class="GFGEditorTheme__textUnderline">Application of Stack Data Structure:</strong></strong></u></h3>
+    <ul>
+    <li value="1"><strong>Function calls and recursion:</strong>&nbsp;When a function is called, the current state of the program is pushed onto the stack. When the function returns, the state is popped from the stack to resume the previous function&rsquo;s execution.</li>
+    <li value="2"><strong>Undo/Redo operations:</strong>&nbsp;The undo-redo feature in various applications uses stacks to keep track of the previous actions. Each time an action is performed, it is pushed onto the stack. To undo the action, the top element of the stack is popped, and the reverse operation is performed.</li>
+    <li value="3"><strong>Expression evaluation:&nbsp;</strong>Stack data structure is used to evaluate expressions in infix, postfix, and prefix notations. Operators and operands are pushed onto the stack, and operations are performed based on the stack&rsquo;s top elements.</li>
+    <li value="4"><strong>Browser history:</strong>&nbsp;Web browsers use stacks to keep track of the web pages you visit. Each time you visit a new page, the URL is pushed onto the stack, and when you hit the back button, the previous URL is popped from the stack.</li>
+    <li value="5"><strong>Balanced Parentheses:</strong>&nbsp;Stack data structure is used to check if parentheses are balanced or not. An opening parenthesis is pushed onto the stack, and a closing parenthesis is popped from the stack. If the stack is empty at the end of the expression, the parentheses are balanced.</li>
+    <li value="6"><strong>Backtracking Algorithms:&nbsp;</strong>The backtracking algorithm uses stacks to keep track of the states of the problem-solving process. The current state is pushed onto the stack, and when the algorithm backtracks, the previous state is popped from the stack.</li>
+    </ul>
+    <h3><u><strong><strong class="GFGEditorTheme__textUnderline">Advantages of Stack:</strong></strong></u></h3>
+    <ul>
+    <li value="1"><strong>Easy implementation:</strong>&nbsp;Stack data structure is easy to implement using arrays or linked lists, and its operations are simple to understand and implement.</li>
+    <li value="2"><strong>Efficient memory utilization</strong>: Stack uses a contiguous block of memory, making it more efficient in memory utilization as compared to other data structures.</li>
+    <li value="3"><strong>Fast access time:</strong>&nbsp;Stack data structure provides fast access time for adding and removing elements as the elements are added and removed from the top of the stack.</li>
+    <li value="4"><strong>Helps in function calls:&nbsp;</strong>Stack data structure is used to store function calls and their states, which helps in the efficient implementation of recursive function calls.</li>
+    <li value="5"><strong>Supports backtracking:</strong>&nbsp;Stack data structure supports backtracking algorithms, which are used in problem-solving to explore all possible solutions by storing the previous states.</li>
+    <li value="6"><strong>Used in Compiler Design:</strong>&nbsp;Stack data structure is used in compiler design for parsing and syntax analysis of programming languages.</li>
+    <li value="7"><strong>Enables undo/redo operations</strong>: Stack data structure is used to enable undo and redo operations in various applications like text editors, graphic design tools, and software development environments.</li>
+    </ul>
+    <h3><u><strong><strong class="GFGEditorTheme__textUnderline">Disadvantages of Stack:&nbsp;</strong></strong></u></h3>
+    <ul>
+    <li value="1"><strong>Limited capacity:</strong>&nbsp;Stack data structure has a limited capacity as it can only hold a fixed number of elements. If the stack becomes full, adding new elements may result in stack overflow, leading to the loss of data.</li>
+    <li value="2"><strong>No random access:</strong>&nbsp;Stack data structure does not allow for random access to its elements, and it only allows for adding and removing elements from the top of the stack. To access an element in the middle of the stack, all the elements above it must be removed.</li>
+    <li value="3"><strong>Memory management:&nbsp;</strong>Stack data structure uses a contiguous block of memory, which can result in memory fragmentation if elements are added and removed frequently.</li>
+    <li value="4"><strong>Not suitable for certain applications:&nbsp;</strong>Stack data structure is not suitable for applications that require accessing elements in the middle of the stack, like searching or sorting algorithms.</li>
+    <li value="5"><strong>Stack overflow and underflow</strong>: Stack data structure can result in stack overflow if too many elements are pushed onto the stack, and it can result in stack underflow if too many elements are popped from the stack.</li>
+    <li value="6"><strong>Recursive function calls limitations:&nbsp;</strong>While stack data structure supports recursive function calls, too many recursive function calls can lead to stack overflow, resulting in the termination of the program.</li>
+    </ul>
+    </div>
+    </div>
+</body>
+</html>

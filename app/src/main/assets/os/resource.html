@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Applications of various Automata</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+<h2><b>Resource-Allocation Graph</b></h2>
+
+Deadlocks can be described more precisely in terms of a directed graph called
+a <b>system resource-allocation graph.</b> This graph consists of a set of vertices V
+and a set of edges E. The set of vertices V is partitioned into two different types
+of nodes: P = {P1, P2, ..., Pn}, the set consisting of all the active processes in the
+system, and R = {R1, R2, ..., Rm}, the set consisting of all resource types in the
+system.<br>
+A directed edge from process Pi to resource type Rj is denoted by Pi → Rj ;
+it signifies that process Pi has requested an instance of resource type Rj and
+is currently waiting for that resource. A directed edge from resource type Rj
+to process Pi is denoted by Rj → Pi ; it signifies that an instance of resource
+type Rj has been allocated to process Pi . A directed edge Pi → Rj is called a
+<b>request edge;</b> a directed edge Rj → Pi is called an <b>assignment edge.</b><br>
+Pictorially, we represent each process Pi as a circle and each resource type
+Rj as a rectangle. Since resource type Rj may have more than one instance, we
+represent each such instance as a dot within the rectangle. Note that a request
+edge points to only the rectangle Rj , whereas an assignment edge must also
+designate one of the dots in the rectangle.<br>
+When process Pi requests an instance of resource type Rj , a request edge
+is inserted in the resource-allocation graph. When this request can be fulfilled,
+the request edge is<b> instantaneously </b>transformed to an assignment edge. When
+the process no longer needs access to the resource, it releases the resource. As
+a result, the assignment edge is deleted.<br><br>
+
+
+
+The resource-allocation graph  depicts the following
+situation.<br>
+• The sets P, R, and E:<br>
+◦ P = {P1, P2, P3}<br>
+
+
+<img src="https://media.cheggcdn.com/media%2Facf%2Facff5f25-929b-45cb-ba10-06747b452262%2FphpDNfveR.png" width="350" height="350"><br><br>
+
+◦ R = {R1, R2, R3, R4}<br>
+◦ E = {P1 → R1, P2 → R3, R1 → P2, R2 → P2, R2 → P1, R3 → P3}<br>
+• Resource instances:<br><br>
+◦ One instance of resource type R1<br>
+◦ Two instances of resource type R2<br>
+◦ One instance of resource type R3<br>
+◦ Three instances of resource type R4<br><br>
+• Process states:<br>
+◦ Process P1 is holding an instance of resource type R2 and is waiting for
+an instance of resource type R1.<br>
+◦ Process P2 is holding an instance of R1 and an instance of R2 and is
+waiting for an instance of R3.<br>
+◦ Process P3 is holding an instance of R3.<br><br>
+Given the definition of a resource-allocation graph, it can be shown that, if
+the graph contains no cycles, then no process in the system is deadlocked. If
+the graph does contain a cycle, then a deadlock may exist.<br>
+If each resource type has exactly one instance, then a cycle implies that a
+deadlock has occurred. If the cycle involves only a set of resource types, each
+of which has only a single instance, then a deadlock has occurred. Each process
+involved in the cycle is deadlocked. In this case, a cycle in the graph is both a
+necessary and a sufficient condition for the existence of deadlock.<br>
+If each resource type has several instances, then a cycle does not necessarily
+imply that a deadlock has occurred. In this case, a cycle in the graph is a
+necessary but not a sufficient condition for the existence of deadlock.<br><br>
+To illustrate this concept, we return to the resource-allocation graph
+depicted in Figure. Suppose that process P3 requests an instance of resource type R2. Since no resource instance is currently available, we add a request edge
+P3 → R2 to the graph . At this point, two minimal cycles exist in the
+system:<br><br>
+P1 → R1 → P2 → R3 → P3 → R2 → P1<br>
+P2 → R3 → P3 → R2 → P2<br>
+Processes P1, P2, and P3 are deadlocked. Process P2 is waiting for the resource
+R3, which is held by process P3. Process P3 is waiting for either process P1 or
+process P2 to release resource R2. In addition, process P1 is waiting for process
+P2 to release resource R1.<br><br>
+Now consider the resource-allocation graph in Figure 7.3. In this example,
+we also have a cycle:<br><br>
+P1 → R1 → P3 → R2 → P1<br><br>
+
+<img src="http://1.bp.blogspot.com/_q_POLaRgWB4/SpZXDe8LD6I/AAAAAAAAAHQ/r-1VhtOg60U/s320/untitled.bmp" width="350" height="350">
+<br><br>
+
+
+However, there is no deadlock. Observe that process P4 may release its instance
+of resource type R2. That resource can then be allocated to P3, breaking the cycle.<br>
+In summary, if a resource-allocation graph does not have a cycle, then the
+system is not in a deadlocked state. If there is a cycle, then the system may or
+may not be in a deadlocked state. This observation is important when we deal
+with the deadlock problem.</p><br><br>
+</body>
+</html>

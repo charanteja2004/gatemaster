@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Applications of various Automata</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+<h2><b>Process State</b></h2>
+<p>As a process executes, it changes state. The state of a process is defined in part
+    by the current activity of that process. A process may be in one of the following
+    states:<br>
+    <li><b>New.</b> The process is being created.</li>
+    <li> Running.</b> Instructions are being executed.</li>
+    <li><b>Waiting.</b> The process is waiting for some event to occur (such as an I/O
+        completion or reception of a signal).</li>
+    <li><b>Ready.</b> The process is waiting to be assigned to a processor.</li>
+    <li><b>Terminated.</b> The process has finished execution.</li><br>
+
+    These names are arbitrary, and they vary across operating systems. The states
+    that they represent are found on all systems, however. Certain operating
+    systems also more finely delineate process states. It is important to realize
+    that only one process can be running on any processor at any instant. Many
+    processes may be ready and waiting, however.</p><br>
+<h2><b>States of a Process in Operating Systems</b></h2>
+<p>A process has several stages that it passes through from beginning to end. There must be a minimum of five states. Even though during execution, the process could be in one of these states, the names of the states are not standardized. Each process goes through several stages throughout its life cycle.<br><br>
+<h3><b>Process States in Operating System</b></h3>
+The states of a process are as follows: <br>
+
+<li><b>New (Create):</b> In this step, the process is about to be created but not yet created. It is the program that is present in secondary memory that will be picked up by OS to create the process.</li>
+<li><b>Ready:</b> New -> Ready to run. After the creation of a process, the process enters the ready state i.e. the process is loaded into the main memory. The process here is ready to run and is waiting to get the CPU time for its execution. Processes that are ready for execution by the CPU are maintained in a queue called ready queue for ready processes.</li>
+<li><b>Run:</b> The process is chosen from the ready queue by the CPU for execution and the instructions within the process are executed by any one of the available CPU cores.</li>
+<li><b>Blocked or Wait:</b> Whenever the process requests access to I/O or needs input from the user or needs access to a critical region(the lock for which is already acquired) it enters the blocked or waits state. The process continues to wait in the main memory and does not require CPU. Once the I/O operation is completed the process goes to the ready state.</li>
+<li><b>Terminated or Completed:</b> Process is killed as well as PCB is deleted. The resources allocated to the process will be released or deallocated.</li>
+<li><b>Suspend Ready:</b> Process that was initially in the ready state but was swapped out of main memory(refer to Virtual Memory topic) and placed onto external storage by the scheduler is said to be in suspend ready state. The process will transition back to a ready state whenever the process is again brought onto the main memory.</li>
+<li><b>Suspend wait or suspend blocked:</b> Similar to suspend ready but uses the process which was performing I/O operation and lack of main memory caused them to move to secondary memory. When work is finished it may go to suspend ready.</li><br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20190604122001/states_modified.png" width="450" height="350"><br><br>
+
+<b>CPU and I/O Bound Processes:</b> If the process is intensive in terms of CPU operations, then it is called CPU bound process. Similarly, If the process is intensive in terms of I/O operations then it is called I/O bound process. <br><br>
+
+<b>How does a process move between different states in an operating system?</b><br>
+A process can move between different states in an operating system based on its execution status and resource availability. Here are some examples of how a process can move between different states:<br><br>
+
+<li><b>New to ready:</b> When a process is created, it is in a new state. It moves to the ready state when the operating system has allocated resources to it and it is ready to be executed.</li>
+<li><b>Ready to running:</b> When the CPU becomes available, the operating system selects a process from the ready queue depending on various scheduling algorithms and moves it to the running state.</li>
+<li><b>Running to blocked:</b> When a process needs to wait for an event to occur (I/O operation or system call), it moves to the blocked state. For example, if a process needs to wait for user input, it moves to the blocked state until the user provides the input.</li>
+<li><b>Running to ready:</b> When a running process is preempted by the operating system, it moves to the ready state. For example, if a higher-priority process becomes ready, the operating system may preempt the running process and move it to the ready state.</li>
+<li><b>Blocked to ready:</b> When the event a blocked process was waiting for occurs, the process moves to the ready state. For example, if a process was waiting for user input and the input is provided, it moves to the ready state.</li>
+<li><b>Running to terminated:</b> When a process completes its execution or is terminated by the operating system, it moves to the terminated state.</li><br>
+
+<h3><b>Features of the Process State</b></h3>
+<li>A process can move from the running state to the waiting state if it needs to wait for a resource to become available.</li>
+<li>A process can move from the waiting state to the ready state when the resource it was waiting for becomes available.</li>
+<li>A process can move from the ready state to the running state when it is selected by the operating system for execution.</li>
+<li>The scheduling algorithm used by the operating system determines which process is selected to execute from the ready state.</li>
+<li>The operating system may also move a process from the running state to the ready state to allow other processes to execute.</li>
+<li>A process can move from the running state to the terminated state when it completes its execution.</li>
+<li>A process can move from the waiting state directly to the terminated state if it is aborted or killed by the operating system or another process.</li>
+<li>A process can go through ready, running and waiting state any number of times in its lifecycle but new and terminated happens only once.</li>
+<li>The process state includes information about the program counter, CPU registers, memory allocation, and other resources used by the process.</li>
+<li>The operating system maintains a process control block (PCB) for each process, which contains information about the process state, priority, scheduling information, and other process-related data.</li>
+<li>The process state diagram is used to represent the transitions between different states of a process and is an essential concept in process management in operating systems.</li><br>
+</body>
+</html>

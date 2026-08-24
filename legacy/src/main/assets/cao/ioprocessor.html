@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    <h2><b>Introduction of Input-Output Processor</b></h2>
+
+<p dir="ltr">The&nbsp;<strong>DMA mode</strong>&nbsp;of data transfer reduces the CPU&rsquo;s overhead in handling I/O operations. It also allows parallelism in CPU and I/O operations. Such parallelism is necessary to avoid the wastage of valuable CPU time while handling I/O devices whose speeds are much slower as compared to CPU. The concept of DMA operation can be extended to relieve the CPU further from getting involved with the execution of I/O operations. This gives rise to the development of special purpose processors called&nbsp;<strong>Input-Output Processor (IOP) or IO channels</strong>.</p>
+<p dir="ltr">The Input-Output Processor (IOP) is just like a CPU that handles the details of I/O operations. It is more equipped with facilities than those available in a typical DMA controller. The IOP can fetch and execute its own instructions that are specifically designed to characterize I/O transfers. In addition to the I/O-related tasks, it can perform other processing tasks like arithmetic, logic, branching, and code translation. The main memory unit takes a pivotal role. It communicates with the processor by means of DMA.</p>
+<p dir="ltr">The Input-Output Processor is a specialized processor which loads and stores data in memory along with the execution of I/O instructions. It acts as an interface between the system and devices. It involves a sequence of events to execute I/O operations and then store the results in memory.&nbsp;</p>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/ip1.png" alt="Input-Output Processor" width="350" height="350" />
+<p class="wp-caption-text">Input-Output Processor</p>
+</div>
+
+
+
+
+<h2>Features of an Input-Output Processor</h2>
+<ul>
+<li value="1"><strong>Specialized Hardware:</strong>&nbsp;An IOP is equipped with specialized hardware that is optimized for handling input/output operations. This hardware includes input/output ports, DMA controllers, and interrupt controllers.</li>
+<li value="2"><strong>DMA Capability:&nbsp;</strong>An IOP has the capability to perform Direct Memory Access (DMA) operations. DMA allows data to be transferred directly between peripheral devices and memory without going through the CPU, thereby freeing up the CPU for other tasks.</li>
+<li value="3"><strong>Interrupt Handling:</strong>&nbsp;An IOP can handle interrupts from peripheral devices and manage them independently of the CPU. This allows the CPU to focus on executing application programs while the IOP handles interrupts from peripheral devices.</li>
+<li value="4"><strong>Protocol Handling:</strong>&nbsp;An IOP can handle communication protocols for different types of devices such as&nbsp;<a href="https://www.geeksforgeeks.org/what-is-ethernet/" rel="noopener">Ethernet</a>, USB, and SCSI. This allows the IOP to interface with a wide range of devices without requiring additional software support from the CPU.</li>
+<li value="5"><strong>Buffering:&nbsp;</strong>An IOP can buffer data between the CPU and peripheral devices. This allows the IOP to handle large amounts of data without overloading the CPU or the peripheral devices.</li>
+<li value="6"><strong>Command Processing:&nbsp;</strong>An IOP can process commands from peripheral devices independently of the CPU. This allows the CPU to focus on executing application programs while the IOP handles peripheral device commands.</li>
+<li value="7"><strong>Parallel Processing:</strong>&nbsp;An IOP can perform input/output operations in parallel with the CPU. This allows the system to handle multiple tasks simultaneously and improve overall system performance.</li>
+</ul>
+<h2>Applications of I/O Processors</h2>
+<ul>
+<li value="1"><strong>Data Acquisition Systems:</strong>&nbsp;I/O processors can be used in data acquisition systems to acquire and process data from various sensors and input devices. The I/O processor can handle high-speed data transfer and perform real-time processing of the acquired data.</li>
+<li value="2"><strong>Industrial Control Systems:&nbsp;</strong>I/O processors can be used in industrial control systems to interface with various control devices and sensors. The I/O processor can provide precise timing and control signals, and can also perform local processing of the input data.</li>
+<li value="3"><strong>Multimedia Applications:&nbsp;</strong>I/O processors can be used in multimedia applications to handle the input and output of multimedia data, such as audio and video. The I/O processor can perform real-time processing of multimedia data, including decoding, encoding, and compression.</li>
+<li value="4"><strong>Network Communication Systems:</strong>&nbsp;I/O processors can be used in network communication systems to handle the input and output of data packets. The I/O processor can perform packet routing, filtering, and processing, and can also perform encryption and decryption of the data.</li>
+<li value="5"><strong>Storage Systems:</strong>&nbsp;I/O processors can be used in storage systems to handle the input and output of data to and from storage devices. The I/O processor can handle high-speed data transfer and perform data caching and prefetching operations.</li>
+</ul>
+<h2><strong>Advantages of Input-Output Processor</strong></h2>
+<ul>
+<li value="1">The I/O devices can directly access the main memory without the intervention of the processor in I/O processor-based systems.</li>
+<li value="2">It is used to address the problems that arise in the Direct memory access method.</li>
+<li value="3"><strong>Reduced Processor Workload:&nbsp;</strong>With an I/O processor, the main processor doesn&rsquo;t have to deal with I/O operations, allowing it to focus on other tasks. This results in more efficient use of the processor&rsquo;s resources and can lead to faster overall system performance.</li>
+<li value="4"><strong>Improved Data Transfer Rates:&nbsp;</strong>Since the I/O processor can access memory directly, data transfers between I/O devices and memory can be faster and more efficient than with other methods.</li>
+<li value="5"><strong>Increased System Reliability:&nbsp;</strong>By offloading I/O tasks to a dedicated processor, the system can be made more&nbsp;<a href="https://www.geeksforgeeks.org/fault-tolerance-techniques-in-computer-system/" rel="noopener">fault-tolerant</a>. For example, if an I/O operation fails, it won&rsquo;t affect other system processes.</li>
+<li value="6"><strong>Scalability:&nbsp;</strong>I/O processor-based systems can be designed to scale easily, allowing for additional I/O processors to be added as needed. This can be particularly useful in large-scale data centres or other environments where the number of I/O devices is constantly changing.</li>
+<li value="7"><strong>Flexibility:&nbsp;</strong>I/O processor-based systems can be designed to handle a wide range of I/O devices and interfaces, providing more flexibility in system design and allowing for better customization to meet specific requirements.</li>
+</ul>
+
+<h2><strong>Disadvantages of Input-Output Processor</strong></h2>
+<ul>
+<li value="1"><strong>Cost:</strong>&nbsp;I/O processors can add significant costs to a system due to the additional hardware and complexity required. This can be a barrier to adoption, especially for smaller systems.</li>
+<li value="2"><strong>Increased Complexity:&nbsp;</strong>The addition of an I/O processor can increase the overall complexity of a system, making it more difficult to design, build, and maintain. This can also make it harder to diagnose and troubleshoot issues.</li>
+<li value="3"><strong>Limited Performance Gains:</strong>&nbsp;While I/O processors can improve system performance by offloading I/O tasks from the main processor, the gains may not be significant in all cases. In some cases, the additional overhead of the I/O processor may actually slow down the system.</li>
+<li value="4"><strong>Synchronization Issues:</strong>&nbsp;With multiple processors accessing the same memory, synchronization issues can arise, leading to potential data corruption or other errors.</li>
+<li value="5"><strong>Lack of Standardization:</strong>&nbsp;There are many different I/O processor architectures and interfaces available, which can make it difficult to develop standardized software and hardware solutions. This can limit interoperability and make it harder for vendors to develop compatible products.</li>
+</ul>
+
+
+<h2><b>Difference between Programmed and Interrupt Initiated I/O</b></h2>
+
+
+
+<p>Data transfer between the CPU and I/O devices can be done in variety of modes. These are three possible modes:&nbsp;<br />&nbsp;</p>
+<ol>
+<li>Programmed I/O</li>
+<li>Interrupt initiated I/O</li>
+<li>Direct Memory Access (DMA)</li>
+</ol>
+<p>In this article we shall discuss the first two modes only.&nbsp;</p>
+<div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
+<p><strong>1. Programmed I/O :</strong>&nbsp;<br />In this mode the data transfer is initiated by the instructions written in a computer program. An input instruction is required to store the data from the device to the CPU and a store instruction is required to transfer the data from the CPU to the device. Data transfer through this mode requires constant monitoring of the peripheral device by the CPU and also monitor the possibility of new transfer once the transfer has been initiated. Thus CPU stays in a loop until the I/O device indicates that it is ready for data transfer. Thus programmed I/O is a time consuming process that keeps the processor busy needlessly and leads to wastage of the CPU cycles.&nbsp;<br />This can be overcome by the use of an interrupt facility. This forms the basis for the Interrupt Initiated I/O.&nbsp;</p>
+<p><strong>2. Interrupt Initiated I/O :</strong>&nbsp;<br />This mode uses an interrupt facility and special commands to inform the interface to issue the interrupt command when data becomes available and interface is ready for the data transfer. In the meantime CPU keeps on executing other tasks and need not check for the flag. When the flag is set, the interface is informed and an interrupt is initiated. This interrupt causes the CPU to deviate from what it is doing to respond to the I/O transfer. The CPU responds to the signal by storing the return address from the program counter (PC) into the memory stack and then branches to service that processes the I/O request. After the transfer is complete, CPU returns to the previous task it was executing. The branch address of the service can be chosen in two ways known as vectored and non-vectored interrupt. In vectored interrupt, the source that interrupts, supplies the branch information to the CPU while in case of non-vectored interrupt the branch address is assigned to a fixed location in memory.&nbsp;</p>
+<div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+<div id="GFG_AD_InContent_Desktop_728x280">
+<div id="GFG_AD_InContent_Desktop_350x250_1" data-google-query-id="CNH8ooe8jIYDFTdYnQkdhZcDFg">
+<div id="google_ads_iframe_/27823234/GFG_InContent_Desktop_350x250_1_0__container__">&nbsp;</div>
+</div>
+</div>
+
+
+<p><strong>Difference between Programmed and Interrupt Initiated I/O :</strong>&nbsp;<br />&nbsp;</p>
+<figure class="table">
+<table border="1">
+<thead>
+<tr>
+<th>Programmed I/O</th>
+<th>Interrupt Initiated I/O</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data transfer is initiated by the means of instructions stored in the computer program. Whenever there is a request for I/O transfer the instructions are executed from the program.</td>
+<td>The I/O transfer is initiated by the interrupt command issued to the CPU.</td>
+</tr>
+<tr>
+<td>The CPU stays in the loop to know if the device is ready for transfer and has to continuously monitor the peripheral device.</td>
+<td>There is no need for the CPU to stay in the loop as the interrupt command interrupts the CPU when the device is ready for data transfer.</td>
+</tr>
+<tr>
+<td>This leads to the wastage of CPU cycles as CPU remains busy needlessly and thus the efficiency of system gets reduced.</td>
+<td>The CPU cycles are not wasted as CPU continues with other work during this time and hence this method is more efficient.</td>
+</tr>
+<tr>
+<td>CPU cannot do any work until the transfer is complete as it has to stay in the loop to continuously monitor the peripheral device.</td>
+<td>CPU can do any other work until it is interrupted by the command indicating the readiness of device for data transfer</td>
+</tr>
+<tr>
+<td>Its module is treated as a slow module.</td>
+<td>Its module is faster than programmed I/O module.</td>
+</tr>
+<tr>
+<td>It is quite easy to program and understand.</td>
+<td>It can be tricky and complicated to understand if one uses low level language.</td>
+</tr>
+<tr>
+<td>The performance of the system is severely degraded.</td>
+<td>The performance of the system is enhanced to some extent.</td>
+</tr>
+</tbody>
+</table>
+</figure>
+
+</body>
+</html>

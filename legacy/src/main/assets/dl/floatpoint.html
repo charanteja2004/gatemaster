@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    
+<div class="article-title">
+    <h1>Introduction of Floating Point Representation</h1>
+    </div>
+    </div>
+    </div>
+    <div class="text">
+    <p><strong>1. To convert the floating point into decimal, we have 3 elements in a 32-bit floating point representation:</strong>&nbsp;<br />&nbsp; &nbsp; i) Sign&nbsp;<br />&nbsp; &nbsp; ii) Exponent&nbsp;<br />&nbsp; &nbsp; iii) Mantissa&nbsp;</p>
+    <p>&nbsp;</p>
+    <ul>
+    <li><strong>Sign</strong>&nbsp;bit is the first bit of the binary representation. &lsquo;1&rsquo; implies negative number and &lsquo;0&rsquo; implies positive number.&nbsp;<br /><strong>Example:</strong>&nbsp;11000001110100000000000000000000 This is negative number.</li>
+    <li><strong>Exponent</strong>&nbsp;is decided by the next 8 bits of binary representation. 127 is the unique number for 32 bit floating point representation. It is known as bias. It is determined by 2<sup>k-1</sup>&nbsp;-1 where &lsquo;k&rsquo; is the number of bits in exponent field.&nbsp;
+    <p>There are 3 exponent bits in 8-bit representation and 8 exponent bits in 32-bit representation.</p>
+    <p>Thus</p>
+    <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+    <p>bias = 3 for 8 bit conversion (2<sup>3-1</sup>&nbsp;-1 = 4-1 = 3)&nbsp;<br />bias = 127 for 32 bit conversion. (2<sup>8-1</sup>&nbsp;-1 = 128-1 = 127)&nbsp;</p>
+    <p><strong>Example:</strong>&nbsp;01000001110100000000000000000000&nbsp;<br />10000011 = (131)<sub>10</sub>&nbsp;<br />131-127 = 4&nbsp;</p>
+    <p>Hence the exponent of 2 will be 4 i.e. 2<sup>4</sup>&nbsp;= 16.</p>
+    </li>
+    <li><strong>Mantissa</strong>&nbsp;is calculated from the remaining 23 bits of the binary representation. It consists of &lsquo;1&rsquo; and a fractional part which is determined by:&nbsp;
+    <p><strong>Example:</strong>&nbsp;</p>
+    <p>01000001110100000000000000000000&nbsp;</p>
+    <p>The fractional part of mantissa is given by:&nbsp;</p>
+    <p>1*(1/2) + 0*(1/4) + 1*(1/8) + 0*(1/16) +&hellip;&hellip;&hellip; = 0.625&nbsp;</p>
+    <p>Thus the mantissa will be 1 + 0.625 = 1.625&nbsp;</p>
+    <p>The decimal number hence given as: Sign*Exponent*Mantissa = (-1)<sup>0</sup>*(16)*(1.625) = 26</p>
+    </li>
+    </ul>
+    <p><strong>2. To convert the decimal into floating point, we have 3 elements in a 32-bit floating point representation:</strong>&nbsp;<br />&nbsp; &nbsp; i) Sign (MSB)&nbsp;<br />&nbsp; &nbsp; ii) Exponent (8 bits after MSB)&nbsp;<br />&nbsp; &nbsp; iii) Mantissa (Remaining 23 bits)&nbsp;<br />&nbsp;</p>
+    <ul>
+    <li><strong>Sign bit</strong>&nbsp;is the first bit of the binary representation. &lsquo;1&rsquo; implies negative number and &lsquo;0&rsquo; implies positive number.&nbsp;<br />Example: To convert -17 into 32-bit floating point representation Sign bit = 1</li>
+    <li><strong>Exponent</strong>&nbsp;is decided by the nearest smaller or equal to 2<sup>n</sup>&nbsp;number. For 17, 16 is the nearest 2<sup>n</sup>. Hence the exponent of 2 will be 4 since 2<sup>4</sup>&nbsp;= 16. 127 is the unique number for 32 bit floating point representation. It is known as bias. It is determined by 2<sup>k-1</sup>&nbsp;-1 where &lsquo;k&rsquo; is the number of bits in exponent field.&nbsp;
+    <p>Thus bias = 127 for 32 bit. (2<sup>8-1</sup>&nbsp;-1 = 128-1 = 127)&nbsp;</p>
+    <p>Now, 127 + 4 = 131 i.e. 10000011 in binary representation.</p>
+    </li>
+    <li><strong>Mantissa:</strong>&nbsp;17 in binary = 10001.
+    <p>Move the binary point so that there is only one bit from the left. Adjust the exponent of 2 so that the value does not change. This is normalizing the number. 1.0001 x 2<sup>4</sup>. Now, consider the fractional part and represented as 23 bits by adding zeros.</p>
+    <p>00010000000000000000000</p>
+    </li>
+    </ul>
+    
+    <div class="text">&nbsp;</div>
+</body>
+</html>

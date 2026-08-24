@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Applications of various Automata</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+<h2><strong>Preemptive Scheduling</strong></h2>
+<p dir="ltr">Preemptive scheduling is used when a process switches from the running state to the ready state or from the waiting state to the ready state. The resources (mainly CPU cycles) are allocated to the process for a limited amount of time and then taken away, and the process is again placed back in the ready queue if that process still has CPU burst time remaining. That process stays in the ready queue till it gets its next chance to execute.&nbsp;</p>
+<p>Algorithms based on preemptive scheduling ar Round Robin(RR),Shortest Remaining Time First (SRTF),Priority (preemptive version), etc.</p>
+<div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/pre-2.png" width="inherit" height="inherit" />
+    <p class="wp-caption-text">&nbsp;</p>
+</div>
+<p dir="ltr">Preemptive scheduling has a number of advantages and disadvantages. The following are preemptive scheduling&rsquo;s benefits and drawbacks:</p>
+<p dir="ltr"><strong>Advantages</strong></p>
+<ol>
+    <li value="1">Because a process may not monopolize the processor, it is a more reliable method.</li>
+    <li value="2">Each occurrence prevents the completion of ongoing tasks.</li>
+    <li value="3">The average response time is improved.</li>
+    <li value="4">Utilizing this method in a multi-programming environment is more advantageous.</li>
+    <li value="5">The operating system makes sure that every process using the CPU is using the same amount of CPU time.</li>
+</ol>
+<p dir="ltr"><strong>Disadvantages</strong></p>
+<ol>
+    <li value="1">Limited computational resources must be used.</li>
+    <li value="2">Suspending the running process, change the context, and dispatch the new incoming process all take more time.</li>
+    <li value="3">The low-priority process would have to wait if multiple high-priority processes arrived at the same time.</li>
+</ol>
+<h2><strong>Non-Preemptive Scheduling</strong></h2>
+<p dir="ltr">Non-preemptive Scheduling is used when a process terminates, or a process switches from running to the waiting state. In this scheduling, once the resources (CPU cycles) are allocated to a process, the process holds the CPU till it gets terminated or reaches a waiting state. In the case of non-preemptive scheduling does not interrupt a process running CPU in the middle of the execution. Instead, it waits till the process completes its CPU burst time, and then it can allocate the CPU to another process.&nbsp;</p>
+<p>Algorithms based on non-preemptive scheduling are:<a href="sjf.html">&nbsp;Shortest Job First (SJF basically non preemptive)</a>&nbsp;and&nbsp;<a href="priority.html">Priority (nonpreemptive version)</a>, etc.&nbsp;</p>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/nonpre.png" width="inherit" height="inherit" /></p>
+<p dir="ltr">Non-preemptive scheduling has both advantages and disadvantages. The following are non-preemptive scheduling&rsquo;s benefits and drawbacks:</p>
+<p dir="ltr"><strong>Advantages</strong></p>
+<ol>
+    <li value="1">It has a minimal scheduling burden.</li>
+    <li value="2">It is a very easy procedure.</li>
+    <li value="3">Less computational resources are used.</li>
+    <li value="4">It has a high throughput rate.</li>
+</ol>
+<p dir="ltr"><strong>Disadvantages</strong></p>
+<ol>
+    <li value="1">Its response time to the process is super.</li>
+    <li value="2">Bugs can cause a computer to freeze up.</li>
+</ol>
+<p>
+    difference chart
+</p>
+<img src="img.png">
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>Introduction of ER Model</h1>
+        </div>
+        </div>
+        </div>
+        <div class="text">
+        <p dir="ltr">Peter Chen developed the ER diagram in 1976 .The ER model was created to provide a simple and understandable model for representing the structure and logic of databases. It has since evolved into variations such as the Enhanced ER Model and the Object Relationship Model</p>
+        <p dir="ltr">The Entity Relational Model is a model for identifying entities to be represented in the database and representation of how those entities are related. The ER data model specifies enterprise schema that represents the overall logical structure of a database graphically.&nbsp;</p>
+        <p dir="ltr">The Entity Relationship Diagram explains the relationship among the entities present in the database. ER models are used to model real-world objects like a person, a car, or a company and the relation between these real-world objects. In short, the ER Diagram is the structural format of the database.&nbsp;</p>
+        <h2>Why Use ER Diagrams In DBMS?</h2>
+        <ul>
+        <li value="1">ER diagrams are used to represent the E-R model in a database, which makes them easy to convert into relations (tables).</li>
+        <li value="2">ER diagrams provide the purpose of real-world modeling of objects which makes them intently useful.</li>
+        <li value="3">ER diagrams require no technical knowledge and no hardware support.</li>
+        <li value="4">These diagrams are very easy to understand and easy to create even for a naive user.&nbsp;</li>
+        <li value="5">It gives a standard solution for visualizing the data logically.</li>
+        </ul>
+        <h2>Symbols Used in ER Model</h2>
+        <p dir="ltr">ER Model is used to model the logical view of the system from a data perspective which consists of these symbols:</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <ul>
+        <li value="1"><strong>Rectangles:&nbsp;</strong>Rectangles represent Entities in the ER Model.</li>
+        <li value="2"><strong>Ellipses:&nbsp;</strong>Ellipses represent Attributes in the ER Model.</li>
+        <li value="3"><strong>Diamond:&nbsp;</strong>Diamonds represent Relationships among Entities.</li>
+        <li value="4"><strong>Lines:&nbsp;</strong>Lines represent attributes to entities and entity sets with other relationship types.</li>
+        <li value="5"><strong>Double Ellipse:&nbsp;</strong>Double Ellipses represent&nbsp;Multi-Valued Attributes.</li>
+        <li value="6"><strong>Double Rectangle:&nbsp;</strong>Double Rectangle represents a Weak Entity.</li>
+        </ul>
+        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230428115454/Introduction-to-ER-Model-2-768.webp" alt="Symbols used in ER Diagram" width="448" height="246" />
+        <p class="wp-caption-text">Symbols used in ER Diagram</p>
+        </div>
+        <h2>Components of ER Diagram</h2>
+        <p dir="ltr">ER Model consists of Entities, Attributes, and Relationships among Entities in a Database System.</p>
+        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230428090323/Introduction-to-ER-Model-1-768.webp" alt="Components of ER Diagram" width="448" height="176" />
+        <p class="wp-caption-text">Components of ER Diagram</p>
+        </div>
+        <h3>Entity</h3>
+        <p dir="ltr">An Entity may be an object with a physical existence &ndash; a particular person, car, house, or employee &ndash; or it may be an object with a conceptual existence &ndash; a company, a job, or a university course.&nbsp;</p>
+        <p dir="ltr"><strong>Entity are of two types</strong></p>
+        <p dir="ltr"><strong>1.Tangible Entity</strong>&nbsp;&ndash; Which can be touched like car , person etc.</p>
+        <p dir="ltr"><strong>2.Non &ndash; tangible Entity</strong>&nbsp;&ndash; Which can&rsquo;t be touched like air , bank account etc.</p>
+        <p dir="ltr"><strong>Entity Set:</strong>&nbsp;An Entity is an object of Entity Type and a set of all entities is called an entity set. For Example, E1 is an entity having Entity Type Student and the set of all students is called Entity Set. In ER diagram, Entity Type is represented as:&nbsp;</p>
+        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Database-Management-System-ER-Model.png" alt="Entity Set" width="181" height="318" />
+        <p class="wp-caption-text">Entity Set</p>
+        </div>
+        <p dir="ltr">We can represent the entity set in ER Diagram but can&rsquo;t represent entity in ER Diagram because entity is row and column in the relation and ER Diagram is graphical representation of data.</p>
+        <h4>1. Strong Entity</h4>
+        <p dir="ltr">A&nbsp;Strong Entity&nbsp;is a type of entity that has a key Attribute. Strong Entity does not depend on other Entity in the Schema. It has a primary key, that helps in identifying it uniquely, and it is represented by a rectangle. These are called Strong Entity Types.</p>
+        <h4>2. Weak Entity</h4>
+        <p dir="ltr">An Entity type has a key attribute that uniquely identifies each entity in the entity set. But some entity type exists for which key attributes can&rsquo;t be defined. These are called&nbsp;Weak Entity types.&nbsp;</p>
+        <p dir="ltr"><strong>For Example,</strong>&nbsp;A company may store the information of dependents (Parents, Children, Spouse) of an Employee. But the dependents can&rsquo;t exist without the employee. So Dependent will be a&nbsp;<strong>Weak Entity Type</strong>&nbsp;and Employee will be Identifying Entity type for Dependent, which means it is&nbsp;<strong>Strong Entity Type</strong>.</p>
+        <p dir="ltr">A weak entity type is represented by a Double Rectangle. The participation of weak entity types is always total. The relationship between the weak entity type and its identifying strong entity type is called identifying relationship and it is represented by a double diamond.&nbsp;</p>
+        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210219121849/12310.png" alt="Strong Entity and Weak Entity" width="467" height="106" /></div>
+        </div>
+        <div class="main_wrapper">
+            <div class="article-title">
+            <h3><strong>Attributes</strong></h3>
+            <p dir="ltr"><a href="https://www.geeksforgeeks.org/types-of-attributes-in-er-model/">Attributes</a>&nbsp;are the properties that define the entity type. For example, Roll_No, Name, DOB, Age, Address, and Mobile_No are the attributes that define entity type Student. In ER diagram, the attribute is represented by an oval.&nbsp;</p>
+            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Database-Management-System-ER-Model-2.png" alt="Attribute" width="inherit" height="inherit" />
+            <p class="wp-caption-text">Attribute</p>
+            </div>
+            <h4><strong>1. Key Attribute</strong></h4>
+            <p dir="ltr">The attribute which&nbsp;<strong>uniquely identifies each entity</strong>&nbsp;in the entity set is called the key attribute. For example, Roll_No will be unique for each student. In ER diagram, the key attribute is represented by an oval with underlying lines.</p>
+            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Database-Management-System-ER-Model-3.png" alt="Key Attribute" width="inherit" height="inherit" />
+            <p class="wp-caption-text">Key Attribute</p>
+            </div>
+            <h4><strong>2. Composite Attribute</strong></h4>
+            <p dir="ltr">An attribute&nbsp;<strong>composed of many other attributes</strong>&nbsp;is called a composite attribute. For example, the Address attribute of the student Entity type consists of Street, City, State, and Country. In ER diagram, the composite attribute is represented by an oval comprising of ovals.&nbsp;</p>
+            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Database-Management-System-ER-Model-4.png" alt="Composite Attribute" width="450" height="149" />
+            <p class="wp-caption-text">Composite Attribute</p>
+            </div>
+            <h4><strong>3. Multivalued Attribute</strong></h4>
+            <p dir="ltr">An attribute consisting of more than one value for a given entity. For example, Phone_No (can be more than one for a given student). In ER diagram, a multivalued attribute is represented by a double oval.&nbsp;</p>
+            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Database-Management-System-ER-Model-5.png" alt="Multivalued Attribute" width="inherit" height="inherit" />
+            <p class="wp-caption-text">Multivalued Attribute</p>
+            </div>
+            <h4><strong>4. Derived Attribute</strong></h4>
+            <p dir="ltr">An attribute that can be derived from other attributes of the entity type is known as a derived attribute. e.g.; Age (can be derived from DOB). In ER diagram, the derived attribute is represented by a dashed oval.&nbsp;</p>
+            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Database-Management-System-ER-Model-6.png" alt="Derived Attribute" width="inherit" height="inherit" />
+            <p class="wp-caption-text">Derived Attribute</p>
+            </div>
+            <p dir="ltr">The Complete Entity Type Student with its Attributes can be represented as:&nbsp;</p>
+            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Database-Management-System-ER-Model-7.png" alt="Entity and Attributes" width="421" height="285" />
+            <p class="wp-caption-text">Entity and Attributes</p>
+            </div>
+            <h3><strong>Relationship Type and Relationship Set</strong></h3>
+            <p dir="ltr">A Relationship Type represents the association between entity types. For example, &lsquo;Enrolled in&rsquo; is a relationship type that exists between entity type Student and Course. In ER diagram, the relationship type is represented by a diamond and connecting the entities with lines.&nbsp;</p>
+            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Database-Management-System-ER-Model-8.png" alt="Entity-Relationship Set" width="415" height="77" />
+            <p class="wp-caption-text">Entity-Relationship Set</p>
+            </div>
+            <p dir="ltr">A set of relationships of the same type is known as a relationship set. The following relationship set depicts S1 as enrolled in C2, S2 as enrolled in C1, and S3 as registered in C3.</p>
+            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Database-Management-S-ystem-ER-Model-9.png" alt="Relationship Set" width="367" height="184" />
+            <p class="wp-caption-text">Relationship Set</p>
+            </div>
+            <h4><strong>Degree of a Relationship Set</strong></h4>
+            <p dir="ltr">The number of different entity sets participating in a relationship set is called the&nbsp;<a href="https://www.geeksforgeeks.org/degree-of-relations-in-dbms/">degree of a relationship set.</a>&nbsp;&nbsp;</p>
+            <p dir="ltr"><strong>1. Unary Relationship:&nbsp;</strong>When there is only ONE entity set participating in a relation, the relationship is called a unary relationship. For example, one person is married to only one person.&nbsp;</p>
+            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Database-Management-System-ER-Model-10.png" alt="Unary Relationship" width="367" height="121" />
+            <p class="wp-caption-text">Unary Relationship</p>
+            </div>
+            <p dir="ltr"><strong>2. Binary Relationship:&nbsp;</strong>When there are TWO entities set participating in a relationship, the relationship is called a binary relationship. For example, a Student is enrolled in a Course.&nbsp;</p>
+            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Database-Management-System-ER-Model-8.png" alt="Binary Relationship" width="382" height="71" />
+            <p class="wp-caption-text">Binary Relationship</p>
+            </div>
+            <p dir="ltr"><strong>3. Ternary Relationship:&nbsp;</strong>When there are n entities set participating in a relation, the relationship is called an n-ary relationship.&nbsp;</p>
+            <h4><strong>Cardinality</strong></h4>
+            <p dir="ltr">The number of times an entity of an entity set participates in a relationship set is known as&nbsp;<a href="https://www.geeksforgeeks.org/cardinality-in-dbms/">cardinality</a>. Cardinality can be of different types:&nbsp;</p>
+            </div>
+            </div>
+            <div class="main_wrapper">
+                <div class="article-title">
+                <p dir="ltr"><strong>1. One-to-One:</strong>&nbsp;When each entity in each entity set can take part only once in the relationship, the cardinality is one-to-one. Let us assume that a male can marry one female and a female can marry one male. So the relationship will be one-to-one.&nbsp;</p>
+                <p dir="ltr">the total number of tables that can be used in this is 2.</p>
+                <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920133529/onetoone.jpg" alt="onetoone" width="402" height="146" />
+                <p class="wp-caption-text">one to one cardinality</p>
+                </div>
+                <p dir="ltr">Using Sets, it can be represented as:&nbsp;</p>
+                <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220131223352/121.jpg" alt="Set Representation of One-to-One" width="inherit" height="inherit" />
+                <p class="wp-caption-text">Set Representation of One-to-One</p>
+                </div>
+                <p dir="ltr"><strong>2. One-to-Many:</strong>&nbsp;In one-to-many mapping as well where each entity can be related to more than one entity and the total number of tables that can be used in this is 2. Let us assume that one surgeon department can accommodate many doctors. So the Cardinality will be 1 to M. It means one department has many Doctors.</p>
+                <p dir="ltr">total number of tables that can used is 3.</p>
+                <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920133617/onetomany.jpg" alt="one to many" width="449" height="163" />
+                <p class="wp-caption-text">one to many cardinality</p>
+                </div>
+                <p dir="ltr">Using sets, one-to-many cardinality can be represented as:</p>
+                <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230428115353/12n.webp" alt="Set Representation of One-to-Many" width="291" height="inherit" />
+                <p class="wp-caption-text">Set Representation of One-to-Many</p>
+                </div>
+                <p dir="ltr"><strong>3. Many-to-One:</strong>&nbsp;When entities in one entity set can take part only once in the relationship set and entities in other entity sets can take part more than once in the relationship set, cardinality is many to one. Let us assume that a student can take only one course but one course can be taken by many students. So the cardinality will be n to 1. It means that for one course there can be n students but for one student, there will be only one course.&nbsp;</p>
+                <p dir="ltr">The total number of tables that can be used in this is 3.</p>
+                <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920133703/manytoone.jpg" alt="manytoone" width="474" height="172" />
+                <p class="wp-caption-text">many to one cardinality</p>
+                </div>
+                <p dir="ltr">Using Sets, it can be represented as:</p>
+                <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220131232355/m21.jpg" alt="Set Representation of Many-to-One" width="inherit" height="inherit" />
+                <p class="wp-caption-text">Set Representation of Many-to-One</p>
+                </div>
+                <p dir="ltr">In this case, each student is taking only 1 course but 1 course has been taken by many students.&nbsp;</p>
+                <p dir="ltr"><strong>4. Many-to-Many:&nbsp;</strong>When entities in all entity sets can take part more than once in the relationship cardinality is many to many. Let us assume that a student can take more than one course and one course can be taken by many students. So the relationship will be many to many.&nbsp;</p>
+                <p dir="ltr">the total number of tables that can be used in this is 3.</p>
+                <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920133746/manytomany.jpg" alt="manytomany" width="397" height="144" />
+                <p class="wp-caption-text">many to many cardinality</p>
+                </div>
+                <p dir="ltr">Using Sets, it can be represented as:&nbsp;</p>
+                <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220208105038/manytomantrelationship.jpg" alt="Many-to-Many Set Representation" width="356" height="386" />
+                <p class="wp-caption-text">Many-to-Many Set Representation</p>
+                </div>
+                <p dir="ltr">In this example, student S1 is enrolled in C1 and C3 and Course C3 is enrolled by S1, S3, and S4. So it is many-to-many relationships.&nbsp;</p>
+                <h3><strong>Participation Constraint</strong></h3>
+                <p dir="ltr">Participation Constraint&nbsp;is applied to the entity participating in the relationship set.&nbsp;&nbsp;</p>
+                <p dir="ltr"><strong>1. Total Participation &ndash;</strong>&nbsp;Each entity in the entity set<strong>&nbsp;</strong>must participate in the relationship. If each student must enroll in a course, the participation of students will be total. Total participation is shown by a double line in the ER diagram.&nbsp;</p>
+                <p dir="ltr"><strong>2. Partial Participation &ndash;</strong>&nbsp;The entity in the entity set may or may NOT participate in the relationship. If some courses are not enrolled by any of the students, the participation in the course will be partial.&nbsp;</p>
+                <p>The diagram depicts the &lsquo;Enrolled in&rsquo; relationship set with Student Entity set having total participation and Course Entity set having partial participation.&nbsp;</p>
+                <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Database-Management-System-ER-Model-18.png" alt="Total Participation and Partial Participation" width="435" height="85" />
+                <p class="wp-caption-text">Total Participation and Partial Participation</p>
+                </div>
+                <p dir="ltr">Using Set, it can be represented as,&nbsp;</p>
+                <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/33333-1.png" alt="Set representation of Total Participation and Partial Participation" width="388" height="191" />
+                <p class="wp-caption-text">Set representation of Total Participation and Partial Participation</p>
+                </div>
+                <p dir="ltr">Every student in the Student Entity set participates in a relationship but there exists a course C4 that is not taking part in the relationship.&nbsp;</p>
+                </div>
+                </div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Applications of various Automata</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+<h3><b> Deadlock Detection</b></h3>
+If a system does not employ either a deadlock-prevention or a deadlockavoidance algorithm, then a deadlock situation may occur. In this environment,
+the system may provide:<br>
+• An algorithm that examines the state of the system to determine whether
+a deadlock has occurred<br><br>
+• An algorithm to recover from the deadlock<br><br>
+
+<img src="http://scanftree.com/operating-system/images/Resource-Allocation-and-Wait-for.jpg" width="400" height="450"><br><br>
+
+In the following discussion, we elaborate on these two requirements as they
+pertain to systems with only a single instance of each resource type, as well as to
+systems with several instances of each resource type. At this point, however, we
+note that a detection-and-recovery scheme requires overhead that includes not
+only the run-time costs of maintaining the necessary information and executing
+the detection algorithm but also the potential losses inherent in recovering from
+a deadlock.<br><br>
+
+
+
+<h3><b>Recovery from Deadlock</b></h3>
+When a detection algorithm determines that a deadlock exists, several alternatives are available. One possibility is to inform the operator that a deadlock
+has occurred and to let the operator deal with the deadlock manually. Another
+possibility is to let the system recover from the deadlock automatically. There
+are two options for breaking a deadlock. One is simply to abort one or more
+processes to break the circular wait. The other is to preempt some resources
+from one or more of the deadlocked processes.<br><br>
+<b>Process Termination</b>
+To eliminate deadlocks by aborting a process, we use one of two methods. In
+both methods, the system reclaims all resources allocated to the terminated
+processes.<br><br>
+• <b>Abort all deadlocked processes.</b> This method clearly will break the
+deadlock cycle, but at great expense. The deadlocked processes may have
+computed for a long time, and the results of these partial computations
+must be discarded and probably will have to be recomputed later.<br><br>
+• <b>Abort one process at a time until the deadlock cycle is eliminated.</b> This
+method incurs considerable overhead, since after each process is aborted, a
+deadlock-detection algorithm must be invoked to determine whether any
+processes are still deadlocked.<br><br>
+Aborting a process may not be easy. If the process was in the midst of
+updating a file, terminating it will leave that file in an incorrect state. Similarly,
+if the process was in the midst of printing data on a printer, the system must
+reset the printer to a correct state before printing the next job.<br>
+If the partial termination method is used, then we must determine which
+deadlocked process (or processes) should be terminated. This determination is
+a policy decision, similar to CPU-scheduling decisions. The question is basically
+an economic one; we should abort those processes whose termination will incur
+the minimum cost. Unfortunately, the term minimum cost is not a precise one.
+Many factors may affect which process is chosen, including:<br><br>
+1. What the priority of the process is<br><br>
+2. How long the process has computed and how much longer the process
+will compute before completing its designated task<br><br>
+3. How many and what types of resources the process has used (for example,
+whether the resources are simple to preempt)<br><br>
+4. How many more resources the process needs in order to complete<br><br>
+5. How many processes will need to be terminated<br><br>
+6. Whether the process is interactive or batch</p><br><br>
+</body>
+</html>

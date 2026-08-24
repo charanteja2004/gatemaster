@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Applications of various Automata</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+
+    }
+  </style>
+</head>
+<body>
+                <div class="main_wrapper">
+                    <div>
+                        <div class="article-title">
+                            <h1>Shortest Job First (or SJF) CPU Scheduling Non-preemptive algorithm using Segment Tree&nbsp;</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="text">
+                    <p dir="ltr">&nbsp;</p>
+                    <ul>
+                        <li value="1">Shortest Job first has the advantage of having a minimum average waiting time among all&nbsp;<a href="process.html">scheduling algorithms</a>.</li>
+                        <li value="2">It is a&nbsp;Greedy Algorithm
+                        <li value="3">It may cause starvation if shorter processes keep coming. This problem can be solved using the concept of ageing.</li>
+                        <li value="4">It is practically infeasible as Operating System may not know burst time and therefore may not sort them. While it is not possible to predict execution time, several methods can be used to estimate the execution time for a job, such as a weighted average of previous execution times. SJF can be used in specialized environments where accurate estimates of running time are available.</li>
+                    </ul>
+                    <p dir="ltr">For example:&nbsp;<br />&nbsp;</p>
+                    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20200303163453/ShortestJobFirstAlgorithm-1024x630.jpg" width="330" height="&quot;" /></p>
+                    <p dir="ltr">In the above example, since the arrival time of all the processes is 0, the execution order of the process is the ascending order of the burst time of the processes. The burst time is given by the column duration. Therefore, the execution order of the processes is given by:&nbsp;<br />&nbsp;</p>
+                    <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+                    <pre>P4 -&gt; P1 -&gt; P3 -&gt; P2</pre>
+                    <p dir="ltr">One implementation for this algorithm has already been discussed in the&nbsp;<a href="https://www.geeksforgeeks.org/program-for-shortest-job-first-or-sjf-cpu-scheduling-set-1-non-preemptive/">article with the help of Naive Approach</a>. In this article, the algorithm is implemented by using the concept of a&nbsp;<a href="https://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/">segment tree</a>.&nbsp;<br />&nbsp;</p>
+                    <p dir="ltr"><strong>Approach:</strong>&nbsp;The following is the approach used for the implementation of the shortest job first:&nbsp;<br />&nbsp;</p>
+                    <ol>
+                        <li value="1">As the name suggests, the shortest job first algorithm is an algorithm which executes the process whose burst time is least and has arrived before the current time. Therefore, in order to find the process which needs to be executed, sort all the processes from the given set of processes according to their arrival time. This ensures that the process with the shortest burst time which has arrived first is executed first.</li>
+                        <li value="2">Instead of finding the minimum burst time process among all the arrived processes by iterating the&nbsp;<br />whole struct array, the&nbsp;<a href="https://www.geeksforgeeks.org/segment-tree-set-1-range-minimum-query/">range minimum</a>&nbsp;of the burst time of all the arrived processes upto the current time is calculated using&nbsp;<a href="https://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/">segment tree</a>.</li>
+                        <li value="3">After selecting a process which needs to be executed, the&nbsp;<strong>completion time</strong>,&nbsp;<strong>turn around time</strong>&nbsp;and&nbsp;<strong>waiting time</strong>&nbsp;is calculated by using arrival time and burst time of the process. The formulae to calculate the respective times are:&nbsp;
+                            <ul>
+                                <li value="1"><strong>Completion Time:</strong>&nbsp;Time at which process completes its execution.&nbsp;<br />&nbsp;</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <div class="gray">Completion Time = Start Time + Burst Time</div>
+                    <ul>
+                        <li value="1"><strong>Turn Around Time:</strong>&nbsp;Time Difference between completion time and arrival time.&nbsp;<br />&nbsp;</li>
+                    </ul>
+                    <div class="gray">Turn Around Time = Completion Time &ndash; Arrival Time</div>
+                    <ul>
+                        <li value="1"><strong>Waiting Time(W.T):</strong>&nbsp;Time Difference between turn around time and burst time.&nbsp;<br />&nbsp;</li>
+                    </ul>
+                    <div class="gray">Waiting Time = Turn Around Time &ndash; Burst Time</div>
+                    <ol>
+                        <li value="1">After calculating, the respective times are updated in the array and the burst time of the executed process is set to infinity in the segment tree base array so that it is not considered as the minimum burst time in the further queries.</li>
+                    </ol>
+                </div>
+</body>
+</html>

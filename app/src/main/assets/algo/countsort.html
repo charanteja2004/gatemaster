@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    <h2>Counting Sort</h2>
+
+    <h2><u><span class="GFGEditorTheme__textUnderline">What is Counting Sort?</span></u></h2>
+    <blockquote>
+        <p dir="ltr"><strong>Counting Sort&nbsp;</strong>is a&nbsp;<strong>non-comparison-based</strong>&nbsp;sorting
+            algorithm that works well when there is limited range of input values. It is particularly efficient when the
+            range of input values is small compared to the number of elements to be sorted. The basic idea
+            behind&nbsp;<strong>Counting Sort</strong>&nbsp;is to count the&nbsp;<strong>frequency</strong>&nbsp;of each
+            distinct element in the input array and use that information to place the elements in their correct sorted
+            positions.</p>
+    </blockquote>
+    <h2><u><span class="GFGEditorTheme__textUnderline">How does Counting Sort Algorithm work?</span></u></h2>
+    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step1 :</strong></strong></u></p>
+    <div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
+    <ul>
+        <li value="1">Find out the&nbsp;<strong>maximum</strong>&nbsp;element from the given array.</li>
+    </ul>
+    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182425/1.png"
+            alt="Finding maximum element in inputArray[]" width="372" height="335" /></p>
+    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 2:</strong></strong></u></p>
+    <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+    <div id="GFG_AD_InContent_Desktop_728x280">
+        <div id="GFG_AD_InContent_Desktop_350x250_1" data-google-query-id="CNPfiqTeoIYDFWBcnQkd8qcJ2Q">
+            <div id="google_ads_iframe_/27823234/GFG_InContent_Desktop_350x250_1_0__container__">&nbsp;</div>
+        </div>
+    </div>
+
+    <ul>
+        <li value="1">Initialize a&nbsp;<strong>countArray[]</strong>&nbsp;of
+            length&nbsp;<strong>max+1</strong>&nbsp;with all elements as&nbsp;<strong>0</strong>. This array will be
+            used for storing the occurrences of the elements of the input array.</li>
+    </ul>
+    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182436/2.png"
+            alt="Initialize countArray[]" width="343" height="419" /></p>
+    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 3:</strong></strong></u></p>
+    <ul>
+        <li value="1">In the&nbsp;<strong>countArray[]</strong>, store the count of each unique element of the input
+            array at their respective indices.</li>
+        <li value="2"><strong>For Example:&nbsp;</strong>The count of element&nbsp;<strong>2</strong>&nbsp;in the input
+            array is&nbsp;<strong>2.</strong>&nbsp;So, store&nbsp;<strong>2</strong>&nbsp;at
+            index&nbsp;<strong>2</strong>&nbsp;in the&nbsp;<strong>countArray[]</strong>. Similarly, the count of
+            element&nbsp;<strong>5</strong>&nbsp;in the input array is&nbsp;<strong>1</strong>, hence
+            store&nbsp;<strong>1</strong>&nbsp;at index&nbsp;<strong>5</strong>&nbsp;in
+            the&nbsp;<strong>countArray[]</strong>.</li>
+    </ul>
+    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230922132754/3.png"
+            alt="Maintain count of each element in countArray[]" width="343" height="419" /></p>
+    <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+    <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 4:</strong></strong></u></p>
+    <ul>
+        <li value="1">Store the&nbsp;<strong>cumulative sum</strong>&nbsp;or&nbsp;<strong>prefix sum</strong>&nbsp;of
+            the elements of the&nbsp;<strong>countArray[]&nbsp;</strong>by doing&nbsp;<strong>countArray[i] =
+                countArray[i &ndash; 1] + countArray[i].</strong>&nbsp;This will help in placing the elements of the
+            input array at the correct index in the output array.</li>
+    </ul>
+    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182646/4.png"
+            alt="Store the cumulative sum in countArray[]" width="352" height="425" /></p>
+    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 5:</strong></strong></u></p>
+    <ul>
+        <li value="1">Iterate from end of the input array and because traversing input array from end preserves the
+            order of equal elements, which eventually makes this sorting algorithm&nbsp;<strong>stable</strong>.</li>
+    </ul>
+    <blockquote>
+        <ul>
+            <li value="1">Update&nbsp;<strong>outputArray[ countArray[ inputArray[i] ] &ndash; 1] =
+                    inputArray[i]</strong>.</li>
+            <li value="2">Also, update&nbsp;<strong>countArray[ inputArray[i] ]&nbsp;</strong><strong>= countArray[
+                    inputArray[i] ]</strong>&ndash; -.</li>
+        </ul>
+    </blockquote>
+    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182656/5.png" alt="5" width="329"
+            height="413" /></p>
+    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 6:</strong></strong></u>&nbsp;<strong>For
+            i = 6</strong>,</p>
+    <blockquote>
+        <p dir="ltr">Update&nbsp;<strong>outputArray[ countArray[ inputArray[6] ] &ndash; 1] =
+                inputArray[6]</strong><br />Also, update<strong>&nbsp;countArray[ inputArray[6] ] = countArray[
+                inputArray[6] ]- &ndash;</strong></p>
+        <div id="GFG_AD_gfg_outstream_incontent" data-google-query-id="CNXfiqTeoIYDFWBcnQkd8qcJ2Q">
+            <div id="google_ads_iframe_/27823234/gfg_outstream_incontent_0__container__">&nbsp;</div>
+        </div>
+    </blockquote>
+    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182724/6.png"
+            alt="Placing inputArray[6] at it correct position in outputArray[]" width="388" height="443" /></p>
+    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 7:</strong></strong></u><strong>&nbsp;For
+            i = 5</strong>,</p>
+    <blockquote>
+        <p dir="ltr">Update&nbsp;<strong>outputArray[ countArray[ inputArray[5] ] &ndash; 1] =
+                inputArray[5]</strong><br />Also, update&nbsp;<strong>countArray[ inputArray[5] ] = countArray[
+                inputArray[5] ]- &ndash;</strong></p>
+    </blockquote>
+    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182741/7.png"
+            alt="Placing inputArray[5] at it correct position in outputArray[]" width="331" height="414" /></p>
+    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 8:</strong></strong></u><strong>&nbsp;For
+            i = 4</strong>,</p>
+    <blockquote>
+        <p dir="ltr">Update&nbsp;<strong>outputArray[ countArray[ inputArray[4] ] &ndash; 1] =
+                inputArray[4]</strong><br />Also, update&nbsp;<strong>countArray[ inputArray[4] ] = countArray[
+                inputArray[4] ]- &ndash;</strong></p>
+    </blockquote>
+    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182752/8.png"
+            alt="Placing inputArray[4] at it correct position in outputArray[]" width="339" height="418" /></p>
+    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 9:</strong></strong></u><strong>&nbsp;For
+            i = 3</strong>,</p>
+    <blockquote>
+        <p dir="ltr">Update&nbsp;<strong>outputArray[ countArray[ inputArray[3] ] &ndash; 1] =
+                inputArray[3]</strong><br />Also, update&nbsp;<strong>countArray[ inputArray[3] ] = countArray[
+                inputArray[3] ]- &ndash;</strong></p>
+    </blockquote>
+    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182807/9.png"
+            alt="Placing inputArray[3] at it correct position in outputArray[]" width="354" height="427" /></p>
+    <div id="GFG_AD_gfg_outstream_incontent-1">&nbsp;</div>
+    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step
+                    10:</strong></strong></u><strong>&nbsp;For i = 2</strong>,</p>
+    <blockquote>
+        <p dir="ltr">Update&nbsp;<strong>outputArray[ countArray[ inputArray[2] ] &ndash; 1] =
+                inputArray[2]</strong><br />Also, update&nbsp;<strong>countArray[ inputArray[2] ] = countArray[
+                inputArray[2] ]- &ndash;</strong></p>
+    </blockquote>
+    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182827/10.png"
+            alt="Placing inputArray[2] at it correct position in outputArray[]" width="460" height="429" /></p>
+    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step
+                    11:</strong></strong></u><strong>&nbsp;For i = 1</strong>,</p>
+    <blockquote>
+        <p dir="ltr">Update&nbsp;<strong>outputArray[ countArray[ inputArray[1] ] &ndash; 1] =
+                inputArray[1]</strong><br />Also, update&nbsp;<strong>countArray[ inputArray[1] ] = countArray[
+                inputArray[1] ]- &ndash;</strong></p>
+    </blockquote>
+    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182855/11.png"
+            alt="Placing inputArray[1] at it correct position in outputArray[]" width="394" height="396" /></p>
+    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step
+                    12:</strong></strong></u><strong>&nbsp;For i = 0,</strong></p>
+    <blockquote>
+        <p dir="ltr">Update&nbsp;<strong>outputArray[ countArray[ inputArray[0] ] &ndash; 1] =
+                inputArray[0]</strong><br />Also, update&nbsp;<strong>countArray[ inputArray[0] ] = countArray[
+                inputArray[0] ]- &ndash;</strong></p>
+    </blockquote>
+    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182910/12.png"
+            alt="Placing inputArray[0] at it correct position in outputArray[]" width="385" height="391" /></p>
+    <h2><u><span class="GFGEditorTheme__textUnderline">Counting Sort Algorithm:</span></u></h2>
+    <ul>
+        <li value="1">Declare an auxiliary array<strong>&nbsp;countArray[]</strong>&nbsp;of
+            size&nbsp;<strong>max(inputArray[])+1</strong>&nbsp;and initialize it with&nbsp;<strong>0</strong>.</li>
+        <li value="2">Traverse array&nbsp;<strong>inputArray[]&nbsp;</strong>and map each element
+            of&nbsp;<strong>inputArray[]</strong>&nbsp;as an index of&nbsp;<strong>countArray[]&nbsp;</strong>array,
+            i.e., execute&nbsp;<strong>countArray[inputArray[i]]++&nbsp;</strong>for&nbsp;<strong>0 &lt;= i &lt;
+                N</strong>.</li>
+        <li value="3">Calculate the prefix sum at every index of array&nbsp;<strong>inputArray</strong>[].</li>
+        <li value="4">Create an array&nbsp;<strong>outputArray[]</strong>&nbsp;of size&nbsp;<strong>N</strong>.</li>
+        <li value="5">Traverse array&nbsp;<strong>inputArray[]&nbsp;</strong>from end and
+            update&nbsp;<strong>outputArray[ countArray[ inputArray[i] ] &ndash; 1] = inputArray[i]</strong>. Also,
+            update&nbsp;<strong>countArray[ inputArray[i] ] = countArray[ inputArray[i] ]- &ndash;&nbsp;</strong>.</li>
+    </ul>
+
+    <h2><u><span class="GFGEditorTheme__textUnderline">Complexity Analysis of Counting Sort:</span></u></h2>
+    <ul>
+        <li value="1"><strong>Time Complexity</strong>: O(N+M),
+            where&nbsp;<strong>N</strong>&nbsp;and&nbsp;<strong>M</strong>&nbsp;are the size
+            of&nbsp;<strong>inputArray[]&nbsp;</strong>and&nbsp;<strong>countArray[]&nbsp;</strong>respectively.
+            <ul>
+                <li value="1">Worst-case: O(N+M).</li>
+                <li value="2">Average-case: O(N+M).</li>
+                <li value="3">Best-case: O(N+M).</li>
+            </ul>
+        </li>
+        <li value="2"><strong>Auxiliary Space:&nbsp;</strong>O(N+M),
+            where&nbsp;<strong>N</strong>&nbsp;and&nbsp;<strong>M</strong>&nbsp;are the space taken
+            by<strong>&nbsp;outputArray[]</strong>&nbsp;and&nbsp;<strong>countArray[]&nbsp;</strong>respectively.</li>
+    </ul>
+    <h2><u><span class="GFGEditorTheme__textUnderline">Advantage of Counting Sort:</span></u></h2>
+    <ul>
+        <li value="1">Counting sort generally performs faster than all comparison-based sorting algorithms, such as
+            merge sort and quicksort, if the range of input is of the order of the number of input.</li>
+        <li value="2">Counting sort is easy to code</li>
+        <li value="3">Counting sort is a<strong>&nbsp;stable algorithm</strong>.</li>
+    </ul>
+    <h2><u><span class="GFGEditorTheme__textUnderline">Disadvantage of Counting Sort:</span></u></h2>
+    <ul>
+        <li value="1">Counting sort doesn&rsquo;t work on decimal values.</li>
+        <li value="2">Counting sort is inefficient if the range of values to be sorted is very large.</li>
+        <li value="3">Counting sort is not an&nbsp;<strong>In-place sorting</strong>&nbsp;algorithm, It uses extra space
+            for sorting the array elements.</li>
+    </ul>
+    <br>
+</body>
+</html>

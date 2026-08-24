@@ -1,0 +1,34 @@
+# Build output
+build/
+*/build/
+.gradle/
+.cxx/
+.externalNativeBuild/
+captures/
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+local.properties
+build.log
+
+# Signing material — never commit these
+*.jks
+*.keystore
+keystore.properties
+signing.properties
+
+# Android Studio / IntelliJ
+*.iml
+.idea/*
+!.idea/codeStyles/
+!.idea/inspectionProfiles/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python tooling
+__pycache__/
+*.pyc

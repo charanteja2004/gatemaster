@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+
+<body>
+
+    <h2>Algorithms</h2>
+    <h2><u><span class="GFGEditorTheme__textUnderline">Definition of Algorithm</span></u></h2>
+    <blockquote>
+        <p dir="ltr">The word&nbsp;<a
+                href="https://www.geeksforgeeks.org/fundamentals-of-algorithms/"><strong>Algorithm</strong></a>&nbsp;means
+            &rdquo;&nbsp;<em><em class="GFGEditorTheme__textItalic">A set of finite rules or instructions to be followed
+                    in calculations or other problem-solving
+                    operations&nbsp;</em></em>&rdquo;<br />Or<br />&rdquo;&nbsp;<em><em
+                    class="GFGEditorTheme__textItalic">A procedure for solving a mathematical problem in a finite number
+                    of steps that frequently involves recursive operations&rdquo;</em></em>.</p>
+    </blockquote>
+    <p dir="ltr">Therefore Algorithm refers to a sequence of finite steps to solve a particular problem.</p>
+    <div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
+    <p><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20191016135223/What-is-Algorithm_-1024x631.jpg"
+            alt="What is Algorithm" width="789" height="486" /></p>
+    <h2><u><span class="GFGEditorTheme__textUnderline">Use of the Algorithms:</span></u></h2>
+    <p dir="ltr">Algorithms play a crucial role in various fields and have many applications. Some of the key areas
+        where algorithms are used include:</p>
+    <ol>
+        <li value="1"><strong>Computer Science:&nbsp;</strong>Algorithms form the basis of computer programming and are
+            used to solve problems ranging from simple sorting and searching to complex tasks such as artificial
+            intelligence and machine learning.</li>
+        <li value="2"><strong>Mathematics:&nbsp;</strong>Algorithms are used to solve mathematical problems, such as
+            finding the optimal solution to a system of linear equations or finding the shortest path in a graph.</li>
+        <li value="3"><strong>Operations Research</strong>: Algorithms are used to optimize and make decisions in fields
+            such as transportation, logistics, and resource allocation.</li>
+        <li value="4"><strong>Artificial Intelligence:&nbsp;</strong>Algorithms are the foundation of artificial
+            intelligence and machine learning, and are used to develop intelligent systems that can perform tasks such
+            as image recognition, natural language processing, and decision-making.</li>
+        <li value="5"><strong>Data Science:</strong>&nbsp;Algorithms are used to analyze, process, and extract insights
+            from large amounts of data in fields such as marketing, finance, and healthcare.</li>
+    </ol>
+    <p dir="ltr">These are just a few examples of the many applications of algorithms. The use of algorithms is
+        continually expanding as new technologies and fields emerge, making it a vital component of modern society.</p>
+
+    <p dir="ltr"><strong>Algorithms can be simple and complex depending on what you want to achieve.</strong></p>
+    <p dir="ltr">It can be understood by taking the example of cooking a new recipe. To cook a new recipe, one reads the
+        instructions and steps and executes them one by one, in the given sequence. The result thus obtained is the new
+        dish is cooked perfectly. Every time you use your phone, computer, laptop, or calculator you are using
+        Algorithms. Similarly, algorithms help to do a task in programming to get the expected output.</p>
+    <p dir="ltr">The Algorithm designed are language-independent, i.e. they are just plain instructions that can be
+        implemented in any language, and yet the output will be the same, as expected.</p>
+    <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+    <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+    <h2><u><span class="GFGEditorTheme__textUnderline">What is the need for algorithms?</span></u></h2>
+    <ol>
+        <li value="1">Algorithms are necessary for solving complex problems efficiently and effectively.&nbsp;</li>
+        <li value="2">They help to automate processes and make them more reliable, faster, and easier to perform.</li>
+        <li value="3">Algorithms also enable computers to perform tasks that would be difficult or impossible for humans
+            to do manually.</li>
+        <li value="4">They are used in various fields such as mathematics, computer science, engineering, finance, and
+            many others to optimize processes, analyze data, make predictions, and provide solutions to problems.</li>
+    </ol>
+    <h2><u><span class="GFGEditorTheme__textUnderline">What are the Characteristics of an Algorithm?</span></u></h2>
+    <p dir="ltr"><img
+            src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20191016135220/Characteristics-of-an-Algorithm-1024x630.jpg"
+            alt=" Characteristics of an Algorithm" width="811" height="499" /></p>
+    <p dir="ltr">As one would not follow any written instructions to cook the recipe, but only the standard one.
+        Similarly, not all written instructions for programming are an algorithm. For some instructions to be an
+        algorithm, it must have the following characteristics:</p>
+    <ul>
+        <li value="1"><strong>Clear and Unambiguous</strong>: The algorithm should be unambiguous. Each of its steps
+            should be clear in all aspects and must lead to only one meaning.</li>
+        <li value="2"><strong>Well-Defined Inputs</strong>: If an algorithm says to take inputs, it should be
+            well-defined inputs. It may or may not take input.</li>
+        <li value="3"><strong>Well-Defined Outputs:</strong>&nbsp;The algorithm must clearly define what output will be
+            yielded and it should be well-defined as well. It should produce at least 1 output.</li>
+        <li value="4"><strong>Finite-ness:</strong>&nbsp;The algorithm must be finite, i.e. it should terminate after a
+            finite time.</li>
+        <li value="5"><strong>Feasible:</strong>&nbsp;The algorithm must be simple, generic, and practical, such that it
+            can be executed with the available resources. It must not contain some future technology or anything.</li>
+        <li value="6"><strong>Language Independent:</strong>&nbsp;The Algorithm designed must be language-independent,
+            i.e. it must be just plain instructions that can be implemented in any language, and yet the output will be
+            the same, as expected.</li>
+        <li value="7"><strong>Input</strong>: An algorithm has zero or more inputs. Each that contains a fundamental
+            operator must accept zero or more inputs.</li>
+        <li value="8">&nbsp;<strong>Output</strong>: An algorithm produces at least one output. Every instruction that
+            contains a fundamental operator must accept zero or more inputs.</li>
+        <li value="9"><strong>Definiteness:</strong>&nbsp;All instructions in an algorithm must be unambiguous, precise,
+            and easy to interpret. By referring to any of the instructions in an algorithm one can clearly understand
+            what is to be done. Every fundamental operator in instruction must be defined without any ambiguity.</li>
+        <li value="10"><strong>Finiteness:</strong>&nbsp;An algorithm must terminate after a finite number of steps in
+            all test cases. Every instruction which contains a fundamental operator must be terminated within a finite
+            amount of time. Infinite loops or recursive functions without base conditions do not possess finiteness.
+        </li>
+        <li value="11"><strong>Effectiveness:&nbsp;</strong>An algorithm must be developed by using very basic, simple,
+            and feasible operations so that one can trace it out by using just paper and pencil.</li>
+    </ul>
+
+    <h2><u><strong><strong class="GFGEditorTheme__textUnderline">Properties of Algorithm:</strong></strong></u></h2>
+    <ul>
+        <li value="1">It should terminate after a finite time.</li>
+        <li value="2">It should produce at least one output.</li>
+        <li value="3">It should take zero or more input.</li>
+        <li value="4">It should be deterministic means giving the same output for the same input case.</li>
+        <li value="5">Every step in the algorithm must be effective i.e. every step should do some work.</li>
+    </ul>
+    <h2><u><span class="GFGEditorTheme__textUnderline">Types of Algorithms:</span></u></h2>
+    <p dir="ltr">There are several types of algorithms available. Some important algorithms are:</p>
+    <h3><strong>1.&nbsp;</strong><a
+            href="https://www.geeksforgeeks.org/brute-force-approach-and-its-pros-and-cons/"><u><strong><strong
+                        class="GFGEditorTheme__textUnderline">Brute Force
+                        Algorithm</strong></strong></u></a><u><strong><strong
+                    class="GFGEditorTheme__textUnderline">:</strong></strong></u></h3>
+    <p dir="ltr">It is the simplest approach to a problem. A brute force algorithm is the first approach that comes to
+        finding when we see a problem.</p>
+    <h3><strong>2.&nbsp;</strong><a href="https://www.geeksforgeeks.org/recursion/"><u><strong><strong
+                        class="GFGEditorTheme__textUnderline">Recursive
+                        Algorithm</strong></strong></u></a><u><strong><strong
+                    class="GFGEditorTheme__textUnderline">:</strong></strong></u></h3>
+    <p dir="ltr">A recursive algorithm is based on&nbsp;<a href="http://www.geeksforgeeks.org/recursion/">recursion</a>.
+        In this case, a problem is broken into several sub-parts and called the same function again and again.</p>
+    <h3><strong>3.&nbsp;</strong><a href="https://www.geeksforgeeks.org/backtracking-algorithms/"><u><strong><strong
+                        class="GFGEditorTheme__textUnderline">Backtracking
+                        Algorithm</strong></strong></u></a><u><strong><strong
+                    class="GFGEditorTheme__textUnderline">:</strong></strong></u></h3>
+    <p dir="ltr">The backtracking algorithm builds the solution by searching among all possible solutions. Using this
+        algorithm, we keep on building the solution following criteria. Whenever a solution fails we trace back to the
+        failure point build on the next solution and continue this process till we find the solution or all possible
+        solutions are looked after.</p>
+
+    <h3><strong>4.&nbsp;</strong><a href="https://www.geeksforgeeks.org/searching-algorithms/"><u><strong><strong
+                        class="GFGEditorTheme__textUnderline">Searching
+                        Algorithm</strong></strong></u></a><u><strong><strong
+                    class="GFGEditorTheme__textUnderline">:</strong></strong></u></h3>
+    <p dir="ltr">Searching algorithms are the ones that are used for searching elements or groups of elements from a
+        particular data structure. They can be of different types based on their approach or the data structure in which
+        the element should be found.</p>
+    <h3><strong>5.&nbsp;</strong><a href="https://www.geeksforgeeks.org/sorting-algorithms/"><u><strong><strong
+                        class="GFGEditorTheme__textUnderline">Sorting
+                        Algorithm</strong></strong></u></a><u><strong><strong
+                    class="GFGEditorTheme__textUnderline">:</strong></strong></u></h3>
+    <p dir="ltr">Sorting is arranging a group of data in a particular manner according to the requirement. The
+        algorithms which help in performing this function are called sorting algorithms. Generally sorting algorithms
+        are used to sort groups of data in an increasing or decreasing manner.</p>
+    <h3><strong>6.&nbsp;</strong><a href="https://www.geeksforgeeks.org/hashing-set-1-introduction/"><u><strong><strong
+                        class="GFGEditorTheme__textUnderline">Hashing
+                        Algorithm</strong></strong></u></a><u><strong><strong
+                    class="GFGEditorTheme__textUnderline">:</strong></strong></u></h3>
+    <p dir="ltr">Hashing algorithms work similarly to the searching algorithm. But they contain an index with a key ID.
+        In hashing, a key is assigned to specific data.</p>
+    <h3><strong>7.&nbsp;</strong><a
+            href="http://www.geeksforgeeks.org/divide-and-conquer-introduction/"><u><strong><strong
+                        class="GFGEditorTheme__textUnderline">Divide and Conquer
+                        Algorithm</strong></strong></u></a><u><strong><strong
+                    class="GFGEditorTheme__textUnderline">:</strong></strong></u></h3>
+    <p dir="ltr">This algorithm breaks a problem into sub-problems, solves a single sub-problem, and merges the
+        solutions to get the final solution. It consists of the following three steps:</p>
+    <ul>
+        <li value="1">Divide</li>
+        <li value="2">Solve</li>
+        <li value="3">Combine</li>
+    </ul>
+    <h3><strong>8.&nbsp;</strong><a href="http://www.geeksforgeeks.org/greedy-algorithms/"><u><strong><strong
+                        class="GFGEditorTheme__textUnderline">Greedy
+                        Algorithm</strong></strong></u></a><u><strong><strong
+                    class="GFGEditorTheme__textUnderline">:</strong></strong></u></h3>
+    <p dir="ltr">In this type of algorithm, the solution is built part by part. The solution for the next part is built
+        based on the immediate benefit of the next part. The one solution that gives the most benefit will be chosen as
+        the solution for the next part.</p>
+    <h3><strong>9.&nbsp;</strong><a href="https://www.geeksforgeeks.org/dynamic-programming/"><u><strong><strong
+                        class="GFGEditorTheme__textUnderline">Dynamic Programming
+                        Algorithm</strong></strong></u></a><u><strong><strong
+                    class="GFGEditorTheme__textUnderline">:</strong></strong></u></h3>
+    <p dir="ltr">This algorithm uses the concept of using the already found solution to avoid repetitive calculation of
+        the same part of the problem. It divides the problem into smaller overlapping subproblems and solves them.</p>
+    <h3><strong>10.&nbsp;</strong><a href="https://www.geeksforgeeks.org/randomized-algorithms/"><u><strong><strong
+                        class="GFGEditorTheme__textUnderline">Randomized
+                        Algorithm</strong></strong></u></a><u><strong><strong
+                    class="GFGEditorTheme__textUnderline">:</strong></strong></u></h3>
+    <p dir="ltr">In the randomized algorithm, we use a random number so it gives immediate benefit. The random number
+        helps in deciding the expected outcome.</p>
+    <p dir="ltr">To learn more about the types of algorithms refer to the article about &ldquo;<strong>Types of
+                Algorithms</strong>&ldquo;.</p>
+    <h2><u><span class="GFGEditorTheme__textUnderline">Advantages of Algorithms:</span></u></h2>
+    <ul>
+        <li value="1">It is easy to understand.</li>
+        <li value="2">An algorithm is a step-wise representation of a solution to a given problem.</li>
+        <li value="3">In an Algorithm the problem is broken down into smaller pieces or steps hence, it is easier for
+            the programmer to convert it into an actual program.</li>
+    </ul>
+    <h2><u><span class="GFGEditorTheme__textUnderline">Disadvantages of Algorithms</span></u>:</h2>
+    <ul>
+        <li value="1">Writing an algorithm takes a long time so it is time-consuming.</li>
+        <li value="2">Understanding complex logic through algorithms can be very difficult.</li>
+        <li value="3">Branching and Looping statements are difficult to show in Algorithms<strong>(imp)</strong>.</li>
+    </ul>
+
+    <h2><u><span class="GFGEditorTheme__textUnderline">How to Design an Algorithm?</span></u></h2>
+    <p dir="ltr">To write an algorithm, the following things are needed as a pre-requisite:&nbsp;</p>
+    <ol>
+        <li value="1">The&nbsp;<strong>problem</strong>&nbsp;that is to be solved by this algorithm i.e. clear problem
+            definition.</li>
+        <li value="2">The&nbsp;<strong>constraints</strong>&nbsp;of the problem must be considered while solving the
+            problem.</li>
+        <li value="3">The&nbsp;<strong>input</strong>&nbsp;to be taken to solve the problem.</li>
+        <li value="4">The&nbsp;<strong>output</strong>&nbsp;is to be expected when the problem is solved.</li>
+        <li value="5">The&nbsp;<strong>solution</strong>&nbsp;to this problem is within the given constraints.</li>
+    </ol>
+    <p dir="ltr">Then the algorithm is written with the help of the above parameters such that it solves the problem.
+    </p>
+    <div id="GFG_AD_gfg_outstream_incontent-1">&nbsp;</div>
+    <p dir="ltr"><strong>Example:</strong>&nbsp;Consider the example to add three numbers and print the sum.</p>
+    <h3><strong>Step 1: Fulfilling the pre-requisites</strong>&nbsp;</h3>
+    <p dir="ltr">As discussed above, to write an algorithm, its prerequisites must be fulfilled.&nbsp;</p>
+    <ol>
+        <li value="1"><strong>The problem that is to be solved by this algorithm</strong>: Add 3 numbers and print their
+            sum.</li>
+        <li value="2"><strong>The constraints of the problem that must be considered while solving the problem</strong>:
+            The numbers must contain only digits and no other characters.</li>
+        <li value="3"><strong>The input to be taken to solve the problem:</strong>&nbsp;The three numbers to be added.
+        </li>
+        <li value="4"><strong>The output to be expected when the problem is solved:</strong>&nbsp;The sum of the three
+            numbers taken as the input i.e. a single integer value.</li>
+        <li value="5"><strong>The solution to this problem, in the given constraints:</strong>&nbsp;The solution
+            consists of adding the 3 numbers. It can be done with the help of the &lsquo;+&rsquo; operator, or bit-wise,
+            or any other method.</li>
+    </ol>
+    <h3><strong>Step 2: Designing the algorithm</strong></h3>
+    <p dir="ltr">Now let&rsquo;s design the algorithm with the help of the above pre-requisites:</p>
+    <p dir="ltr"><strong>Algorithm to add 3 numbers and print their sum:</strong>&nbsp;</p>
+    <ol>
+        <li value="1">START</li>
+        <li value="2">Declare 3 integer variables num1, num2, and num3.</li>
+        <li value="3">Take the three numbers, to be added, as inputs in variables num1, num2, and num3 respectively.
+        </li>
+        <li value="4">Declare an integer variable sum to store the resultant sum of the 3 numbers.</li>
+        <li value="5">Add the 3 numbers and store the result in the variable sum.</li>
+        <li value="6">Print the value of the variable sum</li>
+        <li value="7">END</li>
+    </ol>
+    <h3><strong>Step 3: Testing the algorithm by implementing it.</strong></h3>
+    <p dir="ltr">To test the algorithm, let&rsquo;s implement it in C language.</p>
+    <p dir="ltr"><strong>Program:</strong></p>
+
+    <div class="line number1 index0 alt2"><code class="comments">// C program to add three numbers</code></div>
+    <div class="line number2 index1 alt1"><code class="comments">// with the help of above designed algorithm</code>
+    </div>
+    <div class="line number3 index2 alt2">&nbsp;</div>
+    <div class="line number4 index3 alt1"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+    <div class="line number5 index4 alt2">&nbsp;</div>
+    <div class="line number6 index5 alt1"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
+    <div class="line number7 index6 alt2"><code class="plain">{</code></div>
+    <div class="line number8 index7 alt1">&nbsp;</div>
+    <div class="line number9 index8 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// Variables to take the input of the 3 numbers</code></div>
+    <div class="line number10 index9 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="color1 bold">int</code> <code class="plain">num1, num2, num3;</code></div>
+    <div class="line number11 index10 alt2">&nbsp;</div>
+    <div class="line number12 index11 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// Variable to store the resultant sum</code></div>
+    <div class="line number13 index12 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="color1 bold">int</code> <code class="plain">sum;</code></div>
+    <div class="line number14 index13 alt1">&nbsp;</div>
+    <div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// Take the 3 numbers as input</code></div>
+    <div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="functions bold">printf</code><code class="plain">(</code><code
+            class="string">"Enter the 1st number: "</code><code class="plain">);</code></div>
+    <div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="functions bold">scanf</code><code class="plain">(</code><code class="string">"%d"</code><code
+            class="plain">, &amp;num1);</code></div>
+    <div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="functions bold">printf</code><code class="plain">(</code><code class="string">"%d\n"</code><code
+            class="plain">, num1);</code></div>
+    <div class="line number19 index18 alt2">&nbsp;</div>
+    <div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="functions bold">printf</code><code class="plain">(</code><code
+            class="string">"Enter the 2nd number: "</code><code class="plain">);</code></div>
+    <div class="line number21 index20 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="functions bold">scanf</code><code class="plain">(</code><code class="string">"%d"</code><code
+            class="plain">, &amp;num2);</code></div>
+    <div class="line number22 index21 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="functions bold">printf</code><code class="plain">(</code><code class="string">"%d\n"</code><code
+            class="plain">, num2);</code></div>
+    <div class="line number23 index22 alt2">&nbsp;</div>
+    <div class="line number24 index23 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="functions bold">printf</code><code class="plain">(</code><code
+            class="string">"Enter the 3rd number: "</code><code class="plain">);</code></div>
+    <div class="line number25 index24 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="functions bold">scanf</code><code class="plain">(</code><code class="string">"%d"</code><code
+            class="plain">, &amp;num3);</code></div>
+    <div class="line number26 index25 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="functions bold">printf</code><code class="plain">(</code><code class="string">"%d\n"</code><code
+            class="plain">, num3);</code></div>
+    <div class="line number27 index26 alt2">&nbsp;</div>
+    <div class="line number28 index27 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// Calculate the sum using + operator</code></div>
+    <div class="line number29 index28 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// and store it in variable sum</code></div>
+    <div class="line number30 index29 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="plain">sum = num1 + num2 + num3;</code></div>
+    <div class="line number31 index30 alt2">&nbsp;</div>
+    <div class="line number32 index31 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// Print the sum</code></div>
+    <div class="line number33 index32 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="functions bold">printf</code><code class="plain">(</code><code
+            class="string">"\nSum of the 3 numbers is: %d"</code><code class="plain">, sum);</code></div>
+    <div class="line number34 index33 alt1">&nbsp;</div>
+    <div class="line number35 index34 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="keyword bold">return</code> <code class="plain">0;</code></div>
+    <div class="line number36 index35 alt1"><code class="plain">}</code></div>
+    <div class="code-output"><br /><strong>Output</strong>
+        <div class="gray">Enter the 1st number: 0
+Enter the 2nd number: 0
+Enter the 3rd number: -1577141152
+
+Sum of the 3 numbers is: -1577141152
+</div>
+    </div>
+    <p dir="ltr"><strong>Here is the step-by-step algorithm of the code:</strong></p>
+    <ol>
+        <li value="1">Declare three variables num1, num2, and num3 to store the three numbers to be added.</li>
+        <li value="2">Declare a variable sum to store the sum of the three numbers.</li>
+        <li value="3">Use the cout statement to prompt the user to enter the first number.</li>
+        <li value="4">Use the cin statement to read the first number and store it in num1.</li>
+        <li value="5">Use the cout statement to prompt the user to enter the second number.</li>
+        <li value="6">Use the cin statement to read the second number and store it in num2.</li>
+        <li value="7">Use the cout statement to prompt the user to enter the third number.</li>
+        <li value="8">Use the cin statement to read and store the third number in num3.</li>
+        <li value="9">Calculate the sum of the three numbers using the + operator and store it in the sum variable.</li>
+        <li value="10">Use the cout statement to print the sum of the three numbers.</li>
+        <li value="11">The main function returns 0, which indicates the successful execution of the program.</li>
+    </ol>
+    <p dir="ltr"><strong>Time complexity:</strong>&nbsp;O(1)<br /><strong>Auxiliary Space:</strong>&nbsp;O(1)&nbsp;</p>
+    <p dir="ltr"><strong>One problem, many solutions:</strong>&nbsp;The solution to an algorithm can be or cannot be
+        more than one. It means that while implementing the algorithm, there can be more than one method to implement
+        it. For example, in the above problem of adding 3 numbers, the sum can be calculated in many ways:</p>
+    <ul>
+        <li value="1">+ operator</li>
+        <li value="2">Bit-wise operators</li>
+        <li value="3">. . etc</li>
+    </ul>
+    <h2><u><span class="GFGEditorTheme__textUnderline">How to analyze an Algorithm?&nbsp;</span></u></h2>
+    <p dir="ltr">For a standard algorithm to be good, it must be efficient. Hence the efficiency of an algorithm must be
+        checked and maintained. It can be in two stages:</p>
+
+
+    <h3><strong>1. Priori Analysis:</strong></h3>
+    <p dir="ltr">&ldquo;Priori&rdquo; means &ldquo;before&rdquo;. Hence Priori analysis means checking the algorithm
+        before its implementation. In this, the algorithm is checked when it is written in the form of theoretical
+        steps. This Efficiency of an algorithm is measured by assuming that all other factors, for example, processor
+        speed, are constant and have no effect on the implementation. This is done usually by the algorithm designer.
+        This analysis is independent of the type of hardware and language of the compiler. It gives the approximate
+        answers for the complexity of the program.</p>
+    <h3><strong>2. Posterior Analysis:</strong></h3>
+    <p dir="ltr">&ldquo;Posterior&rdquo; means &ldquo;after&rdquo;. Hence Posterior analysis means checking the
+        algorithm after its implementation. In this, the algorithm is checked by implementing it in any programming
+        language and executing it. This analysis helps to get the actual and real analysis report about correctness(for
+        every possible input/s if it shows/returns correct output or not), space required, time consumed, etc. That is,
+        it is dependent on the language of the compiler and the type of hardware used.</p>
+    <h2><strong>What is Algorithm complexity and how to find it?</strong></h2>
+    <p dir="ltr">An algorithm is defined as complex based on the amount of Space and Time it consumes. Hence the
+        Complexity of an algorithm refers to the measure of the time that it will need to execute and get the expected
+        output, and the Space it will need to store all the data (input, temporary data, and output). Hence these two
+        factors define the efficiency of an algorithm.&nbsp;<br /><strong>The two factors of Algorithm Complexity
+            are:</strong></p>
+    <ul>
+        <li value="1"><strong>Time Factor</strong>: Time is measured by counting the number of key operations such as
+            comparisons in the sorting algorithm.</li>
+        <li value="2"><strong>Space Factor</strong>: Space is measured by counting the maximum memory space required by
+            the algorithm to run/execute.</li>
+    </ul>
+    <p dir="ltr">Therefore the&nbsp;<u><strong><strong class="GFGEditorTheme__textUnderline">complexity of an algorithm
+                    can be divided into two types</strong></strong></u>:</p>
+    <p dir="ltr"><strong>1.&nbsp;</strong><a
+            href="spaceComplexity.html"><strong>Space
+                Complexity</strong></a><strong>:</strong>&nbsp;The space complexity of an algorithm refers to the amount
+        of memory required by the algorithm to store the variables and get the result. This can be for inputs, temporary
+        operations, or outputs.&nbsp;</p>
+    <p dir="ltr"><strong>How to calculate Space Complexity?</strong><br />The space complexity of an algorithm is
+        calculated by determining the following 2 components:&nbsp;<br />&nbsp;</p>
+    <ul>
+        <li value="1"><strong>Fixed Part:</strong>&nbsp;This refers to the space that is required by the algorithm. For
+            example, input variables, output variables, program size, etc.</li>
+        <li value="2"><strong>Variable Part:</strong>&nbsp;This refers to the space that can be different based on the
+            implementation of the algorithm. For example, temporary variables, dynamic memory allocation, recursion
+            stack space, etc.<br />Therefore Space complexity&nbsp;<strong>S(P)</strong>&nbsp;of any algorithm P
+            is&nbsp;<strong>S(P) = C + SP(I)</strong>, where C is the fixed part and S(I) is the variable part of the
+            algorithm, which depends on instance characteristic I.</li>
+    </ul>
+
+
+    <p dir="ltr"><strong>Example:</strong>&nbsp;Consider the below algorithm for Linear Search</p>
+    <blockquote>
+        <p dir="ltr">Step 1: START<br />Step 2: Get n elements of the array in arr and the number to be searched in
+            x<br />Step 3: Start from the leftmost element of arr[] and one by one compare x with each element of
+            arr[]<br />Step 4: If x matches with an element, Print True.<br />Step 5: If x doesn&rsquo;t match with any
+            of the elements, Print False.<br />Step 6: END<br />Here, There are 2 variables arr[], and x, where the
+            arr[] is the variable part of n elements and x is the fixed part. Hence S(P) = 1+n. So, the space complexity
+            depends on n(number of elements). Now, space depends on data types of given variables and constant types and
+            it will be multiplied accordingly.</p>
+    </blockquote>
+    <p dir="ltr"><strong>2.&nbsp;</strong><a
+            href="https://www.geeksforgeeks.org/time-complexity-and-space-complexity/"><strong>Time
+                Complexity</strong></a><strong>:</strong>&nbsp;The time complexity of an algorithm refers to the amount
+        of time required by the algorithm to execute and get the result. This can be for normal operations, conditional
+        if-else statements, loop statements, etc.</p>
+    <p dir="ltr"><strong>How to Calculate</strong>,<strong>&nbsp;Time Complexity?</strong><br />The time complexity of
+        an algorithm is also calculated by determining the following 2 components:&nbsp;</p>
+    <ul>
+        <li value="1"><strong>Constant time part:</strong>&nbsp;Any instruction that is executed just once comes in this
+            part. For example, input, output, if-else, switch, arithmetic operations, etc.</li>
+        <li value="2"><strong>Variable Time Part:</strong>&nbsp;Any instruction that is executed more than once, say n
+            times, comes in this part. For example, loops, recursion, etc.<br />Therefore Time complexity&nbsp;<img
+                class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
+                src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-eb034c715561f90f4edf3091e06bb21e_l3.svg"
+                alt="T(P)                        " width="58" height="27" />of any algorithm P is&nbsp;<strong>T(P) = C
+                + TP(I)</strong>, where C is the constant time part and TP(I) is the variable part of the algorithm,
+            which depends on the instance characteristic I.</li>
+    </ul>
+    <p dir="ltr"><strong>Example:</strong>&nbsp;In the algorithm of Linear Search above, the time complexity is
+        calculated as follows:</p>
+    <blockquote>
+        <p dir="ltr">Step 1: &ndash;Constant Time<br />Step 2: &mdash; Variable Time (Taking n inputs)<br />Step 3:
+            &ndash;Variable Time (Till the length of the Array (n) or the index of the found element)<br />Step 4:
+            &ndash;Constant Time<br />Step 5: &ndash;Constant Time<br />Step 6: &ndash;Constant Time<br />Hence, T(P) =
+            1 + n + n(1 + 1) + 1 = 2 + 3n, which can be said as T(n).</p>
+    </blockquote>
+    <h2>How to express an Algorithm?</h2>
+    <ol>
+        <li value="1"><strong>Natural Language:-</strong>&nbsp;Here we express the Algorithm in the natural English
+            language. It is too hard to understand the algorithm from it.</li>
+        <li value="2"><a href="https://www.geeksforgeeks.org/what-is-a-flowchart-and-its-types/"><strong>Flow
+                    Chart</strong></a><strong>:-</strong>&nbsp;Here we express the Algorithm by making
+            a<strong>&nbsp;</strong>graphical/pictorial representation of it. It is easier to understand than Natural
+            Language.</li>
+        <li value="3"><a href="https://www.geeksforgeeks.org/how-to-write-a-pseudo-code/"><strong>Pseudo
+                    Code</strong></a><strong>:-</strong>&nbsp;Here we express the Algorithm in the form of annotations
+            and informative text written in plain English which is very much similar to the real code but as it has no
+            syntax like any of the programming languages, it can&rsquo;t be compiled or interpreted by the computer. It
+            is the best way to express an algorithm because it can be understood by even a layman with some school-level
+            knowledge.</li>
+    </ol>
+
+    
+</body>
+
+</html>

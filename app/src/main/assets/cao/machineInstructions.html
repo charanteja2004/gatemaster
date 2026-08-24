@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>Machine Instructions</h1>
+        </div>
+        </div>
+        </div>
+        <div class="text">
+        <p dir="ltr">Machine Instructions are commands or programs written in the machine code of a machine (computer) that it can recognize and execute. A machine instruction consists of several bytes in memory that tell the processor to perform one machine operation.</p>
+        <p dir="ltr">The processor looks at machine instructions in main memory one after another and performs one machine operation for each machine instruction. A machine language program is the collection of machine instructions in the main memory<strong>.</strong></p>
+        <p dir="ltr">Machine code or machine language is a set of instructions executed directly by a computer&rsquo;s central processing unit (CPU). Each instruction performs a very specific task, such as a load, a jump, or an ALU operation on a unit of data in a CPU register or memory. Every program directly executed by a CPU is made up of a series of such instructions. The general format of a&nbsp;<strong>machine instruction&nbsp;</strong>is</p>
+        <pre>A machine language program is the collection of machine instructions in the main memory.</pre>
+        <ul>
+        <li value="1">Brackets indicate that a field is optional</li>
+        <li value="2">The label is an identifier that is assigned the address of the first byte of the instruction in which it appears. It must be followed by&nbsp;<strong>&ldquo;:&rdquo;</strong></li>
+        <li value="3">The inclusion of spaces is arbitrary, except that at least one space must be inserted; no room would lead to ambiguity.</li>
+        <li value="4">Comment field begins with a semicolon&nbsp;<strong>&ldquo; ; &rdquo;</strong></li>
+        </ul>
+        <p dir="ltr"><strong>Example:</strong></p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <pre>Here: MOV&nbsp;R5,#25H;load 25H into R5</pre>
+        <h2><strong>Machine Instructions Used in&nbsp;8086 Microprocessor</strong></h2>
+        <h3><strong>1. Data transfer instructions</strong>&ndash; move, load exchange, input, output.</h3>
+        <ul>
+        <li value="1">MOV: Move byte or word to register or memory .</li>
+        <li value="2">IN, OUT: Input byte or word from port, output word to port.</li>
+        <li value="3">LEA: Load effective address</li>
+        <li value="4">LDS, LES Load pointer using data segment, extra segment .</li>
+        <li value="5">PUSH, POP: Push word onto stack, pop word off stack.</li>
+        <li value="6">XCHG: Exchange byte or word.</li>
+        <li value="7">XLAT: Translate byte using look-up table.</li>
+        </ul>
+        <h3><strong>2. Arithmetic instructions</strong>&nbsp;&ndash; add, subtract, increment, decrement, convert byte/word and compare.</h3>
+        <ul>
+        <li value="1">ADD, SUB: Add, subtract byte or word</li>
+        <li value="2">ADC, SBB: Add, subtract byte or word and carry (borrow).</li>
+        <li value="3">INC, DEC: Increment, decrement byte or word.</li>
+        <li value="4">NEG: Negate byte or word &nbsp;&nbsp;(two&rsquo;s complement).</li>
+        <li value="5">CMP: Compare byte or word (subtract without storing).</li>
+        <li value="6">MUL, DIV: Multiply, divide byte or word (unsigned).</li>
+        <li value="7">IMUL, IDIV: Integer multiply, divide byte or word (signed)</li>
+        <li value="8">CBW, CWD: Convert byte to word, word to double word</li>
+        <li value="9">AAA, AAS, AAM ,AAD: ASCII adjust for add, sub, &nbsp;mul, div .</li>
+        <li value="10">DAA, DAS: Decimal adjust for addition, subtraction (BCD numbers)</li>
+        </ul>
+        <h3><strong>3. Logic instructions</strong></h3>
+        <p dir="ltr">&ndash; AND, OR, exclusive OR, shift/rotate and test</p>
+        <ul>
+        <li value="1">NOT: Logical NOT of byte or word (one&rsquo;s complement)</li>
+        <li value="2">AND: Logical AND of byte or word</li>
+        <li value="3">OR: Logical OR of byte or word.</li>
+        <li value="4">XOR: Logical exclusive-OR of byte or word</li>
+        <li value="5">TEST: Test byte or word (AND without storing).</li>
+        <li value="6">SHL, SHR: Logical Shift rotate instruction shift left, right byte or word? by 1or CL</li>
+        <li value="7">SAL, SAR: Arithmetic shift left, right byte or word? by 1 or CL</li>
+        <li value="8">ROL, ROR: Rotate left, right byte or word? by 1 or CL.</li>
+        <li value="9">RCL,&nbsp; RCR: Rotate left, right through carry byte or word? by 1 or CL.</li>
+        </ul>
+        <h3><strong>4. String manipulation instruction</strong>&nbsp;&ndash; load, store, move, compare and scan for byte/word</h3>
+        <ul>
+        <li value="1">MOVS: Move byte or word string</li>
+        <li value="2">MOVSB, MOVSW: Move byte, word string.</li>
+        <li value="3">CMPS:&nbsp; Compare byte or word string.</li>
+        <li value="4">SCAS S: can byte or word string (comparing to A or AX)</li>
+        <li value="5">LODS, STOS:&nbsp; Load, store byte or word string to AL.</li>
+        </ul>
+        <h3><strong>5. Control transfer instructions</strong></h3>
+        <p dir="ltr">&ndash; conditional, unconditional, call subroutine and return from subroutine.</p>
+        <ul>
+        <li value="1">JMP: Unconditional jump .it includes loop transfer and subroutine and interrupt instructions.</li>
+        <li value="2">JNZ: jump till the counter value decreases to zero. It runs the loop till the value stored in CX becomes zero</li>
+        </ul>
+        <h3><strong>&nbsp;6. Loop control instructions-</strong></h3>
+        <ul>
+        <li value="1">&nbsp;LOOP: Loop unconditional, count in CX, short jump to target address.</li>
+        <li value="2">LOOPE (LOOPZ): Loop if equal (zero), count in CX, short jump to target address.</li>
+        <li value="3">LOOPNE (LOOPNZ): Loop if not equal (not zero), count in CX, short jump to target address.</li>
+        <li value="4">JCXZ: Jump if CX equals zero (used to skip code in loop).</li>
+        <li value="5">Subroutine and Interrupt instructions-</li>
+        <li value="6">CALL, RET:&nbsp; Call, return from procedure (inside or outside current segment).</li>
+        <li value="7">INT, INTO:&nbsp; Software interrupt, interrupt if overflow.IRET: Return from interrupt.</li>
+        </ul>
+        <h3><strong>7. Processor control instructions-</strong></h3>
+        <p dir="ltr">Flag manipulation:</p>
+        <ul>
+        <li value="1">STC, CLC, CMC:&nbsp; Set, clear, complement carry flag.</li>
+        <li value="2">STD, CLD:&nbsp; Set, clear direction flag.STI, CLI: Set, clear interrupt enable flag.</li>
+        <li value="3">PUSHF, POPF: Push flags onto stack, pop flags off stack</li>
+        </ul>
+        </div>
+</body>
+</html>

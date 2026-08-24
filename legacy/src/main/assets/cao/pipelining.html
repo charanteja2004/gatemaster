@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    <h2><b>Pipelining (Execution, Stages and Throughput)</b></h2>
+<p dir="ltr">To improve the performance of a CPU we have two options: 1) Improve the hardware by introducing faster circuits. 2) Arrange the hardware such that more than one operation can be performed at the same time. Since there is a limit on the speed of hardware and the cost of faster circuits is quite high, we have to adopt the 2<sup>nd</sup>&nbsp;option.&nbsp;</p>
+<p dir="ltr"><strong>Pipelining&nbsp;</strong>is a process of arrangement of hardware elements of the CPU such that its overall performance is increased. Simultaneous execution of more than one instruction takes place in a pipelined processor. Let us see a real-life example that works on the concept of pipelined operation. Consider a water bottle packaging plant. Let there be 3 stages that a bottle should pass through, Inserting the bottle(<strong>I</strong>), Filling water in the bottle(<strong>F</strong>), and Sealing the bottle(<strong>S</strong>). Let us consider these stages as stage 1, stage 2, and stage 3 respectively. Let each stage take 1 minute to complete its operation. Now, in a non-pipelined operation, a bottle is first inserted in the plant, after 1 minute it is moved to stage 2 where water is filled. Now, in stage 1 nothing is happening. Similarly, when the bottle moves to stage 3, both stage 1 and stage 2 are idle. But in pipelined operation, when the bottle is in stage 2, another bottle can be loaded at stage 1. Similarly, when the bottle is in stage 3, there can be one bottle each in stage 1 and stage 2. So, after each minute, we get a new bottle at the end of stage 3. Hence, the average time taken to manufacture 1 bottle is:&nbsp;</p>
+<div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
+<p dir="ltr"><strong>Without pipelining</strong>&nbsp;= 9/3 minutes = 3m</p>
+<pre>I F S | | | | | |<br />| | | I F S | | |<br />| | | | | | I F S (9 minutes)</pre>
+<p dir="ltr"><strong>With pipelining</strong>&nbsp;= 5/3 minutes = 1.67m</p>
+
+<pre>I F S | |<br />| I F S |<br />| | I F S (5 minutes)</pre>
+<p dir="ltr">Thus, pipelined operation increases the efficiency of a system.</p>
+<p dir="ltr"><strong>Design of a basic pipeline</strong></p>
+<ul>
+<li value="1">In a pipelined processor, a pipeline has two ends, the input end and the output end. Between these ends, there are multiple stages/segments such that the output of one stage is connected to the input of the next stage and each stage performs a specific operation.</li>
+<li value="2">Interface registers are used to hold the intermediate output between two stages. These interface registers are also called latch or buffer.</li>
+<li value="3">All the stages in the pipeline along with the interface registers are controlled by a common clock.</li>
+</ul>
+<p dir="ltr"><strong>Execution in a pipelined processor</strong>&nbsp;Execution sequence of instructions in a pipelined processor can be visualized using a space-time diagram. For example, consider a processor having 4 stages and let there be 2 instructions to be executed. We can visualize the execution sequence through the following space-time diagrams:&nbsp;</p>
+<div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+<div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+<p dir="ltr"><strong>Non-overlapped execution:</strong></p>
+<table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /><col /><col /></colgroup>
+<thead>
+<tr>
+<th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Stage / Cycle</th>
+<th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">1</th>
+<th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">2</th>
+<th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">3</th>
+<th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">4</th>
+<th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">5</th>
+<th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">6</th>
+<th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">7</th>
+<th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="GFGEditorTheme__tableCell">S1</td>
+<td class="GFGEditorTheme__tableCell">I<sub>1</sub></td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">I<sub>2</sub></td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+</tr>
+<tr>
+<td class="GFGEditorTheme__tableCell">S2</td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">I<sub>1</sub></td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">I<sub>2</sub></td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+</tr>
+<tr>
+<td class="GFGEditorTheme__tableCell">S3</td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">I<sub>1</sub></td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">I<sub>2</sub></td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+</tr>
+<tr>
+<td class="GFGEditorTheme__tableCell">S4</td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">I<sub>1</sub></td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">I<sub>2</sub></td>
+</tr>
+</tbody>
+</table>
+<p dir="ltr">Total time = 8 Cycle&nbsp;</p>
+<p dir="ltr"><strong>Overlapped execution:</strong></p>
+<table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /></colgroup>
+<thead>
+<tr>
+<th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Stage / Cycle</th>
+<th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">1</th>
+<th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">2</th>
+<th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">3</th>
+<th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">4</th>
+<th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="GFGEditorTheme__tableCell">S1</td>
+<td class="GFGEditorTheme__tableCell">I<sub>1</sub></td>
+<td class="GFGEditorTheme__tableCell">I<sub>2</sub></td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+</tr>
+<tr>
+<td class="GFGEditorTheme__tableCell">S2</td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">I<sub>1</sub></td>
+<td class="GFGEditorTheme__tableCell">I<sub>2</sub></td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+</tr>
+<tr>
+<td class="GFGEditorTheme__tableCell">S3</td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">I<sub>1</sub></td>
+<td class="GFGEditorTheme__tableCell">I<sub>2</sub></td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+</tr>
+<tr>
+<td class="GFGEditorTheme__tableCell">S4</td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">&nbsp;</td>
+<td class="GFGEditorTheme__tableCell">I<sub>1</sub></td>
+<td class="GFGEditorTheme__tableCell">I<sub>2</sub></td>
+</tr>
+</tbody>
+</table>
+
+
+
+<p dir="ltr">Total time = 5 Cycle&nbsp;<strong>Pipeline Stages&nbsp;</strong>RISC processor has 5 stage instruction pipeline to execute all the instructions in the RISC instruction set. Following are the 5 stages of the RISC pipeline with their respective operations:</p>
+<ul>
+<li value="1"><strong>Stage 1 (Instruction Fetch)</strong>&nbsp;In this stage the CPU reads instructions from the address in the memory whose value is present in the program counter.</li>
+<li value="2"><strong>Stage 2 (Instruction Decode)</strong>&nbsp;In this stage, instruction is decoded and the register file is accessed to get the values from the registers used in the instruction.</li>
+<li value="3"><strong>Stage 3 (Instruction Execute)</strong>&nbsp;In this stage, ALU operations are performed.</li>
+<li value="4"><strong>Stage 4 (Memory Access)</strong>&nbsp;In this stage, memory operands are read and written from/to the memory that is present in the instruction.</li>
+<li value="5"><strong>Stage 5 (Write Back)</strong>&nbsp;In this stage, computed/fetched value is written back to the register present in the instructions.</li>
+</ul>
+<p dir="ltr"><strong>Performance of a pipelined processor</strong>&nbsp;Consider a &lsquo;k&rsquo; segment pipeline with clock cycle time as &lsquo;Tp&rsquo;. Let there be &lsquo;n&rsquo; tasks to be completed in the pipelined processor. Now, the first instruction is going to take &lsquo;k&rsquo; cycles to come out of the pipeline but the other &lsquo;n &ndash; 1&rsquo; instructions will take only &lsquo;1&rsquo; cycle each, i.e, a total of &lsquo;n &ndash; 1&rsquo; cycles. So, time taken to execute &lsquo;n&rsquo; instructions in a pipelined processor:</p>
+<pre>                     ET<sub>pipeline</sub> = k + n &ndash; 1 cycles<br />                              = (k + n &ndash; 1) Tp</pre>
+<p dir="ltr">In the same case, for a non-pipelined processor, the execution time of &lsquo;n&rsquo; instructions will be:</p>
+<div id="GFG_AD_gfg_outstream_incontent" data-google-query-id="CKCkz6ibi4YDFZFnnQkdlFkA6A">
+<div id="google_ads_iframe_/27823234/gfg_outstream_incontent_0__container__">&nbsp;</div>
+</div>
+<pre>                    ET<sub>non-pipeline</sub> = n * k * Tp</pre>
+<p dir="ltr">So, speedup (S) of the pipelined processor over the non-pipelined processor, when &lsquo;n&rsquo; tasks are executed on the same processor is:</p>
+<pre>    S = Performance of non-pipelined processor /<br />        Performance of pipelined processor</pre>
+<p dir="ltr">As the performance of a processor is inversely proportional to the execution time, we have,</p>
+<pre>   S = ET<sub>non-pipeline</sub> / ET<sub>pipeline</sub><br />    =&gt; S =  [n * k * Tp] / [(k + n &ndash; 1) * Tp]<br />       S = [n * k] / [k + n &ndash; 1]</pre>
+<p dir="ltr">When the number of tasks &lsquo;n&rsquo; is significantly larger than k, that is, n &gt;&gt; k</p>
+<pre>    S = n * k / n<br />    S = k</pre>
+<p dir="ltr">where &lsquo;k&rsquo; are the number of stages in the pipeline. Also,<strong>&nbsp;Efficiency</strong>&nbsp;= Given speed up / Max speed up = S / S<sub>max</sub>&nbsp;We know that Smax = k So,&nbsp;<strong>Efficiency</strong>&nbsp;= S / k&nbsp;<strong>Throughput</strong>&nbsp;= Number of instructions / Total time to complete the instructions So,&nbsp;<strong>Throughput</strong>&nbsp;= n / (k + n &ndash; 1) * Tp Note: The cycles per instruction (CPI) value of an ideal pipelined processor is 1 Please see&nbsp;<a href="https://www.geeksforgeeks.org/computer-organization-and-architecture-pipelining-set-2-dependencies-and-data-hazard/"><strong>Set 2</strong></a>&nbsp;for Dependencies and Data Hazard and&nbsp;<a href="https://www.geeksforgeeks.org/computer-organization-and-architecture-pipelining-set-3-types-and-stalling/"><strong>Set 3</strong></a>&nbsp;for Types of pipeline and Stalling.</p>
+<p dir="ltr">Performance of pipeline is measured using two main metrices as Throughput and latency.</p>
+<p dir="ltr">Throughput:</p>
+<ul>
+<li value="1">It measure number of instruction completed per unit time.</li>
+<li value="2">It represents overall processing speed of pipeline.</li>
+<li value="3">Higher throughput indicate processing speed of pipeline.</li>
+<li value="4">Calculated as, throughput= number of instruction executed/ execution time.</li>
+<li value="5">It can be affected by pipeline length, clock frequency. efficiency of instruction execution and presence of pipeline hazards or stalls.</li>
+</ul>
+<p dir="ltr">Latency:</p>
+<ul>
+<li value="1">It measure time taken for a single instruction to complete its execution.</li>
+<li value="2">It represents delay or time it takes for an instruction to pass through pipeline stages.</li>
+<li value="3">Lower latency indicates better performance .</li>
+<li value="4">It is calculated as, Latency= Execution time/ Number of instruction executed.</li>
+<li value="5">It in influenced by pipeline length, depth, clock cycle time, instruction dependencies and pipeline hazards.</li>
+</ul>
+<h2><b>Difference between Linear Pipeline and Non-Linear Pipeline</b></h2>
+
+
+
+<p><strong>1. Linear Pipeline :</strong>&nbsp;Linear pipeline is a pipeline in which a series of processors are connected together in a serial manner. In linear pipeline the data flows from the first block to the final block of processor. The processing of data is done in a linear and sequential manner. The input is supplied to the first block and we get the output from the last block till which the processing of data is being done. The linear pipelines can be further be divided into synchronous and asynchronous models. Linear pipelines are typically used when the data transformation process is straightforward and can be performed in a single path.<img src="https://media.geeksforgeeks.org/wp-content/uploads/20200612215615/LINEAR2.png" width="350"/><strong>2. Non-Linear Pipeline :</strong>&nbsp;Non-Linear pipeline is a pipeline which is made of different pipelines that are present at different stages. The different pipelines are connected to perform multiple functions. It also has feedback and feed-forward connections. It is made such that it performs various function at different time intervals. In Non-Linear pipeline the functions are dynamically assigned. In Non-Linear pipeline the functions are dynamically assigned.<img src="https://media.geeksforgeeks.org/wp-content/uploads/20200612220132/nonlineargfg.png" width="350" />&nbsp;<br /><strong>Difference between Linear Pipeline and Non-Linear Pipeline :</strong></p>
+<figure class="table">
+<table border="1">
+<thead>
+<tr>
+<th>S.NO.</th>
+<th>Linear Pipeline</th>
+<th>Non-Linear Pipeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.</td>
+<td>In linear pipeline a series of processors are connected together in a serial manner.</td>
+<td>In Non-Linear pipeline different pipelines are present at different stages.</td>
+</tr>
+<tr>
+<td>2.</td>
+<td>Linear pipeline is also called as static pipeline as it performs fixed functions.</td>
+<td>Non-Linear pipelines is also called as dynamic pipeline as it performs different functions.</td>
+</tr>
+<tr>
+<td>3.</td>
+<td>The output is always produced from the last block.</td>
+<td>The output is not necessarily produced from the last block.</td>
+</tr>
+<tr>
+<td>4.</td>
+<td>Linear pipeline has linear connections.</td>
+<td>Non-Linear pipeline has feedback and feed-forward connections.</td>
+</tr>
+<tr>
+<td>5.</td>
+<td>It generates a single reservation table.</td>
+<td>It can generate more than one reservation table.</td>
+</tr>
+<tr>
+<td>6.</td>
+<td>It allows easy functional partitioning.</td>
+<td>Functional partitioning is difficult in non-linear pipeline.</td>
+</tr>
+</tbody>
+</table>
+</figure>
+</body>
+</html>

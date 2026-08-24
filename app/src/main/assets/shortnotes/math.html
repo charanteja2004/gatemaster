@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    <h1>&nbsp;Engineering Mathematics</h1>
+</div>
+</div>
+</div>
+<div>
+<h3>Matrices</h3>
+<p><br />A matrix represents a collection of numbers arranged in an order of rows and columns. It is necessary to enclose the elements of a matrix in parentheses or brackets.&nbsp;<br />A matrix with 9 elements is shown below.&nbsp;</p>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/matrix-9.png" alt="" /></p>
+<p><br />This Matrix [M] has 3 rows and 3 columns. Each element of matrix [M] can be referred to by its row and column number. For example, a<sub>23</sub>=6&nbsp;<br /><br /><strong>Order of a Matrix :</strong>&nbsp;<br />The order of a matrix is defined in terms of its number of rows and columns.&nbsp;<br />Order of a matrix = No. of rows &times;No. of columns&nbsp;<br />Therefore Matrix [M] is a matrix of order 3 &times; 3.&nbsp;<br /><br /><strong>Transpose of a Matrix :</strong>&nbsp;<br />The transpose [M]<sup>T</sup>&nbsp;of an m x n matrix [M] is the n x m matrix obtained by interchanging the rows and columns of [M].&nbsp;<br />if A= [a<sub>ij</sub>] mxn , then A<sup>T</sup>&nbsp;= [b<sub>ij</sub>] nxm where b<sub>ij</sub>&nbsp;= a<sub>ji</sub>&nbsp;<br /><br /><strong>Properties of transpose of a matrix:</strong>&nbsp;<br />&nbsp;</p>
+<ul>
+<li>(A<sup>T</sup>)<sup>T</sup>&nbsp;= A</li>
+<li>(A+B)<sup>T</sup>&nbsp;= A<sup>T</sup>&nbsp;+ B<sup>T</sup></li>
+<li>(AB)<sup>T</sup>&nbsp;= B<sup>T</sup>A<sup>T</sup></li>
+</ul>
+<p><br /><br /><br /><strong>Singular and Nonsingular Matrix:</strong>&nbsp;<br />&nbsp;</p>
+<ol>
+<li>Singular Matrix: A square matrix is said to be singular matrix if its determinant is zero i.e. |A|=0</li>
+<li>Nonsingular Matrix: A square matrix is said to be non-singular matrix if its determinant is non-zero.</li>
+</ol>
+<p><br /><br /><strong>Square Matrix:</strong>&nbsp;A square Matrix has as many rows as it has columns. i.e. no of rows = no of columns.&nbsp;<br /><strong>Symmetric matrix:</strong>&nbsp;A square matrix is said to be symmetric if the transpose of original matrix is equal to its original matrix. i.e. (A<sup>T</sup>) = A.&nbsp;<br /><strong>Skew-symmetric:</strong>&nbsp;A skew-symmetric (or antisymmetric or antimetric[1]) matrix is a square matrix whose transpose equals its negative.i.e. (A<sup>T</sup>) = -A.<br /><strong>Diagonal Matrix:</strong>&nbsp;A diagonal matrix is a matrix in which the entries outside the main diagonal are all zero. The term usually refers to square matrices.&nbsp;<br /><strong>Identity Matrix:</strong>A square matrix in which all the elements of the principal diagonal are ones and all other elements are zeros.Identity matrix is denoted as I.&nbsp;<br /><strong>Orthogonal Matrix:</strong>&nbsp;A matrix is said to be orthogonal if AA<sup>T</sup>&nbsp;= A<sup>T</sup>A = I&nbsp;<br /><strong>Idempotent Matrix:</strong>&nbsp;A matrix is said to be idempotent if A<sup>2</sup>&nbsp;= A&nbsp;<br /><strong>Involutory Matrix:</strong>&nbsp;A matrix is said to be Involutory if A<sup>2</sup>&nbsp;= I.&nbsp;</p>
+</div>
+<h2><br /><br /></h2>
+</div>
+<p><strong>Adjoint of a square matrix:</strong>&nbsp;<br /><br />&nbsp;</p>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/matrix1.png" alt="" width="424" height="187" /></p>
+<p><br /><strong>Properties of Adjoint:</strong>&nbsp;</p>
+<ol>
+<li>A(Adj A) = (Adj A) A = |A| I<sub>n</sub></li>
+<li>Adj(AB) = (Adj B).(Adj A)</li>
+<li>|Adj A|= |A|<sup>n-1</sup></li>
+<li>Adj(kA) = k<sup>n-1</sup>&nbsp;Adj(A)</li>
+</ol>
+<p><br />Inverse of a square matrix:&nbsp;<br /><br /><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-f1b9538cadcfec09aa29ab5186f80371_l3.svg" alt="A^{-1} = \frac{Adj A}{|A|}              " width="134" height="40" /><br /><br />Here |A| should not be equal to zero, means matrix A should be non-singular.&nbsp;<br /><br /><br /><strong>Properties of inverse:</strong>&nbsp;<br /><br />1. (A<sup>-1</sup>)<sup>-1</sup>&nbsp;= A&nbsp;<br />2. (AB)<sup>-1</sup>&nbsp;= B<sup>-1</sup>A<sup>-1</sup>&nbsp;<br />3. Only a non-singular square matrix can have an inverse.&nbsp;<br /><br /><strong>Trace of a matrix :</strong>&nbsp;<br />Let A=[a<sub>ij</sub>]&nbsp;<sub>nxn</sub>&nbsp;is a square matrix of order n, then the sum of diagonal elements is called the trace of a matrix which is denoted by tr(A). tr(A) = a<sub>11</sub>&nbsp;+ a<sub>22</sub>&nbsp;+ a<sub>33</sub>+ &hellip;&hellip;&hellip;.+ a<sub>nn</sub>. Remember trace of a matrix is also equal to the sum of eigen value of the matrix. For example:&nbsp;<br />&nbsp;</p>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/matrix2-2.png" alt="" /></p>
+<p><br /><br /><br /><strong>Properties of trace of matrix:</strong>&nbsp;<br />Let A and B be any two square matrices of order n, then&nbsp;<br />&nbsp;</p>
+<ol>
+<li>tr(kA) = k tr(A) where k is a scalar.</li>
+<li>tr(A+B) = tr(A)+tr(B)</li>
+<li>tr(A-B) = tr(A)-tr(B)</li>
+<li>tr(AB) = tr(BA)</li>
+</ol>
+<p><br /><strong>Solution of a system of linear equations:</strong>&nbsp;<br />Linear equations can have three kind of possible solutions:&nbsp;<br />&nbsp;</p>
+<ul>
+<li>No Solution</li>
+<li>Unique Solution</li>
+<li>Infinite Solution</li>
+</ul>
+<p><br /><strong>Rank of a matrix:</strong>&nbsp;Rank of matrix is the number of non-zero rows in the row reduced form or the maximum number of independent rows or the maximum number of independent columns.&nbsp;<br />Let A be any mxn matrix and it has square sub-matrices of different orders. A matrix is said to be of rank r, if it satisfies the following properties:&nbsp;<br />&nbsp;</p>
+<ol>
+<li>It has at least one square sub-matrices of order r who has non-zero determinant.</li>
+<li>All the determinants of square sub-matrices of order (r+1) or higher than r are zero.</li>
+</ol>
+<p><br /><em>Rank is denoted as P(A).</em>&nbsp;<br />if A is a non-singular matrix of order n, then rank of A = n i.e. P(A) = n.&nbsp;</p>
+<p><br /><strong>Properties of rank of a matrix:</strong>&nbsp;<br />&nbsp;</p>
+<ol>
+<li>If A is a null matrix then P(A) = 0 i.e. Rank of null matrix is zero.</li>
+<li>If I<sub>n</sub>&nbsp;is the nxn unit matrix then P(A) = n.</li>
+<li>Rank of a matrix A mxn , P(A) &le; min(m,n). Thus P(A) &le;m and P(A) &le; n.</li>
+<li>P(A<sub>&nbsp;nxn</sub>&nbsp;) = n if |A| &ne; 0</li>
+<li>If P(A) = m and P(B)=n then P(AB) &le; min(m,n).</li>
+<li>If A and B are square matrices of order n then P(AB) ? P(A) + P(B) &ndash; n.</li>
+<li>If A<sub>m&times;1</sub>&nbsp;is a non zero column matrix and B<sub>1&times;n</sub>&nbsp;is a non zero row matrix then P(AB) = 1.</li>
+<li>The rank of a skew symmetric matrix cannot be equal to one.</li>
+</ol>
+<p><br /><strong>System of homogeneous linear equations AX = 0</strong>.&nbsp;<br />&nbsp;</p>
+<ol>
+<li>X = 0. is always a solution; means all the unknowns has same value as zero. (This is also called trivial solution)</li>
+<li>If P(A) = number of unknowns, unique solution.</li>
+<li>If P(A) &lt; number of unknowns, infinite number of solutions.</li>
+</ol>
+<p><br /><strong>System of non-homogeneous linear equations AX = B</strong>.&nbsp;<br />&nbsp;</p>
+<ol>
+<li>If P[A:B] &ne;P(A), No solution.</li>
+<li>If P[A:B] = P(A) = the number of unknown variables, unique solution.</li>
+<li>If P[A:B] = P(A) &ne; number of unknown, infinite number of solutions.</li>
+</ol>
+<p><br />Here P[A:B] is rank of gauss elimination representation of AX = B.&nbsp;<br />There are two states of the Linear equation system:&nbsp;<br />&nbsp;</p>
+<ul>
+<li><strong>Consistent State:&nbsp;</strong>A System of equations having one or more solutions is called a consistent system of equations.</li>
+<li><strong>Inconsistent State:</strong>&nbsp;A System of equations having no solutions is called inconsistent system of equations.</li>
+</ul>
+<p><br /><strong>Linear dependence and Linear independence of vector:</strong>&nbsp;<br /><br /><strong>Linear Dependence:</strong>&nbsp;A set of vectors X<sub>1</sub>&nbsp;,X<sub>2</sub>&nbsp;&hellip;.X<sub>r</sub>&nbsp;is said to be linearly dependent if there exist r scalars k<sub>1</sub>&nbsp;,k<sub>2</sub>&nbsp;&hellip;..k<sub>r</sub>&nbsp;such that: k<sub>1</sub>&nbsp;X<sub>1</sub>&nbsp;+ k<sub>2</sub>X<sub>2</sub>&nbsp;+&hellip;&hellip;..k<sub>r</sub>&nbsp;X<sub>r</sub>&nbsp;= 0.&nbsp;<br /><br /><strong>Linear Independence:</strong>&nbsp;A set of vectors X<sub>1</sub>&nbsp;,X<sub>2</sub>&hellip;.X<sub>r</sub>&nbsp;is said to be linearly independent if for all r scalars k<sub>1</sub>,k<sub>2</sub>&nbsp;&hellip;..k<sub>r</sub>such that k<sub>1</sub>X<sub>1</sub>+ k<sub>2</sub>&nbsp;X<sub>2</sub>+&hellip;&hellip;..k<sub>r</sub>X<sub>r</sub>&nbsp;= 0, then k<sub>1</sub>&nbsp;= k<sub>2</sub>&nbsp;=&hellip;&hellip;. = k<sub>r</sub>&nbsp;= 0.&nbsp;<br /><strong>How to determine linear dependency and independency ?</strong>&nbsp;<br />Let X<sub>1</sub>, X<sub>2</sub>&nbsp;&hellip;.X<sub>r</sub>&nbsp;be the given vectors. Construct a matrix with the given vectors as its rows.&nbsp;<br />&nbsp;</p>
+<ol>
+<li>If the rank of the matrix of the given vectors is less than the number of vectors, then the vectors are linearly dependent.</li>
+<li>If the rank of the matrix of the given vectors is equal to the number of vectors, then the vectors are linearly independent.</li>
+</ol>
+<p><br />&nbsp;</p>
+<h3><a href="https://www.geeksforgeeks.org/eigen-values-and-eigen-vectors/">Eigen Value and Eigen Vector</a></h3>
+<p><br />Eigen vector of a matrix A is a vector represented by a matrix X such that when X is multiplied with matrix A, then the direction of the resultant matrix remains the same as vector X.&nbsp;<br /><br />Mathematically, above statement can be represented as:&nbsp;<br />&nbsp;</p>
+<p>AX = &lambda;X</p>
+<p>where A is any arbitrary matrix, &lambda; are eigen values and X is an eigen vector corresponding to each eigen value.</p>
+<p>Here, we can see that AX is parallel to X. So, X is an eigen vector.</p>
+<p><strong><u>Method to find eigen vectors and eigen values of any square matrix A&nbsp;</u></strong><br />We know that,</p>
+<p>AX = &lambda;X</p>
+<p>=&gt; AX &ndash; &lambda;X = 0</p>
+<p>=&gt; (A &ndash; &lambda;I) X = 0 &hellip;..(1)</p>
+<p>Above condition will be true only if (A &ndash; &lambda;I) is singular. That means,</p>
+<p>|A &ndash; &lambda;I| = 0 &hellip;..(2)</p>
+<p>(2) is known as characteristic equation of the matrix.</p>
+<p>The roots of the characteristic equation are the eigen values of the matrix A.</p>
+<p>Now, to find the eigen vectors, we simply put each eigen value into (1) and solve it by Gaussian elimination, that is, convert the augmented matrix (A &ndash; &lambda;I) = 0 to row echelon form and solve the linear system of equations thus obtained.</p>
+<p><strong>Some important properties of eigen values</strong></p>
+<p><br /><br />&nbsp;</p>
+<ul>
+<li>Eigen values of real symmetric and hermitian matrices are real</li>
+<li>Eigen values of real skew symmetric and skew hermitian matrices are either pure imaginary or zero</li>
+<li>Eigen values of unitary and orthogonal matrices are of unit modulus |&lambda;| = 1</li>
+<li>If &lambda;<sub>1,&nbsp;</sub>=&lambda;<sub>2</sub>&hellip;&hellip;.&lambda;<sub>n</sub>&nbsp;are the eigen values of A, then k&lambda;<sub>1</sub>, k&lambda;<sub>2</sub>&hellip;&hellip;.k&lambda;<sub>n</sub>&nbsp;are eigen values of kA</li>
+<li>If &lambda;<sub>1,&nbsp;</sub>&lambda;<sub>2</sub>&hellip;&hellip;.&lambda;<sub>n</sub>&nbsp;are the eigen values of A, then 1/&lambda;<sub>1</sub>, 1/&lambda;<sub>2</sub>&hellip;&hellip;.1/&lambda;<sub>n</sub>&nbsp;are eigen values of A<sup>-1</sup></li>
+<li>If &lambda;<sub>1,&nbsp;</sub>&lambda;<sub>2</sub>&hellip;&hellip;.&lambda;<sub>n</sub>&nbsp;are the eigen values of A, then &lambda;<sub>1</sub><sup>k</sup>, &lambda;<sub>2</sub><sup>k</sup>&hellip;&hellip;.&lambda;<sub>n</sub><sup>k</sup>&nbsp;are eigen values of A<sup>k</sup></li>
+<li>Eigen values of A = Eigen Values of A<sup>T&nbsp;</sup>(Transpose)</li>
+<li>Sum of Eigen Values = Trace of A (Sum of diagonal elements of A)</li>
+<li>Product of Eigen Values = |A|</li>
+<li>Maximum number of distinct eigen values of A = Size of A</li>
+<li>If A and B are two matrices of same order then, Eigen values of AB = Eigen values of BA</li>
+</ul>
+<p>&nbsp;</p>
+<h3><a href="https://www.geeksforgeeks.org/mathematics-probability/">Probability</a><br /><br /><strong>Probability</strong>&nbsp;refers to the extent of occurrence of events. When an event occurs like throwing a ball, picking a card from deck, etc ., then the must be some probability associated with that event.&nbsp;<br /><br /><strong>Basic Terminologies:</strong></h3>
+<ul>
+<li><strong>Random Event :-</strong>&nbsp;If the repetition of an experiment occurs several times under similar conditions, if it does not produce the same outcome everytime but the outcome in a trial is one of the several possible outcomes, then such an experiment is called random event or a probabilistic event.</li>
+<li><strong>Elementary Event &ndash;</strong>&nbsp;The elementary event refers to the outcome of each random event performed. Whenever the random event is performed, each associated outcome is known as elementary event.</li>
+<li><strong>Sample Space &ndash;</strong>&nbsp;Sample Space refers to the set of all possible outcomes of a random event.Example, when a coin is tossed, the possible outcomes are head and tail.</li>
+<li><strong>Event &ndash;</strong>&nbsp;An event refers to the subset of the sample space associated with a random event.</li>
+<li><strong>Occurrence of an Event &ndash;</strong>&nbsp;An event associated with a random event is said to occur if any one of the elementary event belonging to it is an outcome.</li>
+<li><strong>Sure Event &ndash;</strong>&nbsp;An event associated with a random event is said to be sure event if it always occurs whenever the random event is performed.</li>
+<li><strong>Impossible Event &ndash;</strong>&nbsp;An event associated with a random event is said to be impossible event if it never occurs whenever the random event is performed.</li>
+<li><strong>Compound Event &ndash;</strong>&nbsp;An event associated with a random event is said to be compound event if it is the disjoint union of two or more elementary events.</li>
+<li><strong>Mutually Exclusive Events &ndash;</strong>&nbsp;Two or more events associated with a random event are said to be mutually exclusive events if any one of the event occurs, it prevents the occurrence of all other events.This means that no two or more events can occur simultaneously at the same time.</li>
+<li><strong>Exhaustive Events &ndash;</strong>&nbsp;Two or more events associated with a random event are said to be exhaustive events if their union is the sample space.</li>
+</ul>
+<p><br /><br /><strong>Probability of an Event &ndash;</strong>&nbsp;If there are total&nbsp;<strong>p</strong>&nbsp;possible outcomes associated with a random experiment and&nbsp;<strong>q</strong>&nbsp;of them are favourable outcomes to the event A, then the probability of event A is denoted by P(A) and is given by&nbsp;<br />&nbsp;</p>
+<div class="gray"> P(A) = q/p </div>
+<p><br />The probability of non occurrence of event A, i.e, P(A&rsquo;) = 1 &ndash; P(A)&nbsp;<br /><br /><strong>Note &ndash;</strong></p>
+<ul>
+<li>If the value of P(A) = 1, then event A is called sure event .</li>
+<li>If the value of P(A) = 0, then event A is called impossible event.</li>
+<li>Also, P(A) + P(A&rsquo;) = 1&nbsp;<br />&nbsp;</li>
+</ul>
+<p><br /><br /><br /><strong>Theorems:</strong>&nbsp;<br />&nbsp;</p>
+<ul>
+<li><strong>General &ndash;</strong>&nbsp;Let A, B, C are the events associated with a random experiment, then&nbsp;<br />
+<ol>
+<li>P(A&cup;B) = P(A) + P(B) &ndash; P(A&cap;B)</li>
+<li>P(A&cup;B) = P(A) + P(B) if A and B are mutually exclusive</li>
+<li>P(A&cup;B&cup;C) = P(A) + P(B) + P(C) &ndash; P(A&cap;B) &ndash; P(B&cap;C)- P(C&cap;A) + P(A&cap;B&cap;C)</li>
+<li>P(A&cap;B&rsquo;) = P(A) &ndash; P(A&cap;B)</li>
+<li>P(A&rsquo;&cap;B) = P(B) &ndash; P(A&cap;B)</li>
+</ol>
+</li>
+<li><strong>Extension of Multiplication Theorem &ndash;</strong>&nbsp;Let A<sub>1</sub>, A<sub>2</sub>, &hellip;.., A<sub>n</sub>&nbsp;are n events associated with a random experiment, then P(A<sub>1</sub>&cap;A<sub>2</sub>&cap;A<sub>3</sub>&nbsp;&hellip;.. A<sub>n</sub>) = P(A<sub>1</sub>)P(A<sub>2</sub>/A<sub>1</sub>)P(A<sub>3</sub>/A<sub>2</sub>&cap;A<sub>1</sub>) &hellip;.. P(A<sub>n</sub>/A<sub>1</sub>&cap;A<sub>2</sub>&cap;A<sub>3</sub>&cap; &hellip;.. &cap;A<sub>n-1</sub>)</li>
+</ul>
+<p><br /><br /><strong>Total Law of Probability &ndash;</strong>&nbsp;Let S be the sample space associated with a random experiment and E<sub>1</sub>, E<sub>2</sub>, &hellip;, E<sub>n</sub>&nbsp;be n mutually exclusive and exhaustive events associated with the random experiment . If A is any event which occurs with E<sub>1</sub>&nbsp;or E<sub>2</sub>&nbsp;or &hellip; or E<sub>n</sub>, then&nbsp;<br />&nbsp;</p>
+<div class="gray">P(A) = P(E<sub>1</sub>)P(A/E<sub>1</sub>) + P(E<sub>2</sub>)P(A/E<sub>2</sub>) + ... +  P(E<sub>n</sub>)P(A/E<sub>n</sub>)</div>
+<p><br /><br /><a href="https://www.geeksforgeeks.org/conditional-probability/"><strong>Conditional Probability</strong></a>&nbsp;<br /><br />Conditional probability P(A | B) indicates the probability of event &lsquo;A&rsquo; happening given that event B happened.&nbsp;<br /><br />&nbsp;</p>
+<div class="gray">    <img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-54c40abea0a99e30851979372fe8759c_l3.svg" alt="P(A|B) = \frac{P(A \cap B)}{P(B)}" width="205" height="42" /></div>
+<p><br /><strong>Product Rule:</strong>&nbsp;<br />Derived from above definition of conditional probability by multiplying both sides with P(B)&nbsp;</p>
+<div class="gray">   P(A &cap; B) = P(B) * P(A|B) </div>
+<p><br /><a href="https://www.geeksforgeeks.org/bayess-theorem-for-conditional-probability/"><strong>Bayes&rsquo;s formula</strong></a>&nbsp;<br /><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-78284a2e71e2f3ed7447730e55af5c5d_l3.svg" alt="P(A|B) = \frac{P(B|A)P(A)}{P(B)}              " width="244" height="42" /></p>
+<p><br /><a href="https://www.geeksforgeeks.org/random-variable/"><strong>Random Variables</strong></a>&nbsp;<br />A random variable is basically a function which maps from the set of sample space to set of real numbers. The purpose is to get an idea about the result of a particular situation where we are given probabilities of different outcomes.&nbsp;<br /><br /><strong>Discrete Probability Distribution &ndash;</strong>&nbsp;If the probabilities are defined on a discrete random variable, one which can only take a discrete set of values, then the distribution is said to be a discrete probability distribution.&nbsp;<br /><br /><strong>Continuous Probability Distribution &ndash;</strong>&nbsp;If the probabilities are defined on a continuous random variable, one which can take any value between two numbers, then the distribution is said to be a continuous probability distribution.&nbsp;<br /><br /><strong>Cumulative Distribution Function &ndash;</strong>&nbsp;<br />Similar to the probability density function, the&nbsp;<strong>cumulative distribution function</strong>&nbsp;<img title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-c9f05ca626b561da2022e8decdf1d0ef_l3.svg" alt="F(x) " width="54" height="27" />of a real-valued random variable X, or just distribution function of&nbsp;<img title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-d5855bfb47e9d9f02e2e0a8854b34801_l3.svg" alt="X " width="23" height="18" />evaluated at&nbsp;<img title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-6395a4d18136bdb7d1fa5041fe6d24f5_l3.svg" alt="x " width="14" height="12" />, is the probability that&nbsp;<img title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-d5855bfb47e9d9f02e2e0a8854b34801_l3.svg" alt="X " width="23" height="18" />will take a value less than or equal to&nbsp;<img title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-6395a4d18136bdb7d1fa5041fe6d24f5_l3.svg" alt="x " width="14" height="12" />.&nbsp;<br />For a discrete Random Variable,&nbsp;<br /><img title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-4604124c5168cdadce85fa3bdfb1a937_l3.svg" alt="F(x) = P(X\leq x) = \sum \limits_{x_0\leq x} P(x_0) " width="360" height="47" /><br />For a continuous Random Variable,&nbsp;<br /><img title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-f406d743b277d62b1fabc40c6f7ebcf2_l3.svg" alt="F(x) = P(X\leq x) = \int \limits_{-\infty}^{x} f(x)dx " width="361" height="60" /><br /><br />&nbsp;</p>
+<p><a href="https://www.geeksforgeeks.org/mathematics-probability-distributions-set-1/"><strong>Uniform Probability Distribution&nbsp;</strong></a><strong>&ndash;</strong></p>
+<p><br />The Uniform Distribution, also known as the&nbsp;<strong>Rectangular Distribution</strong>, is a type of Continuous Probability Distribution.&nbsp;<br />It has a Continuous Random Variable&nbsp;<img title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-d5855bfb47e9d9f02e2e0a8854b34801_l3.svg" alt="X " width="23" height="18" />restricted to a finite interval&nbsp;<img title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-9655116d467d92b9346eb9140f5fd2da_l3.svg" alt="[a,b] " width="46" height="27" />and it&rsquo;s probability function&nbsp;<img title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-55c71f0265c249baa9cda6f56ce5e459_l3.svg" alt="f(x) " width="48" height="27" />has a constant density over this interval.&nbsp;<br />The Uniform probability distribution function is defined as-&nbsp;</p>
+<p>&nbsp;&nbsp;<img title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-d16038d2237e036d95599f65b1e3e9f2_l3.svg" alt="\[ f(x) = \begin{cases} \frac{1}{b-a}, &amp; a\leq x \leq b\\ 0, &amp; \text{otherwise}\\ \end{cases} \] " width="292" height="79" /></p>
+<p><br /><br /><strong>Expectation:</strong>&nbsp;The mean of the distribution, represented as E[x].&nbsp;<br /><img title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-f9711435c541d051ca37de1404476402_l3.svg" alt="E(x) = \int \limits_{-\infty}^{\infty} xf(x) dx\\ or, E[x]=\sum xP(x) " width="226" height="93" /><br /><br /><strong>Variance:</strong>&nbsp;<img title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-fc5f2cb6a0a524b0ec3cb5cd0828ea04_l3.svg" alt="V(X) = E(X^2) - (E(X))^2 " width="304" height="30" />.&nbsp;<br />For uniform distribution,&nbsp;<br /><img title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-4e90e1a3bd8e70727cd0589d8d3eb83d_l3.svg" alt="Mean= \frac{b + a}{2}\\ " width="144" height="32" /><br /><img title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-db2f09ddca17b9eaa466cc7aa653033c_l3.svg" alt="Variance= \frac{(b-a)^2}{12}\\ " width="209" height="39" /><br /><br /><br /><br /></p>
+<p><br /><a href="https://www.geeksforgeeks.org/probability-distributions-part-2-exponential-distribution/"><strong>Exponential Distribution</strong></a>&nbsp;<br />For a positive real number&nbsp;<img title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-0ba318a34d8d0cf5498daa4a533813ca_l3.svg" alt="\lambda " width="14" height="18" />the probability density function of a Exponentially distributed Random variable is given by-&nbsp;</p>
+<p>&nbsp;&nbsp;<img title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-a5b16f51d1f497039df28ab11c2d28b6_l3.svg" alt="f_X(x) = \[ \begin{cases} \lambda e^{-\lambda x} &amp; if x\in R_X \\ 0 &amp; if x \notin R_X \end{cases} \] " width="324" height="79" /></p>
+<p>where R<sub>x</sub>&nbsp;is exponential random variables.&nbsp;<br /><img title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-5099df7f6fefa54cab38c473aab87237_l3.svg" alt="Mean = \frac{1}{\lambda} " width="120" height="32" /><br /><img title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-1527722c613ade57320c4164a934cbaa_l3.svg" alt="Variance = \frac{1}{\lambda ^{2}} " width="169" height="33" /><br /><br /><a href="https://www.geeksforgeeks.org/mathematics-probability-distributions-set-4-binomial-distribution/"><strong>Binomial Distribution:</strong></a>&nbsp;<br /><img title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-dfcc4dc1af369d0c9375cbcd1bc44f9a_l3.svg" alt="P(X=r)=\binom{n}{r}p^{r}(1-p)^{n-r} " width="323" height="31" /><br /><strong>Mean</strong>=np, where p is the probability of success&nbsp;<br /><strong>Variance</strong>. = np(1-p)&nbsp;<br /><br /><br /><br /><a href="https://www.geeksforgeeks.org/mathematics-probability-distributions-set-5-poisson-distribution/"><strong>Poisson Distribution:</strong></a>&nbsp;<br /><img title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-43fdbf43a459933d1cded1fef2d90637_l3.svg" alt="P(x) = \dfrac{e^{-\lambda} \lambda ^x}{x!} " width="163" height="58" /><br /><img title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-4a9ae363fb5448ddf044c470f26a280e_l3.svg" alt="Mean = \lambda " width="120" height="18" /><br /><img title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-3e9a163d6da28fac9f885b312a94e681_l3.svg" alt="Variance = \lambda " width="159" height="18" /></p>
+<p>&nbsp;</p>
+<h3>Calculus:</h3>
+<p><br /><br /><a href="https://www.geeksforgeeks.org/mathematics-limits-continuity-differentiability/"><strong>Limits, Continuity and Differentiability</strong></a>&nbsp;<br /><br /><strong>Existence of Limit &ndash;</strong>&nbsp;The limit of a function&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-55c71f0265c249baa9cda6f56ce5e459_l3.svg" alt="f(x)              " width="48" height="27" />at&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-6b8194a7b70129b5f1f237cbd122abcb_l3.svg" alt="x=a              " width="64" height="12" />exists only when its left hand limit and right hand limit exist and are equal i.e.&nbsp;<br /><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-2ba73920c761d39ac8dfa128f0ebcc7e_l3.svg" alt="\lim_{x\to a^-}f(x) = \lim_{x\to a^+}f(x)              " width="335" height="27" /><br /><br />&nbsp;</p>
+<p><strong>Some Common Limits &ndash;</strong></p>
+<p>&nbsp;</p>
+<p class="ql-center-displayed-equation"><span class="ql-right-eqno">&nbsp;</span><span class="ql-left-eqno">&nbsp;</span><img class="ql-img-displayed-equation quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-0a2754ae2b51916969f5d9ce10823546_l3.svg" alt="\begin{align*} &amp;\bullet\: \lim_{x\to 0} \frac{\sin x}{x} = 1 \hspace{0.5cm}&amp; &amp;\bullet\: \lim_{x\to 0} \cos x = 1 \hspace{0.5cm}&amp; &amp;\bullet\: \lim_{x\to 0} \frac{\tan x}{x} = 1&amp; \\ &amp;\bullet\: \lim_{x\to 0} \frac{1-\cos x}{x} = 0 \hspace{0.5cm}&amp; &amp;\bullet\: \lim_{x\to 0} \frac{\sin x^\circ}{x} = \frac{\pi}{180} \hspace{0.5cm}&amp; &amp;\bullet\: \lim_{x\to a} \frac{x^n - a^n}{x-a} = na^{n-1}&amp; \\ &amp;\bullet\: \lim_{x\to \infty} (1+\frac{k}{x})^{mx} = e^{mk} \hspace{0.5cm}&amp; &amp;\bullet\: \lim_{x\to 0} (1+x)^\frac{1}{x} = e \hspace{0.5cm}&amp; &amp;\bullet\: \lim_{x\to 0} \frac{(a^x-1)}{x} = \ln {a} \hspace{0.5cm}&amp; \\ &amp;\bullet\: \lim_{x\to 0} \frac{e^x-1}{x} = 1 \hspace{0.5cm}&amp; &amp;\bullet\: \lim_{x\to 0} \frac{\ln {(1+x)}}{x} = 1 \hspace{0.5cm}&amp; &amp;\bullet\: \lim_{x\to \infty} x^\frac{1}{x} = 1 \hspace{0.5cm}&amp; \\ \end{align}              " width="720" height="202" /></p>
+<p><br /><br /><strong>L&rsquo;Hospital Rule &ndash;</strong>&nbsp;<br />If the given limit&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-c9104b5e7cb7b0f9d04f42f1e353e0a5_l3.svg" alt="\lim_{x\to a} \frac{f(x)}{g(x)}              " width="128" height="42" />is of the form&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-e6d324dc8ca86f1d08cf7348c070a20e_l3.svg" alt="\frac{0}{0}              " width="11" height="32" />or&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-b579998f828b5df92bba11535432af6a_l3.svg" alt="\frac{\infty}{\infty}              " width="21" height="28" />i.e. both&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-55c71f0265c249baa9cda6f56ce5e459_l3.svg" alt="f(x)              " width="48" height="27" />and&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-ab25830a839e7f8a658985a5ce6e6466_l3.svg" alt="g(x)              " width="47" height="27" />are 0 or both&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-55c71f0265c249baa9cda6f56ce5e459_l3.svg" alt="f(x)              " width="48" height="27" />and&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-ab25830a839e7f8a658985a5ce6e6466_l3.svg" alt="g(x)              " width="47" height="27" />are&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-63a23f1e0dd48e1290c914bf4319961a_l3.svg" alt="\infty              " width="24" height="12" />, then the limit can be solved by&nbsp;<strong>L&rsquo;Hospital Rule</strong>.&nbsp;<br />If the limit is of the form described above, then the L&rsquo;Hospital Rule says that &ndash;&nbsp;<br /><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-fc850d47b3abd56a02a2353b469ba353_l3.svg" alt="\lim_{x\to a}\frac{f(x)}{g(x)} = \lim_{x\to a}\frac{f^\prime(x)}{g^\prime(x)}              " width="299" height="42" /><br />where&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-0c4d381f3b0326266f2320892ec8fc06_l3.svg" alt="f^\prime(x)              " width="54" height="28" />and&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-6bc656f717b488d8c5eb9762a7ae7459_l3.svg" alt="g^\prime(x)              " width="53" height="28" />obtained by differentiating&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-55c71f0265c249baa9cda6f56ce5e459_l3.svg" alt="f(x)              " width="48" height="27" />and&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-ab25830a839e7f8a658985a5ce6e6466_l3.svg" alt="g(x)              " width="47" height="27" />.&nbsp;<br />If after differentiating, the form still exists, then the rule can be applied continuously until the form is changed.&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>SQL Joins (Inner, Left, Right and Full Join)</h1>
+        </div>
+        </div>
+        </div>
+        <div class="text">
+        <p dir="ltr"><strong>SQL Join</strong>&nbsp;operation combines data or rows from two or more tables based on a common field between them.</p>
+        <p dir="ltr">In this article, we will learn about&nbsp;<strong>Joins in SQL,&nbsp;</strong>covering JOIN types, syntax, and examples.</p>
+        <h2>SQL JOIN</h2>
+        <p dir="ltr">SQL JOIN clause is used to query and access data from multiple tables by establishing logical relationships between them. It can access data from multiple tables simultaneously using common key values shared across different tables.&nbsp;</p>
+        <p dir="ltr">We can use SQL JOIN with multiple tables. It can also be paired with other clauses, the most popular use will be using JOIN with&nbsp;<a href="where.html"><strong>WHERE clause</strong></a><strong>&nbsp;</strong>to filter data retrieval.</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <h2>SQL JOIN Example</h2>
+        <p dir="ltr">Consider the two tables below as follows:&nbsp;</p>
+        <p dir="ltr"><strong>Student:</strong></p>
+        <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/table1-3.png" alt="student table" width="inherit" height="inherit" /><strong>StudentCourse</strong>&nbsp;:</p>
+        <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/table5.png" alt="course table" width="inherit" height="inherit" /></p>
+        <p dir="ltr">Both these tables are connected by one common key (column) i.e ROLL_NO.</p>
+        <p dir="ltr">We can perform a JOIN operation using the given SQL query:</p>
+        <div class="gray"><strong>SELECT </strong>s.roll_no, s.name, s.address, s.phone, s.age, sc.course_id<br /><strong>FROM </strong>Student s<br /><strong>JOIN </strong>StudentCourse sc <strong>ON </strong>s.roll_no = sc.roll_no;</div>
+        <p dir="ltr"><strong>Output:</strong></p>
+        <table>
+        <thead></thead>
+        <tbody>
+        <tr>
+        <td>ROLL_NO</td>
+        <td>NAME</td>
+        <td>ADDRESS</td>
+        <td>PHONE</td>
+        <td>AGE</td>
+        <td>COURSE_ID</td>
+        </tr>
+        <tr>
+        <td>1</td>
+        <td>HARSH</td>
+        <td>DELHI</td>
+        <td>XXXXXXXXXX</td>
+        <td>18</td>
+        <td>1</td>
+        </tr>
+        <tr>
+        <td>2</td>
+        <td>PRATIK</td>
+        <td>BIHAR</td>
+        <td>XXXXXXXXXX</td>
+        <td>19</td>
+        <td>2</td>
+        </tr>
+        <tr>
+        <td>3</td>
+        <td>RIYANKA</td>
+        <td>SILGURI</td>
+        <td>XXXXXXXXXX</td>
+        <td>20</td>
+        <td>2</td>
+        </tr>
+        <tr>
+        <td>4</td>
+        <td>DEEP</td>
+        <td>RAMNAGAR</td>
+        <td>XXXXXXXXXX</td>
+        <td>18</td>
+        <td>3</td>
+        </tr>
+        <tr>
+        <td>5</td>
+        <td>SAPTARHI</td>
+        <td>KOLKATA</td>
+        <td>XXXXXXXXXX</td>
+        <td>19</td>
+        <td>1</td>
+        </tr>
+        </tbody>
+        </table>
+        <h2>Types of JOIN in SQL</h2>
+        <p dir="ltr">&nbsp;There are many types of Joins in SQL. Depending on the use case, you can use different type of SQL JOIN clause. Here are the frequently used SQL JOIN types:</p>
+        <ul>
+        <li value="1">INNER JOIN</li>
+        <li value="2">LEFT JOIN</li>
+        <li value="3">RIGHT JOIN</li>
+        <li value="4">FULL JOIN</li>
+        <li value="5">NATURAL JOIN&nbsp;</li>
+        </ul>
+        </div>
+        <div class="main_wrapper">
+            <div class="article-title">
+            <h2><strong>SQL INNER JOIN</strong></h2>
+            <p dir="ltr">The&nbsp;<strong>INNER JOIN</strong>&nbsp;keyword selects all rows from both the tables as long as the condition is satisfied. This keyword will create the result-set by combining all rows from both the tables where the condition satisfies i.e value of the common field will be the same.&nbsp;</p>
+            <h3><strong>Syntax</strong>:&nbsp;</h3>
+            <p dir="ltr">The syntax for SQL INNER JOIN is:</p>
+            <div class="gray"><strong>SELECT </strong>table1.column1,table1.column2,table2.column1,....<br /><strong>FROM </strong>table1 <br /><strong>INNER JOIN </strong>table2<br /><strong>ON  </strong>table1.matching_column = table2.matching_column;</div>
+            <p dir="ltr">Here,</p>
+            <ul>
+            <li value="1"><strong>table1</strong>: First table.</li>
+            <li value="2"><strong>table2</strong>: Second table</li>
+            <li value="3"><strong>matching_column</strong>: Column common to both the tables.</li>
+            </ul>
+            <blockquote>
+            <p dir="ltr"><strong>Note</strong>: We can also write JOIN instead of INNER JOIN. JOIN is same as INNER JOIN.&nbsp;</p>
+            </blockquote>
+            <p dir="ltr"><img src="https://blog.codinghorror.com/content/images/uploads/2007/10/6a0120a85dcdae970b012877702708970c-pi.png" alt="sql inner join visual representation" width="343" height="225" /></p>
+            <h3><strong>INNER JOIN Example</strong></h3>
+            <p dir="ltr">Let&rsquo;s look at the example of INNER JOIN clause, and understand it&rsquo;s working.</p>
+            <p dir="ltr">This query will show the names and age of students enrolled in different courses.&nbsp;&nbsp;</p>
+            <div class="gray"><strong>SELECT </strong>StudentCourse.COURSE_ID, Student.NAME, Student.AGE <strong>FROM </strong>Student<br /><strong>INNER JOIN</strong> StudentCourse<br /><strong>ON </strong>Student.ROLL_NO = StudentCourse.ROLL_NO;</div>
+            <p dir="ltr"><strong>Output</strong>:&nbsp;&nbsp;</p>
+            <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/table22.png" alt="sql inner join example output" width="475" height="181" /></p>
+            <h2><strong>SQL LEFT JOIN</strong></h2>
+            <p dir="ltr">LEFT JOIN returns all the rows of the table on the left side of the join and matches rows for the table on the right side of the join. For the rows for which there is no matching row on the right side, the result-set will contain&nbsp;<em><em class="GFGEditorTheme__textItalic">null</em></em>. LEFT JOIN is also known as LEFT OUTER JOIN.</p>
+            <h3><strong>Syntax</strong></h3>
+            <p dir="ltr">The syntax of LEFT JOIN in SQL is<strong>:</strong></p>
+            <div class="gray"><strong>SELECT </strong>table1.column1,table1.column2,table2.column1,....<br /><strong>FROM </strong>table1 <br /><strong>LEFT JOIN</strong> table2<br /><strong>ON </strong>table1.matching_column = table2.matching_column;</div>
+            <p dir="ltr">Here,</p>
+            <ul>
+            <li value="1"><strong>table1:</strong>&nbsp;First table.</li>
+            <li value="2"><strong>table2</strong>: Second table</li>
+            <li value="3"><strong>matching_column</strong>: Column common to both the tables.</li>
+            </ul>
+            <blockquote>
+            <p dir="ltr"><strong>Note</strong>: We can also use LEFT OUTER JOIN instead of LEFT JOIN, both are the same.</p>
+            </blockquote>
+            <p dir="ltr"><img src="https://i.stack.imgur.com/VkAT5.png" alt="sql left join visual representation" width="inherit" height="inherit" /></p>
+            <h3><strong>LEFT JOIN Example</strong></h3>
+            <p dir="ltr">Let&rsquo;s look at the example of LEFT JOIN clause, and understand it&rsquo;s working</p>
+            <div class="gray"><strong>SELECT </strong>Student.NAME,StudentCourse.COURSE_ID <br /><strong>FROM </strong>Student<br /><strong>LEFT JOIN</strong> StudentCourse <br /><strong>ON</strong> StudentCourse.ROLL_NO = Student.ROLL_NO;</div>
+            <p dir="ltr"><strong>Output</strong>:&nbsp;</p>
+            <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/table31.png" alt="sql left join example output" width="inherit" height="inherit" /></p>
+            <h2><strong>SQL RIGHT JOIN</strong></h2>
+            <p dir="ltr"><strong>RIGHT JOIN</strong>&nbsp;returns all the rows of the table on the right side of the join and matching rows for the table on the left side of the join.It is very similar to LEFT JOIN For the rows for which there is no matching row on the left side, the result-set will contain&nbsp;<em><em class="GFGEditorTheme__textItalic">null</em></em>. RIGHT JOIN is also known as RIGHT OUTER JOIN.&nbsp;</p>
+            <h3><strong>Syntax:</strong></h3>
+            <p dir="ltr">The syntax of RIGHT JOIN in SQL is:</p>
+            <div class="gray"><strong>SELECT </strong>table1.column1,table1.column2,table2.column1,....<br /><strong>FROM </strong>table1 <br /><strong>RIGHT JOIN </strong>table2<br /><strong>ON </strong>table1.matching_column = table2.matching_column;</div>
+            <p dir="ltr">Here,</p>
+            <ul>
+            <li value="1"><strong>table1</strong>: First table.</li>
+            <li value="2"><strong>table2</strong>: Second table</li>
+            <li value="3"><strong>matching_column</strong>: Column common to both the tables.</li>
+            </ul>
+            <p dir="ltr"><strong>Note</strong>: We can also use&nbsp;<strong>RIGHT OUTER JOIN</strong>&nbsp;instead of RIGHT JOIN, both are the same.&nbsp;</p>
+            <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220515095048/join.jpg" alt="sql right join visual representation" width="434" height="275" /></p>
+            <h3><strong>RIGHT JOIN Example</strong>:</h3>
+            <p dir="ltr">Let&rsquo;s look at the example of RIGHT JOIN clause, and understand it&rsquo;s working</p>
+            <div class="gray"><strong>SELECT </strong>Student.NAME,StudentCourse.COURSE_ID <br /><strong>FROM </strong>Student<br /><strong>RIGHT JOIN</strong> StudentCourse <br /><strong>ON </strong>StudentCourse.ROLL_NO = Student.ROLL_NO;</div>
+            <p dir="ltr"><strong>Output:</strong>&nbsp;</p>
+            <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/table6.png" alt="right join example output" width="inherit" height="inherit" /></p>
+            </div>
+            </div>
+            <div class="main_wrapper">
+                <div class="article-title">
+                <h2><strong>SQL FULL JOIN</strong></h2>
+                <p dir="ltr"><strong>FULL JOIN</strong>&nbsp;creates the result-set by combining results of both LEFT JOIN and RIGHT JOIN. The result-set will contain all the rows from both tables. For the rows for which there is no matching, the result-set will contain&nbsp;<em><em class="GFGEditorTheme__textItalic">NULL</em></em>&nbsp;values.</p>
+                <p dir="ltr">&nbsp;</p>
+                <h3><strong>Syntax</strong></h3>
+                <p dir="ltr">The syntax of SQL FULL JOIN is:</p>
+                <div class="gray"><strong>SELECT </strong>table1.column1,table1.column2,table2.column1,....<br /><strong>FROM </strong>table1 <br /><strong>FULL JOIN</strong> table2<br /><strong>ON </strong>table1.matching_column = table2.matching_column; </div>
+                <p dir="ltr">Here,</p>
+                <ul>
+                <li value="1"><strong>table1</strong>: First table.</li>
+                <li value="2"><strong>table2</strong>: Second table</li>
+                <li value="3"><strong>matching_column</strong>: Column common to both the tables.</li>
+                </ul>
+                <h3><strong>FULL JOIN Example</strong></h3>
+                <p dir="ltr">Let&rsquo;s look at the example of FULL JOIN clause, and understand it&rsquo;s working</p>
+                <div class="gray"><strong>SELECT </strong>Student.NAME,StudentCourse.COURSE_ID <br /><strong>FROM </strong>Student<br /><strong>FULL JOIN </strong>StudentCourse <br /><strong>ON </strong>StudentCourse.ROLL_NO = Student.ROLL_NO;</div>
+                <p dir="ltr"><strong>Output:</strong>&nbsp;&nbsp;</p>
+                <table>
+                <thead>
+                <tr>
+                <th>
+                <p dir="ltr">NAME</p>
+                </th>
+                <th>
+                <p dir="ltr">COURSE_ID</p>
+                </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                <td>
+                <p dir="ltr">HARSH</p>
+                </td>
+                <td>
+                <p>1</p>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                <p dir="ltr">PRATIK</p>
+                </td>
+                <td>
+                <p>2</p>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                <p dir="ltr">RIYANKA</p>
+                </td>
+                <td>
+                <p>2</p>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                <p dir="ltr">DEEP</p>
+                </td>
+                <td>
+                <p>3</p>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                <p dir="ltr">SAPTARHI</p>
+                </td>
+                <td>
+                <p>1</p>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                <p dir="ltr">DHANRAJ</p>
+                </td>
+                <td>
+                <p dir="ltr">NULL</p>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                <p dir="ltr">ROHIT</p>
+                </td>
+                <td>
+                <p dir="ltr">NULL</p>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                <p dir="ltr">NIRAJ</p>
+                </td>
+                <td>
+                <p dir="ltr">NULL</p>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                <p dir="ltr">NULL</p>
+                </td>
+                <td>
+                <p>4</p>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                <p dir="ltr">NULL</p>
+                </td>
+                <td>
+                <p>5</p>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                <p dir="ltr">NULL</p>
+                </td>
+                <td>
+                <p>4</p>
+                </td>
+                </tr>
+                </tbody>
+                </table>
+                <h2>SQL Natural join (?)</h2>
+                <p dir="ltr">Natural join can join tables based on the common columns in the tables being joined. A natural join returns all rows by matching values in common columns having same name and data type of columns and that column should be present in both tables.</p>
+                <p dir="ltr">Both table must have at least one common column with same column name and same data type.</p>
+                <p dir="ltr">The two table are joined using&nbsp;<strong>Cross join</strong>.</p>
+                <p dir="ltr">DBMS will look for a common column with same name and data type Tuples having exactly same values in common columns are kept in result.</p>
+                <h3>Natural join Example:</h3>
+                <p dir="ltr">Look at the two tables below- Employee and Department</p>
+                <table>
+                <thead>
+                <tr>
+                <th colspan="3">
+                <p dir="ltr">Employee&nbsp;</p>
+                </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                <td>Emp_id</td>
+                <td>Emp_name</td>
+                <td>Dept_id</td>
+                </tr>
+                <tr>
+                <td>1</td>
+                <td>Ram&nbsp;</td>
+                <td>10</td>
+                </tr>
+                <tr>
+                <td>2</td>
+                <td>Jon&nbsp;</td>
+                <td>30</td>
+                </tr>
+                <tr>
+                <td>3</td>
+                <td>Bob</td>
+                <td>50</td>
+                </tr>
+                </tbody>
+                </table>
+                <table>
+                <thead>
+                <tr>
+                <th colspan="2">
+                <p dir="ltr"><strong>Department&nbsp;</strong></p>
+                </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                <td><strong>Dept_id</strong></td>
+                <td><strong>Dept_name</strong></td>
+                </tr>
+                <tr>
+                <td>10</td>
+                <td>IT</td>
+                </tr>
+                <tr>
+                <td>30</td>
+                <td>HR</td>
+                </tr>
+                <tr>
+                <td>40</td>
+                <td>TIS</td>
+                </tr>
+                </tbody>
+                </table>
+                <p dir="ltr"><strong>Problem</strong>: Find all Employees and their respective departments.</p>
+                <p dir="ltr"><strong>Solution Query</strong>: (Employee) ? (Department)</p>
+                <table>
+                <thead>
+                <tr>
+                <th>Emp_id</th>
+                <th>Emp_name</th>
+                <th>Dept_id</th>
+                <th>Dept_id</th>
+                <th>Dept_name</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                <td>1</td>
+                <td>Ram&nbsp;</td>
+                <td>10</td>
+                <td>10</td>
+                <td>IT&nbsp;</td>
+                </tr>
+                <tr>
+                <td>2</td>
+                <td>Jon</td>
+                <td>30</td>
+                <td>30</td>
+                <td>HR</td>
+                </tr>
+                <tr>
+                <td colspan="3">Employee data&nbsp;</td>
+                <td colspan="2">Department data&nbsp;</td>
+                </tr>
+                </tbody>
+                </table>
+                </div>
+                </div>
+</body>
+</html>

@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    
+
+<h2>Data Types in C</h2>
+
+<p dir="ltr">Each variable in C has an associated data type. It specifies the type of data that the variable can store
+    like integer, character, floating, double, etc. Each data type requires different amounts of memory and has some
+    specific operations which can be performed over it. The data type is a collection of data with values having fixed
+    values, meaning as well as its characteristics.</p>
+<p dir="ltr"><strong>The data types in C can be classified as follows:</strong></p>
+<p dir="ltr">Each variable in C has an associated data type. It specifies the type of data that the variable can store
+    like integer, character, floating, double, etc. Each data type requires different amounts of memory and has some
+    specific operations which can be performed over it. The data type is a collection of data with values having fixed
+    values, meaning as well as its characteristics.</p>
+<p dir="ltr"><strong>The data types in C can be classified as follows:</strong></p>
+<table border="1" class="GFGEditorTheme__table">
+    <colgroup>
+        <col />
+        <col />
+    </colgroup>
+    <thead>
+        <tr>
+            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">
+                <p dir="ltr">Types</p>
+            </th>
+            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">
+                <p dir="ltr">Description</p>
+            </th>
+        </tr>
+    </thead>
+    <tbody border="1">
+        <tr>
+            <td class="GFGEditorTheme__tableCell"><strong>Primitive Data Types</strong></td>
+            <td class="GFGEditorTheme__tableCell">Primitive data types are the most basic data types that are used for
+                representing simple values such as integers, float, characters, etc.</td>
+        </tr>
+        <tr>
+            <td class="GFGEditorTheme__tableCell"><strong>User Defined Data Types</strong></td>
+            <td class="GFGEditorTheme__tableCell">The user-defined data types are defined by the user himself.</td>
+        </tr>
+        <tr>
+            <td class="GFGEditorTheme__tableCell"><strong>Derived Types</strong></td>
+            <td class="GFGEditorTheme__tableCell">The data types that are derived from the primitive or built-in
+                datatypes are referred to as Derived Data Types.</td>
+        </tr>
+    </tbody>
+</table>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220808115138/DatatypesInC.jpg" alt="Data Types in C"
+        width="250" height="50" /></p>
+<p dir="ltr">Different data types also have different ranges up to which they can store numbers. These ranges may vary
+    from compiler to compiler. Below is a list of ranges along with the memory requirement and format specifiers on
+    the&nbsp;<em><strong><strong class="GFGEditorTheme__textItalic">32-bit GCC compiler</strong></strong></em>.</p>
+<table class="GFGEditorTheme__table">
+    <colgroup>
+        <col />
+        <col />
+    </colgroup>
+    <thead>
+        <tr>
+            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">
+                <p dir="ltr">Types</p>
+            </th>
+            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">
+                <p dir="ltr">Description</p>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="GFGEditorTheme__tableCell"><strong>Primitive Data Types</strong></td>
+            <td class="GFGEditorTheme__tableCell">Primitive data types are the most basic data types that are used for
+                representing simple values such as integers, float, characters, etc.</td>
+        </tr>
+        <tr>
+            <td class="GFGEditorTheme__tableCell"><strong>User Defined Data Types</strong></td>
+            <td class="GFGEditorTheme__tableCell">The user-defined data types are defined by the user himself.</td>
+        </tr>
+        <tr>
+            <td class="GFGEditorTheme__tableCell"><strong>Derived Types</strong></td>
+            <td class="GFGEditorTheme__tableCell">The data types that are derived from the primitive or built-in
+                datatypes are referred to as Derived Data Types.</td>
+        </tr>
+    </tbody>
+</table>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220808115138/DatatypesInC.jpg" alt="Data Types in C"
+        width="300" height="300" /></p>
+<p dir="ltr">Different data types also have different ranges up to which they can store numbers. These ranges may vary
+    from compiler to compiler. Below is a list of ranges along with the memory requirement and format specifiers on
+    the&nbsp;<em><strong><strong class="GFGEditorTheme__textItalic">32-bit GCC compiler</strong></strong></em>.</p>
+
+
+<table border="1" class="GFGEditorTheme__table">
+    <thead>
+        <tr>
+            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Data Type&nbsp;<br />&nbsp;</th>
+            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Size (bytes)&nbsp;<br />&nbsp;</th>
+            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Range<br />&nbsp;</th>
+            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Format Specifier&nbsp;<br />&nbsp;
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="GFGEditorTheme__tableCell"><strong>short int&nbsp;</strong><br /><strong>&nbsp;</strong></td>
+            <td class="GFGEditorTheme__tableCell">2&nbsp;<br />&nbsp;</td>
+            <td class="GFGEditorTheme__tableCell">-32,768 to 32,767&nbsp;<br />&nbsp;</td>
+            <td class="GFGEditorTheme__tableCell">%hd&nbsp;<br />&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="GFGEditorTheme__tableCell"><strong>unsigned short int&nbsp;</strong><br /><strong>&nbsp;</strong>
+            </td>
+            <td class="GFGEditorTheme__tableCell">2&nbsp;<br />&nbsp;</td>
+            <td class="GFGEditorTheme__tableCell">0 to 65,535&nbsp;<br />&nbsp;</td>
+            <td class="GFGEditorTheme__tableCell">%hu&nbsp;<br />&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="GFGEditorTheme__tableCell"><strong>unsigned int&nbsp;</strong><br /><strong>&nbsp;</strong></td>
+            <td class="GFGEditorTheme__tableCell">4&nbsp;<br />&nbsp;</td>
+            <td class="GFGEditorTheme__tableCell">0 to 4,294,967,295&nbsp;<br />&nbsp;</td>
+            <td class="GFGEditorTheme__tableCell">%u&nbsp;<br />&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="GFGEditorTheme__tableCell"><strong>int&nbsp;</strong><br /><strong>&nbsp;</strong></td>
+            <td class="GFGEditorTheme__tableCell">4&nbsp;<br />&nbsp;</td>
+            <td class="GFGEditorTheme__tableCell">-2,147,483,648 to 2,147,483,647&nbsp;<br />&nbsp;</td>
+            <td class="GFGEditorTheme__tableCell">%d&nbsp;<br />&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="GFGEditorTheme__tableCell"><strong>long int&nbsp;</strong><br /><strong>&nbsp;</strong></td>
+            <td class="GFGEditorTheme__tableCell">4&nbsp;<br />&nbsp;</td>
+            <td class="GFGEditorTheme__tableCell">-2,147,483,648 to 2,147,483,647&nbsp;<br />&nbsp;</td>
+            <td class="GFGEditorTheme__tableCell">%ld&nbsp;<br />&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="GFGEditorTheme__tableCell"><strong>unsigned long int&nbsp;</strong><br /><strong>&nbsp;</strong>
+            </td>
+            <td class="GFGEditorTheme__tableCell">4&nbsp;<br />&nbsp;</td>
+            <td class="GFGEditorTheme__tableCell">0 to 4,294,967,295&nbsp;<br />&nbsp;</td>
+            <td class="GFGEditorTheme__tableCell">%lu&nbsp;<br />&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="GFGEditorTheme__tableCell"><strong>long long int&nbsp;</strong><br /><strong>&nbsp;</strong></td>
+            <td class="GFGEditorTheme__tableCell">8&nbsp;<br />&nbsp;</td>
+            <td class="GFGEditorTheme__tableCell">-(2^63) to (2^63)-1&nbsp;<br />&nbsp;</td>
+            <td class="GFGEditorTheme__tableCell">%lld&nbsp;<br />&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="GFGEditorTheme__tableCell"><strong>unsigned long long
+                    int&nbsp;</strong><br /><strong>&nbsp;</strong></td>
+            <td class="GFGEditorTheme__tableCell">8&nbsp;<br />&nbsp;</td>
+            <td class="GFGEditorTheme__tableCell">0 to 18,446,744,073,709,551,615&nbsp;<br />&nbsp;</td>
+            <td class="GFGEditorTheme__tableCell">%llu&nbsp;<br />&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="GFGEditorTheme__tableCell"><strong>signed char&nbsp;</strong><br /><strong>&nbsp;</strong></td>
+            <td class="GFGEditorTheme__tableCell">1&nbsp;<br />&nbsp;</td>
+            <td class="GFGEditorTheme__tableCell">-128 to 127&nbsp;<br />&nbsp;</td>
+            <td class="GFGEditorTheme__tableCell">%c&nbsp;<br />&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="GFGEditorTheme__tableCell"><strong>unsigned char&nbsp;</strong><br /><strong>&nbsp;</strong></td>
+            <td class="GFGEditorTheme__tableCell">1&nbsp;<br />&nbsp;</td>
+            <td class="GFGEditorTheme__tableCell">0 to 255&nbsp;<br />&nbsp;</td>
+            <td class="GFGEditorTheme__tableCell">%c&nbsp;<br />&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="GFGEditorTheme__tableCell"><strong>float&nbsp;</strong><br /><strong>&nbsp;</strong></td>
+            <td class="GFGEditorTheme__tableCell">4&nbsp;<br />&nbsp;</td>
+            <td class="GFGEditorTheme__tableCell">1.2E-38 to 3.4E+38</td>
+            <td class="GFGEditorTheme__tableCell">%f&nbsp;<br />&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="GFGEditorTheme__tableCell"><strong>double&nbsp;</strong><br /><strong>&nbsp;</strong></td>
+            <td class="GFGEditorTheme__tableCell">8&nbsp;<br />&nbsp;</td>
+            <td class="GFGEditorTheme__tableCell">1.7E-308 to 1.7E+308</td>
+            <td class="GFGEditorTheme__tableCell">%lf&nbsp;<br />&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="GFGEditorTheme__tableCell"><strong>long double&nbsp;</strong><br /><strong>&nbsp;</strong></td>
+            <td class="GFGEditorTheme__tableCell">16&nbsp;<br />&nbsp;</td>
+            <td class="GFGEditorTheme__tableCell">3.4E-4932 to 1.1E+4932</td>
+            <td class="GFGEditorTheme__tableCell">%Lf&nbsp;<br />&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+<blockquote>
+    <p dir="ltr"><strong>Note:&nbsp;</strong>The l<strong>ong, short, signed and unsigned&nbsp;</strong>are datatype
+        modifier that can be used with some primitive data types to change the size or length of the datatype.</p>
+</blockquote>
+
+<h2>Integer Data Type</h2>
+<p dir="ltr">The integer datatype in C is used to store the integer numbers(any number including positive, negative and
+    zero without decimal part). Octal values, hexadecimal values, and decimal values can be stored in int data type in
+    C.&nbsp;</p>
+<ul>
+    <li value="1"><strong>Range:&nbsp;</strong>&nbsp;-2,147,483,648 to 2,147,483,647</li>
+    <li value="2"><strong>Size:</strong>&nbsp;4 bytes</li>
+    <li value="3"><strong>Format Specifier:</strong>&nbsp;%d</li>
+</ul>
+<h3>Syntax of Integer</h3>
+<p dir="ltr">We use&nbsp;<strong>int
+            keyword&nbsp;</strong>to declare the integer variable:</p>
+<div class="gray"><strong>int</strong><em><em class="GFGEditorTheme__textItalic"> var_name;</em></em><br /><br /></div>
+<p dir="ltr">The integer data type can also be used as</p>
+<ol>
+    <li value="1"><strong>unsigned int:&nbsp;</strong>Unsigned int data type in C is used to store the data values from
+        zero to positive numbers but it can&rsquo;t store negative values like signed int.</li>
+    <li value="2"><strong>short int:&nbsp;</strong>It is lesser in size than the int by 2 bytes so can only store values
+        from -32,768 to 32,767.</li>
+    <li value="3"><strong>long int:&nbsp;</strong>Larger version of the int datatype so can store values greater than
+        int.</li>
+    <li value="4"><strong>unsigned short int:&nbsp;</strong>Similar in relationship with short int as unsigned int with
+        int.</li>
+</ol>
+<blockquote>
+    <p dir="ltr"><strong>Note:&nbsp;</strong>The size of an integer data type is compiler-dependent. We can use&nbsp;sizeof operator&nbsp;>to check the actual size of
+        any data type.</p>
+</blockquote>
+<h3>Example of int</h3>
+<div class="responsive-tabs">
+    <h2 class="tabtitle">C</h2>
+            <div class="code-container">
+                <div id="highlighter_798884" class="syntaxhighlighter nogutter  ">
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td class="code">
+                                    <div class="container">
+                                        <div class="line number1 index0 alt2"><code
+                                                class="comments">// C program to print Integer data types.</code></div>
+                                        <div class="line number2 index1 alt1"><code
+                                                class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+                                        <div class="line number3 index2 alt2">&nbsp;</div>
+                                        <div class="line number4 index3 alt1"><code class="color1 bold">int</code> <code
+                                                class="plain">main()</code></div>
+                                        <div class="line number5 index4 alt2"><code class="plain">{</code></div>
+                                        <div class="line number6 index5 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="comments">// Integer value with positive data.</code></div>
+                                        <div class="line number7 index6 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="color1 bold">int</code> <code class="plain">a = 9;</code></div>
+                                        <div class="line number8 index7 alt1">&nbsp;</div>
+                                        <div class="line number9 index8 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="comments">// integer value with negative data.</code></div>
+                                        <div class="line number10 index9 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="color1 bold">int</code> <code class="plain">b = -9;</code></div>
+                                        <div class="line number11 index10 alt2">&nbsp;</div>
+                                        <div class="line number12 index11 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="comments">// U or u is Used for Unsigned int in C.</code></div>
+                                        <div class="line number13 index12 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="color1 bold">int</code> <code class="plain">c = 89U;</code></div>
+                                        <div class="line number14 index13 alt1">&nbsp;</div>
+                                        <div class="line number15 index14 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="comments">// L or l is used for long int in C.</code></div>
+                                        <div class="line number16 index15 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="color1 bold">long</code> <code class="color1 bold">int</code>
+                                            <code class="plain">d = 99998L;</code></div>
+                                        <div class="line number17 index16 alt2">&nbsp;</div>
+                                        <div class="line number18 index17 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="functions bold">printf</code><code class="plain">(</code><code
+                                                class="string">"Integer value with positive data: %d\n"</code><code
+                                                class="plain">, a);</code></div>
+                                        <div class="line number19 index18 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="functions bold">printf</code><code class="plain">(</code><code
+                                                class="string">"Integer value with negative data: %d\n"</code><code
+                                                class="plain">, b);</code></div>
+                                        <div class="line number20 index19 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="functions bold">printf</code><code class="plain">(</code><code
+                                                class="string">"Integer value with an unsigned int data: %u\n"</code><code
+                                                class="plain">,</code></div>
+                                        <div class="line number21 index20 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="plain">c);</code></div>
+                                        <div class="line number22 index21 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="functions bold">printf</code><code class="plain">(</code><code
+                                                class="string">"Integer value with an long int data: %ld"</code><code
+                                                class="plain">, d);</code></div>
+                                        <div class="line number23 index22 alt2">&nbsp;</div>
+                                        <div class="line number24 index23 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="keyword bold">return</code> <code class="plain">0;</code></div>
+                                        <div class="line number25 index24 alt2"><code class="plain">}</code></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="code-output"><strong>Output</strong>
+    <div class="gray">Integer value with positive data: 9
+Integer value with negative data: -9
+Integer value with an unsigned int data: 89
+Integer value with an long int data: 99998
+</div>
+</div>
+
+<h2>Character Data Type</h2>
+<p dir="ltr">Character data type allows its variable to store only a single character. The size of the character is 1
+    byte. It is the most basic data type in C. It stores a single character and requires a single byte of memory in
+    almost all compilers.</p>
+<ul>
+    <li value="1"><strong>Range:&nbsp;</strong>(-128 to 127) or (0 to 255)</li>
+    <li value="2"><strong>Size:</strong>&nbsp;1 byte</li>
+    <li value="3"><strong>Format Specifier:</strong>&nbsp;%c</li>
+</ul>
+<h3>Syntax of char</h3>
+<p dir="ltr">The&nbsp;<strong>char keyword</strong>&nbsp;is used to declare the variable of character type:</p>
+
+
+<div class="gray"><strong>char</strong> <em><em class="GFGEditorTheme__textItalic">var_name;</em></em><br /><br /></div>
+<h3>Example of char</h3>
+
+            <div class="code-container">
+                <div id="highlighter_615770" class="syntaxhighlighter nogutter  ">
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td class="code">
+                                    <div class="container">
+                                        <div class="line number1 index0 alt2"><code
+                                                class="comments">// C program to print Integer data types.</code></div>
+                                        <div class="line number2 index1 alt1"><code
+                                                class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+                                        <div class="line number3 index2 alt2">&nbsp;</div>
+                                        <div class="line number4 index3 alt1"><code class="color1 bold">int</code> <code
+                                                class="plain">main()</code></div>
+                                        <div class="line number5 index4 alt2"><code class="plain">{</code></div>
+                                        <div class="line number6 index5 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="color1 bold">char</code> <code class="plain">a = </code><code
+                                                class="string">'a'</code><code class="plain">;</code></div>
+                                        <div class="line number7 index6 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="color1 bold">char</code> <code class="plain">c;</code></div>
+                                        <div class="line number8 index7 alt1">&nbsp;</div>
+                                        <div class="line number9 index8 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="functions bold">printf</code><code class="plain">(</code><code
+                                                class="string">"Value of a: %c\n"</code><code class="plain">, a);</code>
+                                        </div>
+                                        <div class="line number10 index9 alt1">&nbsp;</div>
+                                        <div class="line number11 index10 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="plain">a++;</code></div>
+                                        <div class="line number12 index11 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="functions bold">printf</code><code class="plain">(</code><code
+                                                class="string">"Value of a after increment is: %c\n"</code><code
+                                                class="plain">, a);</code></div>
+                                        <div class="line number13 index12 alt2">&nbsp;</div>
+                                        <div class="line number14 index13 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="comments">// c is assigned ASCII values</code></div>
+                                        <div class="line number15 index14 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="comments">// which corresponds to the</code></div>
+                                        <div class="line number16 index15 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="comments">// character 'c'</code></div>
+                                        <div class="line number17 index16 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="comments">// a--&gt;97 b--&gt;98 c--&gt;99</code></div>
+                                        <div class="line number18 index17 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="comments">// here c will be printed</code></div>
+                                        <div class="line number19 index18 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="plain">c = 99;</code></div>
+                                        <div class="line number20 index19 alt1">&nbsp;</div>
+                                        <div class="line number21 index20 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="functions bold">printf</code><code class="plain">(</code><code
+                                                class="string">"Value of c: %c"</code><code class="plain">, c);</code>
+                                        </div>
+                                        <div class="line number22 index21 alt1">&nbsp;</div>
+                                        <div class="line number23 index22 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="keyword bold">return</code> <code class="plain">0;</code></div>
+                                        <div class="line number24 index23 alt1"><code class="plain">}</code></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="code-output"><strong>Output</strong>
+    <div class="gray">Value of a: a
+Value of a after increment is: b
+Value of c: c
+
+</div>
+</div>
+<h2>Float Data Type</h2>
+<p dir="ltr">In C programming&nbsp;<a href="data types.html">float data
+        type</a>&nbsp;is used to store floating-point values. Float in C is used to store decimal and exponential
+    values. It is used to store decimal numbers (numbers with floating point values) with single precision.</p>
+<ul>
+    <li value="1"><strong>Range:&nbsp;</strong>1.2E-38 to 3.4E+38</li>
+    <li value="2"><strong>Size:</strong>&nbsp;4 bytes</li>
+    <li value="3"><strong>Format Specifier:</strong>&nbsp;%f</li>
+</ul>
+<h3>Syntax of float</h3>
+<p dir="ltr">The&nbsp;<strong>float keyword&nbsp;</strong>is used to declare the variable as a floating point:</p>
+<div class="gray"><strong>float</strong> <em><em class="GFGEditorTheme__textItalic">var_name;</em></em></div>
+
+
+<h3>Example of Float</h3>
+<div class="responsive-tabs">
+    <h2 class="tabtitle">C</h2>
+    <div class="tabcontent">
+        <div class="code-block">
+
+            <div class="code-container">
+                <div id="highlighter_997296" class="syntaxhighlighter nogutter  ">
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td class="code">
+                                    <div class="container">
+                                        <div class="line number1 index0 alt2"><code
+                                                class="comments">// C Program to demonstrate use</code></div>
+                                        <div class="line number2 index1 alt1"><code
+                                                class="comments">// of Floating types</code></div>
+                                        <div class="line number3 index2 alt2"><code
+                                                class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+                                        <div class="line number4 index3 alt1">&nbsp;</div>
+                                        <div class="line number5 index4 alt2"><code class="color1 bold">int</code> <code
+                                                class="plain">main()</code></div>
+                                        <div class="line number6 index5 alt1"><code class="plain">{</code></div>
+                                        <div class="line number7 index6 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="color1 bold">float</code> <code class="plain">a = 9.0f;</code>
+                                        </div>
+                                        <div class="line number8 index7 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="color1 bold">float</code> <code class="plain">b = 2.5f;</code>
+                                        </div>
+                                        <div class="line number9 index8 alt2">&nbsp;</div>
+                                        <div class="line number10 index9 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="comments">// 2x10^-4</code></div>
+                                        <div class="line number11 index10 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="color1 bold">float</code> <code class="plain">c = 2E-4f;</code>
+                                        </div>
+                                        <div class="line number12 index11 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="functions bold">printf</code><code class="plain">(</code><code
+                                                class="string">"%f\n"</code><code class="plain">, a);</code></div>
+                                        <div class="line number13 index12 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="functions bold">printf</code><code class="plain">(</code><code
+                                                class="string">"%f\n"</code><code class="plain">, b);</code></div>
+                                        <div class="line number14 index13 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="functions bold">printf</code><code class="plain">(</code><code
+                                                class="string">"%f"</code><code class="plain">, c);</code></div>
+                                        <div class="line number15 index14 alt2">&nbsp;</div>
+                                        <div class="line number16 index15 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="keyword bold">return</code> <code class="plain">0;</code></div>
+                                        <div class="line number17 index16 alt2"><code class="plain">}</code></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="code-output"><strong>Output</strong>
+    <div class="gray">9.000000
+2.500000
+0.000200
+
+</div>
+</div>
+<h2>Double Data Type</h2>
+<p dir="ltr">A&nbsp;<a href="data types.html">Double data type</a>&nbsp;in C is used
+    to store decimal numbers (numbers with floating point values) with double precision. It is used to define numeric
+    values which hold numbers with decimal values in C.</p>
+<p dir="ltr">The double data type is basically a precision sort of data type that is capable of holding 64 bits of
+    decimal numbers or floating points. Since double has more precision as compared to that float then it is much more
+    obvious that it occupies twice the memory occupied by the floating-point type. It can easily accommodate about 16 to
+    17 digits after or before a decimal point.</p>
+<ul>
+    <li value="1"><strong>Range:</strong>&nbsp;1.7E-308 to 1.7E+308</li>
+    <li value="2"><strong>Size:</strong>&nbsp;8 bytes</li>
+    <li value="3"><strong>Format Specifier:</strong>&nbsp;%lf</li>
+</ul>
+<h3>Syntax of Double</h3>
+<p dir="ltr">The variable can be declared as double precision floating point using the&nbsp;<strong>double
+        keyword:</strong></p>
+<div class="gray"><strong>double</strong><em><em class="GFGEditorTheme__textItalic"> var_name;</em></em></div>
+
+
+<h3>Example of Double</h3>
+<div class="responsive-tabs">
+    <h2 class="tabtitle">C</h2>
+
+            <div class="code-container">
+                <div id="highlighter_440102" class="syntaxhighlighter nogutter  ">
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td class="code">
+                                    <div class="container">
+                                        <div class="line number1 index0 alt2"><code
+                                                class="comments">// C Program to demonstrate </code></div>
+                                        <div class="line number2 index1 alt1"><code
+                                                class="comments">// use of double data type</code></div>
+                                        <div class="line number3 index2 alt2"><code
+                                                class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+                                        <div class="line number4 index3 alt1">&nbsp;</div>
+                                        <div class="line number5 index4 alt2"><code class="color1 bold">int</code> <code
+                                                class="plain">main()</code></div>
+                                        <div class="line number6 index5 alt1"><code class="plain">{</code></div>
+                                        <div class="line number7 index6 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="color1 bold">double</code> <code
+                                                class="plain">a = 123123123.00;</code></div>
+                                        <div class="line number8 index7 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="color1 bold">double</code> <code
+                                                class="plain">b = 12.293123;</code></div>
+                                        <div class="line number9 index8 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="color1 bold">double</code> <code
+                                                class="plain">c = 2312312312.123123;</code></div>
+                                        <div class="line number10 index9 alt1">&nbsp;</div>
+                                        <div class="line number11 index10 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="functions bold">printf</code><code class="plain">(</code><code
+                                                class="string">"%lf\n"</code><code class="plain">, a);</code></div>
+                                        <div class="line number12 index11 alt1">&nbsp;</div>
+                                        <div class="line number13 index12 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="functions bold">printf</code><code class="plain">(</code><code
+                                                class="string">"%lf\n"</code><code class="plain">, b);</code></div>
+                                        <div class="line number14 index13 alt1">&nbsp;</div>
+                                        <div class="line number15 index14 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="functions bold">printf</code><code class="plain">(</code><code
+                                                class="string">"%lf"</code><code class="plain">, c);</code></div>
+                                        <div class="line number16 index15 alt1">&nbsp;</div>
+                                        <div class="line number17 index16 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="keyword bold">return</code> <code class="plain">0;</code></div>
+                                        <div class="line number18 index17 alt1"><code class="plain">}</code></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="code-output"><strong>Output</strong>
+    <div class="gray">123123123.000000
+12.293123
+2312312312.123123
+
+</div>
+</div>
+<h2><strong>Void Data Type</strong></h2>
+<p dir="ltr">The void data type in C is used to specify that no value is present. It does not provide a result value to
+    its caller. It has no values and no operations. It is used to represent nothing. Void is used in multiple ways as
+    function return type, function arguments as void, and&nbsp;<a
+        href="pointers.html">pointers to void</a>.</p>
+<h3><strong>Syntax:</strong></h3>
+<div class="gray">// function return type void<br /><strong>void</strong> exit(int check);<br />// Function without any parameter can accept void.<br />int print(<strong>void</strong>);<br />// memory allocation function which<br />// returns a pointer to void.<br /><strong>void</strong> *malloc (size_t size);<br /><br /></div>
+<h3>Example of Void</h3>
+<div class="responsive-tabs">
+    <h2 class="tabtitle">C</h2>
+
+            <div class="code-container">
+                <div id="highlighter_754715" class="syntaxhighlighter nogutter  ">
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td class="code">
+                                    <div class="container">
+                                        <div class="line number1 index0 alt2"><code
+                                                class="comments">// C program to demonstrate</code></div>
+                                        <div class="line number2 index1 alt1"><code
+                                                class="comments">// use of void pointers</code></div>
+                                        <div class="line number3 index2 alt2"><code
+                                                class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+                                        <div class="line number4 index3 alt1">&nbsp;</div>
+                                        <div class="line number5 index4 alt2"><code class="color1 bold">int</code> <code
+                                                class="plain">main()</code></div>
+                                        <div class="line number6 index5 alt1"><code class="plain">{</code></div>
+                                        <div class="line number7 index6 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="color1 bold">int</code> <code class="plain">val = 30;</code>
+                                        </div>
+                                        <div class="line number8 index7 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="keyword bold">void</code><code
+                                                class="plain">* ptr = &amp;val;</code></div>
+                                        <div class="line number9 index8 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="functions bold">printf</code><code class="plain">(</code><code
+                                                class="string">"%d"</code><code class="plain">, *(</code><code
+                                                class="color1 bold">int</code><code class="plain">*)ptr);</code></div>
+                                        <div class="line number10 index9 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="keyword bold">return</code> <code class="plain">0;</code></div>
+                                        <div class="line number11 index10 alt2"><code class="plain">}</code></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="code-output"><strong>Output</strong>
+    <div class="gray">30</div>
+</div>
+
+
+
+
+<h2>Size of Data Types in C</h2>
+<p dir="ltr">The size of the data types in C is dependent on the size of the architecture, so we cannot define the
+    universal size of the data types. For that, the C language provides the sizeof() operator to check the size of the
+    data types.</p>
+<h3>Example</h3>
+<div class="responsive-tabs">
+    <h2 class="tabtitle">C</h2>
+    <div class="tabcontent">
+
+            <div class="code-container">
+                <div id="highlighter_76320" class="syntaxhighlighter nogutter  ">
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td class="code">
+                                    <div class="container">
+                                        <div class="line number1 index0 alt2"><code
+                                                class="comments">// C Program to print size of</code></div>
+                                        <div class="line number2 index1 alt1"><code
+                                                class="comments">// different data type in C</code></div>
+                                        <div class="line number3 index2 alt2"><code
+                                                class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+                                        <div class="line number4 index3 alt1">&nbsp;</div>
+                                        <div class="line number5 index4 alt2"><code class="color1 bold">int</code> <code
+                                                class="plain">main()</code></div>
+                                        <div class="line number6 index5 alt1"><code class="plain">{</code></div>
+                                        <div class="line number7 index6 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="color1 bold">int</code> <code
+                                                class="plain">size_of_int = </code><code
+                                                class="keyword bold">sizeof</code><code class="plain">(</code><code
+                                                class="color1 bold">int</code><code class="plain">);</code></div>
+                                        <div class="line number8 index7 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="color1 bold">int</code> <code
+                                                class="plain">size_of_char = </code><code
+                                                class="keyword bold">sizeof</code><code class="plain">(</code><code
+                                                class="color1 bold">char</code><code class="plain">);</code></div>
+                                        <div class="line number9 index8 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="color1 bold">int</code> <code
+                                                class="plain">size_of_float = </code><code
+                                                class="keyword bold">sizeof</code><code class="plain">(</code><code
+                                                class="color1 bold">float</code><code class="plain">);</code></div>
+                                        <div class="line number10 index9 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="color1 bold">int</code> <code
+                                                class="plain">size_of_double = </code><code
+                                                class="keyword bold">sizeof</code><code class="plain">(</code><code
+                                                class="color1 bold">double</code><code class="plain">);</code></div>
+                                        <div class="line number11 index10 alt2">&nbsp;</div>
+                                        <div class="line number12 index11 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="functions bold">printf</code><code class="plain">(</code><code
+                                                class="string">"The size of int data type : %d\n"</code><code
+                                                class="plain">, size_of_int);</code></div>
+                                        <div class="line number13 index12 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="functions bold">printf</code><code class="plain">(</code><code
+                                                class="string">"The size of char data type : %d\n"</code><code
+                                                class="plain">,</code></div>
+                                        <div class="line number14 index13 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="plain">size_of_char);</code></div>
+                                        <div class="line number15 index14 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="functions bold">printf</code><code class="plain">(</code><code
+                                                class="string">"The size of float data type : %d\n"</code><code
+                                                class="plain">,</code></div>
+                                        <div class="line number16 index15 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="plain">size_of_float);</code></div>
+                                        <div class="line number17 index16 alt2"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="functions bold">printf</code><code class="plain">(</code><code
+                                                class="string">"The size of double data type : %d"</code><code
+                                                class="plain">,</code></div>
+                                        <div class="line number18 index17 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="plain">size_of_double);</code></div>
+                                        <div class="line number19 index18 alt2">&nbsp;</div>
+                                        <div class="line number20 index19 alt1"><code
+                                                class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                class="keyword bold">return</code> <code class="plain">0;</code></div>
+                                        <div class="line number21 index20 alt2"><code class="plain">}</code></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="code-output"><strong>Output</strong>
+    <div class="gray">The size of int data type : 4
+The size of char data type : 1
+The size of float data type : 4
+The size of double data type : 8
+</div>
+</div>
+
+<h2>Literals in C</h2>
+
+
+
+<p dir="ltr">In C, Literals are the constant values that are assigned to the variables. Literals represent fixed values
+    that cannot be modified. Literals contain memory but they do not have references as variables. Generally, both
+    terms, constants, and literals are used interchangeably.&nbsp;<br />For example, &ldquo;const int = 5;&ldquo;, is a
+    constant expression and the value 5 is referred to as a constant integer literal.</p>
+<h2>Types of C Literals</h2>
+<p dir="ltr">There are 4 types of literal in C:</p>
+<ul>
+    <li value="1"><strong>Integer Literal</strong></li>
+    <li value="2"><strong>Float Literal</strong></li>
+    <li value="3"><strong>Character Literal</strong></li>
+    <li value="4"><strong>String Literal</strong></li>
+</ul>
+<p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231226085253/C-literals.png"
+        alt="C-literals" width="300" height="300" /></p>
+
+
+<h2>1. Integer Literals</h2>
+<p dir="ltr">Integer literals&nbsp;are used to represent and store the integer values only.
+    Integer literals are expressed in two types i.e.</p>
+<p dir="ltr"><strong>A) Prefixes:</strong>&nbsp;The Prefix of the integer literal indicates the base in which it is to
+    be read.<br /><strong>For Example:</strong></p>
+<blockquote>
+    <p dir="ltr"><strong>0x10</strong>&nbsp;= 16</p>
+    <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+    <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+    <p dir="ltr">Because 0x prefix represents a HexaDecimal base. So 10 in HexaDecimal is 16 in Decimal. Hence the value
+        16.</p>
+</blockquote>
+<p dir="ltr"><strong>There are basically represented into 4 types:</strong></p>
+<p dir="ltr"><strong>a. Decimal-literal(base 10):</strong>&nbsp;A&nbsp;<strong>non-zero decimal
+        digit</strong>&nbsp;followed by zero or more decimal digits(0, 1, 2, 3, 4, 5, 6, 7, 8, 9).</p>
+<p dir="ltr"><strong>Example:</strong></p>
+<div class="gray">56, 78
+
+</div>
+<p dir="ltr"><strong>b. Octal-literal(base 8):</strong>&nbsp;a&nbsp;<strong>0</strong>&nbsp;followed by zero or more
+    octal digits(0, 1, 2, 3, 4, 5, 6, 7).</p>
+<p dir="ltr"><strong>Example:</strong></p>
+
+<div class="gray">045, 076, 06210
+
+</div>
+<p dir="ltr"><strong>c. Hex-literal(base
+        16):</strong>&nbsp;<strong>0x</strong>&nbsp;or&nbsp;<strong>0X</strong>&nbsp;followed by one or more hexadecimal
+    digits(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, a, A, b, B, c, C, d, D, e, E, f, F).</p>
+<p dir="ltr"><strong>Example:</strong></p>
+<div class="gray">0x23A, 0Xb4C, 0xFEA
+
+</div>
+<p dir="ltr"><strong>d. Binary-literal(base
+        2):</strong>&nbsp;<strong>0b</strong>&nbsp;or&nbsp;<strong>0B</strong>&nbsp;followed by one or more binary
+    digits(0, 1).</p>
+<p dir="ltr"><strong>Example:</strong></p>
+<div class="gray">0b101, 0B111
+
+</div>
+<p dir="ltr"><strong>B) Suffixes:</strong>&nbsp;The Prefix of the integer literal indicates the type in which it is to
+    be read.</p>
+<p dir="ltr"><strong>For example:</strong></p>
+<blockquote>
+    <p dir="ltr">12345678901234LL&nbsp;</p>
+    <p dir="ltr">indicates a long long integer value 12345678901234 because of the suffix LL</p>
+</blockquote>
+<p dir="ltr">These are represented in many ways according to their data types.</p>
+<ul>
+    <li value="1"><strong>int:</strong>&nbsp;No suffix is required because integer constant is by default assigned as an
+        int data type.</li>
+    <li value="2"><strong>unsigned int:</strong>&nbsp;character u or U at the end of an integer constant.</li>
+    <li value="3"><strong>long int:</strong>&nbsp;character l or L at the end of an integer constant.</li>
+    <li value="4"><strong>unsigned long int:</strong>&nbsp;character ul or UL at the end of an integer constant.</li>
+    <li value="5"><strong>long long int:</strong>&nbsp;character ll or LL at the end of an integer constant.</li>
+    <li value="6"><strong>unsigned long long int:</strong>&nbsp;character ull or ULL at the end of an integer constant.
+    </li>
+</ul>
+<p dir="ltr"><strong>Example:</strong></p>
+<div id="GFG_AD_gfg_outstream_incontent-1">&nbsp;</div>
+<div class="responsive-tabs-wrapper">
+    <div class="responsive-tabs responsive-tabs--enabled">
+        <ul class="responsive-tabs__list" role="tablist">
+            <li id="tablist1-tab1" class="responsive-tabs__list__item responsive-tabs__list__item--active" tabindex="0"
+                role="tab" aria-controls="tablist1-panel1">C</li>
+        </ul>
+        <div id="tablist1-panel1" class="tabcontent responsive-tabs__panel responsive-tabs__panel--active"
+            role="tabpanel" aria-hidden="false" aria-labelledby="tablist1-tab1">
+
+                <div class="code-container">
+                    <div id="highlighter_954576" class="syntaxhighlighter nogutter  ">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tbody>
+                                <tr>
+                                    <td class="code">
+                                        <div class="container">
+                                            <div class="line number1 index0 alt2"><code
+                                                    class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+                                            <div class="line number2 index1 alt1">&nbsp;</div>
+                                            <div class="line number3 index2 alt2"><code class="color1 bold">int</code>
+                                                <code class="plain">main()</code></div>
+                                            <div class="line number4 index3 alt1"><code class="plain">{</code></div>
+                                            <div class="line number5 index4 alt2">&nbsp;</div>
+                                            <div class="line number6 index5 alt1"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="comments">// constant integer literal</code></div>
+                                            <div class="line number7 index6 alt2"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="keyword bold">const</code> <code
+                                                    class="color1 bold">int</code> <code
+                                                    class="plain">intVal = 10;</code></div>
+                                            <div class="line number8 index7 alt1">&nbsp;</div>
+                                            <div class="line number9 index8 alt2"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="functions bold">printf</code><code
+                                                    class="plain">(</code><code
+                                                    class="string">"Integer Literal:%d \n"</code><code
+                                                    class="plain">, intVal);</code></div>
+                                            <div class="line number10 index9 alt1"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="keyword bold">return</code> <code class="plain">0;</code>
+                                            </div>
+                                            <div class="line number11 index10 alt2"><code class="plain">}</code></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="code-output"><strong>Output</strong>
+    <div class="gray">Integer Literal:10 
+
+
+</div>
+</div>
+
+
+
+<h2>2. Floating-Point Literals</h2>
+<p dir="ltr">These are used to represent and store real numbers. The real number has an integer part, real part,
+    fractional part, and exponential part. The floating-point literals can be stored either in decimal form or
+    exponential form. While representing the floating-point decimals one must keep two things in mind to produce valid
+    literal:</p>
+<ul>
+    <li value="1">In the decimal form, one must include the integer part, or fractional part, or both, otherwise, it
+        will lead to an error.</li>
+    <li value="2">In the exponential form, one must include both the significand and exponent part, otherwise, it will
+        lead to an error.</li>
+</ul>
+<p dir="ltr">A few floating-point literal representations are shown below:</p>
+<p dir="ltr"><strong>Valid Floating Literals:</strong></p>
+<div class="gray">10.125
+1.215e-10L
+10.5E-3
+
+</div>
+<p dir="ltr"><strong>Invalid Floating Literals:</strong></p>
+<div class="gray">123E
+1250f
+0.e879
+
+</div>
+<p dir="ltr"><strong>Example:</strong></p>
+<div class="responsive-tabs-wrapper">
+    <div class="responsive-tabs responsive-tabs--enabled">
+        <ul class="responsive-tabs__list" role="tablist">
+            <li id="tablist2-tab1" class="responsive-tabs__list__item responsive-tabs__list__item--active" tabindex="0"
+                role="tab" aria-controls="tablist2-panel1">C</li>
+        </ul>
+        <div id="tablist2-panel1" class="tabcontent responsive-tabs__panel responsive-tabs__panel--active"
+            role="tabpanel" aria-hidden="false" aria-labelledby="tablist2-tab1">
+
+                <div class="code-container">
+                    <div id="highlighter_840531" class="syntaxhighlighter nogutter  ">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tbody>
+                                <tr>
+                                    <td class="code">
+                                        <div class="container">
+                                            <div class="line number1 index0 alt2"><code
+                                                    class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+                                            <div class="line number2 index1 alt1">&nbsp;</div>
+                                            <div class="line number3 index2 alt2"><code class="color1 bold">int</code>
+                                                <code class="plain">main()</code></div>
+                                            <div class="line number4 index3 alt1"><code class="plain">{</code></div>
+                                            <div class="line number5 index4 alt2"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="comments">// constant float literal</code></div>
+                                            <div class="line number6 index5 alt1"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="keyword bold">const</code> <code
+                                                    class="color1 bold">float</code> <code
+                                                    class="plain">floatVal = 4.14;</code></div>
+                                            <div class="line number7 index6 alt2">&nbsp;</div>
+                                            <div class="line number8 index7 alt1"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="functions bold">printf</code><code
+                                                    class="plain">(</code><code
+                                                    class="string">"Floating point literal: %.2f\n"</code><code
+                                                    class="plain">,</code></div>
+                                            <div class="line number9 index8 alt2"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="plain">floatVal);</code></div>
+                                            <div class="line number10 index9 alt1"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="keyword bold">return</code> <code class="plain">0;</code>
+                                            </div>
+                                            <div class="line number11 index10 alt2"><code class="plain">}</code></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="code-output"><strong>Output</strong>
+    <div class="gray">Floating point literal: 4.14</div>
+</div>
+
+
+
+<h2><strong>3. Character Literals</strong></h2>
+<p dir="ltr">This refers to the literal that is used to store a single character within a single quote. To store
+    multiple characters, one needs to use a character array. Storing more than one character within a single quote will
+    throw a warning and display just the last character of the literal. It gives rise to the following two
+    representations:</p>
+<ul>
+    <li value="1"><strong>char type:</strong>&nbsp;This is used to store normal character literal or narrow-character
+        literals.</li>
+</ul>
+<p dir="ltr"><strong>Example:</strong></p>
+<div class="gray">char chr = 'G';
+
+</div>
+<p dir="ltr"><strong>Example:</strong></p>
+
+<h2><strong>3. Character Literals</strong></h2>
+<p dir="ltr">This refers to the literal that is used to store a single character within a single quote. To store
+    multiple characters, one needs to use a character array. Storing more than one character within a single quote will
+    throw a warning and display just the last character of the literal. It gives rise to the following two
+    representations:</p>
+<ul>
+    <li value="1"><strong>char type:</strong>&nbsp;This is used to store normal character literal or narrow-character
+        literals.</li>
+</ul>
+<p dir="ltr"><strong>Example:</strong></p>
+<div class="gray">char chr = 'G';
+
+</div>
+<p dir="ltr"><strong>Example:</strong></p>
+<div class="responsive-tabs-wrapper">
+    <div class="responsive-tabs responsive-tabs--enabled">
+        <div id="tablist3-panel1" class="tabcontent responsive-tabs__panel responsive-tabs__panel--active"
+            role="tabpanel" aria-hidden="false" aria-labelledby="tablist3-tab1">
+            <div class="code-block">
+                <div class="code-container">
+                    <div id="highlighter_787272" class="syntaxhighlighter nogutter  ">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tbody>
+                                <tr>
+                                    <td class="code">
+                                        <div class="container">
+                                            <div class="line number1 index0 alt2"><code
+                                                    class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+                                            <div class="line number2 index1 alt1">&nbsp;</div>
+                                            <div class="line number3 index2 alt2"><code class="color1 bold">int</code>
+                                                <code class="plain">main()</code></div>
+                                            <div class="line number4 index3 alt1"><code class="plain">{</code></div>
+                                            <div class="line number5 index4 alt2"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="comments">// constant char literal</code></div>
+                                            <div class="line number6 index5 alt1"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="keyword bold">const</code> <code
+                                                    class="color1 bold">char</code> <code
+                                                    class="plain">charVal = </code><code class="string">'A'</code><code
+                                                    class="plain">;</code></div>
+                                            <div class="line number7 index6 alt2">&nbsp;</div>
+                                            <div class="line number8 index7 alt1"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="functions bold">printf</code><code
+                                                    class="plain">(</code><code
+                                                    class="string">"Character Literal: %c\n"</code><code
+                                                    class="plain">,</code></div>
+                                            <div class="line number9 index8 alt2"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="plain">charVal);</code></div>
+                                            <div class="line number10 index9 alt1"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="keyword bold">return</code> <code class="plain">0;</code>
+                                            </div>
+                                            <div class="line number11 index10 alt2"><code class="plain">}</code></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<p dir="ltr"><strong>Output:</strong></p>
+<div class="gray">Character Literal: A
+
+</div>
+<p dir="ltr"><u><strong><strong
+                    class="GFGEditorTheme__textUnderline">Escape
+                    Sequences</strong></strong></u><strong>:</strong>&nbsp;There are various special characters that
+    one can use to perform various operations.</p>
+<h2>4. String Literals</h2>
+<p dir="ltr">String literals are similar to that character literals, except that they can store multiple characters and
+    uses a double quote to store the same. It can also accommodate the special characters and escape sequences mentioned
+    in the table above. We can break a long line into multiple lines using string literal and can separate them with the
+    help of white spaces.<br /><strong>Example:</strong></p>
+<div class="gray">char stringVal[] = "computer";
+
+</div>
+<p dir="ltr"><strong>Example:</strong></p>
+<div class="responsive-tabs-wrapper">
+    <div class="responsive-tabs responsive-tabs--enabled">
+        <ul class="responsive-tabs__list" role="tablist">
+            <li id="tablist4-tab1" class="responsive-tabs__list__item responsive-tabs__list__item--active" tabindex="0"
+                role="tab" aria-controls="tablist4-panel1">C</li>
+        </ul>
+        <div id="tablist4-panel1" class="tabcontent responsive-tabs__panel responsive-tabs__panel--active"
+            role="tabpanel" aria-hidden="false" aria-labelledby="tablist4-tab1">
+            <div class="code-block">
+                <div class="code-gutter">
+                    <div class="editor-buttons-container">
+                        <div class="editor-buttons">
+                            <div class="editor-buttons-div" title="Run and Edit"><em id="copy-code-button"
+                                    class="gfg-icon gfg-icon_copy code-sidebar-button padding-2px copy-code-button"
+                                    title="Copy Code"></em>
+                                <p>&nbsp;</p>
+                                <p>&nbsp;</p>
+                                <p>&nbsp;</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <div id="highlighter_847016" class="syntaxhighlighter nogutter  ">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tbody>
+                                <tr>
+                                    <td class="code">
+                                        <div class="container">
+                                            <div class="line number1 index0 alt2"><code
+                                                    class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+                                            <div class="line number2 index1 alt1">&nbsp;</div>
+                                            <div class="line number3 index2 alt2"><code class="color1 bold">int</code>
+                                                <code class="plain">main()</code></div>
+                                            <div class="line number4 index3 alt1"><code class="plain">{</code></div>
+                                            <div class="line number5 index4 alt2"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="keyword bold">const</code> <code
+                                                    class="color1 bold">char</code> <code class="plain">str[]</code>
+                                            </div>
+                                            <div class="line number6 index5 alt1"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="plain">= </code><code
+                                                    class="string">"Welcome\nTo\nc\ttutorials"</code><code
+                                                    class="plain">;</code></div>
+                                            <div class="line number7 index6 alt2"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="functions bold">printf</code><code
+                                                    class="plain">(</code><code class="string">"%s"</code><code
+                                                    class="plain">, str);</code></div>
+                                            <div class="line number8 index7 alt1"><code
+                                                    class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                    class="keyword bold">return</code> <code class="plain">0;</code>
+                                            </div>
+                                            <div class="line number9 index8 alt2"><code class="plain">}</code></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<p dir="ltr"><strong>Output:</strong></p>
+<div class="gray">Welcome
+To
+c tutorials</div>
+</body>
+</html>

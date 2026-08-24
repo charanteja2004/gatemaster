@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.cources_cse.PreviousPapers">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="85dp"
+                    android:layout_margin="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="67dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Previous Years GATE CSE "
+                        android:textColor="#000000"
+                        android:textSize="34sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2024">
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2024"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2024-key">
+
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2024-Key"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2023">
+
+                        <TextView
+                            android:id="@+id/textView5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2023"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2023-key">
+
+                        <TextView
+                            android:id="@+id/textView6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2023-Key"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2022">
+
+                        <TextView
+                            android:id="@+id/textView7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2022"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2022-key">
+
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2022-Key"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2021">
+
+                        <TextView
+                            android:id="@+id/textView9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2021"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2021-key">
+
+                        <TextView
+                            android:id="@+id/textView10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2021-Key"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2020">
+
+                        <TextView
+                            android:id="@+id/textView31"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2020"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2020-key">
+
+                        <TextView
+                            android:id="@+id/textView41"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2020-Key"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2019">
+
+                        <TextView
+                            android:id="@+id/textView32"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2019"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2019-key">
+
+                        <TextView
+                            android:id="@+id/textView42"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2019-Key"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2018">
+
+                        <TextView
+                            android:id="@+id/textView33"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2018"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2018-key">
+
+                        <TextView
+                            android:id="@+id/textView43"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2018-Key"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2017">
+
+                        <TextView
+                            android:id="@+id/textView34"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2017"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2017-key">
+
+                        <TextView
+                            android:id="@+id/textView44"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2017-Key"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2016">
+
+                        <TextView
+                            android:id="@+id/textView50"
+                            android:layout_width="162dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2016"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2016-key">
+
+                        <TextView
+                            android:id="@+id/textView39"
+                            android:layout_width="162dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2016-key"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2015">
+
+                        <TextView
+                            android:id="@+id/textView20"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2015"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2015-key">
+
+                        <TextView
+                            android:id="@+id/textView21"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2015-Key"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="84dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2014">
+
+                        <TextView
+                            android:id="@+id/textView22"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2014"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2014-key">
+
+                        <TextView
+                            android:id="@+id/textView23"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2014-Key"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="84dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2014">
+
+                        <TextView
+                            android:id="@+id/textView28"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2013"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2014-key">
+
+                        <TextView
+                            android:id="@+id/textView29"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2013-Key"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="84dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2014">
+
+                        <TextView
+                            android:id="@+id/textView26"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2012"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2014-key">
+
+                        <TextView
+                            android:id="@+id/textView27"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2012-Key"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="84dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2014">
+
+                        <TextView
+                            android:id="@+id/textView25"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2011"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_corners"
+                        android:clickable="true"
+                        android:elevation="8dp"
+                        android:onClick="onItemClick"
+                        android:padding="16dp"
+                        android:tag="2014-key">
+
+                        <TextView
+                            android:id="@+id/textView24"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="2dp"
+                            android:text="2010"
+                            android:textColor="#000000"
+                            android:textSize="28sp" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

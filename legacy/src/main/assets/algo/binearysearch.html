@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    <h2>Binary Search Algorithm</h2>
+
+    <p dir="ltr"><strong>Binary Search</strong>&nbsp;<strong>Algorithm&nbsp;</strong>is a&nbsp;<a
+            href="https://www.geeksforgeeks.org/searching-algorithms/">searching algorithm</a>&nbsp;used in a sorted
+        array by&nbsp;<strong>repeatedly dividing the search interval in half</strong>. The idea of binary search is to
+        use the information that the array is sorted and reduce the time complexity to O(log N).&nbsp;</p>
+    <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20240506155201/binnary-search-.webp"
+            srcset="https://media.geeksforgeeks.org/wp-content/uploads/20240506155201/binnary-search-.webp 1000w,https://media.geeksforgeeks.org/wp-content/uploads/20240506155201/binnary-search--100.webp 100w,https://media.geeksforgeeks.org/wp-content/uploads/20240506155201/binnary-search--200.webp 200w,https://media.geeksforgeeks.org/wp-content/uploads/20240506155201/binnary-search--300.webp 300w,https://media.geeksforgeeks.org/wp-content/uploads/20240506155201/binnary-search--660.webp 660w,https://media.geeksforgeeks.org/wp-content/uploads/20240506155201/binnary-search--768.webp 768w"
+            alt="binnary-search-" width="741" height="349" /></p>
+    <h2 id="what-is-binary-search"><u><span class="GFGEditorTheme__textUnderline">What is Binary Search
+                Algorithm?</span></u></h2>
+    <p dir="ltr"><strong>Binary search</strong>&nbsp;is a search algorithm used to find the position of a target value
+        within a&nbsp;<strong>sorted&nbsp;</strong>array. It works by repeatedly dividing the search interval in half
+        until the target value is found or the interval is empty. The search interval is halved by comparing the target
+        element with the middle value of the search space.</p>
+    <div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
+    <h2 id="conditions-to-apply-binary-search-in-a-data-structure"><u><span
+                class="GFGEditorTheme__textUnderline">Conditions to apply Binary Search Algorithm in a Data
+                Structure:</span></u></h2>
+    <p dir="ltr">To apply Binary Search algorithm:</p>
+    <ul>
+        <li value="1">The data structure must be sorted.</li>
+        <li value="2">Access to any element of the data structure takes constant time.</li>
+    </ul>
+    <h2 id="binary-search-algorithm"><u><span class="GFGEditorTheme__textUnderline">Binary Search Algorithm:</span></u>
+    </h2>
+    <blockquote>
+        <p dir="ltr">In this algorithm,&nbsp;</p>
+    </blockquote>
+
+    <blockquote>
+        <ul>
+            <li value="1">Divide the search space into two halves by&nbsp;<a
+                    href="https://www.geeksforgeeks.org/problem-binary-search-implementations/"><strong>finding the
+                        middle index &ldquo;mid&rdquo;</strong></a>.&nbsp;</li>
+        </ul>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230522163247/mid-in-binary-search-768.webp"
+                alt="finding the middle index &quot;mid&quot; in Binary Search Algorithm" width="350"
+                height="350" />
+            <p class="wp-caption-text">Finding the middle index &ldquo;mid&rdquo; in Binary Search Algorithm</p>
+        </div>
+        <ul>
+            <li value="1">Compare the middle element of the search space with the key.&nbsp;</li>
+            <li value="2">If the key is found at middle element, the process is terminated.</li>
+            <li value="3">If the key is not found at middle element, choose which half will be used as the next search
+                space.
+                <ul>
+                    <li value="1">If the key is smaller than the middle element, then the left side is used for next
+                        search.</li>
+                    <li value="2">If the key is larger than the middle element, then the right side is used for next
+                        search.</li>
+                </ul>
+            </li>
+            <li value="4">This process is continued until the key is found or the total search space is exhausted.</li>
+        </ul>
+    </blockquote>
+    <h2 id="how-does-binary-search-work"><u><span class="GFGEditorTheme__textUnderline">How does Binary Search Algorithm
+                work?</span></u></h2>
+    <p dir="ltr">To understand the working of binary search, consider the following illustration:</p>
+    <blockquote>
+        <p dir="ltr">Consider an array&nbsp;<strong>arr[] = {2, 5, 8, 12, 16, 23, 38, 56, 72, 91}</strong>, and
+            the&nbsp;<strong>target = 23</strong>.</p>
+        <p dir="ltr"><strong>First Step:</strong>&nbsp;Calculate the mid and compare the mid element with the key. If
+            the key is less than mid element, move to left and if it is greater than the mid then move search space to
+            the right.</p>
+        <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+        <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+        <ul>
+            <li value="1">Key (i.e., 23) is greater than current mid element (i.e., 16). The search space moves to the
+                right.</li>
+        </ul>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230524114905/1.webp"
+                alt="Binary Search Algorithm : Compare key with 16" width="350" height="306" />
+            <p class="wp-caption-text">Binary Search Algorithm : Compare key with 16</p>
+        </div>
+        <ul>
+            <li value="1">Key is less than the current mid 56. The search space moves to the left.</li>
+        </ul>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230524114935/2.webp"
+                alt="Binary Search Algorithm : Compare key with 56" width="350" height="310" />
+            <p class="wp-caption-text">Binary Search Algorithm : Compare key with 56</p>
+        </div>
+        <p dir="ltr"><strong>Second Step:</strong>&nbsp;If the key matches the value of the mid element, the element is
+            found and stop search.</p>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230726182418/binary-search-step-3.webp"
+                alt="binary-search-step-3" width="873" height="323" />
+            <p class="wp-caption-text">Binary Search Algorithm : Key matches with mid</p>
+        </div>
+    </blockquote>
+
+
+    <h2 id="how-to-implement-binary-search"><u><span class="GFGEditorTheme__textUnderline">How to Implement Binary
+                Search Algorithm?</span></u></h2>
+    <p dir="ltr">The&nbsp;<strong>Binary Search Algorithm</strong>&nbsp;can be implemented in the following two ways</p>
+    <ul>
+        <li value="1">Iterative Binary Search Algorithm</li>
+        <li value="2">Recursive Binary Search Algorithm</li>
+    </ul>
+    <p dir="ltr">Given below are the pseudocodes for the approaches.</p>
+    <h2 id="iterative-binary-search-algorithm"><u><strong><strong class="GFGEditorTheme__textUnderline">Iterative Binary
+                    Search Algorithm:</strong></strong></u></h2>
+    <blockquote>
+        <p dir="ltr">Here we use a while loop to continue the process of comparing the key and splitting the search
+            space in two halves.</p>
+    </blockquote>
+
+    <div class="gray"><span class="c1">// C program to implement iterative Binary Search</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="c1">// An iterative binary search function.</span>
+<span class="kt">int</span> <span class="nf">binarySearch</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">low</span><span class="p">,</span> <span class="kt">int</span> <span class="n">high</span><span class="p">,</span> <span class="kt">int</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">low</span> <span class="o">&lt;=</span> <span class="n">high</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">low</span> <span class="o">+</span> <span class="p">(</span><span class="n">high</span> <span class="o">-</span> <span class="n">low</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+
+        <span class="c1">// Check if x is present at mid</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">mid</span><span class="p">;</span>
+
+        <span class="c1">// If x greater, ignore left half</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">)</span>
+            <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+
+        <span class="c1">// If x is smaller, ignore right half</span>
+        <span class="k">else</span>
+            <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// If we reach here, then element was not present</span>
+    <span class="k">return</span> <span class="mi">-1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Driver code</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">arr</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span> <span class="p">};</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">binarySearch</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+    <span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="mi">-1</span><span class="p">)</span> <span class="o">?</span> <span class="n">printf</span><span class="p">(</span><span class="s">"Element is not present"</span>
+                            <span class="s">" in array"</span><span class="p">)</span>
+                   <span class="o">:</span> <span class="n">printf</span><span class="p">(</span><span class="s">"Element is present at "</span>
+                            <span class="s">"index %d"</span><span class="p">,</span>
+                            <span class="n">result</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></div>
+    <div class="code-output"><strong>Output</strong>
+        <div class="gray">Element is present at index 3</div>
+    </div>
+    <p dir="ltr"><strong>Time Complexity:</strong>&nbsp;O(log N)<br /><strong>Auxiliary Space:</strong>&nbsp;O(1)</p>
+    <div id="GFG_AD_gfg_outstream_incontent" data-google-query-id="CNbh3vjRoIYDFalBnQkdDdYD3w">
+        <div id="google_ads_iframe_/27823234/gfg_outstream_incontent_0__container__">&nbsp;</div>
+    </div>
+    <h2 id="recursive-binary-search-algorithm"><u><strong><strong class="GFGEditorTheme__textUnderline">Recursive Binary
+                    Search Algorithm:</strong></strong></u></h2>
+    <blockquote>
+        <p dir="ltr">Create a recursive function and compare the mid of the search space with the key. And based on the
+            result either return the index where the key is found or call the recursive function for the next search
+            space.</p>
+    </blockquote>
+    <p dir="ltr">Implementation of Recursive&nbsp;Binary Search Algorithm:</p>
+
+    <div class="gray"><span class="c1">// C program to implement recursive Binary Search</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="c1">// A recursive binary search function. It returns</span>
+<span class="c1">// location of x in given array arr[low..high] is present,</span>
+<span class="c1">// otherwise -1</span>
+<span class="kt">int</span> <span class="nf">binarySearch</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">low</span><span class="p">,</span> <span class="kt">int</span> <span class="n">high</span><span class="p">,</span> <span class="kt">int</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">high</span> <span class="o">&gt;=</span> <span class="n">low</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">low</span> <span class="o">+</span> <span class="p">(</span><span class="n">high</span> <span class="o">-</span> <span class="n">low</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+
+        <span class="c1">// If the element is present at the middle</span>
+        <span class="c1">// itself</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">mid</span><span class="p">;</span>
+
+        <span class="c1">// If element is smaller than mid, then</span>
+        <span class="c1">// it can only be present in left subarray</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">x</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">binarySearch</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+
+        <span class="c1">// Else the element can only be present</span>
+        <span class="c1">// in right subarray</span>
+        <span class="k">return</span> <span class="n">binarySearch</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// We reach here when element is not</span>
+    <span class="c1">// present in array</span>
+    <span class="k">return</span> <span class="mi">-1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Driver code</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">arr</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span> <span class="p">};</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">binarySearch</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+    <span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="mi">-1</span><span class="p">)</span>
+        <span class="o">?</span> <span class="n">printf</span><span class="p">(</span><span class="s">"Element is not present in array"</span><span class="p">)</span>
+        <span class="o">:</span> <span class="n">printf</span><span class="p">(</span><span class="s">"Element is present at index %d"</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></div>
+
+
+    <div class="code-output"><strong>Output</strong>
+        <div class="gray">Element is present at index 3</div>
+    </div>
+    <h2 id="complexity-analysis-of-binary-search"><a
+            href="https://www.geeksforgeeks.org/complexity-analysis-of-binary-search/"><u><span
+                    class="GFGEditorTheme__textUnderline">Complexity Analysis of Binary Search Algorithm:</span></u></a>
+    </h2>
+    <ul>
+        <li value="1"><strong>Time Complexity:</strong>&nbsp;
+            <ul>
+                <li value="1">Best Case: O(1)</li>
+                <li value="2">Average Case: O(log N)</li>
+                <li value="3">Worst Case: O(log N)</li>
+            </ul>
+        </li>
+        <li value="2"><strong>Auxiliary Space:</strong>&nbsp;O(1), If the recursive call stack is considered then the
+            auxiliary space will be O(logN).</li>
+    </ul>
+    <h2 id="applications-of-binary-search"><a
+            href="https://www.geeksforgeeks.org/applications-advantages-and-disadvantages-of-binary-search/"
+            target="_blank" rel="noopener"><u><strong><strong class="GFGEditorTheme__textUnderline">Applications of
+                        Binary Search Algorithm:</strong></strong></u></a></h2>
+    <ul>
+        <li value="1">Binary search can be used as a building block for more complex algorithms used in machine
+            learning, such as algorithms for training neural networks or finding the optimal hyperparameters for a
+            model.</li>
+        <li value="2">It can be used for searching in computer graphics such as algorithms for ray tracing or texture
+            mapping.</li>
+        <li value="3">It can be used for searching a database.</li>
+    </ul>
+    <h2 id="advantages-of-binary-search"><u><strong><strong class="GFGEditorTheme__textUnderline">Advantages of Binary
+                    Search:</strong></strong></u></h2>
+    <ul>
+        <li value="1">Binary search is faster than linear search, especially for large arrays.</li>
+        <li value="2">More efficient than other searching algorithms with a similar time complexity, such as
+            interpolation search or exponential search.</li>
+        <li value="3">Binary search is well-suited for searching large datasets that are stored in external memory, such
+            as on a hard drive or in the cloud.</li>
+    </ul>
+    <h2 id="disadvantages-of-binary-search"><u><strong><strong class="GFGEditorTheme__textUnderline">Disadvantages of
+                    Binary Search:</strong></strong></u></h2>
+    <ul>
+        <li value="1">The array should be sorted.</li>
+        <li value="2">Binary search requires that the data structure being searched be stored in contiguous memory
+            locations.&nbsp;</li>
+        <li value="3">Binary search requires that the elements of the array be comparable, meaning that they must be
+            able to be ordered.</li>
+    </ul>
+
+    <h2>Strassen’s Matrix Multiplication Algorithm</h2>
+
+
+    <p>The Strassen’s method of matrix multiplication is a typical divide and conquer algorithm.</p>
+
+
+    <p>Given two square matrices A and B of size n x n each, find their multiplication matrix.&nbsp;</p>
+    <p><em><strong>Naive Method</strong></em>: Following is a simple way to multiply two matrices.&nbsp;</p>
+    <div class="noIdeBtnDiv">
+        <div class="responsive-tabs-wrapper">
+            <div class="responsive-tabs responsive-tabs--enabled">
+                <div id="tablist1-panel2" class="tabcontent responsive-tabs__panel responsive-tabs__panel--active"
+                    role="tabpanel" aria-hidden="true" aria-labelledby="tablist1-tab2">
+                    <div class="code-block">
+                        <div class="code-container">
+                            <div id="highlighter_425807" class="syntaxhighlighter nogutter  ">
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td class="code">
+                                                <div class="container">
+                                                    <div class="line number1 index0 alt2"><code
+                                                            class="keyword bold">void</code> <code
+                                                            class="plain">multiply(</code><code
+                                                            class="color1 bold">int</code> <code
+                                                            class="plain">A[][N], </code><code
+                                                            class="color1 bold">int</code> <code
+                                                            class="plain">B[][N], </code><code
+                                                            class="color1 bold">int</code> <code
+                                                            class="plain">C[][N])</code></div>
+                                                    <div class="line number2 index1 alt1"><code class="plain">{</code>
+                                                    </div>
+                                                    <div class="line number3 index2 alt2"><code
+                                                            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                            class="keyword bold">for</code> <code
+                                                            class="plain">(</code><code class="color1 bold">int</code>
+                                                        <code class="plain">i = 0; i &lt; N; i++)</code></div>
+                                                    <div class="line number4 index3 alt1"><code
+                                                            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                            class="plain">{</code></div>
+                                                    <div class="line number5 index4 alt2"><code
+                                                            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                            class="keyword bold">for</code> <code
+                                                            class="plain">(</code><code class="color1 bold">int</code>
+                                                        <code class="plain">j = 0; j &lt; N; j++)</code></div>
+                                                    <div class="line number6 index5 alt1"><code
+                                                            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                            class="plain">{</code></div>
+                                                    <div class="line number7 index6 alt2"><code
+                                                            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                            class="plain">C[i][j] = 0;</code></div>
+                                                    <div class="line number8 index7 alt1"><code
+                                                            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                            class="keyword bold">for</code> <code
+                                                            class="plain">(</code><code class="color1 bold">int</code>
+                                                        <code class="plain">k = 0; k &lt; N; k++)</code></div>
+                                                    <div class="line number9 index8 alt2"><code
+                                                            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                            class="plain">{</code></div>
+                                                    <div class="line number10 index9 alt1"><code
+                                                            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                            class="plain">C[i][j] += A[i][k]*B[k][j];</code></div>
+                                                    <div class="line number11 index10 alt2"><code
+                                                            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                            class="plain">}</code></div>
+                                                    <div class="line number12 index11 alt1"><code
+                                                            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                            class="plain">}</code></div>
+                                                    <div class="line number13 index12 alt2"><code
+                                                            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                            class="plain">}</code></div>
+                                                    <div class="line number14 index13 alt1"><code class="plain">}</code>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p>Time Complexity of above method is O(N<sup>3</sup>).&nbsp;</p>
+
+
+    <p><em><strong>Divide and Conquer</strong>&nbsp;:</em></p>
+    <p>Following is simple Divide and Conquer method to multiply two square matrices.&nbsp;</p>
+    <ol>
+        <li>Divide matrices A and B in 4 sub-matrices of size N/2 x N/2 as shown in the below diagram.&nbsp;</li>
+        <li>Calculate following values recursively. ae + bg, af + bh, ce + dg and cf + dh.&nbsp;</li>
+    </ol>
+    <p><img src="https://www.geeksforgeeks.org/wp-content/uploads/strassen_new.png" alt="strassen_new" /></p>
+    <p><strong>Implementation:</strong></p>
+
+    <p><em><strong>Divide and Conquer</strong>&nbsp;:</em></p>
+    <p>Following is simple Divide and Conquer method to multiply two square matrices.&nbsp;</p>
+    <p><em><strong>Simple Divide and Conquer also leads to O(N<sup>3</sup>), can there be a better
+                way?</strong></em>&nbsp;</p>
+    <p>In the above divide and conquer method, the main component for high time complexity is 8 recursive calls. The
+        idea of<strong>&nbsp;Strassen&rsquo;s method</strong>&nbsp;is to reduce the number of recursive calls to 7.
+        Strassen&rsquo;s method is similar to above simple divide and conquer method in the sense that this method also
+        divide matrices to sub-matrices of size N/2 x N/2 as shown in the above diagram, but in Strassen&rsquo;s method,
+        the four sub-matrices of result are calculated using following formulae.<br />&nbsp;</p>
+    <p><img src="https://www.geeksforgeeks.org/wp-content/uploads/stressen_formula_new_new.png"
+            alt="stressen_formula_new_new" /></p>
+    <p><strong>Time Complexity of Strassen&rsquo;s Method</strong></p>
+    <p>Addition and Subtraction of two matrices takes O(N<sup>2</sup>) time. So time complexity can be written as&nbsp;
+    </p>
+    <div id="GFG_AD_gfg_outstream_incontent">&nbsp;</div>
+    <div class="gray">T(N) = 7T(N/2) +  O(N<sup>2</sup>)
+
+From <a href="https://www.geeksforgeeks.org/analysis-algorithm-set-4-master-method-solving-recurrences/">Master's Theorem</a>, time complexity of above method is 
+O(N<sup>Log7</sup>) which is approximately O(N<sup>2.8074</sup>)</div>
+    <p>Generally Strassen&rsquo;s Method is not preferred for practical applications for following reasons.&nbsp;</p>
+    <ol>
+        <li>The constants used in Strassen&rsquo;s method are high and for a typical application Naive method works
+            better.&nbsp;</li>
+        <li>For Sparse matrices, there are better methods especially designed for them.&nbsp;</li>
+        <li>The submatrices in recursion take extra space.&nbsp;</li>
+        <li>Because of the limited precision of computer arithmetic on noninteger values, larger errors accumulate in
+            Strassen&rsquo;s algorithm than in Naive Method</li>
+    </ol>
+</body>
+</html>

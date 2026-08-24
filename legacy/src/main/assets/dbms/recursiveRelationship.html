@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    <div class="main_wrapper">
+        <div class="article-title">
+        <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>Recursive Relationships in ER diagrams</h1>
+        </div>
+        </div>
+        </div>
+        <div class="text">
+        <p>A relationship between two entities of a similar entity type is called a&nbsp;<strong>recursive</strong>&nbsp;relationship. Here the same entity type participates more than once in a relationship type with a different role for each instance. In other words, a relationship has always been between occurrences in two different entities. However, the same entity can participate in the relationship. This is termed a&nbsp;<strong>recursive</strong>&nbsp;relationship.&nbsp;</p>
+        <p>Recursive relationships are often used to represent hierarchies or networks, where an entity can be connected to other entities of the same type. For example, in an organizational chart, an employee can have a relationship with other employees who are also in a managerial position. Similarly, in a social network, a user can have a relationship with other users who are their friends.</p>
+        <p>To represent a recursive relationship in an ER diagram, we use a self-join, which is a join between a table and itself. In other words, we create a relationship between the same entity type. The self-join involves creating two instances of the same entity and connecting them with a relationship. One instance is considered the parent, and the other instance is considered the child.</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <p>We use cardinality constraints to specify the number of instances of the entity that can participate in the relationship. For example, in an organizational chart, an employee can have many subordinates, but each subordinate can only have one manager. This is represented as a one-to-many (1:N) relationship between the employee entity and itself.</p>
+        <p>Overall, recursive relationships are an important concept in ER modeling, and they allow us to represent complex relationships between entities of the same type. They are particularly useful in modeling hierarchical data structures and networks.</p>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/DBMS.jpg" /></p>
+        <p><strong>Example:&nbsp;</strong>Let us suppose that we have an employee table. A manager supervises a subordinate. Every employee can have a supervisor except the CEO and there can be at most one boss for each employee. One employee may be the boss of more than one employee. Let&rsquo;s suppose that REPORTS_TO is a recursive relationship on the Employee entity type where each Employee plays two roles.</p>
+        <ol>
+        <li>Supervisor</li>
+        <li>Subordinate</li>
+        </ol>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/dbms2.jpg" width="244" height="246" /><br />&nbsp;Supervisors and subordinates are called&nbsp;<strong>&ldquo;Role Names&rdquo;</strong>. Here the degree of the REPORTS_TO relationship is 1 i.e. a unary relationship.&nbsp;&nbsp;</p>
+        <ul>
+        <li>The minimum cardinality of the Supervisor entity is ZERO since the lowest level employee may not be a manager for anyone.</li>
+        <li>The maximum cardinality of the Supervisor entity is N since an employee can manage many employees.</li>
+        <li>Similarly, the Subordinate entity has a minimum cardinality of ZERO to account for the case where CEO can never be a subordinate.</li>
+        <li>Its maximum cardinality is ONE since a subordinate employee can have at most one supervisor.</li>
+        </ul>
+        <blockquote>
+        <p><strong>Note &ndash;</strong>&nbsp;Here none of the participants have total participation since both minimum cardinalities are Zero. Hence, the relationships are connected by a single line instead of a double line in the ER diagram.&nbsp;</p>
+        </blockquote>
+        <p>To implement a recursive relationship, a foreign key of the employee&rsquo;s manager number would be held in each employee record. A Sample table would look something like this:-&nbsp;</p>
+        <div class="gray">Emp_entity( Emp_no,Emp_Fname, Emp_Lname, Emp_DOB, Emp_NI_Number, Manager_no);
+        
+        Manager no - (this is the employee no of the employee's manager)</div>
+        <p><strong>Example</strong></p>
+        <div class="gray">CREATE TABLE employee (
+            id INT PRIMARY KEY,
+            name VARCHAR(50),
+            manager_id INT,
+            FOREIGN KEY (manager_id) REFERENCES employee(id)
+        );</div>
+        <p>Here, the employee table has a foreign key column called<strong>&nbsp;manager_id&nbsp;</strong>that references the<strong>&nbsp;id</strong>&nbsp;column of the same&nbsp;<strong>employee</strong>&nbsp;table. This allows you to create a recursive relationship where an employee can have a manager who is also an employee.</p>
+        </div>
+        </div>
+        </div>
+</body>
+</html>

@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    
+<h2>Operators in C</h2>
+
+<p dir="ltr">In C language, operators are symbols that represent operations to be performed on one or more operands. They are the basic components of the C programming. In this article, we will learn about all the built-in operators in C with examples.</p>
+<h2><strong>What is a C Operator?</strong></h2>
+<p dir="ltr">An operator in C can be defined as the symbol that helps us to perform some specific mathematical, relational, bitwise, conditional, or logical computations on values and variables. The values and variables used with operators are called operands. So we can say that the operators are the symbols that perform operations on operands.</p>
+<div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231214120748/Operators-in-C.png" alt="Operators-in-C" width="800" height="600" /></p>
+<p dir="ltr"><strong>For example,</strong></p>
+<div class="gray">c = a + b;<br /><br /><br /></div>
+<p dir="ltr">Here, &lsquo;+&rsquo; is the operator known as the addition operator, and &lsquo;a&rsquo; and &lsquo;b&rsquo; are operands. The addition operator tells the compiler to add both of the operands &lsquo;a&rsquo; and &lsquo;b&rsquo;.</p>
+
+
+<h2>Types of Operators in C</h2>
+<p dir="ltr">C language provides a wide range of operators that can be classified into 6 types based on their functionality:</p>
+<ol>
+<li value="1">Arithmetic Operators</li>
+<li value="2">Relational Operators</li>
+<li value="3">Logical Operators</li>
+<li value="4">Bitwise Operators</li>
+<li value="5">Assignment Operators</li>
+<li value="6">Other Operators</li>
+</ol>
+<h2><strong>1. Arithmetic Operations in C</strong></h2>
+<p dir="ltr">The arithmetic operators are used to perform arithmetic/mathematical operations on operands. There are 9 arithmetic operators in C language:</p>
+<table border="1">
+<thead>
+<tr>
+<th>
+<p dir="ltr">S. No.</p>
+<div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+<div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+</th>
+<th>
+<p dir="ltr">Symbol</p>
+</th>
+<th><strong>Operator</strong></th>
+<th>Description</th>
+<th>
+<p dir="ltr">Syntax</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+<p>1</p>
+</th>
+<td>
+<p><strong>+</strong></p>
+</td>
+<td>
+<p dir="ltr"><strong>Plus</strong></p>
+</td>
+<td>Adds two numeric values.</td>
+<td>
+<p dir="ltr"><strong>a + b</strong></p>
+</td>
+</tr>
+<tr>
+<th>
+<p>2</p>
+</th>
+<td>
+<p><strong>&ndash;</strong></p>
+</td>
+<td>
+<p dir="ltr"><strong>Minus</strong></p>
+</td>
+<td>Subtracts right operand from left operand.</td>
+<td>
+<p dir="ltr"><strong>a &ndash; b</strong></p>
+</td>
+</tr>
+<tr>
+<th>
+<p>3</p>
+</th>
+<td>
+<p><strong>*</strong></p>
+</td>
+<td>
+<p dir="ltr"><strong>Multiply</strong></p>
+</td>
+<td>Multiply two numeric values.</td>
+<td>
+<p dir="ltr"><strong>a * b</strong></p>
+</td>
+</tr>
+<tr>
+<th>
+<p>4</p>
+</th>
+<td>
+<p><strong>/</strong></p>
+</td>
+<td>
+<p dir="ltr"><strong>Divide</strong></p>
+</td>
+<td>Divide two numeric values.</td>
+<td>
+<p dir="ltr"><strong>a / b</strong></p>
+</td>
+</tr>
+<tr>
+<th>
+<p>5</p>
+</th>
+<td>
+<p><strong>%</strong></p>
+</td>
+<td>
+<p dir="ltr"><strong>Modulus</strong></p>
+</td>
+<td>Returns the remainder after diving the left operand with the right operand.</td>
+<td>
+<p dir="ltr"><strong>a % b</strong></p>
+</td>
+</tr>
+<tr>
+<th>
+<p>6</p>
+</th>
+<td>
+<p><strong>+</strong></p>
+</td>
+<td>
+<p dir="ltr"><strong>Unary Plus</strong></p>
+</td>
+<td>Used to specify the positive values.</td>
+<td>
+<p dir="ltr"><strong>+a</strong></p>
+</td>
+</tr>
+<tr>
+<th>
+<p>7</p>
+</th>
+<td>
+<p><strong>&ndash;</strong></p>
+</td>
+<td>
+<p dir="ltr"><strong>Unary Minus</strong></p>
+</td>
+<td>Flips the sign of the value.</td>
+<td>
+<p dir="ltr"><strong>-a</strong></p>
+</td>
+</tr>
+<tr>
+<th>
+<p>8</p>
+</th>
+<td>
+<p><strong>++</strong></p>
+</td>
+<td>
+<p dir="ltr"><strong>Increment</strong></p>
+</td>
+<td>Increases the value of the operand by 1.</td>
+<td>
+<p dir="ltr">a++</p>
+</td>
+</tr>
+<tr>
+<th>
+<p>9</p>
+</th>
+<td>
+<p><strong>&mdash;</strong></p>
+</td>
+<td>
+<p dir="ltr"><strong>Decrement</strong></p>
+</td>
+<td>Decreases the value of the operand by 1.</td>
+<td>
+<p dir="ltr">a&ndash;</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3><strong>Example of C Arithmetic Operators</strong></h3>
+<div class="codeblock-container" data-mode="light">C
+<div class="code-container">
+<div class="code-box">
+<div id="editor-buttons-div" class="editor-buttons-div">
+<div id="editor-buttons" class="editor-buttons">&nbsp;</div>
+</div>
+<div id="slot-panel" class="gfg-code"><code class="language-c"></code>
+<div class="highlight">
+<div class="gray"><span class="c1">// C program to illustrate the arithmatic operators</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+
+    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+    <span class="c1">// using operators and printing results</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a + b = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a - b = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a * b = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a / b = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a % b = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"+a = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="o">+</span><span class="n">a</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"-a = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="o">-</span><span class="n">a</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a++ = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span><span class="o">++</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a-- = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span><span class="o">--</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</div>
+</div>
+</div>
+</div>
+<div id="code-output-box" class="code-output-box">
+<div class="editor-buttons w-56 output-box" title="Close Output">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="code-output"><br /><strong>Output</strong>
+<div class="gray">a + b = 30
+a - b = 20
+a * b = 125
+a / b = 5
+a % b = 0
++a = 25
+-a = -25
+a++ = 25
+a-- = 26
+</div>
+</div>
+
+
+<h2><strong>2. Relational Operators in C</strong></h2>
+<p dir="ltr">The relational operators in C are used for the comparison of the two operands. All these operators are binary operators that return true or false values as the result of comparison.</p>
+<p dir="ltr">These are a total of 6 relational operators in C:</p>
+<table border="1">
+<thead>
+<tr>
+<th>
+<p dir="ltr">S. No.</p>
+</th>
+<th>
+<p dir="ltr">Symbol</p>
+</th>
+<th><strong>Operator</strong></th>
+<th>Description</th>
+<th>
+<p dir="ltr">Syntax</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+<p>1</p>
+</th>
+<td>
+<p><strong>&lt;</strong></p>
+</td>
+<td><strong>Less than</strong></td>
+<td>Returns true if the left operand is less than the right operand. Else false&nbsp;</td>
+<td><strong>a &lt; b</strong></td>
+</tr>
+<tr>
+<th>
+<p>2</p>
+</th>
+<td>
+<p><strong>&gt;</strong></p>
+</td>
+<td><strong>Greater than</strong></td>
+<td>Returns true if the left operand is greater than the right operand. Else false&nbsp;</td>
+<td><strong>a &gt; b</strong></td>
+</tr>
+<tr>
+<th>
+<p>3</p>
+</th>
+<td>
+<p><strong>&lt;=</strong></p>
+</td>
+<td><strong>Less than or equal to</strong></td>
+<td>Returns true if the left operand is less than or equal to the right operand. Else false&nbsp;</td>
+<td><strong>a &lt;= b</strong></td>
+</tr>
+<tr>
+<th>
+<p>4</p>
+</th>
+<td>
+<p><strong>&gt;=</strong></p>
+</td>
+<td><strong>Greater than or equal to</strong></td>
+<td>Returns true if the left operand is greater than or equal to right operand. Else false&nbsp;</td>
+<td><strong>a &gt;= b</strong></td>
+</tr>
+<tr>
+<th>
+<p>5</p>
+</th>
+<td>
+<p><strong>==</strong></p>
+</td>
+<td><strong>Equal to</strong></td>
+<td>Returns true if both the operands are equal.</td>
+<td><strong>a == b</strong></td>
+</tr>
+<tr>
+<th>
+<p>6</p>
+</th>
+<td>
+<p><strong>!=</strong></p>
+</td>
+<td><strong>Not equal to</strong></td>
+<td>Returns true if both the operands are NOT equal.</td>
+<td><strong>a != b</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>Example of C Relational Operators</h3>
+<div class="codeblock-container" data-mode="light">C
+<div class="code-container">
+<div class="code-box">
+<div id="editor-buttons-div" class="editor-buttons-div">
+<div id="editor-buttons" class="editor-buttons">&nbsp;</div>
+</div>
+<div id="slot-panel" class="gfg-code"><code class="language-c"></code>
+<div class="highlight">
+<div class="gray"><span class="c1">// C program to illustrate the relational operators</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+
+    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+    <span class="c1">// using operators and printing results</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a &lt; b  : %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a &gt; b  : %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a &lt;= b: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a &gt;= b: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a == b: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a != b : %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span> <span class="o">!=</span> <span class="n">b</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</div>
+</div>
+</div>
+</div>
+<div id="code-output-box" class="code-output-box">
+<div class="editor-buttons w-56 output-box" title="Close Output">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="code-output"><br /><strong>Output</strong>
+<div class="gray">a &lt; b  : 0
+a &gt; b  : 1
+a &lt;= b: 0
+a &gt;= b: 1
+a == b: 0
+a != b : 1
+
+
+</div>
+</div>
+<p dir="ltr">Here, 0 means false and 1 means true.</p>
+
+<h2><strong>3. Logical Operator in C</strong></h2>
+<p dir="ltr">Logical Operators are used to combine two or more conditions/constraints or to complement the evaluation of the original condition in consideration. The result of the operation of a logical operator is a Boolean value either&nbsp;<strong>true</strong>&nbsp;or&nbsp;<strong>false</strong>.</p>
+<table border="1">
+<thead>
+<tr>
+<th>
+<p dir="ltr">S. No.</p>
+</th>
+<th>
+<p dir="ltr">Symbol</p>
+</th>
+<th><strong>Operator</strong></th>
+<th>Description</th>
+<th>
+<p dir="ltr">Syntax</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+<p>1</p>
+</th>
+<td>
+<p><strong>&amp;&amp;</strong></p>
+</td>
+<td><strong>Logical AND</strong></td>
+<td>Returns true if both the operands are true.</td>
+<td>
+<p dir="ltr"><strong>a &amp;&amp; b</strong></p>
+</td>
+</tr>
+<tr>
+<th>
+<p>2</p>
+</th>
+<td>
+<p><strong>||</strong></p>
+</td>
+<td><strong>Logical OR</strong></td>
+<td>Returns true if both or any of the operand is true.</td>
+<td>
+<p dir="ltr"><strong>a || b</strong></p>
+</td>
+</tr>
+<tr>
+<th>
+<p>3</p>
+</th>
+<td>
+<p><strong>!</strong></p>
+</td>
+<td><strong>Logical NOT</strong></td>
+<td>Returns true if the operand is false.</td>
+<td>
+<p dir="ltr"><strong>!a</strong></p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Example of Logical Operators in C</h3>
+<div class="codeblock-container" data-mode="light">C
+<div class="code-container">
+<div class="code-box">
+<div id="editor-buttons-div" class="editor-buttons-div">
+<div id="editor-buttons" class="editor-buttons">&nbsp;</div>
+</div>
+<div id="slot-panel" class="gfg-code"><code class="language-c"></code>
+<div class="highlight">
+<div class="gray"><span class="c1">// C program to illustrate the logical operators</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+
+    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+    <span class="c1">// using operators and printing results</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a &amp;&amp; b : %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span> <span class="o">&amp;&amp;</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a || b : %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span> <span class="o">||</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"!a: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="o">!</span><span class="n">a</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</div>
+</div>
+</div>
+</div>
+<div id="code-output-box" class="code-output-box">
+<div class="editor-buttons w-56 output-box" title="Close Output">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="code-output"><br /><strong>Output</strong>
+<div class="gray">a &amp;&amp; b : 1
+a || b : 1
+!a: 0
+
+</div>
+</div>
+
+
+
+<h2><strong>4. Bitwise Operators in C</strong></h2>
+<p dir="ltr">The Bitwise operators are used to perform bit-level operations on the operands. The operators are first converted to bit-level and then the calculation is performed on the operands. Mathematical operations such as addition, subtraction, multiplication, etc. can be performed at the bit level for faster processing.</p>
+<p dir="ltr">There are 6 bitwise operators in C:</p>
+<table border="1">
+<thead>
+<tr>
+<th>
+<p dir="ltr">S. No.</p>
+</th>
+<th>
+<p dir="ltr">Symbol</p>
+</th>
+<th><strong>Operator</strong></th>
+<th>Description</th>
+<th>
+<p dir="ltr">Syntax</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+<p>1</p>
+</th>
+<td>
+<p><strong>&amp;</strong></p>
+</td>
+<td><strong>Bitwise AND</strong></td>
+<td>Performs bit-by-bit AND operation and returns the result.</td>
+<td><strong>a &amp; b</strong></td>
+</tr>
+<tr>
+<th>
+<p>2</p>
+</th>
+<td>
+<p><strong>|</strong></p>
+</td>
+<td><strong>Bitwise OR</strong></td>
+<td>Performs bit-by-bit OR operation and returns the result.</td>
+<td><strong>a | b</strong></td>
+</tr>
+<tr>
+<th>
+<p>3</p>
+</th>
+<td>
+<p><strong>^</strong></p>
+</td>
+<td><strong>Bitwise XOR</strong></td>
+<td>Performs bit-by-bit XOR operation and returns the result.</td>
+<td><strong>a ^ b</strong></td>
+</tr>
+<tr>
+<th>
+<p>4</p>
+</th>
+<td>
+<p><strong>~</strong></p>
+</td>
+<td><strong>Bitwise First Complement</strong></td>
+<td>Flips all the set and unset bits on the number.</td>
+<td><strong>~a</strong></td>
+</tr>
+<tr>
+<th>
+<p>5</p>
+</th>
+<td>
+<p><strong>&lt;&lt;</strong></p>
+</td>
+<td><strong>Bitwise Leftshift</strong></td>
+<td>Shifts the number in binary form by one place in the operation and returns the result.</td>
+<td><strong>a &lt;&lt; b</strong></td>
+</tr>
+<tr>
+<th>
+<p>6</p>
+</th>
+<td>
+<p><strong>&gt;&gt;</strong></p>
+</td>
+<td><strong>Bitwise Rightshilft</strong></td>
+<td>Shifts the number in binary form by one place in the operation and returns the result.</td>
+<td><strong>a &gt;&gt; b</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>Example of Bitwise Operators</h3>
+<div class="codeblock-container" data-mode="light">C
+<div class="code-container">
+<div class="code-box">
+<div id="editor-buttons-div" class="editor-buttons-div">
+<div id="editor-buttons" class="editor-buttons">&nbsp;</div>
+</div>
+<div id="slot-panel" class="gfg-code"><code class="language-c"></code>
+<div class="highlight">
+<div class="gray"><span class="c1">// C program to illustrate the bitwise operators</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+
+    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+    <span class="c1">// using operators and printing results</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a &amp; b: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a | b: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span> <span class="o">|</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a ^ b: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span> <span class="o">^</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"~a: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="o">~</span><span class="n">a</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a &gt;&gt; b: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a &lt;&lt; b: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">b</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</div>
+</div>
+</div>
+</div>
+<div id="code-output-box" class="code-output-box">
+<div class="editor-buttons w-56 output-box" title="Close Output">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="code-output"><br /><strong>Output</strong>
+<div class="gray">a &amp; b: 1
+a | b: 29
+a ^ b: 28
+~a: -26
+a &gt;&gt; b: 0
+a &lt;&lt; b: 800
+</div>
+</div>
+
+
+
+<h2><strong>5. Assignment Operators in C</strong></h2>
+<p dir="ltr">Assignment operators are used to assign value to a variable. The left side operand of the assignment operator is a variable and the right side operand of the assignment operator is a value. The value on the right side must be of the same data type as the variable on the left side otherwise the compiler will raise an error.</p>
+
+
+<p dir="ltr">The assignment operators can be combined with some other operators in C to provide multiple operations using single operator. These operators are called compound operators.</p>
+<p dir="ltr">In C, there are 11 assignment operators :</p>
+<table border="1">
+<thead>
+<tr>
+<th>
+<p dir="ltr">S. No.</p>
+</th>
+<th>
+<p dir="ltr">Symbol</p>
+</th>
+<th><strong>Operator</strong></th>
+<th>Description</th>
+<th>
+<p dir="ltr">Syntax</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+<p>1</p>
+</th>
+<td>
+<p><strong>=</strong></p>
+</td>
+<td><strong>Simple Assignment</strong></td>
+<td>Assign the value of the right operand to the left operand.</td>
+<td>
+<p dir="ltr"><strong>a = b</strong></p>
+</td>
+</tr>
+<tr>
+<th>
+<p>2</p>
+</th>
+<td>
+<p><strong>+=</strong></p>
+</td>
+<td><strong>Plus and assign</strong></td>
+<td>Add the right operand and left operand and assign this value to the left operand.</td>
+<td>
+<p dir="ltr"><strong>a += b</strong></p>
+</td>
+</tr>
+<tr>
+<th>
+<p>3</p>
+</th>
+<td>
+<p><strong>-=</strong></p>
+</td>
+<td><strong>Minus and assign</strong></td>
+<td>Subtract the right operand and left operand and assign this value to the left operand.</td>
+<td>
+<p dir="ltr"><strong>a -= b</strong></p>
+</td>
+</tr>
+<tr>
+<th>
+<p>4</p>
+</th>
+<td>
+<p><strong>*=</strong></p>
+</td>
+<td><strong>Multiply and assign</strong></td>
+<td>Multiply the right operand and left operand and assign this value to the left operand.</td>
+<td>
+<p dir="ltr"><strong>a *= b</strong></p>
+</td>
+</tr>
+<tr>
+<th>
+<p>5</p>
+</th>
+<td>
+<p><strong>/=</strong></p>
+</td>
+<td><strong>Divide and assign</strong></td>
+<td>Divide the left operand with the right operand and assign this value to the left operand.</td>
+<td>
+<p dir="ltr"><strong>a /= b</strong></p>
+</td>
+</tr>
+<tr>
+<th>
+<p>6</p>
+</th>
+<td>
+<p><strong>%=</strong></p>
+</td>
+<td><strong>Modulus and assign</strong></td>
+<td>Assign the remainder in the division of left operand with the right operand to the left operand.</td>
+<td>
+<p dir="ltr"><strong>a %= b</strong></p>
+</td>
+</tr>
+<tr>
+<th>
+<p>7</p>
+</th>
+<td>
+<p><strong>&amp;=</strong></p>
+</td>
+<td><strong>AND and assign</strong></td>
+<td>Performs bitwise AND and assigns this value to the left operand.</td>
+<td>
+<p dir="ltr"><strong>a &amp;= b</strong></p>
+</td>
+</tr>
+<tr>
+<th>
+<p>8</p>
+</th>
+<td>
+<p><strong>|=</strong></p>
+</td>
+<td><strong>OR and assign</strong></td>
+<td>Performs bitwise OR and assigns this value to the left operand.</td>
+<td>
+<p dir="ltr"><strong>a |= b</strong></p>
+</td>
+</tr>
+<tr>
+<th>
+<p>9</p>
+</th>
+<td>
+<p><strong>^=</strong></p>
+</td>
+<td><strong>XOR and assign</strong></td>
+<td>Performs bitwise XOR and assigns this value to the left operand.</td>
+<td>
+<p dir="ltr"><strong>a ^= b</strong></p>
+</td>
+</tr>
+<tr>
+<th>
+<p>10</p>
+</th>
+<td>
+<p><strong>&gt;&gt;=</strong></p>
+</td>
+<td><strong>Rightshift and assign</strong></td>
+<td>Performs bitwise Rightshift and assign this value to the left operand.</td>
+<td>
+<p dir="ltr"><strong>a &gt;&gt;= b</strong></p>
+</td>
+</tr>
+<tr>
+<th>
+<p>11</p>
+</th>
+<td>
+<p><strong>&lt;&lt;=</strong></p>
+</td>
+<td><strong>Leftshift and assign</strong></td>
+<td>Performs bitwise Leftshift and assign this value to the left operand.</td>
+<td>
+<p dir="ltr"><strong>a &lt;&lt;= b</strong></p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Example of C Assignment Operators</h3>
+<div class="codeblock-container" data-mode="light">C
+<div class="code-container">
+<div class="code-box">
+<div id="editor-buttons-div" class="editor-buttons-div">
+<div id="editor-buttons" class="editor-buttons">&nbsp;</div>
+</div>
+<div id="slot-panel" class="gfg-code"><code class="language-c"></code>
+<div class="highlight">
+<div class="gray"><span class="c1">// C program to illustrate the arithmatic operators</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+
+    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+    <span class="c1">// using operators and printing results</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a = b: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a += b: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span> <span class="o">+=</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a -= b: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span> <span class="o">-=</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a *= b: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span> <span class="o">*=</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a /= b: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span> <span class="o">/=</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a %= b: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span> <span class="o">%=</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a &amp;= b: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span> <span class="o">&amp;=</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a |= b: %d</span><span class="se">\n</span><span class="s">)"</span><span class="p">,</span> <span class="n">a</span> <span class="o">|=</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a &gt;&gt;= b: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a &lt;&lt;= b: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">b</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</div>
+</div>
+</div>
+</div>
+<div id="code-output-box" class="code-output-box">
+<div class="editor-buttons w-56 output-box" title="Close Output">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="code-output"><br /><strong>Output</strong>
+<div class="gray">a = b: 5
+a += b: 10
+a -= b: 5
+a *= b: 25
+a /= b: 5
+a %= b: 0
+a &amp;= b: 0
+a |= b: 5
+)a &gt;&gt;= b: 0
+a &lt;&lt;= b: 160
+
+
+</div>
+</div>
+<h2><strong>6. Other Operators</strong></h2>
+<p dir="ltr">Apart from the above operators, there are some other operators available in C used to perform some specific tasks. Some of them are discussed here:&nbsp;</p>
+<h3><strong>sizeof Operator</strong></h3>
+<ul>
+<li value="1">sizeof is much used in the C programming language.</li>
+<li value="2">It is a compile-time unary operator which can be used to compute the size of its operand.</li>
+<li value="3">The result of sizeof is of the unsigned integral type which is usually denoted by size_t.</li>
+<li value="4">Basically, the sizeof the operator is used to compute the size of the variable or datatype.</li>
+</ul>
+<p dir="ltr"><strong>Syntax</strong></p>
+<div class="gray"><strong>sizeof</strong> (operand)<br /><br /><br /></div>
+<p dir="ltr">To know more about the topic refer to&nbsp;<a href="https://www.geeksforgeeks.org/sizeof-operator-c/">this</a>&nbsp;article.</p>
+<h3><strong>Comma Operator ( , )</strong></h3>
+<ul>
+<li value="1">The comma operator (represented by the token) is a binary operator that evaluates its first operand and discards the result, it then evaluates the second operand and returns this value (and type).</li>
+<li value="2">The comma operator has the lowest precedence of any C operator.</li>
+<li value="3">Comma acts as both operator and separator.&nbsp;</li>
+</ul>
+<p dir="ltr"><strong>Syntax</strong></p>
+<div class="gray">operand1 <strong>, </strong>operand2 <br /><br /><br /></div>
+<p dir="ltr">To know more about the topic refer to&nbsp;<a href="https://www.geeksforgeeks.org/comna-in-c-and-c/">this</a>&nbsp;article.</p>
+<h3><strong>Conditional Operator ( ? : )</strong></h3>
+<ul>
+<li value="1">The conditional operator is the only ternary operator in C++.</li>
+<li value="2">Here, Expression1 is the condition to be evaluated. If the condition(Expression1) is&nbsp;<em><em class="GFGEditorTheme__textItalic">True</em></em>&nbsp;then we will execute and return the result of Expression2 otherwise if the condition(Expression1) is&nbsp;<em><em class="GFGEditorTheme__textItalic">false</em></em>&nbsp;then we will execute and return the result of Expression3.</li>
+<li value="3">We may replace the use of if..else statements with conditional operators.</li>
+</ul>
+<p dir="ltr"><strong>Syntax</strong></p>
+<div class="gray">operand1 <strong>?</strong> operand2 <strong>:</strong> operand3;<br /><br /></div>
+
+
+<h3><strong>dot (.) and arrow (-&gt;) Operators</strong></h3>
+<ul>
+<li value="1">Member operators are used to reference individual members of classes, structures, and unions.</li>
+<li value="2">The dot operator is applied to the actual object.&nbsp;</li>
+<li value="3">The arrow operator is used with a pointer to an object.</li>
+</ul>
+<p dir="ltr"><strong>Syntax</strong></p>
+<div id="GFG_AD_gfg_outstream_incontent-1">&nbsp;</div>
+<div class="gray">structure_variable <strong>.</strong> member;<br /><br /><br /></div>
+<p dir="ltr">and</p>
+<div class="gray">structure_pointer <strong>-&gt;</strong> member;<br /><br /><br /></div>
+<p dir="ltr">To know more about dot operators refer to&nbsp;<a href="https://www.geeksforgeeks.org/dot-operator-in-c-c/">this</a>&nbsp;article and to know more about arrow(-&gt;) operators refer to&nbsp;<a href="https://www.geeksforgeeks.org/arrow-operator-in-c-c-with-examples/">this</a>&nbsp;article.</p>
+<h3><strong>Cast Operator</strong></h3>
+<ul>
+<li value="1">Casting operators convert one data type to another. For example, int(2.2000) would return 2.</li>
+<li value="2">A cast is a special operator that forces one data type to be converted into another.&nbsp;</li>
+<li value="3">The most general cast supported by most of the C compilers is as follows &minus; &nbsp;<strong>&nbsp;[ (type) expression ]</strong>.</li>
+</ul>
+<p dir="ltr"><strong>Syntax</strong></p>
+<div class="gray"><strong>(new_type) </strong>operand;<br /><br /><br /></div>
+<p dir="ltr">To know more about the topic refer to&nbsp;<a href="https://www.geeksforgeeks.org/typecasting-in-c/">this</a>&nbsp;article.</p>
+<h3><strong>addressof (&amp;) and Dereference (*) Operators</strong></h3>
+<ul>
+<li value="1">Pointer operator &amp; returns the address of a variable. For example &amp;a; will give the actual address of the variable.</li>
+<li value="2">The pointer operator * is a pointer to a variable. For example *var; will pointer to a variable var.&nbsp;</li>
+</ul>
+<p dir="ltr">To know more about the topic refer to&nbsp;<a href="https://www.geeksforgeeks.org/bitwise-operators-in-c-cpp/">this</a>&nbsp;article.</p>
+<h3>Example of Other C Operators</h3>
+<div class="codeblock-container" data-mode="light">C
+<div class="code-container">
+<div class="code-box">
+<div id="editor-buttons-div" class="editor-buttons-div">
+<div id="editor-buttons" class="editor-buttons">&nbsp;</div>
+</div>
+<div id="slot-panel" class="gfg-code"><code class="language-c"></code>
+<div class="highlight">
+<div class="gray"><span class="c1">// C Program to demonstrate the use of Misc operators</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// integer variable</span>
+    <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">add_of_num</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">num</span><span class="p">;</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">"sizeof(num) = %d bytes</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">num</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"&amp;num = %p</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">num</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"*add_of_num = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="o">*</span><span class="n">add_of_num</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"(10 &lt; 5) ? 10 : 20 = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)</span> <span class="o">?</span> <span class="mi">10</span> <span class="o">:</span> <span class="mi">20</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"(float)num = %f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">num</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</div>
+</div>
+</div>
+</div>
+<div id="code-output-box" class="code-output-box">
+<div class="editor-buttons w-56 output-box" title="Close Output">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="code-output"><br /><strong>Output</strong>
+<div class="gray">sizeof(num) = 4 bytes
+&amp;num = 0x7ffe2b7bdf8c
+*add_of_num = 10
+(10 &lt; 5) ? 10 : 20 = 20
+(float)num = 10.000000
+
+</div>
+</div>
+
+<h2>Unary, Binary and Ternary Operators in C</h2>
+<p dir="ltr">Operators can also be classified into three types on the basis of the number of operands they work on:</p>
+<ol>
+<li value="1"><strong>Unary Operators:</strong>&nbsp;Operators that work on single operand.</li>
+<li value="2"><strong>Binary Operators:</strong>&nbsp;Operators that work on two operands.</li>
+<li value="3"><strong>Ternary Operators:</strong>&nbsp;Operators that work on three operands.</li>
+</ol>
+<h2><strong>Operator Precedence and Associativity in C</strong></h2>
+<p dir="ltr">In C, it is very common for an expression or statement to have multiple operators and in these expression, there should be a fixed order or priority of operator evaluation to avoid ambiguity.</p>
+<blockquote>
+<p dir="ltr"><strong>Operator Precedence and Associativity&nbsp;</strong>is the concept that decides which operator will be evaluated first in the case when there are multiple operators present in an expression.</p>
+</blockquote>
+<p dir="ltr">The below table describes the precedence order and associativity of operators in C. The precedence of the operator decreases from top to bottom.&nbsp;</p>
+<table border="1">
+<thead>
+<tr>
+<th>
+<p dir="ltr">Precedence</p>
+</th>
+<th>
+<p dir="ltr">Operator</p>
+</th>
+<th>
+<p dir="ltr">Description</p>
+</th>
+<th>
+<p dir="ltr">Associativity</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="5">
+<p>1</p>
+</th>
+<td>
+<p><strong>()</strong></p>
+</td>
+<td>
+<p dir="ltr">Parentheses (function call)</p>
+</td>
+<td>
+<p dir="ltr">left-to-right</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>[]</strong></p>
+</td>
+<td>
+<p dir="ltr">Brackets (array subscript)</p>
+</td>
+<td>
+<p dir="ltr">left-to-right</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>.</strong></p>
+</td>
+<td>
+<p dir="ltr">Member selection via object name</p>
+</td>
+<td>
+<p dir="ltr">left-to-right</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>-&gt;</strong></p>
+</td>
+<td>
+<p dir="ltr">Member selection via a pointer</p>
+</td>
+<td>
+<p dir="ltr">left-to-right</p>
+</td>
+</tr>
+<tr>
+<td>
+<p dir="ltr"><strong>a++ , a&ndash;</strong></p>
+</td>
+<td>
+<p dir="ltr">Postfix increment/decrement (a is a variable)</p>
+</td>
+<td>
+<p dir="ltr">left-to-right</p>
+</td>
+</tr>
+<tr>
+<th rowspan="7">
+<p>2</p>
+</th>
+<td>
+<p dir="ltr"><strong>++a , &ndash;a</strong></p>
+</td>
+<td>
+<p dir="ltr">Prefix increment/decrement (a is a variable)</p>
+</td>
+<td>
+<p dir="ltr">right-to-left</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>+ , &ndash;</strong></p>
+</td>
+<td>
+<p dir="ltr">Unary plus/minus</p>
+</td>
+<td>
+<p dir="ltr">right-to-left</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>! , ~</strong></p>
+</td>
+<td>
+<p dir="ltr">Logical negation/bitwise complement</p>
+</td>
+<td>
+<p dir="ltr">right-to-left</p>
+</td>
+</tr>
+<tr>
+<td>
+<p dir="ltr"><strong>(type)</strong></p>
+</td>
+<td>
+<p dir="ltr">Cast (convert value to temporary value of type)</p>
+</td>
+<td>
+<p dir="ltr">right-to-left</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>*</strong></p>
+</td>
+<td>
+<p dir="ltr">Dereference</p>
+</td>
+<td>
+<p dir="ltr">right-to-left</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>&amp;</strong></p>
+</td>
+<td>
+<p dir="ltr">Address (of operand)</p>
+</td>
+<td>
+<p dir="ltr">right-to-left</p>
+</td>
+</tr>
+<tr>
+<td>
+<p dir="ltr"><strong>sizeof</strong></p>
+</td>
+<td>
+<p dir="ltr">Determine size in bytes on this implementation</p>
+</td>
+<td>
+<p dir="ltr">right-to-left</p>
+</td>
+</tr>
+<tr>
+<th>
+<p>3</p>
+</th>
+<td>
+<p><strong>* , / , %</strong></p>
+</td>
+<td>
+<p dir="ltr">Multiplication/division/modulus</p>
+</td>
+<td>
+<p dir="ltr">left-to-right</p>
+</td>
+</tr>
+<tr>
+<th>
+<p>4</p>
+</th>
+<td>
+<p><strong>+ , &ndash;</strong></p>
+</td>
+<td>
+<p dir="ltr">Addition/subtraction</p>
+</td>
+<td>
+<p dir="ltr">left-to-right</p>
+</td>
+</tr>
+<tr>
+<th>
+<p>5</p>
+</th>
+<td>
+<p><strong>&lt;&lt; , &gt;&gt;</strong></p>
+</td>
+<td>
+<p dir="ltr">Bitwise shift left, Bitwise shift right</p>
+</td>
+<td>
+<p dir="ltr">left-to-right</p>
+</td>
+</tr>
+<tr>
+<th rowspan="2">
+<p>6</p>
+</th>
+<td>
+<p><strong>&lt; , &lt;=</strong></p>
+</td>
+<td>
+<p dir="ltr">Relational less than/less than or equal to</p>
+</td>
+<td>
+<p dir="ltr">left-to-right</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>&gt; , &gt;=</strong></p>
+</td>
+<td>
+<p dir="ltr">Relational greater than/greater than or equal to</p>
+</td>
+<td>
+<p dir="ltr">left-to-right</p>
+</td>
+</tr>
+<tr>
+<th>
+<p>7</p>
+</th>
+<td>
+<p><strong>== , !=</strong></p>
+</td>
+<td>
+<p dir="ltr">Relational is equal to/is not equal to</p>
+</td>
+<td>
+<p dir="ltr">left-to-right</p>
+</td>
+</tr>
+<tr>
+<th>
+<p>8</p>
+</th>
+<td>
+<p><strong>&amp;</strong></p>
+</td>
+<td>
+<p dir="ltr">Bitwise AND</p>
+</td>
+<td>
+<p dir="ltr">left-to-right</p>
+</td>
+</tr>
+<tr>
+<th>
+<p>9</p>
+</th>
+<td>
+<p><strong>^</strong></p>
+</td>
+<td>
+<p dir="ltr">Bitwise XOR</p>
+</td>
+<td>
+<p dir="ltr">left-to-right</p>
+</td>
+</tr>
+<tr>
+<th>
+<p>10</p>
+</th>
+<td>
+<p><strong>|</strong></p>
+</td>
+<td>
+<p dir="ltr">Bitwise OR</p>
+</td>
+<td>
+<p dir="ltr">left-to-right</p>
+</td>
+</tr>
+<tr>
+<th>
+<p>11</p>
+</th>
+<td>
+<p><strong>&amp;&amp;</strong></p>
+</td>
+<td>
+<p dir="ltr">Logical AND</p>
+</td>
+<td>
+<p dir="ltr">left-to-right</p>
+</td>
+</tr>
+<tr>
+<th>
+<p>12</p>
+</th>
+<td>
+<p><strong>||</strong></p>
+</td>
+<td>
+<p dir="ltr">Logical OR</p>
+</td>
+<td>
+<p dir="ltr">left-to-right</p>
+</td>
+</tr>
+<tr>
+<th>
+<p>13</p>
+</th>
+<td>
+<p><strong>?:</strong></p>
+</td>
+<td>
+<p dir="ltr">Ternary conditional</p>
+</td>
+<td>
+<p dir="ltr">right-to-left</p>
+</td>
+</tr>
+<tr>
+<th rowspan="6">
+<p>14</p>
+</th>
+<td>
+<p><strong>=</strong></p>
+</td>
+<td>
+<p dir="ltr">Assignment</p>
+</td>
+<td>
+<p dir="ltr">right-to-left</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>+= , -=</strong></p>
+</td>
+<td>
+<p dir="ltr">Addition/subtraction assignment</p>
+</td>
+<td>
+<p dir="ltr">right-to-left</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>*= , /=</strong></p>
+</td>
+<td>
+<p dir="ltr">Multiplication/division assignment</p>
+</td>
+<td>
+<p dir="ltr">right-to-left</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>%= , &amp;=</strong></p>
+</td>
+<td>
+<p dir="ltr">Modulus/bitwise AND assignment</p>
+</td>
+<td>
+<p dir="ltr">right-to-left</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>^= , |=</strong></p>
+</td>
+<td>
+<p dir="ltr">Bitwise exclusive/inclusive OR assignment</p>
+</td>
+<td>
+<p dir="ltr">right-to-left</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>&lt;&lt;=, &gt;&gt;=</strong></p>
+</td>
+<td>
+<p dir="ltr">Bitwise shift left/right assignment</p>
+</td>
+<td>
+<p dir="ltr">right-to-left</p>
+</td>
+</tr>
+<tr>
+<th>
+<p>15</p>
+</th>
+<td>
+<p><strong>,</strong></p>
+</td>
+<td>
+<p dir="ltr">expression separator</p>
+</td>
+<td>
+<p dir="ltr">left-to-right</p>
+</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

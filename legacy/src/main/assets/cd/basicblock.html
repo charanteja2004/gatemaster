@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    <div class="text">
+        <div class="main_wrapper">
+        <div class="article-title">
+        <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>Basic Blocks&nbsp;</h1>
+        </div>
+        </div>
+        <div class="three_dot_dropdown">
+        <div>&nbsp;</div>
+        </div>
+        </div>
+        <div class="text">
+        <p dir="ltr"><strong>Basic Block</strong>&nbsp;is a straight line code sequence that has no branches in and out branches except to the entry and at the end respectively. Basic Block is a set of statements that always executes one after other, in a sequence.&nbsp;</p>
+        <p dir="ltr">The first task is to partition a sequence of&nbsp;<a href="https://www.geeksforgeeks.org/three-address-code-compiler/">three-address codes</a>&nbsp;into basic blocks. A new basic block is begun with the first instruction and instructions are added until a jump or a label is met. In the absence of a jump, control moves further consecutively from one instruction to another. The idea is standardized in the algorithm below:&nbsp;</p>
+        <p><strong>Algorithm:</strong>&nbsp;Partitioning three-address code into basic blocks.&nbsp;</p>
+        <p><strong>Input:</strong>&nbsp;A sequence of three address instructions.&nbsp;</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <p><strong>Process:</strong>&nbsp;Instructions from intermediate code which are leaders are determined. The following are the rules used for finding a leader:&nbsp;</p>
+        <ol>
+        <li value="1">The first three-address instruction of the intermediate code is a leader.&nbsp;</li>
+        <li value="2">Instructions that are targets of unconditional or conditional jump/goto statements are leaders.&nbsp;</li>
+        <li value="3">Instructions that immediately follow unconditional or conditional jump/goto statements are considered leaders.&nbsp;</li>
+        </ol>
+        <p dir="ltr">Each leader thus determined its basic block contains itself and all instructions up to excluding the next leader.&nbsp;</p>
+        <p><strong>Example 1:&nbsp;</strong></p>
+        <p dir="ltr">The following sequence of three-address statements forms a basic block:</p>
+        <p dir="ltr"><strong>t1 := a*a</strong></p>
+        <p dir="ltr"><strong>t2 := a*b</strong></p>
+        <p dir="ltr"><strong>t3 := 2*t2</strong></p>
+        <p dir="ltr"><strong>t4 := t1+t3</strong></p>
+        <p dir="ltr"><strong>t5 := b*b</strong></p>
+        <p dir="ltr"><strong>t6 := t4 +t5</strong></p>
+        <p dir="ltr">A three address statement x:= y+z is said to define x and to use y and z. A name in a basic block is said to be live at a given point if its value is used after that point in the program, perhaps in another basic block.</p>
+        </div>
+        </div>
+        </div>
+        </div>
+    <div class="text">
+        <div class="main_wrapper">
+        <div class="article-title">
+        <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>Optimization of Basic Blocks</h1>
+        </div>
+        </div>
+        <div class="three_dot_dropdown">
+        <div>&nbsp;</div>
+        </div>
+        </div>
+        <div class="text">
+        <p>Optimization is applied to the basic blocks after the intermediate code generation phase of the compiler. Optimization is the process of transforming a program that improves the code by consuming fewer resources and delivering high speed. In optimization, high-level codes are replaced by their equivalent efficient low-level codes. Optimization of basic blocks can be machine-dependent or machine-independent. These transformations are useful for improving the quality of code that will be ultimately generated from basic block.</p>
+        <p><strong>There are two types of basic block optimizations:&nbsp;</strong>&nbsp;&nbsp;</p>
+        <ol>
+        <li>Structure preserving transformations</li>
+        <li>Algebraic transformations</li>
+        </ol>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220307133838/BasicBlockOptimization.jpg" alt="Basic Block Optimization" width="462" height="139" /></p>
+        <h3>Structure-Preserving Transformations:</h3>
+        <p>The structure-preserving transformation on basic blocks includes:</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <ol>
+        <li>Dead Code Elimination</li>
+        <li>Common Subexpression Elimination</li>
+        <li>Renaming of Temporary variables</li>
+        <li>Interchange of two independent adjacent statements</li>
+        </ol>
+        <h3>1.Dead Code Elimination:&nbsp;</h3>
+        <p>Dead code is defined as that part of the code that never executes during the program execution. So, for optimization, such code or dead code is eliminated. The code which is never executed during the program (Dead code) takes time so, for optimization and speed, it is eliminated from the code. Eliminating the dead code increases the speed of the program as the compiler does not have to translate the dead code.</p>
+        <p><strong>Example:</strong></p>
+        <pre>// Program with Dead code
+        int main()
+        {
+            x = 2 
+            if (x &gt; 2) 
+              cout &lt;&lt; "code"; // Dead code
+            else 
+              cout &lt;&lt; "Optimization";
+            return 0;
+        }</pre>
+        <pre>// Optimized Program without dead code
+        int main()
+        {
+            x = 2;
+            cout &lt;&lt; "Optimization"; // Dead Code Eliminated
+            return 0;
+        }</pre>
+        <h3>2.Common Subexpression Elimination:</h3>
+        <p>In this technique, the sub-expression which are common are used frequently are calculated only once and reused when needed. DAG ( Directed Acyclic Graph ) is used to eliminate common subexpressions.</p>
+        <p><strong>Example:&nbsp;</strong></p>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220303132609/Untitled.png" width="399" height="296" /></p>
+        <h3>3.Renaming of Temporary Variables:&nbsp;</h3>
+        <p>Statements containing instances of a temporary variable can be changed to instances of a new temporary variable without changing the basic block value.</p>
+        <p><strong>Example:&nbsp;</strong>Statement t = a + b can be changed to x = a + b where t is a temporary variable and x is a new temporary variable without changing the value of the basic block.</p>
+        <h4><strong>4.Interchange of Two Independent Adjacent Statements: &nbsp;</strong></h4>
+        <p>If a block has two adjacent statements which are independent can be interchanged without affecting the basic block value.</p>
+        <p><strong>Example:&nbsp;</strong></p>
+        <pre>t1 = a + b
+        t2 = c + d </pre>
+        <p>These two independent statements of a block can be interchanged without affecting the value of the block.</p>
+        <h3>Algebraic Transformation:</h3>
+        <p>Countless algebraic transformations can be used to change the set of expressions computed &nbsp;by a basic block into an algebraically equivalent set. Some of the algebraic transformation on basic blocks includes:</p>
+        <ol>
+        <li>Constant Folding</li>
+        <li>Copy Propagation</li>
+        <li>Strength Reduction</li>
+        </ol>
+        <h4>1. Constant Folding:</h4>
+        <p>Solve the constant terms which are continuous so that compiler does not need to solve this expression.</p>
+        <p><strong>Example:</strong></p>
+        <pre>x = 2 * 3 + y   <strong>&rArr; </strong>x = 6 + y  (Optimized code)</pre>
+        <h4>2. Copy Propagation:&nbsp;</h4>
+        <p>It is of two types, Variable Propagation, and Constant Propagation.</p>
+        <p><strong>Variable Propagation:</strong></p>
+        <blockquote>
+        <p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong>x = y &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="text-huge">&nbsp;&nbsp;&rArr;&nbsp;</span>z = y + 2 (Optimized code)</p>
+        <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;z = x + 2</p>
+        </blockquote>
+        <p><strong>Constant Propagation:</strong></p>
+        <blockquote>
+        <p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong>&nbsp;x = 3 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span class="text-huge">&nbsp;&rArr;&nbsp;</span>z = 3 + a (Optimized code)</p>
+        <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; z = x + a&nbsp;</p>
+        </blockquote>
+        <h4>3. Strength Reduction:&nbsp;</h4>
+        <p>Replace expensive statement/ instruction with cheaper ones.</p>
+        <pre>x = 2 * y (costly)  <strong>&rArr;</strong>  x = y + y (cheaper)
+        x = 2 * y (costly)  &rArr; x = y &lt;&lt; 1 (cheaper)</pre>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+</body>
+</html>

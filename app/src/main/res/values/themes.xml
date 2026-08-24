@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      The only XML theme in the app. Everything after the splash is Compose
+      Material 3; this exists solely so the window has a background and the
+      splash screen has somewhere to hang off.
+    -->
+    <style name="Theme.GateMaster.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/splash_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_foreground</item>
+        <item name="postSplashScreenTheme">@style/Theme.GateMaster.Main</item>
+    </style>
+
+    <style name="Theme.GateMaster.Main" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/splash_background</item>
+    </style>
+</resources>

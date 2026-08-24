@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    <div class="main_wrapper">
+        <div class="article-title">
+        <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>Trees&nbsp;</h1>
+        </div>
+        </div>
+        </div>
+        <div class="text">
+        <p dir="ltr">Trees are foundational structures in computer science, serving as the backbone for numerous algorithms and data representations. GATE aspirants should be well versed in tree structures to prepare for the GATE Exam in 2024. This article aims to provide a concise yet comprehensive overview of trees, exploring key concepts crucial for a comprehensive understanding of the topic. To help candidates understand tree-based problem-solving scenarios, these notes provide invaluable insights and knowledge essential to success in GATE.</p>
+        <div id="table_of_content">
+        <p>Table of Content</p>
+        <ul>
+        <li><a href="#introduction-to-tree">Introduction to Tree</a></li>
+        <li><a href="#basic-terminologies-in-tree-data-structure">Basic Terminologies In Tree Data Structure</a></li>
+        <li><a href="#types-of-tree-data-structures">Types of Tree data structures</a></li>
+        <li><a href="#1-binary-tree">Binary Tree</a></li>
+        <li><a href="#2-ternary-tree">Ternary Tree</a></li>
+        <li><a href="#3-nary-tree-or-generic-tree">N-ary Tree or Generic Tree</a></li>
+        <li><a href="#4-binary-search-tree">Binary Search Tree</a></li>
+        <li><a href="#6-avl-tree">AVL Tree</a></li>
+        <li><a href="#previously-asked-gate-questions-on-trees">Previously Asked GATE Questions on Trees</a></li>
+        </ul>
+        </div>
+        <h2 id="introduction-to-tree"><u><span class="GFGEditorTheme__textUnderline">Introduction to Tree:</span></u></h2>
+        <blockquote>
+        <p dir="ltr"><strong>Tree Data Structure</strong>&nbsp;is a hierarchical data structure&nbsp;in which a collection of elements known as nodes are connected to each other via edges such that there exists exactly one path between any two nodes.</p>
+        </blockquote>
+        <h2 id="basic-terminologies-in-tree-data-structure"><u><span class="GFGEditorTheme__textUnderline">Basic Terminologies In Tree Data Structure:</span></u></h2>
+        <ul>
+        <li value="1"><strong>Parent Node:</strong>&nbsp;The node which is a predecessor of a node is called the parent node of that node.<strong>&nbsp;{B}</strong>&nbsp;is the parent node of&nbsp;<strong>{D, E}</strong>.</li>
+        <li value="2"><strong>Child Node:</strong>&nbsp;The node that is the immediate successor of a node is called the child node of that node. Examples:&nbsp;<strong>{D, E}</strong>&nbsp;are the child nodes of&nbsp;<strong>{B}.</strong></li>
+        <li value="3"><strong>Root Node:</strong>&nbsp;The topmost node of a tree or the node that does not have any parent node is called the root node. {A<strong>}</strong>&nbsp;is the root node of the tree. A non-empty tree must contain exactly one root node and exactly one path from the root to all other nodes of the tree.</li>
+        <li value="4"><strong>Leaf Node or External Node:</strong>&nbsp;The nodes which do not have any child nodes are called leaf nodes.&nbsp;<strong>{K, L, M, N, O, P, G}</strong>&nbsp;are the leaf nodes of the tree.</li>
+        <li value="5"><strong>Ancestor of a Node:</strong>&nbsp;Any predecessor nodes on the path of the root to that node are called Ancestors of that node.<strong>&nbsp;{A,B}</strong>&nbsp;are the ancestor nodes of the node<strong>&nbsp;{E}</strong></li>
+        <li value="6"><strong>Descendant:</strong>&nbsp;Any successor node on the path from the leaf node to that node.&nbsp;<strong>{E,I}&nbsp;</strong>are the descendants of the node&nbsp;<strong>{B}.</strong></li>
+        <li value="7"><strong>Sibling:</strong>&nbsp;Children of the same parent node are called siblings.<strong>&nbsp;{D,E}</strong>&nbsp;are called siblings.</li>
+        <li value="8"><strong>Level of a node:</strong>&nbsp;The count of edges on the path from the root node to that node. The root node has level&nbsp;<strong>0</strong>.</li>
+        <li value="9"><strong>Internal node:</strong>&nbsp;A node with at least one child is called Internal Node.</li>
+        <li value="10"><strong>Neighbour of a Node:</strong>&nbsp;Parent or child nodes of that node are called neighbors of that node.</li>
+        <li value="11"><strong>Subtree</strong>: Any node of the tree along with its descendant.</li>
+        </ul>
+        <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231130130712/Treedatastructure.png" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20231130130712/Treedatastructure.png 1070w,https://media.geeksforgeeks.org/wp-content/uploads/20231130130712/Treedatastructure-100.png 100w,https://media.geeksforgeeks.org/wp-content/uploads/20231130130712/Treedatastructure-200.png 200w,https://media.geeksforgeeks.org/wp-content/uploads/20231130130712/Treedatastructure-300.png 300w,https://media.geeksforgeeks.org/wp-content/uploads/20231130130712/Treedatastructure-660.png 660w,https://media.geeksforgeeks.org/wp-content/uploads/20231130130712/Treedatastructure-768.png 768w,https://media.geeksforgeeks.org/wp-content/uploads/20231130130712/Treedatastructure-1024.png 1024w" alt="Treedatastructure" width="475" height="238" /></p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <h1><u><span class="GFGEditorTheme__textUnderline">Tree Traversal Techniques:</span></u></h1>
+        <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231130155722/traversal.png" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20231130155722/traversal.png 1001w,https://media.geeksforgeeks.org/wp-content/uploads/20231130155722/traversal-100.png 100w,https://media.geeksforgeeks.org/wp-content/uploads/20231130155722/traversal-200.png 200w,https://media.geeksforgeeks.org/wp-content/uploads/20231130155722/traversal-300.png 300w,https://media.geeksforgeeks.org/wp-content/uploads/20231130155722/traversal-660.png 660w,https://media.geeksforgeeks.org/wp-content/uploads/20231130155722/traversal-768.png 768w" alt="traversal" width="414" height="207" /></p>
+        </div>
+        </div>
+        </div>
+        <div class="main_wrapper">
+            <div class="article-title">
+            <div class="main_wrapper">
+            <div class="article-title">
+            <h3><u><strong><strong class="GFGEditorTheme__textUnderline">1.&nbsp;</strong></strong></u><a href="https://www.geeksforgeeks.org/inorder-traversal-of-binary-tree/"><u><strong><strong class="GFGEditorTheme__textUnderline">Inorder Traversal</strong></strong></u></a><u><strong><strong class="GFGEditorTheme__textUnderline">:</strong></strong></u></h3>
+            <blockquote>
+            <p dir="ltr">Algorithm Inorder(tree)</p>
+            <ul>
+            <li value="1">Traverse the left subtree, i.e., call Inorder(left-&gt;subtree)</li>
+            <li value="2">Visit the root.</li>
+            <li value="3">Traverse the right subtree, i.e., call Inorder(right-&gt;subtree)</li>
+            </ul>
+            </blockquote>
+            <p dir="ltr">In the case of binary search trees (BST), Inorder traversal gives nodes in non-decreasing order. To get nodes of BST in non-increasing order, a variation of Inorder traversal where Inorder traversal is reversed can be used.</p>
+            <h3><u><strong><strong class="GFGEditorTheme__textUnderline">2.&nbsp;</strong></strong></u><a href="https://www.geeksforgeeks.org/preorder-traversal-of-binary-tree/"><u><strong><strong class="GFGEditorTheme__textUnderline">Preorder Traversal</strong></strong></u></a><u><strong><strong class="GFGEditorTheme__textUnderline">:</strong></strong></u></h3>
+            <blockquote>
+            <p dir="ltr">Algorithm Preorder(tree)</p>
+            <ul>
+            <li value="1">Visit the root.</li>
+            <li value="2">Traverse the left subtree, i.e., call Preorder(left-&gt;subtree)</li>
+            <li value="3">Traverse the right subtree, i.e., call Preorder(right-&gt;subtree)&nbsp;</li>
+            </ul>
+            </blockquote>
+            <p dir="ltr">Preorder traversal is used to create a copy of the tree. Preorder traversal is also used to get prefix expressions on an expression tree.</p>
+            <h3><u><strong><strong class="GFGEditorTheme__textUnderline">3.&nbsp;</strong></strong></u><a href="https://www.geeksforgeeks.org/postorder-traversal-of-binary-tree/"><u><strong><strong class="GFGEditorTheme__textUnderline">Postorder Traversal</strong></strong></u></a><u><strong><strong class="GFGEditorTheme__textUnderline">:</strong></strong></u></h3>
+            <blockquote>
+            <p dir="ltr">Algorithm Postorder(tree)</p>
+            <ul>
+            <li value="1">Traverse the left subtree, i.e., call Postorder(left-&gt;subtree)</li>
+            <li value="2">Traverse the right subtree, i.e., call Postorder(right-&gt;subtree)</li>
+            <li value="3">Visit the root</li>
+            </ul>
+            </blockquote>
+            <p dir="ltr">Postorder traversal is used to delete the tree. Postorder traversal is also useful to get the postfix expression of an expression tree</p>
+            <h2 id="types-of-tree-data-structures"><a href="https://www.geeksforgeeks.org/types-of-binary-tree/" rel="noreferrer noopener"><u><span class="GFGEditorTheme__textUnderline">Types of Tree data structures</span></u></a><u><span class="GFGEditorTheme__textUnderline">:</span></u></h2>
+            <p dir="ltr">Below are types of Tree data structure:</p>
+            <ol>
+            <li value="1">Binary Tree</li>
+            <li value="2">Ternary Tree</li>
+            <li value="3">N-ary Tree or Generic Tree</li>
+            <li value="4">Binary Search Tree</li>
+            <li value="5">AVL Tree</li>
+            <li value="6">B-Tree</li>
+            </ol>
+            </div>
+            </div>
+            </div>
+            </div>
+            <div class="main_wrapper">
+                <div class="article-title">
+                <div class="main_wrapper">
+                <div class="article-title">
+                <h2 id="1-binary-tree"><u><span class="GFGEditorTheme__textUnderline">1.</span></u><a href="" rel="noreferrer noopener"><u><span class="GFGEditorTheme__textUnderline">&nbsp;Binary Tree</span></u></a><u><span class="GFGEditorTheme__textUnderline">:</span></u></h2>
+                <blockquote>
+                <p dir="ltr">In a binary tree, each node can have a maximum of two children linked to it. Some common types of binary trees include full binary trees, complete binary trees, balanced binary trees, and degenerate binary trees.</p>
+                </blockquote>
+                <p dir="ltr">Below are list of different Binary trees:</p>
+                <ul>
+                <li value="1"><u><strong><strong class="GFGEditorTheme__textUnderline">Full Binary Tree:&nbsp;</strong></strong></u>A Binary Tree is a full binary tree if every node has 0 or 2 children. The following are examples of a full binary tree. We can also say a full binary tree is a binary tree in which all nodes except leaf nodes have two children.&nbsp;A full Binary tree is a special type of binary tree in which every parent node/internal node has either two or no children. It is also known as a proper binary tree.</li>
+                <li value="2"><u><strong><strong class="GFGEditorTheme__textUnderline">Degenerate (or pathological) tree:</strong></strong></u>&nbsp;A Tree where every internal node has one child. Such trees are performance-wise same as linked list. A degenerate or pathological tree is a tree having a single child either left or right.</li>
+                <li value="3"><u><strong><strong class="GFGEditorTheme__textUnderline">Skewed Binary Tree</strong></strong></u>: A skewed binary tree is a pathological/degenerate tree in which the tree is either dominated by the left nodes or the right nodes. Thus, there are two types of skewed binary tree: left-skewed binary tree and right-skewed binary tree.</li>
+                <li value="4"><u><strong><strong class="GFGEditorTheme__textUnderline">Complete Binary Tree:</strong></strong></u>&nbsp;A Binary Tree is a Complete Binary Tree if all the levels are completely filled except possibly the last level and the last level has all keys as left as possible.</li>
+                <li value="5"><u><strong><strong class="GFGEditorTheme__textUnderline">Perfect Binary Tree</strong></strong></u>&nbsp;A Binary tree is a Perfect Binary Tree in which all the internal nodes have two children and all leaf nodes are at the same level.&nbsp;<br /><u><strong><strong class="GFGEditorTheme__textUnderline">Balanced Binary Tree</strong></strong></u>&nbsp;A binary tree is balanced if the height of the tree is O(Log n) where n is the number of nodes. For Example, the AVL tree maintains O(Log n) height by making sure that the difference between the heights of the left and right subtrees is at most 1.</li>
+                </ul>
+                <h2 id="2-ternary-tree"><u><strong><strong class="GFGEditorTheme__textUnderline">2.&nbsp;</strong></strong></u><u><strong><strong class="GFGEditorTheme__textUnderline">Ternary Tree</strong></strong></u><u><strong><strong class="GFGEditorTheme__textUnderline">:</strong></strong></u>&nbsp;</h2>
+                <p dir="ltr">A Ternary Tree is a tree data structure in which each node has at most three child nodes, usually distinguished as &ldquo;left&rdquo;, &ldquo;mid&rdquo; and &ldquo;right&rdquo;.</p>
+                <h2 id="3-nary-tree-or-generic-tree"><u><strong><strong class="GFGEditorTheme__textUnderline">3.&nbsp;</strong></strong></u><u><strong><strong class="GFGEditorTheme__textUnderline">N-ary Tree or Generic Tree</strong></strong></u><u><strong><strong class="GFGEditorTheme__textUnderline">:</strong></strong></u></h2>
+                <p dir="ltr">Generic trees are a collection of nodes where each node is a data structure that consists of records and a list of references to its children(duplicate references are not allowed). Unlike the linked list, each node stores the address of multiple node.</p>
+                </div>
+                </div>
+                </div>
+                </div>
+                <div class="main_wrapper">
+                    <div class="article-title">
+                    <div class="main_wrapper">
+                    <div class="article-title">
+                    <h2 id="4-binary-search-tree"><u><span class="GFGEditorTheme__textUnderline">4.&nbsp;</span></u><a href="https://www.geeksforgeeks.org/binary-search-tree-data-structure/" rel="noreferrer noopener"><u><span class="GFGEditorTheme__textUnderline">Binary Search Tree:</span></u></a></h2>
+                    <p dir="ltr"><strong>Binary Search Tree</strong>&nbsp;is a node-based binary tree data structure which has the following properties:</p>
+                    <ul>
+                    <li value="1">The left subtree of a node contains only nodes with keys lesser than the node&rsquo;s key.</li>
+                    <li value="2">The right subtree of a node contains only nodes with keys greater than the node&rsquo;s key.</li>
+                    <li value="3">The left and right subtree each must also be a binary search&nbsp;tree.</li>
+                    </ul>
+                    <p dir="ltr"><strong>Operations in an BST:</strong></p>
+                    <ol>
+                    <li value="1">Insertion in BST:</li>
+                    <li value="2">Searching in BST:</li>
+                    <li value="3">Deletion in BST:</li>
+                    </ol>
+                    <h3><u><strong><strong class="GFGEditorTheme__textUnderline">4.1&nbsp;</strong></strong></u><a href="https://www.geeksforgeeks.org/insertion-in-binary-search-tree/" rel="noreferrer noopener"><u><strong><strong class="GFGEditorTheme__textUnderline">Insertion in BST:</strong></strong></u></a></h3>
+                    <p dir="ltr">A new key is always inserted at the leaf by maintaining the property of the binary search tree. We start searching for a key from the root until we hit a leaf node. Once a leaf node is found, the new node is added as a child of the leaf node. The below steps are followed while we try to insert a node into a binary search tree:</p>
+                    <ul>
+                    <li value="1">Check the value to be inserted (say&nbsp;<strong>X</strong>) with the value of the current node (say&nbsp;<strong>val</strong>) we are in:
+                    <ul>
+                    <li value="1">If&nbsp;<strong>X</strong>&nbsp;is less than&nbsp;<strong>val&nbsp;</strong>move to the left subtree.</li>
+                    <li value="2">Otherwise, move to the right subtree.</li>
+                    </ul>
+                    </li>
+                    <li value="2">Once the leaf node is reached, insert&nbsp;<strong>X</strong>&nbsp;to its right or left based on the relation between&nbsp;<strong>X</strong>&nbsp;and the leaf node&rsquo;s value.</li>
+                    </ul>
+                    <p dir="ltr"><strong>Time Complexity:&nbsp;O(h)</strong>&nbsp;where&nbsp;<strong>h</strong>&nbsp;is the height of the Binary Search Tree.&nbsp;In the worst case, we may have to travel from the root to the deepest leaf node. The height of a skewed tree may become&nbsp;<strong>n</strong>&nbsp;and the time complexity of insertion operation may become<strong>&nbsp;O(n).&nbsp;</strong><br /><strong>Auxiliary Space:&nbsp;O(1),&nbsp;</strong>if we use a iterative approach, and&nbsp;<strong>(n)</strong>, as we use recursive approach.</p>
+                    <h3><u><strong><strong class="GFGEditorTheme__textUnderline">4.2&nbsp;</strong></strong></u><a href="https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/" rel="noreferrer noopener"><u><strong><strong class="GFGEditorTheme__textUnderline">Searching in BST</strong></strong></u></a><u><strong><strong class="GFGEditorTheme__textUnderline">:</strong></strong></u></h3>
+                    <p dir="ltr">For searching a value in BST, consider it as a sorted array. Now we can easily perform search operation in BST using&nbsp;<a href="https://www.geeksforgeeks.org/binary-search/"><strong>Binary Search Algorithm</strong></a>. Let&rsquo;s say we want to search for the number&nbsp;<strong>X,&nbsp;</strong>We start at the root. Then:</p>
+                    <ul>
+                    <li value="1">We compare the value to be searched with the value of the root.&nbsp;
+                    <ul>
+                    <li value="1">If it&rsquo;s equal we are done with the search if it&rsquo;s smaller we know that we need to go to the left subtree because in a binary search tree all the elements in the left subtree are smaller and all the elements in the right subtree are larger.&nbsp;</li>
+                    </ul>
+                    </li>
+                    <li value="2">Repeat the above step till no more traversal is possible</li>
+                    <li value="3">If at any iteration, key is found, return True. Else False.</li>
+                    </ul>
+                    <p dir="ltr"><strong>Time Complexity:</strong>&nbsp;O(h), where h is the height of the BST.<br /><strong>Auxiliary Space:</strong>The auxiliary<strong>&nbsp;</strong>space complexity of searching in a binary search tree is<strong>&nbsp;O(1)&nbsp;</strong>if we use a iterative approach, and&nbsp;<strong>(n)</strong>, as we use recursive approach.</p>
+                    <h3><u><span class="GFGEditorTheme__textUnderline">4.3&nbsp;</span></u><a href="https://www.geeksforgeeks.org/deletion-in-binary-search-tree/" rel="noreferrer noopener"><u><span class="GFGEditorTheme__textUnderline">Deletion in BST:</span></u></a></h3>
+                    <p dir="ltr">The task to delete a node in this&nbsp;<strong>BST</strong>, can be broken down into 3 scenarios:</p>
+                    <h4><u><span class="GFGEditorTheme__textUnderline">Case 1. Delete a Leaf Node in BST</span></u></h4>
+                    <blockquote>
+                    <p dir="ltr">If the node to be deleted is a leaf node, it can simply be removed from the tree. The parent node of the deleted node must have its corresponding child pointer set to NULL to reflect the change in the tree.</p>
+                    </blockquote>
+                    <h4><u><span class="GFGEditorTheme__textUnderline">Case 2. Delete a Node with Single Child in BST</span></u></h4>
+                    <blockquote>
+                    <p dir="ltr">If the node to be deleted has only one child, the child can be promoted to replace the deleted node. The parent node of the deleted node must have its corresponding child pointer updated to point to the promoted child.</p>
+                    </blockquote>
+                    <h4><u><span class="GFGEditorTheme__textUnderline">Case 3. Delete a Node with Both Children in BST</span></u></h4>
+                    <blockquote>
+                    <p dir="ltr">If the node to be deleted has two children, the replacement node can be found by either selecting the minimum value from the right subtree or the maximum value from the left subtree of the node to be deleted. After finding the replacement node, it can be promoted to replace the deleted node. The left subtree of the replacement node (if it exists) must be attached to the left child of the promoted node, and the right subtree of the replacement node (if it exists) must be attached to the right child of the promoted node. The parent node of the deleted node must have its corresponding child pointer updated to point to the promoted node.</p>
+                    </blockquote>
+                    <p dir="ltr"><strong>Time Complexity:&nbsp;</strong>O(h), where h is the height of the BST.&nbsp;<br /><strong>Auxiliary Space:</strong>&nbsp;O(n).</p>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="main_wrapper">
+                        <div class="article-title">
+                        <div class="main_wrapper">
+                        <div class="article-title">
+                        <h2 id="6-avl-tree"><u><span class="GFGEditorTheme__textUnderline">6.&nbsp;</span></u><a href="https://www.geeksforgeeks.org/introduction-to-avl-tree/" rel="noreferrer noopener"><u><span class="GFGEditorTheme__textUnderline">AVL Tree</span></u></a></h2>
+                        <blockquote>
+                        <p dir="ltr">An&nbsp;<strong>AVL tree</strong>&nbsp;defined as a self-balancing&nbsp;<a href="https://www.geeksforgeeks.org/binary-search-tree-data-structure/"><strong>Binary Search Tree</strong></a>&nbsp;(BST) where the difference between heights of left and right subtrees for any node cannot be more than one.</p>
+                        </blockquote>
+                        <p dir="ltr">The difference between the heights of the left subtree and the right subtree for any node is known as the&nbsp;<strong>balance factor</strong>&nbsp;of the node.</p>
+                        <h3><u><span class="GFGEditorTheme__textUnderline">Rotating the subtrees in an AVL Tree:</span></u></h3>
+                        <p dir="ltr">An AVL tree may rotate in one of the following four ways to keep itself balanced:</p>
+                        <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Left Rotation</strong></strong></u><u><span class="GFGEditorTheme__textUnderline">:</span></u></p>
+                        <blockquote>
+                        <p dir="ltr">When a node is added into the right subtree of the right subtree, if the tree gets out of balance, we do a single left rotation.</p>
+                        </blockquote>
+                        <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231130155021/avl11-(1)-768.png" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20231130155021/avl11-(1)-768.png 768w,https://media.geeksforgeeks.org/wp-content/uploads/20231130155021/avl11-(1)-768-100.png 100w,https://media.geeksforgeeks.org/wp-content/uploads/20231130155021/avl11-(1)-768-200.png 200w,https://media.geeksforgeeks.org/wp-content/uploads/20231130155021/avl11-(1)-768-300.png 300w,https://media.geeksforgeeks.org/wp-content/uploads/20231130155021/avl11-(1)-768-660.png 660w" alt="avl11-(1)-768" width="375" height="183" /></p>
+                        <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Right Rotation</strong></strong></u><u><span class="GFGEditorTheme__textUnderline">:</span></u></p>
+                        <blockquote>
+                        <p dir="ltr">If a node is added to the left subtree of the left subtree, the AVL tree may get out of balance, we do a single right rotation.</p>
+                        </blockquote>
+                        <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231130155049/avl-tree-(1).jpg" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20231130155049/avl-tree-(1).jpg 1000w,https://media.geeksforgeeks.org/wp-content/uploads/20231130155049/avl-tree-(1)-100.jpg 100w,https://media.geeksforgeeks.org/wp-content/uploads/20231130155049/avl-tree-(1)-200.jpg 200w,https://media.geeksforgeeks.org/wp-content/uploads/20231130155049/avl-tree-(1)-300.jpg 300w,https://media.geeksforgeeks.org/wp-content/uploads/20231130155049/avl-tree-(1)-660.jpg 660w,https://media.geeksforgeeks.org/wp-content/uploads/20231130155049/avl-tree-(1)-768.jpg 768w" alt="avl-tree-(1)" width="436" height="218" /></p>
+                        <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Left-Right Rotation</strong></strong></u><u><span class="GFGEditorTheme__textUnderline">:</span></u></p>
+                        <p dir="ltr">A left-right rotation is a combination in which first left rotation takes place after that right rotation executes.</p>
+                        <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231130155022/avl33-(1)-768.png" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20231130155022/avl33-(1)-768.png 768w,https://media.geeksforgeeks.org/wp-content/uploads/20231130155022/avl33-(1)-768-100.png 100w,https://media.geeksforgeeks.org/wp-content/uploads/20231130155022/avl33-(1)-768-200.png 200w,https://media.geeksforgeeks.org/wp-content/uploads/20231130155022/avl33-(1)-768-300.png 300w,https://media.geeksforgeeks.org/wp-content/uploads/20231130155022/avl33-(1)-768-660.png 660w" alt="avl33-(1)-768" width="459" height="190" /></p>
+                        <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Right-Left Rotation</strong></strong></u><u><span class="GFGEditorTheme__textUnderline">:</span></u></p>
+                        <blockquote>
+                        <p dir="ltr">A right-left rotation is a combination in which first right rotation takes place after that left rotation executes.</p>
+                        </blockquote>
+                        <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231130155023/avl44-(1)-768.png" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20231130155023/avl44-(1)-768.png 768w,https://media.geeksforgeeks.org/wp-content/uploads/20231130155023/avl44-(1)-768-100.png 100w,https://media.geeksforgeeks.org/wp-content/uploads/20231130155023/avl44-(1)-768-200.png 200w,https://media.geeksforgeeks.org/wp-content/uploads/20231130155023/avl44-(1)-768-300.png 300w,https://media.geeksforgeeks.org/wp-content/uploads/20231130155023/avl44-(1)-768-660.png 660w" alt="avl44-(1)-768" width="444" height="200" /></p>
+                        <h3><u><strong><strong class="GFGEditorTheme__textUnderline">Operations in an AVL Tree:</strong></strong></u></h3>
+                        <ul>
+                        <li value="1"><a href="https://www.geeksforgeeks.org/insertion-in-an-avl-tree/">Insertion</a></li>
+                        <li value="2"><a href="https://www.geeksforgeeks.org/deletion-in-an-avl-tree/">Deletion</a></li>
+                        <li value="3"><a href="https://www.geeksforgeeks.org/avl-trees-containing-a-parent-node-pointer/">Searching</a></li>
+                        </ul>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+</body>
+</html>

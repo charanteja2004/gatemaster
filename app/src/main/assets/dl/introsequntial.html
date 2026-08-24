@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    <div class="article-title">
+        <h1>Introduction of Sequential Circuits</h1>
+        </div>
+        <div>&nbsp;</div>
+        <div class="text">
+        <p>Sequential circuits are digital circuits that store and use the previous state information to determine their next state. Unlike combinational circuits, which only depend on the current input values to produce outputs, sequential circuits depend on both the current inputs and the previous state stored in memory elements.</p>
+        <ol>
+        <li>Sequential circuits are commonly used in digital systems to implement state machines, timers, counters, and memory elements. The memory elements in sequential circuits can be implemented using flip-flops, which are circuits that store binary values and maintain their state even when the inputs change.</li>
+        <li>There are two types of sequential circuits: finite state machines (FSMs) and synchronous sequential circuits. FSMs are designed to have a limited number of states and are typically used to implement state machines and control systems. Synchronous sequential circuits, on the other hand, are designed to have an infinite number of states and are typically used to implement timers, counters, and memory elements.</li>
+        </ol>
+        <p>In summary, sequential circuits are digital circuits that store and use previous state information to determine their next state. They are commonly used in digital systems to implement state machines, timers, counters, and memory elements and are essential components in digital systems design.</p>
+        <p><strong>Sequential circuit&nbsp;</strong>is a combinational logic circuit that consists of inputs variable (X), logic gates (Computational circuit), and output variable (Z).&nbsp;<br />&nbsp;</p>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/111.png" alt="" width="362" height="105" /></p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <p>A combinational circuit produces an output based on input variables only, but a&nbsp;<strong>sequential circuit</strong>&nbsp;produces an output based on&nbsp;<strong>current input and previous output variables</strong>. That means sequential circuits include memory elements that are capable of storing binary information. That binary information defines the state of the sequential circuit at that time. A latch capable of storing one bit of information.<br />&nbsp;</p>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/1111-1.png" alt="" width="325" height="202" /></p>
+        <p>As shown in the figure, there are two types of input to the combinational logic :&nbsp;</p>
+        <ol>
+        <li>External inputs which are not controlled by the circuit.</li>
+        <li>Internal inputs, which are a function of a previous output state.</li>
+        </ol>
+        <p>Secondary inputs are state variables produced by the storage elements, whereas secondary outputs are excitations for the storage elements.&nbsp;</p>
+        <p><strong>Types of Sequential Circuits:</strong></p>
+        <p>There are two types of sequential circuits:&nbsp;&nbsp;</p>
+        <p><strong>Type 1:&nbsp;</strong>Asynchronous sequential circuit:<strong>&nbsp;</strong>These circuits&nbsp;<strong>do not use a clock signal</strong>&nbsp;but uses the pulses of the inputs. These circuits are&nbsp;<strong>faster</strong>&nbsp;than synchronous sequential circuits because there is clock pulse and change their state immediately when there is a change in the input signal. We use asynchronous sequential circuits when speed of operation is important and&nbsp;<strong>independent</strong>&nbsp;of internal clock pulse.&nbsp;</p>
+        <p>&nbsp;</p>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/11212.png" alt="" width="309" height="96" /></p>
+        <p>But these circuits are more&nbsp;<strong>difficult</strong>&nbsp;to design and their output is&nbsp;<strong>uncertain</strong>.&nbsp;<br />&nbsp;</p>
+        <p><strong>Type2:&nbsp;</strong>Synchronous sequential circuit: These circuits&nbsp;<strong>uses clock signal</strong>&nbsp;and level inputs (or pulsed) (with restrictions on pulse width and circuit propagation). The output pulse is the same duration as the clock pulse for the clocked sequential circuits. Since they wait for the next clock pulse to arrive to perform the next operation, so these circuits are bit&nbsp;<strong>slower</strong>&nbsp;compared to asynchronous. Level output changes state at the start of an input pulse and remains in that until the next input or clock pulse.&nbsp;</p>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/11-1.png" alt="" width="368" height="158" /></p>
+        <p>We use synchronous sequential circuit in synchronous counters, flip flops, and in the design of MOORE-MEALY state management machines.&nbsp;We use sequential circuits to design Counters, Registers, RAM, MOORE/MEALY Machine and other state retaining machines.&nbsp;</p>
+        </div>
+</body>
+</html>

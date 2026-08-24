@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    
+<h2>Heaps</h2>
+<h3>Introduction to Heap</h3>
+<h2>Complexity Analysis of Bucket Sort Algorithm:</h2>
+<p dir="ltr"><strong>Time Complexity:</strong>&nbsp;O(n<sup>2</sup>),</p>
+<ul>
+<li value="1">If we assume that insertion in a bucket takes O(1) time then steps 1 and 2 of the above algorithm clearly take O(n) time.</li>
+<li value="2">The O(1) is easily possible if we use a linked list to represent a bucket.</li>
+<li value="3">Step 4 also takes O(n) time as there will be n items in all buckets.&nbsp;</li>
+<li value="4">The main step to analyze is step 3. This step also takes O(n) time on average if all numbers are uniformly distributed.</li>
+</ul>
+<p dir="ltr"><strong>Auxiliary Space:&nbsp;</strong>O(n+k)</p>
+
+<h3><strong>Min-Heap:&nbsp;</strong></h3>
+<p>In this heap, the value of the root node must be the smallest among all its child nodes and the same thing must be done for its left and right sub-tree also.</p>
+<blockquote>
+<p>The total number of comparisons required in the min heap is according to the height of the tree. The height of the complete binary tree is always logn; therefore, the time complexity would also be O(logn).</p>
+</blockquote>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20221220165711/MinHeapAndMaxHeap1.png" />
+<p class="wp-caption-text">&nbsp;</p>
+</div>
+<h2>Properties of Heap:</h2>
+<h4>Heap has the following Properties:</h4>
+<ul>
+<li><strong>Complete Binary Tree:&nbsp;</strong>A heap tree is a complete binary tree, meaning all levels of the tree are fully filled except possibly the last level, which is filled from left to right. This property ensures that the tree is efficiently represented using an array.</li>
+<li><strong>Heap Property:&nbsp;</strong>This property ensures that the minimum (or maximum) element is always at the root of the tree according to the heap type.</li>
+<li><strong>Parent-Child Relationship:</strong>&nbsp;The relationship between a parent node at index&nbsp;<strong>&lsquo;i&rsquo;</strong>&nbsp;and its children is given by the formulas: left child at index<strong>&nbsp;2i+1</strong>&nbsp;and right child at index<strong>&nbsp;2i+2&nbsp;</strong>for 0-based indexing of node numbers.</li>
+<li><strong>Efficient Insertion and Removal:&nbsp;</strong>Insertion and removal operations in heap trees are efficient. New elements are inserted at the next available position in the bottom-rightmost level, and the heap property is restored by comparing the element with its parent and swapping if necessary. Removal of the root element involves replacing it with the last element and heapifying down.</li>
+<li><strong>Efficient Access to Extremal Elements:&nbsp;</strong>The minimum or maximum element is always at the root of the heap, allowing constant-time access.</li>
+</ul>
+<h2>Operations Supported by Heap:</h2>
+<blockquote>
+<p>Operations supported by&nbsp;<strong>min &ndash; heap</strong>&nbsp;and&nbsp;<strong>max &ndash; heap</strong>&nbsp;are same. The difference is just that min-heap contains minimum element at root of the tree and max &ndash; heap contains maximum element at the root of the tree.</p>
+</blockquote>
+<h3><strong>Heapify:</strong></h3>
+<p>It is the process to rearrange the elements to maintain the property of heap data structure. It is done when a certain node creates an imbalance in the heap due to some operations on that node. It takes&nbsp;<strong>O(log N)&nbsp;</strong>to balance the tree.&nbsp;</p>
+<ul>
+<li>For&nbsp;<strong>max-heap,&nbsp;</strong>it<strong>&nbsp;balances</strong>&nbsp;in such a way that the maximum element is the root of that binary tree and&nbsp;</li>
+<li>For&nbsp;<strong>min-heap,&nbsp;</strong>it balances in such a way that the minimum element is the root of that binary tree.</li>
+</ul>
+<h3>Insertion:</h3>
+<ul>
+<li>If we insert a new element into the heap since we are adding a new element into the heap so it will distort the properties of the heap so we need to perform the&nbsp;<strong>heapify</strong>&nbsp;operation so that it maintains the property of the heap.</li>
+</ul>
+<p>This operation also takes&nbsp;<strong>O(logN)</strong>&nbsp;time.</p>
+
+<p><strong>Examples:</strong></p>
+<blockquote>
+<p>Assume initially heap(taking&nbsp;<strong>max-heap</strong>) is as follows</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;8<br />&nbsp; &nbsp; &nbsp; &nbsp; / &nbsp; \<br />&nbsp; &nbsp; &nbsp;4 &nbsp; &nbsp; 5<br />&nbsp; &nbsp;/ \<br />1 &nbsp; 2</p>
+<p>Now if we insert 10 into the heap<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;8<br />&nbsp; &nbsp; &nbsp; &nbsp; / &nbsp; &nbsp; &nbsp;\<br />&nbsp; &nbsp; &nbsp; 4 &nbsp; &nbsp; &nbsp; 5<br />&nbsp; &nbsp;/ &nbsp;\ &nbsp; &nbsp; &nbsp;/<br />1 &nbsp; &nbsp;2 &nbsp;10&nbsp;</p>
+<div id="GFG_AD_gfg_outstream_incontent" data-google-query-id="CP_B7-TeoYYDFX9InQkdC5gHuA">
+<div id="google_ads_iframe_/27823234/gfg_outstream_incontent_0__container__">&nbsp;</div>
+</div>
+<p>After heapify operation final heap will be look like this<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;10<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/ &nbsp; &nbsp;\<br />&nbsp; &nbsp; &nbsp; 4 &nbsp; &nbsp; &nbsp;8<br />&nbsp; &nbsp;/ &nbsp;\ &nbsp; &nbsp; /<br />1 &nbsp; &nbsp;2 &nbsp;5</p>
+</blockquote>
+<h3>Deletion:</h3>
+<ul>
+<li>If we delete the element from the heap it always deletes the root element of the tree and replaces it with the last element of the tree.</li>
+<li>Since we delete the root element from the heap it will distort the properties of the heap so we need to perform heapify operations so that it maintains the property of the heap.&nbsp;</li>
+</ul>
+<p>It takes&nbsp;<strong>O(logN)</strong>&nbsp;time.</p>
+<p><strong>Example:</strong></p>
+<blockquote>
+<p>Assume initially heap(taking max-heap) is as follows<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;15<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/ &nbsp; \<br />&nbsp; &nbsp; &nbsp; 5 &nbsp; &nbsp; 7<br />&nbsp; &nbsp;/ &nbsp;\<br />2 &nbsp; &nbsp; 3</p>
+<p>Now if we delete 15 into the heap it will be replaced by leaf node of the tree for temporary.<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;3<br />&nbsp; &nbsp; &nbsp; &nbsp; / &nbsp; \<br />&nbsp; &nbsp; &nbsp;5 &nbsp; &nbsp; 7<br />&nbsp; &nbsp;/ &nbsp; &nbsp;<br />2</p>
+<p>After heapify operation final heap will be look like this<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;7<br />&nbsp; &nbsp; &nbsp; &nbsp; / &nbsp; \<br />&nbsp; &nbsp; &nbsp;5 &nbsp; &nbsp; 3<br />&nbsp; &nbsp;/ &nbsp;&nbsp;<br />2</p>
+</blockquote>
+
+<h3>getMax (For max-heap) or getMin (For min-heap):</h3>
+<p>It finds the maximum element or minimum element for&nbsp;<strong>max-heap</strong>&nbsp;and&nbsp;<strong>min-heap</strong>&nbsp;respectively and as we know minimum and maximum elements will always be the root node itself for min-heap and max-heap respectively. It takes&nbsp;<strong>O(1)</strong>&nbsp;time.</p>
+<h3>removeMin or removeMax:</h3>
+<p>This operation returns and deletes the maximum element and minimum element from the max-heap and min-heap respectively. In short, it deletes the root element of the heap binary tree.</p>
+<h2>Implementation of Heap Data Structure:-</h2>
+<p>The following code shows the implementation of a&nbsp;<strong>max-heap</strong>.</p>
+<p>Let&rsquo;s understand the&nbsp;<strong>maxHeapify</strong>&nbsp;function in detail:-</p>
+<p><strong>maxHeapify&nbsp;</strong>is the function responsible for restoring the property of the Max Heap. It arranges the node&nbsp;<strong>i</strong>, and its subtrees accordingly so that the heap property is maintained.</p>
+<ol>
+<li>Suppose we are given an array,&nbsp;<strong>arr[]</strong>&nbsp;representing the complete binary tree. The left and the right child of&nbsp;<strong>i<sup>th</sup></strong>&nbsp;node are in indices&nbsp;<strong>2*i+1</strong>&nbsp;and&nbsp;<strong>2*i+2</strong>.</li>
+<li>We set the index of the current element,&nbsp;<strong>i</strong>, as the &lsquo;MAXIMUM&rsquo;.</li>
+<li>If&nbsp;<strong>arr[2 * i + 1] &gt; arr[i]</strong>, i.e., the left child is larger than the current value, it is set as &lsquo;MAXIMUM&rsquo;.</li>
+<li>Similarly if&nbsp;<strong>arr[2 * i + 2] &gt; arr[i]</strong>, i.e., the right child is larger than the current value, it is set as &lsquo;MAXIMUM&rsquo;.</li>
+<li>Swap the &lsquo;MAXIMUM&rsquo; with the current element.</li>
+<li>Repeat steps&nbsp;<strong>2 to 5</strong>&nbsp;till the property of the heap is restored.</li>
+</ol>
+<h2>Applications of Heap Data Structure:</h2>
+<ul>
+<li><strong>Priority Queues:</strong>&nbsp;a href="https://www.geeksforgeeks.org/priority-queue-set-1-introduction/>Priority queues&nbsp;can be efficiently implemented using Binary Heap because it supports insert(), delete() and extractmax(), decreaseKey() operations in<strong>&nbsp;O(log N)</strong>&nbsp;time.<strong>&nbsp;</strong></li>
+<li><strong>Binomial Heap&nbsp;</strong>and<strong>&nbsp;Fibonacci Heap</strong>&nbsp;are variations of Binary Heap. These variations perform union also in&nbsp;<strong>O(log N)</strong>&nbsp;time which is an O(N) operation in Binary Heap.</li>
+<li><strong>Order statistics:</strong>&nbsp;The Heap data structure can be used to efficiently find the kth smallest (or largest) element in an array. You can see this&nbsp;gfg&nbsp;article to know more about the kth smallest or largest element.</li>
+</ul>
+<h2>Advantages of Heaps:</h2>
+<ul>
+<li>Fast access to maximum/minimum element (O(1))</li>
+<li>Efficient Insertion and Deletion operations (O(log n))<br />Flexible size</li>
+<li>Can be efficiently implemented as an array</li>
+<li>Suitable for real-time applications</li>
+</ul>
+<h2>Disadvantages of Heaps:</h2>
+<ul>
+<li>Not suitable for searching for an element other than maximum/minimum (O(n) in worst case)</li>
+<li>Extra memory overhead to maintain heap structure</li>
+<li>Slower than other data structures like arrays and linked lists for non-priority queue operations.</li>
+</ul>
+
+<h3>Binary Heap</h3>
+
+<blockquote>
+<p dir="ltr">A&nbsp;<strong>Binary Heap</strong>&nbsp;is a&nbsp;<a href="https://www.geeksforgeeks.org/complete-binary-tree/"><strong>complete Binary Tree</strong></a>&nbsp;which is used to store data efficiently to get the max or min element based on its structure.</p>
+</blockquote>
+<p dir="ltr">A Binary Heap is either Min Heap or Max Heap. In a Min Binary Heap, the key at the root must be minimum among all keys present in Binary Heap. The same property must be recursively true for all nodes in Binary Tree. Max Binary Heap is similar to MinHeap.&nbsp;</p>
+<h3>Examples of Min Heap:</h3>
+<blockquote>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 10 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 10<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/ &nbsp; &nbsp; &nbsp;\ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; / &nbsp; &nbsp; &nbsp; &nbsp; \ &nbsp;<br />&nbsp; &nbsp; &nbsp;20 &nbsp; &nbsp; 100 &nbsp; &nbsp; &nbsp; &nbsp;15 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 30 &nbsp;<br />&nbsp; &nbsp;/ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/ &nbsp; &nbsp;\ &nbsp; &nbsp; &nbsp; &nbsp; / &nbsp; &nbsp;\<br />30 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 40 &nbsp; 50 &nbsp; 100 &nbsp; 40</p>
+</blockquote>
+<h2><u><span class="GFGEditorTheme__textUnderline">How is Binary Heap represented?</span></u>&nbsp;</h2>
+<p dir="ltr">A Binary Heap is a&nbsp;<strong>Complete Binary Tree</strong>. A binary heap is typically represented as an array.</p>
+<ul>
+<li value="1">The root element will be at Arr[0].</li>
+<li value="2">The below table shows indices of other nodes for the i<sup>th</sup>&nbsp;node, i.e., Arr[i]:</li>
+</ul>
+<table class="GFGEditorTheme__table"><colgroup><col /><col /></colgroup>
+<thead></thead>
+<tbody>
+<tr>
+<td class="GFGEditorTheme__tableCell">Arr[(i-1)/2]</td>
+<td class="GFGEditorTheme__tableCell">Returns the parent node</td>
+</tr>
+<tr>
+<td class="GFGEditorTheme__tableCell">Arr[(2*i)+1]</td>
+<td class="GFGEditorTheme__tableCell">Returns the left child node</td>
+</tr>
+<tr>
+<td class="GFGEditorTheme__tableCell">Arr[(2*i)+2]</td>
+<td class="GFGEditorTheme__tableCell">Returns the right child node</td>
+</tr>
+</tbody>
+</table>
+<p dir="ltr">The traversal method use to achieve Array representation is<strong>&nbsp;</strong><strong>Level Order Traversal</strong></a>. Please refer to&nbsp;>Array Representation Of Binary Heap</a>&nbsp;for details.</p>
+<p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/binaryheap.png" alt="Binary Heap Tree" width="350" height="350" /></p>
+<h2><u><span class="GFGEditorTheme__textUnderline">Operations on Heap:</span></u></h2>
+<p dir="ltr">Below are some standard operations on min heap:</p>
+<ul>
+<li value="1"><u><strong><strong class="GFGEditorTheme__textUnderline">getMin():</strong></strong></u>&nbsp;It returns the root element of Min Heap. The time Complexity of this operation is&nbsp;<strong>O(1)</strong>. In case of a maxheap it would be&nbsp;<strong>getMax()</strong>.</li>
+<li value="2"><u><strong><strong class="GFGEditorTheme__textUnderline">extractMin()</strong></strong></u><strong>:</strong>&nbsp;Removes the minimum element from MinHeap. The time Complexity of this Operation is&nbsp;<strong>O(log N)</strong>&nbsp;as this operation needs to maintain the heap property (by calling&nbsp;<strong>heapify()</strong>) after removing the root.</li>
+<li value="3"><u><strong><strong class="GFGEditorTheme__textUnderline">decreaseKey()</strong></strong></u><strong>:</strong>&nbsp;Decreases the value of the key. The time complexity of this operation is&nbsp;<strong>O(log N)</strong>. If the decreased key value of a node is greater than the parent of the node, then we don&rsquo;t need to do anything. Otherwise, we need to traverse up to fix the violated heap property.</li>
+<li value="4"><u><strong><strong class="GFGEditorTheme__textUnderline">insert()</strong></strong></u><strong>:</strong>&nbsp;Inserting a new key takes&nbsp;<strong>O(log N)</strong>&nbsp;time. We add a new key at the end of the tree. If the new key is greater than its parent, then we don&rsquo;t need to do anything. Otherwise, we need to traverse up to fix the violated heap property.</li>
+<li value="5"><u><strong><strong class="GFGEditorTheme__textUnderline">delete()</strong></strong></u><strong>:</strong>&nbsp;Deleting a key also takes&nbsp;<strong>O(log N)</strong>&nbsp;time. We replace the key to be deleted with the minimum infinite by calling&nbsp;<strong>decreaseKey()</strong>. After decreaseKey(), the minus infinite value must reach root, so we call&nbsp;<strong>extractMin()</strong>&nbsp;to remove the key.</li>
+</ul>
+
+<h2><u><span class="GFGEditorTheme__textUnderline">Applications of Heaps:</span></u></h2>
+<ul>
+<li value="1">Heap Sort: Heap Sort uses Binary Heap to sort an array in O(nLogn) time.</li>
+<li value="2">Priority Queue:&nbsp;Priority queues can be efficiently implemented using Binary Heap because it supports insert(), delete() and extractmax(), decreaseKey() operations in O(log N) time. Binomial Heap and Fibonacci Heap are variations of Binary Heap. These variations perform union also efficiently.</li>
+<li value="3">Graph Algorithms: The priority queues are especially used in Graph Algorithms like&nbsp;Dijkstra&rsquo;s Shortest Path&nbsp;and&nbsp;Prim&rsquo;s Minimum Spanning Tree.</li>
+<li value="4">Many problems can be efficiently solved using Heaps. See following for example. a)&nbsp;K&rsquo;th Largest Element in an array. b)&nbsp;Sort an almost sorted array&nbsp;c)&nbsp;Merge K Sorted Arrays.</li>
+</ul>
+
+<h2>Heap Sort</h2>
+
+
+<blockquote>
+<p dir="ltr"><strong>Heap sort</strong>&nbsp;is a comparison-based sorting technique based on&nbsp;Binary Heap&nbsp;data structure. It is similar to the&nbsp;selection sort&nbsp;where we first find the minimum element and place the minimum element at the beginning. Repeat the same process for the remaining elements.</p>
+</blockquote>
+<h2>Heap Sort Algorithm</h2>
+<p dir="ltr">To solve the problem follow the below idea:</p>
+<blockquote>
+<p dir="ltr">First convert the array into heap data structure using heapify, then one by one delete the root node of the Max-heap and replace it with the last node in the heap and then heapify the root of the heap. Repeat this process until size of heap is greater than 1.</p>
+<ul>
+<li value="1">Build a heap from the given input array.</li>
+<li value="2">Repeat the following steps until the heap contains only one element:
+<ul>
+<li value="1">Swap the root element of the heap (which is the largest element) with the last element of the heap.</li>
+<li value="2">Remove the last element of the heap (which is now in the correct position).</li>
+<li value="3">Heapify the remaining elements of the heap.</li>
+</ul>
+</li>
+<li value="3">The sorted array is obtained by reversing the order of the elements in the input array.</li>
+</ul>
+</blockquote>
+
+<h2><strong>Detailed Working of Heap Sort</strong></h2>
+<blockquote>
+<p dir="ltr">To understand heap sort more clearly, let&rsquo;s take an unsorted array and try to sort it using heap sort.<br />Consider the array: arr[] = {4, 10, 3, 5, 1}.</p>
+</blockquote>
+
+<p dir="ltr"><strong>Build Complete Binary Tree:</strong>&nbsp;Build a complete binary tree from the array.</p>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230530092618/1-(1).webp" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20230530092618/1-(1).webp 1000w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092618/1-(1)-100.webp 100w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092618/1-(1)-200.webp 200w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092618/1-(1)-300.webp 300w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092618/1-(1)-660.webp 660w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092618/1-(1)-768.webp 768w, " alt="Heap sort algorithm | Build Complete Binary Tree" width="804" height="378" />
+<p class="wp-caption-text">Heap sort algorithm | Build Complete Binary Tree</p>
+</div>
+<p dir="ltr"><strong>Transform into max heap:</strong>&nbsp;After that, the task is to construct a tree from that unsorted array and try to convert it into&nbsp;<a href="heap.html">max heap.</a></p>
+<ul>
+<li value="1">To transform a heap into a max-heap, the parent node should always be greater than or equal to the child nodes
+<ul>
+<li value="1">Here, in this example, as the parent node&nbsp;<strong>4&nbsp;</strong>is smaller than the child node&nbsp;<strong>10,&nbsp;</strong>thus, swap them to build a max-heap.</li>
+</ul>
+</li>
+<li value="2">Now,&nbsp;<strong>4&nbsp;</strong>as a parent is smaller than the child&nbsp;<strong>5</strong>, thus swap both of these again and the resulted heap and array should be like this:</li>
+</ul>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230530092705/2-(1).webp" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20230530092705/2-(1).webp 1000w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092705/2-(1)-100.webp 100w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092705/2-(1)-200.webp 200w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092705/2-(1)-300.webp 300w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092705/2-(1)-660.webp 660w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092705/2-(1)-768.webp 768w, " alt="Heap sort algorithm | Max Heapify constructed binary tree" width="826" height="388" />
+<p class="wp-caption-text">Heap sort algorithm | Max Heapify constructed binary tree</p>
+</div>
+<p dir="ltr"><strong>Perform heap sort:</strong>&nbsp;Remove the maximum element in each step (i.e., move it to the end position and remove that) and then consider the remaining elements and transform it into a max heap.</p>
+<div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+<div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+<ul>
+<li value="1">Delete the root element&nbsp;<strong>(10)</strong>&nbsp;from the max heap. In order to delete this node, try to swap it with the last node, i.e.&nbsp;<strong>(1).</strong>&nbsp;After removing the root element, again heapify it to convert it into max heap.
+<ul>
+<li value="1">Resulted heap and array should look like this:</li>
+</ul>
+</li>
+</ul>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230530092725/3-(1).webp" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20230530092725/3-(1).webp 1000w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092725/3-(1)-100.webp 100w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092725/3-(1)-200.webp 200w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092725/3-(1)-300.webp 300w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092725/3-(1)-660.webp 660w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092725/3-(1)-768.webp 768w, " alt="Heap sort algorithm | Remove maximum from root and max heapify" width="804" height="378" />
+<p class="wp-caption-text">Heap sort algorithm | Remove maximum from root and max heapify</p>
+</div>
+<ul>
+<li value="1">Repeat the above steps and it will look like the following:</li>
+</ul>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230530092805/4-(1).webp" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20230530092805/4-(1).webp 1000w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092805/4-(1)-100.webp 100w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092805/4-(1)-200.webp 200w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092805/4-(1)-300.webp 300w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092805/4-(1)-660.webp 660w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092805/4-(1)-768.webp 768w, " alt="Heap sort algorithm | Remove next maximum from root nad max heapify" width="872" height="410" />
+<p class="wp-caption-text">Heap sort algorithm | Remove next maximum from root nad max heapify</p>
+</div>
+<ul>
+<li value="1">Now remove the root (i.e. 3) again and perform heapify.</li>
+</ul>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230530092841/6.webp" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20230530092841/6.webp 1000w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092841/6-100.webp 100w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092841/6-200.webp 200w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092841/6-300.webp 300w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092841/6-660.webp 660w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092841/6-768.webp 768w, " alt="Heap sort algorithm | Repeat previous step" width="832" height="391" />
+<p class="wp-caption-text">Heap sort algorithm | Repeat previous step</p>
+</div>
+<ul>
+<li value="1">Now when the root is removed once again it is sorted. and the sorted array will be like&nbsp;<strong>arr[] = {1, 3, 4, 5, 10}</strong>.</li>
+</ul>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230530092858/7.webp" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20230530092858/7.webp 1000w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092858/7-100.webp 100w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092858/7-200.webp 200w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092858/7-300.webp 300w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092858/7-660.webp 660w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092858/7-768.webp 768w, " alt="Heap sort algorithm | Final sorted array" width="813" height="382" />
+<p class="wp-caption-text">Heap sort algorithm | Final sorted array</p>
+</div>
+
+<h2>Implementation of Heap Sort</h2>
+<div class="gray"><span class="c1">// Heap Sort in C</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="c1">// Function to swap the position of two elements</span>
+
+<span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+
+    <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="o">*</span><span class="n">b</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">b</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// To heapify a subtree rooted with node i</span>
+<span class="c1">// which is an index in arr[].</span>
+<span class="c1">// n is size of heap</span>
+<span class="kt">void</span> <span class="nf">heapify</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">N</span><span class="p">,</span> <span class="kt">int</span> <span class="n">i</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Find largest among root,</span>
+    <span class="c1">// left child and right child</span>
+
+    <span class="c1">// Initialize largest as root</span>
+    <span class="kt">int</span> <span class="n">largest</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+
+    <span class="c1">// left = 2*i + 1</span>
+    <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="c1">// right = 2*i + 2</span>
+    <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
+
+    <span class="c1">// If left child is larger than root</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">N</span> <span class="o">&amp;&amp;</span> <span class="n">arr</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">largest</span><span class="p">])</span>
+
+        <span class="n">largest</span> <span class="o">=</span> <span class="n">left</span><span class="p">;</span>
+
+    <span class="c1">// If right child is larger than largest</span>
+    <span class="c1">// so far</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">right</span> <span class="o">&lt;</span> <span class="n">N</span> <span class="o">&amp;&amp;</span> <span class="n">arr</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">largest</span><span class="p">])</span>
+
+        <span class="n">largest</span> <span class="o">=</span> <span class="n">right</span><span class="p">;</span>
+
+    <span class="c1">// Swap and continue heapifying</span>
+    <span class="c1">// if root is not largest</span>
+    <span class="c1">// If largest is not root</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">largest</span> <span class="o">!=</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">arr</span><span class="p">[</span><span class="n">largest</span><span class="p">]);</span>
+
+        <span class="c1">// Recursively heapify the affected</span>
+        <span class="c1">// sub-tree</span>
+        <span class="n">heapify</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">largest</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</div>
+
+<div class="gray"><span class="c1">// Main function to do heap sort</span>
+<span class="kt">void</span> <span class="nf">heapSort</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">N</span><span class="p">)</span>
+<span class="p">{</span>
+
+    <span class="c1">// Build max heap</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">N</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span>
+
+        <span class="n">heapify</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+
+    <span class="c1">// Heap sort</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+
+        <span class="c1">// Heapify root element</span>
+        <span class="c1">// to get highest element at</span>
+        <span class="c1">// root again</span>
+        <span class="n">heapify</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// A utility function to print array of size n</span>
+<span class="kt">void</span> <span class="nf">printArray</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">N</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"%d "</span><span class="p">,</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Driver's code</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">arr</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span> <span class="p">};</span>
+    <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+
+    <span class="c1">// Function call</span>
+    <span class="n">heapSort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">N</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Sorted array is</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="n">printArray</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">N</span><span class="p">);</span>
+<span class="p">}</span></div>
+
+
+<div class="code-output"><strong>Output</strong>
+<div class="gray">Sorted array is 
+5 6 7 11 12 13 
+</div>
+</div>
+<h2>Complexity Analysis of&nbsp;<strong>Heap Sort</strong></h2>
+<p dir="ltr"><strong>Time Complexity:&nbsp;</strong>O(N log N)<br /><strong>Auxiliary Space:&nbsp;</strong>O(log n), due to the recursive call stack. However, auxiliary space can be O(1) for iterative implementation.</p>
+<h2><strong>Important points about Heap Sort:</strong></h2>
+<ul>
+<li value="1">Heap sort is an in-place algorithm.&nbsp;</li>
+<li value="2">Its typical implementation is not stable but can be made stable (See&nbsp;this)</li>
+<li value="3">Typically 2-3 times slower than well-implemented&nbsp;QuickSort.&nbsp; The reason for slowness is a lack of locality of reference.</li>
+</ul>
+<h2><strong>Advantages of Heap Sort:</strong></h2>
+<ul>
+<li value="1"><strong>Efficient Time Complexity:&nbsp;</strong>Heap Sort has a time complexity of O(n log n) in all cases. This makes it efficient for sorting large datasets. The&nbsp;<strong>log n&nbsp;</strong>factor comes from the height of the binary heap, and it ensures that the algorithm maintains good performance even with a large number of elements.</li>
+<li value="2"><strong>Memory Usage &ndash;&nbsp;</strong>Memory usage can be minimal (by writing an iterative heapify() instead of a recursive one). So apart from what is necessary to hold the initial list of items to be sorted, it needs no additional memory space to work</li>
+<li value="3"><strong>Simplicity &ndash;&nbsp;</strong>&nbsp;It is simpler to understand than other equally efficient sorting algorithms because it does not use advanced computer science concepts such as recursion.</li>
+</ul>
+<h2>Disadvantages of Heap Sort:</h2>
+<ul>
+<li value="1"><strong>Costly</strong>: Heap sort is costly as the constants are higher compared to merge sort even if the time complexity is O(n Log n) for both.</li>
+<li value="2"><strong>Unstable</strong>: Heap sort is unstable. It might rearrange the relative order.</li>
+<li value="3"><strong>Efficient:</strong>&nbsp;Heap Sort is not very efficient when working with highly complex data.&nbsp;</li>
+</ul>
+
+<h2>Maximum element in min heap</h2>
+<p>Given a&nbsp;<a href="https://www.geeksforgeeks.org/binary-heap/">min heap</a>, find the maximum element present in the heap.</p>
+<p><strong>Examples:</strong>&nbsp;</p>
+<div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
+<div class="gray"><strong>Input :</strong>      10 
+           /    \ 
+          25     23 
+         /  \    / \
+       45   30  50  40
+<strong>Output :</strong> 50
+
+<strong>Input :</strong>     20
+           /   \ 
+          40    28
+<strong>Output :</strong> 40</div>
+<p><strong>Brute force approach:</strong>&nbsp;</p>
+<p>We can check all the nodes in the min-heap to get the maximum element. Note that this approach works on any binary tree and does not makes use of any property of the min-heap. It has a time and space complexity of O(n). Since min-heap is a complete binary tree, we generally use arrays to store them, so we can check all the nodes by simply traversing the array. If the heap is stored using pointers, then we can use recursion to check all the nodes.</p>
+
+<p><strong>Algorithm:</strong></p>
+<p><strong>Step 1:&nbsp;</strong>Create a function named &ldquo;findMaximumElement&rdquo; which takes the heap array and the number of nodes n as input parameter with the int return type.&nbsp;<br /><strong>Step 2:&nbsp;</strong>Create a variable named &ldquo;maximumElement&rdquo; and initialize it with the first element of the heap array.&nbsp;<br /><strong>Step 3:&nbsp;</strong>Start a for loop and traverse over the elements of the heap array starting from the second element.&nbsp;<br /><strong>Step 4:&nbsp;</strong>In each iteration, compare the current element with the &ldquo;maximumElement&rdquo; and update it if the current element is greater.&nbsp;<br /><strong>Step 5:&nbsp;</strong>After the loop completes, return the &ldquo;maximumElement&rdquo;.</p>
+
+<div class="responsive-tabs-wrapper">
+<div class="responsive-tabs responsive-tabs--enabled">
+<div id="tablist1-panel1" class="tabcontent responsive-tabs__panel responsive-tabs__panel--active" role="tabpanel" aria-hidden="false" aria-labelledby="tablist1-tab1">
+<div class="code-block">
+<div class="code-container">
+<div id="highlighter_89150" class="syntaxhighlighter nogutter  ">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="comments">// C++ implementation of above approach</code></div>
+<div class="line number2 index1 alt1"><code class="preprocessor">#include &lt;bits/stdc++.h&gt;</code></div>
+<div class="line number3 index2 alt2"><code class="keyword bold">using</code> <code class="keyword bold">namespace</code> <code class="plain">std;</code></div>
+<div class="line number4 index3 alt1">&nbsp;</div>
+<div class="line number5 index4 alt2"><code class="comments">// Function to find the</code></div>
+<div class="line number6 index5 alt1"><code class="comments">// maximum element in a</code></div>
+<div class="line number7 index6 alt2"><code class="comments">// min heap</code></div>
+<div class="line number8 index7 alt1"><code class="color1 bold">int</code> <code class="plain">findMaximumElement(</code><code class="color1 bold">int</code> <code class="plain">heap[], </code><code class="color1 bold">int</code> <code class="plain">n)</code></div>
+<div class="line number9 index8 alt2"><code class="plain">{</code></div>
+<div class="line number10 index9 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">maximumElement = heap[0];</code></div>
+<div class="line number11 index10 alt2">&nbsp;</div>
+<div class="line number12 index11 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">for</code> <code class="plain">(</code><code class="color1 bold">int</code> <code class="plain">i = 1; i &lt; n; ++i)</code></div>
+<div class="line number13 index12 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">maximumElement = max(maximumElement, heap[i]);</code></div>
+<div class="line number14 index13 alt1">&nbsp;</div>
+<div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">maximumElement;</code></div>
+<div class="line number16 index15 alt1"><code class="plain">}</code></div>
+<div class="line number17 index16 alt2">&nbsp;</div>
+<div class="line number18 index17 alt1"><code class="comments">// Driver code</code></div>
+<div class="line number19 index18 alt2"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
+<div class="line number20 index19 alt1"><code class="plain">{</code></div>
+<div class="line number21 index20 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Number of nodes</code></div>
+<div class="line number22 index21 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">n = 10;</code></div>
+<div class="line number23 index22 alt2">&nbsp;</div>
+<div class="line number24 index23 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// heap represents the following min heap:</code></div>
+<div class="line number25 index24 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">//&nbsp;&nbsp;&nbsp;&nbsp; 10</code></div>
+<div class="line number26 index25 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">//&nbsp;&nbsp;&nbsp; / \ </code></div>
+<div class="line number27 index26 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">//&nbsp; 25&nbsp;&nbsp;&nbsp;&nbsp; 23</code></div>
+<div class="line number28 index27 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">//&nbsp; / \&nbsp;&nbsp; / \ </code></div>
+<div class="line number29 index28 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// 45 50 30 35</code></div>
+<div class="line number30 index29 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// / \ /</code></div>
+<div class="line number31 index30 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// 63 65 81</code></div>
+<div class="line number32 index31 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">heap[] = { 10, 25, 23, 45, 50, 30, 35, 63, 65, 81 };</code></div>
+<div class="line number33 index32 alt2">&nbsp;</div>
+<div class="line number34 index33 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">cout &lt;&lt; findMaximumElement(heap, n);</code></div>
+<div class="line number35 index34 alt2">&nbsp;</div>
+<div class="line number36 index35 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
+<div class="line number37 index36 alt2"><code class="plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="code-output"><strong>Output</strong>
+<div class="gray">81</div>
+</div>
+<p><strong>Efficient approach:</strong>&nbsp;</p>
+<p>The min heap property requires that the parent node be lesser than its child node(s). Due to this, we can conclude that a non-leaf node cannot be the maximum element as its child node has a higher value. So we can narrow down our search space to only leaf nodes. In a min heap having n elements, there is ceil(n/2) leaf nodes. The time and space complexity remains O(n) as a constant factor of 1/2 does not affect the asymptotic complexity.</p>
+
+
+
+<h2>Minimum element in a max heap</h2>
+
+<p>Given a max heap, find the minimum element present in the heap.</p>
+<p><strong>Examples:</strong>&nbsp;&nbsp;</p>
+<div class="gray"><strong>Input :</strong>     100
+           /    \ 
+          75     50 
+         /  \    / \
+       55   10  2  40
+<strong>Output :</strong> 2
+
+<strong>Input :</strong>     20
+           /   \ 
+          4    18
+<strong>Output :</strong> 4</div>
+<p><strong>Brute force approach</strong>:&nbsp;</p>
+<p>We can check all the nodes in the max heap to get the minimum element. Note that this approach works on any binary tree and does not makes use of any property of the max heap. It has a time and space complexity of O(n). Since max heap is a complete binary tree, we generally use arrays to store them, so we can check all the nodes by simply traversing the array. If the heap is stored using pointers, then we can use recursion to check all the nodes.</p>
+
+
+<h3>Below is the implementation of the above approach: </h3>
+<div class="line number1 index0 alt2"><code class="comments">// C++ implementation of above approach</code></div>
+<div class="line number2 index1 alt1"><code class="preprocessor">#include &lt;bits/stdc++.h&gt;</code></div>
+<div class="line number3 index2 alt2"><code class="keyword bold">using</code> <code class="keyword bold">namespace</code> <code class="plain">std;</code></div>
+<div class="line number4 index3 alt1">&nbsp;</div>
+<div class="line number5 index4 alt2"><code class="comments">// Function to find the</code></div>
+<div class="line number6 index5 alt1"><code class="comments">// minimum element in a</code></div>
+<div class="line number7 index6 alt2"><code class="comments">// max heap</code></div>
+<div class="line number8 index7 alt1"><code class="color1 bold">int</code> <code class="plain">findMinimumElement(</code><code class="color1 bold">int</code> <code class="plain">heap[], </code><code class="color1 bold">int</code> <code class="plain">n)</code></div>
+<div class="line number9 index8 alt2"><code class="plain">{</code></div>
+<div class="line number10 index9 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">minimumElement = heap[0];</code></div>
+<div class="line number11 index10 alt2">&nbsp;</div>
+<div class="line number12 index11 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">for</code> <code class="plain">(</code><code class="color1 bold">int</code> <code class="plain">i = 1; i &lt; n; ++i)</code></div>
+<div class="line number13 index12 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">minimumElement = min(minimumElement, heap[i]);</code></div>
+<div class="line number14 index13 alt1">&nbsp;</div>
+<div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">minimumElement;</code></div>
+<div class="line number16 index15 alt1"><code class="plain">}</code></div>
+<div class="line number17 index16 alt2">&nbsp;</div>
+<div class="line number18 index17 alt1"><code class="comments">// Driver code</code></div>
+<div class="line number19 index18 alt2"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
+<div class="line number20 index19 alt1"><code class="plain">{</code></div>
+<div class="line number21 index20 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Number of nodes</code></div>
+<div class="line number22 index21 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">n = 10;</code></div>
+<div class="line number23 index22 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// heap represents the following max heap:</code></div>
+<div class="line number24 index23 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20</code></div>
+<div class="line number25 index24 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /&nbsp;&nbsp;&nbsp; \</code></div>
+<div class="line number26 index25 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 18&nbsp;&nbsp;&nbsp;&nbsp; 10</code></div>
+<div class="line number27 index26 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">//&nbsp;&nbsp; /&nbsp;&nbsp;&nbsp; \&nbsp;&nbsp;&nbsp; /&nbsp; \</code></div>
+<div class="line number28 index27 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">//&nbsp;&nbsp; 12&nbsp;&nbsp;&nbsp;&nbsp; 9&nbsp; 9&nbsp;&nbsp; 3</code></div>
+<div class="line number29 index28 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">//&nbsp; /&nbsp; \&nbsp;&nbsp; /</code></div>
+<div class="line number30 index29 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// 5&nbsp;&nbsp;&nbsp; 6 8</code></div>
+<div class="line number31 index30 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">heap[] = { 20, 18, 10, 12, 9, 9, 3, 5, 6, 8 };</code></div>
+<div class="line number32 index31 alt1">&nbsp;</div>
+<div class="line number33 index32 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">cout &lt;&lt; findMinimumElement(heap, n);</code></div>
+<div class="line number34 index33 alt1">&nbsp;</div>
+<div class="line number35 index34 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
+<div class="line number36 index35 alt1"><code class="plain">}</code></div>
+
+<div class="code-output"><strong>Output</strong>
+<div class="gray">3</div>
+</div>
+<p><strong>Efficient approach:</strong></p>
+<p>The max heap property requires that the parent node be greater than its child node(s). Due to this, we can conclude that a non-leaf node cannot be the minimum element as its child node has a lower value. So we can narrow down our search space to only leaf nodes. In a max heap having n elements, there is ceil(n/2) leaf nodes. The time and space complexity remains O(n) as a constant factor of 1/2 does not affect the asymptotic complexity.</p>
+</h3>
+</h3></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

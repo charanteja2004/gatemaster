@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Applications of various Automata</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+<h2>operating system</h2>
+<p><b>Operating System</b> lies in the category of system software. It basically manages all the resources of the computer. An operating system acts as an interface between the software and different parts of the computer or the computer hardware. The operating system is designed in such a way that it can manage the overall resources and operations of the computer.<br>
+
+    Operating System is a fully integrated set of specialized programs that handle all the operations of the computer. It controls and monitors the execution of all other programs that reside in the computer, which also includes application programs and other system software of the computer. Examples of Operating Systems are Windows, Linux, Mac OS, etc.<br>
+
+<p>An Operating System (OS) is a collection of software that manages computer hardware resources and provides common services for computer programs. The operating system is the most important type of system software in a computer system.
+    An operating system is a program that manages a computer’s hardware. It
+    also provides a basis for application programs and acts as an intermediary
+    between the computer user and the computer hardware. An amazing aspect of
+    operating systems is how they vary in accomplishing these tasks. Mainframe
+    operating systems are designed primarily to optimize utilization of hardware.
+    Personal computer (PC) operating systems support complex games, business
+    applications, and everything in between. Operating systems for mobile computers provide an environment in which a user can easily interface with the
+    computer to execute programs. Thus, some operating systems are designed to
+    be convenient, others to be efficient, and others to be some combination of the
+    two.</p><br>
+
+<p>Before we can explore the details of computer system operation, we need to
+    know something about system structure. We thus discuss the basic functions
+    of system startup, I/O, and storage early in this chapter. We also describe
+    the basic computer architecture that makes it possible to write a functional
+    operating system.<br>
+
+    Because an operating system is large and complex, it must be created
+    piece by piece. Each of these pieces should be a well-delineated portion of the
+    system, with carefully defined inputs, outputs, and functions. In this chapter,
+    we provide a general overview of the major components of a contemporary
+    computer system as well as the functions provided by the operating system.
+    Additionally, we cover several other topics to help set the stage for the
+    remainder of this text: data structures used in operating systems, computing
+    environments, and open-source operating systems.</p><br>
+
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20230510120545/OS1.webp" alt="Operating systems" width="350" height="300">
+
+
+<h2><b>What Operating Systems Do</b></h2>
+<p>We begin our discussion by looking at the operating system’s role in the
+    overall computer system. A computer system can be divided roughly into four
+    components: the hardware, the operating system, the application programs,
+    and the users.</p><br>
+<p>The hardware—the central processing unit (CPU), the memory, and the
+    input/output (I/O) devices—provides the basic computing resources for the
+    system. The application programs—such as word processors, spreadsheets,
+    compilers, and Web browsers—define the ways in which these resources are
+    used to solve users’ computing problems. The operating system controls the
+    hardware and coordinates its use among the various application programs for
+    the various users.<br>
+    We can also view a computer system as consisting of hardware, software,
+    and data. The operating system provides the means for proper use of these
+    resources in the operation of the computer system. An operating system is
+    similar to a government. Like a government, it performs no useful function by
+    itself. It simply provides an environment within which other programs can do
+    useful work.
+    To understand more fully the operating system’s role, we next explore
+    operating systems from two viewpoints: that of the user and that of the system.</p><br>
+<b> User View</b>
+<p>The user’s view of the computer varies according to the interface being
+    used. Most computer users sit in front of a PC, consisting of a monitor,
+    keyboard, mouse, and system unit. Such a system is designed for one user
+    to monopolize its resources. The goal is to maximize the work (or play) that
+    the user is performing. In this case, the operating system is designed mostly
+    for ease of use, with some attention paid to performance and none paid
+    to resource utilization—how various hardware and software resources are
+    shared. Performance is, of course, important to the user; but such systems
+    are optimized for the single-user experience rather than the requirements of
+    multiple users.</p><br>
+<p>In other cases, a user sits at a terminal connected to a mainframe or a
+    minicomputer. Other users are accessing the same computer through other
+    terminals. These users share resources and may exchange information. The
+    operating system in such cases is designed to maximize resource utilization—
+    to assure that all available CPU time, memory, and I/O are used efficiently and
+    that no individual user takes more than her fair share.
+    In still other cases, users sit at workstations connected to networks of
+    other workstations and servers. These users have dedicated resources at
+    their disposal, but they also share resources such as networking and servers,
+    including file, compute, and print servers. Therefore, their operating system is
+    designed to compromise between individual usability and resource utilization.
+    Recently, many varieties of mobile computers, such as smartphones and
+    tablets, have come into fashion. Most mobile computers are standalone units for
+    individual users. Quite often, they are connected to networks through cellular
+    or other wireless technologies. Increasingly, these mobile devices are replacing
+    desktop and laptop computers for people who are primarily interested in
+    using computers for e-mail and web browsing. The user interface for mobile
+    computers generally features a touch screen, where the user interacts with the
+    system by pressing and swiping fingers across the screen rather than using a
+    physical keyboard and mouse.</p><br>
+<p>Some computers have little or no user view. For example, embedded
+    computers in home devices and automobiles may have numeric keypads and
+    may turn indicator lights on or off to show status, but they and their operating
+    systems are designed primarily to run without user intervention.</p><br>
+<b> System View</b>
+<p>From the computer’s point of view, the operating system is the program
+    most intimately involved with the hardware. In this context, we can view
+    an operating system as a resource allocator. A computer system has many
+    resources that may be required to solve a problem: CPU time, memory space,
+    file-storage space, I/O devices, and so on. The operating system acts as the
+    manager of these resources. Facing numerous and possibly conflicting requests
+    for resources, the operating system must decide how to allocate them to specific
+    programs and users so that it can operate the computer system efficiently and
+    fairly. As we have seen, resource allocation is especially important where many
+    users access the same mainframe or minicomputer.<br>
+    A slightly different view of an operating system emphasizes the need to
+    control the various I/O devices and user programs. An operating system is a
+    control program. A control program manages the execution of user programs
+    to prevent errors and improper use of the computer. It is especially concerned
+    with the operation and control of I/O devices</P><br>
+
+<h2><b>Functions of the Operating System</b></h2>
+<p><b>Resource Management:</b>The operating system manages and allocates memory, CPU time, and other hardware resources among the various programs and processes running on the computer.
+    Process Management: The operating system is responsible for starting, stopping, and managing processes and programs. It also controls the scheduling of processes and allocates resources to them.<br>
+    <b>Memory Management:</b> The operating system manages the computer’s primary memory and provides mechanisms for optimizing memory usage. Main memory is made up of a large array of bytes or words where each byte or word is assigned a certain address. Main memory is fast storage and it can be accessed directly by the CPU. For a program to be executed, it should be first loaded in the main memory. An operating system manages the allocation and deallocation of memory to various processes and ensures that the other process does not consume the memory allocated to one process. An Operating System performs the following activities for Memory Management:<br>
+
+    <li>It keeps track of primary memory, i.e., which bytes of memory are used by which user program. The memory addresses that have already been allocated and the memory addresses of the memory that has not yet been used.</li><br>
+    <li>In multiprogramming, the OS decides the order in which processes are granted memory access, and for how long.</li><br>
+    <li>It Allocates the memory to a process when the process requests it and deallocates the memory when the process has terminated or is performing an I/O operation.</li><br>
+    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20230518091047/1white-660x453.webp" alt="Memory Management" width="350" height="300"><br>
+    <b>Processor Management</b>
+<p>In a multi-programming environment, the OS decides the order in which processes have access to the processor, and how much processing time each process has. This function of OS is called Process Scheduling. An Operating System performs the following activities for Processor Management.<br>
+
+    An operating system manages the processor’s work by allocating various jobs to it and ensuring that each process receives enough time from the processor to function properly.
+    Keeps track of the status of processes. The program which performs this task is known as a traffic controller. Allocates the CPU that is a processor to a process. De-allocates processor when a process is no longer required.</p><br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20230518091140/download-(1).webp" alt="Process Management" width="350" height="300"><br>
+<b>Security:</b> The operating system provides a secure environment for the user, applications, and data by implementing security policies and mechanisms such as access controls and encryption.<br>
+<b>Job Accounting:</b> It keeps track of time and resources used by various jobs or users.<br>
+<b>File Management:</b> The operating system is responsible for organizing and managing the file system, including the creation, deletion, and manipulation of files and directories.<br>
+A file system is organized into directories for efficient or easy navigation and usage. These directories may contain other directories and other files. An Operating System carries out the following file management activities. It keeps track of where information is stored, user access settings, the status of every file, and more. These facilities are collectively known as the file system. An OS keeps track of information regarding the creation, deletion, transfer, copy, and storage of files in an organized way. It also maintains the integrity of the data stored in these files, including the file directory structure, by protecting against unauthorized access.<br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20230518091452/Modules-of-the-hierarchy-of-a-File-Management-System.webp" alt="File Management" width="350" height="300"><br>
+
+
+<b>Device Management:</b> The operating system manages input/output devices such as printers, keyboards, mice, and displays. It provides the necessary drivers and interfaces to enable communication between the devices and the computer.<br>
+<p>An OS manages device communication via its respective drivers. It performs the following activities for device management.
+
+    <li>Keeps track of all devices connected to the system. Designates a program responsible for every device known as the Input/Output controller.</li>
+    <li>Decide which process gets access to a certain device and for how long.</li>
+    <li>Allocates devices effectively and efficiently. Deallocates devices when they are no longer required.</li>
+    <li>There are various input and output devices. An OS controls the working of these input-output devices.</li>
+    <li>It receives the requests from these devices, performs a specific task, and communicates back to the requesting process.</li></P><br>
+<b>Networking:</b> The operating system provides networking capabilities such as establishing and managing network connections, handling network protocols, and sharing resources such as printers and files over a network.<br>
+<b>User Interface:</b> The operating system provides a user interface that enables users to interact with the computer system. This can be a Graphical User Interface (GUI), a Command-Line Interface (CLI), or a combination of both.<br>
+<b>Backup and Recovery:</b> The operating system provides mechanisms for backing up data and recovering it in case of system failures, errors, or disasters.<br>
+<b>Virtualization:</b> The operating system provides virtualization capabilities that allow multiple operating systems or applications to run on a single physical machine. This can enable efficient use of resources and flexibility in managing workloads.<br>
+<b>Performance Monitoring:</b> The operating system provides tools for monitoring and optimizing system performance, including identifying bottlenecks, optimizing resource usage, and analyzing system logs and metrics.<br>
+<b>Time-Sharing:</b> The operating system enables multiple users to share a computer system and its resources simultaneously by providing time-sharing mechanisms that allocate resources fairly and efficiently.<br>
+<b>System Calls:</b> The operating system provides a set of system calls that enable applications to interact with the operating system and access its resources. System calls provide a standardized interface between applications and the operating system, enabling portability and compatibility across different hardware and software platforms.<br>
+<b>Error-detecting Aids:</b> These contain methods that include the production of dumps, traces, error messages, and other debugging and error-detecting methods.</p><br>
+<h2><b>Objectives of Operating Systems</b></h2>
+<p>Let us now see some of the objectives of the operating system, which are mentioned below.<br>
+
+    <li><b>Convenient to use:</b> One of the objectives is to make the computer system more convenient to use in an efficient manner.</li>
+    <li><b>User Friendly:</b> To make the computer system more interactive with a more convenient interface for the users.</li>
+    <li><b>Easy Access:</b> To provide easy access to users for using resources by acting as an intermediary between the hardware and its users.</li>
+    <li><b>Management of Resources:</b> For managing the resources of a computer in a better and faster way.</li>
+    <li><b>Controls and Monitoring:</b> By keeping track of who is using which resource, granting resource requests, and mediating conflicting requests from different programs and users.</Li>
+    <li><b>Fair Sharing of Resources:</b> Providing efficient and fair sharing of resources between the users and programs.</li>
+
+<h2><b>Commonly Used Operating System</b></h2>
+
+<p>We noted at the beginning of this chapter that the study of operating systems
+    has been made easier by the availability of a vast number of open-source releases. Open-source operating systems are those available in source-code format rather than as compiled binary code. Linux is the most famous opensource operating system, while Microsoft Windows is a well-known example of the opposite closed-source approach. Apple’s Mac OS X and iOS operating
+    systems comprise a hybrid approach. They contain an open-source kernel
+    named Darwin yet include proprietary, closed-source components as well.</p>
+<p>Starting with the source code allows the programmer to produce binary
+    code that can be executed on a system. Doing the opposite—reverse engineering the source code from the binaries—is quite a lot of work, and useful
+    items such as comments are never recovered. Learning operating systems by
+    examining the source code has other benefits as well. With the source code
+    in hand, a student can modify the operating system and then compile and
+    run the code to try out those changes, which is an excellent learning tool.
+    This text includes projects that involve modifying operating-system source
+    code, while also describing algorithms at a high level to be sure all important
+    operating-system topics are covered. Throughout the text, we provide pointers
+    to examples of open-source code for deeper study.<br>
+    There are many benefits to open-source operating systems, including a
+    community of interested (and usually unpaid) programmers who contribute
+    to the code by helping to debug it, analyze it, provide support, and suggest
+    changes. Arguably, open-source code is more secure than closed-source code
+    because many more eyes are viewing the code. Certainly, open-source code has
+    bugs, but open-source advocates argue that bugs tend to be found and fixed
+    faster owing to the number of people using and viewing the code. Companies
+    that earn revenue from selling their programs often hesitate to open-source
+    their code, but Red Hat and a myriad of other companies are doing just that
+    and showing that commercial companies benefit, rather than suffer, when they
+    open-source their code. Revenue can be generated through support contracts
+    and the sale of hardware on which the software runs, for example.</p><br>
+<b>Other Commonly Used Operating Systems</b><br><br>
+<b>Microsoft Windows:</b> This is the most widely used operating system for personal computers. Windows is known for its user-friendly interface and compatibility with a wide range of hardware and software.<br>
+<b>macOS:</b> This operating system is used exclusively on Apple’s Macintosh computers. It is known for its sleek design and integration with other Apple products, such as the iPhone and iPad.<br>
+<b>Linux:</b> Linux is an open-source operating system that is popular among programmers and developers. It is highly customizable and can be used on a wide range of devices, from smartphones to supercomputers.<br>
+<b>Android:</b> This operating system is designed specifically for mobile devices such as smartphones and tablets. It is based on the Linux kernel and is open source, which means that it can be modified and customized by anyone.<br>
+<b>iOS:</b> This is the operating system that runs on Apple’s iPhone, iPad, and iPod touch devices. It is known for its security and ease of use.<br>
+<b>Chrome OS:</b> This is an operating system developed by Google and is designed to be used with the company’s Chromebook laptops. It is based on the Linux kernel and is optimized for web browsing and cloud computing.<br>
+These are just a few examples of commonly used operating systems, and there are many others available as well. Overall, the choice of the operating system depends on the specific needs and preferences of the user, as well as the device being used.</li><br>
+
+<h2><b>Operating-System Services</b></h2>
+
+<p>An operating system provides an environment for the execution of programs.
+    It provides certain services to programs and to the users of those programs.
+    The specific services provided, of course, differ from one operating system to
+    another, but we can identify common classes. These operating system services
+    are provided for the convenience of the programmer, to make the programming task easier.<br><br>
+    <img src="http://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/images/Chapter2/2_01_OS_Services.jpg" alt="Operating system services" width="350" height="300"><br><br>
+
+
+    One set of operating system services provides functions that are helpful to
+    the user.<br>
+    •<b> User interface</b>. Almost all operating systems have a user interface (UI).
+    This interface can take several forms. One is a command-line interface
+    (CLI), which uses text commands and a method for entering them (say,
+    a keyboard for typing in commands in a specific format with specific
+    options). Another is a batch interface, in which commands and directives
+    to control those commands are entered into files, and those files are
+    executed. Most commonly, a graphical user interface (GUI) is used. Here,
+    the interface is a window system with a pointing device to direct I/O,
+    choose from menus, and make selections and a keyboard to enter text.
+    Some systems provide two or all three of these variations.<br>
+    •<b> Program execution.</b> The system must be able to load a program into
+    memory and to run that program. The program must be able to end its
+    execution, either normally or abnormally (indicating error).<br>
+    •<b> I/O operations.</b> A running program may require I/O, which may involve a
+    file or an I/O device. For specific devices, special functions may be desired
+    (such as recording to a CD or DVD drive or blanking a display screen). For
+    efficiency and protection, users usually cannot control I/O devices directly.
+    Therefore, the operating system must provide a means to do I/O.<br>
+    •<b> File-system manipulation.</b> The file system is of particular interest. Obviously, programs need to read and write files and directories. They also
+    need to create and delete them by name, search for a given file, and
+    list file information. Finally, some operating systems include permissions
+    management to allow or deny access to files or directories based on file
+    ownership. Many operating systems provide a variety of file systems,
+    sometimes to allow personal choice and sometimes to provide specific
+    features or performance characteristics.<br>
+    •<b> Communications.</b> There are many circumstances in which one process
+    needs to exchange information with another process. Such communication
+    may occur between processes that are executing on the same computer or
+    between processes that are executing on different computer systems tied
+    together by a computer network. Communications may be implemented
+    via shared memory, in which two or more processes read and write to
+    a shared section of memory, or message passing, in which packets of
+    information in predefined formats are moved between processes by the
+    operating system.<br>
+    • <b>Error detection.</b> The operating system needs to be detecting and correcting
+    errors constantly. Errors may occur in the CPU and memory hardware (such
+    as a memory error or a power failure), in I/O devices (such as a parity error
+    on disk, a connection failure on a network, or lack of paper in the printer),
+    and in the user program (such as an arithmetic overflow, an attempt to
+    access an illegal memory location, or a too-great use of CPU time). For
+    each type of error, the operating system should take the appropriate action
+    to ensure correct and consistent computing. Sometimes, it has no choice
+    but to halt the system. At other times, it might terminate an error-causing
+    process or return an error code to a process for the process to detect and
+    possibly correct.<br>
+    Another set of operating system functions exists not for helping the user
+    but rather for ensuring the efficient operation of the system itself. Systems with
+    multiple users can gain efficiency by sharing the computer resources among
+    the users.<br>
+    • <b>Resource allocation.</b> When there are multiple users or multiple jobs
+    running at the same time, resources must be allocated to each of them. The
+    operating system manages many different types of resources. Some (such
+    as CPU cycles, main memory, and file storage) may have special allocation
+    code, whereas others (such as I/O devices) may have much more general
+    request and release code. For instance, in determining how best to use
+    the CPU, operating systems have CPU-scheduling routines that take into
+    account the speed of the CPU, the jobs that must be executed, the number of
+    registers available, and other factors. There may also be routines to allocate
+    printers, USB storage drives, and other peripheral devices.<br>
+    • <b>Accounting.</b> We want to keep track of which users use how much and
+    what kinds of computer resources. This record keeping may be used for
+    accounting (so that users can be billed) or simply for accumulating usage
+    statistics. Usage statistics may be a valuable tool for researchers who wish
+    to reconfigure the system to improve computing services.<br>
+    •<b> Protection and security.</b> The owners of information stored in a multiuser or
+    networked computer system may want to control use of that information.
+    When several separate processes execute concurrently, it should not be
+    possible for one process to interfere with the others or with the operating
+    system itself. Protection involves ensuring that all access to system
+    resources is controlled. Security of the system from outsiders is also
+    important. Such security starts with requiring each user to authenticate himself or herself to the system, usually by means of a password, to gain
+    access to system resources. It extends to defending external I/O devices,
+    including network adapters, from invalid access attempts and to recording
+    all such connections for detection of break-ins. If a system is to be protected
+    and secure, precautions must be instituted throughout it. A chain is only
+    as strong as its weakest link.</p><br>
+
+</body>
+</html>

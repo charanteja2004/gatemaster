@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    <h2>Prim’s Algorithm for Minimum Spanning Tree (MST)</h2>
+
+    <h2>Introduction to Prim&rsquo;s algorithm:</h2>
+    <p dir="ltr">We have discussed&nbsp;<a
+            href="krushkalminspanningtree.html">Kruskal&rsquo;s
+            algorithm for Minimum Spanning Tree</a>. Like Kruskal&rsquo;s algorithm, Prim&rsquo;s algorithm is also
+        a&nbsp;<a href="greedyalg.html">Greedy algorithm</a>. This algorithm always starts
+        with a single node and moves through several adjacent nodes, in order to explore all of the connected edges
+        along the way.</p>
+    <blockquote>
+        <p dir="ltr">The algorithm starts with an empty spanning tree. The idea is to maintain two sets of vertices. The
+            first set contains the vertices already included in the MST, and the other set contains the vertices not yet
+            included. At every step, it considers all the edges that connect the two sets and picks the minimum weight
+            edge from these edges. After picking the edge, it moves the other endpoint of the edge to the set containing
+            MST.&nbsp;</p>
+f    </blockquote>
+    <p dir="ltr">A group of edges that connects two sets of vertices in a graph is called&nbsp; in graph theory.&nbsp;So, at every step of Prim&rsquo;s
+        algorithm, find a cut, pick the minimum weight edge from the cut, and include this vertex in MST Set (the set
+        that contains already included vertices).</p>
+    <h2>How does Prim&rsquo;s Algorithm Work?&nbsp;</h2>
+    <p dir="ltr">The working of Prim&rsquo;s algorithm can be described by using the following steps:</p>
+
+    <blockquote>
+        <p dir="ltr"><strong>Step 1:</strong>&nbsp;Determine an arbitrary vertex as the starting vertex of the
+            MST.<br /><strong>Step 2:</strong>&nbsp;Follow steps 3 to 5 till there are vertices that are not included in
+            the MST (known as fringe vertex).<br /><strong>Step 3:</strong>&nbsp;Find edges connecting any tree vertex
+            with the fringe vertices.<br /><strong>Step 4:</strong>&nbsp;Find the minimum among these
+            edges.<br /><strong>Step 5:</strong>&nbsp;Add the chosen edge to the MST if it does not form any
+            cycle.<br /><strong>Step 6:</strong>&nbsp;Return the MST and exit</p>
+    </blockquote>
+    <p dir="ltr"><strong>Note:</strong>&nbsp;For determining a cycle, we can divide the vertices into two sets [one set
+        contains the vertices included in MST and the other contains the fringe vertices.]</p>
+
+
+
+
+
+    <h2>Illustration of Prim&rsquo;s Algorithm:</h2>
+    <blockquote>
+        <p dir="ltr">Consider the following graph as an example for which we need to find the Minimum Spanning Tree
+            (MST).</p>
+        <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+        <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230223140007/mstdrawio.png"
+                alt="Example of a graph" width="350" height="350" />
+            <p class="wp-caption-text">Example of a graph</p>
+        </div>
+        <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step
+                        1:</strong></strong></u>&nbsp;Firstly, we select an arbitrary vertex that acts as the starting
+            vertex of the Minimum Spanning Tree. Here we have selected vertex&nbsp;<strong>0</strong>&nbsp;as the
+            starting vertex.</p>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230223140425/mst1drawio.png"
+                alt="0 is selected as starting vertex" width="350" height="371" />
+            <p class="wp-caption-text">0 is selected as starting vertex</p>
+        </div>
+        <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 2:</strong></strong></u>&nbsp;All the
+            edges connecting the incomplete MST and other vertices are the edges {0, 1} and {0, 7}. Between these two
+            the edge with minimum weight is {0, 1}. So include the edge and vertex 1 in the MST.</p>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230223140811/mst2drawio.png"
+                alt="1 is added to the MST" width="350" height="363" />
+            <p class="wp-caption-text">1 is added to the MST</p>
+        </div>
+        <p dir="ltr">&nbsp;<u><strong><strong class="GFGEditorTheme__textUnderline">Step
+                        3:</strong></strong></u>&nbsp;The edges connecting the incomplete MST to other vertices are {0,
+            7}, {1, 7} and {1, 2}. Among these edges the minimum weight is 8 which is of the edges {0, 7} and {1, 2}.
+            Let us here include the edge {0, 7} and the vertex 7 in the MST. [We could have also included edge {1, 2}
+            and vertex 2 in the MST].&nbsp;</p>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230223152544/mst3drawio.png"
+                alt="7 is added in the MST" width="600" height="348" />
+            <p class="wp-caption-text">7 is added in the MST</p>
+        </div>
+        <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 4:</strong></strong></u>&nbsp;The
+            edges that connect the incomplete MST with the fringe vertices are {1, 2}, {7, 6} and {7, 8}. Add the edge
+            {7, 6} and the vertex 6 in the MST as it has the least weight (i.e., 1).</p>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230223153113/mst4drawio.png"
+                alt="6 is added in the MST" width="350" height="335" />
+            <p class="wp-caption-text">6 is added in the MST</p>
+        </div>
+        <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 5:</strong></strong></u>&nbsp;The
+            connecting edges now are {7, 8}, {1, 2}, {6, 8} and {6, 5}. Include edge {6, 5} and vertex 5 in the MST as
+            the edge has the minimum weight (i.e., 2) among them.</p>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230223153329/mst5drawio.png"
+                alt="Include vertex 5 in the MST" width="609" height="353" />
+            <p class="wp-caption-text">Include vertex 5 in the MST</p>
+        </div>
+        <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 6:</strong></strong></u>&nbsp;Among
+            the current connecting edges, the edge {5, 2} has the minimum weight. So include that edge and the vertex 2
+            in the MST.</p>
+        <div id="GFG_AD_gfg_outstream_incontent" data-google-query-id="CKaNkpOzo4YDFcNSnQkdkVAA2w">
+            <div id="google_ads_iframe_/27823234/gfg_outstream_incontent_0__container__">&nbsp;</div>
+        </div>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230223153618/mst6drawio.png"
+                alt="Include vertex 2 in the MST" width="350" height="385" />
+            <p class="wp-caption-text">Include vertex 2 in the MST</p>
+        </div>
+        <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 7:</strong></strong></u>&nbsp;The
+            connecting edges between the incomplete MST and the other edges are {2, 8}, {2, 3}, {5, 3} and {5, 4}. The
+            edge with minimum weight is edge {2, 8} which has weight 2. So include this edge and the vertex 8 in the
+            MST.</p>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230223153852/mst7drawio.png"
+                alt="Add vertex 8 in the MST" width="341" height="372" />
+            <p class="wp-caption-text">Add vertex 8 in the MST</p>
+        </div>
+        <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 8:</strong></strong></u>&nbsp;See
+            here that the edges {7, 8} and {2, 3} both have same weight which are minimum. But 7 is already part of MST.
+            So we will consider the edge {2, 3} and include that edge and vertex 3 in the MST.</p>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230223154124/mst8drawio.png"
+                alt="Include vertex 3 in MST" width="350" height="377" />
+            <p class="wp-caption-text">Include vertex 3 in MST</p>
+        </div>
+        <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 9:</strong></strong></u>&nbsp;Only
+            &nbsp;the vertex 4 remains to be included. The minimum weighted edge from the incomplete MST to 4 is {3, 4}.
+        </p>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230223154246/mst9drawio.png"
+                alt="Include vertex 4 in the MST" width="407" height="358" />
+            <p class="wp-caption-text">Include vertex 4 in the MST</p>
+        </div>
+        <p dir="ltr">The final structure of the MST is as follows and the weight of the edges of the MST is (4 + 8 + 1 +
+            2 + 4 + 2 + 7 + 9) =&nbsp;<strong>37</strong>.</p>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230223154442/finalmstdrawio.png"
+                alt="The structure of the MST formed using the above method" width="340" height="371" />
+            <p class="wp-caption-text">The structure of the MST formed using the above method</p>
+        </div>
+        <p dir="ltr"><strong>Note:</strong>&nbsp;If we had selected the edge {1, 2} in the third step then the MST would
+            look like the following.</p>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230223154535/alternatemstdrawio.png"
+                alt="Structure of the alternate MST if we had selected edge {1, 2} in the MST" width="433"
+                height="367" />
+            <p class="wp-caption-text">Structure of the alternate MST if we had selected edge {1, 2} in the MST</p>
+        </div>
+    </blockquote>
+
+    <h3>How to implement Prim&rsquo;s Algorithm?</h3>
+    <p dir="ltr">Follow the given steps to utilize the&nbsp;<strong>Prim&rsquo;s Algorithm</strong>&nbsp;mentioned above
+        for finding MST of a graph:</p>
+    <ul>
+        <li value="1">Create a set&nbsp;<strong>mstSet</strong>&nbsp;that keeps track of vertices already included in
+            MST.&nbsp;</li>
+        <li value="2">Assign a key value to all vertices in the input graph. Initialize all key values as INFINITE.
+            Assign the key value as 0 for the first vertex so that it is picked first.&nbsp;</li>
+        <li value="3">While&nbsp;<strong>mstSet</strong>&nbsp;doesn&rsquo;t include all vertices&nbsp;
+            <ul>
+                <li value="1">Pick a vertex&nbsp;<strong>u</strong>&nbsp;that is not there
+                    in&nbsp;<strong>mstSet</strong><em><em class="GFGEditorTheme__textItalic">&nbsp;</em></em>and has a
+                    minimum key value.&nbsp;</li>
+                <li value="2">Include&nbsp;<strong>u</strong>&nbsp;in the&nbsp;<strong>mstSet</strong>.&nbsp;</li>
+                <li value="3">Update the key value of all adjacent vertices of&nbsp;<strong>u</strong>. To update the
+                    key values, iterate through all adjacent vertices.&nbsp;
+                    <ul>
+                        <li value="1">For every adjacent vertex&nbsp;<strong>v</strong>, if the weight of
+                            edge&nbsp;<strong>u-v</strong>&nbsp;is less than the previous key value
+                            of&nbsp;<strong>v</strong>, update the key value as the weight of&nbsp;<strong>u-v</strong>.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <p dir="ltr">The idea of using key values is to pick the minimum weight edge from the&nbsp;<a
+            href="http://en.wikipedia.org/wiki/Cut_(graph_theory)" target="_blank"
+            rel="noopener noreferrer nofollow">cut</a>. The key values are used only for vertices that are not yet
+        included in MST, the key value for these vertices indicates the minimum weight edges connecting them to the set
+        of vertices included in MST.</p>
+    <p dir="ltr">Below is the implementation of the approach:</p>
+
+    <div class="line number1 index0 alt2"><code class="comments">// A C program for Prim's Minimum</code></div>
+    <div class="line number2 index1 alt1"><code class="comments">// Spanning Tree (MST) algorithm. The program is</code>
+    </div>
+    <div class="line number3 index2 alt2"><code
+            class="comments">// for adjacency matrix representation of the graph</code></div>
+    <div class="line number4 index3 alt1">&nbsp;</div>
+    <div class="line number5 index4 alt2"><code class="preprocessor">#include &lt;limits.h&gt;</code></div>
+    <div class="line number6 index5 alt1"><code class="preprocessor">#include &lt;stdbool.h&gt;</code></div>
+    <div class="line number7 index6 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+    <div class="line number8 index7 alt1">&nbsp;</div>
+    <div class="line number9 index8 alt2"><code class="comments">// Number of vertices in the graph</code></div>
+    <div class="line number10 index9 alt1"><code class="preprocessor">#define V 5</code></div>
+    <div class="line number11 index10 alt2">&nbsp;</div>
+    <div class="line number12 index11 alt1"><code class="comments">// A utility function to find the vertex with</code>
+    </div>
+    <div class="line number13 index12 alt2"><code class="comments">// minimum key value, from the set of vertices</code>
+    </div>
+    <div class="line number14 index13 alt1"><code class="comments">// not yet included in MST</code></div>
+    <div class="line number15 index14 alt2"><code class="color1 bold">int</code> <code class="plain">minKey(</code><code
+            class="color1 bold">int</code> <code class="plain">key[], </code><code class="color1 bold">bool</code> <code
+            class="plain">mstSet[])</code></div>
+    <div class="line number16 index15 alt1"><code class="plain">{</code></div>
+    <div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// Initialize min value</code></div>
+    <div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="color1 bold">int</code> <code class="plain">min = INT_MAX, min_index;</code></div>
+    <div class="line number19 index18 alt2">&nbsp;</div>
+    <div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="keyword bold">for</code> <code class="plain">(</code><code class="color1 bold">int</code> <code
+            class="plain">v = 0; v &lt; V; v++)</code></div>
+    <div class="line number21 index20 alt2"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="keyword bold">if</code> <code class="plain">(mstSet[v] == </code><code
+            class="keyword bold">false</code> <code class="plain">&amp;&amp; key[v] &lt; min)</code></div>
+    <div class="line number22 index21 alt1"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="plain">min = key[v], min_index = v;</code></div>
+    <div class="line number23 index22 alt2">&nbsp;</div>
+    <div class="line number24 index23 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="keyword bold">return</code> <code class="plain">min_index;</code></div>
+    <div class="line number25 index24 alt2"><code class="plain">}</code></div>
+
+    <div class="line number27 index26 alt2"><code class="comments">// A utility function to print the</code></div>
+    <div class="line number28 index27 alt1"><code class="comments">// constructed MST stored in parent[]</code></div>
+    <div class="line number29 index28 alt2"><code class="color1 bold">int</code> <code
+            class="plain">printMST(</code><code class="color1 bold">int</code> <code
+            class="plain">parent[], </code><code class="color1 bold">int</code> <code class="plain">graph[V][V])</code>
+    </div>
+    <div class="line number30 index29 alt1"><code class="plain">{</code></div>
+    <div class="line number31 index30 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="functions bold">printf</code><code class="plain">(</code><code
+            class="string">"Edge \tWeight\n"</code><code class="plain">);</code></div>
+    <div class="line number32 index31 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="keyword bold">for</code> <code class="plain">(</code><code class="color1 bold">int</code> <code
+            class="plain">i = 1; i &lt; V; i++)</code></div>
+    <div class="line number33 index32 alt2"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="functions bold">printf</code><code class="plain">(</code><code
+            class="string">"%d - %d \t%d \n"</code><code class="plain">, parent[i], i,</code></div>
+    <div class="line number34 index33 alt1"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="plain">graph[i][parent[i]]);</code></div>
+    <div class="line number35 index34 alt2"><code class="plain">}</code></div>
+    <div class="line number36 index35 alt1">&nbsp;</div>
+    <div class="line number37 index36 alt2"><code class="comments">// Function to construct and print MST for</code>
+    </div>
+    <div class="line number38 index37 alt1"><code class="comments">// a graph represented using adjacency</code></div>
+    <div class="line number39 index38 alt2"><code class="comments">// matrix representation</code></div>
+    <div class="line number40 index39 alt1"><code class="keyword bold">void</code> <code
+            class="plain">primMST(</code><code class="color1 bold">int</code> <code class="plain">graph[V][V])</code>
+    </div>
+    <div class="line number41 index40 alt2"><code class="plain">{</code></div>
+    <div class="line number42 index41 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// Array to store constructed MST</code></div>
+    <div class="line number43 index42 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="color1 bold">int</code> <code class="plain">parent[V];</code></div>
+    <div class="line number44 index43 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// Key values used to pick minimum weight edge in cut</code></div>
+    <div class="line number45 index44 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="color1 bold">int</code> <code class="plain">key[V];</code></div>
+    <div class="line number46 index45 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// To represent set of vertices included in MST</code></div>
+    <div class="line number47 index46 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="color1 bold">bool</code> <code class="plain">mstSet[V];</code></div>
+    <div class="line number48 index47 alt1">&nbsp;</div>
+    <div class="line number49 index48 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// Initialize all keys as INFINITE</code></div>
+    <div class="line number50 index49 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="keyword bold">for</code> <code class="plain">(</code><code class="color1 bold">int</code> <code
+            class="plain">i = 0; i &lt; V; i++)</code></div>
+    <div class="line number51 index50 alt2"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="plain">key[i] = INT_MAX, mstSet[i] = </code><code class="keyword bold">false</code><code
+            class="plain">;</code></div>
+    <div class="line number52 index51 alt1">&nbsp;</div>
+    <div class="line number53 index52 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// Always include first 1st vertex in MST.</code></div>
+    <div class="line number54 index53 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// Make key 0 so that this vertex is picked as first</code></div>
+    <div class="line number55 index54 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// vertex.</code></div>
+    <div class="line number56 index55 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="plain">key[0] = 0;</code></div>
+    <div class="line number57 index56 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code>&nbsp;</div>
+    <div class="line number58 index57 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// First node is always root of MST</code></div>
+    <div class="line number59 index58 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="plain">parent[0] = -1;</code></div>
+
+    <div class="line number61 index60 alt2"><code class="undefined spaces">&nbsp;</code><code
+            class="comments">// The MST will have V vertices</code></div>
+    <div class="line number62 index61 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="keyword bold">for</code> <code class="plain">(</code><code class="color1 bold">int</code> <code
+            class="plain">count = 0; count &lt; V - 1; count++) {</code></div>
+    <div class="line number63 index62 alt2"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div>
+    <div class="line number64 index63 alt1"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// Pick the minimum key vertex from the</code></div>
+    <div class="line number65 index64 alt2"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// set of vertices not yet included in MST</code></div>
+    <div class="line number66 index65 alt1"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="color1 bold">int</code> <code class="plain">u = minKey(key, mstSet);</code></div>
+    <div class="line number67 index66 alt2">&nbsp;</div>
+    <div class="line number68 index67 alt1"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// Add the picked vertex to the MST Set</code></div>
+    <div class="line number69 index68 alt2"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="plain">mstSet[u] = </code><code class="keyword bold">true</code><code class="plain">;</code></div>
+    <div class="line number70 index69 alt1">&nbsp;</div>
+    <div class="line number71 index70 alt2"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// Update key value and parent index of</code></div>
+    <div class="line number72 index71 alt1"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// the adjacent vertices of the picked vertex.</code></div>
+    <div class="line number73 index72 alt2"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// Consider only those vertices which are not</code></div>
+    <div class="line number74 index73 alt1"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// yet included in MST</code></div>
+    <div class="line number75 index74 alt2"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="keyword bold">for</code> <code class="plain">(</code><code class="color1 bold">int</code> <code
+            class="plain">v = 0; v &lt; V; v++)</code></div>
+    <div class="line number76 index75 alt1">&nbsp;</div>
+    <div class="line number77 index76 alt2"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// graph[u][v] is non zero only for adjacent</code></div>
+    <div class="line number78 index77 alt1"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// vertices of m mstSet[v] is false for vertices</code></div>
+    <div class="line number79 index78 alt2"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// not yet included in MST Update the key only</code></div>
+    <div class="line number80 index79 alt1"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// if graph[u][v] is smaller than key[v]</code></div>
+    <div class="line number81 index80 alt2"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="keyword bold">if</code> <code class="plain">(graph[u][v] &amp;&amp; mstSet[v] == </code><code
+            class="keyword bold">false</code></div>
+    <div class="line number82 index81 alt1"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="plain">&amp;&amp; graph[u][v] &lt; key[v])</code></div>
+    <div class="line number83 index82 alt2"><code
+            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="plain">parent[v] = u, key[v] = graph[u][v];</code></div>
+    <div class="line number84 index83 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="plain">}</code></div>
+    <div class="line number85 index84 alt2">&nbsp;</div>
+    <div class="line number86 index85 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="comments">// print the constructed MST</code></div>
+    <div class="line number87 index86 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+            class="plain">printMST(parent, graph);</code></div>
+    <div class="line number88 index87 alt1"><code class="plain">}</code></div>
+    <div class="responsive-tabs-wrapper">
+        <div class="responsive-tabs responsive-tabs--enabled">
+            <div id="tablist1-panel2" class="tabcontent responsive-tabs__panel responsive-tabs__panel--active"
+                role="tabpanel" aria-hidden="true" aria-labelledby="tablist1-tab2">
+                <div class="code-block">
+                    <div class="code-container">
+                        <div id="highlighter_447087" class="syntaxhighlighter nogutter  ">
+                            <table border="0" cellspacing="0" cellpadding="0">
+                                <tbody>
+                                    <tr>
+                                        <td class="code">
+                                            <div class="container">
+                                                <div class="line number90 index89 alt1"><code
+                                                        class="comments">// Driver's code</code></div>
+                                                <div class="line number91 index90 alt2"><code
+                                                        class="color1 bold">int</code> <code class="plain">main()</code>
+                                                </div>
+                                                <div class="line number92 index91 alt1"><code class="plain">{</code>
+                                                </div>
+                                                <div class="line number93 index92 alt2"><code
+                                                        class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                        class="color1 bold">int</code> <code
+                                                        class="plain">graph[V][V] = { { 0, 2, 0, 6, 0 },</code></div>
+                                                <div class="line number94 index93 alt1"><code
+                                                        class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                        class="plain">{ 2, 0, 3, 8, 5 },</code></div>
+                                                <div class="line number95 index94 alt2"><code
+                                                        class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                        class="plain">{ 0, 3, 0, 0, 7 },</code></div>
+                                                <div class="line number96 index95 alt1"><code
+                                                        class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                        class="plain">{ 6, 8, 0, 0, 9 },</code></div>
+                                                <div class="line number97 index96 alt2"><code
+                                                        class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                        class="plain">{ 0, 5, 7, 9, 0 } };</code></div>
+                                                <div class="line number98 index97 alt1">&nbsp;</div>
+                                                <div class="line number99 index98 alt2"><code
+                                                        class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                        class="comments">// Print the solution</code></div>
+                                                <div class="line number100 index99 alt1"><code
+                                                        class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                        class="plain">primMST(graph);</code></div>
+                                                <div class="line number101 index100 alt2">&nbsp;</div>
+                                                <div class="line number102 index101 alt1"><code
+                                                        class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                        class="keyword bold">return</code> <code class="plain">0;</code>
+                                                </div>
+                                                <div class="line number103 index102 alt2"><code class="plain">}</code>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="code-output"><strong>Output</strong>
+        <div class="gray">Edge     Weight
+0 - 1     2 
+1 - 2     3 
+0 - 3     6 
+1 - 4     5 
+</div>
+    </div>
+
+    <p dir="ltr"><a href="https://www.geeksforgeeks.org/time-and-space-complexity-analysis-of-prims-algorithm/"
+            target="_blank" rel="noreferrer noopener"><strong>Complexity Analysis of Prim&rsquo;s
+                Algorithm:</strong></a></p>
+    <div id="GFG_AD_gfg_outstream_incontent-1">&nbsp;</div>
+    <p dir="ltr"><strong>Time Complexity:&nbsp;</strong>O(V<sup>2</sup>), If the input&nbsp;<a
+            href="https://www.geeksforgeeks.org/archives/27134">graph is represented using an adjacency list</a>, then
+        the time complexity of Prim&rsquo;s algorithm can be reduced to O(E * logV) with the help of a binary heap.
+        &nbsp;In this implementation, we are always considering the spanning tree to start from the root of the
+        graph<br /><strong>Auxiliary Space:&nbsp;</strong>O(V)</p>
+    <h3>Other Implementations of Prim&rsquo;s Algorithm:</h3>
+    <p dir="ltr">Given below are some other implementations of Prim&rsquo;s Algorithm</p>
+    <ul>
+        <li value="1"><a
+                href="https://www.geeksforgeeks.org/prims-algorithm-simple-implementation-for-adjacency-matrix-representation/">Prim&rsquo;s
+                Algorithm for Adjacency Matrix Representation</a>&nbsp;&ndash; In this article we have discussed the
+            method of implementing Prim&rsquo;s Algorithm if the graph is represented by an adjacency matrix.</li>
+        <li value="2"><a
+                href="https://www.geeksforgeeks.org/prims-mst-for-adjacency-list-representation-greedy-algo-6/">Prim&rsquo;s
+                Algorithm for Adjacency List Representation</a>&nbsp;&ndash; In this article Prim&rsquo;s Algorithm
+            implementation is described for graphs represented by an adjacency list.</li>
+        <li value="3"><a href="https://www.geeksforgeeks.org/prims-algorithm-using-priority_queue-stl/">Prim&rsquo;s
+                Algorithm using Priority Queue:</a>&nbsp;In this article, we have discussed a time-efficient approach to
+            implement Prim&rsquo;s algorithm.</li>
+    </ul>
+    <h4>OPTIMIZED APPROACH OF PRIM&rsquo;S ALGORITHM:&nbsp;</h4>
+    <blockquote>
+        <p dir="ltr"><em><strong><strong class="GFGEditorTheme__textItalic">Intuition</strong></strong></em></p>
+        <ol>
+            <li value="1">We transform the adjacency matrix into adjacency list
+                using&nbsp;<strong>ArrayList&lt;ArrayList&lt;Integer&gt;&gt;</strong>.</li>
+            <li value="2">Then we create a Pair class to store the vertex and its weight .</li>
+            <li value="3">We sort the list on the basis of lowest weight.</li>
+            <li value="4">We create priority queue and push the first vertex and its weight in the queue</li>
+            <li value="5">Then we just traverse through its edges and store the least weight in a variable
+                called&nbsp;<strong>ans.</strong></li>
+            <li value="6">At last after all the vertex we return the ans.</li>
+        </ol>
+    </blockquote>
+
+    <h3>Prim&rsquo;s algorithm for finding the minimum spanning tree (MST):</h3>
+    <h3>Advantages:</h3>
+    <ol>
+        <li value="1">Prim&rsquo;s algorithm is guaranteed to find the MST in a connected, weighted graph.</li>
+        <li value="2">It has a time complexity of O(E log V) using a binary heap or Fibonacci heap, where E is the
+            number of edges and V is the number of vertices.</li>
+        <li value="3">It is a relatively simple algorithm to understand and implement compared to some other MST
+            algorithms.</li>
+    </ol>
+    <h3>Disadvantages:</h3>
+    <ol>
+        <li value="1">Like Kruskal&rsquo;s algorithm, Prim&rsquo;s algorithm can be slow on dense graphs with many
+            edges, as it requires iterating over all edges at least once.</li>
+        <li value="2">Prim&rsquo;s algorithm relies on a priority queue, which can take up extra memory and slow down
+            the algorithm on very large graphs.</li>
+        <li value="3">The choice of starting node can affect the MST output, which may not be desirable in some
+            applications.</li>
+    </ol>
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+
+<body>
+
+    <h2>SORTING ALGORITHMS</h2>
+    <h3>Analysis of different sorting techniques</h3>
+    <p><strong>Time complexity Analysis &ndash;</strong>&nbsp;<br />We have discussed the best, average and worst case
+        complexity of different sorting techniques with possible scenarios.&nbsp;</p>
+    <div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
+    <p><strong>Comparison based sorting &ndash;</strong>&nbsp;<br />In comparison based sorting, elements of an array
+        are compared with each other to find the sorted array.</p>
+
+    <ul>
+        <li value="1"><strong>Bubble sort and Insertion sort &ndash;</strong>&nbsp;<br />Average and worst case time
+            complexity: n^2&nbsp;<br />Best case time complexity: n when array is already sorted.&nbsp;<br />Worst case:
+            when the array is reverse sorted.&nbsp;<br />&nbsp;</li>
+        <li value="2"><strong>Selection sort &ndash;</strong>&nbsp;<br />Best, average and worst case time complexity:
+            n^2 which is independent of distribution of data.&nbsp;<br />&nbsp;</li>
+        <li value="3"><strong>Merge sort &ndash;</strong>&nbsp;<br />Best, average and worst case time complexity: nlogn
+            which is independent of distribution of data.&nbsp;<br />&nbsp;</li>
+        <li value="4"><strong>Heap sort &ndash;</strong>&nbsp;<br />Best, average and worst case time complexity: nlogn
+            which is independent of distribution of data.&nbsp;<br />&nbsp;</li>
+        <li value="5"><strong>Quick sort &ndash;</strong>&nbsp;<br />It is a divide and conquer approach with recurrence
+            relation:&nbsp;<br />&nbsp;</li>
+    </ul>
+    <div class="gray"> T(n) = T(k) + T(n-k-1) + cn<br /><br /><br /><br /><br /></div>
+    <ul>
+        <li value="1">Worst case: when the array is sorted or reverse sorted, the partition algorithm divides the array
+            in two subarrays with 0 and n-1 elements. Therefore,&nbsp;<br />&nbsp;</li>
+    </ul>
+    <div class="gray">T(n) = T(0) + T(n-1) + cn<br />Solving this we get, T(n) = O(n^2)<br /><br /><br /><br /><br /></div>
+    <ul>
+        <li value="1">Best case and Average case: On an average, the partition algorithm divides the array in two
+            subarrays with equal size. Therefore,&nbsp;<br />&nbsp;</li>
+    </ul>
+    <div class="gray">T(n) = 2T(n/2) + cn<br />Solving this we get, T(n) = O(nlogn)<br /><br /></div>
+
+    <p dir="ltr"><strong>Non-comparison based sorting &ndash;</strong>&nbsp;<br />In non-comparison based sorting,
+        elements of array are not compared with each other to find the sorted array.&nbsp;<br />&nbsp;</p>
+    <ul>
+        <li value="1"><strong>Radix sort &ndash;</strong>&nbsp;<br />Best, average and worst case time complexity: nk
+            where k is the maximum number of digits in elements of array.&nbsp;<br />&nbsp;</li>
+        <li value="2"><strong>Count sort &ndash;</strong>&nbsp;<br />Best, average and worst case time complexity: n+k
+            where k is the size of count array.&nbsp;<br />&nbsp;</li>
+        <li value="3"><strong>Bucket sort &ndash;</strong>&nbsp;<br />Best and average time complexity: n+k where k is
+            the number of buckets.&nbsp;<br />Worst case time complexity: n^2 if all elements belong to same
+            bucket.&nbsp;<br />&nbsp;</li>
+    </ul>
+    <p dir="ltr"><strong>In-place/Outplace technique &ndash;</strong>&nbsp;<br />A sorting technique is inplace if it
+        does not use any extra memory to sort the array.&nbsp;<br />Among the comparison based techniques discussed,
+        only merge sort is outplaced technique as it requires an extra array to merge the sorted
+        subarrays.&nbsp;<br />Among the non-comparison based techniques discussed, all are outplaced techniques.
+        Counting sort uses a counting array and bucket sort uses a hash table for sorting the array.&nbsp;</p>
+    <p><strong>Online/Offline technique &ndash;</strong>&nbsp;<br />A sorting technique is considered Online if it can
+        accept new data while the procedure is ongoing i.e. complete data is not required to start the sorting
+        operation.&nbsp;<br />Among the comparison based techniques discussed, only Insertion Sort qualifies for this
+        because of the underlying algorithm it uses i.e. it processes the array (not just elements) from left to right
+        and if new elements are added to the right, it doesn&rsquo;t impact the ongoing operation.&nbsp;</p>
+    <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+    <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+    <p><strong>Stable/Unstable technique &ndash;</strong>&nbsp;<br />A sorting technique is stable if it does not change
+        the order of elements with the same value.&nbsp;<br />Out of comparison based techniques, bubble sort, insertion
+        sort and merge sort are stable techniques. Selection sort is unstable as it may change the order of elements
+        with the same value. For example, consider the array 4, 4, 1, 3.&nbsp;</p>
+    <p>In the first iteration, the minimum element found is 1 and it is swapped with 4 at 0th position. Therefore, the
+        order of 4 with respect to 4 at the 1st position will change. Similarly, quick sort and heap sort are also
+        unstable.&nbsp;</p>
+    <p>Out of non-comparison based techniques, Counting sort and Bucket sort are stable sorting techniques whereas radix
+        sort stability depends on the underlying algorithm used for sorting.&nbsp;</p>
+
+    <p><strong>Analysis of sorting techniques :&nbsp;</strong><br />&nbsp;</p>
+    <ul>
+        <li value="1">When the array is almost sorted, insertion sort can be preferred.</li>
+        <li value="2">When order of input is not known, merge sort is preferred as it has worst case time complexity of
+            nlogn and it is stable as well.</li>
+        <li value="3">When the array is sorted, insertion and bubble sort gives complexity of n but quick sort gives
+            complexity of n^2.</li>
+    </ul>
+    <p dir="ltr">&nbsp;</p>
+    <p><strong>Que &ndash; 1.</strong>&nbsp;Which sorting algorithm will take the least time when all elements of input
+        array are identical? Consider typical implementations of sorting algorithms.&nbsp;<br />(A) Insertion
+        Sort&nbsp;<br />(B) Heap Sort&nbsp;<br />(C) Merge Sort&nbsp;<br />(D) Selection Sort&nbsp;</p>
+    <p><strong>Solution:</strong>&nbsp;As discussed, insertion sort will have the complexity of n when the input array
+        is already sorted.&nbsp;</p>
+    <div id="GFG_AD_gfg_outstream_incontent" data-google-query-id="CKOK9qnWoIYDFVdRnQkdXyENVw">
+        <div id="google_ads_iframe_/27823234/gfg_outstream_incontent_0__container__">&nbsp;</div>
+    </div>
+    <p><strong>Que &ndash; 2.</strong>&nbsp;Consider the Quicksort algorithm. Suppose there is a procedure for finding a
+        pivot element which splits the list into two sub-lists each of which contains at least one-fifth of the
+        elements. Let T(n) be the number of comparisons required to sort n elements. Then, (GATE-CS-2012)</p>
+    <p>(A) T(n) &lt;= 2T(n/5) + n</p>
+    <p>(B) T(n) &lt;= T(n/5) + T(4n/5) + n</p>
+    <p>(C) T(n) &lt;= 2T(4n/5) + n</p>
+    <p>(D) T(n) &lt;= 2T(n/2) + n</p>
+    <p><strong>Solution:</strong>&nbsp;The complexity of quick sort can be written as:&nbsp;<br />&nbsp;</p>
+    <div class="gray">T(n) = T(k) + T(n-k-1) + cn<br /><br /><br /><br /><br /></div>
+    <p dir="ltr">As given in question, one list contains 1/5th of total elements. Therefore, another list will have 4/5
+        of total elements. Putting values, we get:&nbsp;</p>
+    <p>T(n) = T(n/5) + T(4n/5) + cn, which matches option (B).&nbsp;</p>
+
+    <h3>Time and Space Complexity Comparison Table :</h3>
+    <table border="1" class="GFGEditorTheme__table" style="height: 513px;" width="633">
+        <colgroup>
+            <col />
+            <col />
+            <col />
+        </colgroup>
+        <thead>
+            <tr>
+                <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader" style="width: 149.969px;">Sorting
+                    Algorithm</th>
+                <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader" style="width: 311.734px;"
+                    colspan="3">Time Complexity</th>
+                <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader" style="width: 149.297px;">Space
+                    Complexity</th>
+            </tr>
+            <tr>
+                <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader" style="width: 149.969px;">&nbsp;
+                </th>
+                <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader" style="width: 90.5px;">Best Case
+                </th>
+                <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader" style="width: 114.016px;">Average
+                    Case</th>
+                <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader" style="width: 95.2188px;">Worst
+                    Case</th>
+                <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader" style="width: 149.297px;">Worst
+                    Case</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="GFGEditorTheme__tableCell" style="width: 149.969px;"><strong>Bubble Sort</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 90.5px;"><strong>&Omega;(N)</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 114.016px;">
+                    <strong>&Theta;(N</strong><strong><sup>2</sup></strong><strong>)</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 95.2188px;">
+                    <strong>O(N</strong><strong><sup>2</sup></strong><strong>)</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 149.297px;"><strong>O(1)</strong></td>
+            </tr>
+            <tr>
+                <td class="GFGEditorTheme__tableCell" style="width: 149.969px;"><strong>Selection Sort</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 90.5px;">
+                    <strong>&Omega;(N</strong><strong><sup>2</sup></strong><strong>)</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 114.016px;">
+                    <strong>&Theta;(N</strong><strong><sup>2</sup></strong><strong>)</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 95.2188px;">
+                    <strong>O(N</strong><strong><sup>2</sup></strong><strong>)</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 149.297px;"><strong>O(1)</strong></td>
+            </tr>
+            <tr>
+                <td class="GFGEditorTheme__tableCell" style="width: 149.969px;"><strong>Insertion Sort</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 90.5px;"><strong>&Omega;(N)</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 114.016px;">
+                    <strong>&Theta;(N</strong><strong><sup>2</sup></strong><strong>)</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 95.2188px;">
+                    <strong>O(N</strong><strong><sup>2</sup></strong><strong>)</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 149.297px;"><strong>O(1)</strong></td>
+            </tr>
+            <tr>
+                <td class="GFGEditorTheme__tableCell" style="width: 149.969px;"><strong>Merge Sort</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 90.5px;"><strong>&Omega;(N log N)</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 114.016px;"><strong>&Theta;(N log N)</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 95.2188px;"><strong>O(N log N)</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 149.297px;"><strong>O(N)</strong></td>
+            </tr>
+            <tr>
+                <td class="GFGEditorTheme__tableCell" style="width: 149.969px;"><strong>Heap Sort</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 90.5px;"><strong>&Omega;(N log N)</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 114.016px;"><strong>&Theta;(N log N)</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 95.2188px;"><strong>O(N log N)</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 149.297px;"><strong>O(1)</strong></td>
+            </tr>
+            <tr>
+                <td class="GFGEditorTheme__tableCell" style="width: 149.969px;"><strong>Quick Sort</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 90.5px;"><strong>&Omega;(N log N)</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 114.016px;"><strong>&Theta;(N log N)</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 95.2188px;">
+                    <strong>O(N</strong><strong><sup>2</sup></strong><strong>)</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 149.297px;"><strong>O(log N)</strong></td>
+            </tr>
+            <tr>
+                <td class="GFGEditorTheme__tableCell" style="width: 149.969px;"><strong>Radix Sort</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 90.5px;"><strong>&Omega;(N k)</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 114.016px;"><strong>&Theta;(N k)</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 95.2188px;"><strong>O(N k)</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 149.297px;"><strong>O(N + k)</strong></td>
+            </tr>
+            <tr>
+                <td class="GFGEditorTheme__tableCell" style="width: 149.969px;"><strong>Count Sort</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 90.5px;"><strong>&Omega;(N + k)</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 114.016px;"><strong>&Theta;(N + k)</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 95.2188px;"><strong>O(N + k)</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 149.297px;"><strong>O(k)</strong></td>
+            </tr>
+            <tr>
+                <td class="GFGEditorTheme__tableCell" style="width: 149.969px;"><strong>Bucket Sort</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 90.5px;"><strong>&Omega;(N + k)</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 114.016px;"><strong>&Theta;(N + k)</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 95.2188px;">
+                    <strong>O(N</strong><strong><sup>2</sup></strong><strong>)</strong></td>
+                <td class="GFGEditorTheme__tableCell" style="width: 149.297px;"><strong>O(N)</strong></td>
+            </tr>
+        </tbody>
+    </table>
+    <p dir="ltr"><strong>Sort stability, Efficiency, Passes Comparison Table :</strong></p>
+    <table border="1" class="GFGEditorTheme__table">
+        <colgroup>
+            <col />
+            <col />
+            <col />
+            <col />
+        </colgroup>
+        <thead>
+            <tr>
+                <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">
+                    <p dir="ltr">Sorting algorithm</p>
+                </th>
+                <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">
+                    <p dir="ltr">Efficiency</p>
+                </th>
+                <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">
+                    <p dir="ltr">Passes</p>
+                </th>
+                <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">
+                    <p dir="ltr">Sort stability</p>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">
+                    <p dir="ltr">Bubble sort</p>
+                </th>
+                <td class="GFGEditorTheme__tableCell">
+                    <p dir="ltr">0(n<sup>2</sup>)</p>
+                </td>
+                <td class="GFGEditorTheme__tableCell">
+                    <p dir="ltr">n-1</p>
+                </td>
+                <td class="GFGEditorTheme__tableCell">
+                    <p dir="ltr">stable</p>
+                </td>
+            </tr>
+            <tr>
+                <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">
+                    <p dir="ltr">Selection sort</p>
+                </th>
+                <td class="GFGEditorTheme__tableCell">
+                    <p dir="ltr">0(n<sup>2</sup>)</p>
+                </td>
+                <td class="GFGEditorTheme__tableCell">
+                    <p dir="ltr">n-1</p>
+                </td>
+                <td class="GFGEditorTheme__tableCell">
+                    <p dir="ltr">unstable</p>
+                    <p dir="ltr">(can be stable using Linked List)</p>
+                </td>
+            </tr>
+            <tr>
+                <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">
+                    <p dir="ltr">Insertion sort</p>
+                    <p dir="ltr">Best case</p>
+                    <p dir="ltr">Worst case</p>
+                </th>
+                <td class="GFGEditorTheme__tableCell">
+                    <p dir="ltr">0(n)</p>
+                    <p dir="ltr">0(n<sup>2</sup>)</p>
+                </td>
+                <td class="GFGEditorTheme__tableCell">
+                    <p dir="ltr">n-1</p>
+                    <p dir="ltr">n-1</p>
+                </td>
+                <td class="GFGEditorTheme__tableCell">
+                    <p dir="ltr">stable</p>
+                </td>
+            </tr>
+            <tr>
+                <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">
+                    <p dir="ltr">Quick sort</p>
+                    <p dir="ltr">Best case</p>
+                    <p dir="ltr">Worst case</p>
+                </th>
+                <td class="GFGEditorTheme__tableCell">
+                    <p dir="ltr">0(n log n)</p>
+                    <p dir="ltr">0(n<sup>2</sup>)</p>
+                </td>
+                <td class="GFGEditorTheme__tableCell">
+                    <p dir="ltr">log n</p>
+                    <p dir="ltr">n-1</p>
+                </td>
+                <td class="GFGEditorTheme__tableCell">
+                    <p dir="ltr">unstable</p>
+                </td>
+            </tr>
+            <tr>
+                <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">
+                    <p dir="ltr">Merge sort</p>
+                </th>
+                <td class="GFGEditorTheme__tableCell">
+                    <p dir="ltr">0(n log n)</p>
+                </td>
+                <td class="GFGEditorTheme__tableCell">
+                    <p dir="ltr">log n</p>
+                </td>
+                <td class="GFGEditorTheme__tableCell">
+                    <p dir="ltr">stable</p>
+                </td>
+            </tr>
+            <tr>
+                <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">
+                    <p dir="ltr">Shell sort</p>
+                    <p dir="ltr">Best case</p>
+                    <p dir="ltr">Worst case</p>
+                </th>
+                <td class="GFGEditorTheme__tableCell">
+                    <p dir="ltr">0(n)</p>
+                    <p dir="ltr">0(n<sup>2</sup>)</p>
+                </td>
+                <td class="GFGEditorTheme__tableCell">
+                    <p dir="ltr">log n</p>
+                    <p dir="ltr">log n</p>
+                </td>
+                <td class="GFGEditorTheme__tableCell">
+                    <p dir="ltr">unstable</p>
+                </td>
+            </tr>
+            <tr>
+                <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">
+                    <p dir="ltr">Radix sort</p>
+                </th>
+                <td class="GFGEditorTheme__tableCell">
+                    <p dir="ltr">0(n)</p>
+                </td>
+                <td class="GFGEditorTheme__tableCell">
+                    <p dir="ltr">No. of digits in the largest number</p>
+                </td>
+                <td class="GFGEditorTheme__tableCell">
+                    <p dir="ltr">stable</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <br><br>
+</body>
+
+</html>

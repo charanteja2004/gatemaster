@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    <div class="main_wrapper">
+        <div class="main_wrapper">
+        <div class="article-title">
+        <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>Database Objects in DBMS</h1>
+        </div>
+        </div>
+        </div>
+        <div class="text">
+        <p>A&nbsp;<strong>database object</strong>&nbsp;is any defined object in a database that is used to store or reference data.Anything which we make from&nbsp;<strong>create command&nbsp;</strong>is known as Database Object.It can be used to hold and manipulate the data.Some of the examples of database objects are : view, sequence, indexes, etc.</p>
+        <ul>
+        <li><strong>Table &ndash;</strong>&nbsp;Basic unit of storage; composed rows and columns</li>
+        <li><strong>View &ndash;</strong>&nbsp;Logically represents subsets of data from one or more tables</li>
+        <li><strong>Sequence &ndash;</strong>&nbsp;Generates primary key values</li>
+        <li><strong>Index &ndash;</strong>&nbsp;Improves the performance of some queries</li>
+        <li><strong>Synonym &ndash;</strong>&nbsp;Alternative name for an object</li>
+        </ul>
+        <p>Different database Objects :</p>
+        <ol>
+        <li><strong>Table &ndash;</strong>&nbsp;This database object is used to create a table in database.
+        <p><strong>Syntax :</strong></p>
+        <div class="gray">CREATE TABLE [schema.]table
+                       (column datatype [DEFAULT expr][, ...]);</div>
+        <p><strong>Example :</strong></p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <div class="gray">CREATE TABLE dept
+                   (deptno NUMBER(2),
+                    dname VARCHAR2(14),
+                    loc VARCHAR2(13));</div>
+        <p><strong>Output :</strong></p>
+        <div class="gray">DESCRIBE dept;</div>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/table-output.png" alt="table output" width="451" height="59" /></p>
+        </li>
+        <li><strong>View &ndash;</strong>&nbsp;This database object is used to create a view in database.A view is a logical table based on a table or another view. A view contains no data of its own but is like a window through which data from tables can be viewed or changed. The tables on which a view is based are called base tables. The view is stored as a SELECT statement in the data dictionary.
+        <p><strong>Syntax :</strong></p>
+        <div class="gray">CREATE [OR REPLACE] [FORCE|NOFORCE] VIEW view
+                               [(alias[, alias]...)]
+                               AS subquery
+                               [WITH CHECK OPTION [CONSTRAINT constraint]]
+                               [WITH READ ONLY [CONSTRAINT constraint]];</div>
+        <p><strong>Example :</strong></p>
+        <div class="gray">CREATE VIEW salvu50
+                       AS SELECT employee_id ID_NUMBER, last_name NAME,
+                       salary*12 ANN_SALARY
+                       FROM employees
+                       WHERE department_id = 50;</div>
+        <p><strong>Output :</strong></p>
+        <div class="gray">SELECT *
+        FROM salvu50;</div>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/view-output.png" alt="view output" width="420" height="81" /></p>
+        </li>
+        <li><strong>Sequence &ndash;</strong>&nbsp;This database object is used to create a sequence in database.A sequence is a user created database object that can be shared by multiple users to generate unique integers. A typical usage for sequences is to create a primary key value, which must be unique for each row.The sequence is generated and incremented (or decremented) by an internal Oracle routine.
+        <p><strong>Syntax :</strong></p>
+        <div class="gray">CREATE SEQUENCE sequence
+                            [INCREMENT BY n]
+                            [START WITH n]
+                            [{MAXVALUE n | NOMAXVALUE}]
+                            [{MINVALUE n | NOMINVALUE}]
+                            [{CYCLE | NOCYCLE}]
+                            [{CACHE n | NOCACHE}];</div>
+        <p><strong>Example :</strong></p>
+        <div class="gray">CREATE SEQUENCE dept_deptid_seq
+                                INCREMENT BY 10
+                                START WITH 120
+                                MAXVALUE 9999
+                                NOCACHE
+                                NOCYCLE;</div>
+        <p><strong>Check if sequence is created by :</strong></p>
+        <div class="gray">SELECT sequence_name, min_value, max_value,
+                               increment_by, last_number
+                               FROM   user_sequences;</div>
+        </li>
+    
+    <li><strong>Index &ndash;</strong>&nbsp;This database object is used to create a indexes in database.An Oracle server index is a schema object that can speed up the retrieval of rows by using a pointer.Indexes can be created explicitly or automatically. If you do not have an index on the column, then a full table scan occurs.
+    <p>An index provides direct and fast access to rows in a table. Its purpose is to reduce the necessity of disk I/O by using an indexed path to locate data quickly. The index is used and maintained automatically by the Oracle server. Once an index is created, no direct activity is required by the user.Indexes are logically and physically independent of the table they index. This means that they can be created or dropped at any time and have no effect on the base tables or other indexes.</p>
+    <p><strong>Syntax :</strong></p>
+    <div class="gray">CREATE INDEX index
+                ON table (column[, column]...);</div>
+    <p><strong>Example :</strong></p>
+    <div class="gray">CREATE INDEX emp_last_name_idx
+                    ON  employees(last_name);</div>
+    </li>
+    <li><strong>Synonym &ndash;</strong>&nbsp;This database object is used to create a indexes in database.It simplify access to objects by creating a synonym(another name for an object). With synonyms, you can Ease referring to a table owned by another user and shorten lengthy object names.To refer to a table owned by another user, you need to prefix the table name with the name of the user who created it followed by a period. Creating a synonym eliminates the need to qualify the object name with the schema and provides you with an alternative name for a table, view, sequence,procedure, or other objects. This method can be especially useful with lengthy object names, such as views.
+    <p>In the syntax:<br />PUBLIC : creates a synonym accessible to all users<br />synonym : is the name of the synonym to be created<br />object : identifies the object for which the synonym is created</p>
+    <p><strong>Syntax :</strong></p>
+    <div class="gray">CREATE [PUBLIC] SYNONYM synonym FOR  object;</div>
+    <p><strong>Example :</strong></p>
+    <div class="gray">CREATE SYNONYM d_sum FOR dept_sum_vu;</div>
+    </li>
+    </ol>
+    
+        </div>
+        </div>
+        </div>
+        </div>
+</body>
+</html>

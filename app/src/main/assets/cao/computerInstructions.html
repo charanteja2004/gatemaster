@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    <h2><b>Computer Instructions</b></h2>
+
+Computer instructions are a set of machine language instructions that a particular processor understands and executes. A computer performs tasks on the basis of the instruction provided.<br><br>
+
+An instruction comprises of groups called fields. These fields include:<br><br>
+
+<li>The Operation code (Opcode) field which specifies the operation to be performed.</li><br>
+<li>The Address field which contains the location of the operand, i.e., register or memory location.</li><br>
+<li>The Mode field which specifies how the operand will be located.</li><br><br>
+
+<img src="https://static.javatpoint.com/tutorial/coa/images/computer-instructions.png" width="350" height="150"><br><br>
+
+
+A basic computer has three instruction code formats which are:<br><br>
+
+Memory - reference instruction<br>
+Register - reference instruction<br>
+Input-Output instruction<br>
+
+Memory - reference instruction<br><br>
+
+<img src="https://static.javatpoint.com/tutorial/coa/images/computer-instructions2.png" width="300" height="100"><br><br>
+
+In Memory-reference instruction, 12 bits of memory is used to specify an address and one bit to specify the addressing mode 'I'.<br><br>
+
+Register - reference instruction<br><br>
+
+<img src="https://static.javatpoint.com/tutorial/coa/images/computer-instructions3.png" width="300" height="100"><br><br>
+
+The Register-reference instructions are represented by the Opcode 111 with a 0 in the leftmost bit (bit 15) of the instruction.<br><br>
+
+<b>Note:</b> The Operation code (Opcode) of an instruction refers to a group of bits that define arithmetic and logic operations such as add, subtract, multiply, shift, and compliment.<br><br>
+
+A Register-reference instruction specifies an operation on or a test of the AC (Accumulator) register.<br><br>
+
+
+Just like the Register-reference instruction, an Input-Output instruction does not need a reference to memory and is recognized by the operation code 111 with a 1 in the leftmost bit of the instruction. The remaining 12 bits are used to specify the type of the input-output operation or test performed.<br><br>
+
+<b>Note</b><br>
+<li>The three operation code bits in positions 12 through 14 should be equal to 111. Otherwise, the instruction is a memory-reference type, and the bit in position 15 is taken as the addressing mode I.</li><br>
+<li>When the three operation code bits are equal to 111, control unit inspects the bit in position 15. If the bit is 0, the instruction is a register-reference type. Otherwise, the instruction is an input-output type having bit 1 at position 15.</li><br><br>
+
+<h3><b>Instruction Set Completeness</b></h3>
+A set of instructions is said to be complete if the computer includes a sufficient number of instructions in each of the following categories:<br><br>
+
+
+<li>Arithmetic, logical and shift instructions</li>
+<li>A set of instructions for moving information to and from memory and processor registers.</li>
+<li>Instructions which controls the program together with instructions that check status conditions.</li>
+<li>Input and Output instructions</li><br><br>
+
+Arithmetic, logic and shift instructions provide computational capabilities for processing the type of data the user may wish to employ.<br><br>
+
+A huge amount of binary information is stored in the memory unit, but all computations are done in processor registers. Therefore, one must possess the capability of moving information between these two units.<br><br>
+
+Program control instructions such as branch instructions are used change the sequence in which the program is executed.<br><br>
+
+Input and Output instructions act as an interface between the computer and the user. Programs and data must be transferred into memory, and the results of computations must be transferred back to the user.<br><br>
+</body>
+</html>

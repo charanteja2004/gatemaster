@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    <div class="article-title">
+        <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>What is a demultiplexer ?</h1>
+        </div>
+        </div>
+        </div>
+        <div class="text">
+        <p>In this article, we will learn about the demultiplexer in Node.js and about its reactor pattern.</p>
+        <p>Node.js&nbsp;is the most advanced framework available for web development and programming available till now. But Node.js framework is based on the&nbsp;<strong>event-driven architecture,</strong>&nbsp;i.e it will generate all the operations that will occur in the program and will have to wait for the I/O unit to request for the event which will eventually take place through the event demultiplexer and the event queue through which the instructions are passed to the computer.</p>
+        <p><strong>Event looping:</strong></p>
+        <p>The series of steps in which the event looping in Node.js takes place is as follows:</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <ul>
+        <li>The event-driven architecture initiates the event demultiplexer and starts collection of data collection and then sends this collected data to the processor to apply arithmetic and logical operations to it.</li>
+        <li>After the I/O unit collects all the data and sends it to the processor, it continuously adds the processes to the event queue list so that they can be completed in a given sequence of FIFO (first-in-first-out).</li>
+        <li>When the processes are arranged in the queue list then, it starts popping each process one by one so that finally the queue gets empty on the completion of all processes.</li>
+        <li>When all the processes are removed from the queue, and the I/O unit is also not adding any more processes for event looping to the processor, the event demultiplexer stops the process for execution.</li>
+        </ul>
+        <p>Event looping allows the user to create an infinite set of instructions for the processor in Node.js as it is an event-driven architecture process. Whenever any request to carry out a process comes, it goes to the event demultiplexer which sends the request of the process to the processor to apply the operation and add it to the queue and provides a callback option. The event queue then traverses all the data and applies de queue operation to them. The above process runs continuously until the event queue finally becomes empty and there are no processes left to execute, the event loop stops the process.</p>
+        <p><strong>Reactor Pattern:</strong></p>
+        <p>The&nbsp;<a href="https://www.geeksforgeeks.org/what-is-reactor-pattern-in-node-js/">Reactor Pattern</a>&nbsp;in the Node.js web framework plays an important role in the functionality of the demultiplexer in the program. The Reactor Pattern pattern allows the user to prevent the stoppage of the operations which are processed by the I/O Unit operations. The I/O unit operations are directly provided to the demultiplexer in Node.js to avoid the blockage of the I/O requests.&nbsp;</p>
+        <p><strong>Basically two types of I/O unit operations:</strong></p>
+        <ul>
+        <li><strong>Blocking I/O:</strong>&nbsp;It makes a synchronous function call to stop the execution from the I/O unit until it sends the data for the next time.</li>
+        <li><strong>Non-Blocking I/O:</strong>&nbsp;It makes an asynchronous function call to continue with the execution of the program and it does not call the processor to block the input from the I/O unit.</li>
+        </ul>
+        <p><strong>Importance of Demultiplexer:</strong></p>
+        <ul>
+        <li><strong>I/O unit is very slow:</strong>&nbsp;The I/O unit is very slow in performing the operations and it takes a lot of time for data transfer to the processor for the event looping in the Node.js framework. It takes a lot of time to delay indirectly communicating with the CPU data and it results in an increased latency in the program execution. Technically, increased latency in the program execution in Node.js will cause the time limit to be exceeded and the program execution will eventually. Hence, we use a demultiplexer to transfer the data quickly to the processor.</li>
+        <li><strong>Blocking I/O:</strong>&nbsp;The<strong>&nbsp;</strong>Blocking I/O blocks the data transmission from the I/O unit to prevent the bulking of data in the processor until the previous instruction is finished by the processor, as it helps to increase the efficiency of execution. It is unable to handle a large number of requests which are sent by the I/O unit and hence it blocks the data from the I/O unit for a certain amount of time. So, to avoid any multi-threaded requests at the same time, it uses the vent looping approach in which the instructions which are approved by the demultiplexer proceed to the event queue, and then one by one they are then transferred to the processor for execution.</li>
+        <li><strong>Non-Blocking I/O:</strong>&nbsp;The Non-Blocking I/O performs the data execution process in the processor without blocking the threads provided by the I/O unit for multiple requests. It uses the polling bus arbitration method in which the multithreaded request with the highest priority is placed first in the queue for execution and the rest are placed after it for the execution. It is a very time-consuming process as the CPU has to waste its clock cycle to decide the bus master and the priority of each thread request in the event looping.</li>
+        </ul>
+        </div>
+        </div>
+</body>
+</html>

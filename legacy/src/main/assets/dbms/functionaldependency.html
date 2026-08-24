@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>Functional Dependency and Attribute Closure</h1>
+        </div>
+        </div>
+        </div>
+        <div class="text">
+        <p dir="ltr">Fundamental ideas in database management and design are functional dependency and attribute closure. They are essential to maintaining data integrity and building effective, organized, and normalized databases.</p>
+        <h2><strong>Functional Dependency</strong></h2>
+        <p dir="ltr">A functional dependency A-&gt;B in a relation holds if two tuples having the same value of attribute A also have the same value for attribute B. For Example, in relation to STUDENT shown in Table 1, Functional Dependencies&nbsp;</p>
+        <div class="gray">STUD_NO-&gt;STUD_NAME, STUD_NO-&gt;STUD_PHONE <strong>hold</strong></div>
+        <p dir="ltr">but&nbsp;</p>
+        <div class="gray">STUD_NAME-&gt;STUD_STATE <strong>do not hold</strong></div>
+        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231103120941/image23.png" alt="Student Table" width="442" height="116" /></div>
+        <div class="wp-caption alignnone">
+        <h2><strong>How to find Functional Dependencies for a Relation?</strong></h2>
+        <p dir="ltr">Functional Dependencies in a relation are dependent on the domain of the relation. Consider the STUDENT relation given in Table 1.&nbsp;</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <ul>
+        <li value="1">We know that STUD_NO is unique for each student. So STUD_NO-&gt;STUD_NAME, STUD_NO-&gt;STUD_PHONE, STUD_NO-&gt;STUD_STATE, STUD_NO-&gt;STUD_COUNTRY and STUD_NO -&gt; STUD_AGE all will be true.</li>
+        <li value="2">Similarly, STUD_STATE-&gt;STUD_COUNTRY will be true as if two records have same STUD_STATE, they will have same STUD_COUNTRY as well.</li>
+        <li value="3">For relation STUDENT_COURSE, COURSE_NO-&gt;COURSE_NAME will be true as two records with same COURSE_NO will have same COURSE_NAME.</li>
+        </ul>
+        <h3><strong>Functional Dependency Set</strong></h3>
+        <p dir="ltr">Functional Dependency set or FD set of a relation is the set of all FDs present in the relation. For Example, FD set for relation STUDENT shown in table 1 is:&nbsp;<br />&nbsp;</p>
+        <div class="gray"> { STUD_NO-&gt;STUD_NAME, STUD_NO-&gt;STUD_PHONE, STUD_NO-&gt;STUD_STATE, STUD_NO-&gt;STUD_COUNTRY, <br />  STUD_NO -&gt; STUD_AGE, STUD_STATE-&gt;STUD_COUNTRY }</div>
+        </div>
+        </div>
+        <div class="main_wrapper">
+            <div class="article-title">
+            <h2><strong>Attribute Closure</strong></h2>
+            <p dir="ltr">Attribute closure of an attribute set can be defined as set of attributes which can be functionally determined from it.&nbsp;</p>
+            <p><strong>How to find attribute closure of an attribute set?</strong></p>
+            <p dir="ltr">To find attribute closure of an attribute set:&nbsp;</p>
+            <ul>
+            <li value="1">Add elements of attribute set to the result set.</li>
+            <li value="2">Recursively add elements to the result set which can be functionally determined from the elements of the result set.</li>
+            </ul>
+            <p dir="ltr">Using FD set of table 1,&nbsp;attribute closure&nbsp;can be determined as:&nbsp;</p>
+            <div class="gray">(STUD_NO)+ = {STUD_NO, STUD_NAME, STUD_PHONE, STUD_STATE, STUD_COUNTRY, STUD_AGE}<br />(STUD_STATE)+ = {STUD_STATE, STUD_COUNTRY}<br /><br /></div>
+            <h2><strong>ow to Find Candidate Keys and Super Keys Using Attribute Closure?</strong></h2>
+            <ul>
+            <li value="1">If attribute closure of an attribute set contains all attributes of relation, the attribute set will be super key of the relation.</li>
+            <li value="2">If no subset of this attribute set can functionally determine all attributes of the relation, the set will be candidate key as well. For Example, using FD set of table 1,</li>
+            </ul>
+            <p dir="ltr">(STUD_NO, STUD_NAME)+ = {STUD_NO, STUD_NAME, STUD_PHONE, STUD_STATE, STUD_COUNTRY, STUD_AGE}&nbsp;</p>
+            <p>(STUD_NO)+ = {STUD_NO, STUD_NAME, STUD_PHONE, STUD_STATE, STUD_COUNTRY, STUD_AGE}&nbsp;</p>
+            <p>(STUD_NO, STUD_NAME) will be super key but not candidate key because its subset (STUD_NO)+ is equal to all attributes of the relation. So, STUD_NO will be a&nbsp;candidate key.&nbsp;</p>
+            <h2><strong>Prime and Non-Prime Attributes</strong></h2>
+            <p dir="ltr">Attributes which are parts of any candidate key of relation are called as prime attribute, others are non-prime attributes. For Example, STUD_NO in STUDENT relation is prime attribute, others are non-prime attribute.&nbsp;</p>
+            </div>
+            </div>
+            
+<div class="article-title">
+    <h1>Types of Functional dependencies in DBMS</h1>
+    </div>
+    </div>
+    </div>
+    <div class="text">
+    <p>In a relational database management, functional dependency is a concept that specifies the relationship between two sets of attributes where one attribute determines the value of another attribute. It is denoted as&nbsp;<strong>X &rarr; Y</strong>, where the attribute set on the left side of the arrow,&nbsp;<strong>X&nbsp;</strong>is called&nbsp;<strong>Determinant</strong>, and&nbsp;<strong>Y&nbsp;</strong>is called the&nbsp;<strong>Dependent</strong>.&nbsp;</p>
+    <p>Functional dependencies are used to mathematically express relations among database entities and are very important to understand advanced concepts in Relational Database System and understanding problems in competitive exams like Gate.</p>
+    <p><strong>Example:</strong></p>
+    <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+    <figure class="table">
+    <table>
+    <thead>
+    <tr>
+    <th>roll_no</th>
+    <th>name</th>
+    <th>dept_name</th>
+    <th>dept_building</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>42</td>
+    <td>abc</td>
+    <td>CO</td>
+    <td>A4</td>
+    </tr>
+    <tr>
+    <td>43</td>
+    <td>pqr</td>
+    <td>IT</td>
+    <td>A3</td>
+    </tr>
+    <tr>
+    <td>44</td>
+    <td>xyz</td>
+    <td>CO</td>
+    <td>A4</td>
+    </tr>
+    <tr>
+    <td>45&nbsp;</td>
+    <td>xyz</td>
+    <td>IT</td>
+    <td>A3</td>
+    </tr>
+    <tr>
+    <td>46</td>
+    <td>mno</td>
+    <td>EC</td>
+    <td>B2</td>
+    </tr>
+    <tr>
+    <td>47</td>
+    <td>jkl</td>
+    <td>ME</td>
+    <td>B2</td>
+    </tr>
+    </tbody>
+    </table>
+    </figure>
+    <p><strong>From the above table we can conclude some valid functional dependencies:</strong></p>
+    <ul>
+    <li>roll_no &rarr; { name, dept_name, dept_building },&rarr; &nbsp;Here, roll_no can determine values of fields name, dept_name and dept_building, hence a valid Functional dependency</li>
+    <li>roll_no &rarr; dept_name , Since, roll_no can determine whole set of {name, dept_name, dept_building}, it can determine its subset dept_name also.</li>
+    <li>dept_name &rarr; dept_building , &nbsp;Dept_name can identify the dept_building accurately, since departments with different dept_name will also have a different dept_building</li>
+    <li>More valid functional dependencies: roll_no &rarr; name, {roll_no, name} ⇢ {dept_name, dept_building}, etc.</li>
+    </ul>
+    <p><strong>Here are some invalid functional dependencies:</strong></p>
+    <ul>
+    <li>name &rarr; dept_name &nbsp; Students with the same name can have different dept_name, hence this is not a valid functional dependency.</li>
+    <li>dept_building &rarr; dept_name &nbsp; &nbsp;There can be multiple departments in the same building. Example, in the above table departments ME and EC are in the same building B2, hence dept_building &rarr; dept_name is an invalid functional dependency.</li>
+    <li>More invalid functional dependencies: name &rarr; roll_no, {name, dept_name} &rarr; roll_no, dept_building &rarr; roll_no, etc.</li>
+    </ul>
+    <p><strong>Armstrong&rsquo;s axioms/properties of functional dependencies:</strong></p>
+    <ol>
+    <li><strong>Reflexivity:&nbsp;</strong>If Y is a subset of X, then X&rarr;Y holds by reflexivity rule<br />Example, {roll_no, name} &rarr; name is valid.</li>
+    <li><strong>Augmentation:</strong>&nbsp;If X &rarr; Y is a valid dependency, then XZ &rarr; YZ is also valid by the augmentation rule.<br />Example, {roll_no, name} &rarr; dept_building is valid, hence {roll_no, name, dept_name} &rarr; {dept_building, dept_name} is also valid.</li>
+    <li><strong>Transitivity</strong>: If X &rarr; Y and Y &rarr; Z are both valid dependencies, then X&rarr;Z is also valid by the Transitivity rule.<br />Example, roll_no &rarr; dept_name &amp; dept_name &rarr; dept_building, then roll_no &rarr; dept_building is also valid.</li>
+    </ol>
+    <h2><strong>Types of Functional Dependencies in DBMS</strong></h2>
+    <ol>
+    <li>Trivial functional dependency</li>
+    <li>Non-Trivial functional dependency</li>
+    <li>Multivalued functional dependency</li>
+    <li>Transitive functional dependency</li>
+    </ol>
+    <h4>1. Trivial Functional Dependency</h4>
+    <p>In&nbsp;<strong>Trivial Functional Dependency</strong>, a dependent is always a subset of the determinant. i.e. If&nbsp;<strong>X &rarr; Y</strong>&nbsp;and&nbsp;<strong>Y is the subset of X</strong>, then it is called trivial functional dependency</p>
+    <p><strong>Example:</strong></p>
+    <figure class="table">
+    <table>
+    <thead>
+    <tr>
+    <th>roll_no</th>
+    <th>name</th>
+    <th>age</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>42</td>
+    <td>abc</td>
+    <td>17</td>
+    </tr>
+    <tr>
+    <td>43</td>
+    <td>pqr</td>
+    <td>18</td>
+    </tr>
+    <tr>
+    <td>44</td>
+    <td>xyz</td>
+    <td>18</td>
+    </tr>
+    </tbody>
+    </table>
+    </figure>
+    <p>Here,&nbsp;<strong>{roll_no, name} &rarr; name</strong>&nbsp;is a trivial functional dependency, since the dependent&nbsp;<strong>name</strong>&nbsp;is a subset of determinant set&nbsp;<strong>{roll_no, name}.&nbsp;</strong>Similarly,&nbsp;<strong>roll_no &rarr; roll_no&nbsp;</strong>is also an example of trivial functional dependency.&nbsp;</p>
+    <h4>2. Non-trivial Functional Dependency</h4>
+    <p>In&nbsp;<strong>Non-trivial functional dependency</strong>, the dependent is strictly not a subset of the determinant. i.e. If&nbsp;<strong>X &rarr; Y&nbsp;</strong>and&nbsp;<strong>Y</strong>&nbsp;<strong>is not a subset of X</strong>, then it is called Non-trivial functional dependency.</p>
+    <p><strong>Example:</strong></p>
+    <figure class="table">
+    <table>
+    <thead>
+    <tr>
+    <th><strong>roll_no</strong></th>
+    <th>name</th>
+    <th>age</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>42</td>
+    <td>abc</td>
+    <td>17</td>
+    </tr>
+    <tr>
+    <td>43</td>
+    <td>pqr</td>
+    <td>18</td>
+    </tr>
+    <tr>
+    <td>44</td>
+    <td>xyz</td>
+    <td>18</td>
+    </tr>
+    </tbody>
+    </table>
+    </figure>
+    <p>Here,&nbsp;<strong>roll_no &rarr; name</strong>&nbsp;is a non-trivial functional dependency, since the dependent&nbsp;<strong>name</strong>&nbsp;is&nbsp;<strong>not a subset of&nbsp;</strong>determinant<strong>&nbsp;roll_no.&nbsp;</strong>Similarly,&nbsp;<strong>{roll_no, name} &rarr; age</strong>&nbsp;is also a non-trivial functional dependency, since&nbsp;<strong>age</strong>&nbsp;is<strong>&nbsp;not a subset of {roll_no, name}&nbsp;</strong></p>
+    <p>&nbsp;</p>
+    <div class="article-title">
+        <h4>3. Multivalued Functional Dependency</h4>
+        <p>In&nbsp;<strong>Multivalued functional dependency</strong>, entities of the dependent set are&nbsp;<strong>not dependent</strong>&nbsp;<strong>on each other.&nbsp;</strong>i.e. If&nbsp;<strong>a &rarr; {b, c}</strong>&nbsp;and there exists&nbsp;<strong>no functional dependency</strong>&nbsp;between&nbsp;<strong>b and c</strong>, then it is called a&nbsp;<strong>multivalued functional dependency.</strong></p>
+        <p><strong>For example,</strong></p>
+        <figure class="table">
+        <table>
+        <thead>
+        <tr>
+        <th>roll_no</th>
+        <th>name</th>
+        <th>age&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>42</td>
+        <td>abc</td>
+        <td>17&nbsp;</td>
+        </tr>
+        <tr>
+        <td>43</td>
+        <td>pqr</td>
+        <td>18</td>
+        </tr>
+        <tr>
+        <td>44</td>
+        <td>xyz</td>
+        <td>18</td>
+        </tr>
+        <tr>
+        <td>45</td>
+        <td>abc</td>
+        <td>19</td>
+        </tr>
+        </tbody>
+        </table>
+        </figure>
+        <p>Here,&nbsp;<strong>roll_no &rarr; {name, age}&nbsp;</strong>is a multivalued functional dependency, since the dependents&nbsp;<strong>name</strong>&nbsp;&amp;&nbsp;<strong>age</strong>&nbsp;are&nbsp;<strong>not dependent</strong>&nbsp;on each other(i.e.&nbsp;<strong>name &rarr; age&nbsp;</strong>or<strong>&nbsp;age &rarr; name doesn&rsquo;t exist !</strong>)</p>
+        <h4>4. Transitive Functional Dependency</h4>
+        <p>In transitive functional dependency, dependent is indirectly dependent on determinant. i.e. If&nbsp;<strong>a &rarr; b</strong>&nbsp;&amp;&nbsp;<strong>b &rarr; c</strong>, then according to axiom of transitivity,&nbsp;<strong>a &rarr; c</strong>. This is a&nbsp;<strong>transitive functional dependency.</strong></p>
+        <p><strong>For example,</strong></p>
+        <figure class="table">
+        <table>
+        <thead>
+        <tr>
+        <th>enrol_no</th>
+        <th>name</th>
+        <th>dept</th>
+        <th>building_no</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>42</td>
+        <td>abc</td>
+        <td>CO</td>
+        <td>4</td>
+        </tr>
+        <tr>
+        <td>43</td>
+        <td>pqr</td>
+        <td>EC</td>
+        <td>2</td>
+        </tr>
+        <tr>
+        <td>44</td>
+        <td>xyz</td>
+        <td>IT</td>
+        <td>1</td>
+        </tr>
+        <tr>
+        <td>45</td>
+        <td>abc</td>
+        <td>EC</td>
+        <td>2</td>
+        </tr>
+        </tbody>
+        </table>
+        </figure>
+        <p>Here,&nbsp;<strong>enrol_no &rarr; dept</strong>&nbsp;and&nbsp;<strong>dept &rarr; building_no.&nbsp;</strong>Hence, according to the axiom of transitivity,&nbsp;<strong>enrol_no &rarr; building_no</strong>&nbsp;is a valid functional dependency. This is an indirect functional dependency, hence called Transitive functional dependency.</p>
+        <h4><strong>5. Fully Functional Dependency</strong></h4>
+        <p>In full functional dependency an attribute or a set of attributes uniquely determines another attribute or set of attributes. If a relation R has attributes X, Y, Z with the dependencies X-&gt;Y and X-&gt;Z which states that those dependencies are fully functional.</p>
+        <h4>6. Partial Functional Dependency</h4>
+        <p>In partial functional dependency a non key attribute depends on a part of the composite key, rather than the whole key. If a relation R has attributes X, Y, Z where X and Y are the composite key and Z is non key attribute. Then X-&gt;Z is a partial functional dependency in RBDMS</p>
+        </div>s    
+</body>
+</html>

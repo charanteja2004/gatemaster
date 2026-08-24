@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    <h2>Data Structures</h2>
+<p><a href="https://www.geeksforgeeks.org/arrays-in-c-cpp/"><strong>Arrays</strong></a><strong>&nbsp;</strong></p>
+<p dir="ltr">An array is collection of items stored at continuous memory locations. The idea is to declare multiple items of same type together.</p>
+<p dir="ltr"><strong>Array declaration:</strong></p>
+<p dir="ltr">In C, we can declare an array by specifying its and size or by initializing it or by both.</p>
+<div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+<div class="gray">// Array declaration by specifying size<br />int arr[10];<br /><br />// Array declaration by initializing elements<br />int arr[] = {10, 20, 30, 40};<br /><br />// Array declaration by specifying size <strong>and</strong><br />// initializing elements<br />int arr[6] = {10, 20, 30, 40}</div>
+<p dir="ltr">Formulas:</p>
+<div class="gray">&nbsp;Length of Array = UB - LB + 1 </div>
+<p dir="ltr">Given the address of first element, address of any other element is calculated using the formula:-</p>
+<div class="gray">   Loc (arr [k]) = base (arr) + w * k<br />   w = number of bytes per storage location <br />       of for one element <br />   k = index of array whose address we want <br />       to calculate</div>
+<p dir="ltr">Elements of two-dimensional arrays (<strong>mXn</strong>) are stored in two ways:-</p>
+<ul>
+<li value="1">Column major order: Elements are stored column by column, i.e. all elements of first column are stored, and then all elements of second column stored and so on.</li>
+</ul>
+<div class="gray">   Loc(arr[i][j]) = base(arr) + w (m *j + i)</div>
+<ul>
+<li value="1">Row major order: Elements are stored row by row, i.e. all elements of first row are stored, and then all elements of second row stored and so on.</li>
+</ul>
+<div class="gray">   Loc(arr[i][j]) = base(arr) + w (n*i + j)</div>
+<p dir="ltr"><a href="https://www.geeksforgeeks.org/stack-data-structure-introduction-program/"><strong>Stacks</strong></a></p>
+<p dir="ltr">Stack is a linear data structure which follows a particular order in which the operations are performed. The order may be&nbsp;<strong>LIFO(Last In First Out) or FILO(First In Last Out).</strong></p>
+<p dir="ltr"><strong>Basic operations :</strong></p>
+<p dir="ltr"><strong>Push:&nbsp;</strong>Adds an item in the stack. If the stack is full, then it is said to be an Overflow condition. (Top=Top+1)&nbsp;<strong>Pop:</strong>&nbsp;Removes an item from the stack. The items are popped in the reversed order in which they are pushed. If the stack is empty, then it is said to be an Underflow condition.(Top=Top-1)&nbsp;<strong>Peek:&nbsp;</strong>Get the topmost item.</p>
+<p dir="ltr"><strong>Infix, prefix, Postfix notations</strong></p>
+<p dir="ltr"><strong>Infix notation:&nbsp;</strong>X&nbsp;<strong>+</strong>&nbsp;Y &ndash;&nbsp;Operators are written in-between their operands. This is the usual way we write expressions. An expression such as</p>
+<div class="gray">A * ( B + C ) / D</div>
+<p dir="ltr"><strong>Postfix notation (also known as &ldquo;Reverse Polish notation&rdquo;):&nbsp;</strong>X Y&nbsp;<strong>+&nbsp;</strong>Operators are written after their operands. The infix expression given above is equivalent to</p>
+<div class="gray"> A B C + * D/</div>
+<p dir="ltr"><strong>Prefix notation (also known as &ldquo;Polish notation&rdquo;):&nbsp;</strong>+ X Y<strong>&nbsp;</strong>Operators are written before their operands. The expressions given above are equivalent to</p>
+<div class="gray"> / * A + B C D</div>
+<p dir="ltr">Converting between these notations:&nbsp;<a href="https://www.geeksforgeeks.org/stack-set-2-infix-to-postfix/">Click here</a></p>
+<p dir="ltr"><strong>Tower of Hanoi</strong>&nbsp;is a mathematical puzzle where we have three rods and n disks. The objective of the puzzle is to move the entire stack to another rod, obeying the following simple rules:</p>
+<ol>
+<li value="1">Only one disk can be moved at a time.</li>
+<li value="2">Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack i.e. a disk can only be moved if it is the uppermost disk on a stack.</li>
+<li value="3">No disk may be placed on top of a smaller disk.</li>
+</ol>
+<div class="gray">For n disks, total 2<sup>n</sup> &ndash; 1 moves are required&nbsp;<br />Time complexity : O(2<sup>n</sup>) [exponential time]</div>
+<p dir="ltr"><a href="https://www.geeksforgeeks.org/queue-set-1introduction-and-array-implementation/"><strong>Queues</strong></a></p>
+<p dir="ltr">Queue is a linear structure which follows a particular order in which the operations are performed. The order is First In First Out&nbsp;<strong>(FIFO)</strong>.&nbsp; A good example of queue is any queue of consumers for a resource where the consumer that came first is served first.&nbsp;<strong>Stack :&nbsp;</strong>&nbsp;Remove the item the&nbsp;<strong>most recently</strong>&nbsp;added&nbsp;<strong>Queue:</strong>&nbsp;Remove the item the<strong>&nbsp;least recently</strong>&nbsp;added&nbsp;<strong>Operations on Queue:</strong></p>
+<p dir="ltr"><strong>Enqueue:</strong>&nbsp;Adds an item to the queue. If t he queue is full, then it is said to be an Overflow condition.</p>
+<p dir="ltr"><strong>Dequeue</strong>: Removes an item from the queue. The items are popped in the same order in which they are pushed. If the queue is empty, then it is said to be an Underflow condition.</p>
+<p dir="ltr"><strong>Front:</strong>&nbsp;Get the front item from queue.</p>
+<p dir="ltr"><strong>Rear</strong>: Get the last item from queue.</p>
+<p dir="ltr"><a href="https://www.geeksforgeeks.org/linked-list-set-1-introduction/">Linked Lists</a></p>
+<p dir="ltr">Linked List is a linear data structure. Unlike arrays, linked list elements are not stored at contiguous location; the elements are linked using pointers.</p>
+<p dir="ltr"><strong>Advantages over arrays</strong></p>
+<ol>
+<li value="1">Dynamic size</li>
+<li value="2">Ease of insertion/deletion</li>
+</ol>
+<p dir="ltr"><strong>Drawbacks:</strong></p>
+<ol>
+<li value="1">Random access is not allowed. We have to access elements sequentially starting from the first node. So we cannot do binary search with linked lists.</li>
+<li value="2">Extra memory space for a pointer is required with each element of the list. Representation in C: A linked list is represented by a pointer to the first node of the linked list. The first node is called head. If the linked list is empty, then value of head is NULL.</li>
+</ol>
+<p dir="ltr"><strong>Each node in a list consists of at least two parts:</strong></p>
+<ol>
+<li value="1">Data</li>
+<li value="2">Pointer to the next node In C, we can represent a node using structures. Below is an example of a linked list node with an integer data.</li>
+</ol>
+<div class="gray">// A linked list node<br />struct node<br />{<br />  int data;<br />  struct node *next;<br />};</div>
+</body>
+</html>

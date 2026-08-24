@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    
+
+<h2>Functions</h2>
+<p>A&nbsp;<strong>function in C&nbsp;</strong>is a set of statements that when called perform some specific task. It is the basic building block of a C program that provides modularity and code reusability. The programming statements of a function are enclosed within&nbsp;<strong>{ } braces</strong>, having certain meanings and performing certain operations. They are also called subroutines or procedures in other languages.</p>
+<p>In this article, we will learn about functions, function definition. declaration, arguments and parameters, return values, and many more.</p>
+
+<h2>Syntax of Functions in C</h2>
+<p>The syntax of function can be divided into 3 aspects:</p>
+<ol>
+<li><strong>Function Declaration</strong></li>
+<li><strong>Function Definition</strong></li>
+<li><strong>Function Calls</strong></li>
+</ol>
+<h2>Function Declarations</h2>
+<p>In a function declaration, we must provide the function name, its return type, and the number and type of its parameters. A function declaration tells the compiler that there is a function with the given name defined somewhere else in the program.</p>
+
+<h3>Syntax</h3>
+<div class="gray">return_type <strong>name_of_the_function </strong>(<em>parameter_1</em>, <em>parameter_2</em>);</div>
+<p>The parameter name is not mandatory while declaring functions. We can also declare the function without using the name of the data variables.</p>
+<h3>Example</h3>
+<div class="gray">int <strong>sum</strong>(int <em>a</em>, int <em>b</em>);
+int <strong>sum</strong>(int , int);</div>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230227121756/Functions-in-C-(1)-768.png" alt="Function Declaration" />
+<p class="wp-caption-text">Function Declaration</p>
+</div>
+<blockquote>
+<p><strong>Note:</strong>&nbsp;A function in C must always be declared globally before calling it.</p>
+</blockquote>
+<h2>Function Definition</h2>
+<p>The function definition consists of actual statements which are executed when the function is called (i.e. when the program control comes to the function).</p>
+
+<p>A C function is generally defined and declared in a single step because the function definition always starts with the function declaration so we do not need to declare it explicitly. The below example serves as both a function definition and a declaration.</p>
+<div class="gray">return_type <strong>function_name</strong> (para1_type<em> para1_name, </em>para2_type<em> para2_name</em>)
+{
+    <em>// body of the function</em>
+}</div>
+
+
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230302125407/C-Function-Prototype-and-C-Function-Call.png" alt="Function Defination in C" />
+<p class="wp-caption-text">Function Definition in C</p>
+</div>
+<h2>Function Call</h2>
+<p>A function call is a statement that instructs the compiler to execute the function. We use the function name and parameters in the function call.</p>
+<p>In the below example, the first sum function is called and 10,30 are passed to the sum function. After the function call sum of a and b is returned and control is also returned back to the main function of the program.</p>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230302125431/Working-of-Function-in-C-1-768.png" alt="Working of function in C" />
+<p class="wp-caption-text">Working of function in C</p>
+</div>
+<blockquote>
+<p><strong>Note:</strong>&nbsp;Function call is neccessary to bring the program control to the function definition. If not called, the function statements will not be executed.</p>
+</blockquote>
+<h2>Example of C Function</h2>
+
+<div class="code-container">
+<div id="highlighter_843349" class="syntaxhighlighter nogutter  ">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="comments">// C program to show function</code></div>
+<div class="line number2 index1 alt1"><code class="comments">// call and definition</code></div>
+<div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+<div class="line number4 index3 alt1">&nbsp;</div>
+<div class="line number5 index4 alt2"><code class="comments">// Function that takes two parameters </code></div>
+<div class="line number6 index5 alt1"><code class="comments">// a and b as inputs and returns </code></div>
+<div class="line number7 index6 alt2"><code class="comments">// their sum</code></div>
+<div class="line number8 index7 alt1"><code class="color1 bold">int</code> <code class="plain">sum(</code><code class="color1 bold">int</code> <code class="plain">a, </code><code class="color1 bold">int</code> <code class="plain">b) </code></div>
+<div class="line number9 index8 alt2"><code class="plain">{ </code></div>
+<div class="line number10 index9 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">a + b; </code></div>
+<div class="line number11 index10 alt2"><code class="plain">}</code></div>
+<div class="line number12 index11 alt1">&nbsp;</div>
+<div class="line number13 index12 alt2"><code class="comments">// Driver code</code></div>
+<div class="line number14 index13 alt1"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
+<div class="line number15 index14 alt2"><code class="plain">{</code></div>
+<div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="comments">// Calling sum function and </code></div>
+<div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="comments">// storing its value in add variable</code></div>
+<div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">add = sum(10, 30);</code></div>
+<div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code>&nbsp;</div>
+<div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Sum is: %d"</code><code class="plain">, add);</code></div>
+<div class="line number21 index20 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
+<div class="line number22 index21 alt1"><code class="plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="code-output"><strong>Output</strong>
+<div class="gray">Sum is: 40</div>
+</div>
+
+
+As we noticed, we have not used explicit function declaration. We simply defined and called the function.<br><br>
+
+
+<h3>Function Return Type</h3>
+<p>Function return type tells what type of value is returned after all function is executed. When we don&rsquo;t want to return a value, we can use the void data type.</p>
+<p><strong>Example:</strong></p>
+<div class="gray">int func(parameter_1,parameter_2);</div>
+<p>The above function will return an integer value after running statements inside the function.</p>
+<blockquote>
+<p><strong>Note:&nbsp;</strong>Only one value can be returned from a C function. To return multiple values, we have to use pointers or structures.</p>
+</blockquote>
+<h3>Function Arguments</h3>
+<p>Function Arguments (also known as Function Parameters) are the data that is passed to a function.</p>
+<p><strong>Example:</strong></p>
+<div class="gray">int function_name(int var1, int var2);</div>
+<h2>Conditions of Return Types and Arguments</h2>
+<p>In C programming language, functions can be called either with or without arguments and might return values. They may or might not return values to the calling functions.</p>
+<ol>
+<li>Function with no arguments and no return value</li>
+<li>Function with no arguments and with return value</li>
+<li>Function with argument and with no return value</li>
+<li>Function with arguments and with return value</li>
+</ol>
+<p>To know more about function Arguments and Return values refer to the article &ndash;&nbsp;<a href="functions.html">Function Arguments &amp; Return Values in C</a>.</p>
+<h2><strong>How Does C Function Work?</strong></h2>
+<p>Working of the C function can be broken into the following steps as mentioned below:</p>
+<ol>
+<li><strong>Declaring a function:</strong>&nbsp;Declaring a function is a step where we declare a function. Here we define the return types and parameters of the function.</li>
+<li>Defining a function:&nbsp;</li>
+<li><strong>Calling the function:</strong>&nbsp;Calling the function is a step where we call the function by passing the arguments in the function.</li>
+<li><strong>Executing the function:</strong>&nbsp;Executing the function is a step where we can run all the statements inside the function to get the final result.</li>
+<li><strong>Returning a value:</strong>&nbsp;Returning a value is the step where the calculated value after the execution of the function is returned. Exiting the function is the final step where all the allocated memory to the variables, functions, etc is destroyed before giving full control to the main function.</li>
+</ol>
+<h2>Types of Functions</h2>
+<p>There are two types of functions in C:</p>
+<div id="GFG_AD_gfg_outstream_incontent-1">&nbsp;</div>
+<ol>
+<li><strong>Library Functions</strong></li>
+<li><strong>User Defined Functions</strong></li>
+</ol>
+
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220719123505/Typesoffunction-660x248.png" alt="Types of Functions" />
+<p class="wp-caption-text">Types of Functions in C</p>
+</div>
+<h3>1. Library Function</h3>
+<p>A&nbsp;library function&nbsp;is also referred to as a&nbsp;<strong>&ldquo;built-in function&rdquo;</strong>. A compiler package already exists that contains these functions, each of which has a specific meaning and is included in the package. Built-in functions have the advantage of being directly usable without being defined, whereas user-defined functions must be declared and defined before being used.&nbsp;</p>
+<p><strong>For Example:</strong></p>
+<div class="gray">pow(), sqrt(), strcmp(), strcpy() etc.</div>
+<h4>Advantages of C library functions</h4>
+<ul>
+<li>C Library functions are easy to use and optimized for better performance.</li>
+<li>C library functions save a lot of time i.e, function development time.</li>
+<li>C library functions are convenient as they always work.</li>
+</ul>
+<p><strong>Example:</strong></p>
+
+<div class="code-container">
+<div id="highlighter_887980" class="syntaxhighlighter nogutter  ">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="comments">// C program to implement</code></div>
+<div class="line number2 index1 alt1"><code class="comments">// the above approach</code></div>
+<div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;math.h&gt;</code></div>
+<div class="line number4 index3 alt1"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+<div class="line number5 index4 alt2">&nbsp;</div>
+<div class="line number6 index5 alt1"><code class="comments">// Driver code</code></div>
+<div class="line number7 index6 alt2"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
+<div class="line number8 index7 alt1"><code class="plain">{</code></div>
+<div class="line number9 index8 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="color1 bold">double</code> <code class="plain">Number;</code></div>
+<div class="line number10 index9 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="plain">Number = 49;</code></div>
+<div class="line number11 index10 alt2">&nbsp;</div>
+<div class="line number12 index11 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="comments">// Computing the square root with </code></div>
+<div class="line number13 index12 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="comments">// the help of predefined C </code></div>
+<div class="line number14 index13 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="comments">// library function</code></div>
+<div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="color1 bold">double</code> <code class="plain">squareRoot = </code><code class="functions bold">sqrt</code><code class="plain">(Number);</code></div>
+<div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code>&nbsp;</div>
+<div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"The Square root of %.2lf = %.2lf"</code><code class="plain">, </code></div>
+<div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">Number, squareRoot);</code></div>
+<div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
+<div class="line number20 index19 alt1"><code class="plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="code-output"><strong>Output</strong>
+<div class="gray">The Square root of 49.00 = 7.00</div>
+</div>
+<h3>2. User Defined Function</h3>
+<p>Functions that the programmer creates are known as User-Defined functions or&nbsp;<strong>&ldquo;tailor-made functions&rdquo;</strong>. User-defined functions can be improved and modified according to the need of the programmer. Whenever we write a function that is case-specific and is not defined in any header file, we need to declare and define our own functions according to the syntax.</p>
+<h4>Advantages of User-Defined Functions</h4>
+<ul>
+<li>Changeable functions can be modified as per need.</li>
+<li>The Code of these functions is reusable in other programs.</li>
+<li>These functions are easy to understand, debug and maintain.</li>
+</ul>
+<p><strong>Example:</strong></p>
+
+<div class="code-container">
+<div id="highlighter_729758" class="syntaxhighlighter nogutter  ">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="comments">// C program to show </code></div>
+<div class="line number2 index1 alt1"><code class="comments">// user-defined functions</code></div>
+<div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+<div class="line number4 index3 alt1">&nbsp;</div>
+<div class="line number5 index4 alt2"><code class="color1 bold">int</code> <code class="plain">sum(</code><code class="color1 bold">int</code> <code class="plain">a, </code><code class="color1 bold">int</code> <code class="plain">b) </code></div>
+<div class="line number6 index5 alt1"><code class="plain">{ </code></div>
+<div class="line number7 index6 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">a + b; </code></div>
+<div class="line number8 index7 alt1"><code class="plain">}</code></div>
+<div class="line number9 index8 alt2">&nbsp;</div>
+<div class="line number10 index9 alt1"><code class="comments">// Driver code</code></div>
+<div class="line number11 index10 alt2"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
+<div class="line number12 index11 alt1"><code class="plain">{</code></div>
+<div class="line number13 index12 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">a = 30, b = 40;</code></div>
+<div class="line number14 index13 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="comments">// function call</code></div>
+<div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">res = sum(a, b);</code></div>
+<div class="line number17 index16 alt2">&nbsp;</div>
+<div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Sum is: %d"</code><code class="plain">, res);</code></div>
+<div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
+<div class="line number20 index19 alt1"><code class="plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="code-output"><strong>Output</strong>
+<div class="gray">Sum is: 70</div>
+</div>
+<h2>Passing Parameters to Functions</h2>
+<p>The data passed when the function is being invoked is known as the Actual parameters. In the below program, 10 and 30 are known as actual parameters. Formal Parameters are the variable and the data type as mentioned in the function declaration. In the below program, a and b are known as formal parameters.</p>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220909123757/ParametersinC.png" alt="Passing Parameters to Functions" />
+<p class="wp-caption-text">Passing Parameters to Functions</p>
+</div>
+<p>We can pass arguments to the C function in two ways:</p>
+<ol>
+<li>Pass by Value</li>
+<li>Pass by Reference</li>
+</ol>
+<h3><strong>1. Pass by Value</strong></h3>
+<p>Parameter passing in this method copies values from actual parameters into formal function parameters. As a result, any changes made inside the functions do not reflect in the caller&rsquo;s parameters.&nbsp;</p>
+
+<p><strong>Example:</strong></p>
+<div class="code-container">
+<div id="highlighter_652085" class="syntaxhighlighter nogutter  ">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="comments">// C program to show use </code></div>
+<div class="line number2 index1 alt1"><code class="comments">// of call by value</code></div>
+<div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+<div class="line number4 index3 alt1">&nbsp;</div>
+<div class="line number5 index4 alt2"><code class="keyword bold">void</code> <code class="plain">swap(</code><code class="color1 bold">int</code> <code class="plain">var1, </code><code class="color1 bold">int</code> <code class="plain">var2)</code></div>
+<div class="line number6 index5 alt1"><code class="plain">{</code></div>
+<div class="line number7 index6 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">temp = var1;</code></div>
+<div class="line number8 index7 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="plain">var1 = var2;</code></div>
+<div class="line number9 index8 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="plain">var2 = temp;</code></div>
+<div class="line number10 index9 alt1"><code class="plain">}</code></div>
+<div class="line number11 index10 alt2">&nbsp;</div>
+<div class="line number12 index11 alt1"><code class="comments">// Driver code</code></div>
+<div class="line number13 index12 alt2"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
+<div class="line number14 index13 alt1"><code class="plain">{</code></div>
+<div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">var1 = 3, var2 = 2;</code></div>
+<div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Before swap Value of var1 and var2 is: %d, %d\n"</code><code class="plain">,</code></div>
+<div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">var1, var2);</code></div>
+<div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="plain">swap(var1, var2);</code></div>
+<div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"After swap Value of var1 and var2 is: %d, %d"</code><code class="plain">,</code></div>
+<div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">var1, var2);</code></div>
+<div class="line number21 index20 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
+<div class="line number22 index21 alt1"><code class="plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="code-output"><strong>Output</strong>
+<div class="gray">Before swap Value of var1 and var2 is: 3, 2
+After swap Value of var1 and var2 is: 3, 2</div>
+</div>
+<h3><strong>2. Pass by Reference</strong></h3>
+<p>The caller&rsquo;s actual parameters and the function&rsquo;s actual parameters refer to the same locations, so any changes made inside the function are reflected in the caller&rsquo;s actual parameters.&nbsp;</p>
+
+
+
+
+
+<p><strong>Example:</strong></p>
+
+<div class="code-container">
+<div id="highlighter_431873" class="syntaxhighlighter nogutter  ">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="comments">// C program to show use of </code></div>
+<div class="line number2 index1 alt1"><code class="comments">// call by Reference</code></div>
+<div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+<div class="line number4 index3 alt1">&nbsp;</div>
+<div class="line number5 index4 alt2"><code class="keyword bold">void</code> <code class="plain">swap(</code><code class="color1 bold">int</code> <code class="plain">*var1, </code><code class="color1 bold">int</code> <code class="plain">*var2)</code></div>
+<div class="line number6 index5 alt1"><code class="plain">{</code></div>
+<div class="line number7 index6 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">temp = *var1;</code></div>
+<div class="line number8 index7 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="plain">*var1 = *var2;</code></div>
+<div class="line number9 index8 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="plain">*var2 = temp;</code></div>
+<div class="line number10 index9 alt1"><code class="plain">}</code></div>
+<div class="line number11 index10 alt2">&nbsp;</div>
+<div class="line number12 index11 alt1"><code class="comments">// Driver code</code></div>
+<div class="line number13 index12 alt2"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
+<div class="line number14 index13 alt1"><code class="plain">{</code></div>
+<div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">var1 = 3, var2 = 2;</code></div>
+<div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Before swap Value of var1 and var2 is: %d, %d\n"</code><code class="plain">,</code></div>
+<div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">var1, var2);</code></div>
+<div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="plain">swap(&amp;var1, &amp;var2);</code></div>
+<div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"After swap Value of var1 and var2 is: %d, %d"</code><code class="plain">,</code></div>
+<div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">var1, var2);</code></div>
+<div class="line number21 index20 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
+<div class="line number22 index21 alt1"><code class="plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="code-output"><strong>Output</strong>
+<div class="gray">Before swap Value of var1 and var2 is: 3, 2
+After swap Value of var1 and var2 is: 2, 3</div>
+</div>
+<h2>Advantages of Functions in C</h2>
+<p>Functions in C is a highly useful feature of C with many advantages as mentioned below:</p>
+<ol>
+<li>The function can reduce the repetition of the same statements in the program.</li>
+<li>The function makes code readable by providing modularity to our program.</li>
+<li>There is no fixed number of calling functions it can be called as many times as you want.</li>
+<li>The function reduces the size of the program.</li>
+<li>Once the function is declared you can just use it without thinking about the internal working of the function.</li>
+</ol>
+<h2>Disadvantages of Functions in C</h2>
+<p>The following are the major disadvantages of functions in C:</p>
+<ol>
+<li>Cannot return multiple values.</li>
+<li>Memory and time overhead due to stack frame allocation and transfer of program control.</li>
+</ol>
+<h2><strong>Conclusion</strong></h2>
+<p>In this article, we discussed the following points about the function as mentioned below:</p>
+<ol>
+<li>The function is the block of code that can be reused as many times as we want inside a program.</li>
+<li>To use a function we need to call a function.</li>
+<li>Function declaration includes function_name, return type, and parameters.</li>
+<li>Function definition includes the body of the function.</li>
+<li>The function is of two types user-defined function and library function.</li>
+<li>In function, we can according to two types call by value and call by reference according to the values passed.</li>
+</ol>
+
+
+<h2>Storage classes</h2>
+
+<p>C Storage Classes are used to describe the features of a variable/function. These features basically include the scope, visibility, and lifetime which help us to trace the existence of a particular variable during the runtime of a program.</p>
+<p><strong>C language uses 4 storage classes</strong>, namely:</p>
+<p><img class="aligncenter" src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Storage-Classes-In-C.png" alt="storage classes in c" /></p>
+<h2>1. auto</h2>
+<p>This is the default storage class for all the variables declared inside a function or a block. Hence, the keyword auto is rarely used while writing programs in C language. Auto variables can be only accessed within the block/function they have been declared and not outside them (which defines their scope). Of course, these can be accessed within nested blocks within the parent block/function in which the auto variable was declared.</p>
+
+<p>However, they can be accessed outside their scope as well using the concept of pointers given here by pointing to the very exact memory location where the variables reside. They are assigned a garbage value by default whenever they are declared.&nbsp;&nbsp;</p>
+<h2><strong>2.&nbsp;</strong><strong>extern</strong></h2>
+<p>Extern storage class simply tells us that the variable is defined elsewhere and not within the same block where it is used. Basically, the value is assigned to it in a different block and this can be overwritten/changed in a different block as well. So an extern variable is nothing but a global variable initialized with a legal value where it is declared in order to be used elsewhere. It can be accessed within any function/block.</p>
+<p>Also, a normal global variable can be made extern as well by placing the &lsquo;extern&rsquo; keyword before its declaration/definition in any function/block. This basically signifies that we are not initializing a new variable but instead, we are using/accessing the global variable only. The main purpose of using extern variables is that they can be accessed between two different files which are part of a large program.</p>
+
+<h2>3.&nbsp;static</h2>
+<p>This storage class is used to declare static variables which are popularly used while writing programs in C language. Static variables have the property of preserving their value even after they are out of their scope! Hence, static variables preserve the value of their last use in their scope. So we can say that they are initialized only once and exist till the termination of the program. Thus, no new memory is allocated because they are not re-declared.</p>
+<p>Their scope is local to the function to which they were defined. Global static variables can be accessed anywhere in the program. By default, they are assigned the value 0 by the compiler.&nbsp;</p>
+<h2>4.&nbsp;register</h2>
+<p>This storage class declares register variables that have the same functionality as that of the auto variables. The only difference is that the compiler tries to store these variables in the register of the microprocessor if a free register is available. This makes the use of register variables to be much faster than that of the variables stored in the memory during the runtime of the program.</p>
+<p>If a free registration is not available, these are then stored in the memory only. Usually, a few variables which are to be accessed very frequently in a program are declared with the register keyword which improves the running time of the program. An important and interesting point to be noted here is that we cannot obtain the address of a register variable using pointers.&nbsp;</p>
+<h3>Syntax</h3>
+<p>To specify the storage class for a variable, the following syntax is to be followed:</p>
+<div class="gray"><strong>storage_class</strong> var_data_type <em>var_name</em>;</div>
+
+
+<b>Example</b><br>
+Functions follow the same syntax as given above for variables. Have a look at the following C example for further clarification:<br><br>
+
+<b>C</b><br>
+
+
+<div class="line number1 index0 alt2"><code class="comments">// A C program to demonstrate different storage </code></div>
+<div class="line number2 index1 alt1"><code class="comments">// classes </code></div>
+<div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt; </code></div>
+<div class="line number4 index3 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number5 index4 alt2"><code class="comments">// declaring the variable which is to be made extern </code></div>
+<div class="line number6 index5 alt1"><code class="comments">// an initial value can also be initialized to x </code></div>
+<div class="line number7 index6 alt2"><code class="color1 bold">int</code> <code class="plain">x; </code></div>
+<div class="line number8 index7 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number9 index8 alt2"><code class="keyword bold">void</code> <code class="plain">autoStorageClass() </code></div>
+<div class="line number10 index9 alt1"><code class="plain">{ </code></div>
+<div class="line number11 index10 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number12 index11 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"\nDemonstrating auto class\n\n"</code><code class="plain">); </code></div>
+<div class="line number13 index12 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number14 index13 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// declaring an auto variable (simply </code></div>
+<div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// writing "int a=32;" works as well) </code></div>
+<div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">auto</code> <code class="color1 bold">int</code> <code class="plain">a = 32; </code></div>
+<div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// printing the auto variable 'a' </code></div>
+<div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Value of the variable 'a'"</code></div>
+<div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="string">" declared as auto: %d\n"</code><code class="plain">, </code></div>
+<div class="line number21 index20 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">a); </code></div>
+<div class="line number22 index21 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number23 index22 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"--------------------------------"</code><code class="plain">); </code></div>
+<div class="line number24 index23 alt1"><code class="plain">} </code></div>
+<div class="line number25 index24 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number26 index25 alt1"><code class="keyword bold">void</code> <code class="plain">registerStorageClass() </code></div>
+<div class="line number27 index26 alt2"><code class="plain">{ </code></div>
+<div class="line number28 index27 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number29 index28 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"\nDemonstrating register class\n\n"</code><code class="plain">); </code></div>
+<div class="line number30 index29 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number31 index30 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// declaring a register variable </code></div>
+<div class="line number32 index31 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">register</code> <code class="color1 bold">char</code> <code class="plain">b = </code><code class="string">'G'</code><code class="plain">; </code></div>
+<div class="line number33 index32 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number34 index33 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// printing the register variable 'b' </code></div>
+<div class="line number35 index34 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Value of the variable 'b'"</code></div>
+<div class="line number36 index35 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="string">" declared as register: %d\n"</code><code class="plain">, </code></div>
+<div class="line number37 index36 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">b); </code></div>
+<div class="line number38 index37 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number39 index38 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"--------------------------------"</code><code class="plain">); </code></div>
+<div class="line number40 index39 alt1"><code class="plain">} </code></div>
+<div class="line number41 index40 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number42 index41 alt1"><code class="keyword bold">void</code> <code class="plain">externStorageClass() </code></div>
+<div class="line number43 index42 alt2"><code class="plain">{ </code></div>
+<div class="line number44 index43 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number45 index44 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"\nDemonstrating extern class\n\n"</code><code class="plain">); </code></div>
+<div class="line number46 index45 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number47 index46 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// telling the compiler that the variable </code></div>
+<div class="line number48 index47 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// x is an extern variable and has been </code></div>
+<div class="line number49 index48 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// defined elsewhere (above the main </code></div>
+<div class="line number50 index49 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// function) </code></div>
+<div class="line number51 index50 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">extern</code> <code class="color1 bold">int</code> <code class="plain">x; </code></div>
+<div class="line number52 index51 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number53 index52 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// printing the extern variables 'x' </code></div>
+<div class="line number54 index53 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Value of the variable 'x'"</code></div>
+<div class="line number55 index54 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="string">" declared as extern: %d\n"</code><code class="plain">, </code></div>
+<div class="line number56 index55 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">x); </code></div>
+<div class="line number57 index56 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number58 index57 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// value of extern variable x modified </code></div>
+<div class="line number59 index58 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">x = 2; </code></div>
+<div class="line number60 index59 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number61 index60 alt2"><code class="comments">// printing the modified values of </code></div>
+<div class="line number62 index61 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// extern variables 'x' </code></div>
+<div class="line number63 index62 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Modified value of the variable 'x'"</code></div>
+<div class="line number64 index63 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="string">" declared as extern: %d\n"</code><code class="plain">, </code></div>
+<div class="line number65 index64 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">x); </code></div>
+<div class="line number66 index65 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number67 index66 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"--------------------------------"</code><code class="plain">); </code></div>
+<div class="line number68 index67 alt1"><code class="plain">} </code></div>
+<div class="line number69 index68 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number70 index69 alt1"><code class="keyword bold">void</code> <code class="plain">staticStorageClass() </code></div>
+<div class="line number71 index70 alt2"><code class="plain">{ </code></div>
+<div class="line number72 index71 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">i = 0; </code></div>
+<div class="line number73 index72 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number74 index73 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"\nDemonstrating static class\n\n"</code><code class="plain">); </code></div>
+<div class="line number75 index74 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number76 index75 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// using a static variable 'y' </code></div>
+<div class="line number77 index76 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Declaring 'y' as static inside the loop.\n"</code></div>
+<div class="line number78 index77 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="string">"But this declaration will occur only"</code></div>
+<div class="line number79 index78 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="string">" once as 'y' is static.\n"</code></div>
+<div class="line number80 index79 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="string">"If not, then every time the value of 'y' "</code></div>
+<div class="line number81 index80 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="string">"will be the declared value 5"</code></div>
+<div class="line number82 index81 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="string">" as in the case of variable 'p'\n"</code><code class="plain">); </code></div>
+<div class="line number83 index82 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number84 index83 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"\nLoop started:\n"</code><code class="plain">); </code></div>
+<div class="line number85 index84 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+
+<div class="line number86 index85 alt1"><code class="undefined spaces">&nbsp;</code><code class="keyword bold">for</code> <code class="plain">(i = 1; i &lt; 5; i++) { </code></div>
+<div class="line number87 index86 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number88 index87 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Declaring the static variable 'y' </code></div>
+<div class="line number89 index88 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">static</code> <code class="color1 bold">int</code> <code class="plain">y = 5; </code></div>
+<div class="line number90 index89 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number91 index90 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Declare a non-static variable 'p' </code></div>
+<div class="line number92 index91 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">p = 10; </code></div>
+<div class="line number93 index92 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number94 index93 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Incrementing the value of y and p by 1 </code></div>
+<div class="line number95 index94 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">y++; </code></div>
+<div class="line number96 index95 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">p++; </code></div>
+<div class="line number97 index96 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number98 index97 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// printing value of y at each iteration </code></div>
+<div class="line number99 index98 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"\nThe value of 'y', "</code></div>
+<div class="line number100 index99 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="string">"declared as static, in %d "</code></div>
+<div class="line number101 index100 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="string">"iteration is %d\n"</code><code class="plain">, </code></div>
+<div class="line number102 index101 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">i, y); </code></div>
+<div class="line number103 index102 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number104 index103 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// printing value of p at each iteration </code></div>
+<div class="line number105 index104 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"The value of non-static variable 'p', "</code></div>
+<div class="line number106 index105 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="string">"in %d iteration is %d\n"</code><code class="plain">, </code></div>
+<div class="line number107 index106 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">i, p); </code></div>
+<div class="line number108 index107 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">} </code></div>
+<div class="line number109 index108 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number110 index109 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"\nLoop ended:\n"</code><code class="plain">); </code></div>
+<div class="line number111 index110 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number112 index111 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"--------------------------------"</code><code class="plain">); </code></div>
+<div class="line number113 index112 alt2"><code class="plain">} </code></div>
+<div class="line number114 index113 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+
+<div class="line number115 index114 alt2"><code class="color1 bold">int</code> <code class="plain">main() </code></div>
+<div class="line number116 index115 alt1"><code class="plain">{ </code></div>
+<div class="line number117 index116 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number118 index117 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"A program to demonstrate"</code></div>
+<div class="line number119 index118 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="string">" Storage Classes in C\n\n"</code><code class="plain">); </code></div>
+<div class="line number120 index119 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number121 index120 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// To demonstrate auto Storage Class </code></div>
+<div class="line number122 index121 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">autoStorageClass(); </code></div>
+<div class="line number123 index122 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number124 index123 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// To demonstrate register Storage Class </code></div>
+<div class="line number125 index124 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">registerStorageClass(); </code></div>
+<div class="line number126 index125 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number127 index126 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// To demonstrate extern Storage Class </code></div>
+<div class="line number128 index127 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">externStorageClass(); </code></div>
+<div class="line number129 index128 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number130 index129 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// To demonstrate static Storage Class </code></div>
+<div class="line number131 index130 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">staticStorageClass(); </code></div>
+<div class="line number132 index131 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number133 index132 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// exiting </code></div>
+<div class="line number134 index133 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"\n\nStorage Classes demonstrated"</code><code class="plain">); </code></div>
+<div class="line number135 index134 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number136 index135 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
+<div class="line number137 index136 alt2"><code class="plain">} </code></div>
+<div class="line number138 index137 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number139 index138 alt2"><code class="comments">// This code is improved by RishabhPrabhu</code></div>
+<p><strong>Output</strong></p>
+<div class="gray">A program to demonstrate Storage Classes in C
+
+
+Demonstrating auto class
+
+Value of the variable 'a' declared as auto: 32
+--------------------------------
+Demonstrating register class
+
+Value of the variable 'b' declared as register: 71
+--------------------------------
+Demonstrating extern class
+
+Value of the variable 'x' declared as extern: 0
+Modified value of the variable 'x' declared as extern: 2
+--------------------------------
+Demonstrating static class
+
+Declaring 'y' as static inside the loop.
+But this declaration will occur only once as 'y' is static.
+If not, then every time the value of 'y' will be the declared value 5 as in the case of variable 'p'
+
+Loop started:
+
+The value of 'y', declared as static, in 1 iteration is 6
+The value of non-static variable 'p', in 1 iteration is 11
+
+The value of 'y', declared as static, in 2 iteration is 7
+The value of non-static variable 'p', in 2 iteration is 11
+
+The value of 'y', declared as static, in 3 iteration is 8
+The value of non-static variable 'p', in 3 iteration is 11
+
+The value of 'y', declared as static, in 4 iteration is 9
+The value of non-static variable 'p', in 4 iteration is 11
+
+Loop ended:
+--------------------------------</div>
+
+
+<h2>Scope rules in C</h2>
+
+<p>The scope of a variable in C is the block or the region in the program where a variable is declared, defined, and used. Outside this region, we cannot access the variable and it is treated as an undeclared identifier.</p>
+<ul>
+<li>The scope is the area under which a variable is visible.</li>
+<li>The scope of an identifier is the part of the program where the identifier may directly be accessible.</li>
+<li>We can only refer to a variable in its scope.</li>
+<li>In C, all identifiers are&nbsp;<a href="https://www.geeksforgeeks.org/static-and-dynamic-scoping/">lexically(or statically) scoped</a>.</li>
+</ul>
+<h3>Example</h3>
+
+<div class="code-container">
+<div id="highlighter_102611" class="syntaxhighlighter nogutter  ">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="comments">// C program to illustrate the scope of a variable</code></div>
+<div class="line number2 index1 alt1"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+<div class="line number3 index2 alt2">&nbsp;</div>
+<div class="line number4 index3 alt1"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
+<div class="line number5 index4 alt2"><code class="plain">{</code></div>
+<div class="line number6 index5 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Scope of this variable is within main() function</code></div>
+<div class="line number7 index6 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// only.</code></div>
+<div class="line number8 index7 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">var = 34;</code></div>
+<div class="line number9 index8 alt2">&nbsp;</div>
+<div class="line number10 index9 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%d"</code><code class="plain">, var);</code></div>
+<div class="line number11 index10 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
+<div class="line number12 index11 alt1"><code class="plain">}</code></div>
+<div class="line number13 index12 alt2">&nbsp;</div>
+<div class="line number14 index13 alt1"><code class="comments">// function where we try to access the var defined in main()</code></div>
+<div class="line number15 index14 alt2"><code class="keyword bold">void</code> <code class="plain">func() { </code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%d"</code><code class="plain">, var); }</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Output</strong></p>
+<div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
+<div class="gray">solution.c: In function 'func':
+solution.c:15:28: error: 'var' undeclared (first use in this function)
+ void func() { printf("%d", var); }</div>
+
+<p>Here, we tried to access variable names&nbsp;<strong>var</strong>&nbsp;As we can see that if we try to refer to the variable outside its scope, we get the above error.</p>
+<h2>Types of Scope Rules in C</h2>
+<p>C scope rules can be covered under the following two categories:</p>
+
+
+
+
+<ol>
+<li><strong>Global Scope</strong></li>
+<li><strong>Local Scope</strong></li>
+</ol>
+<p>Let&rsquo;s discuss each scope rule with examples.</p>
+<h2><strong>1. Global Scope in C</strong></h2>
+<p>The global scope refers to the region outside any block or function.</p>
+<ul>
+<li>The variables declared in the global scope are called&nbsp;<a href="variable.html"><strong>global variables.</strong></a></li>
+<li>Global variables are visible in&nbsp;<strong>every part of the program.</strong></li>
+<li>Global is also called<strong>&nbsp;File Scope</strong>&nbsp;as the scope of an identifier starts at the beginning of the file and ends at the end of the file.</li>
+</ul>
+<h3><strong>Example</strong></h3>
+
+<div class="code-container">
+<div id="highlighter_777721" class="syntaxhighlighter nogutter  ">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="comments">// C program to illustrate the global scope</code></div>
+<div class="line number2 index1 alt1"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+<div class="line number3 index2 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number4 index3 alt1"><code class="comments">// variable declared in global scope</code></div>
+<div class="line number5 index4 alt2"><code class="color1 bold">int</code> <code class="plain">global = 5;</code></div>
+<div class="line number6 index5 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number7 index6 alt2"><code class="comments">// global variable accessed from</code></div>
+<div class="line number8 index7 alt1"><code class="comments">// within a function</code></div>
+<div class="line number9 index8 alt2"><code class="keyword bold">void</code> <code class="plain">display()</code></div>
+<div class="line number10 index9 alt1"><code class="plain">{</code></div>
+<div class="line number11 index10 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%d\n"</code><code class="plain">, global);</code></div>
+<div class="line number12 index11 alt1"><code class="plain">}</code></div>
+<div class="line number13 index12 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number14 index13 alt1"><code class="comments">// main function</code></div>
+<div class="line number15 index14 alt2"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
+<div class="line number16 index15 alt1"><code class="plain">{</code></div>
+<div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Before change within main: "</code><code class="plain">);</code></div>
+<div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">display();</code></div>
+<div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// changing value of global</code></div>
+<div class="line number21 index20 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// variable from main function</code></div>
+<div class="line number22 index21 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"After change within main: "</code><code class="plain">);</code></div>
+<div class="line number23 index22 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">global = 10;</code></div>
+<div class="line number24 index23 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">display();</code></div>
+<div class="line number25 index24 alt2"><code class="plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="code-output"><strong>Output</strong>
+<div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+<div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+<div class="gray">Before change within main: 5
+After change within main: 10</div>
+</div>
+
+<h3>Linkage of Variables in Global Scope</h3>
+<p>Global variables have external linkage by default. It means that the variables declared in the global scope can be accessed in another C source file. We have to use the&nbsp;<strong>extern</strong>&nbsp;keyword for that purpose.</p>
+<p><strong>Example of External Linkage</strong></p>
+<p><strong>file1.c</strong></p>
+
+<div class="code-container">
+<div id="highlighter_305522" class="syntaxhighlighter nogutter  ">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="comments">// filename: file1.c</code></div>
+<div class="line number2 index1 alt1">&nbsp;</div>
+<div class="line number3 index2 alt2"><code class="color1 bold">int</code> <code class="plain">a;</code></div>
+<div class="line number4 index3 alt1">&nbsp;</div>
+<div class="line number5 index4 alt2"><code class="color1 bold">int</code> <code class="plain">main(</code><code class="keyword bold">void</code><code class="plain">)</code></div>
+<div class="line number6 index5 alt1"><code class="plain">{</code></div>
+<div class="line number7 index6 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain">a = 2;</code></div>
+<div class="line number8 index7 alt1"><code class="plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><strong>file2.c</strong></p>
+<div class="responsive-tabs">
+<h2 class="tabtitle">C</h2>
+<div class="tabcontent">
+<div class="code-block">
+<div class="code-gutter">
+<div class="editor-buttons-container">
+<div class="editor-buttons">
+<div class="editor-buttons-div" title="Run and Edit"><em id="copy-code-button" class="gfg-icon gfg-icon_copy code-sidebar-button padding-2px copy-code-button" title="Copy Code"></em>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+</div>
+<div class="code-container">
+<div id="highlighter_117364" class="syntaxhighlighter nogutter  ">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="comments">// filename: file2.c</code></div>
+<div class="line number2 index1 alt1"><code class="comments">// When this file is linked with file1.c, functions </code></div>
+<div class="line number3 index2 alt2"><code class="comments">// of this file can access a</code></div>
+<div class="line number4 index3 alt1">&nbsp;</div>
+<div class="line number5 index4 alt2"><code class="keyword bold">extern</code> <code class="color1 bold">int</code> <code class="plain">a;</code></div>
+<div class="line number6 index5 alt1">&nbsp;</div>
+<div class="line number7 index6 alt2"><code class="color1 bold">int</code> <code class="plain">myfun()</code></div>
+<div class="line number8 index7 alt1"><code class="plain">{</code></div>
+<div class="line number9 index8 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%d"</code><code class="plain">, a);</code></div>
+<div class="line number10 index9 alt1"><code class="plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Output</strong></p>
+<div class="gray">2</div>
+<blockquote>
+<p><em><strong>Note:</strong></em><strong>&nbsp;</strong>To restrict access to the current file only, global variables can be marked as static</p>
+</blockquote>
+<h2><strong>2. Local Scope in C</strong></h2>
+<p>The local scope refers to the region inside a block or a function. It is the space enclosed between the&nbsp;<strong>{ } braces.</strong></p>
+<ul>
+<li>The variables declared within the local scope are called<a href="variable.html">&nbsp;<strong>local variables.</strong></a></li>
+<li>Local variables are visible in the&nbsp;<strong>block they are declared</strong>&nbsp;in and&nbsp;<strong>other blocks nested</strong>&nbsp;inside that block.</li>
+<li>Local scope is also called<strong>&nbsp;Block scope.</strong></li>
+<li>Local variables have internal linkage.</li>
+</ul>
+<h3>Example</h3>
+<div class="responsive-tabs">
+<h2 class="tabtitle">C</h2>
+</div>
+
+
+<div class="line number1 index0 alt2"><code class="comments">// C program to illustrate the local scope</code></div>
+<div class="line number2 index1 alt1"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+<div class="line number3 index2 alt2">&nbsp;</div>
+<div class="line number4 index3 alt1"><code class="comments">// Driver Code</code></div>
+<div class="line number5 index4 alt2"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
+<div class="line number6 index5 alt1"><code class="plain">{</code></div>
+<div class="line number7 index6 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">{</code></div>
+<div class="line number8 index7 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">x = 10, y = 20;</code></div>
+<div class="line number9 index8 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">{</code></div>
+<div class="line number10 index9 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// The outer block contains</code></div>
+<div class="line number11 index10 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// declaration of x and</code></div>
+<div class="line number12 index11 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// y, so following statement</code></div>
+<div class="line number13 index12 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// is valid and prints</code></div>
+<div class="line number14 index13 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// 10 and 20</code></div>
+<div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"x = %d, y = %d\n"</code><code class="plain">, x, y);</code></div>
+<div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">{</code></div>
+<div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// y is declared again,</code></div>
+<div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// so outer block y is</code></div>
+<div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// not accessible in this block</code></div>
+<div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">y = 40;</code></div>
+<div class="line number21 index20 alt2">&nbsp;</div>
+<div class="line number22 index21 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Changes the outer block</code></div>
+<div class="line number23 index22 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// variable x to 11</code></div>
+<div class="line number24 index23 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">x++;</code></div>
+
+
+<div class="line number26 index25 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Changes this block's</code></div>
+<div class="line number27 index26 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// variable y to 41</code></div>
+<div class="line number28 index27 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">y++;</code></div>
+<div class="line number29 index28 alt2">&nbsp;</div>
+<div class="line number30 index29 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"x = %d, y = %d\n"</code><code class="plain">, x, y);</code></div>
+<div class="line number31 index30 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div>
+<div class="line number32 index31 alt1">&nbsp;</div>
+<div class="line number33 index32 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// This statement accesses</code></div>
+<div class="line number34 index33 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// only outer block's</code></div>
+<div class="line number35 index34 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// variables</code></div>
+<div class="line number36 index35 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"x = %d, y = %d\n"</code><code class="plain">, x, y);</code></div>
+<div class="line number37 index36 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div>
+<div class="line number38 index37 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div>
+<div class="line number39 index38 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
+<div class="line number40 index39 alt1"><code class="plain">}</code></div>
+
+<p><strong>Output</strong></p>
+<div class="gray">x = 10, y = 20
+x = 11, y = 41
+x = 11, y = 20</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

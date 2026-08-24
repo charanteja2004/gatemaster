@@ -1,0 +1,614 @@
+{
+	"questions": [
+		{
+			"question_number": "1",
+			"question": "Fill in the blank with the suitable word/ phrase: There are _candidates opting for Home Science today as a course of study at the college level.",
+			"options": [
+				"smaller",
+				"less",
+				"fewer",
+				"lesser"
+			],
+			"correct_option": 3
+		},
+		{
+			"question_number": "2",
+			"question": "The average weight of a class increases by 1 kg, when A joins the class. Later when B also joins, the average weight further increases by 1/2 kg. If the number of students now in the class is 14, the difference in the weights of A and B",
+			"options": ["1","5","25","4"],
+			"correct_option": 2
+		},
+		{
+			"question_number": "3",
+			"question": "Every Saturday evening from 6 pm to 7 pm a game known as \"FAMILY FORTUNES\" is telecast on 'XTV' channel. The mode of the game is as follows. A table containing prices of different articles is present on the monitor. The anchor asks questions regarding the prices of different articles. If you are able to answer these questions correctly, the corresponding article is yours. Be the lucky winner by answering the questions that follow the table given below:",
+			"options": ["1","5","25","4"],
+			"correct_option": 2
+		},
+		{
+			"question_number": "4",
+			"question": "Select the statement in which the underlined word is used correctly:",
+			"options": [
+				"These insects <b>adapted</b> themselves very easily to new environments.",
+				"That woman has <b>adapted</b> a child from an orphanage.",
+				"That Telugu family <b>immigrated</b> to Australia last year.",
+				"None"
+			],
+			"correct_option": 1
+		},
+		{
+			"question_number": "5",
+			"question": "In a certain code language, if REPTILE is coded as 49 and CROCODILE is coded as 81, then how is ALLIGATOR coded in that language?",
+			"options": [
+				"95",
+				"100",
+				"49",
+				"81"
+			],
+			"correct_option": 4
+		},
+		{
+			"question_number": "6",
+			"question": "Out of the following four sentences, select the most suitable sentence with respect to grammar and usage:",
+			"options": [
+				"We took a month and a few days to get acclimated to our new teacher, who is from Baroda.",
+				"We will take month and few days to get acclimated to our new teacher, who is from Baroda.",
+				"We have taken month and a fewer days to get acclimated to our new teacher, who is from Baroda.",
+				"We took a month few days to get acclimated to our new teacher, who is from Baroda."
+			],
+			"correct_option": 1
+		},
+		{
+			"question_number": "7",
+			"question": "If 0\u003c x\u003c 1 and 1 + 3x + 5x²+ 7x³ + 9x4+ ... 00= 3, then the value of x is",
+			"options": [
+				"1/2",
+				"1/3",
+				"1/4",
+				"1/5"
+			],
+			"correct_option": 2
+		},
+		{
+			"question_number": "8",
+			"question": "In the following question, the first and the last sentences of a passage are in order and numbered 1 and 6. The rest of the passage is split into 4 parts and numbered as 2, 3, 4 and 5. These 4 parts are not arranged in the proper order. Read the sentences and arrange them in a logical sequence to make a passage and choose the correct sequence from the given order:\n 1.A classic example of how the \"get what you want by helping others get what they want\" approach works is the result that a major automaker got when it came out with a new design.\n2.After all, the person turning the wrench knows more about the way it really works on the assembly line than the engineers who designed the wrench.\n3.Before making these changes, the management\nasked the employees who would actually be building the new vehicles whether they had any\nideas for making the assembly lines more effective�\n4.The workers had dozens of marvelous ideas�\n5.This design necessitated the construction of new\nplants and the retooling of existing ones�\n",
+			"options": [
+				"(A) 5, 3, 4, 2 ",
+				",(B) 3, 4, 2, 5",
+				"(C) 2, 5, 4, 3 ",
+				"(D) 4, 3, 2, 5"
+
+				],
+			"correct_option":1
+
+
+		},
+		{
+			"question_number": "9",
+			"question": "In a parking lot six buses are parked in front of bus number 25 and fifteen buses are parked behind bus number 45. If six buses are parked between bus numbers 25 and 45, then how many buses are there in the parking lot?",
+			"options": [
+				"29",
+				"26",
+				"15",
+				"Cannot be determined"
+			],
+			"correct_option":1
+		},
+		{"question_number": "10",
+			"question": " Jane Davis, founder of Get Into Reading, which has helped Clare Ross so much, discovered the healing power of books by accident\ufffd An English lecturer at Liverpool University, England, she also taught literature courses in her community\ufffd In the process she discovered that people derived consolation from great writers and the support network the group provided\ufffd So she set up Get Into Reading, which now has more than135 groups\\ufffd Which of the statement(s) below is/are logically valid and can be inferred from the above statements? and wholesome\\ufffd like Get Into Reading\\ufffd hope for an unattainable goal\\ufffd also support from other sources\\ufffd\n(i) Reading gives multiple benefits, both unexpected\n (ii) Reading helps everyone to set up an association like Get Into Reading�\n(iii) Reading is just a waste of time which makes one hope for an unattainable goal�\n(iv) Reading gives not only help from great writers but also support from other sources�\n",
+			"options": [
+
+				"(A) (i) and (iii) ",
+				"(B) (i) and (iv)",
+				"(C) (ii) and (iii) ",
+				"(D) (ii) and (iv)"
+			],
+			"correct_option":2
+		},
+		{
+			"question_number": "11",
+			"question": "One of the eigenvectors of the matrix\n          100\n    A    021  is\n          203",
+			"options": [
+				"3",
+				"4",
+				"2",
+				"1"
+			],
+			"correct_option":2
+		},
+		{
+			"question_number": "12",
+			"question": "The number of edges in a bipartite graph with 11 vertices should be at most,",
+			"options": [
+				"11",
+				"20",
+				"30",
+				"44"
+			],
+			"correct_option":3
+		},
+		{
+			"question_number": "13",
+			"question": "Which of the following is NOT a valid identity for any three arbitrary events A, B and C of a sample space?",
+			"options": [
+				"P(AUB)/C = P(A/C) + P(B/C)-P(AB/C)",
+				"P(AB)= P(A) P(B/A)",
+				"P(A) = 1- P(A/B)",
+				"None of these"
+			],
+			"correct_option":4
+		},
+		{
+			"question_number": "14",
+			"question": "If the number of telephone calls coming to a telephone exchange follows Poisson distribution with an average of 3 calls per hour, then the probability that the number of telephone calls coming to the telephone exchange in one hour exceeding 3 is",
+			"options": [
+				"0.3528",
+				"0.6472",
+				"0.2341",
+				"0.7659"
+			],
+			"correct_option":1
+		},
+		{
+			"question_number": "15",
+			"question": "If f(x) = 2x, g(x) = 3x² and h(x) = 3 and (fogoh) (x) exists, then the value of(fogoh) (3) is.",
+			"options": ["21","54","24","50"],
+			"correct_option":2
+			
+		},
+		{
+			"question_number": "16",
+			"question": "Which of the following algorithm can be used to sort the numbers 1, 2, 3, ..., 99, in O(n) time?",
+			"options": [
+				"Merge sort",
+				"Quick sort",
+				"Heap sort",
+				"Radix sort"
+			],
+			"correct_option":4
+		},
+		{
+			"question_number": "17",
+			"question": "Consider the following statements:\nI.  The minimum number of edges in a connected graph which is not cyclic on ' n' vertices is(n- 1).\nII.  A simple connected graph with ' n' nodes has maximum edges.\nWhich of the following is TRUE?",
+			"options": [
+				"Only I",
+				"Only II",
+				"Both I and II",
+				"Neither I nor II"
+			],
+			"correct_option":3
+		},
+		{
+			"question_number": "18",
+			"question": "A disk has the following parameters: Number of tracks = 360, Number of blocks per track= 360, Disk rotates 600 RPM. What is the Latency?",
+			"options": [
+				"(A) 5 seconds",
+				"(B) 0.5 seconds",
+				"(C) 0.05 seconds",
+				"(D) 0.005 seconds"
+			],
+			"correct_option":3
+		},
+		{
+			"question_number": "19",
+			"question": "Which of the following is TRUE?\nI. A B- tree of order 3, constructed with n- elements which are in ascending order leads to maximum number of Node splits.\nII. A B - tree of order 3, constructed with n- elements which are in descending order leads to maximum number of Node Splits. (Assume value of' n' upto 10 elements)",
+			"options": [
+				"(A) I only",
+				"(B) II only",
+				"(C) Both I and II",
+				"(D) Neither I nor II"
+			],
+			"correct_option":3
+		},
+		{
+			"question_number": "20",
+			"question": "Which of the following is always TRUE?\nI. If a program runs on a processor with a higher frequency, then it implies that the processor always executes more number of instructions per second than a low frequency processor.\nII. If a processor executes more number of instructions per second then it implies that the processor always finishes a program faster than a processor which executes fewer instructions per second.",
+			"options": [
+				"(A) I only",
+				"(B) II only",
+				"(C) Both I and II",
+				"(D) Neither I nor II"
+			],
+			"correct_option":4
+		},
+		{
+			"question_number": "21",
+			"question": "A machine has 5- stage pipeline, which uses delay slots to handle control dependencies. If the dependencies are resolved in the 3rd stage then the number of delay slots needed to ensure correct operation is,",
+			"options": ["1","2","3","4"],
+			"correct_option":2
+		},
+		{
+			"question_number": "22",
+			"question": "A language L consists of all binary strings beginning with a' 1' such that when its value is converted to decimal, is divisible by' 3'. Then which of the following is TRUE?",
+			"options": [
+				"L can be recognized by a Deterministic Finite Automata.",
+				"L can be recognized by a Non- deterministic finite automata but not by deterministic finite automata.",
+				"L can be recognized by a deterministic push- down automata but not by a finite automata.",
+				"The language L cannot recognized by any push down automata."
+			],
+			"correct_option":1
+		},
+		{
+			"question_number": "23",
+			"question": "Which of the following problem is decidable?",
+			"options": [
+				"A Context free language L is regular or not.",
+				"Complement of a CFL is CFL or not.",
+				"Finding whether a given CFL is empty or not.",
+				"Finding whether the intersection of two CFLs is empty or not."
+			],
+			"correct_option":3
+		},
+		{
+			"question_number": "24",
+			"question": "Which of the following is TRUE about socket programming?\nThe accept() socket call returns the non-negative file descriptor of the accepted socket(if there is no error).\nThe return value of receive() specifies the number of bytes read from or if the socket was closed or an error was encountered.\nIn socket programming close() and shut down() functions operate in same way.",
+			"options": [
+				"(A) I only",
+				"(B) I, II only",
+				"(C) I, II, III",
+				"(D) II only"
+			],
+			"correct_option":2
+		},
+		{
+			"question_number": "25",
+			"question": "Which of the following is FALSE about the connecting device ' Repeater'?",
+			"options": [
+				"A Repeater is used to connect segments of a LAN.",
+				"A Repeater can connect two LANS of different protocols.",
+				"A Repeater forwards every frame as it has no filtering capability.",
+				"A Repeater is a generator not an amplifier."
+			],
+			"correct_option":2
+		},
+		{
+			"question_number": "26",
+			"question": "Using Caesar Cipher with key 10, what is the encrypted message of 'GATECS'?",
+			"options": [
+				"(A) SCETAG",
+				"(B) AGETSC",
+				"(C) WQJUSI",
+				"(D) QKDOMC"
+			],
+			"correct_option":4
+		},
+		{
+			"question_number": "27",
+			"question": "The binding takes place at, which of the following?\n(I) language design time\n(II) compile time\n(III) load time\n(IV) link time(or) run time\n(V) language implementation time",
+			"options": [
+				"(A) (II), (III), (IV)",
+				"(B) (II),(III), (IV), (V)",
+				"(C) (I), (II), (III), (IV)",
+				"(D) All the above"
+			],
+			"correct_option":4
+		},
+		{
+			"question_number": "28",
+			"question": "Consider the following program:\nvar x;\nfunction fun1( )\n{\n    var x1 = 20;\n    document.write(Vx = V + x);\n}\nfunction fun2( )\n{\n    var x;\n    x = 10;\n    fun1( );\n}\nx = 5;\nfun2( );\nUsing static scoping what is the value of x printed when fun 2( ) is called?",
+			"options": [
+				"(A) 5",
+				"(B) 10",
+				"(C) 20",
+				"(D) shows error"
+			],
+			"correct_option":1
+		},
+		{
+			"question_number": "29",
+			"question": "Number of binary trees that can be formed with 3 elements is",
+			"options": ["20","30","40","50"],
+			"correct_option":2
+		},
+		{
+			"question_number": "30",
+			"question": "The root directory of the file system should be placed at",
+			"options": [
+				"Anywhere on the disk",
+				"Fixed location on the disk",
+				" Fixed location on the primary memory",
+				"None of the above"
+			],
+			"correct_option":2
+		},
+		
+		{
+			"question_number": "31",
+			"question": "In a Round- Robin scheduling, if time Quantum and Process switch takes equal amount of time, then the CPU efficiency will be",
+			"options": [
+				"75%",
+				"50%",
+				"65.5%",
+				"Depending on the number of processes in the system"
+			],
+			"correct_option":2
+		},
+		{
+			"question_number": "32",
+			"question": "Which of the following statements is FALSE?",
+			"options": [
+				"Type incompatibilities between actual and formal parameters are detected at compile time.",
+				"Array subscript out of range is detected at run time.",
+				"Multiple declarations of a variable leads to compile time error.",
+				"None of the above"
+			],
+			"correct_option":4
+		},
+		{
+			"question_number": "33",
+			"question": "Consider the following program\nvoid fun (  )\n{\n    int  a,  b,  c,  d;\n\n            for  ( )     (I)\n              {\n                int b,  c,  d;\n\n                          :\n                             for  ( )     (II)\n                               {\n                                  int  c, d,  x,  y;\n                                      //  line \nWhich of the following variables are visible at line (I)?                              ( I)\n                               }\n              }\n}",
+
+			
+					"options": [
+						"c, d, x, y of for (II); b, c, d of for (I); a, b, c, d of fun()",
+						"c, d, x, y of for(II)",
+						"c, d, x, y of for(II); b of for (I); a of fun ()",
+						"c, d, x, y of for (I); b of for(II); a, b, c, d of fun()"
+					],
+			"correct_option":3
+			   
+		},
+		{
+			"question_number": "35",
+			"question": "Consider the boolean function, F(a, b, c)  лM(2,5). Then minimum SOP (Sum of Products) form of F is:",
+			"options": [
+				"a'c+ b'c' + ab",
+				"a'b'+ be+ ac¹",
+				"Both (A) and(B)",
+				"a'b' + b'c' + bc+ ab"
+			],
+			"correct_option":3
+		},
+		{
+			"question_number": "36",
+			"question": "Consider the propositions:\nS₁:  If Ramu is in the classroom, then Lokesh will be in the playground\nS:  Ramu is in the classroom and S3 : Lokesh is in the playground\nThen which of the following is TRUE?",
+			"options": [
+				"S₂ logically follows from S₁ and S3 but S3 does not follow logically from S₁ and S₂",
+				"S₂ does not follow logically from S₁ and S3 but S3 logically follows from S₁ and S₂",
+				"S₂ does not follow logically from S₁ and S3, and S3 does not follow logically from S, and S₂",
+				"S₂ logically follows from S₁ and S3, and S3 logically follows from S₁ and S₂"
+			],
+			"correct_option":2
+		},
+		{
+			"question_number": "37",
+			"question": "If S₁ = { 0, 1, 2, 3, 4}, S₂= { 1, 2, 3, 4, 5}, S₁= { 0, 1, 2, 3, 4, 53 and S4= { 1, 2, 3, 4, 5, 6} and+  and x denote the operations of addition modulo m and multiplication",
+			"options": [
+				"(A) (S₁, +5)",
+				"(B) (S2.x)",
+				"(C) (S3, + 6)",
+				"(D) (S4, X7)"
+			],
+			"answer": 2
+		},
+		
+           
+		{
+			"question_number":"38",
+			"question": "A stationary value of a function f(x) is a value of x, where f(x)= 0. The number of distinct stationary values of f(x) = 8x - 15x + 10x², where f(x) has neither maximum nor minimum is_",
+			"options": ["1","2","3","4"],
+			"correct_option":1
+		},
+		{
+			"question_number":"39",
+			"question": "In a hostel, there are 5 triple rooms (each room can accommodate 3 students), 6 double rooms (each room can accommodate 2 students) and 3 single rooms (each room can accommodate 1 student). The number of ways in which 30 students can be accommodated in these 14 rooms is",
+			"options": [
+				"(A)  (31)* x(21) x(11)",
+				"(B)  (5) x (21) x(31)",
+				"(C) 30!",
+				"(D) 30!"
+			],
+			"correct_option":1
+		},
+		{
+			"question_number":"40",
+			"question": "Which of the following statements is/ are NOT TRUE?\n(I) The product of two symmetric matrices A and B is symmetric if and only if AB- BA = 0\n(II) The product of two skew- symmetric matrices A and B is skew- symmetric if and only if AB+ BA = 0\n(III) The eigenvectors corresponding to two distinct eigenvalues of a matrix are linearly independent\n(IV) The eigenvectors corresponding to two distinct eigenvalues of a real symmetric matrix are orthogonal",
+			"options": [
+				"(A) Only (I) ",
+				"(B) Only (II)",
+				"(C) Both (III) and (IV)",
+				"(D) None of these"
+			],
+			"answer": 4
+		},
+		{
+			"question_number":"41",
+			"question": "Analyze the following counter circuit, and find the Count sequence Q2120 (in decimal). Consider the initial condition of all flip flops at reset.",
+			"options": [
+				"0, 7, 6, 5, 4, 3, 2, 1, 0....",
+				"0, 1, 2, 3, 4, 5, 6, 7, 0.....",
+				"0, 3, 2, 5, 4, 7, 6, 1, 0....",
+				"0, 6, 2, 5, 1, 7, 3, 4, 0...."
+			],
+			"correct_option":3
+		},
+		{
+			"question_number":"42",
+			"question": "Which of the following grammar is LL(1), LR(0)and SLR(1)?",
+			"options": [
+				"(A) S → A B | B A\nA → b AI\nB → a BI\nBI → a A BI|∈",
+				"(B) E → TEI\nE I → + TEI| E\n        T → E F | E a | b\n   F → (E) | a                   ",
+				"E → E F | e\n             F → F + | f\n        T → E T | g                   ",
+				" S → a A B | B a | A b\n                    A → c\n                    B → c"
+			],
+			"correct_option":1
+		},
+		{
+			"question_number":"43",
+			"question": "Consider the grammar: SiCtsSa. S¹→ ese, C→ b. An LL(1) Parsing table, M is constructed for this grammar and the grammar is not in LL(1). Then which of the following entries in M, contains multiple entries?",
+			"options": [
+				"M[ S', ]",
+				"M[ S, i]",
+				"MS', )",
+				"M[ S, a]"
+			],
+			"correct_option":3
+		},
+		{
+			"question_number":"44",
+			"question": "Consider the following Syntax Directed Definition: \nProduction        Semantic Rule\n(1) L → En        L.val = E.val\n(2) E→ E₁ + T     E.val  E₁. val + T.val\n(3) E→ T         E.val= T.val\n(4) T → T, * F      T.val = T₁.val * F.val\n(5) T→ F         T.val= F.val\n(6) F→ (E)       F.val = E.val\n(7) F→ digit      F.val= digit.lexval\nIt evaluates the expressions, which are terminated by an end marker 'n' with operators + and*. Then which of the following statement(s) is/ are FALSE?",
+			"options": [
+				"I.   Given SDD is S- attributed grammar.",
+				"II.  Given SDD is not L- attributed grammar.",
+				"III.  Given SDD is an attribute grammar."
+			],
+			"correct_option":2
+		},
+		{
+			"question_number":"45",
+			"question": "Consider a system which is using Round- Robin Scheduling Technique with context switch overhead of 2 ms, what is the value of time quantum(q) for n = 6 processes, so that each process must be guaranteed to get its chance(or) turn at the CPU exactly after 36 ms of time (in ms) is .",
+			"options": ["4.0","4.8","6.0","3.0"],
+			"correct_option":2
+		},
+		{
+			"question_number":"46",
+			"question": "Consider the page reference string: 1, 2, 3, 4, 2, 1, 5, 6, 2, 1, 2, 3, 7, 6, 3, 2, 1, 2, 3, 5. If the number of page faults are 9 using LRU page replacement policy then the number of page frames required would be?",
+			"options": [
+				"3",
+				"4",
+				"5",
+				"6"
+			],
+			"correct_option":3
+		},
+		
+        {"question_number":"47",
+            "question": "Consider a system with processes P1, P2. X is a Binary semaphore variable with an initial value of 1 and count is a variable with initial value of 1.\n\nThe processes P1, P2 executes routines P1(), P2() for accessing critical section.\n\nP1() {\n  DOWN(X);\n  count++;\n  UP(X);\n}\nP2() {\n  DOWN(X);\n  count--;\n  UP(X);\n}\n\nWhich of the following statements(S1, S2, S3) is/are TRUE?\n\nS1: The maximum value of count can be infinite.\nS2: The system cannot guarantee progress.\nS3: The system does not provide Mutual Exclusion.\n\n(A) S1 only (B) S1 and S3 (C) S2 and S3 (D) S1, S2, S3",
+            "options": [
+                "S1 only",
+                "S1 and S3",
+                "S2 and S3",
+                "S1, S2, S3"
+            ],
+			"correct_option":2
+        },
+        {
+            "question_number": "48",
+            "question": "Consider the function fun() which deletes the duplicate elements on a non-empty sorted single linked list.\n\ntypedef struct SL {\n  int data;\n  struct SL *next;\n} SLL;\n\nvoid fun(SLL *first) {\n  SLL *curr = first, *temp;\n  if (!curr)\n    return;\n  while (curr-\u003enext) {\n    temp = curr-\u003enext;\n    if (curr-\u003edata == temp-\u003edata)\n      curr-\u003enext = temp-\u003enext;\n    else\n      curr = curr-\u003enext;\n    free(temp);\n  }\n}\n\nIf first node address is passed to fun(), Fill in the blanks.\n\n(A) curr temp temp next\n(B) curr curr=curr-\u003enext\n(C) temp curr=curr-\u003enext\n(D) temp temp=temp-\u003enext",
+            "options": [
+                "curr temp temp next",
+                "curr curr=curr-\u003enext",
+                "temp curr=curr-\u003enext",
+                "temp temp=temp-\u003enext"
+            ],
+			"correct_option":2
+        },
+        {
+            "question_number": "49",
+            "question": "Consider the following Tree traversals of a binary Tree:\nPre-order: ABCDEFGHJKLMPQN\nIn-order: CDEBGHFKLPQMNJA\nConstruct a binary tree T from above traversals. The number of nodes with one child in the tree are_",
+            "options": ["4","2","8","14"],
+			"correct_option":3
+        },
+        {
+            "question_number": "50",
+            "question": "Consider the following program:\n\nint fun(int *x) {\n  *x += 5;\n  return (3 * (*x) - 1);\n}\n\nvoid main() {\n  int a = 8, b = 12, s1, s2;\n  s1 = (a / 2) + fun(\u0026a);\n  s2 = fun(\u0026b) * (b / 2);\n}\n\nWhich of the following statement(s) is/are TRUE?\n\n(A) The value of s1 will be same, irrespective of evaluation order.\n(B) The value of s2 is will be irrespective of evaluation order.\n(C) Both (A) and (B)\n(D) None of the above",
+            "options": [
+                "The value of s1 will be same, irrespective of evaluation order.",
+                "The value of s2 is will be irrespective of evaluation order.",
+                "Both (A) and (B)",
+                "None of the above"
+            ],
+			"correct_option":4
+        },
+        {
+            "question_number": "51",
+            "question": "The first 32-bits of an IPv4 header in Hexadecimal notation has a value 4500139CH. Then which of the following cannot be concluded by these 32-bits?\nI. The header length is 20 Bytes.\nII. The total length of the packet (both header and data) is 5000 Bytes.\nIII. The datagram is Last Fragment.\nIV. The fragmentation offset field is 628.\n\n(A) III, IV (B) II, III, IV (C) II only (D) I, II, III, IV",
+            "options": [
+                "III, IV",
+                "II, III, IV",
+                "II only",
+                "I, II, III, IV"
+            ],
+			"correct_option":2
+        },
+        {
+            "question_number": "52",
+            "question": "The stations on a wireless ALOHA network are maximum of 1200 km apart. Signals propagate with a speed of 3 × 10^8 m/s. The maximum number of retransmission attempts are 15 and for the attempt number 2, by using Binary exponential Back-off algorithm, which of the following are possible Back-off time values?\n\n(A) 0 ms, 1 ms\n(B) 0 ms, 1 ms, 2 ms, 3 ms\n(C) 0 ms, 4 ms, 8 ms, 12 ms\n(D) 4 ms, 8 ms",
+            "options": [
+                "0 ms, 1 ms",
+                "0 ms, 1 ms, 2 ms, 3 ms",
+                "0 ms, 4 ms, 8 ms, 12 ms",
+                "4 ms, 8 ms"
+            ],
+			"correct_option":3
+        },
+        {
+            "question_number": "53",
+            "question": "Consider the below transition table of a PDA M₁:\n\n\t\t\t0\t\t1\n90\t(91,\u0026,$)\n91\t(92,1,a)\t(91,$,0$)\t(91,$,1$)\n\nHere q₀ is the start state and q₂ is the final state. The transition entries has the form (Q, A, B) where Q is the Target state, A is the top of the stack and B is the symbols to be written in place of top of stack.\n\nL(M₁) accepts the strings of the form,\n{ w | w contains more 1s than 0s }\n\nBased on this information identify the correct transitions for M₁, M2, M3, M4",
+            "options": [ "MI: (q1, 1,ε), M2: Not required M3: (q1, 0, \u0026), M4: Not required",
+			"M1: (q1, 1, ɛ), M2: (91, 0, 00) M3: (q1, 0, \u0026), M4: (q1, 1, 11)",
+			"MI:(q1, 1, 10), M2: (q1, 0, ɛ) M3: (q1, 0, 01), M4: (q1, 1,ɛ)",
+			"M1: (q1, 0, ɛ), M2: (q1, 1, ɛ) M3: (q1, 1, 8), M4: (91, 0, ɛ)"],
+			"correct_option":2
+        },
+		
+        {
+            "question_number": "54",
+           "question": "Which of these languages is/ are Regular?\nL1= {xmynzp| (m = n ∨ n = p) ∧ m + n + p ≥ 10}\nL2= {xmyn zp| (m = n ∨ n = p) ∧ m + n + p ≤ 10}",
+            "options": [
+                "L₁ only",
+                "L₂ only",
+                "Both L1 and L2",
+                "Neither L, nor L₂"
+            ],
+			"correct_option":2
+        },
+        {
+            "question_number": "55",
+           "question": "Which of the following statement is correct about L₁ and L₂?\nL1= {ai b2ii ∈ {1, 2, …}}\nL2= {a i bi2|i ∈ {1, 2, …}} ",
+            "options": [
+                "Both L1 and L2 are CFLs.",
+                "L₁ is CFL and L2 is recursive but not CFL.",
+                "Complement of L2 is CFL.",
+                "L, is regular and L₂ is CFL."
+            ],
+			"correct_option":2
+        },
+        {
+            "question_number": "56",
+           "question": "A Branch instruction performs a modification of (PC + 4) (address of next instruction) if the condition is true. If the maximum range of jump instruction is PC4 X to (PC +4) + Y. [(PC + 4) - X and (PC+ 4)+ Y are memory address locations]. Then the respective values of X and Y would be:",
+            "options": [
+                "-32768 and 32767",
+                "32768 and 32767",
+                "131072 and 131068",
+                "131068 and 131072"
+            ],
+			"correct_option":3
+		},
+        {
+            "question_number": "57",
+           "question": "Consider the following code fragment:\nLoop: LOAD R1, 0(R2 ) R1 ← M[0 + R2]\nADD R1, R1, #1 R1 ← R1+ 1�\n STORE R1, 0(R2) M[0 + R2] ← R1\nADD R2, R2 , #4 R2 ← R2+ 4�\n   SUB R4, R3 , R2  R4 ← R3  – R2�\n        BNEZ R4 , loop Branch to loop if R1     ! = 0          Let the initial value of R3             is R2             + 400�            The instruction sequence executed on a 5-stage ISC            pipeline� (IF: Instruction Fetch, ID: Instruction decode            and Register fetch, E�x�, execute, MA: Memory Access,            WB: Write Back) without any forwarding hardware,            but register read and write can happen in the same            clock cycle� Branch outcome is known in the EX stage            and is handled by flushing the instructions which started execution before the EX stage of Branch instruction�            If each stage takes 1 clock cycle, then the number of            clock cycles required to execute the given loop will be ",
+            "options": [
+               "1602","1203","1302","1402"
+            ],
+			"correct_option":1
+        },
+        {
+            "question_number": "58",
+           "question": "A floating point number of 20-bit length has the following format:\n 1 bits 7 bits Sign Excess – 64 Exponent Mantissa        The decimal equivalent of the value (5403E)16 is       _______�",
+            "options": [ "12122","15872","14523","12872"           ],
+			"correct_option":2
+        },
+        {
+            "question_number": "59",
+           "question": "Which of the following possible relations will not hold if the above ERD is mapped into a relational model?",
+            "options": [
+                "Student(RNO, Sname)",
+                "Qualification (RNO, TID. Qualified Date)",
+                "Test(TID, RNo, TName)",
+                "Test (TID, TName)"
+            ],
+			"correct_option":3
+        },
+        {
+            "question_number": "60",
+           "question": "Which of the following Relational algebra expression for the above query always gives correct result?",
+            "options": [
+                "Tsid(((o (Boats) (color Boats=\"white\") sailor) Reserves) color=' black'",
+                "Tsid(((o (Boats) (color Boats=\"black\") sailor) Reserves) color=' white'",
+                "Tsid(((o (Boats) (color Boats=\"black\") sailor) Reserves) color=' black'",
+                "Tsid(((o (Boats) (color Boats=\"white\") sailor) Reserves) color=' white'"
+            ],
+			"correct_option":3
+        }
+	
+	]
+}

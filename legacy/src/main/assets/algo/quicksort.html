@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+
+<body>
+    <h2>QuickSort</h2>
+
+
+    <p><strong>QuickSort</strong>&nbsp;is a sorting algorithm based on the<a
+            href="https://www.geeksforgeeks.org/divide-and-conquer-algorithm-introduction/">&nbsp;Divide and Conquer
+            algorithm</a>&nbsp;that picks an element as a pivot and partitions the given array around the picked pivot
+        by placing the pivot in its correct position in the sorted array.</p>
+
+
+    <h2>How does QuickSort work?</h2>
+    <blockquote>
+        <p dir="ltr">The key process in&nbsp;<strong>quickSort&nbsp;</strong>is a&nbsp;<strong>partition()</strong>. The
+            target of partitions is to place the pivot (any element can be chosen to be a pivot) at its correct position
+            in the sorted array and put all smaller elements to the left of the pivot, and all greater elements to the
+            right of the pivot.</p>
+        <p dir="ltr">Partition is done recursively on each side of the pivot after the pivot is placed in its correct
+            position and this finally sorts the array.</p>
+        <div class="wp-caption alignnone"><img
+                src="https://www.geeksforgeeks.org/wp-content/uploads/gq/2014/01/QuickSort2.png"
+                alt="How Quicksort works" width="350" height="350" />
+            <p class="wp-caption-text">How Quicksort works</p>
+        </div>
+    </blockquote>
+
+
+    <ul>
+        <li value="1"><a href="https://www.geeksforgeeks.org/implement-quicksort-with-first-element-as-pivot/">Always
+                pick the first element as a pivot</a>.</li>
+        <li value="2">Always pick the last element as a pivot (implemented below)</li>
+        <li value="3"><a href="https://www.geeksforgeeks.org/quicksort-using-random-pivoting/">Pick a random element as
+                a pivot</a>.</li>
+        <li value="4">Pick the middle as the pivot.</li>
+    </ul>
+    <h3><u><span class="GFGEditorTheme__textUnderline">Partition Algorithm:</span></u></h3>
+    <blockquote>
+        <p dir="ltr">The logic is simple, we start from the leftmost element and keep track of the index of smaller (or
+            equal) elements as&nbsp;<strong>i</strong>. While traversing, if we find a smaller element, we swap the
+            current element with arr[i]. Otherwise, we ignore the current element.</p>
+    </blockquote>
+    <p dir="ltr">Let us understand the working of partition and the Quick Sort algorithm with the help of the following
+        example:</p>
+    <blockquote>
+        <p dir="ltr">Consider: arr[] = {10, 80, 30, 90, 40}.</p>
+        <ul>
+            <li value="1">Compare 10 with the pivot and as it is less than pivot arrange it accrodingly.</li>
+        </ul>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230526114635/1.webp"
+                alt="Partition in QuickSort: Compare pivot with 10" width="830" height="307" />
+            <p class="wp-caption-text">Partition in QuickSort: Compare pivot with 10</p>
+        </div>
+        <ul>
+            <li value="1">Compare 80 with the pivot. It is greater than pivot.</li>
+        </ul>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230526114837/2.webp"
+                alt="Partition in QuickSort: Compare pivot with 80" width="830" height="307" />
+            <p class="wp-caption-text">Partition in QuickSort: Compare pivot with 80</p>
+        </div>
+        <ul>
+            <li value="1">Compare 30 with pivot. It is less than pivot so arrange it accordingly.</li>
+        </ul>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230526114951/3.webp"
+                alt="Partition in QuickSort: Compare pivot with 30" width="846" height="313" />
+            <p class="wp-caption-text">Partition in QuickSort: Compare pivot with 30</p>
+        </div>
+        <ul>
+            <li value="1">Compare 90 with the pivot. It is greater than the pivot.</li>
+        </ul>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230526115052/4.webp"
+                alt="Partition in QuickSort: Compare pivot with 90" width="870" height="322" />
+            <p class="wp-caption-text">Partition in QuickSort: Compare pivot with 90</p>
+        </div>
+    </blockquote>
+
+    <blockquote>
+        <ul>
+            <li value="1">Arrange the pivot in its correct position.</li>
+        </ul>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230526115200/5.webp"
+                alt="Partition in QuickSort: Place pivot in its correct position" width="819" height="303" />
+            <p class="wp-caption-text">Partition in QuickSort: Place pivot in its correct position</p>
+        </div>
+    </blockquote>
+    <h3><u><span class="GFGEditorTheme__textUnderline">Illustration of Quicksort:</span></u></h3>
+    <p dir="ltr">As the partition process is done recursively, it keeps on putting the pivot in its actual position in
+        the sorted array. Repeatedly putting pivots in their actual position makes the array sorted.</p>
+    <p dir="ltr">Follow the below images to understand how the recursive implementation of the partition algorithm helps
+        to sort the array.</p>
+    <blockquote>
+        <ul>
+            <li value="1">Initial partition on the main array:</li>
+        </ul>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230526115531/6.webp"
+                alt="Quicksort: Performing the partition" width="822" height="304" />
+            <p class="wp-caption-text">Quicksort: Performing the partition</p>
+        </div>
+        <ul>
+            <li value="1">Partitioning of the subarrays:</li>
+        </ul>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230526115658/7.webp"
+                alt="Quicksort: Performing the partition" width="819" height="303" />
+            <p class="wp-caption-text">Quicksort: Performing the partition</p>
+        </div>
+    </blockquote>
+
+    <h2>Code implementation of the Quick Sort:</h2>
+    <p>&nbsp;</p>
+    <div class="gray"><span class="c1">// C program for QuickSort</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="c1">// Utility function to swap tp integers</span>
+<span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">p1</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">p2</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">temp</span><span class="p">;</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="o">*</span><span class="n">p1</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">p1</span> <span class="o">=</span> <span class="o">*</span><span class="n">p2</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">p2</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">partition</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">low</span><span class="p">,</span> <span class="kt">int</span> <span class="n">high</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// choose the pivot</span>
+    <span class="kt">int</span> <span class="n">pivot</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">high</span><span class="p">];</span>
+
+    <span class="c1">// Index of smaller element and Indicate</span>
+    <span class="c1">// the right position of pivot found so far</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">low</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">low</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">high</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// If current element is smaller than the pivot</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">pivot</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Increment index of smaller element</span>
+            <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+            <span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">arr</span><span class="p">[</span><span class="n">high</span><span class="p">]);</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span></div>
+
+    <div class="gray"><span class="c1">// The Quicksort function Implement</span>
+
+<span class="kt">void</span> <span class="nf">quickSort</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">low</span><span class="p">,</span> <span class="kt">int</span> <span class="n">high</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// when low is less than high</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">low</span> <span class="o">&lt;</span> <span class="n">high</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// pi is the partition return index of pivot</span>
+
+        <span class="kt">int</span> <span class="n">pi</span> <span class="o">=</span> <span class="n">partition</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">);</span>
+
+        <span class="c1">// Recursion Call</span>
+        <span class="c1">// smaller element than pivot goes left and</span>
+        <span class="c1">// higher element goes right</span>
+        <span class="n">quickSort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">pi</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="n">quickSort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">pi</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">arr</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span> <span class="p">};</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+  
+    <span class="c1">// Function call</span>
+    <span class="n">quickSort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+  
+  <span class="c1">// Print the sorted array</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Sorted Array</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"%d "</span><span class="p">,</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></div>
+
+    <div class="code-output"><strong>Output</strong>
+        <div class="gray">Sorted Array
+1 5 7 8 9 10 </div>
+    </div>
+    <h2><a href="https://www.geeksforgeeks.org/time-and-space-complexity-analysis-of-quick-sort/">Complexity Analysis of
+            Quick Sort</a>:</h2>
+    <p dir="ltr"><strong>Time Complexity:</strong></p>
+    <ul>
+        <li value="1"><strong>Best Case</strong>: &Omega; (N log (N))<br />The best-case scenario for quicksort occur
+            when the pivot chosen at the each step divides the array into roughly equal halves.<br />In this case, the
+            algorithm will make balanced partitions, leading to efficient Sorting.</li>
+        <li value="2"><strong>Average Case: &theta;&nbsp;( N log (N))</strong><br />Quicksort&rsquo;s average-case
+            performance is usually very good in practice, making it one of the fastest sorting Algorithm.</li>
+        <li value="3"><strong>Worst Case: O(N2)</strong><br />The worst-case Scenario for Quicksort occur when the pivot
+            at each step consistently results in highly unbalanced partitions. When the array is already sorted and the
+            pivot is always chosen as the smallest or largest element. To mitigate the worst-case Scenario, various
+            techniques are used such as choosing a good pivot (e.g., median of three) and using Randomized algorithm
+            (Randomized Quicksort ) to shuffle the element before sorting.</li>
+        <li value="4"><strong>Auxiliary Space:</strong>&nbsp;O(1), if we don&rsquo;t consider the recursive stack space.
+            If we consider the recursive stack space then, in the worst case quicksort could make&nbsp;<em><em
+                    class="GFGEditorTheme__textItalic">O</em></em>(<em><em
+                    class="GFGEditorTheme__textItalic">N</em></em>).</li>
+    </ul>
+    <h2><strong>Advantages of Quick Sort:</strong></h2>
+    <ul>
+        <li value="1">It is a divide-and-conquer algorithm that makes it easier to solve problems.</li>
+        <li value="2">It is efficient on large data sets.</li>
+        <li value="3">It has a low overhead, as it only requires a small amount of memory to function.</li>
+    </ul>
+    <h2>Disadvantages of Quick Sort:</h2>
+    <ul>
+        <li value="1">It has a worst-case time complexity of O(N<sup>2</sup>), which occurs when the pivot is chosen
+            poorly.</li>
+        <li value="2">It is not a good choice for small data sets.</li>
+        <li value="3">It is not a stable sort, meaning that if two elements have the same key, their relative order will
+            not be preserved in the sorted output in case of quick sort, because here we are swapping elements according
+            to the pivot&rsquo;s position (without considering their original positions).</li>
+    </ul>
+
+    <h1>Time and Space Complexity Analysis of Quick Sort</h1>
+    <p dir="ltr">The&nbsp;<strong>time complexity</strong>&nbsp;of&nbsp;<strong>Quick
+            Sort&nbsp;</strong>is&nbsp;<strong>O(n log n)</strong>&nbsp;on&nbsp;<strong>average case</strong>, but can
+        become&nbsp;<strong>O(n^2)</strong>&nbsp;in the&nbsp;<strong>worst-case</strong>. The&nbsp;<strong>space
+            complexity</strong>&nbsp;of&nbsp;<strong>Quick Sort</strong>&nbsp;in the&nbsp;<strong>best
+            case</strong>&nbsp;is&nbsp;<strong>O(log n)</strong>, while in
+        the&nbsp;<strong>worst-case</strong>&nbsp;scenario, it becomes&nbsp;<strong>O(n)&nbsp;</strong>due to unbalanced
+        partitioning causing a skewed recursion tree that requires a call stack of size O(n).</p>
+    <div class="wp-caption alignnone"><img
+            src="https://www.geeksforgeeks.org/wp-content/uploads/gq/2014/01/QuickSort2.png" alt="Quick Sort Algorithm"
+            width="350" height="350" />
+        <p class="wp-caption-text">Quick Sort Algorithm</p>
+    </div>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Variation</th>
+                <th>Time Complexity</th>
+                <th>Space Complexity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Best Case</td>
+                <td>O(n log n)</td>
+                <td>O(log n)</td>
+            </tr>
+            <tr>
+                <td>Average Case</td>
+                <td>O(n log n)</td>
+                <td>O(log n)</td>
+            </tr>
+            <tr>
+                <td>Worst Case</td>
+                <td>O(n^2)</td>
+                <td>O(n)</td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Time Complexity Analysis of&nbsp;<a href="https://www.geeksforgeeks.org/quick-sort/" target="_blank"
+            rel="noopener">Quick Sort</a>:</h2>
+    <p dir="ltr">Let us consider the following terminologies:</p>
+    <div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
+    <p dir="ltr"><strong>T(K):</strong>&nbsp;Time complexity of quicksort of K
+        elements<br /><strong>P(K):&nbsp;</strong>Time complexity for finding the position of pivot among K elements.
+    </p>
+    <h3>Best Case Time Complexity Analysis of Quick Sort:&nbsp;<strong>O(N * logN)</strong></h3>
+    <p dir="ltr">The best case occurs when we select the pivot as the mean. So here</p>
+
+
+    <blockquote>
+        <p dir="ltr">T(N) = 2 * T(N / 2) + N * constant</p>
+    </blockquote>
+    <p dir="ltr">Now T(N/2) is also 2*T(N / 4) + N / 2 * constant. So,</p>
+    <blockquote>
+        <p dir="ltr">T(N) = 2*(2*T(N / 4) + N / 2 * constant) + N * constant<br />= 4 * T(N / 4) + 2 * constant * N.</p>
+        <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+        <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+    </blockquote>
+    <p dir="ltr">So, we can say that</p>
+    <blockquote>
+        <p dir="ltr">T(N) = 2<sup>k</sup>&nbsp;* T(N / 2<sup>k</sup>) + k * constant * N</p>
+        <p dir="ltr">then, 2<sup>k</sup>&nbsp;= N<br />k = log<sub>2</sub>N</p>
+    </blockquote>
+    <p dir="ltr">So&nbsp;<strong>T(N) = N * T(1) + N * log</strong><strong><sub>2</sub></strong><strong>N</strong>.
+        Therefore, the time complexity is&nbsp;<strong>O(N * logN)</strong>.</p>
+    <h3>Worst Case Time Complexity Analysis of Quick
+        Sort:&nbsp;<strong>O(N</strong><strong><sup>2</sup></strong><strong>)</strong>.</h3>
+    <p dir="ltr">The worst case will occur when the array gets divided into two parts, one part consisting of N-1
+        elements and the other and so on. So,</p>
+    <blockquote>
+        <p dir="ltr">T(N) = T(N &ndash; 1) + N * constant<br />= T(N &ndash; 2) + (N &ndash; 1) * constant + N *
+            constant = T(N &ndash; 2) + 2 * N * constant &ndash; constant<br />= T(N &ndash; 3) + 3 * N * constant
+            &ndash; 2 * constant &ndash; constant<br />. . .<br />= T(N &ndash; k) + k * N * constant &ndash; (k &ndash;
+            1) * constant &ndash; . . . &ndash; 2*constant &ndash; constant<br />= T(N &ndash; k) + k * N * constant
+            &ndash; constant * (k*(k &ndash; 1))/2</p>
+        <div id="GFG_AD_gfg_outstream_incontent" data-google-query-id="CLHvsr_PoIYDFXZCnQkdJAcDUw">
+            <div id="google_ads_iframe_/27823234/gfg_outstream_incontent_0__container__">&nbsp;</div>
+        </div>
+    </blockquote>
+    <p dir="ltr">If we put k = N in the above equation, then</p>
+    <blockquote>
+        <p dir="ltr">T(N) = T(0) + N * N * constant &ndash; constant * (N * (N-1)/2)<br />= N<sup>2</sup>&nbsp;&ndash;
+            N*(N-1)/2<br />= N<sup>2</sup>/2 + N/2</p>
+    </blockquote>
+
+    <p dir="ltr">So the worst case complexity
+        is&nbsp;<strong>O(N</strong><strong><sup>2</sup></strong><strong>)</strong></p>
+    <h3>Average Case Time Complexity Analysis of Quick Sort:&nbsp;<strong>O(N * logN)</strong></h3>
+    <p dir="ltr">For the average case consider the array gets divided into two parts of
+        size&nbsp;<strong>k</strong>&nbsp;and&nbsp;<strong>(N-k)</strong>. So,</p>
+    <blockquote>
+        <p dir="ltr">T(N) = T(N &ndash; k) + T(k)<br />= 1 / N * [&nbsp;<span class="katex"><span
+                    class="katex-mathml">&sum;𝑖=1𝑁&minus;1𝑇(𝑖)</span><span class="katex-html"
+                    aria-hidden="true"><span class="base"><span class="mop"><span
+                                class="mop op-symbol small-op">&sum;</span><span class="msupsub"><span
+                                    class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"><span
+                                                class=""><span class="sizing reset-size6 size3 mtight"><span
+                                                        class="mord mtight"><span
+                                                            class="mord mathnormal mtight">i</span><span
+                                                            class="mrel mtight">=</span>1</span></span></span><span
+                                                class=""><span class="sizing reset-size6 size3 mtight"><span
+                                                        class="mord mtight"><span
+                                                            class="mord mathnormal mtight">N</span><span
+                                                            class="mbin mtight">&minus;</span>1</span></span></span></span><span
+                                            class="vlist-s">​</span></span></span></span></span><span
+                            class="mord mathnormal">T</span><span class="mopen">(</span><span
+                            class="mord mathnormal">i</span><span
+                            class="mclose">)</span></span></span></span>&nbsp;+&nbsp;<span class="katex"><span
+                    class="katex-mathml">&sum;𝑖=1𝑁&minus;1𝑇(𝑁&minus;𝑖)</span><span class="katex-html"
+                    aria-hidden="true"><span class="base"><span class="mop"><span
+                                class="mop op-symbol small-op">&sum;</span><span class="msupsub"><span
+                                    class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"><span
+                                                class=""><span class="sizing reset-size6 size3 mtight"><span
+                                                        class="mord mtight"><span
+                                                            class="mord mathnormal mtight">i</span><span
+                                                            class="mrel mtight">=</span>1</span></span></span><span
+                                                class=""><span class="sizing reset-size6 size3 mtight"><span
+                                                        class="mord mtight"><span
+                                                            class="mord mathnormal mtight">N</span><span
+                                                            class="mbin mtight">&minus;</span>1</span></span></span></span><span
+                                            class="vlist-s">​</span></span></span></span></span><span
+                            class="mord mathnormal">T</span><span class="mopen">(</span><span
+                            class="mord mathnormal">N</span><span class="mbin">&minus;</span></span><span
+                        class="base"><span class="mord mathnormal">i</span><span
+                            class="mclose">)</span></span></span></span>&nbsp;]</p>
+    </blockquote>
+    <p dir="ltr">As&nbsp;<span class="katex"><span class="katex-mathml">&sum;𝑖=1𝑁&minus;1𝑇(𝑖)</span><span
+                class="katex-html" aria-hidden="true"><span class="base"><span class="mop"><span
+                            class="mop op-symbol small-op">&sum;</span><span class="msupsub"><span
+                                class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"><span class=""><span
+                                                class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span
+                                                        class="mord mathnormal mtight">i</span><span
+                                                        class="mrel mtight">=</span>1</span></span></span><span
+                                            class=""><span class="sizing reset-size6 size3 mtight"><span
+                                                    class="mord mtight"><span
+                                                        class="mord mathnormal mtight">N</span><span
+                                                        class="mbin mtight">&minus;</span>1</span></span></span></span><span
+                                        class="vlist-s">​</span></span></span></span></span><span
+                        class="mord mathnormal">T</span><span class="mopen">(</span><span
+                        class="mord mathnormal">i</span><span
+                        class="mclose">)</span></span></span></span>&nbsp;and&nbsp;<span class="katex"><span
+                class="katex-mathml">&sum;𝑖=1𝑁&minus;1𝑇(𝑁&minus;𝑖)</span><span class="katex-html"
+                aria-hidden="true"><span class="base"><span class="mop"><span
+                            class="mop op-symbol small-op">&sum;</span><span class="msupsub"><span
+                                class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"><span class=""><span
+                                                class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span
+                                                        class="mord mathnormal mtight">i</span><span
+                                                        class="mrel mtight">=</span>1</span></span></span><span
+                                            class=""><span class="sizing reset-size6 size3 mtight"><span
+                                                    class="mord mtight"><span
+                                                        class="mord mathnormal mtight">N</span><span
+                                                        class="mbin mtight">&minus;</span>1</span></span></span></span><span
+                                        class="vlist-s">​</span></span></span></span></span><span
+                        class="mord mathnormal">T</span><span class="mopen">(</span><span
+                        class="mord mathnormal">N</span><span class="mbin">&minus;</span></span><span class="base"><span
+                        class="mord mathnormal">i</span><span class="mclose">)</span></span></span></span>&nbsp;are
+        equal likely functions, we can say</p>
+    <blockquote>
+        <p dir="ltr">T(N) = 2/N * [&nbsp;<span class="katex"><span
+                    class="katex-mathml">&sum;𝑖=1𝑁&minus;1𝑇(𝑖)</span><span class="katex-html"
+                    aria-hidden="true"><span class="base"><span class="mop"><span
+                                class="mop op-symbol small-op">&sum;</span><span class="msupsub"><span
+                                    class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"><span
+                                                class=""><span class="sizing reset-size6 size3 mtight"><span
+                                                        class="mord mtight"><span
+                                                            class="mord mathnormal mtight">i</span><span
+                                                            class="mrel mtight">=</span>1</span></span></span><span
+                                                class=""><span class="sizing reset-size6 size3 mtight"><span
+                                                        class="mord mtight"><span
+                                                            class="mord mathnormal mtight">N</span><span
+                                                            class="mbin mtight">&minus;</span>1</span></span></span></span><span
+                                            class="vlist-s">​</span></span></span></span></span><span
+                            class="mord mathnormal">T</span><span class="mopen">(</span><span
+                            class="mord mathnormal">i</span><span
+                            class="mclose">)</span></span></span></span>&nbsp;]<br />N * T(N) = 2 * [&nbsp;<span
+                class="katex"><span class="katex-mathml">&sum;𝑖=1𝑁&minus;1𝑇(𝑖)</span><span class="katex-html"
+                    aria-hidden="true"><span class="base"><span class="mop"><span
+                                class="mop op-symbol small-op">&sum;</span><span class="msupsub"><span
+                                    class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"><span
+                                                class=""><span class="sizing reset-size6 size3 mtight"><span
+                                                        class="mord mtight"><span
+                                                            class="mord mathnormal mtight">i</span><span
+                                                            class="mrel mtight">=</span>1</span></span></span><span
+                                                class=""><span class="sizing reset-size6 size3 mtight"><span
+                                                        class="mord mtight"><span
+                                                            class="mord mathnormal mtight">N</span><span
+                                                            class="mbin mtight">&minus;</span>1</span></span></span></span><span
+                                            class="vlist-s">​</span></span></span></span></span><span
+                            class="mord mathnormal">T</span><span class="mopen">(</span><span
+                            class="mord mathnormal">i</span><span class="mclose">)</span></span></span></span>&nbsp;]
+        </p>
+    </blockquote>
+
+    <p dir="ltr">Also, we can write</p>
+    <blockquote>
+        <p dir="ltr">(N &ndash; 1) * T(N &ndash; 1) = 2 * [&nbsp;<span class="katex"><span
+                    class="katex-mathml">&sum;𝑖=1𝑁&minus;2𝑇(𝑖)</span><span class="katex-html"
+                    aria-hidden="true"><span class="base"><span class="mop"><span
+                                class="mop op-symbol small-op">&sum;</span><span class="msupsub"><span
+                                    class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"><span
+                                                class=""><span class="sizing reset-size6 size3 mtight"><span
+                                                        class="mord mtight"><span
+                                                            class="mord mathnormal mtight">i</span><span
+                                                            class="mrel mtight">=</span>1</span></span></span><span
+                                                class=""><span class="sizing reset-size6 size3 mtight"><span
+                                                        class="mord mtight"><span
+                                                            class="mord mathnormal mtight">N</span><span
+                                                            class="mbin mtight">&minus;</span>2</span></span></span></span><span
+                                            class="vlist-s">​</span></span></span></span></span><span
+                            class="mord mathnormal">T</span><span class="mopen">(</span><span
+                            class="mord mathnormal">i</span><span class="mclose">)</span></span></span></span>&nbsp;]
+        </p>
+    </blockquote>
+    <p dir="ltr">If we subtract the above two equations, we get</p>
+    <div id="GFG_AD_gfg_outstream_incontent-1">&nbsp;</div>
+    <blockquote>
+        <p dir="ltr">N * T(N) &ndash; (N &ndash; 1) * T(N &ndash; 1) = 2 * T(N &ndash; 1) + N<sup>2</sup>&nbsp;*
+            constant &ndash; (N &ndash; 1)<sup>2</sup>&nbsp;* constant<br />N * T(N) = T(N &ndash; 1) * (2 + N &ndash;
+            1) + constant + 2 * N * constant &ndash; constant<br />= (N + 1) * T(N &ndash; 1) + 2 * N * constant</p>
+    </blockquote>
+    <p dir="ltr">Divide both side by N*(N-1) and we will get</p>
+    <blockquote>
+        <p dir="ltr">T(N) / (N + 1) = T(N &ndash; 1)/N + 2 * constant / (N + 1) &nbsp; &nbsp; &nbsp;&mdash; (i)</p>
+        <p dir="ltr">If we put N = N-1 it becomes</p>
+        <p dir="ltr">T(N &ndash; 1) / N = T(N &ndash; 2)/(N &ndash; 1) + 2*constant/N</p>
+    </blockquote>
+
+    <p dir="ltr">Therefore, the equation (i) can be written as</p>
+    <blockquote>
+        <p dir="ltr">T(N) / (N + 1) = T(N &ndash; 2)/(N &ndash; 1) + 2*constant/(N + 1) + 2*constant/N</p>
+        <p dir="ltr">Similarly, we can get the value of T(N-2) by replacing N by (N-2) in the equation (i). At last it
+            will be like</p>
+        <p dir="ltr">T(N) / (N + 1) = T(1)/2 + 2*constant * [1/2 + 1/3 + . . . + 1/(N &ndash; 1) + 1/N + 1/(N +
+            1)]<br />T(N) = 2 * constant * log<sub>2</sub>N * (N + 1)</p>
+    </blockquote>
+    <p dir="ltr">If we ignore the constant it becomes</p>
+    <blockquote>
+        <p dir="ltr">T(N) = log<sub>2</sub>N * (N + 1)</p>
+    </blockquote>
+    <p dir="ltr">So the time complexity is&nbsp;<strong>O(N * logN)</strong>.</p>
+    <h2>Space Complexity Analysis of Quick Sort:</h2>
+    <p dir="ltr"><strong>Worst-case scenario:</strong>&nbsp;<strong>O(n)&nbsp;</strong>due to unbalanced partitioning
+        leading to a skewed recursion tree requiring a call stack of size O(n).</p>
+    <p dir="ltr"><strong>Best-case scenario: O(log n)</strong>&nbsp;as a result of balanced partitioning leading to a
+        balanced recursion tree with a call stack of size O(log n).</p>
+
+</body>
+
+</html>

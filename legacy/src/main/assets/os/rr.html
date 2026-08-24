@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Applications of various Automata</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+<div class="main_wrapper">
+    <div class="article-title">
+        <div class="main_wrapper">
+            <div class="article-title">
+                <div class="main_wrapper">
+                    <div class="article-title">
+                        <div class="main_wrapper">
+                            <div>
+                                <div class="article-title">
+                                    <h1>Round Robin Scheduling with different arrival times</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text">
+                            <p dir="ltr">A round-robin<strong>&nbsp;scheduling algorithm</strong>&nbsp;is used to schedule the process fairly for each job a time slot or quantum and the interrupting the job if it is not completed by then the job come after the other job which is arrived in the quantum time that makes these scheduling fairly.</p>
+                            <p dir="ltr"><strong>Note:</strong>&nbsp;&nbsp;</p>
+                            <ul>
+                                <li value="1">Round-robin is cyclic in nature, so starvation doesn&rsquo;t occur</li>
+                                <li value="2">Round-robin is a variant of first come, first served scheduling</li>
+                                <li value="3">No priority, special importance is given to any process or task</li>
+                                <li value="4">RR scheduling is also known as Time slicing scheduling</li>
+                            </ul>
+                            <p dir="ltr"><strong>Advantages:</strong>&nbsp;&nbsp;</p>
+                            <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+                            <ul>
+                                <li value="1">Each process is served by CPU for a fixed time, so priority is the same for each one</li>
+                                <li value="2">Starvation does not occur because of its cyclic nature.</li>
+                            </ul>
+                            <p dir="ltr"><strong>Disadvantages:</strong>&nbsp;&nbsp;</p>
+                            <ul>
+                                <li value="1">Throughput depends on quantum time.</li>
+                                <li value="2">If the time quantum is too large RR degrades to FCFS.</li>
+                                <li value="3">If we want to give some process priority, we cannot.</li>
+                            </ul>
+                            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /></colgroup>
+                                <thead>
+                                <tr>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Process</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Arrival Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Burst Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Completion time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Turn Around Time</th>
+                                    <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Waiting time</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell">P1</td>
+                                    <td class="GFGEditorTheme__tableCell">0</td>
+                                    <td class="GFGEditorTheme__tableCell">5</td>
+                                    <td class="GFGEditorTheme__tableCell">12</td>
+                                    <td class="GFGEditorTheme__tableCell">12</td>
+                                    <td class="GFGEditorTheme__tableCell">7</td>
+                                </tr>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell">P2</td>
+                                    <td class="GFGEditorTheme__tableCell">1</td>
+                                    <td class="GFGEditorTheme__tableCell">4</td>
+                                    <td class="GFGEditorTheme__tableCell">11</td>
+                                    <td class="GFGEditorTheme__tableCell">10</td>
+                                    <td class="GFGEditorTheme__tableCell">6</td>
+                                </tr>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell">P3</td>
+                                    <td class="GFGEditorTheme__tableCell">2</td>
+                                    <td class="GFGEditorTheme__tableCell">2</td>
+                                    <td class="GFGEditorTheme__tableCell">6</td>
+                                    <td class="GFGEditorTheme__tableCell">4</td>
+                                    <td class="GFGEditorTheme__tableCell">2</td>
+                                </tr>
+                                <tr>
+                                    <td class="GFGEditorTheme__tableCell">P4</td>
+                                    <td class="GFGEditorTheme__tableCell">3</td>
+                                    <td class="GFGEditorTheme__tableCell">1</td>
+                                    <td class="GFGEditorTheme__tableCell">9</td>
+                                    <td class="GFGEditorTheme__tableCell">6</td>
+                                    <td class="GFGEditorTheme__tableCell">5</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <p dir="ltr"><strong>Quantum time is 2&nbsp;</strong>this means each process is only executing for 2 units of time at a time.<br /><strong>How to compute these process requests:-</strong>&nbsp;&nbsp;</p>
+                            <ol>
+                                <li value="1">Take the process which occurs first and start executing the process(for quantum time only).</li>
+                                <li value="2">Check if any other process request has arrived. If a process request arrives during the quantum time in which another process is executing, then add the new process to the Ready queue</li>
+                                <li value="3">After the quantum time has passed, check for any processes in the Ready queue. If the ready queue is empty then continue the current process. If the queue not empty and the current process is not complete, then add the current process to the end of the ready queue.</li>
+                                <li value="4">Take the first process from the Ready queue and start executing it (same rules)</li>
+                                <li value="5">Repeat all steps above from 2-4</li>
+                                <li value="6">If the process is complete and the ready queue is empty then the task is complete</li>
+                            </ol>
+                            <p dir="ltr">After all these we get the three times which are:&nbsp;&nbsp;</p>
+                            <ol>
+                                <li value="1"><strong>Completion Time:</strong>&nbsp;the time taken for a process to complete.</li>
+                                <li value="2"><strong>Turn Around Time:</strong>&nbsp;total time the process exists in the system. (completion time &ndash; arrival time).</li>
+                                <li value="3"><strong>Waiting Time:</strong>&nbsp;total time waiting for their complete execution. (turn around time &ndash; burst time ).</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

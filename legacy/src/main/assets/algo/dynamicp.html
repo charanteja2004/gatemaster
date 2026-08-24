@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+
+<body>
+
+    <h2>DYNAMIC PROGRAMMING</h2>
+    <p><strong>Dynamic Programming</strong>&nbsp;is a method used in mathematics and computer science to solve complex
+        problems by breaking them down into simpler subproblems. By solving each subproblem only once and storing the
+        results, it avoids redundant computations, leading to more efficient solutions for a wide range of problems.
+        This article provides a detailed exploration of dynamic programming concepts, illustrated with examples.</p>
+
+    <h2 id="what-is-dynamic-programming-dp">What is Dynamic Programming (DP)?</h2>
+    <p dir="ltr"><strong>Dynamic Programming (DP)</strong>&nbsp;is a method used in mathematics and computer science to
+        solve complex problems by breaking them down into simpler subproblems. By solving each subproblem only once and
+        storing the results, it avoids redundant computations, leading to more efficient solutions for a wide range of
+        problems.</p>
+    <h2 id="how-does-dynamic-programming-dp-work">How Does Dynamic Programming (DP) Work?</h2>
+    <ul>
+        <li value="1"><strong>Identify Subproblems:</strong>&nbsp;Divide the main problem into smaller, independent
+            subproblems.</li>
+        <li value="2"><strong>Store Solutions:&nbsp;</strong>Solve each subproblem and store the solution in a table or
+            array.</li>
+        <li value="3"><strong>Build Up Solutions:</strong>&nbsp;Use the stored solutions to build up the solution to the
+            main problem.</li>
+        <li value="4"><strong>Avoid Redundancy:</strong>&nbsp;By storing solutions, DP ensures that each subproblem is
+            solved only once, reducing computation time.</li>
+    </ul>
+    <h2 id="examples-of-dynamic-programming-dp"><strong>Examples of Dynamic Programming (DP)</strong></h2>
+    <p dir="ltr"><strong>Example 1:&nbsp;</strong>Consider the problem of finding the Fibonacci sequence:</p>
+
+    <blockquote>
+        <p dir="ltr"><strong>Fibonacci sequence:</strong>&nbsp;0, 1, 1, 2, 3, 5, 8, 13, 21, 34, &hellip;</p>
+    </blockquote>
+    <p dir="ltr"><strong>Brute Force Approach:</strong></p>
+    <p dir="ltr">To find the nth Fibonacci number using a brute force approach, you would simply add
+        the&nbsp;<strong>(n-1)th&nbsp;</strong>and<strong>&nbsp;(n-2)th</strong>&nbsp;Fibonacci numbers. This would
+        work, but it would be inefficient for large values of&nbsp;<strong>n</strong>, as it would require calculating
+        all the previous Fibonacci numbers.</p>
+    <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+    <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+    <p dir="ltr"><strong>Dynamic Programming Approach:</strong></p>
+    <div>
+        <div class="toolbar floating"><button class="toolbar-item spaced" title="Change Image Text Alternative"
+                aria-label="Insert link"></button>
+            <div class="divider">&nbsp;</div>
+            <p>&nbsp;</p>
+            <div class="triangle-down">&nbsp;</div>
+        </div>
+    </div>
+    <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220919185437/nthfibonacciseriesdynamicprogramming.png"
+            width="350" height="350" /></p>
+    <div class="ImageNode__contentEditable">
+        <p dir="ltr"><span data-lexical-text="true">Fibonacci Series using Dynamic Programming</span></p>
+    </div>
+    <ul>
+        <li value="1"><strong>Subproblems:&nbsp;</strong>F(0), F(1), F(2), F(3), &hellip;</li>
+        <li value="2"><strong>Store Solutions:</strong>&nbsp;Create a table to store the values of F(n) as they are
+            calculated.</li>
+        <li value="3"><strong>Build Up Solutions:</strong>&nbsp;For F(n), look up F(n-1) and F(n-2) in the table and add
+            them.</li>
+        <li value="4"><strong>Avoid Redundancy:&nbsp;</strong>The table ensures that each subproblem (e.g., F(2)) is
+            solved only once.</li>
+    </ul>
+    <p dir="ltr">By using DP, we can efficiently calculate the Fibonacci sequence without having to recompute
+        subproblems.</p>
+
+    <p dir="ltr"><strong>Example 2:&nbsp;</strong>Longest common subsequence (finding the longest subsequence that is
+        common to two strings)</p>
+    <p dir="ltr"><strong>Example 3:&nbsp;</strong>Shortest path in a graph (finding the shortest path between two nodes
+        in a graph)</p>
+    <p dir="ltr"><strong>Example 4:&nbsp;</strong>Knapsack problem (finding the maximum value of items that can be
+        placed in a knapsack with a given capacity)</p>
+    <h2 id="when-to-use-dynamic-programming-dp">When to Use Dynamic Programming (DP)?</h2>
+    <p dir="ltr">Dynamic programming is an optimization technique used when solving problems that consists of the
+        following characteristics:</p>
+    <h3>1. Optimal Substructure:</h3>
+    <p dir="ltr">Optimal substructure means that we combine the optimal results of subproblems to achieve the optimal
+        result of the bigger problem.</p>
+    <p dir="ltr"><strong>Example:</strong></p>
+    <blockquote>
+        <p dir="ltr">Consider the problem of finding the&nbsp;<strong>minimum cost&nbsp;</strong>path in a weighted
+            graph from a&nbsp;<strong>source</strong>&nbsp;node to a&nbsp;<strong>destination</strong>&nbsp;node. We can
+            break this problem down into smaller subproblems:</p>
+        <ul>
+            <li value="1">Find the&nbsp;<strong>minimum</strong>&nbsp;<strong>cost</strong>&nbsp;path from
+                the&nbsp;<strong>source</strong>&nbsp;node to each&nbsp;<strong>intermediate</strong>&nbsp;node.</li>
+            <li value="2">Find the&nbsp;<strong>minimum</strong>&nbsp;<strong>cost</strong>&nbsp;path from
+                each&nbsp;<strong>intermediate</strong>&nbsp;node to the&nbsp;<strong>destination</strong>&nbsp;node.
+            </li>
+        </ul>
+        <p dir="ltr">The solution to the larger problem (finding the minimum cost path from the source node to the
+            destination node) can be constructed from the solutions to these smaller subproblems.</p>
+    </blockquote>
+    <h3>2. Overlapping Subproblems:</h3>
+    <p dir="ltr">The same subproblems are solved repeatedly in different parts of the problem.</p>
+    <p dir="ltr"><strong>Example:</strong></p>
+    <div id="GFG_AD_gfg_outstream_incontent-1">&nbsp;</div>
+    <blockquote>
+        <p dir="ltr">Consider the problem of computing the&nbsp;<strong>Fibonacci series</strong>. To compute the
+            Fibonacci number at index&nbsp;<strong>n</strong>, we need to compute the Fibonacci numbers at
+            indices&nbsp;<strong>n-1</strong>&nbsp;and&nbsp;<strong>n-2</strong>. This means that the subproblem of
+            computing the Fibonacci number at index&nbsp;<strong>n-1</strong>&nbsp;is used twice in the solution to the
+            larger problem of computing the Fibonacci number at index&nbsp;<strong>n</strong>.</p>
+    </blockquote>
+    <h2 id="approaches-of-dynamic-programming-dp">Approaches of Dynamic Programming (DP)</h2>
+    <p dir="ltr">Dynamic programming can be achieved using two approaches:</p>
+    <h3><strong>1. Top-Down Approach (Memoization):</strong></h3>
+    <p dir="ltr">In the top-down approach, also known as&nbsp;<strong>memoization</strong>, we start with the final
+        solution and recursively break it down into smaller subproblems. To avoid redundant calculations, we store the
+        results of solved subproblems in a memoization table.</p>
+    <p dir="ltr">Let&rsquo;s breakdown Top down approach:</p>
+    <ul>
+        <li value="1">Starts with the final solution and recursively breaks it down into smaller subproblems.</li>
+        <li value="2">Stores the solutions to subproblems in a table to avoid redundant calculations.</li>
+        <li value="3">Suitable when the number of subproblems is large and many of them are reused.</li>
+    </ul>
+    <h3><strong>2. Bottom-Up Approach (Tabulation):</strong></h3>
+    <p dir="ltr">In the bottom-up approach, also known as&nbsp;<strong>tabulation</strong>, we start with the smallest
+        subproblems and gradually build up to the final solution. We store the results of solved subproblems in a table
+        to avoid redundant calculations.</p>
+    <p dir="ltr">Let&rsquo;s breakdown Bottom-up approach:</p>
+    <ul>
+        <li value="1">Starts with the smallest subproblems and gradually builds up to the final solution.</li>
+        <li value="2">Fills a table with solutions to subproblems in a bottom-up manner.</li>
+        <li value="3">Suitable when the number of subproblems is small and the optimal solution can be directly computed
+            from the solutions to smaller subproblems.</li>
+    </ul>
+
+    <h2 id="dynamic-programming-dp-algorithm">Dynamic Programming&nbsp;<strong>(DP)</strong>&nbsp;Algorithm</h2>
+    <p dir="ltr">Dynamic programming is a algorithmic technique that solves complex problems by breaking them down into
+        smaller subproblems and storing their solutions for future use. It is particularly effective for problems that
+        contains&nbsp;<strong>overlapping subproblems&nbsp;</strong>and&nbsp;<strong>optimal substructure.</strong></p>
+    <h3><strong>Common Algorithms that Use Dynamic Programming:</strong></h3>
+    <ul>
+        <li value="1"><strong>Longest Common Subsequence (LCS):&nbsp;</strong>Finds the longest common subsequence
+            between two strings.</li>
+        <li value="2"><strong>Shortest Path in a Graph:</strong>&nbsp;Finds the shortest path between two nodes in a
+            graph.</li>
+        <li value="3"><strong>Knapsack Problem:&nbsp;</strong>Determines the maximum value of items that can be placed
+            in a knapsack with a given capacity.</li>
+        <li value="4"><strong>Matrix Chain Multiplication:&nbsp;</strong>Optimizes the order of matrix multiplication to
+            minimize the number of operations.</li>
+        <li value="5"><strong>Fibonacci Sequence:&nbsp;</strong>Calculates the nth Fibonacci number.</li>
+    </ul>
+    <h2 id="advantages-of-dynamic-programming-dp">Advantages of Dynamic Programming&nbsp;<strong>(DP)</strong></h2>
+    <p dir="ltr">Dynamic programming has a wide range of advantages, including:</p>
+    <ul>
+        <li value="1">Avoids recomputing the same subproblems multiple times, leading to significant time savings.</li>
+        <li value="2">Ensures that the optimal solution is found by considering all possible combinations.</li>
+        <li value="3">Breaks down complex problems into smaller, more manageable subproblems.</li>
+    </ul>
+    <h2 id="applications-of-dynamic-programming-dp">Applications of Dynamic Programming&nbsp;<strong>(DP)</strong></h2>
+    <p dir="ltr">Dynamic programming has a wide range of applications, including:</p>
+    <ul>
+        <li value="1"><strong>Optimization:&nbsp;</strong>Knapsack problem, shortest path problem, maximum subarray
+            problem</li>
+        <li value="2"><strong>Computer Science:&nbsp;</strong>Longest common subsequence, edit distance, string matching
+        </li>
+        <li value="3"><strong>Operations Research:&nbsp;</strong>Inventory management, scheduling, resource allocation
+        </li>
+    </ul>
+
+
+    
+
+
+
+   
+
+   
+
+
+    
+</body>
+
+</html>

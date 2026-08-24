@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+
+<body>
+
+    <h2>SEARCHING ALGORITHMS</h2>
+    <h2>Linear Search Algorithm</h2>
+    <p dir="ltr"><strong>Linear Search</strong>&nbsp;is defined as a sequential&nbsp;<a
+            href="https://www.geeksforgeeks.org/searching-algorithms/">search algorithm</a>&nbsp;that starts at one end
+        and goes through each element of a list until the desired element is found, otherwise the search continues till
+        the end of the data set. In this article, we will learn about the basics of Linear Search Algorithm,
+        Applications, Advantages, Disadvantages, etc. to provide a deep understanding of Linear Search.</p>
+    <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20240506105158/Linear-Search-algorithm-banner-(1).webp"
+            srcset="https://media.geeksforgeeks.org/wp-content/uploads/20240506105158/Linear-Search-algorithm-banner-(1).webp 1001w,https://media.geeksforgeeks.org/wp-content/uploads/20240506105158/Linear-Search-algorithm-banner-(1)-100.webp 100w,https://media.geeksforgeeks.org/wp-content/uploads/20240506105158/Linear-Search-algorithm-banner-(1)-200.webp 200w,https://media.geeksforgeeks.org/wp-content/uploads/20240506105158/Linear-Search-algorithm-banner-(1)-300.webp 300w,https://media.geeksforgeeks.org/wp-content/uploads/20240506105158/Linear-Search-algorithm-banner-(1)-660.webp 660w,https://media.geeksforgeeks.org/wp-content/uploads/20240506105158/Linear-Search-algorithm-banner-(1)-768.webp 768w"
+            alt="Linear-Search-algorithm-banner-(1)" width="769" height="362" /></p>
+
+    <h2 id="what-is-linear-search"><u><span class="GFGEditorTheme__textUnderline">What is Linear Search?</span></u></h2>
+    <p dir="ltr"><strong>Linear Search&nbsp;</strong>is a method for searching an element in a collection of elements.
+        In Linear Search, each element of the collection is visited one by one in a sequential fashion to find the
+        desired element. Linear Search is also known as&nbsp;<strong>Sequential Search.</strong></p>
+
+    <h2 id="algorithm-for-linear-search"><u><span class="GFGEditorTheme__textUnderline">Algorithm for Linear
+                Search:</span></u></h2>
+    <p dir="ltr">The algorithm for linear search can be broken down into the following steps:</p>
+    <ul>
+        <li value="1"><strong>Start:</strong>&nbsp;Begin at the first element of the collection of elements.</li>
+        <li value="2"><strong>Compare:</strong>&nbsp;Compare the current element with the desired element.</li>
+        <li value="3"><strong>Found:</strong>&nbsp;If the current element is equal to the desired element, return true
+            or index to the current element.</li>
+        <li value="4"><strong>Move:&nbsp;</strong>Otherwise, move to the next element in the collection.</li>
+        <li value="5"><strong>Repeat:</strong>&nbsp;Repeat steps 2-4 until we have reached the end of collection.</li>
+        <li value="6"><strong>Not found:</strong>&nbsp;If the end of the collection is reached without finding the
+            desired element, return that the desired element is not in the array.</li>
+    </ul>
+    <h2 id="how-does-linear-search-algorithm-work"><u><span class="GFGEditorTheme__textUnderline">How Does Linear Search
+                Algorithm Work?</span></u></h2>
+    <p dir="ltr">In Linear Search Algorithm,&nbsp;</p>
+    <ul>
+        <li value="1">Every element is considered as a potential match for the key and checked for the same.</li>
+        <li value="2">If any element is found equal to the key, the search is successful and the index of that element
+            is returned.</li>
+        <li value="3">If no element is found equal to the key, the search yields &ldquo;No match found&rdquo;.</li>
+    </ul>
+    <p dir="ltr"><strong>For example:</strong>&nbsp;Consider the array&nbsp;<strong>arr[] = {10, 50, 30, 70, 80, 20, 90,
+            40}</strong>&nbsp;and&nbsp;<strong>key</strong>&nbsp;= 30</p>
+    <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+    <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+    <blockquote>
+        <p dir="ltr"><strong>Step 1:</strong>&nbsp;Start from the first element (index 0) and
+            compare&nbsp;<strong>key</strong>&nbsp;with each element (arr[i]).</p>
+        <ul>
+            <li value="1">Comparing key with first element arr[0]. SInce not equal, the iterator moves to the next
+                element as a potential match.</li>
+        </ul>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230519161339/Linear-search-algorithm-1.webp"
+                alt="Compare key with arr[0]" width="350" height="300" />
+            <p class="wp-caption-text">Compare key with arr[0]</p>
+        </div>
+        <ul>
+            <li value="1">Comparing key with next element arr[1]. SInce not equal, the iterator moves to the next
+                element as a potential match.</li>
+        </ul>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230519161415/Linear-search-algorithm-2.webp"
+                alt="Compare key with arr[1]" width="350" height="304" />
+            <p class="wp-caption-text">Compare key with arr[1]</p>
+        </div>
+        <p dir="ltr"><strong>Step 2:</strong>&nbsp;Now when comparing arr[2] with key, the value matches. So the Linear
+            Search Algorithm will yield a successful message and return the index of the element when key is found (here
+            2).</p>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20230519161442/Linear-search-algorithm-3.webp"
+                alt="Compare key with arr[2]" width="350" height="308" />
+            <p class="wp-caption-text">Compare key with arr[2]</p>
+        </div>
+    </blockquote>
+
+    <h2 id="implementation-of-linear-search-algorithm"><u><span class="GFGEditorTheme__textUnderline">Implementation of
+                Linear Search Algorithm:</span></u></h2>
+    <p dir="ltr">In Linear Search, we iterate over all the elements of the array and check if it the current element is
+        equal to the target element. If we find any element to be equal to the target element, then return the index of
+        the current element. Otherwise, if no element is equal to the target element, then return -1 as the element is
+        not found.</p>
+    <p dir="ltr">Below is the implementation of the linear search algorithm:</p>
+
+    <div class="codeblock-container" data-mode="light">
+        <div class="code-container">
+            <div class="code-box">
+                <div id="slot-panel" class="gfg-code"><code class="language-c"></code>
+                    <div class="highlight">
+                        <div class="gray"><span class="c1">// C code to linearly search x in arr[].</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">search</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">N</span><span class="p">,</span> <span class="kt">int</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">i</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">-1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Driver code</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">arr</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span> <span class="p">};</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+
+    <span class="c1">// Function call</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">search</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+    <span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="mi">-1</span><span class="p">)</span>
+        <span class="o">?</span> <span class="n">printf</span><span class="p">(</span><span class="s">"Element is not present in array"</span><span class="p">)</span>
+        <span class="o">:</span> <span class="n">printf</span><span class="p">(</span><span class="s">"Element is present at index %d"</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</div>
+                    </div>
+                </div>
+            </div>
+            <div id="code-output-box" class="code-output-box">
+                <div class="editor-buttons w-56 output-box" title="Close Output">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+    <div class="code-output"><br /><strong>Output</strong>
+        <div class="gray">Element is present at index 3
+</div>
+    </div>
+
+    <h2 id="time-and-space-complexity-of-linear-search"><a
+            href="https://www.geeksforgeeks.org/time-and-space-complexity-of-linear-search-algorithm/" target="_blank"
+            rel="noreferrer noopener"><u><span class="GFGEditorTheme__textUnderline">Time and Space Complexity of Linear
+                    Search:</span></u></a></h2>
+    <p dir="ltr"><strong>Time Complexity:</strong></p>
+    <ul>
+        <li value="1"><strong>Best Case:</strong>&nbsp;In the best case, the key might be present at the first index. So
+            the best case complexity is O(1)</li>
+        <li value="2"><strong>Worst Case:</strong>&nbsp;In the worst case, the key might be present at the last index
+            i.e., opposite to the end from which the search has started in the list. So the worst-case complexity is
+            O(N) where N is the size of the list.</li>
+        <li value="3"><strong>Average Case:</strong>&nbsp;O(N)</li>
+    </ul>
+    <p dir="ltr"><strong>Auxiliary Space:</strong>&nbsp;O(1) as except for the variable to iterate through the list, no
+        other variable is used.&nbsp;</p>
+    <div id="GFG_AD_gfg_outstream_incontent" data-google-query-id="CJP2uJDRoIYDFbpDnQkdpGsgCA">
+        <div id="google_ads_iframe_/27823234/gfg_outstream_incontent_0__container__">&nbsp;</div>
+    </div>
+    <h2 id="applications-of-linear-search"><u><span class="GFGEditorTheme__textUnderline">Applications of Linear
+                Search:</span></u></h2>
+    <ul>
+        <li value="1"><strong>Unsorted Lists:</strong>&nbsp;When we have an unsorted array or list, linear search is
+            most commonly used to find any element in the collection.</li>
+        <li value="2"><strong>Small Data Sets:</strong>&nbsp;Linear Search is preferred over binary search when we have
+            small data sets with</li>
+        <li value="3"><strong>Searching Linked Lists:</strong>&nbsp;In linked list implementations, linear search is
+            commonly used to find elements within the list. Each node is checked sequentially until the desired element
+            is found.</li>
+        <li value="4"><strong>Simple Implementation:</strong>&nbsp;Linear Search is much easier to understand and
+            implement as compared to Binary Search or Ternary Search.</li>
+    </ul>
+    <h2 id="advantages-of-linear-search"><u><strong><strong class="GFGEditorTheme__textUnderline">Advantages of Linear
+                    Search:</strong></strong></u></h2>
+    <ul>
+        <li value="1">Linear search can be used irrespective of whether the array is sorted or not. It can be used on
+            arrays of any data type.</li>
+        <li value="2">Does not require any additional memory.</li>
+        <li value="3">It is a well-suited algorithm for small datasets.</li>
+    </ul>
+    <h2 id="disadvantages-of-linear-search"><u><strong><strong class="GFGEditorTheme__textUnderline">Disadvantages of
+                    Linear Search:</strong></strong></u></h2>
+    <ul>
+        <li value="1">Linear search has a time complexity of O(N), which in turn makes it slow for large datasets.</li>
+        <li value="2">Not suitable for large arrays.</li>
+    </ul>
+    <h2 id="when-to-use-linear-search"><u><strong><strong class="GFGEditorTheme__textUnderline">When to use Linear
+                    Search?</strong></strong></u></h2>
+    <ul>
+        <li value="1">When we are dealing with a small dataset.</li>
+        <li value="2">When you are searching for a dataset stored in contiguous memory.</li>
+    </ul>
+
+
+</body>
+
+</html>

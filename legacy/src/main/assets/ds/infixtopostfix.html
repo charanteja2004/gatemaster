@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    <div class="main_wrapper">
+        <div class="article-title">
+        <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>Convert Infix expression to Postfix expression</h1>
+        </div>
+        </div>
+        </div>
+        <div class="text">
+        <p dir="ltr">Write a program to convert an Infix expression to Postfix form.</p>
+        <blockquote>
+        <p dir="ltr"><strong>Infix expression:</strong>&nbsp;The expression of the form &ldquo;a operator b&rdquo; (a + b) i.e., when an operator is in-between every pair of operands.<br /><strong>Postfix expression:</strong>&nbsp;The expression of the form &ldquo;a b operator&rdquo; (ab+) i.e., When every pair of operands is followed by an operator.</p>
+        </blockquote>
+        <p dir="ltr"><strong>Examples:</strong></p>
+        <blockquote>
+        <p dir="ltr"><strong>Input:&nbsp;</strong>A + B * C + D<br /><strong>Output:&nbsp;</strong>ABC*+D+</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <p dir="ltr"><strong>Input:&nbsp;</strong>((A + B) &ndash; C * (D / E)) + F<br /><strong>Output:&nbsp;</strong>AB+CDE/*-F+ &nbsp;</p>
+        </blockquote>
+        <h2><u><strong><strong class="GFGEditorTheme__textUnderline">Why postfix representation of the expression?</strong></strong></u>&nbsp;</h2>
+        <p dir="ltr">The compiler scans the expression either from left to right or from right to left.&nbsp;<br />Consider the expression:&nbsp;<strong>a + b * c + d</strong></p>
+        <ul>
+        <li value="1">The compiler first scans the expression to evaluate the expression b * c, then again scans the expression to add a to it.&nbsp;</li>
+        <li value="2">The result is then added to d after another scan.&nbsp;</li>
+        </ul>
+        <p dir="ltr">The repeated scanning makes it very inefficient. Infix expressions are easily readable and solvable by humans whereas the computer cannot differentiate the operators and parenthesis easily so, it is better to convert the expression to postfix(or prefix) form before evaluation.</p>
+        <p dir="ltr">The corresponding expression in postfix form is&nbsp;<strong>abc*+d+</strong>. The postfix expressions can be evaluated easily using a stack.&nbsp;</p>
+        <h2><u><span class="GFGEditorTheme__textUnderline">How to convert an Infix expression to a Postfix expression?</span></u></h2>
+        <blockquote>
+        <p dir="ltr">To convert infix expression to postfix expression, use the&nbsp;<a href="stack.html"><strong>stack data structure</strong></a>. Scan the infix expression from left to right. Whenever we get an operand, add it to the postfix expression and if we get an operator or parenthesis add it to the stack by maintaining their precedence.</p>
+        </blockquote>
+        <p dir="ltr">Below are the steps to implement the above idea:</p>
+        <ol>
+        <li value="1">Scan the infix expression&nbsp;<strong>from left to right</strong>.&nbsp;</li>
+        <li value="2">If the scanned character is an operand, put it in the postfix expression.&nbsp;</li>
+        <li value="3">Otherwise, do the following
+        <ul>
+        <li value="1">If the precedence and associativity of the scanned operator are greater than the precedence and associativity of the operator in the stack [or the stack is empty or the stack contains a &lsquo;<strong>(</strong>&lsquo; ], then push it in the stack. [&lsquo;<strong>^</strong>&lsquo; operator is right associative and other operators like &lsquo;<strong>+</strong>&lsquo;,&rsquo;<strong>&ndash;</strong>&lsquo;,&rsquo;<strong>*</strong>&lsquo; and &lsquo;<strong>/</strong>&lsquo; are left-associative].
+        <ul>
+        <li value="1">Check especially for a condition when the operator at the top of the stack and the scanned operator both are &lsquo;<strong>^</strong>&lsquo;. In this condition, the precedence of the scanned operator is higher due to its right associativity. So it will be pushed into the operator stack.&nbsp;</li>
+        <li value="2">In all the other cases when the top of the operator stack is the same as the scanned operator, then pop the operator from the stack because of left associativity due to which the scanned operator has less precedence.&nbsp;</li>
+        </ul>
+        </li>
+        <li value="2">Else, Pop all the operators from the stack which are greater than or equal to in precedence than that of the scanned operator.
+        <ul>
+        <li value="1">After doing that Push the scanned operator to the stack. (If you encounter parenthesis while popping then stop there and push the scanned operator in the stack.)&nbsp;</li>
+        </ul>
+        </li>
+        </ul>
+        </li>
+        <li value="4">If the scanned character is a &lsquo;<strong>(</strong>&lsquo;, push it to the stack.&nbsp;</li>
+        <li value="5">If the scanned character is a &lsquo;<strong>)</strong>&rsquo;, pop the stack and output it until a &lsquo;<strong>(</strong>&lsquo; is encountered, and discard both the parenthesis.&nbsp;</li>
+        <li value="6">Repeat steps&nbsp;<strong>2-5</strong>&nbsp;until the infix expression is scanned.&nbsp;</li>
+        <li value="7">Once the scanning is over, Pop the stack and add the operators in the postfix expression until it is not empty.</li>
+        <li value="8">Finally, print the postfix expression.</li>
+        </ol>
+        </div>
+        </div>
+        </div>
+        <div class="main_wrapper">
+            <div class="article-title">
+            <div class="main_wrapper">
+            <div class="article-title">
+            <h3><strong>Illustration:</strong></h3>
+            <p dir="ltr">Follow the below illustration for a better understanding</p>
+            <blockquote>
+            <p dir="ltr">Consider the infix expression&nbsp;<strong>exp = &ldquo;a+b*c+d&rdquo;</strong><br />and the infix expression is scanned using the iterator&nbsp;<strong>i</strong>, which is initialized as&nbsp;<strong>i = 0</strong>.</p>
+            <p dir="ltr"><strong>1st Step:</strong>&nbsp;Here i = 0 and exp[i] = &lsquo;a&rsquo; i.e., an operand. So add this in the postfix expression. Therefore,&nbsp;<strong>postfix = &ldquo;a&rdquo;</strong>.</p>
+            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230307165838/post1drawio.png" alt="Add 'a' in the postfix" width="364" height="265" />
+            <p class="wp-caption-text">Add &lsquo;a&rsquo; in the postfix</p>
+            </div>
+            <p dir="ltr"><strong>2nd Step:</strong>&nbsp;Here i = 1 and exp[i] = &lsquo;+&rsquo; i.e., an operator. Push this into the stack.&nbsp;<strong>postfix = &ldquo;a&rdquo;</strong>&nbsp;and&nbsp;<strong>stack = {+}</strong>.</p>
+            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230307165921/post2drawio.png" alt="Push '+' in the stack" width="385" height="280" />
+            <p class="wp-caption-text">Push &lsquo;+&rsquo; in the stack</p>
+            </div>
+            <p dir="ltr"><strong>3rd Step:</strong>&nbsp;Now i = 2 and exp[i] = &lsquo;b&rsquo; i.e., an operand. So add this in the postfix expression.&nbsp;<strong>postfix = &ldquo;ab&rdquo;</strong>&nbsp;and&nbsp;<strong>stack = {+}</strong>.</p>
+            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231114010453/gfg.png" alt="gfg" width="389" height="283" />
+            <p class="wp-caption-text">Add &lsquo;b&rsquo; in the postfix</p>
+            </div>
+            <p dir="ltr"><strong>4th Step:</strong>&nbsp;Now i = 3 and exp[i] = &lsquo;*&rsquo; i.e., an operator. Push this into the stack.&nbsp;<strong>postfix = &ldquo;ab&rdquo;</strong>&nbsp;and&nbsp;<strong>stack = {+, *}</strong>.</p>
+            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230307170023/post4drawio.png" alt="Push '*' in the stack" width="342" height="249" />
+            <p class="wp-caption-text">Push &lsquo;*&rsquo; in the stack</p>
+            </div>
+            <p dir="ltr"><strong>5th Step:</strong>&nbsp;Now i = 4 and exp[i] = &lsquo;c&rsquo; i.e., an operand. Add this in the postfix expression.&nbsp;<strong>postfix = &ldquo;abc&rdquo;</strong>&nbsp;and&nbsp;<strong>stack = {+, *}</strong>.</p>
+            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230307170058/post5drawio.png" alt="Add 'c' in the postfix" width="389" height="283" />
+            <p class="wp-caption-text">Add &lsquo;c&rsquo; in the postfix</p>
+            </div>
+            <p dir="ltr"><strong>6th Step:</strong>&nbsp;Now i = 5 and exp[i] = &lsquo;+&rsquo; i.e., an operator. The topmost element of the stack has higher precedence. So pop until the stack becomes empty or the top element has less precedence. &lsquo;*&rsquo; is popped and added in postfix. So&nbsp;<strong>postfix = &ldquo;abc*&rdquo;</strong>&nbsp;and&nbsp;<strong>stack = {+}</strong>.&nbsp;</p>
+            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230307170146/post6drawio.png" alt="Pop '*' and add in postfix" width="387" height="282" />
+            <p class="wp-caption-text">Pop &lsquo;*&rsquo; and add in postfix</p>
+            </div>
+            <p dir="ltr">Now top element is &lsquo;<strong>+</strong>&lsquo; that also doesn&rsquo;t have less precedence. Pop it.&nbsp;<strong>postfix = &ldquo;abc*+&rdquo;</strong>.&nbsp;</p>
+            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230307170244/post7drawio.png" alt="Pop '+' and add it in postfix" width="441" height="inherit" />
+            <p class="wp-caption-text">Pop &lsquo;+&rsquo; and add it in postfix</p>
+            </div>
+            <p dir="ltr">Now stack is empty. So push&nbsp;<strong>&lsquo;+&rsquo;</strong>&nbsp;in the stack.&nbsp;<strong>stack = {+}</strong>.</p>
+            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230307170320/post8drawio.png" alt="Push '+' in the stack" width="441" height="inherit" />
+            <p class="wp-caption-text">Push &lsquo;+&rsquo; in the stack</p>
+            </div>
+            <p dir="ltr"><strong>7th Step:</strong>&nbsp;Now i = 6 and exp[i] = &lsquo;d&rsquo; i.e., an operand. Add this in the postfix expression.&nbsp;<strong>postfix = &ldquo;abc*+d&rdquo;</strong>.</p>
+            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230307170357/post9drawio.png" alt="Add 'd' in the postfix" width="441" height="inherit" />
+            <p class="wp-caption-text">Add &lsquo;d&rsquo; in the postfix</p>
+            </div>
+            <p dir="ltr"><strong>Final Step:</strong>&nbsp;Now no element is left. So empty the stack and add it in the postfix expression.&nbsp;<strong>postfix = &ldquo;abc*+d+&rdquo;</strong>.</p>
+            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230307170429/post10drawio.png" alt="Pop '+' and add it in postfix" width="441" height="inherit" /></div>
+            </blockquote>
+            </div>
+            </div>
+            </div>
+            </div>
+            <div class="gray">
+                <p>#include &lt;stdio.h&gt;<br />#include &lt;stdlib.h&gt;<br />#include &lt;string.h&gt;</p>
+                <p>// Function to return precedence of operators<br />int prec(char c) {<br />if (c == '^')<br />return 3;<br />else if (c == '/' || c == '*')<br />return 2;<br />else if (c == '+' || c == '-')<br />return 1;<br />else<br />return -1;<br />}</p>
+                <p>// Function to return associativity of operators<br />char associativity(char c) {<br />if (c == '^')<br />return 'R';<br />return 'L'; // Default to left-associative<br />}</p>
+                <p>// The main function to convert infix expression to postfix expression<br />void infixToPostfix(char s[]) {<br />char result[1000];<br />int resultIndex = 0;<br />int len = strlen(s);<br />char stack[1000];<br />int stackIndex = -1;</p>
+                <p>for (int i = 0; i &lt; len; i++) {<br />char c = s[i];</p>
+                <p>// If the scanned character is an operand, add it to the output string.<br />if ((c &gt;= 'a' &amp;&amp; c &lt;= 'z') || (c &gt;= 'A' &amp;&amp; c &lt;= 'Z') || (c &gt;= '0' &amp;&amp; c &lt;= '9')) {<br />result[resultIndex++] = c;<br />}<br />// If the scanned character is an &lsquo;(&lsquo;, push it to the stack.<br />else if (c == '(') {<br />stack[++stackIndex] = c;<br />}<br />// If the scanned character is an &lsquo;)&rsquo;, pop and add to the output string from the stack<br />// until an &lsquo;(&lsquo; is encountered.<br />else if (c == ')') {<br />while (stackIndex &gt;= 0 &amp;&amp; stack[stackIndex] != '(') {<br />result[resultIndex++] = stack[stackIndex--];<br />}<br />stackIndex--; // Pop '('<br />}<br />// If an operator is scanned<br />else {<br />while (stackIndex &gt;= 0 &amp;&amp; (prec(s[i]) &lt; prec(stack[stackIndex]) ||<br />prec(s[i]) == prec(stack[stackIndex]) &amp;&amp;<br />associativity(s[i]) == 'L')) {<br />result[resultIndex++] = stack[stackIndex--];<br />}<br />stack[++stackIndex] = c;<br />}<br />}</p>
+                <p>// Pop all the remaining elements from the stack<br />while (stackIndex &gt;= 0) {<br />result[resultIndex++] = stack[stackIndex--];<br />}</p>
+                <p>result[resultIndex] = '\0';<br />printf("%s\n", result);<br />}</p>
+                <p>// Driver code<br />int main() {<br />char exp[] = "a+b*(c^d-e)^(f+g*h)-i";</p>
+                <p>// Function call<br />infixToPostfix(exp);</p>
+                <p>return 0;<br />}</p>
+                
+                <div>
+</body>
+</html>

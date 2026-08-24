@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Gate Master</string>
+    <string name="title_activity_cources">Courses</string>
+    <string name="action_settings">Settings</string>
+    <string name="aptitude">General Aptitude</string>
+    <string name="maths">Engineering Mathematics</string>
+    <string name="os">Operating System</string>
+    <string name="toc">Theory Of Computation</string>
+    <string name="dbms">Database Management System</string>
+    <string name="cn">Computer Networks</string>
+    <string name="ds">Data Structures</string>
+    <string name="cd">Compiler Design</string>
+    <string name="Algo">Algorithms</string>
+    <string name="cao">Computer Architecture and Organisation</string>
+    <string name="dl">Digital Logic</string>
+    <string name="Shortnotes">Short Notes</string>
+    <string name="Mocktest">Mock Test</string>
+    <string name="arrow">></string>
+    <string name="Probability">Probability and Statistics</string>
+    <string name="Algebra">Linear Algebra</string>
+    <string name="Calculus">Calculus and Optimization</string>
+    <string name="Ml">Machine Learning</string>
+    <string name="Ai">Artificial Intelligence</string>
+    <string name="_1">1.</string>
+    <string name="_2">2.</string>
+    <string name="_4">4.</string>
+    <string name="cse_cources">CSE Courses</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="title_activity_toc_into_toc">toc_into_toc</string>
+
+</resources>

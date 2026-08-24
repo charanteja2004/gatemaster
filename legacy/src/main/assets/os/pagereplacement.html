@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Applications of various Automata</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+<h2><b>Page Replacement Algorithms in Operating Systems</b></h2>
+
+<p>In an operating system that uses paging for memory management, a page replacement algorithm is needed to decide which page needs to be replaced when a new page comes in. Page replacement becomes necessary when a page fault occurs and there are no free page frames in memory. However, another page fault would arise if the replaced page is referenced again. Hence it is important to replace a page that is not likely to be referenced in the immediate future. If no page frame is free, the virtual memory manager performs a page replacement operation to replace one of the pages existing in memory with the page whose reference caused the page fault. It is performed as follows: The virtual memory manager uses a page replacement algorithm to select one of the pages currently in memory for replacement, accesses the page table entry of the selected page to mark it as “not present” in memory, and initiates a page-out operation for it if the modified bit of its page table entry indicates that it is a dirty page.<br><br>
+
+    <b>Page Fault:</b> A page fault happens when a running program accesses a memory page that is mapped into the virtual address space but not loaded in physical memory. Since actual physical memory is much smaller than virtual memory, page faults happen. In case of a page fault, Operating System might have to replace one of the existing pages with the newly needed page. Different page replacement algorithms suggest different ways to decide which page to replace. The target for all algorithms is to reduce the number of page faults.<br><br>
+
+<h4><b>Page Replacement Algorithms:</b></h4>
+<b>1. First In First Out (FIFO):</b> This is the simplest page replacement algorithm. In this algorithm, the operating system keeps track of all pages in the memory in a queue, the oldest page is in the front of the queue. When a page needs to be replaced page in the front of the queue is selected for removal.<br><br>
+
+<b>Example 1:</b> Consider page reference string 1, 3, 0, 3, 5, 6, 3 with 3 page frames.Find the number of page faults. <br><br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20190412160604/fifo2.png" width="350" height="300"><br><br>
+
+
+Initially, all slots are empty, so when 1, 3, 0 came they are allocated to the empty slots —> 3 <b>Page Faults.</b><bR><br>
+
+when 3 comes, it is already in memory so —> <b>0 Page Faults.</b> Then 5 comes, it is not available in memory so it replaces the oldest page slot i.e 1. —><b>1 Page Fault.</b> 6 comes, it is also not available in memory so it replaces the oldest page slot i.e 3 —><b>1 Page Fault</b>. Finally, when 3 come it is not available so it replaces 0<b> 1 page fault.</b><br><br>
+
+<b><u>Belady’s anomaly</u></b> proves that it is possible to have more page faults when increasing the number of page frames while using the First in First Out (FIFO) page replacement algorithm.  For example, if we consider reference strings 3, 2, 1, 0, 3, 2, 4, 3, 2, 1, 0, 4, and 3 slots, we get 9 total page faults, but if we increase slots to 4, we get 10-page faults.<br><br>
+
+<b>2. Optimal Page replacement:</b> In this algorithm, pages are replaced which would not be used for the longest duration of time in the future.<br><br>
+
+<b>Example-2:</b> Consider the page references 7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2, 3 with 4 page frame. Find number of page fault.<br><br>
+
+<img src=" https://media.geeksforgeeks.org/wp-content/uploads/20190412160500/optimal.png" width="350" height="300"><br><br>
+
+
+
+
+nitially, all slots are empty, so when 7 0 1 2 are allocated to the empty slots —><b> 4 Page faults </b><br><br>
+0 is already there so —><b> 0 Page fault.</b> when 3 came it will take the place of 7 because it is not used for the longest duration of time in the future.—><b>1 Page fault.</b> 0 is already there so —> <b>0 Page fault.</b> 4 will takes place of 1 —><b> 1 Page Fault.</b><br><br>
+
+Now for the further page reference string —><b> 0 Page fault</b> because they are already available in the memory. <br><br>
+
+Optimal page replacement is perfect, but not possible in practice as the operating system cannot know future requests. The use of Optimal Page replacement is to set up a benchmark so that other replacement algorithms can be analyzed against it.<br><br>
+
+<b>3. Least Recently Used:</b> In this algorithm, page will be replaced which is least recently used. <br><br>
+
+<b>Example-3:</b> Consider the page reference string 7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2, 3 with 4 page frames. Find number of page faults.<br><br>
+
+<img src=" https://media.geeksforgeeks.org/wp-content/uploads/20190412161533/optimal2.png" width="350" height="300"><br><br>
+
+
+
+Initially, all slots are empty, so when 7 0 1 2 are allocated to the empty slots —> <b>4 Page faults</b><br><br>
+0 is already their so —> <b>0 Page fault.</b> when 3 came it will take the place of 7 because it is least recently used —><b>1 Page fault </b><br><br>
+0 is already in memory so —> <b>0 Page fault.</b><br><br>
+4 will takes place of 1 —> <b>1 Page Fault </b><br><br>
+Now for the further page reference string —><b> 0 Page fault </b>because they are already available in the memory.<br><br>
+
+<b>4. Most Recently Used (MRU):</b> In this algorithm, page will be replaced which has been used recently. Belady’s anomaly can occur in this algorithm.<br><br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20230519223827/finL.png" width="350" height="300"><br><br>
+
+<p>Initially, all slots are empty, so when 7 0 1 2 are allocated to the empty slots —> <b>4 Page faults</b> <br><br>
+
+0 is already their so–><b> 0 page fault</b><br>
+
+when 3 comes it will take place of 0 because it is most recently used —><b>1 Page fault</b><br>
+
+when 0 comes it will take place of 3  —><b>1 Page fault</b><br>
+
+when 4 comes it will take place of 0  —><b>1 Page fault </b><br>
+
+2 is already in memory so —> <b>0 Page fault</b><br>
+
+when 3 comes it will take place of 2  —><b>1 Page fault</b><br>
+
+when 0 comes it will take place of 3  —><b>1 Page fault</b><br>
+
+when 3 comes it will take place of 0  —><b>1 Page fault</b><br>
+
+when 2 comes it will take place of 3  —><b>1 Page fault</b><br>
+
+when 3 comes it will take place of 2  —><b>1 Page fault</b></p><br><br>
+</body>
+</html>

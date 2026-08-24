@@ -1,0 +1,2556 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-24T05:46:50Z",
+  "subjects": [
+    {
+      "id": "aptitude",
+      "name": "General Aptitude",
+      "shortName": "GA",
+      "weightage": 15,
+      "order": 0,
+      "topics": [
+        {
+          "id": "aptitude_quantitative",
+          "title": "Quantitative Aptitude",
+          "order": 0,
+          "content": {
+            "type": "html",
+            "path": "aptitude/quantitative.html"
+          }
+        },
+        {
+          "id": "aptitude_numbers",
+          "title": "Numbers Definition",
+          "order": 1,
+          "content": {
+            "type": "html",
+            "path": "aptitude/numbers.html"
+          }
+        },
+        {
+          "id": "aptitude_percentage",
+          "title": "Percentages",
+          "order": 2,
+          "content": {
+            "type": "html",
+            "path": "aptitude/percentage.html"
+          }
+        },
+        {
+          "id": "aptitude_profit",
+          "title": "Profit & Loss",
+          "order": 3,
+          "content": {
+            "type": "html",
+            "path": "aptitude/profit.html"
+          }
+        },
+        {
+          "id": "aptitude_simple_intrest",
+          "title": "Simple Interest Definition",
+          "order": 4,
+          "content": {
+            "type": "html",
+            "path": "aptitude/simple_intrest.html"
+          }
+        },
+        {
+          "id": "aptitude_progression",
+          "title": "Arithmetic Progression (AP)",
+          "order": 5,
+          "content": {
+            "type": "html",
+            "path": "aptitude/progression.html"
+          }
+        },
+        {
+          "id": "aptitude_speed",
+          "title": "Speed, Time, and Distance Concepts",
+          "order": 6,
+          "content": {
+            "type": "html",
+            "path": "aptitude/speed.html"
+          }
+        },
+        {
+          "id": "aptitude_work",
+          "title": "Fundamental Concepts and Formulas for Work and Wages",
+          "order": 7,
+          "content": {
+            "type": "html",
+            "path": "aptitude/work.html"
+          }
+        },
+        {
+          "id": "aptitude_pipes",
+          "title": "Pipes and Cisterns Concept",
+          "order": 8,
+          "content": {
+            "type": "html",
+            "path": "aptitude/pipes.html"
+          }
+        },
+        {
+          "id": "aptitude_clock",
+          "title": "Clocks Formulas and Concepts",
+          "order": 9,
+          "content": {
+            "type": "html",
+            "path": "aptitude/clock.html"
+          }
+        },
+        {
+          "id": "aptitude_probability",
+          "title": "Probability Formulas",
+          "order": 10,
+          "content": {
+            "type": "html",
+            "path": "aptitude/probability.html"
+          }
+        },
+        {
+          "id": "aptitude_2d",
+          "title": "Data Interpretation",
+          "order": 11,
+          "content": {
+            "type": "html",
+            "path": "aptitude/2d.html"
+          }
+        },
+        {
+          "id": "aptitude_puzzle",
+          "title": "What is a Puzzle?",
+          "order": 12,
+          "content": {
+            "type": "html",
+            "path": "aptitude/puzzle.html"
+          }
+        },
+        {
+          "id": "aptitude_seating_arrangement",
+          "title": "Seating Arrangement",
+          "order": 13,
+          "content": {
+            "type": "html",
+            "path": "aptitude/Seating_Arrangement.html"
+          }
+        },
+        {
+          "id": "aptitude_order",
+          "title": "Ranking & Order",
+          "order": 14,
+          "content": {
+            "type": "html",
+            "path": "aptitude/Order.html"
+          }
+        },
+        {
+          "id": "aptitude_inequality_reasoning",
+          "title": "Types of Inequality",
+          "order": 15,
+          "content": {
+            "type": "html",
+            "path": "aptitude/Inequality_Reasoning.html"
+          }
+        },
+        {
+          "id": "aptitude_alphanumeric",
+          "title": "Alphanumeric Series Reasoning Questions and Answers",
+          "order": 16,
+          "content": {
+            "type": "html",
+            "path": "aptitude/alphanumeric.html"
+          }
+        },
+        {
+          "id": "aptitude_verbal",
+          "title": "Verbal Ability",
+          "order": 17,
+          "content": {
+            "type": "html",
+            "path": "aptitude/verbal.html"
+          }
+        },
+        {
+          "id": "aptitude_grammer",
+          "title": "Grammar Basics",
+          "order": 18,
+          "content": {
+            "type": "html",
+            "path": "aptitude/grammer.html"
+          }
+        },
+        {
+          "id": "aptitude_article",
+          "title": "Articles",
+          "order": 19,
+          "content": {
+            "type": "html",
+            "path": "aptitude/article.html"
+          }
+        },
+        {
+          "id": "aptitude_determiners",
+          "title": "Types of Determiners",
+          "order": 20,
+          "content": {
+            "type": "html",
+            "path": "aptitude/Determiners.html"
+          }
+        },
+        {
+          "id": "aptitude_modifiers",
+          "title": "Modifiers",
+          "order": 21,
+          "content": {
+            "type": "html",
+            "path": "aptitude/Modifiers.html"
+          }
+        },
+        {
+          "id": "aptitude_passive",
+          "title": "Active and Passive Voice Rules Chart",
+          "order": 22,
+          "content": {
+            "type": "html",
+            "path": "aptitude/passive.html"
+          }
+        },
+        {
+          "id": "aptitude_agreement",
+          "title": "Subject-Verb Agreement",
+          "order": 23,
+          "content": {
+            "type": "html",
+            "path": "aptitude/agreement.html"
+          }
+        },
+        {
+          "id": "aptitude_verbal_analog",
+          "title": "What is a Verbal Analogy Test?",
+          "order": 24,
+          "content": {
+            "type": "html",
+            "path": "aptitude/verbal_analog.html"
+          }
+        },
+        {
+          "id": "aptitude_paragraph",
+          "title": "Reading Comprehension",
+          "order": 25,
+          "content": {
+            "type": "html",
+            "path": "aptitude/paragraph.html"
+          }
+        }
+      ],
+      "referenceNotes": [],
+      "shortNotes": null
+    },
+    {
+      "id": "maths",
+      "name": "Engineering Mathematics",
+      "shortName": "Math",
+      "weightage": 13,
+      "order": 1,
+      "topics": [],
+      "referenceNotes": [
+        {
+          "id": "maths_pdf_calculus",
+          "title": "Calculus",
+          "order": 0,
+          "sizeBytes": 608196,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/calculus.pdf"
+          }
+        },
+        {
+          "id": "maths_pdf_linear_algebra",
+          "title": "Linear Algebra",
+          "order": 1,
+          "sizeBytes": 289102,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/linear algebra.pdf"
+          }
+        },
+        {
+          "id": "maths_pdf_differentialeqyation",
+          "title": "Differential Equations",
+          "order": 2,
+          "sizeBytes": 448260,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/differentialeqyation.pdf"
+          }
+        },
+        {
+          "id": "maths_pdf_partial_differential_equations",
+          "title": "Partial Differential Equations",
+          "order": 3,
+          "sizeBytes": 266803,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/partial differential equations.pdf"
+          }
+        },
+        {
+          "id": "maths_pdf_probability_and_statistics",
+          "title": "Probability & Statistics",
+          "order": 4,
+          "sizeBytes": 499470,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/probability and statistics.pdf"
+          }
+        },
+        {
+          "id": "maths_pdf_numerical_methods",
+          "title": "Numerical Methods",
+          "order": 5,
+          "sizeBytes": 417103,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/numerical methods.pdf"
+          }
+        }
+      ],
+      "shortNotes": {
+        "type": "html",
+        "path": "shortnotes/math.html"
+      }
+    },
+    {
+      "id": "ds",
+      "name": "Programming & Data Structures",
+      "shortName": "PDS",
+      "weightage": 12,
+      "order": 2,
+      "topics": [
+        {
+          "id": "ds_introtoc",
+          "title": "Data Structures and Algorithms",
+          "order": 0,
+          "content": {
+            "type": "html",
+            "path": "ds/introtoC.html"
+          }
+        },
+        {
+          "id": "ds_data_types",
+          "title": "Data Types in C",
+          "order": 1,
+          "content": {
+            "type": "html",
+            "path": "ds/data types.html"
+          }
+        },
+        {
+          "id": "ds_operators",
+          "title": "Operators in C",
+          "order": 2,
+          "content": {
+            "type": "html",
+            "path": "ds/operators.html"
+          }
+        },
+        {
+          "id": "ds_typecasting",
+          "title": "C- TypeCasting",
+          "order": 3,
+          "content": {
+            "type": "html",
+            "path": "ds/typecasting.html"
+          }
+        },
+        {
+          "id": "ds_decision_making",
+          "title": "Decision Making in C",
+          "order": 4,
+          "content": {
+            "type": "html",
+            "path": "ds/decision making.html"
+          }
+        },
+        {
+          "id": "ds_loops",
+          "title": "Loops",
+          "order": 5,
+          "content": {
+            "type": "html",
+            "path": "ds/loops.html"
+          }
+        },
+        {
+          "id": "ds_functions",
+          "title": "Functions",
+          "order": 6,
+          "content": {
+            "type": "html",
+            "path": "ds/functions.html"
+          }
+        },
+        {
+          "id": "ds_recursion",
+          "title": "Recursion",
+          "order": 7,
+          "content": {
+            "type": "html",
+            "path": "ds/recursion.html"
+          }
+        },
+        {
+          "id": "ds_fibonachi",
+          "title": "Fibonacci Series",
+          "order": 8,
+          "content": {
+            "type": "html",
+            "path": "ds/fibonachi.html"
+          }
+        },
+        {
+          "id": "ds_pointers",
+          "title": "Pointers",
+          "order": 9,
+          "content": {
+            "type": "html",
+            "path": "ds/pointers.html"
+          }
+        },
+        {
+          "id": "ds_array",
+          "title": "Array",
+          "order": 10,
+          "content": {
+            "type": "html",
+            "path": "ds/array.html"
+          }
+        },
+        {
+          "id": "ds_strings",
+          "title": "Strings",
+          "order": 11,
+          "content": {
+            "type": "html",
+            "path": "ds/strings.html"
+          }
+        },
+        {
+          "id": "ds_struct",
+          "title": "Structures, Unions and Enumerations",
+          "order": 12,
+          "content": {
+            "type": "html",
+            "path": "ds/struct.html"
+          }
+        },
+        {
+          "id": "ds_ll",
+          "title": "Linked List Notes for GATE Exam [2024]",
+          "order": 13,
+          "content": {
+            "type": "html",
+            "path": "ds/ll.html"
+          }
+        },
+        {
+          "id": "ds_sll",
+          "title": "Singly Linked List",
+          "order": 14,
+          "content": {
+            "type": "html",
+            "path": "ds/sll.html"
+          }
+        },
+        {
+          "id": "ds_stack",
+          "title": "Stack",
+          "order": 15,
+          "content": {
+            "type": "html",
+            "path": "ds/stack.html"
+          }
+        },
+        {
+          "id": "ds_infixtopostfix",
+          "title": "Convert Infix expression to Postfix expression",
+          "order": 16,
+          "content": {
+            "type": "html",
+            "path": "ds/infixtopostfix.html"
+          }
+        },
+        {
+          "id": "ds_queue",
+          "title": "Queue",
+          "order": 17,
+          "content": {
+            "type": "html",
+            "path": "ds/queue.html"
+          }
+        },
+        {
+          "id": "ds_circularqueue",
+          "title": "Circular Queue",
+          "order": 18,
+          "content": {
+            "type": "html",
+            "path": "ds/circularqueue.html"
+          }
+        },
+        {
+          "id": "ds_priorityqueue",
+          "title": "What is Priority Queue",
+          "order": 19,
+          "content": {
+            "type": "html",
+            "path": "ds/priorityqueue.html"
+          }
+        },
+        {
+          "id": "ds_trees",
+          "title": "Trees",
+          "order": 20,
+          "content": {
+            "type": "html",
+            "path": "ds/trees.html"
+          }
+        },
+        {
+          "id": "ds_heap",
+          "title": "Heaps",
+          "order": 21,
+          "content": {
+            "type": "html",
+            "path": "ds/heap.html"
+          }
+        },
+        {
+          "id": "ds_graphs",
+          "title": "Graphs",
+          "order": 22,
+          "content": {
+            "type": "html",
+            "path": "ds/graphs.html"
+          }
+        }
+      ],
+      "referenceNotes": [
+        {
+          "id": "ds_pdf_programming_in_c",
+          "title": "Programming in C",
+          "order": 0,
+          "sizeBytes": 313498,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/programming in C.pdf"
+          }
+        },
+        {
+          "id": "ds_pdf_arrays_pointers_and_structures",
+          "title": "Arrays, Pointers & Structures",
+          "order": 1,
+          "sizeBytes": 284210,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/arrays pointers and structures.pdf"
+          }
+        },
+        {
+          "id": "ds_pdf_linked_lists_and_stacked_queues",
+          "title": "Linked Lists, Stacks & Queues",
+          "order": 2,
+          "sizeBytes": 256238,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/linked lists and stacked queues .pdf"
+          }
+        },
+        {
+          "id": "ds_pdf_trees",
+          "title": "Trees",
+          "order": 3,
+          "sizeBytes": 306099,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/trees.pdf"
+          }
+        }
+      ],
+      "shortNotes": {
+        "type": "html",
+        "path": "shortnotes/dataStructure.html"
+      }
+    },
+    {
+      "id": "os",
+      "name": "Operating Systems",
+      "shortName": "OS",
+      "weightage": 9,
+      "order": 3,
+      "topics": [
+        {
+          "id": "os_os_basic1",
+          "title": "operating system",
+          "order": 0,
+          "content": {
+            "type": "html",
+            "path": "os/os_basic1.html"
+          }
+        },
+        {
+          "id": "os_types",
+          "title": "Types of Operating Systems",
+          "order": 1,
+          "content": {
+            "type": "html",
+            "path": "os/types.html"
+          }
+        },
+        {
+          "id": "os_structure",
+          "title": "Operating-System Structure",
+          "order": 2,
+          "content": {
+            "type": "html",
+            "path": "os/structure.html"
+          }
+        },
+        {
+          "id": "os_systemcalls",
+          "title": "Introduction to System Call",
+          "order": 3,
+          "content": {
+            "type": "html",
+            "path": "os/systemCalls.html"
+          }
+        },
+        {
+          "id": "os_process",
+          "title": "Process",
+          "order": 4,
+          "content": {
+            "type": "html",
+            "path": "os/process.html"
+          }
+        },
+        {
+          "id": "os_pcb",
+          "title": "What is Process Control Block(PCB)?",
+          "order": 5,
+          "content": {
+            "type": "html",
+            "path": "os/pcb.html"
+          }
+        },
+        {
+          "id": "os_processstate",
+          "title": "Process State",
+          "order": 6,
+          "content": {
+            "type": "html",
+            "path": "os/processState.html"
+          }
+        },
+        {
+          "id": "os_contactswitching",
+          "title": "Context Switch",
+          "order": 7,
+          "content": {
+            "type": "html",
+            "path": "os/contactSwitching.html"
+          }
+        },
+        {
+          "id": "os_multitasking",
+          "title": "Multitasking Operating System",
+          "order": 8,
+          "content": {
+            "type": "html",
+            "path": "os/multitasking.html"
+          }
+        },
+        {
+          "id": "os_cs",
+          "title": "Race Condition",
+          "order": 9,
+          "content": {
+            "type": "html",
+            "path": "os/cs.html"
+          }
+        },
+        {
+          "id": "os_preemptive",
+          "title": "Preemptive Scheduling",
+          "order": 10,
+          "content": {
+            "type": "html",
+            "path": "os/preemptive.html"
+          }
+        },
+        {
+          "id": "os_fcfs",
+          "title": "First Come First Serve – CPU Scheduling",
+          "order": 11,
+          "content": {
+            "type": "html",
+            "path": "os/fcfs.html"
+          }
+        },
+        {
+          "id": "os_sjf",
+          "title": "Shortest Job First (SJF)",
+          "order": 12,
+          "content": {
+            "type": "html",
+            "path": "os/sjf.html"
+          }
+        },
+        {
+          "id": "os_ljf",
+          "title": "Longest Job First (LJF) CPU Scheduling Algorithm",
+          "order": 13,
+          "content": {
+            "type": "html",
+            "path": "os/ljf.html"
+          }
+        },
+        {
+          "id": "os_lrtf",
+          "title": "Longest Remaining Time First (LRTF)",
+          "order": 14,
+          "content": {
+            "type": "html",
+            "path": "os/lrtf.html"
+          }
+        },
+        {
+          "id": "os_rr",
+          "title": "Round Robin Scheduling with different arrival times",
+          "order": 15,
+          "content": {
+            "type": "html",
+            "path": "os/rr.html"
+          }
+        },
+        {
+          "id": "os_priority",
+          "title": "Priority Scheduling",
+          "order": 16,
+          "content": {
+            "type": "html",
+            "path": "os/priority.html"
+          }
+        },
+        {
+          "id": "os_hrrn",
+          "title": "Highest Response Ratio Next (HRRN) CPU Scheduling",
+          "order": 17,
+          "content": {
+            "type": "html",
+            "path": "os/hrrn.html"
+          }
+        },
+        {
+          "id": "os_mq",
+          "title": "Multilevel Queue (MLQ) CPU Scheduling",
+          "order": 18,
+          "content": {
+            "type": "html",
+            "path": "os/mq.html"
+          }
+        },
+        {
+          "id": "os_ipc",
+          "title": "Inter Process Communication (IPC)",
+          "order": 19,
+          "content": {
+            "type": "html",
+            "path": "os/ipc.html"
+          }
+        },
+        {
+          "id": "os_semaphores",
+          "title": "Semaphores",
+          "order": 20,
+          "content": {
+            "type": "html",
+            "path": "os/semaphores.html"
+          }
+        },
+        {
+          "id": "os_pcproblem",
+          "title": "Producer Consumer Problem using Semaphores",
+          "order": 21,
+          "content": {
+            "type": "html",
+            "path": "os/pcproblem.html"
+          }
+        },
+        {
+          "id": "os_rwproblem",
+          "title": "The Readers –Writers Problem",
+          "order": 22,
+          "content": {
+            "type": "html",
+            "path": "os/rwproblem.html"
+          }
+        },
+        {
+          "id": "os_dpproblem",
+          "title": "The Dining-Philosophers Problem",
+          "order": 23,
+          "content": {
+            "type": "html",
+            "path": "os/dpproblem.html"
+          }
+        },
+        {
+          "id": "os_dead",
+          "title": "Deadlock",
+          "order": 24,
+          "content": {
+            "type": "html",
+            "path": "os/dead.html"
+          }
+        },
+        {
+          "id": "os_resource",
+          "title": "Resource-Allocation Graph",
+          "order": 25,
+          "content": {
+            "type": "html",
+            "path": "os/resource.html"
+          }
+        },
+        {
+          "id": "os_detection",
+          "title": "Deadlock Detection",
+          "order": 26,
+          "content": {
+            "type": "html",
+            "path": "os/detection.html"
+          }
+        },
+        {
+          "id": "os_bankers",
+          "title": "Banker’s Algorithm",
+          "order": 27,
+          "content": {
+            "type": "html",
+            "path": "os/bankers.html"
+          }
+        },
+        {
+          "id": "os_methods",
+          "title": "Methods for Handling Deadlocks",
+          "order": 28,
+          "content": {
+            "type": "html",
+            "path": "os/methods.html"
+          }
+        },
+        {
+          "id": "os_memorymanagement",
+          "title": "Memory Management",
+          "order": 29,
+          "content": {
+            "type": "html",
+            "path": "os/memoryManagement.html"
+          }
+        },
+        {
+          "id": "os_swapping",
+          "title": "Swapping",
+          "order": 30,
+          "content": {
+            "type": "html",
+            "path": "os/swapping.html"
+          }
+        },
+        {
+          "id": "os_pageing",
+          "title": "Paging",
+          "order": 31,
+          "content": {
+            "type": "html",
+            "path": "os/pageing.html"
+          }
+        },
+        {
+          "id": "os_segmentation",
+          "title": "Segmentation",
+          "order": 32,
+          "content": {
+            "type": "html",
+            "path": "os/segmentation.html"
+          }
+        },
+        {
+          "id": "os_pagereplacement",
+          "title": "Page Replacement Algorithms in Operating Systems",
+          "order": 33,
+          "content": {
+            "type": "html",
+            "path": "os/pagereplacement.html"
+          }
+        },
+        {
+          "id": "os_vm",
+          "title": "Virtual Memory",
+          "order": 34,
+          "content": {
+            "type": "html",
+            "path": "os/vm.html"
+          }
+        },
+        {
+          "id": "os_swappingtrashing",
+          "title": "Swapping",
+          "order": 35,
+          "content": {
+            "type": "html",
+            "path": "os/swappingTrashing.html"
+          }
+        },
+        {
+          "id": "os_discmanagement",
+          "title": "Disk Management",
+          "order": 36,
+          "content": {
+            "type": "html",
+            "path": "os/discmanagement.html"
+          }
+        },
+        {
+          "id": "os_discscheduling",
+          "title": "Disk Scheduling Algorithms",
+          "order": 37,
+          "content": {
+            "type": "html",
+            "path": "os/discscheduling.html"
+          }
+        }
+      ],
+      "referenceNotes": [],
+      "shortNotes": {
+        "type": "html",
+        "path": "shortnotes/os.html"
+      }
+    },
+    {
+      "id": "algo",
+      "name": "Algorithms",
+      "shortName": "Algo",
+      "weightage": 8,
+      "order": 4,
+      "topics": [
+        {
+          "id": "algo_algorithms",
+          "title": "Introduction to Algorithms",
+          "order": 0,
+          "content": {
+            "type": "html",
+            "path": "algo/algorithms.html"
+          }
+        },
+        {
+          "id": "algo_asymptotic",
+          "title": "Asymptotic Notations",
+          "order": 1,
+          "content": {
+            "type": "html",
+            "path": "algo/asymptotic.html"
+          }
+        },
+        {
+          "id": "algo_search",
+          "title": "Searching Algorithms",
+          "order": 2,
+          "content": {
+            "type": "html",
+            "path": "algo/search.html"
+          }
+        },
+        {
+          "id": "algo_binearysearch",
+          "title": "Binary Search Algorithm",
+          "order": 3,
+          "content": {
+            "type": "html",
+            "path": "algo/binearysearch.html"
+          }
+        },
+        {
+          "id": "algo_sort",
+          "title": "Sorting Algorithms",
+          "order": 4,
+          "content": {
+            "type": "html",
+            "path": "algo/sort.html"
+          }
+        },
+        {
+          "id": "algo_bubblesort",
+          "title": "Bubble Sort",
+          "order": 5,
+          "content": {
+            "type": "html",
+            "path": "algo/bubblesort.html"
+          }
+        },
+        {
+          "id": "algo_selectionsort",
+          "title": "Selection Sort",
+          "order": 6,
+          "content": {
+            "type": "html",
+            "path": "algo/selectionsort.html"
+          }
+        },
+        {
+          "id": "algo_insertionsort",
+          "title": "Insertion Sort",
+          "order": 7,
+          "content": {
+            "type": "html",
+            "path": "algo/insertionsort.html"
+          }
+        },
+        {
+          "id": "algo_mergesort",
+          "title": "Merge Sort",
+          "order": 8,
+          "content": {
+            "type": "html",
+            "path": "algo/mergesort.html"
+          }
+        },
+        {
+          "id": "algo_quicksort",
+          "title": "Time and Space Complexity Analysis of Quick Sort",
+          "order": 9,
+          "content": {
+            "type": "html",
+            "path": "algo/quicksort.html"
+          }
+        },
+        {
+          "id": "algo_heapsort",
+          "title": "Heap Sort",
+          "order": 10,
+          "content": {
+            "type": "html",
+            "path": "algo/heapsort.html"
+          }
+        },
+        {
+          "id": "algo_countsort",
+          "title": "Counting Sort",
+          "order": 11,
+          "content": {
+            "type": "html",
+            "path": "algo/countsort.html"
+          }
+        },
+        {
+          "id": "algo_radixsort",
+          "title": "Radix Sort Algorithm",
+          "order": 12,
+          "content": {
+            "type": "html",
+            "path": "algo/radixsort.html"
+          }
+        },
+        {
+          "id": "algo_bucketsort",
+          "title": "Bucket Sort",
+          "order": 13,
+          "content": {
+            "type": "html",
+            "path": "algo/bucketsort.html"
+          }
+        },
+        {
+          "id": "algo_divide_conq",
+          "title": "Divide & Conquer",
+          "order": 14,
+          "content": {
+            "type": "html",
+            "path": "algo/divide&conq.html"
+          }
+        },
+        {
+          "id": "algo_greedyalg",
+          "title": "Greedy Algorithm",
+          "order": 15,
+          "content": {
+            "type": "html",
+            "path": "algo/greedyalg.html"
+          }
+        },
+        {
+          "id": "algo_huffman",
+          "title": "Huffman Coding",
+          "order": 16,
+          "content": {
+            "type": "html",
+            "path": "algo/huffman.html"
+          }
+        },
+        {
+          "id": "algo_spanningtree",
+          "title": "Introduction to Spanning Trees",
+          "order": 17,
+          "content": {
+            "type": "html",
+            "path": "algo/spanningtree.html"
+          }
+        },
+        {
+          "id": "algo_prims",
+          "title": "Prim’s Algorithm for Minimum Spanning Tree",
+          "order": 18,
+          "content": {
+            "type": "html",
+            "path": "algo/prims.html"
+          }
+        },
+        {
+          "id": "algo_krushkalminspanningtree",
+          "title": "Kruskal’s Minimum Spanning Tree (MST) Algorithm",
+          "order": 19,
+          "content": {
+            "type": "html",
+            "path": "algo/krushkalminspanningtree.html"
+          }
+        },
+        {
+          "id": "algo_dijasthras",
+          "title": "Dijkstra’s Algorithm",
+          "order": 20,
+          "content": {
+            "type": "html",
+            "path": "algo/dijasthras.html"
+          }
+        },
+        {
+          "id": "algo_bellmenford",
+          "title": "Bellman–Ford Algorithm",
+          "order": 21,
+          "content": {
+            "type": "html",
+            "path": "algo/bellmenford.html"
+          }
+        },
+        {
+          "id": "algo_floydwarshall",
+          "title": "Floyd Warshall Algorithm",
+          "order": 22,
+          "content": {
+            "type": "html",
+            "path": "algo/floydwarshall.html"
+          }
+        },
+        {
+          "id": "algo_dynamicp",
+          "title": "Dynamic Programming",
+          "order": 23,
+          "content": {
+            "type": "html",
+            "path": "algo/dynamicp.html"
+          }
+        },
+        {
+          "id": "algo_matrixchain",
+          "title": "Matrix Chain Multiplication using Dynamic Methods",
+          "order": 24,
+          "content": {
+            "type": "html",
+            "path": "algo/matrixchain.html"
+          }
+        },
+        {
+          "id": "algo_longestcommensub",
+          "title": "Longest Common Subsequence",
+          "order": 25,
+          "content": {
+            "type": "html",
+            "path": "algo/longestcommensub.html"
+          }
+        },
+        {
+          "id": "algo_knapsack01",
+          "title": "0/1 KnapSack",
+          "order": 26,
+          "content": {
+            "type": "html",
+            "path": "algo/knapsack01.html"
+          }
+        },
+        {
+          "id": "algo_subsetproblemsum",
+          "title": "Subset Sum Problem using Recursion",
+          "order": 27,
+          "content": {
+            "type": "html",
+            "path": "algo/subsetproblemsum.html"
+          }
+        }
+      ],
+      "referenceNotes": [
+        {
+          "id": "algo_pdf_asymptotic_anyalsis",
+          "title": "Asymptotic Analysis",
+          "order": 0,
+          "sizeBytes": 430833,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/asymptotic anyalsis.pdf"
+          }
+        },
+        {
+          "id": "algo_pdf_sorting_algorithm",
+          "title": "Sorting Algorithms",
+          "order": 1,
+          "sizeBytes": 266070,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/sorting algorithm .pdf"
+          }
+        },
+        {
+          "id": "algo_pdf_divide_and_conquer",
+          "title": "Divide & Conquer",
+          "order": 2,
+          "sizeBytes": 276607,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/divide and conquer.pdf"
+          }
+        },
+        {
+          "id": "algo_pdf_greedy_approch",
+          "title": "Greedy Approach",
+          "order": 3,
+          "sizeBytes": 432831,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/greedy approch.pdf"
+          }
+        },
+        {
+          "id": "algo_pdf_dynamicprogramming",
+          "title": "Dynamic Programming",
+          "order": 4,
+          "sizeBytes": 369173,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/dynamicProgramming.pdf"
+          }
+        }
+      ],
+      "shortNotes": {
+        "type": "html",
+        "path": "shortnotes/algorithms.html"
+      }
+    },
+    {
+      "id": "dbms",
+      "name": "Databases",
+      "shortName": "DBMS",
+      "weightage": 8,
+      "order": 5,
+      "topics": [
+        {
+          "id": "dbms_introtodbms",
+          "title": "Introduction to DBMS",
+          "order": 0,
+          "content": {
+            "type": "html",
+            "path": "dbms/introtoDBMS.html"
+          }
+        },
+        {
+          "id": "dbms_independence",
+          "title": "Data Abstraction and Data Independence",
+          "order": 1,
+          "content": {
+            "type": "html",
+            "path": "dbms/independence.html"
+          }
+        },
+        {
+          "id": "dbms_12tire",
+          "title": "One-Tier & Two-Tier Architecture",
+          "order": 2,
+          "content": {
+            "type": "html",
+            "path": "dbms/12tire.html"
+          }
+        },
+        {
+          "id": "dbms_3tire",
+          "title": "Three-Tier Architecture",
+          "order": 3,
+          "content": {
+            "type": "html",
+            "path": "dbms/3tire.html"
+          }
+        },
+        {
+          "id": "dbms_introtoer",
+          "title": "Introduction to ER Model",
+          "order": 4,
+          "content": {
+            "type": "html",
+            "path": "dbms/introtoER.html"
+          }
+        },
+        {
+          "id": "dbms_recursiverelationship",
+          "title": "Recursive Relationships in ER diagrams",
+          "order": 5,
+          "content": {
+            "type": "html",
+            "path": "dbms/recursiveRelationship.html"
+          }
+        },
+        {
+          "id": "dbms_miner",
+          "title": "Minimization of ER Diagrams",
+          "order": 6,
+          "content": {
+            "type": "html",
+            "path": "dbms/miner.html"
+          }
+        },
+        {
+          "id": "dbms_keys",
+          "title": "Types of Keys in Relational Model",
+          "order": 7,
+          "content": {
+            "type": "html",
+            "path": "dbms/keys.html"
+          }
+        },
+        {
+          "id": "dbms_relationalalgebra",
+          "title": "Introduction to Relational Algebra",
+          "order": 8,
+          "content": {
+            "type": "html",
+            "path": "dbms/relationalAlgebra.html"
+          }
+        },
+        {
+          "id": "dbms_sql",
+          "title": "Structured Query Language (SQL)",
+          "order": 9,
+          "content": {
+            "type": "html",
+            "path": "dbms/sql.html"
+          }
+        },
+        {
+          "id": "dbms_typesofsql",
+          "title": "SQL Commands",
+          "order": 10,
+          "content": {
+            "type": "html",
+            "path": "dbms/typesofsql.html"
+          }
+        },
+        {
+          "id": "dbms_where",
+          "title": "SQL",
+          "order": 11,
+          "content": {
+            "type": "html",
+            "path": "dbms/where.html"
+          }
+        },
+        {
+          "id": "dbms_joins",
+          "title": "SQL Joins (Inner, Left, Right and Full Join)",
+          "order": 12,
+          "content": {
+            "type": "html",
+            "path": "dbms/joins.html"
+          }
+        },
+        {
+          "id": "dbms_objects",
+          "title": "Database Objects",
+          "order": 13,
+          "content": {
+            "type": "html",
+            "path": "dbms/objects.html"
+          }
+        },
+        {
+          "id": "dbms_functionaldependency",
+          "title": "Functional Dependency and Attribute Closure",
+          "order": 14,
+          "content": {
+            "type": "html",
+            "path": "dbms/functionaldependency.html"
+          }
+        },
+        {
+          "id": "dbms_normalization",
+          "title": "Introduction to Database Normalization",
+          "order": 15,
+          "content": {
+            "type": "html",
+            "path": "dbms/normalization.html"
+          }
+        },
+        {
+          "id": "dbms_normalforms",
+          "title": "Normal Forms",
+          "order": 16,
+          "content": {
+            "type": "html",
+            "path": "dbms/normalforms.html"
+          }
+        },
+        {
+          "id": "dbms_anomali",
+          "title": "Anomalies in Relational Model",
+          "order": 17,
+          "content": {
+            "type": "html",
+            "path": "dbms/anomali.html"
+          }
+        },
+        {
+          "id": "dbms_acid",
+          "title": "ACID Properties",
+          "order": 18,
+          "content": {
+            "type": "html",
+            "path": "dbms/acid.html"
+          }
+        },
+        {
+          "id": "dbms_recoverytech",
+          "title": "Database Recovery Techniques",
+          "order": 19,
+          "content": {
+            "type": "html",
+            "path": "dbms/recoverytech.html"
+          }
+        },
+        {
+          "id": "dbms_deadlockindbms",
+          "title": "Deadlock",
+          "order": 20,
+          "content": {
+            "type": "html",
+            "path": "dbms/deadlockindbms.html"
+          }
+        },
+        {
+          "id": "dbms_starvation",
+          "title": "Starvation",
+          "order": 21,
+          "content": {
+            "type": "html",
+            "path": "dbms/starvation.html"
+          }
+        },
+        {
+          "id": "dbms_file",
+          "title": "File Organization",
+          "order": 22,
+          "content": {
+            "type": "html",
+            "path": "dbms/file.html"
+          }
+        },
+        {
+          "id": "dbms_hashing",
+          "title": "Hashing",
+          "order": 23,
+          "content": {
+            "type": "html",
+            "path": "dbms/hashing.html"
+          }
+        }
+      ],
+      "referenceNotes": [
+        {
+          "id": "dbms_pdf_ermodels",
+          "title": "ER Models",
+          "order": 0,
+          "sizeBytes": 318744,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/ermodels.pdf"
+          }
+        },
+        {
+          "id": "dbms_pdf_sql",
+          "title": "SQL",
+          "order": 1,
+          "sizeBytes": 368387,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/sql.pdf"
+          }
+        },
+        {
+          "id": "dbms_pdf_normalization",
+          "title": "Normalization",
+          "order": 2,
+          "sizeBytes": 257812,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/normalization.pdf"
+          }
+        },
+        {
+          "id": "dbms_pdf_transactionandconcorency",
+          "title": "Transactions & Concurrency",
+          "order": 3,
+          "sizeBytes": 301360,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/transactionandconcorency.pdf"
+          }
+        },
+        {
+          "id": "dbms_pdf_filemanagement",
+          "title": "File Organization",
+          "order": 4,
+          "sizeBytes": 321958,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/filemanagement.pdf"
+          }
+        }
+      ],
+      "shortNotes": {
+        "type": "html",
+        "path": "shortnotes/dbms.html"
+      }
+    },
+    {
+      "id": "cao",
+      "name": "Computer Organisation",
+      "shortName": "COA",
+      "weightage": 8,
+      "order": 6,
+      "topics": [
+        {
+          "id": "cao_basic_computer",
+          "title": "Issues in Computer Design",
+          "order": 0,
+          "content": {
+            "type": "html",
+            "path": "cao/basic_computer.html"
+          }
+        },
+        {
+          "id": "cao_computerinstructions",
+          "title": "Computer Instructions",
+          "order": 1,
+          "content": {
+            "type": "html",
+            "path": "cao/computerInstructions.html"
+          }
+        },
+        {
+          "id": "cao_machineinstructions",
+          "title": "Machine Instructions",
+          "order": 2,
+          "content": {
+            "type": "html",
+            "path": "cao/machineInstructions.html"
+          }
+        },
+        {
+          "id": "cao_instructionformate",
+          "title": "Instruction Formats",
+          "order": 3,
+          "content": {
+            "type": "html",
+            "path": "cao/instructionformate.html"
+          }
+        },
+        {
+          "id": "cao_addressingmodes",
+          "title": "Addressing Modes",
+          "order": 4,
+          "content": {
+            "type": "html",
+            "path": "cao/addressingmodes.html"
+          }
+        },
+        {
+          "id": "cao_instructioncycle",
+          "title": "Different Instruction Cycles",
+          "order": 5,
+          "content": {
+            "type": "html",
+            "path": "cao/instructioncycle.html"
+          }
+        },
+        {
+          "id": "cao_datamanupulation_pc",
+          "title": "Data transfer instructions",
+          "order": 6,
+          "content": {
+            "type": "html",
+            "path": "cao/Datamanupulation_pc.html"
+          }
+        },
+        {
+          "id": "cao_pcinstruction",
+          "title": "Program Control instructions",
+          "order": 7,
+          "content": {
+            "type": "html",
+            "path": "cao/pcinstruction.html"
+          }
+        },
+        {
+          "id": "cao_datapath",
+          "title": "What is Data Path?",
+          "order": 8,
+          "content": {
+            "type": "html",
+            "path": "cao/datapath.html"
+          }
+        },
+        {
+          "id": "cao_aludatapath",
+          "title": "Introduction to ALU and Data Path",
+          "order": 9,
+          "content": {
+            "type": "html",
+            "path": "cao/aludatapath.html"
+          }
+        },
+        {
+          "id": "cao_hardwiredmicroprogrammed",
+          "title": "Hardwired v/s Micro-programmed Control Unit",
+          "order": 10,
+          "content": {
+            "type": "html",
+            "path": "cao/hardwiredMicroprogrammed.html"
+          }
+        },
+        {
+          "id": "cao_risccisc",
+          "title": "RISC and CISC",
+          "order": 11,
+          "content": {
+            "type": "html",
+            "path": "cao/risccisc.html"
+          }
+        },
+        {
+          "id": "cao_pipelining",
+          "title": "Pipelining (Execution, Stages and Throughput)",
+          "order": 12,
+          "content": {
+            "type": "html",
+            "path": "cao/pipelining.html"
+          }
+        },
+        {
+          "id": "cao_arithmeticinstructionpipeline",
+          "title": "Arithmetic Pipeline and Instruction Pipeline",
+          "order": 13,
+          "content": {
+            "type": "html",
+            "path": "cao/arithmeticinstructionpipeline.html"
+          }
+        },
+        {
+          "id": "cao_datahazaed",
+          "title": "Pipelining(Dependencies and Data Hazard)",
+          "order": 14,
+          "content": {
+            "type": "html",
+            "path": "cao/datahazaed.html"
+          }
+        },
+        {
+          "id": "cao_memoryunit",
+          "title": "Introduction to memory and memory units",
+          "order": 15,
+          "content": {
+            "type": "html",
+            "path": "cao/Memoryunit.html"
+          }
+        },
+        {
+          "id": "cao_memorymapping",
+          "title": "Memory Mapping",
+          "order": 16,
+          "content": {
+            "type": "html",
+            "path": "cao/memorymapping.html"
+          }
+        },
+        {
+          "id": "cao_cache",
+          "title": "Cache Memory & Locality of Reference",
+          "order": 17,
+          "content": {
+            "type": "html",
+            "path": "cao/cache.html"
+          }
+        },
+        {
+          "id": "cao_iointerface",
+          "title": "I/O Interface",
+          "order": 18,
+          "content": {
+            "type": "html",
+            "path": "cao/iointerface.html"
+          }
+        },
+        {
+          "id": "cao_ioprocessor",
+          "title": "Introduction to Input-Output Processor",
+          "order": 19,
+          "content": {
+            "type": "html",
+            "path": "cao/ioprocessor.html"
+          }
+        },
+        {
+          "id": "cao_dma",
+          "title": "Direct Memory Access",
+          "order": 20,
+          "content": {
+            "type": "html",
+            "path": "cao/dma.html"
+          }
+        }
+      ],
+      "referenceNotes": [
+        {
+          "id": "cao_pdf_machine_instructions_addressing_modes",
+          "title": "Machine Instructions & Addressing Modes",
+          "order": 0,
+          "sizeBytes": 249949,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/Machine instructions, addressing modes.pdf"
+          }
+        },
+        {
+          "id": "cao_pdf_alu_and_data_path_cpu_control_design",
+          "title": "ALU, Data Path & Control Design",
+          "order": 1,
+          "sizeBytes": 373614,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/ALU and data path CPU control design .pdf"
+          }
+        },
+        {
+          "id": "cao_pdf_instruction_pipelining",
+          "title": "Instruction Pipelining",
+          "order": 2,
+          "sizeBytes": 236097,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/instruction pipelining .pdf"
+          }
+        },
+        {
+          "id": "cao_pdf_cache_and_main_memory_secondary_storage",
+          "title": "Cache, Main Memory & Secondary Storage",
+          "order": 3,
+          "sizeBytes": 349421,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/cache and main memory secondary storage.pdf"
+          }
+        },
+        {
+          "id": "cao_pdf_memory_interface_i_o_interface",
+          "title": "Memory & I/O Interface",
+          "order": 4,
+          "sizeBytes": 302474,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/memory interface I_o interface.pdf"
+          }
+        }
+      ],
+      "shortNotes": {
+        "type": "html",
+        "path": "shortnotes/cao.html"
+      }
+    },
+    {
+      "id": "toc",
+      "name": "Theory of Computation",
+      "shortName": "TOC",
+      "weightage": 8,
+      "order": 7,
+      "topics": [
+        {
+          "id": "toc_intro_toc",
+          "title": "Introduction to Theory of Computation",
+          "order": 0,
+          "content": {
+            "type": "html",
+            "path": "toc/intro_toc.html"
+          }
+        },
+        {
+          "id": "toc_finiteautomata",
+          "title": "Introduction to Finite Automata",
+          "order": 1,
+          "content": {
+            "type": "html",
+            "path": "toc/finiteAutomata.html"
+          }
+        },
+        {
+          "id": "toc_mealymoore",
+          "title": "Mealy and Moore Machines",
+          "order": 2,
+          "content": {
+            "type": "html",
+            "path": "toc/mealyMoore.html"
+          }
+        },
+        {
+          "id": "toc_grammer",
+          "title": "Relationship between grammar and language",
+          "order": 3,
+          "content": {
+            "type": "html",
+            "path": "toc/grammer.html"
+          }
+        },
+        {
+          "id": "toc_chomsky_hirarky",
+          "title": "Chomsky Hierarchy in Theory of Computation",
+          "order": 4,
+          "content": {
+            "type": "html",
+            "path": "toc/chomsky_hirarky.html"
+          }
+        },
+        {
+          "id": "toc_application_of_autometa",
+          "title": "Applications of various Automata",
+          "order": 5,
+          "content": {
+            "type": "html",
+            "path": "toc/application_of_autometa.html"
+          }
+        },
+        {
+          "id": "toc_computable",
+          "title": "Computable and non-computable",
+          "order": 6,
+          "content": {
+            "type": "html",
+            "path": "toc/computable.html"
+          }
+        }
+      ],
+      "referenceNotes": [],
+      "shortNotes": {
+        "type": "html",
+        "path": "shortnotes/toc.html"
+      }
+    },
+    {
+      "id": "cn",
+      "name": "Computer Networks",
+      "shortName": "CN",
+      "weightage": 8,
+      "order": 8,
+      "topics": [],
+      "referenceNotes": [],
+      "shortNotes": {
+        "type": "html",
+        "path": "shortnotes/cn.html"
+      }
+    },
+    {
+      "id": "dl",
+      "name": "Digital Logic",
+      "shortName": "DL",
+      "weightage": 6,
+      "order": 9,
+      "topics": [
+        {
+          "id": "dl_numbersystem",
+          "title": "Number System and Base Conversions",
+          "order": 0,
+          "content": {
+            "type": "html",
+            "path": "dl/numbersystem.html"
+          }
+        },
+        {
+          "id": "dl_12",
+          "title": "1's & 2's Complement",
+          "order": 1,
+          "content": {
+            "type": "html",
+            "path": "dl/12.html"
+          }
+        },
+        {
+          "id": "dl_greycode",
+          "title": "What is Gray Code?",
+          "order": 2,
+          "content": {
+            "type": "html",
+            "path": "dl/greycode.html"
+          }
+        },
+        {
+          "id": "dl_binarytogray",
+          "title": "Code Converters – Binary to/from Gray Code",
+          "order": 3,
+          "content": {
+            "type": "html",
+            "path": "dl/binarytogray.html"
+          }
+        },
+        {
+          "id": "dl_floatpoint",
+          "title": "Introduction to Floating Point Representation",
+          "order": 4,
+          "content": {
+            "type": "html",
+            "path": "dl/floatpoint.html"
+          }
+        },
+        {
+          "id": "dl_boolean",
+          "title": "Properties of Boolean Algebra",
+          "order": 5,
+          "content": {
+            "type": "html",
+            "path": "dl/boolean.html"
+          }
+        },
+        {
+          "id": "dl_rep_boolean",
+          "title": "Representation of Boolean Functions",
+          "order": 6,
+          "content": {
+            "type": "html",
+            "path": "dl/rep_boolean.html"
+          }
+        },
+        {
+          "id": "dl_min_boolean",
+          "title": "Minimization of Boolean Functions",
+          "order": 7,
+          "content": {
+            "type": "html",
+            "path": "dl/min_boolean.html"
+          }
+        },
+        {
+          "id": "dl_conical",
+          "title": "Canonical and Standard Form",
+          "order": 8,
+          "content": {
+            "type": "html",
+            "path": "dl/conical.html"
+          }
+        },
+        {
+          "id": "dl_kmap",
+          "title": "Introduction to K-Map (Karnaugh Map)",
+          "order": 9,
+          "content": {
+            "type": "html",
+            "path": "dl/kmap.html"
+          }
+        },
+        {
+          "id": "dl_logicgates",
+          "title": "Logic Gates",
+          "order": 10,
+          "content": {
+            "type": "html",
+            "path": "dl/logicGates.html"
+          }
+        },
+        {
+          "id": "dl_half",
+          "title": "Half Adder in Digital Logic",
+          "order": 11,
+          "content": {
+            "type": "html",
+            "path": "dl/half.html"
+          }
+        },
+        {
+          "id": "dl_full",
+          "title": "Full Adder in Digital Logic",
+          "order": 12,
+          "content": {
+            "type": "html",
+            "path": "dl/full.html"
+          }
+        },
+        {
+          "id": "dl_carry",
+          "title": "Carry Look-Ahead Adder",
+          "order": 13,
+          "content": {
+            "type": "html",
+            "path": "dl/carry.html"
+          }
+        },
+        {
+          "id": "dl_parallel",
+          "title": "Parallel Adder and Parallel Subtractor",
+          "order": 14,
+          "content": {
+            "type": "html",
+            "path": "dl/parallel.html"
+          }
+        },
+        {
+          "id": "dl_encode",
+          "title": "Encoders and Decoders in Digital Logic",
+          "order": 15,
+          "content": {
+            "type": "html",
+            "path": "dl/encode.html"
+          }
+        },
+        {
+          "id": "dl_multiplex",
+          "title": "Multiplexers in Digital Logic",
+          "order": 16,
+          "content": {
+            "type": "html",
+            "path": "dl/multiplex.html"
+          }
+        },
+        {
+          "id": "dl_demux",
+          "title": "What is a demultiplexer ?",
+          "order": 17,
+          "content": {
+            "type": "html",
+            "path": "dl/demux.html"
+          }
+        },
+        {
+          "id": "dl_introsequntial",
+          "title": "Introduction to Sequential Circuits",
+          "order": 18,
+          "content": {
+            "type": "html",
+            "path": "dl/introsequntial.html"
+          }
+        },
+        {
+          "id": "dl_flipflop",
+          "title": "Flip-Flop types, their Conversion and Applications",
+          "order": 19,
+          "content": {
+            "type": "html",
+            "path": "dl/flipflop.html"
+          }
+        },
+        {
+          "id": "dl_masterslave",
+          "title": "Master-Slave JK Flip Flop",
+          "order": 20,
+          "content": {
+            "type": "html",
+            "path": "dl/masterslave.html"
+          }
+        },
+        {
+          "id": "dl_counters",
+          "title": "Counters in Digital Logic",
+          "order": 21,
+          "content": {
+            "type": "html",
+            "path": "dl/counters.html"
+          }
+        },
+        {
+          "id": "dl_shiftregistors",
+          "title": "Shift Registers in Digital Logic",
+          "order": 22,
+          "content": {
+            "type": "html",
+            "path": "dl/shiftregistors.html"
+          }
+        },
+        {
+          "id": "dl_sync",
+          "title": "Synchronous Sequential Circuits in Digital Logic",
+          "order": 23,
+          "content": {
+            "type": "html",
+            "path": "dl/sync.html"
+          }
+        }
+      ],
+      "referenceNotes": [
+        {
+          "id": "dl_pdf_number_systems",
+          "title": "Number Systems",
+          "order": 0,
+          "sizeBytes": 264712,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/number systems.pdf"
+          }
+        },
+        {
+          "id": "dl_pdf_boolean_algebra_and_minimisation_of_functions_of_cse",
+          "title": "Boolean Algebra & Minimisation",
+          "order": 1,
+          "sizeBytes": 463964,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/Boolean Algebra and minimisation of functions of cse.pdf"
+          }
+        },
+        {
+          "id": "dl_pdf_combinational_circuits",
+          "title": "Combinational Circuits",
+          "order": 2,
+          "sizeBytes": 425232,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/combinational circuits.pdf"
+          }
+        },
+        {
+          "id": "dl_pdf_sequential_circuits",
+          "title": "Sequential Circuits",
+          "order": 3,
+          "sizeBytes": 553461,
+          "content": {
+            "type": "pdf",
+            "path": "pdfs/sequential circuits .pdf"
+          }
+        }
+      ],
+      "shortNotes": {
+        "type": "html",
+        "path": "shortnotes/dl.html"
+      }
+    },
+    {
+      "id": "cd",
+      "name": "Compiler Design",
+      "shortName": "CD",
+      "weightage": 5,
+      "order": 10,
+      "topics": [
+        {
+          "id": "cd_into_cd",
+          "title": "Introduction to Compiler Design",
+          "order": 0,
+          "content": {
+            "type": "html",
+            "path": "cd/into_cd.html"
+          }
+        },
+        {
+          "id": "cd_phases",
+          "title": "Phases of a Compiler",
+          "order": 1,
+          "content": {
+            "type": "html",
+            "path": "cd/phases.html"
+          }
+        },
+        {
+          "id": "cd_lexical",
+          "title": "Introduction to Lexical Analysis",
+          "order": 2,
+          "content": {
+            "type": "html",
+            "path": "cd/lexical.html"
+          }
+        },
+        {
+          "id": "cd_syntax",
+          "title": "Introduction to Syntax Analysis",
+          "order": 3,
+          "content": {
+            "type": "html",
+            "path": "cd/syntax.html"
+          }
+        },
+        {
+          "id": "cd_parsing",
+          "title": "Parsing",
+          "order": 4,
+          "content": {
+            "type": "html",
+            "path": "cd/parsing.html"
+          }
+        },
+        {
+          "id": "cd_ambigious",
+          "title": "Ambiguous Grammar",
+          "order": 5,
+          "content": {
+            "type": "html",
+            "path": "cd/ambigious.html"
+          }
+        },
+        {
+          "id": "cd_topdown",
+          "title": "Top Down Parsers",
+          "order": 6,
+          "content": {
+            "type": "html",
+            "path": "cd/topdown.html"
+          }
+        },
+        {
+          "id": "cd_slr",
+          "title": "SLR Parser",
+          "order": 7,
+          "content": {
+            "type": "html",
+            "path": "cd/slr.html"
+          }
+        },
+        {
+          "id": "cd_clr",
+          "title": "CLR Parser",
+          "order": 8,
+          "content": {
+            "type": "html",
+            "path": "cd/clr.html"
+          }
+        },
+        {
+          "id": "cd_lalr",
+          "title": "LALR Parser",
+          "order": 9,
+          "content": {
+            "type": "html",
+            "path": "cd/lalr.html"
+          }
+        },
+        {
+          "id": "cd_sematic",
+          "title": "Syntax Directed Translation",
+          "order": 10,
+          "content": {
+            "type": "html",
+            "path": "cd/sematic.html"
+          }
+        },
+        {
+          "id": "cd_s_l_attribute",
+          "title": "S- and L-Attributed SDTs",
+          "order": 11,
+          "content": {
+            "type": "html",
+            "path": "cd/s-l_attribute.html"
+          }
+        },
+        {
+          "id": "cd_symbolic_table",
+          "title": "Symbol Table in Compiler",
+          "order": 12,
+          "content": {
+            "type": "html",
+            "path": "cd/symbolic_table.html"
+          }
+        },
+        {
+          "id": "cd_error",
+          "title": "Error detection and Recovery in Compiler",
+          "order": 13,
+          "content": {
+            "type": "html",
+            "path": "cd/error.html"
+          }
+        },
+        {
+          "id": "cd_intermediate_code_generator",
+          "title": "Intermediate Code Generation",
+          "order": 14,
+          "content": {
+            "type": "html",
+            "path": "cd/intermediate_code_generator.html"
+          }
+        },
+        {
+          "id": "cd_threeaddress",
+          "title": "Three address code",
+          "order": 15,
+          "content": {
+            "type": "html",
+            "path": "cd/threeaddress.html"
+          }
+        },
+        {
+          "id": "cd_basicblock",
+          "title": "Basic Blocks",
+          "order": 16,
+          "content": {
+            "type": "html",
+            "path": "cd/basicblock.html"
+          }
+        },
+        {
+          "id": "cd_codeoptimization",
+          "title": "Code Optimization",
+          "order": 17,
+          "content": {
+            "type": "html",
+            "path": "cd/codeoptimization.html"
+          }
+        },
+        {
+          "id": "cd_loop",
+          "title": "Loop Optimization",
+          "order": 18,
+          "content": {
+            "type": "html",
+            "path": "cd/loop.html"
+          }
+        },
+        {
+          "id": "cd_peephole",
+          "title": "Peephole Optimization",
+          "order": 19,
+          "content": {
+            "type": "html",
+            "path": "cd/peephole.html"
+          }
+        }
+      ],
+      "referenceNotes": [],
+      "shortNotes": {
+        "type": "html",
+        "path": "shortnotes/cd.html"
+      }
+    }
+  ],
+  "papers": [
+    {
+      "id": "gate_cs_2024",
+      "year": 2024,
+      "title": "GATE 2024 — Computer Science",
+      "paper": {
+        "type": "pdf",
+        "path": "previousPapers/2024_compressed.pdf"
+      },
+      "answerKey": {
+        "type": "pdf",
+        "path": "previousPapers/2024key.pdf"
+      },
+      "sizeBytes": 516313
+    },
+    {
+      "id": "gate_cs_2023",
+      "year": 2023,
+      "title": "GATE 2023 — Computer Science",
+      "paper": {
+        "type": "pdf",
+        "path": "previousPapers/2023_compressed.pdf"
+      },
+      "answerKey": {
+        "type": "pdf",
+        "path": "previousPapers/2023key_compressed.pdf"
+      },
+      "sizeBytes": 331411
+    },
+    {
+      "id": "gate_cs_2022",
+      "year": 2022,
+      "title": "GATE 2022 — Computer Science",
+      "paper": {
+        "type": "pdf",
+        "path": "previousPapers/2022_compressed.pdf"
+      },
+      "answerKey": {
+        "type": "pdf",
+        "path": "previousPapers/2022key_compressed.pdf"
+      },
+      "sizeBytes": 417291
+    },
+    {
+      "id": "gate_cs_2021",
+      "year": 2021,
+      "title": "GATE 2021 — Computer Science",
+      "paper": {
+        "type": "pdf",
+        "path": "previousPapers/2021_compressed.pdf"
+      },
+      "answerKey": {
+        "type": "pdf",
+        "path": "previousPapers/2021key_compressed.pdf"
+      },
+      "sizeBytes": 1417682
+    },
+    {
+      "id": "gate_cs_2020",
+      "year": 2020,
+      "title": "GATE 2020 — Computer Science",
+      "paper": {
+        "type": "pdf",
+        "path": "previousPapers/2020.pdf"
+      },
+      "answerKey": {
+        "type": "pdf",
+        "path": "previousPapers/2020key.pdf"
+      },
+      "sizeBytes": 2601185
+    },
+    {
+      "id": "gate_cs_2019",
+      "year": 2019,
+      "title": "GATE 2019 — Computer Science",
+      "paper": {
+        "type": "pdf",
+        "path": "previousPapers/2019_compressed.pdf"
+      },
+      "answerKey": {
+        "type": "pdf",
+        "path": "previousPapers/2019key_compressed.pdf"
+      },
+      "sizeBytes": 203724
+    },
+    {
+      "id": "gate_cs_2018",
+      "year": 2018,
+      "title": "GATE 2018 — Computer Science",
+      "paper": {
+        "type": "pdf",
+        "path": "previousPapers/2018_compressed.pdf"
+      },
+      "answerKey": {
+        "type": "pdf",
+        "path": "previousPapers/2018key_compressed.pdf"
+      },
+      "sizeBytes": 234734
+    },
+    {
+      "id": "gate_cs_2017",
+      "year": 2017,
+      "title": "GATE 2017 — Computer Science",
+      "paper": {
+        "type": "pdf",
+        "path": "previousPapers/2017_compressed.pdf"
+      },
+      "answerKey": {
+        "type": "pdf",
+        "path": "previousPapers/2017key_compressed.pdf"
+      },
+      "sizeBytes": 1724722
+    },
+    {
+      "id": "gate_cs_2016",
+      "year": 2016,
+      "title": "GATE 2016 — Computer Science",
+      "paper": {
+        "type": "pdf",
+        "path": "previousPapers/2016_compressed.pdf"
+      },
+      "answerKey": {
+        "type": "pdf",
+        "path": "previousPapers/2016key_compressed.pdf"
+      },
+      "sizeBytes": 132635
+    },
+    {
+      "id": "gate_cs_2015",
+      "year": 2015,
+      "title": "GATE 2015 — Computer Science",
+      "paper": {
+        "type": "pdf",
+        "path": "previousPapers/2015_compressed.pdf"
+      },
+      "answerKey": {
+        "type": "pdf",
+        "path": "previousPapers/2015key_compressed.pdf"
+      },
+      "sizeBytes": 1218559
+    },
+    {
+      "id": "gate_cs_2014",
+      "year": 2014,
+      "title": "GATE 2014 — Computer Science",
+      "paper": {
+        "type": "pdf",
+        "path": "previousPapers/2014_compressed.pdf"
+      },
+      "answerKey": {
+        "type": "pdf",
+        "path": "previousPapers/2014key_compressed.pdf"
+      },
+      "sizeBytes": 326070
+    },
+    {
+      "id": "gate_cs_2013",
+      "year": 2013,
+      "title": "GATE 2013 — Computer Science",
+      "paper": {
+        "type": "pdf",
+        "path": "previousPapers/2013_compressed.pdf"
+      },
+      "answerKey": {
+        "type": "pdf",
+        "path": "previousPapers/2013key_compressed.pdf"
+      },
+      "sizeBytes": 218559
+    },
+    {
+      "id": "gate_cs_2012",
+      "year": 2012,
+      "title": "GATE 2012 — Computer Science",
+      "paper": {
+        "type": "pdf",
+        "path": "previousPapers/2012_compressed.pdf"
+      },
+      "answerKey": {
+        "type": "pdf",
+        "path": "previousPapers/2012key_compressed.pdf"
+      },
+      "sizeBytes": 217163
+    },
+    {
+      "id": "gate_cs_2011",
+      "year": 2011,
+      "title": "GATE 2011 — Computer Science",
+      "paper": {
+        "type": "pdf",
+        "path": "previousPapers/2011_compressed.pdf"
+      },
+      "answerKey": null,
+      "sizeBytes": 336652
+    },
+    {
+      "id": "gate_cs_2010",
+      "year": 2010,
+      "title": "GATE 2010 — Computer Science",
+      "paper": {
+        "type": "pdf",
+        "path": "previousPapers/2010_compressed.pdf"
+      },
+      "answerKey": null,
+      "sizeBytes": 182797
+    }
+  ]
+}

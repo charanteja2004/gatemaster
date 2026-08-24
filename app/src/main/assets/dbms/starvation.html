@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+
+        <div class="article-title">
+        <h1>Starvation in DBMS</h1>
+        </div>
+
+        <div class="text">
+        <p>Starvation or Livelock is the situation when a transaction has to wait for an indefinite period of time to acquire a lock.&nbsp;</p>
+        <h3><strong>Reasons for Starvation:</strong></h3>
+        <ul>
+        <li>If the waiting scheme for locked items is unfair. ( priority queue )</li>
+        <li>Victim selection (the same transaction is selected as a victim repeatedly )</li>
+        <li>Resource leak.</li>
+        <li>Via denial-of-service attack.</li>
+        </ul>
+        <p>Starvation can be best explained with the help of an example &ndash;&nbsp;</p>
+        <p>Suppose there are 3 transactions namely T1, T2, and T3 in a database that is trying to acquire a lock on data item &lsquo; I &lsquo;. Now, suppose the scheduler grants the lock to T1(maybe due to some priority), and the other two transactions are waiting for the lock. As soon as the execution of T1 is over, another transaction T4 also comes over and requests a lock on data item I. Now, this time the scheduler grants lock to T4, and T2, T3 has to wait again. In this way, if new transactions keep on requesting the lock, T2 and T3 may have to wait for an indefinite period of time, which leads to&nbsp;<strong>Starvation</strong>.&nbsp;</p>
+        <h3><strong>Solutions to starvation:</strong></h3>
+        <ol>
+        <li><strong>Increasing Priority:&nbsp;</strong>Starvation occurs when a transaction has to wait for an indefinite time, In this situation, we can increase the priority of that particular transaction/s. But the drawback with this solution is that it may happen that the other transaction may have to wait longer until the highest priority transaction comes and proceeds.</li>
+        <li><strong>Modification in Victim Selection algorithm:&nbsp;</strong>If a transaction has been a victim of repeated selections, then the algorithm can be modified by lowering its priority over other transactions.</li>
+        <li><strong>First Come First Serve approach:&nbsp;</strong>A fair scheduling approach i.e FCFS can be adopted, In which the transaction can acquire a lock on an item in the order, in which the requested lock.</li>
+        <li><strong>Wait-die and wound wait scheme:&nbsp;</strong>These are the schemes that use the timestamp ordering mechanism of transactions.&nbsp;</li>
+        <li><strong>Timeout Mechanism:&nbsp;</strong>A timeout mechanism can be implemented in which a transaction is only allowed to wait for a certain amount of time before it is aborted or restarted. This ensures that no transaction waits indefinitely, and prevents the possibility of starvation.</li>
+        <li><strong>Resource Reservation:&nbsp;</strong>A resource reservation scheme can be used to allocate resources to a transaction before it starts execution. This ensures that the transaction has access to the necessary resources and reduces the chances of waiting for a resource indefinitely.</li>
+        <li><strong>Preemption:</strong>&nbsp;Preemption involves the forcible removal of a lock from a transaction that has been waiting for a long time, in favor of another transaction that has a higher priority or has been waiting for a shorter time. Preemption ensures that no transaction waits indefinitely, and prevents the possibility of starvation.</li>
+        <li><strong>Dynamic Lock Allocation:</strong>&nbsp;In this approach, locks are allocated dynamically based on the current state of the system. The system may analyze the current lock requests and allocate locks in such a way that prevents deadlocks and reduces the chances of starvation.</li>
+        <li><strong>Parallelism:</strong>&nbsp;By allowing multiple transactions to execute in parallel, the system can ensure that no transaction waits indefinitely, and reduces the chances of starvation. This approach requires careful consideration of the potential for conflicts and race conditions between transactions.</li>
+        </ol>
+        <div class="gray">For detailed study refer: <a href="https://www.geeksforgeeks.org/deadlock-in-dbms/">Wait die and Wound wait scheme</a></div>
+        <p>In a database management system (DBMS), starvation occurs when a transaction or process is not able to get the resources it needs to proceed and is continuously delayed or blocked. This can happen when other transactions or processes are given priority over the one that is experiencing starvation.</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <p>In DBMSs, resources such as locks, memory, and CPU time are typically shared among multiple transactions or processes. If some transactions or processes are given priority over others, it is possible for one or more transactions or processes to experience starvation.</p>
+        <p>For example, if a transaction is waiting for a lock that is held by another transaction, it may be blocked indefinitely if the other transaction never releases the lock. This can lead to the first transaction experiencing starvation if it is continuously blocked and unable to proceed.</p>
+        <p>DBMSs typically use various techniques to prevent or mitigate starvation, such as:</p>
+        <p>Resource allocation policies: DBMSs can use policies to allocate resources in a fair manner, ensuring that no transaction or process is consistently given priority over others.</p>
+        <p>Priority-based scheduling: DBMSs can use scheduling algorithms that take into account the priority of transactions or processes, ensuring that high-priority transactions or processes are executed before low-priority ones.</p>
+        <p>Timeout mechanisms: DBMSs can use timeout mechanisms to prevent transactions or processes from being blocked indefinitely, by releasing resources if a transaction or process waits for too long.</p>
+        <p>Resource management: DBMSs can also use techniques such as resource quotas and limits to prevent any single transaction or process from monopolizing resources, thus reducing the likelihood of starvation.</p>
+        </div>
+
+</body>
+</html>

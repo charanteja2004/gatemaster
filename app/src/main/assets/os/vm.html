@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Applications of various Automata</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+<h2><b>Virtual Memory in Operating System</b></h2>
+
+<p>Virtual Memory is a storage allocation scheme in which secondary memory can be addressed as though it were part of the main memory. The addresses a program may use to reference memory are distinguished from the addresses the memory system uses to identify physical storage sites and program-generated addresses are translated automatically to the corresponding machine addresses. <br><br>
+
+    A memory hierarchy, consisting of a computer system’s memory and a disk, that enables a process to operate with only some portions of its address space in memory. A virtual memory is what its name indicates- it is an illusion of a memory that is larger than the real memory. We refer to the software component of virtual memory as a virtual memory manager. The basis of virtual memory is the noncontiguous memory allocation model. The virtual memory manager removes some components from memory to make room for other components.<br><br>
+
+    The size of virtual storage is limited by the addressing scheme of the computer system and the amount of secondary memory available not by the actual number of main storage locations.<br><br>
+
+    It is a technique that is implemented using both hardware and software. It maps memory addresses used by a program, called virtual addresses, into physical addresses in computer memory. <br><br>
+
+    1.All memory references within a process are logical addresses that are dynamically translated into physical addresses at run time. This means that a process can be swapped in and out of the main memory such that it occupies different places in the main memory at different times during the course of execution.<br><br>
+    2.A process may be broken into a number of pieces and these pieces need not be continuously located in the main memory during execution. The combination of dynamic run-time address translation and the use of a page or segment table permits this.<br><br>
+
+    If these characteristics are present then, it is not necessary that all the pages or segments are present in the main memory during execution. This means that the required pages need to be loaded into memory whenever required. Virtual memory is implemented using Demand Paging or Demand Segmentation.<br><br>
+
+<h2><b>Demand Paging</b></h2>
+
+The process of loading the page into memory on demand (whenever a page fault occurs) is known as demand paging. The process includes the following steps are as follows: <br><br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20230711080029/ezgifcom-gif-maker-(22).webp" width="400" height="350">
+<br><br>
+
+
+
+1.If the CPU tries to refer to a page that is currently not available in the main memory, it generates an interrupt indicating a memory access fault.<br>
+2.The OS puts the interrupted process in a blocking state. For the execution to proceed the OS must bring the required page into the memory.<br>
+3.The OS will search for the required page in the logical address space.<br>
+4.The required page will be brought from logical address space to physical address space. The page replacement algorithms are used for the decision-making of replacing the page in physical address space.<br>
+5.The page table will be updated accordingly.<br>
+6.The signal will be sent to the CPU to continue the program execution and it will place the process back into the ready state.<br><br>
+
+Hence whenever a page fault occurs these steps are followed by the operating system and the required page is brought into memory.<br><br>
+
+<h3><b>Advantages of Virtual Memory</b></h3>
+<li><b>More processes may be maintained in the main memory:</b> Because we are going to load only some of the pages of any particular process, there is room for more processes. This leads to more efficient utilization of the processor because it is more likely that at least one of the more numerous processes will be in the ready state at any particular time.</li>
+<li><b>A process may be larger than all of the main memory:</b> One of the most fundamental restrictions in programming is lifted. A process larger than the main memory can be executed because of demand paging. The OS itself loads pages of a process in the main memory as required.</li>
+<li>It allows greater multiprogramming levels by using less of the available (primary) memory for each process.</li>
+<li>It has twice the capacity for addresses as main memory.</li>
+<li>It makes it possible to run more applications at once.</li>
+<li>Users are spared from having to add memory modules when RAM space runs out, and applications are liberated from shared memory management.</li>
+<li>When only a portion of a program is required for execution, speed has increased.</li>
+<li>Memory isolation has increased security.</li>
+<li>It makes it possible for several larger applications to run at once.</li>
+<li>Memory allocation is comparatively cheap.</li>
+<li>It doesn’t require outside fragmentation.</li>
+<li>It is efficient to manage logical partition workloads using the CPU.</li>
+<li>Automatic data movement is possible.</li><br><br>
+
+<h3><b>Disadvantages of Virtual Memory</b></h3>
+<li>It can slow down the system performance, as data needs to be constantly transferred between the physical memory and the hard disk.</li>
+<li>It can increase the risk of data loss or corruption, as data can be lost if the hard disk fails or if there is a power outage while data is being transferred to or from the hard disk.</li>
+<li>It can increase the complexity of the memory management system, as the operating system needs to manage both physical and virtual memory.</li><br>
+
+<b>Page Fault Service Time:</b> The time taken to service the page fault is called page fault service time. The page fault service time includes the time taken to perform all the above six steps. <br><br>
+
+Let Main memory access time is: m<br>
+Page fault service time is: s<br>
+Page fault rate is : p<br>
+Then, Effective memory access time = (p*s) + (1-p)*m<br><br>
+</body>
+</html>

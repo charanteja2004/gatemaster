@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>&nbsp;</p>
+<div class="main_wrapper">
+<div>
+<div class="article-title">
+<h1>Operating Systems</h1>
+</div>
+</div>
+</div>
+<div class="text">
+<p dir="ltr">See Last Minute Notes for all subjects&nbsp;<a href="https://www.geeksforgeeks.org/lmns-gq/">all subjects here</a>.&nbsp;</p>
+<p dir="ltr"><strong>Operating Systems:&nbsp;</strong>It is the interface between the user and the computer hardware.&nbsp;</p>
+<p dir="ltr"><a href="https://www.geeksforgeeks.org/operating-system-types-operating-systems-awaiting-author/"><strong>Types of Operating System (OS):</strong></a></p>
+<ol>
+<li value="1"><strong>Batch OS &ndash;</strong>&nbsp;A set of similar jobs are stored in the main memory for execution. A job gets assigned to the CPU, only when the execution of the previous job completes.</li>
+<li value="2"><strong>Multiprogramming OS &ndash;</strong>&nbsp;The main memory consists of jobs waiting for CPU time. The OS selects one of the processes and assigns it to the CPU. Whenever the executing process needs to wait for any other operation (like I/O), the OS selects another process from the job queue and assigns it to the CPU. This way, the CPU is never kept idle and the user gets the flavor of getting multiple tasks done at once.</li>
+<li value="3"><strong>Multitasking OS &ndash;</strong>&nbsp;Multitasking OS combines the benefits of Multiprogramming OS and CPU scheduling to perform quick switches between jobs. The switch is so quick that the user can interact with each program as it runs</li>
+<li value="4"><strong>Time Sharing OS &ndash;</strong>&nbsp;Time-sharing systems require interaction with the user to instruct the OS to perform various tasks. The OS responds with an output. The instructions are usually given through an input device like the keyboard.</li>
+<li value="5"><strong>Real Time OS &ndash;</strong>&nbsp;Real-Time OS are usually built for dedicated systems to accomplish a specific set of tasks within deadlines.</li>
+</ol>
+<p dir="ltr"><a href="https://www.geeksforgeeks.org/operating-system-threads-types/"><strong>Threads:</strong></a>&nbsp;A thread is a lightweight process and forms the basic unit of CPU utilization. A process can perform more than one task at the same time by including multiple threads.</p>
+<div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+<ul>
+<li value="1">A thread has its own program counter, register set, and stack</li>
+<li value="2">A thread shares resources with other threads of the same process the code section, the data section, files and signals.</li>
+</ul>
+<p dir="ltr">A new thread, or a child process of a given process, can be introduced by using the fork() system call. A process with n fork() system calls generates 2<sup>n</sup>&nbsp;&ndash; 1 child processes. There are two types of threads:</p>
+<ul>
+<li value="1">User threads</li>
+<li value="2">Kernel threads</li>
+</ul>
+<p dir="ltr"><em><em class="GFGEditorTheme__textItalic">Example:</em></em>&nbsp;Java thread, POSIX threads.Example : Window Solaris.&nbsp;<br />&nbsp;<br />&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>User level thread</strong></th>
+<th><strong>Kernel level thread</strong></th>
+</tr>
+<tr>
+<th>User threads are implemented by users.</th>
+<th>kernel threads are implemented by OS.</th>
+</tr>
+<tr>
+<th>OS doesn&rsquo;t recognize user level threads.</th>
+<th>Kernel threads are recognized by OS.</th>
+</tr>
+<tr>
+<th>Implementation of User threads is easy.</th>
+<th>Implementation of Kernel thread is complicated.</th>
+</tr>
+<tr>
+<th>Context switch time is less.</th>
+<th>Context switch time is more.</th>
+</tr>
+<tr>
+<th>Context switch requires no hardware support.</th>
+<th>Hardware support is needed.</th>
+</tr>
+<tr>
+<th>If one user level thread performs blocking operation then entire process will be blocked.</th>
+<th>If one kernel thread performs blocking operation then another thread can continue execution.</th>
+</tr>
+</thead>
+</table>
+</div>
+<p>&nbsp;</p>
+<p dir="ltr">&nbsp;<br /><a href="https://www.geeksforgeeks.org/gate-notes-operating-system-process-management-introduction/"><strong>Process:</strong></a>&nbsp;A process is a program under execution. The value of program counter (PC) indicates the address of the next instruction of the process being executed. Each process is represented by a Process Control Block (PCB).&nbsp;</p>
+<p dir="ltr"><a href="https://www.geeksforgeeks.org/gate-notes-operating-system-process-scheduling/"><strong>Process Scheduling:</strong></a>&nbsp;Below are different times with respect to a process.</p>
+<ol>
+<li value="1"><strong>Arrival Time &ndash;</strong>&nbsp;Time at which the process arrives in the ready queue.</li>
+<li value="2"><strong>Completion Time &ndash;</strong>&nbsp;Time at which process completes its execution.</li>
+<li value="3"><strong>Burst Time &ndash;</strong>&nbsp;Time required by a process for CPU execution.</li>
+<li value="4"><strong>Turn Around Time &ndash;</strong>&nbsp;Time Difference between completion time and arrival time.</li>
+</ol>
+<div class="gray">Turn Around Time = Completion Time - Arrival Time 
+
+</div>
+<ol>
+<li value="1"><strong>Waiting Time (WT) &ndash;</strong>&nbsp;Time Difference between turn around time and burst time.</li>
+</ol>
+<div class="gray">Waiting Time = Turn Around Time - Burst Time 
+
+</div>
+<p dir="ltr"><strong>Why do we need scheduling?</strong>&nbsp;A typical process involves both I/O time and CPU time. In a uniprogramming system like MS-DOS, time spent waiting for I/O is wasted and CPU is free during this time. In multiprogramming systems, one process can use CPU while another is waiting for I/O. This is possible only with process scheduling.&nbsp;</p>
+<p dir="ltr"><strong>Objectives of Process Scheduling Algorithm:</strong></p>
+<ul>
+<li value="1">Max CPU utilization (Keep CPU as busy as possible)</li>
+<li value="2">Fair allocation of CPU.</li>
+<li value="3">Max throughput (Number of processes that complete their execution per time unit)</li>
+<li value="4">Min turnaround time (Time taken by a process to finish execution)</li>
+<li value="5">Min waiting time (Time for which a process waits in ready queue)</li>
+<li value="6">Min response time (Time when a process produces first response)</li>
+</ul>
+<p dir="ltr"><strong>Different Scheduling Algorithms:</strong></p>
+<ol>
+<li value="1"><a href="https://www.geeksforgeeks.org/program-fcfs-scheduling-set-1/"><strong>First Come First Serve (FCFS)&nbsp;</strong></a>: Simplest scheduling algorithm that schedules according to arrival times of processes.</li>
+<li value="2"><a href="https://www.geeksforgeeks.org/program-shortest-job-first-sjf-scheduling-set-1-non-preemptive/"><strong>Shortest Job First (SJF)</strong></a>: Process which have the shortest burst time are scheduled first.</li>
+<li value="3"><a href="https://www.geeksforgeeks.org/program-shortest-job-first-scheduling-set-2srtf-make-changesdoneplease-review/"><strong>Shortest Remaining Time First (SRTF)</strong></a>: It is preemptive mode of SJF algorithm in which jobs are scheduled according to the shortest remaining time.</li>
+<li value="4"><a href="https://www.geeksforgeeks.org/program-round-robin-scheduling-set-1/"><strong>Round Robin (RR) Scheduling</strong></a>: Each process is assigned a fixed time, in cyclic way.</li>
+<li value="5"><a href="https://www.geeksforgeeks.org/program-priority-scheduling-set-1/"><strong>Priority Based scheduling (Non Preemptive)</strong></a>: In this scheduling, processes are scheduled according to their priorities, i.e., highest priority process is schedule first. If priorities of two processes match, then scheduling is according to the arrival time.</li>
+<li value="6"><a href="https://www.geeksforgeeks.org/operating-system-highest-response-ratio-next-hrrn-scheduling/"><strong>Highest Response Ratio Next (HRRN)</strong></a>: In this scheduling, processes with highest response ratio is scheduled. This algorithm avoids starvation.</li>
+</ol>
+<div class="gray">Response Ratio = (Waiting Time + Burst time) / Burst time
+
+</div>
+<ol>
+<li value="1"><a href="https://www.geeksforgeeks.org/operating-system-multilevel-queue-scheduling/"><strong>Multilevel Queue Scheduling (MLQ)</strong></a>: According to the priority of process, processes are placed in the different queues. Generally high priority process are placed in the top level queue. Only after completion of processes from top level queue, lower level queued processes are scheduled.</li>
+<li value="2"><a href="https://www.geeksforgeeks.org/multilevel-feedback-queue-scheduling/"><strong>Multi level Feedback Queue (MLFQ) Scheduling</strong></a>: It allows the process to move in between queues. The idea is to separate processes according to the characteristics of their CPU bursts. If a process uses too much CPU time, it is moved to a lower-priority queue.</li>
+</ol>
+<p dir="ltr"><strong>Some useful facts about Scheduling Algorithms:</strong></p>
+<ol>
+<li value="1">FCFS can cause long waiting times, especially when the first job takes too much CPU time.</li>
+<li value="2">Both SJF and Shortest Remaining time first algorithms may cause starvation. Consider a situation when a long process is there in the ready queue and shorter processes keep coming.</li>
+<li value="3">If time quantum for Round Robin scheduling is very large, then it behaves same as FCFS scheduling.</li>
+<li value="4">SJF is optimal in terms of average waiting time for a given set of processes. SJF gives minimum average waiting time, but problems with SJF is how to know/predict the time of next job.</li>
+</ol>
+<p dir="ltr"><strong>The Critical Section Problem:</strong></p>
+<ol>
+<li value="1"><strong>Critical Section &ndash;</strong>&nbsp;The portion of the code in the program where shared variables are accessed and/or updated.</li>
+<li value="2"><strong>Remainder Section &ndash;</strong>&nbsp;The remaining portion of the program excluding the Critical Section.</li>
+<li value="3"><strong>Race around Condition &ndash;</strong>&nbsp;The final output of the code depends on the order in which the variables are accessed. This is termed as the race around condition.</li>
+</ol>
+<p dir="ltr">A solution for the critical section problem must satisfy the following three conditions:</p>
+<ol>
+<li value="1"><strong>Mutual Exclusion &ndash;</strong>&nbsp;If a process Pi is executing in its critical section, then no other process is allowed to enter into the critical section.</li>
+<li value="2"><strong>Progress &ndash;</strong>&nbsp;If no process is executing in the critical section, then the decision of a process to enter a critical section cannot be made by any other process that is executing in its remainder section. The selection of the process cannot be postponed indefinitely.</li>
+<li value="3"><strong>Bounded Waiting &ndash;</strong>&nbsp;There exists a bound on the number of times other processes can enter into the critical section after a process has made request to access the critical section and before the requested is granted.</li>
+</ol>
+<p dir="ltr"><br /><strong>Synchronization Tools:</strong>&nbsp;A&nbsp;<strong>Semaphore</strong>&nbsp;is an integer variable that is accessed only through two atomic operations, wait () and signal (). An atomic operation is executed in a single CPU time slice without any pre-emption. Semaphores are of two types:</p>
+<ol>
+<li value="1"><strong>Counting Semaphore &ndash;</strong>&nbsp;A counting semaphore is an integer variable whose value can range over an unrestricted domain.</li>
+<li value="2"><strong>Mutex &ndash;</strong>&nbsp;A mutex provides mutual exclusion, either producer or consumer can have the key (mutex) and proceed with their work. As long as the buffer is filled by producer, the consumer needs to wait, and vice versa. At any point of time, only one thread can work with the entire buffer. The concept can be generalized using semaphore.&nbsp;<br /><strong>Misconception:</strong>&nbsp;There is an ambiguity between binary semaphore and mutex. We might have come across that a mutex is binary semaphore.&nbsp;<em><em class="GFGEditorTheme__textItalic">But they are not!</em></em>&nbsp;The purpose of mutex and semaphore are different. May be, due to similarity in their implementation a mutex would be referred as binary semaphore.</li>
+</ol>
+<p dir="ltr"><a href="https://www.geeksforgeeks.org/operating-system-process-management-deadlock-introduction/"><strong>Deadlock</strong></a>: A situation where a set of processes are blocked because each process is holding a resource and waiting for another resource acquired by some other process. Deadlock can arise if following four conditions hold simultaneously (Necessary Conditions):</p>
+<ol>
+<li value="1"><strong>Mutual Exclusion &ndash;</strong>&nbsp;One or more than one resource are non-sharable (Only one process can use at a time).<br />&nbsp;</li>
+<li value="2"><strong>Hold and Wait &ndash;</strong>&nbsp;A process is holding at least one resource and waiting for resources.<br />&nbsp;</li>
+<li value="3"><strong>No Preemption &ndash;</strong>&nbsp;A resource cannot be taken from a process unless the process releases the resource.<br />&nbsp;</li>
+<li value="4"><strong>Circular Wait &ndash;</strong>&nbsp;A set of processes are waiting for each other in circular form.</li>
+</ol>
+<p dir="ltr"><strong>Methods for handling deadlock:</strong>&nbsp;There are three ways to handle deadlock<br />&nbsp;</p>
+<ol>
+<li value="1"><a href="https://www.geeksforgeeks.org/deadlock-prevention/"><strong>Deadlock prevention or avoidance</strong></a>: The idea is to not let the system into deadlock state.</li>
+<li value="2"><a href="https://www.geeksforgeeks.org/deadlock-detection-recovery/"><strong>Deadlock detection and recovery</strong></a>&nbsp;: Let deadlock occur, then do preemption to handle it once occurred.</li>
+<li value="3"><strong>Ignore the problem all together &ndash;</strong>&nbsp;: If deadlock is very rare, then let it happen and reboot the system. This is the approach that both Windows and UNIX take.</li>
+</ol>
+<p dir="ltr"><a href="https://www.geeksforgeeks.org/operating-system-bankers-algorithm/"><strong>Banker&rsquo;s Algorithm:</strong></a>&nbsp;This algorithm handles multiple instances of the same resource.&nbsp;<br /><strong>Memory Management:</strong>&nbsp;These techniques allow the memory to be shared among multiple processes.</p>
+<ul>
+<li value="1"><strong>Overlays &ndash;</strong>&nbsp;The memory should contain only those instructions and data that are required at a given time.</li>
+<li value="2"><strong>Swapping &ndash;</strong>&nbsp;In multiprogramming, the instructions that have used the time slice are swapped out from the memory.</li>
+</ul>
+<p dir="ltr"><a href="https://www.geeksforgeeks.org/operating-system-memory-management-partition-allocation-method/"><strong>Memory Management Techniques:</strong></a>&nbsp;<br /><strong>(a) Single Partition Allocation Schemes &ndash;</strong>&nbsp;The memory is divided into two parts. One part is kept to be used by the OS and the other is kept to be used by the users.&nbsp;<br /><strong>(b) Multiple Partition Schemes &ndash;</strong></p>
+<ol>
+<li value="1"><strong>Fixed Partition &ndash;</strong>&nbsp;The memory is divided into fixed size partitions.</li>
+<li value="2"><strong>Variable Partition &ndash;</strong>&nbsp;The memory is divided into variable sized partitions.</li>
+</ol>
+<p dir="ltr">Variable partition allocation schemes:</p>
+<ol>
+<li value="1"><strong>First Fit &ndash;</strong>&nbsp;The arriving process is allotted the first hole of memory in which it fits completely.</li>
+<li value="2"><strong>Best Fit &ndash;</strong>&nbsp;The arriving process is allotted the hole of memory in which it fits the best by leaving the minimum memory empty.</li>
+<li value="3"><strong>Worst Fit &ndash;</strong>&nbsp;The arriving process is allotted the hole of memory in which it leaves the maximum gap.</li>
+</ol>
+<p dir="ltr"><strong>Note:</strong></p>
+<ul>
+<li value="1">Best fit does not necessarily give the best results for memory allocation.</li>
+<li value="2">The cause of external fragmentation is the condition in Fixed partitioning and Variable partitioning saying that entire process should be allocated in a contiguous memory location. Therefore&nbsp;<strong>Paging</strong>&nbsp;is used.</li>
+</ul>
+<ol>
+<li value="1"><strong>Paging &ndash;</strong>&nbsp;The physical memory is divided into equal sized frames. The main memory is divided into fixed size pages. The size of a physical memory frame is equal to the size of a virtual memory frame.</li>
+<li value="2"><strong>Segmentation &ndash;</strong>&nbsp;Segmentation is implemented to give users view of memory. The logical address space is a collection of segments. Segmentation can be implemented with or without the use of paging.</li>
+</ol>
+<p dir="ltr"><a href="https://www.geeksforgeeks.org/operating-system-page-fault-handling/"><strong>Page Fault:</strong></a><br />A page fault is a type of interrupt, raised by the hardware when a running program accesses a memory page that is mapped into the virtual address space, but not loaded in main/virtual memory.&nbsp;</p>
+<p dir="ltr">&nbsp;</p>
+<p dir="ltr"><a href="https://www.geeksforgeeks.org/page-replacement-algorithms-in-operating-systems/"><strong>Page Replacement Algorithms:</strong></a></p>
+<ol>
+<li value="1"><strong>First In First Out (FIFO) &ndash;</strong>&nbsp;This is the simplest page replacement algorithm. In this algorithm, operating system keeps track of all pages in the memory in a queue, oldest page is in the front of the queue. When a page needs to be replaced page in the front of the queue is selected for removal. For example, consider page reference string 1, 3, 0, 3, 5, 6 and 3 page slots. Initially, all slots are empty, so when 1, 3, 0 came they are allocated to the empty slots &mdash;&gt; 3 Page Faults. When 3 comes, it is already in memory so &mdash;&gt; 0 Page Faults. Then 5 comes, it is not available in memory so it replaces the oldest page slot i.e 1. &mdash;&gt; 1 Page Fault. Finally, 6 comes,&nbsp; it is also not available in memory so it replaces the oldest page slot i.e 3 &mdash;&gt; 6 Page Fault.&nbsp;<br /><strong>Belady&rsquo;s anomaly:</strong>&nbsp;Belady&rsquo;s anomaly proves that it is possible to have more page faults when increasing the number of page frames while using the First in First Out (FIFO) page replacement algorithm.&nbsp; For example, if we consider reference string &nbsp;&nbsp;&nbsp;&nbsp; 3 &nbsp;&nbsp; &nbsp;2 &nbsp;&nbsp; &nbsp;1 &nbsp;&nbsp; &nbsp;0 &nbsp;&nbsp; &nbsp;3 &nbsp;&nbsp; &nbsp;2 &nbsp;&nbsp; &nbsp;4 &nbsp;&nbsp; &nbsp;3 &nbsp;&nbsp; &nbsp;2 &nbsp;&nbsp; &nbsp;1 &nbsp;&nbsp; &nbsp;0 &nbsp;&nbsp; &nbsp;4 and 3 slots, we get 9 total page faults, but if we increase slots to 4, we get 10 page faults.</li>
+<li value="2"><strong>Optimal Page replacement &ndash;</strong>&nbsp;In this algorithm, pages are replaced which are not used for the longest duration of time in the future. Let us consider page reference string 7 0 1 2 0 3 0 4 2 3 0 3 2 and 4 page slots. Initially, all slots are empty, so when 7 0 1 2 are allocated to the empty slots &mdash;&gt; 4 Page faults. 0 is already there so &mdash;&gt; 0 Page fault. When 3 came it will take the place of 7 because it is not used for the longest duration of time in the future.&mdash;&gt; 1 Page fault. 0 is already there so &mdash;&gt; 0 Page fault. 4 will takes place of 1 &mdash;&gt; 1 Page Fault. Now for the further page reference string &mdash;&gt; 0 Page fault because they are already available in the memory. Optimal page replacement is perfect, but not possible in practice as an operating system cannot know future requests. The use of Optimal Page replacement is to set up a benchmark so that other replacement algorithms can be analyzed against it.</li>
+<li value="3"><strong>Least Recently Used (LRU) &ndash;</strong>&nbsp;In this algorithm, the page will be replaced which is least recently used. Let say the page reference string 7 0 1 2 0 3 0 4 2 3 0 3 2 . Initially, we have 4-page slots empty. Initially, all slots are empty, so when 7 0 1 2 are allocated to the empty slots &mdash;&gt; 4 Page faults. 0 is already their so &mdash;&gt; 0 Page fault. When 3 came it will take the place of 7 because it is least recently used &mdash;&gt; 1 Page fault. 0 is already in memory so &mdash;&gt; 0 Page fault. 4 will takes place of 1 &mdash;&gt; 1 Page Fault. Now for the further page reference string &mdash;&gt;<strong>&nbsp;0 Page fault</strong>&nbsp;because they are already available in the memory.&nbsp;<br /><a href="https://www.geeksforgeeks.org/file-system-operating-systems/"><strong>File System</strong></a>: A file is a collection of related information that is recorded on secondary storage. Or file is a collection of logically related entities.&nbsp;<br /><a href="https://www.geeksforgeeks.org/file-system-operating-systems/"><strong>File Directories</strong></a>: Collection of files is a file directory. The directory contains information about the files, including attributes, location and ownership. Much of this information, especially that is concerned with storage, is managed by the operating system.
+<ol>
+<li value="1"><strong>SINGLE-LEVEL DIRECTORY</strong>: In this a single directory is maintained for all the users<br />&nbsp;</li>
+<li value="2"><strong>TWO-LEVEL DIRECTORY</strong>: Due to two levels there is a path name for every file to locate that file.<br />&nbsp;</li>
+<li value="3"><strong>TREE-STRUCTURED DIRECTORY&nbsp;</strong>: Directory is maintained in the form of a tree. Searching is efficient and also there is grouping capability.&nbsp;<br />&nbsp;</li>
+<li value="4"><strong>Continuous Allocation</strong>: A single continuous set of blocks is allocated to a file at the time of file creation.<br />&nbsp;</li>
+<li value="5"><strong>Linked Allocation(Non-contiguous allocation)</strong>: Allocation is on an individual block basis. Each block contains a pointer to the next block in the chain.&nbsp;<br />&nbsp;</li>
+<li value="6"><strong>Indexed Allocation&nbsp;</strong>: It addresses many of the problems of contiguous and chained allocation. In this case, the file allocation table contains a separate one-level index for each file<br />&nbsp;</li>
+<li value="7"><strong>Seek Time:</strong>&nbsp;Seek time is the time taken to locate the disk arm to a specified track where the data is to be read or write.<br />&nbsp;</li>
+<li value="8"><strong>Rotational Latency:&nbsp;</strong>Rotational Latency is the time taken by the desired sector of disk to rotate into a position so that it can access the read/write heads.<br />&nbsp;</li>
+<li value="9"><strong>Transfer Time:</strong>&nbsp;Transfer time is the time to transfer the data. It depends on the rotating speed of the disk and number of bytes to be transferred.&nbsp;<br />&nbsp;</li>
+<li value="10"><strong>Disk Access Time:</strong>&nbsp;Seek Time + Rotational Latency + Transfer Time&nbsp;<br />&nbsp;</li>
+<li value="11"><strong>Disk Response Time:&nbsp;</strong>Response Time is the average of time spent by a request waiting to perform its I/O operation. Average Response time is the response time of the all requests.&nbsp;<br />&nbsp;</li>
+<li value="12"><strong>FCFS:</strong>&nbsp;FCFS is the simplest of all the Disk Scheduling Algorithms. In FCFS, the requests are addressed in the order they arrive in the disk queue.<br /><br /></li>
+</ol>
+</li>
+</ol>
+<p dir="ltr">&nbsp;</p>
+<ol>
+<li value="3">
+<ol>
+<li value="13"><strong><strong>SSTF:&nbsp;</strong></strong>In SSTF (Shortest Seek Time First), requests having shortest seek time are executed first. So, the seek time of every request is calculated in advance in a queue and then they are scheduled according to their calculated seek time. As a result, the request near the disk arm will get executed first.<br />&nbsp;</li>
+<li value="14"><strong><strong>SCAN:</strong></strong>&nbsp;In SCAN algorithm the disk arm moves into a particular direction and services the requests coming in its path and after reaching the end of the disk, it reverses its direction and again services the request arriving in its path. So, this algorithm works like an elevator and hence also known as elevator algorithm.<br />&nbsp;</li>
+<li value="15"><strong><strong>CSCAN:</strong></strong>&nbsp;In SCAN algorithm, the disk arm again scans the path that has been scanned, after reversing its direction. So, it may be possible that too many requests are waiting at the other end or there may be zero or few requests pending at the scanned area.&nbsp;<br />&nbsp;</li>
+<li value="16"><strong><strong>LOOK:&nbsp;</strong></strong>It is similar to the SCAN disk scheduling algorithm except for the difference that the disk arm in spite of going to the end of the disk goes only to the last request to be serviced in front of the head and then reverses its direction from there only. Thus it prevents the extra delay which occurred due to unnecessary traversal to the end of the disk.&nbsp;<br />&nbsp;</li>
+<li value="17"><strong><strong>CLOOK:&nbsp;</strong></strong>As LOOK is similar to SCAN algorithm, in a similar way, CLOOK is similar to CSCAN disk scheduling algorithm. In CLOOK, the disk arm in spite of going to the end goes only to the last request to be serviced in front of the head and then from there goes to the other end&rsquo;s last request. Thus, it also prevents the extra delay which occurred due to unnecessary traversal to the end of the disk.&nbsp;</li>
+<li value="12">&nbsp;</li>
+</ol>
+</li>
+</ol>c
+</body>
+</html>

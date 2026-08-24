@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+
+<body>
+
+    <div class="article-title">
+        <h1>S &ndash; attributed and L &ndash; attributed SDTs in Syntax directed translation</h1>
+    </div>
+    </div>
+    </div>
+    <div class="text">
+        <p>Before coming up to S-attributed and L-attributed SDTs, here is a brief intro to Synthesized or Inherited
+            attributes&nbsp;<strong>Types of attributes &ndash;</strong>&nbsp;Attributes may be of two types &ndash;
+            Synthesized or Inherited.</p>
+        <ol>
+            <li><strong>Synthesized attributes &ndash;</strong>&nbsp;A Synthesized attribute is an attribute of the
+                non-terminal on the left-hand side of a production. Synthesized attributes represent information that is
+                being passed up the parse tree. The attribute can take value only from its children (Variables in the
+                RHS of the production). The non-terminal concerned must be in the head (LHS) of production. For e.g.
+                let&rsquo;s say A -&gt; BC is a production of a grammar, and A&rsquo;s attribute is dependent on
+                B&rsquo;s attributes or C&rsquo;s attributes then it will be synthesized attribute.</li>
+            <li><strong>Inherited attributes &ndash;</strong>&nbsp;An attribute of a nonterminal on the right-hand side
+                of a production is called an inherited attribute. The attribute can take value either from its parent or
+                from its siblings (variables in the LHS or RHS of the production). The non-terminal concerned must be in
+                the body (RHS) of production. For example, let&rsquo;s say A -&gt; BC is a production of a grammar and
+                B&rsquo;s attribute is dependent on A&rsquo;s attributes or C&rsquo;s attributes then it will be
+                inherited attribute because A is a parent here, and C is a sibling.</li>
+        </ol>
+        <p>Now, let&rsquo;s discuss about S-attributed and L-attributed SDT.</p>
+        <ol>
+            <li><strong>S-attributed SDT :</strong>
+                <ul>
+                    <li>If an SDT uses only synthesized attributes, it is called as S-attributed SDT.</li>
+                    <li>S-attributed SDTs are evaluated in bottom-up parsing, as the values of the parent nodes depend
+                        upon the values of the child nodes.</li>
+                    <li>Semantic actions are placed in rightmost place of RHS.</li>
+                </ul>
+            </li>
+            <li><strong>L-attributed SDT:</strong>
+                <ul>
+                    <li>If an SDT uses both synthesized attributes and inherited attributes with a restriction that
+                        inherited attribute can inherit values from left siblings only, it is called as L-attributed
+                        SDT.</li>
+                    <li>Attributes in L-attributed SDTs are evaluated by depth-first and left-to-right parsing manner.
+                    </li>
+                    <li>Semantic actions are placed anywhere in RHS.</li>
+                    <li>Example : S-&gt;ABC, Here attribute B can only obtain its value either from the parent &ndash; S
+                        or its left sibling A but It can&rsquo;t inherit from its right sibling C. Same goes for A &amp;
+                        C &ndash; A can only get its value from its parent &amp; C can get its value from S, A, &amp; B
+                        as well because C is the rightmost attribute in the given production.</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+    </div>
+    </div>
+    <div class="text">&nbsp;</div>
+
+</body>
+
+</html>

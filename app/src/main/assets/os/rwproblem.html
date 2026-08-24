@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Applications of various Automata</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+<h3><b>The Readers –Writers Problem</b></h3>
+<p>Suppose that a database is to be shared among several concurrent processes.
+    Some of these processes may want only to read the database, whereas others
+    may want to update (that is, to read and write) the database. We distinguish
+    between these two types of processes by referring to the former as readers
+    and to the latter as writers. Obviously, if two readers access the shared data
+    simultaneously, no adverse effects will result. However, if a writer and some
+    other process (either a reader or a writer) access the database simultaneously,
+    chaos may ensue.<br>
+    To ensure that these difficulties do not arise, we require that the writers
+    have exclusive access to the shared database while writing to the database. This
+    synchronization problem is referred to as the <b>readers–writers problem.</b> Since it
+    was originally stated, it has been used to test nearly every new synchronization
+    primitive. The readers–writers problem has several variations, all involving
+    priorities. The simplest one, referred to as the first readers–writers problem,
+    requires that no reader be kept waiting unless a writer has already obtained
+    permission to use the shared object. In other words, no reader should wait for
+    other readers to finish simply because a writer is waiting. The second readers
+    –writers problem requires that, once a writer is ready, that writer perform its
+    write as soon as possible. In other words, if a writer is waiting to access the
+    object, no new readers may start reading.<br><br>
+    A solution to either problem may result in starvation. In the first case,
+    writers may starve; in the second case, readers may starve. For this reason,
+    other variants of the problem have been proposed. Next, we present a solution
+    to the first readers–writers problem. See the bibliographical notes at the end
+    of the chapter for references describing starvation-free solutions to the second
+    readers–writers problem.<br><br>
+    In the solution to the first readers–writers problem, the reader processes
+    share the following data structures:<br><br>
+    semaphore rw mutex = 1;<br>
+    semaphore mutex = 1;<br>
+    int read count = 0;<br><br>
+    The semaphores mutex and rw_ mutex are initialized to 1; read count is
+    initialized to 0. The semaphore rw mutex is common to both reader and writer processes.<br><br>
+<div class="gray">
+    do {<br>
+    wait(rw_ mutex);<br>
+    ...<br>
+    /* writing is performed */<br>
+    ...<br>
+    signal(rw_ mutex);<br>
+    } while (true);<br><br>
+</div>
+    The mutex semaphore is used to ensure mutual exclusion when the
+    variable read count is updated. The read count variable keeps track of how
+    many processes are currently reading the object. The semaphore rw mutex
+    functions as a mutual exclusion semaphore for the writers. It is also used by
+    the first or last reader that enters or exits the critical section. It is not used by
+    readers who enter or exit while other readers are in their critical sections.<br>
+    The code for a writer process is shown ; the code for a
+    reader process is shown . Note that, if a writer is in the critical
+    section and n readers are waiting, then one reader is queued on rw mutex, and
+    n − 1 readers are queued on mutex. Also observe that, when a writer executes
+    signal(rw_ mutex), we may resume the execution of either the waiting readers
+    or a single waiting writer. The selection is made by the scheduler.<br>
+    The readers–writers problem and its solutions have been generalized to
+    provide <b>reader–writer</b> locks on some systems. Acquiring a reader–writer lock
+    requires specifying the mode of the lock: either read or write access. When a
+    process wishes only to read shared data, it requests the reader–writer lock
+    in read mode. A process wishing to modify the shared data must request the
+    lock in write mode. Multiple processes are permitted to concurrently acquire
+    a reader–writer lock in read mode, but only one process may acquire the lock
+    for writing, as exclusive access is required for writers.<br>
+    Reader–writer locks are most useful in the following situations:<br><br>
+<div class="gray">
+    do {<br>
+    wait(mutex);<br>
+    read count++;<br>
+    if (read count == 1)<br>
+    wait(rw mutex);<br>
+    signal(mutex);<br>
+    . . .<br>
+    /* reading is performed */<br>
+    ...<br>
+    wait(mutex);<br>
+    read count--;<br>
+    if (read count == 0)<br>
+    signal(rw mutex);<br>
+    signal(mutex);<br>
+    } while (true);<br><br>
+</div>
+    The structure of a reader process.</p><br>
+</body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Applications of various Automata</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+<h2><b>Introduction of System Call</b></h2>
+<p>System calls provide an interface to the services made available by an operating
+    system. These calls are generally available as routines written in C and
+    C++, although certain low-level tasks (for example, tasks where hardware
+    must be accessed directly) may have to be written using assembly-language
+    instructions.<br><br>
+    Before we discuss how an operating system makes system calls available,
+    let’s first use an example to illustrate how system calls are used: writing a
+    simple program to read data from one file and copy them to another file. The
+    first input that the program will need is the names of the two files: the input file
+    and the output file. These names can be specified in many ways, depending on
+    the operating-system design. One approach is for the program to ask the user
+    for the names. In an interactive system, this approach will require a sequence of
+    system calls, first to write a prompting message on the screen and then to read
+    from the keyboard the characters that define the two files. On mouse-based and
+    icon-based systems, a menu of file names is usually displayed in a window.
+    The user can then use the mouse to select the source name, and a window
+    can be opened for the destination name to be specified. This sequence requires
+    many I/O system calls.<br><br>
+    Once the two file names have been obtained, the program must open the
+    input file and create the output file. Each of these operations requires another
+    system call. Possible error conditions for each operation can require additional
+    system calls. When the program tries to open the input file, for example, it may
+    find that there is no file of that name or that the file is protected against access.
+    In these cases, the program should print a message on the console (another
+    sequence of system calls) and then terminate abnormally (another system call).
+    If the input file exists, then we must create a new output file. We may find that
+    there is already an output file with the same name. This situation may cause
+    the program to abort (a system call), or we may delete the existing file (another
+    system call) and create a new one (yet another system call). Another option,
+    in an interactive system, is to ask the user (via a sequence of system calls to
+    output the prompting message and to read the response from the terminal)
+    whether to replace the existing file or to abort the program.<br>
+    When both files are set up, we enter a loop that reads from the input file
+    (a system call) and writes to the output file (another system call). Each read
+    and write must return status information regarding various possible error
+    conditions. On input, the program may find that the end of the file has been
+    reached or that there was a hardware failure in the read (such as a parity error).
+    The write operation may encounter various errors, depending on the output
+    device (for example, no more disk space).<br>
+    Finally, after the entire file is copied, the program may close both files
+    (another system call), write a message to the console or window (more system
+    calls), and finally terminate normally (the final system call).<br><br>
+
+    As you can see, even simple programs may make heavy use of the
+    operating system. Frequently, systems execute thousands of system calls
+    per second. Most programmers never see this level of detail, however.
+    Typically, application developers design programs according to an application
+    programming interface (API). The API specifies a set of functions that are
+    available to an application programmer, including the parameters that are
+    passed to each function and the return values the programmer can expect.
+    Three of the most common APIs available to application programmers are
+    the Windows API for Windows systems, the POSIX API for POSIX-based systems
+    (which include virtually all versions of UNIX, Linux, and Mac OS X), and the Java
+    API for programs that run on the Java virtual machine. A programmer accesses
+    an API via a library of code provided by the operating system. In the case of
+    UNIX and Linux for programs written in the C language, the library is called
+    libc. Note that—unless specified—the system-call names used throughout
+    this text are generic examples. Each operating system has its own name for
+    each system call.<br><br>
+    Behind the scenes, the functions that make up an API typically invoke the
+    actual system calls on behalf of the application programmer. For example, the
+    Windows function CreateProcess() (which unsurprisingly is used to create
+    a new process) actually invokes the NTCreateProcess() system call in the
+    Windows kernel.<br>
+    Why would an application programmer prefer programming according to
+    an API rather than invoking actual system calls? There are several reasons for
+    doing so. One benefit concerns program portability.<br>
+    <img src=" https://image3.slideserve.com/5750584/example-of-system-calls-l.jpg" alt="example of how system calls are used" width="350"><br>
+
+    <img src="https://image1.slideserve.com/1583876/example-of-standard-api-l.jpg" width="350" height="300"><br><br>
+    An application programrun on any system that supports the same API (although, in reality, architectural
+    differences often make this more difficult than it may appear). Furthermore,
+    actual system calls can often be more detailed and difficult to work with than
+    the API available to an application programmer. Nevertheless, there often exists
+    a strong correlation between a function in the API and its associated system call
+    within the kernel. In fact, many of the POSIX and Windows APIs are similar to
+    the native system calls provided by the UNIX, Linux, and Windows operating
+    systems.<br>
+    For most programming languages, the run-time support system (a set of
+    functions built into libraries included with a compiler) provides a systemcall interface that serves as the link to system calls made available by the
+    operating system. The system-call interface intercepts function calls in the API
+    and invokes the necessary system calls within the operating system. Typically,
+    a number is associated with each system call, and the system-call interface
+    maintains a table indexed according to these numbers. <br>
+
+    <img src="https://i.stack.imgur.com/tGPV0.png" alt="The handling of a user application invoking the open() system call." width="350" height="300"><br>
+
+    The system call interface then invokes the intended system call in the operating-system kernel and
+    returns the status of the system call and any return values.<br>
+    The caller need know nothing about how the system call is implemented
+    or what it does during execution. Rather, the caller need only obey the API and
+    understand what the operating system will do as a result of the execution of
+    that system call. Thus, most of the details of the operating-system interface
+    are hidden from the programmer by the API and are managed by the run-time
+    support library. The relationship between an API, the system-call interface,
+    and the operating system is shown in Figure.which illustrates how the
+    operating system handles a user application invoking the open() system call.
+    System calls occur in different ways, depending on the computer in use.
+    Often, more information is required than simply the identity of the desired
+    system call. The exact type and amount of information vary according to the
+    particular operating system and call. For example, to get input, we may need
+    to specify the file or device to use as the source, as well as the address and
+    length of the memory buffer into which the input should be read. Of course,
+    the device or file and length may be implicit in the call.<br><br>
+    Three general methods are used to pass parameters to the operating system.
+    The simplest approach is to pass the parameters in registers. In some cases,
+    however, there may be more parameters than registers. In these cases, the
+    parameters are generally stored in a block, or table, in memory, and the
+    address of the block is passed as a parameter in a register. This
+    is the approach taken by Linux and Solaris. Parameters also can be placed,
+    or pushed, onto the stack by the program and popped off the stack by the
+    operating system. Some operating systems prefer the block or stack method
+    because those approaches do not limit the number or length of parameters
+    being passed.</p><br>
+
+
+<img src="https://image1.slideserve.com/2215668/parameter-passing-via-table-l.jpg
+" alt="Passing of parameters as a table" width="350" height="300"><br>
+
+<h2><b>Types of System Calls</b></h2>
+<p>System calls can be grouped roughly into six major categories: process
+    control, file manipulation, device manipulation, information maintenance,
+    communications, and protection. we briefly
+    discuss the types of system calls that may be provided by an operating system.
+    Most of these system calls support, or are supported by, concepts and functions
+    .  The types of system
+    calls normally provided by an operating system. As mentioned, in this text,
+    we normally refer to the system calls by generic names. Throughout the text,
+    however, we provide examples of the actual counterparts to the system calls
+    for Windows, UNIX, and Linux systems.<br>
+
+
+    <b>Process Control</b>
+<p>A running program needs to be able to halt its execution either normally
+    (end()) or abnormally (abort()). If a system call is made to terminate the
+    currently running program abnormally, or if the program runs into a problem
+    and causes an error trap, a dump of memory is sometimes taken and an error
+    message generated. The dump is written to disk and may be examined by
+    a debugger—a system program designed to aid the programmer in finding
+    and correcting errors, or bugs—to determine the cause of the problem. Under
+    either normal or abnormal circumstances, the operating system must transfer
+    control to the invoking command interpreter. The command interpreter then
+    reads the next command. In an interactive system, the command interpreter
+    simply continues with the next command; it is assumed that the user will
+    issue an appropriate command to respond to any error. In a GUI system, a
+    pop-up window might alert the user to the error and ask for guidance. In a
+    batch system, the command interpreter usually terminates the entire job and
+    continues with the next job. Some systems may allow for special recovery
+    actions in case an error occurs. If the program discovers an error in its input
+    and wants to terminate abnormally, it may also want to define an error level.
+    More severe errors can be indicated by a higher-level error parameter. <br><br>
+
+    • Process control<br>
+    ◦ end, abort<br>
+    ◦ load, execute<br>
+    ◦ create process, terminate process<br>
+    ◦ get process attributes, set process attributes<br>
+    ◦ wait for time<br>
+    ◦ wait event, signal event<br>
+    ◦ allocate and free memory<br><br>
+    • File management<br>
+    ◦ create file, delete file<br>
+    ◦ open, close<br>
+    ◦ read, write, reposition<br>
+    ◦ get file attributes, set file attributes<br><br>
+    • Device management<br>
+    ◦ request device, release device<br>
+    ◦ read, write, reposition<br>
+    ◦ get device attributes, set device attributes<br>
+    ◦ logically attach or detach devices<br><br>
+    • Information maintenance<br>
+    ◦ get time or date, set time or date<br>
+    ◦ get system data, set system data<br>
+    ◦ get process, file, or device attributes<br>
+    ◦ set process, file, or device attributes<br><br>
+    • Communications<br>
+    ◦ create, delete communication connection<br>
+    ◦ send, receive messages<br>
+    ◦ transfer status information<br>
+    ◦ attach or detach remote devices<br><br>
+
+    It is then possible to combine normal and abnormal termination by defining a normal
+    termination as an error at level 0. The command interpreter or a following
+    program can use this error level to determine the next action automatically.<br>
+    A process or job executing one program may want to load() and
+    execute() another program. This feature allows the command interpreter to
+    execute a program as directed by, for example, a user command, the click of a mouse, or a batch command. An interesting question is where to return control
+    when the loaded program terminates. This question is related to whether the
+    existing program is lost, saved, or allowed to continue execution concurrently
+    with the new program.<br>
+    <img src="C:\Users\geddada anusha\Pictures\Screenshots\Screenshot (11).png
+"  width="450" height="400"><br><br>
+    <b>open():</b> Accessing a file on a file system is possible with the open() system call. It gives the file resources it needs and a handle the process can use. A file can be opened by multiple processes simultaneously or just one process. Everything is based on the structure and file system.<br>
+
+    <b>read():</b> Data from a file on the file system is retrieved using it. In general, it accepts three arguments:<br>
+
+    1.A description of a file.<br>
+    2.A buffer for read data storage.<br>
+    3.How many bytes should be read from the file<br>
+    Before reading, the file to be read could be identified by its file descriptor and opened using the open() function.<br>
+    <b>wait():</b> In some systems, a process might need to hold off until another process has finished running before continuing. When a parent process creates a child process, the execution of the parent process is halted until the child process is complete. The parent process is stopped using the wait() system call. The parent process regains control once the child process has finished running.<br>
+
+    <b>write():</b> Data from a user buffer is written using it to a device like a file. A program can produce data in one way by using this system call. generally, there are three arguments:<br>
+
+    1.A description of a file.<br>
+    2.A reference to the buffer where data is stored.<br>
+    3.The amount of data that will be written from the buffer in bytes.<br>
+    <b>fork():</b> The fork() system call is used by processes to create copies of themselves. It is one of the methods used the most frequently in operating systems to create processes. When a parent process creates a child process, the parent process’s execution is suspended until the child process is finished. The parent process regains control once the child process has finished running.<br>
+
+    <b>exit():</b> A system call called exit() is used to terminate a program. In environments with multiple threads, this call indicates that the thread execution is finished. After using the exit() system function, the operating system recovers the resources used by the process.<br><br>
+
+    If control returns to the existing program when the new program terminates, we must save the memory image of the existing program; thus, we have
+    effectively created a mechanism for one program to call another program. If
+    both programs continue concurrently, we have created a new job or process to
+    be multiprogrammed. Often, there is a system call specifically for this purpose
+    (create process() or submit job()).<br>
+    If we create a new job or process, or perhaps even a set of jobs or
+    processes, we should be able to control its execution. This control requires
+    the ability to determine and reset the attributes of a job or process, including the job’s priority, its maximum allowable execution time, and so on
+    (get process attributes() and set process attributes()). We may also
+    want to terminate a job or process that we created (terminate process()) if
+    we find that it is incorrect or is no longer needed.<br>
+
+    <img src="C:\Users\geddada anusha\Pictures\Screenshots\Screenshot (12).png" width="450" height="400"><br><br>
+
+    Having created new jobs or processes, we may need to wait for them to
+    finish their execution. We may want to wait for a certain amount of time to
+    pass (wait time()). More probably, we will want to wait for a specific event
+    to occur (wait event()). The jobs or processes should then signal when that
+    event has occurred (signal event()).<br>
+    Quite often, two or more processes may share data. To ensure the integrity
+    of the data being shared, operating systems often provide system calls allowing
+    a process to lock shared data. Then, no other process can access the data until
+    the lock is released. Typically, such system calls include acquire lock() and
+    release lock(). System calls of these types, dealing with the coordination of
+    concurrent processes.<br><br>
+    There are so many facets of and variations in process and job control that
+    we next use two examples—one involving a single-tasking system and the
+    other a multitasking system—to clarify these concepts. The MS-DOS operating
+    system is an example of a single-tasking system. It has a command interpreter
+    that is invoked when the computer is started (Figure 2.9(a)). Because MS-DOS
+    is single-tasking, it uses a simple method to run a program and does not create
+    a new process. It loads the program into memory, writing over most of itself to give the program as much memory as possible.<br>
+    <img src="C:\Users\geddada anusha\Pictures\Screenshots\Screenshot (13).png" width="350" height="300"><br><br>
+
+
+    Next, it sets the
+    instruction pointer to the first instruction of the program. The program then
+    runs, and either an error causes a trap, or the program executes a system call
+    to terminate. In either case, the error code is saved in the system memory for
+    later use. Following this action, the small portion of the command interpreter
+    that was not overwritten resumes execution. Its first task is to reload the rest
+    of the command interpreter from disk. Then the command interpreter makes
+    the previous error code available to the user or to the next program.<br><br>
+    FreeBSD (derived from Berkeley UNIX) is an example of a multitasking
+    system. When a user logs on to the system, the shell of the user’s choice
+    is run. This shell is similar to the MS-DOS shell in that it accepts commands
+    and executes programs that the user requests. However, since FreeBSD is a
+    multitasking system, the command interpreter may continue running while
+    another program is executed. To start a new process, the shell executes a fork() system call.
+
+    <img src="C:\Users\geddada anusha\Pictures\Screenshots\Screenshot (14).png" width="350" height="300"><br><br>
+
+    Then, the selected program is loaded into
+    memory via an exec() system call, and the program is executed. Depending
+    on the way the command was issued, the shell then either waits for the process
+    to finish or runs the process “in the background.” In the latter case, the shell
+    immediately requests another command. When a process is running in the
+    background, it cannot receive input directly from the keyboard, because the
+    shell is using this resource. I/O is therefore done through files or through a GUI
+    interface. Meanwhile, the user is free to ask the shell to run other programs, to
+    monitor the progress of the running process, to change that program’s priority,
+    and so on. When the process is done, it executes an exit() system call to
+    terminate, returning to the invoking process a status code of 0 or a nonzero
+    error code. This status or error code is then available to the shell or other
+    programs.</p><br><br>
+
+<h2><b>Services Provided by System Calls</b></h2>
+<li>Process creation and management</li>
+<li>Main memory management</li>
+<Li>File Access, Directory, and File system management</li>
+<li>Device handling(I/O)</li>
+<li>Protection</li>
+<li>Networking, etc.</li>
+<li><b>Process control:</b> end, abort, create, terminate, allocate, and free memory.</li>
+<li><b>File management:</b>create, open, close, delete, read files,s, etc.</li>
+<li><b>Device management</li>
+<li>Information maintenance</li>
+<li>Communication</b></li>
+<h2><b>Features of System Calls</b></h2>
+<li><b>Interface:</b> System calls provide a well-defined interface between user programs and the operating system. Programs make requests by calling specific functions, and the operating system responds by executing the requested service and returning a result.</li><br>
+<li><b>Protection:</b> System calls are used to access privileged operations that are not available to normal user programs. The operating system uses this privilege to protect the system from malicious or unauthorized access.</li><br>
+<li><b>Kernel Mode:</b> When a system call is made, the program is temporarily switched from user mode to kernel mode. In kernel mode, the program has access to all system resources, including hardware, memory, and other processes.<li><br>
+<li><b>Context Switching:</b> A system call requires a context switch, which involves saving the state of the current process and switching to the kernel mode to execute the requested service. This can introduce overhead, which can impact system performance.</li><br>
+<li><b>Error Handling:</b> System calls can return error codes to indicate problems with the requested service. Programs must check for these errors and handle them appropriately.</li><br>
+<li><b>Synchronization:</b> System calls can be used to synchronize access to shared resources, such as files or network connections. The operating system provides synchronization mechanisms, such as locks or semaphores, to ensure that multiple programs can access these resources safely.</li><br><br>
+<h2><b>System Calls Advantages</b></h2>
+<li><b>Access to hardware resources:</b> System calls allow programs to access hardware resources such as disk drives, printers, and network devices.</li>
+<li><b>Memory management:</b> System calls provide a way for programs to allocate and deallocate memory, as well as access memory-mapped hardware devices.</li>
+<li><b>Process management:</b> System calls allow programs to create and terminate processes, as well as manage inter-process communication.</li>
+<li><b>Security:</b> System calls provide a way for programs to access privileged resources, such as the ability to modify system settings or perform operations that require administrative permissions.</li>
+<li><b>Standardization:</b> System calls provide a standardized interface for programs to interact with the operating system, ensuring consistency and compatibility across different hardware platforms and operating system versions.</li><br><br>
+
+<h2><b>How does System Call Work?</b></h2>
+Here is the detailed explanation step by step how system call work:
+
+<li><b>User need special resources :</b> Sometimes programs need to do some special things which can’t be done without the permission of OS like reading from a file, writing to a file , getting any information from the hardware or requesting a space in memory.</li>
+<li><b>Program makes a system call request :</b> There are special predefined instruction to make a request to the operating system. These instruction are nothing but just a “system call”. The program uses these system calls in its code when needed.</li>
+<li><b>Operating system sees the system call :</b> When the OS sees the system call then it recongnises that the program need help at this time so it temporarily stop the program execution and give all the control to special part of itself called ‘Kernel’ . Now ‘Kernel’ solve the need of program.</li>
+<li><b>Operating system performs the operations :</b>Now the operating system perform the operation which is requested by program . Example : reading content from a file etc.</li>
+<li><b>Operating system give control back to the program :</b> After performing the special operation, OS give control back to the program for further execution of program .</li><br>
+
+
+
+<h2><b>System Programs in Operating System</b></h2>
+
+<p>System Programming can be defined as the act of building Systems Software using System Programming Languages. According to Computer Hierarchy, Hardware comes first then is Operating System, System Programs, and finally Application Programs. Program Development and Execution can be done conveniently in System Programs. Some of the System Programs are simply user interfaces, others are complex. It traditionally sits between the user interface and system calls.<br>
+    In the context of an operating system, system programs are nothing but a special software which give us facility to manage and control the computer’s hardware and resources. As we have mentioned earlier these programs are more closely with the operating system so it executes the operation fast and helpful in performing essential operation which can’t be handled by application software .</P><br>
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20200530070640/sYSTEMPROGAMS.png" width="350" height="300"><br><br>
+
+<b>Note :</b> The user can only view up-to-the System Programs he cannot see System Calls.<br>
+
+<p><b>• File management.</b> These programs create, delete, copy, rename, print,
+    dump, list, and generally manipulate files and directories.<br>
+    <b>• Status information.</b> Some programs simply ask the system for the date,
+    time, amount of available memory or disk space, number of users, or
+    similar status information. Others are more complex, providing detailed
+    performance, logging, and debugging information. Typically, these programs format and print the output to the terminal or other output devices
+    or files or display it in a window of the GUI. Some systems also support a
+    registry, which is used to store and retrieve configuration information.<br>
+    <b>• File modification.</b> Several text editors may be available to create and
+    modify the content of files stored on disk or other storage devices. There
+    may also be special commands to search contents of files or perform
+    transformations of the text.<br>
+    <b>• Programming-language support.</b> Compilers, assemblers, debuggers, and
+    interpreters for common programming languages (such as C, C++, Java,
+    and PERL) are often provided with the operating system or available as a
+    separate download.<br>
+    <b>• Program loading and execution.</b> Once a program is assembled or compiled, it must be loaded into memory to be executed. The system may
+    provide absolute loaders, relocatable loaders, linkage editors, and overlay
+    loaders. Debugging systems for either higher-level languages or machine
+    language are needed as well.<br>
+    <b>• Communications.</b> These programs provide the mechanism for creating
+    virtual connections among processes, users, and computer systems. They
+    allow users to send messages to one another’s screens, to browse Web
+    pages, to send e-mail messages, to log in remotely, or to transfer files from
+    one machine to another.<br>
+    <b>• Background services.</b> All general-purpose systems have methods for
+    launching certain system-program processes at boot time. Some of these
+    processes terminate after completing their tasks, while others continue
+    to run until the system is halted. Constantly running system-program
+    processes are known as services, subsystems, or daemons. One example is
+    the network daemon .  A system
+    needed a service to listen for network connections in order to connect
+    those requests to the correct processes. Other examples include process
+    schedulers that start processes according to a specified schedule, system
+    error monitoring services, and print servers. Typical systems have dozens of daemons. In addition, operating systems that run important activities
+    in user context rather than in kernel context may use daemons to run these
+    activities.<br><br>
+    Along with system programs, most operating systems are supplied with
+    programs that are useful in solving common problems or performing common
+    operations. Such application programs include Web browsers, word processors and text formatters, spreadsheets, database systems, compilers, plotting
+    and statistical-analysis packages, and games.<br>
+    The view of the operating system seen by most users is defined by the
+    application and system programs, rather than by the actual system calls.
+    Consider a user’s PC. When a user’s computer is running the Mac OS X
+    operating system, the user might see the GUI, featuring a mouse-and-windows
+    interface. Alternatively, or even in one of the windows, the user might have a
+    command-line UNIX shell. Both use the same set of system calls, but the system
+    calls look different and act in different ways. Further confusing the user view,
+    consider the user dual-booting from Mac OS X into Windows. Now the same
+    user on the same hardware has two entirely different interfaces and two sets of
+    applications using the same physical resources. On the same hardware, then,
+    a user can be exposed to multiple user interfaces sequentially or concurrently.</P><br>
+
+</body>
+</html>

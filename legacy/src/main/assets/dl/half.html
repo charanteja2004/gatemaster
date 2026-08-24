@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+
+<body>
+
+    <div class="article-title">
+        <h1>Half Adder in Digital Logic</h1>
+    </div>
+    </div>
+    </div>
+    <div class="text">
+        <h3>Introduction:</h3>
+        <p>A half adder is a digital logic circuit that performs binary addition of two single-bit binary numbers. It
+            has two inputs, A and B, and two outputs, SUM and CARRY. The SUM output is the least significant bit (LSB)
+            of the result, while the CARRY output is the most significant bit (MSB) of the result, indicating whether
+            there was a carry-over from the addition of the two inputs. The half adder can be implemented using basic
+            gates such as XOR and AND gates.</p>
+        <p>Sure, here&rsquo;s a more in-depth explanation of the half adder circuit:</p>
+        <p>The half adder is a basic building block for more complex adder circuits such as full adders and multiple-bit
+            adders. It performs binary addition of two single-bit inputs, A and B, and provides two outputs, SUM and
+            CARRY.</p>
+        <p>The SUM output is the least significant bit (LSB) of the result, which is the XOR of the two inputs A and B.
+            The XOR gate implements the addition operation for binary digits, where a &ldquo;1&rdquo; is generated in
+            the SUM output only when one of the inputs is &ldquo;1&rdquo;.</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <p>The CARRY output is the most significant bit (MSB) of the result, indicating whether there was a carry-over
+            from the addition of the two inputs. The CARRY output is the AND of the two inputs A and B. The AND gate
+            generates a &ldquo;1&rdquo; in the CARRY output only when both inputs are &ldquo;1&rdquo;.</p>
+        <p><strong>Half Adder (HA):</strong></p>
+        <p>Half adder is the simplest of all adder circuits. Half adder is a combinational arithmetic circuit that adds
+            two numbers and produces a sum bit (s) and carry bit (c) both as output. The addition of 2 bits is done
+            using a combination circuit called a Half adder. The input variables are augend and addend bits and output
+            variables are sum &amp; carry bits. A and B are the two input bits.</p>
+        <p>let us consider two input bits A and B, then sum bit (s) is the X-OR of A and B. it is evident from the
+            function of a half adder that it requires one X-OR gate and one AND gate for its construction.&nbsp;</p>
+        <p><strong>Truth Table:</strong></p>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2015/07/ha_truth-300x235.png"
+                alt="ha_truth" /></p>
+        <p>Here we perform two operations Sum and Carry, thus we need two K-maps one for each to derive the expression.
+        </p>
+        <h3>Logical Expression:&nbsp;</h3>
+        <p><strong>For Sum:</strong><br /><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong></p>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20211017121522/xorkmap.jpg" /></p>
+        <p><strong>Sum = A XOR B</strong></p>
+        <p><strong>For Carry:&nbsp;</strong><br /><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong></p>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20211017125041/Inkedandkmap1-200x155.jpg" /></p>
+        <p><strong>Carry = A AND B&nbsp;</strong></p>
+        <h3>Implementation:</h3>
+        <p><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Half_Adder.jpg" alt="halfadder" /></p>
+        <p><strong>Note:&nbsp;</strong>Half adder has only two inputs and there is no provision to add a carry coming
+            from the lower order bits when multi addition is performed.&nbsp;</p>
+
+        <div class="article-title">
+            <h1>Half Subtractor in Digital Logic</h1>
+        </div>
+    </div>
+    <div class="three_dot_dropdown">
+        <div>
+            <p>&nbsp;</p>
+        </div>
+    </div>
+    </div>
+    <div class="text">
+        <p>A half subtractor is a digital logic circuit that performs binary subtraction of two single-bit binary
+            numbers. It has two inputs, A and B, and two outputs, DIFFERENCE and BORROW. The DIFFERENCE output is the
+            difference between the two input bits, while the BORROW output indicates whether borrowing was necessary
+            during the subtraction.</p>
+        <p>The half subtractor can be implemented using basic gates such as XOR and NOT gates. The DIFFERENCE output is
+            the XOR of the two inputs A and B, while the BORROW output is the NOT of input A and the AND of inputs A and
+            B.&nbsp;</p>
+        <h2><strong>Half Subtractor</strong></h2>
+        <p>Half subtractor is a combination circuit with two inputs and two outputs that
+            are&nbsp;<strong>different</strong>&nbsp;and<strong>&nbsp;borrow</strong>. It produces the difference
+            between the two binary bits at the input and also produces an output (Borrow) to indicate if a 1 has been
+            borrowed. In the subtraction (A-B), A is called a&nbsp;<strong>Minuend bit&nbsp;</strong>and B is called
+            a&nbsp;<strong>Subtrahend bit.</strong>&nbsp;</p>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2015/08/halfsub.png"
+                alt="Half Subtractor" width="297" height="160" />
+            <p class="wp-caption-text">&nbsp;</p>
+        </div>
+        <p><strong>Truth Table&nbsp;</strong></p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <div class="wp-caption alignnone"><img
+                src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2015/08/hs_truthtable.png" width="318"
+                height="242" />
+            <p class="wp-caption-text">&nbsp;</p>
+        </div>
+        <p>&nbsp;&nbsp;</p>
+        <p>The SOP form of the Diff and Borrow is as follows:</p>
+        fclass="gray">Diff= A'B+AB'
+        Borrow = A'B
+    </div>
+    <p><strong>&nbsp;Implementation&nbsp;</strong></p>
+    <div class="wp-caption alignnone"><img
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20230316145016/Half-Subtractor-in-Digital-Logic.png"
+            width="448" height="224" />
+        <p class="wp-caption-text">&nbsp;</p>
+    </div>
+    <p><strong>Logical Expression&nbsp;</strong></p>
+    <div class="gray">Difference = A XOR B
+        Borrow = \overline{A}B</div>
+        <div class="article-title">
+            <div class="main_wrapper">
+            <div>
+            <div class="article-title">
+            <h1>Half Adder and Half Subtractor using NAND NOR gates</h1>
+            </div>
+            </div>
+            </div>
+            <div class="text">
+            <h3>Introduction:</h3>
+            <h3>Advantages of using NAND and NOR gates to implement Half Adder and Half Subtractor:</h3>
+            <ol>
+            <li>Universality: NAND and NOR gates are considered universal gates because they can be used to implement any logical function, including binary arithmetic functions such as addition and subtraction.</li>
+            <li>Cost-effectiveness: NAND and NOR gates are relatively simple and inexpensive to manufacture compared to other types of gates.</li>
+            <li>Reduced power consumption: NAND and NOR gates consume less power compared to other types of gates, making them suitable for low-power applications.</li>
+            </ol>
+            <h3>Disadvantages of using NAND and NOR gates to implement Half Adder and Half Subtractor:</h3>
+            <ol>
+            <li>Propagation delay: The propagation delay of NAND and NOR gates can be higher compared to other types of gates, which can affect the overall performance of the system.</li>
+            <li>Noise susceptibility: NAND and NOR gates can be susceptible to noise and other types of interference, which can cause incorrect operation of the circuit.</li>
+            <li>In conclusion, while NAND and NOR gates have their advantages, they are not suitable for all applications. The choice of gates depends on the specific requirements of the circuit and the design trade-offs between performance, cost, and power consumption.</li>
+            </ol>
+            <p><strong>Implementation of Half Adder using NAND gates :</strong>&nbsp;Total 5 NAND gates are required to implement half adder.<img src="https://media.geeksforgeeks.org/wp-content/uploads/1-71.png" alt="" width="429" height="214" /><strong>Implementation of Half Adder using NOR gates :</strong>&nbsp;Total 5 NOR gates are required to implement half adder.<img src="https://media.geeksforgeeks.org/wp-content/uploads/2-45.png" alt="" width="480" height="162" /><strong>Implementation of Half Subtractor using NAND gates :</strong>&nbsp;Total 5 NAND gates are required to implement half subtractor.<img src="https://media.geeksforgeeks.org/wp-content/uploads/3-52.png" alt="" width="498" height="161" /><strong>Implementation of Half Subtractor using NOR gates :</strong>&nbsp;Total 5 NOR gates are required to implement half subtractor.<img src="https://media.geeksforgeeks.org/wp-content/uploads/4-29.png" alt="" width="505" height="184" /></p>
+            </div>
+            </div>
+</body>
+
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Applications of various Automata</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+<p>Process Synchronization is the coordination of execution of multiple processes in a multi-process system to ensure that they access shared resources in a controlled and predictable manner. It aims to resolve the problem of race conditions and other synchronization issues in a concurrent system.<br><br>
+
+    The main objective of process synchronization is to ensure that multiple processes access shared resources without interfering with each other and to prevent the possibility of inconsistent data due to concurrent access. To achieve this, various synchronization techniques such as semaphores, monitors, and critical sections are used.<br><br>
+
+    In a multi-process system, synchronization is necessary to ensure data consistency and integrity, and to avoid the risk of deadlocks and other synchronization problems. Process synchronization is an important aspect of modern operating systems, and it plays a crucial role in ensuring the correct and efficient functioning of multi-process systems.<br><br>
+
+    <b>Background</b><br>
+    We’ve already seen that processes can execute concurrently or in parallel, introduced the role of process scheduling and described how
+    the CPU scheduler switches rapidly between processes to provide concurrent
+    execution. This means that one process may only partially complete execution
+    before another process is scheduled. In fact, a process may be interrupted at
+    any point in its instruction stream, and the processing core may be assigned
+    to execute instructions of another process. Additionally,introduced
+    parallel execution, in which two instruction streams (representing different
+    processes) execute simultaneously on separate processing cores. In this,we explain how concurrent or parallel execution can contribute to issues
+    involving the integrity of data shared by several processes.<br><br>
+    Let’s consider an example of how this can happen.we developed a model of a system consisting of cooperating sequential processes or
+    threads, all running asynchronously and possibly sharing data. We illustrated
+    this model with the producer–consumer problem, which is representative of
+    operating systems. Specifically, we described how a bounded
+    buffer could be used to enable processes to share memory.<br><br>
+    We now return to our consideration of the bounded buffer. As we pointed
+    out, our original solution allowed at most BUFFER SIZE − 1 items in the buffer
+    at the same time. Suppose we want to modify the algorithm to remedy this
+    deficiency. One possibility is to add an integer variable counter, initialized to
+    0. counter is incremented every time we add a new item to the buffer and is
+    decremented every time we remove one item from the buffer. The code for the
+    producer process can be modified as follows:<br><br>
+    <div class="gray">
+    while (true) {<br>
+    /* produce an item in next produced */<br>
+    while (counter == BUFFER SIZE)<br>
+    ; /* do nothing */<br>
+    buffer[in] = next produced;<br>
+    in = (in + 1) % BUFFER SIZE;<br>
+    counter++;<br>
+    }<br>
+</div>
+
+    The code for the consumer process can be modified as follows:<br>
+<div class="gray">
+    while (true) {<br>
+    while (counter == 0)<br>
+    ; /* do nothing */<br>
+    next consumed = buffer[out];<br>
+    out = (out + 1) % BUFFER SIZE;<br>
+    counter--;<br>
+</div>
+    /* consume the item in next consumed */<br>
+    }<br><br>
+    Although the producer and consumer routines shown above are correct
+    separately, they may not function correctly when executed concurrently. As
+    an illustration, suppose that the value of the variable counter is currently
+    5 and that the producer and consumer processes concurrently execute the
+    statements “counter++” and “counter--”. Following the execution of these
+    two statements, the value of the variable counter may be 4, 5, or 6! The only
+    correct result, though, is counter == 5, which is generated correctly if the
+    producer and consumer execute separately.<br><br>
+
+    We can show that the value of counter may be incorrect as follows. Note
+    that the statement “counter++” may be implemented in machine language (on
+    a typical machine) as follows:<br><br>
+    register1 = counter<br>
+    register1 = register1 + 1<br>
+    counter = register1<br><br>
+    where register1 is one of the local CPU registers. Similarly, the statement
+    “counter--” is implemented as follows:<br><br>
+    register2 = counter<br>
+    register2 = register2 − 1<br>
+    counter = register2<br><br>
+    where again register2 is one of the local CPU registers. Even though register1 and
+    register2 may be the same physical register (an accumulator, say), remember
+    that the contents of this register will be saved and restored by the interrupt
+    handler.<br>
+    The concurrent execution of “counter++” and “counter--” is equivalent
+    to a sequential execution in which the lower-level statements presented
+    previously are interleaved in some arbitrary order (but the order within each
+    high-level statement is preserved). One such interleaving is the following:<br><br>
+<div class="gray">
+    T0: producer execute register1 = counter {register1 = 5}<br>
+    T1: producer execute register1 = register1 + 1 {register1 = 6}<br>
+    T2: consumer execute register2 = counter {register2 = 5}<br>
+    T3: consumer execute register2 = register2 − 1 {register2 = 4}<br>
+    T4: producer execute counter = register1 {counter = 6}<br>
+    T5: consumer execute counter = register2 {counter = 4}<br><br>
+</div>
+    Notice that we have arrived at the incorrect state “counter == 4”, indicating
+    that four buffers are full, when, in fact, five buffers are full. If we reversed the
+    order of the statements at T4 and T5, we would arrive at the incorrect state
+    “counter == 6”.<br><br>
+    We would arrive at this incorrect state because we allowed both processes
+    to manipulate the variable counter concurrently. A situation like this, where
+    several processes access and manipulate the same data concurrently and the
+    outcome of the execution depends on the particular order in which the access
+    takes place, is called a race condition. To guard against the race condition
+    above, we need to ensure that only one process at a time can be manipulating
+    the variable counter. To make such a guarantee, we require that the processes
+    be synchronized in some way.<br><br>
+    Situations such as the one just described occur frequently in operating
+    systems as different parts of the system manipulate resources. Furthermore, as
+    we have emphasized in earlier chapters, the growing importance of multicore
+    systems has brought an increased emphasis on developing multithreaded
+    applications. In such applications, several threads—which are quite possibly
+    sharing data—are running in parallel on different processing cores. Clearly,<br><br>
+<div class="gray">
+    do {<br>
+    entry section<br>
+    critical section<br>
+    exit section<br>
+    remainder section<br>
+    } while (true);<br><br>
+</div>
+    we want any changes that result from such activities not to interfere with one
+    another.<br><br>
+
+<h3><b>Race Condition</b></h3>
+When more than one process is executing the same code or accessing the same memory or any shared variable in that condition there is a possibility that the output or the value of the shared variable is wrong so for that all the processes doing the race to say that my output is correct this condition known as a race condition. Several processes access and process the manipulations over the same data concurrently, and then the outcome depends on the particular order in which the access takes place. A race condition is a situation that may occur inside a critical section. This happens when the result of multiple thread execution in the critical section differs according to the order in which the threads execute. Race conditions in critical sections can be avoided if the critical section is treated as an atomic instruction. Also, proper thread synchronization using locks or atomic variables can prevent race conditions.<br><br>
+
+<b>Example:</b><br>
+
+<b>Let’s understand one example to understand the race condition better:</b><br>
+
+Let’s say there are two processes P1 and P2 which share a common variable (shared=10), both processes are present in – queue and waiting for their turn to be executed. Suppose, Process P1 first come under execution, and the CPU store a common variable between them (shared=10) in the local variable (X=10) and increment it by 1(X=11), after then when the CPU read line sleep(1),it switches from current process P1 to process P2 present in ready-queue. The process P1 goes in a waiting state for 1 second.<br><br>
+
+Now CPU execute the Process P2 line by line and store common variable (Shared=10) in its local variable (Y=10) and decrement Y by 1(Y=9), after then when CPU read sleep(1), the current process P2 goes in waiting for state and CPU remains idle for some time as there is no process in ready-queue, after completion of 1 second of process P1 when it comes in ready-queue, CPU takes the process P1 under execution and execute the remaining line of code (store the local variable (X=11) in common variable (shared=11) ), CPU remain idle for sometime waiting for any process in ready-queue,after completion of 1 second of Process P2, when process P2 comes in ready-queue, CPU start executing the further remaining line of Process P2(store the local variable (Y=9) in common variable (shared=9) ).<br><br>
+<b>Initially Shared = 10</b><br><br>
+<table border="1">
+    <tr>
+        <th><b>Process 1</b></th>
+        <th><b>Process 2</b></th>
+    </tr>
+    <tr>
+
+        <td>int X=shared</td>
+        <td>int Y=shared</td>
+    </tr>
+    <tr>
+        <td>X++</td>
+        <td>Y--</td>
+    </tr>
+    <tr>
+        <td>sleep(1)</td>
+        <td>sleep(1)</td>
+    </tr>
+    <tr>
+        <td>shared=X</td>
+        <td>shared=Y</td>
+    </tr>
+</table>
+<br><br>
+
+<b>Note:</b>We are assuming the final value of a common variable(shared) after execution of Process P1 and Process P2 is 10 (as Process P1 increment variable (shared=10) by 1 and Process P2 decrement variable (shared=11) by 1 and finally it becomes shared=10). But we are getting undesired value due to a lack of proper synchronization.<br><br>
+
+<h3><b>Actual meaning of race-condition</b></h3>
+<li>If the order of execution of the process(first P1 -> then P2) then we will get the value of common variable (shared) =9.</li>
+<li>If the order of execution of the process(first P2 -> then P1) then we will get the final value of common variable (shared) =11.</li>
+<li>Here the (value1 = 9) and (value2=10) are racing, If we execute these two processes in our computer system then sometime we will get 9 and sometime we will get 10 as the final value of a common variable(shared). This phenomenon is called<b> race condition</b>.</li><p><br>
+
+
+<h3><b>The Critical-Section Problem</b></h3>
+
+We begin our consideration of process synchronization by discussing the socalled critical-section problem. Consider a system consisting of n processes
+{P0, P1, ..., Pn−1}. Each process has a segment of code, called a <b>critical section</b>,
+in which the process may be changing common variables, updating a table,
+writing a file, and so on. The important feature of the system is that, when
+one process is executing in its critical section, no other process is allowed to
+execute in its critical section. That is, no two processes are executing in their
+critical sections at the same time. The<b> critical-section problem</b> is to design a
+protocol that the processes can use to cooperate. Each process must request
+permission to enter its critical section. The section of code implementing this
+request is the <b>entry section</b>. The critical section may be followed by an <b>exit
+    section</b>. The remaining code is the <b>remainder section</b>. The general structure of
+a typical process Pi. The entry section and exit section
+are enclosed in boxes to highlight these important segments of code.<br><br>
+
+A solution to the critical-section problem must satisfy the following three
+requirements:<br><br>
+1.<b> Mutual exclusion.</b> If process Pi is executing in its critical section, then no
+other processes can be executing in their critical sections.<br>
+2. <b>Progress.</b> If no process is executing in its critical section and some
+processes wish to enter their critical sections, then only those processes
+that are not executing in their remainder sections can participate in
+deciding which will enter its critical section next, and this selection cannot
+be postponed indefinitely.<br>
+3. <b>Bounded waiting.</b> There exists a bound, or limit, on the number of times
+that other processes are allowed to enter their critical sections a process has made a request to enter its critical section and before that
+request is granted.<br><br>
+
+
+We assume that each process is executing at a nonzero speed. However, we can
+make no assumption concerning the relative speed of the n processes.<br>
+At a given point in time, many kernel-mode processes may be active in
+the operating system. As a result, the code implementing an operating system
+(kernel code) is subject to several possible race conditions. Consider as an
+example a kernel data structure that maintains a list of all open files in the
+system. This list must be modified when a new file is opened or closed (adding
+the file to the list or removing it from the list). If two processes were to open files
+simultaneously, the separate updates to this list could result in a race condition.
+Other kernel data structures that are prone to possible race conditions include
+structures for maintaining memory allocation, for maintaining process lists,
+and for interrupt handling. It is up to kernel developers to ensure that the
+operating system is free from such race conditions.<br><br>
+Two general approaches are used to handle critical sections in operating
+systems:<b> preemptive kernels</b> and <b>nonpreemptive kernels</b>. A preemptive
+kernel allows a process to be preempted while it is running in kernel mode. A
+nonpreemptive kernel does not allow a process running in kernel mode to be
+preempted; a kernel-mode process will run until it exits kernel mode, blocks,
+or voluntarily yields control of the CPU.<br><br>
+Obviously, a nonpreemptive kernel is essentially free from race conditions
+on kernel data structures, as only one process is active in the kernel at a time.
+We cannot say the same about preemptive kernels, so they must be carefully
+designed to ensure that shared kernel data are free from race conditions.
+Preemptive kernels are especially difficult to design for SMP architectures,
+since in these environments it is possible for two kernel-mode processes to run
+simultaneously on different processors.<br><br>
+Why, then, would anyone favor a preemptive kernel over a nonpreemptive
+one? A preemptive kernel may be more responsive, since there is less risk that a
+kernel-mode process will run for an arbitrarily long period before relinquishing
+the processor to waiting processes. (Of course, this risk can also be minimized
+by designing kernel code that does not behave in this way.) Furthermore, a
+preemptive kernel is more suitable for real-time programming, as it will allow
+a real-time process to preempt a process currently running in the kernel. Later
+in this chapter, we explore how various operating systems manage preemption
+within the kernel.<br><br>
+</body>
+</html>

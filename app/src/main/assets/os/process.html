@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Applications of various Automata</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+<h2><b>Process</b></h2>
+<p>Early computers allowed only one program to be executed at a time. This
+    program had complete control of the system and had access to all the system’s
+    resources. In contrast, contemporary computer systems allow multiple programs to be loaded into memory and executed concurrently. This evolution
+    required firmer control and more compartmentalization of the various programs; and these needs resulted in the notion of a process, which is a program
+    in execution. A process is the unit of work in a modern time-sharing system.<br><br>
+    The more complex the operating system is, the more it is expected to do on
+    behalf of its users. Although its main concern is the execution of user programs,
+    it also needs to take care of various system tasks that are better left outside the
+    kernel itself. A system therefore consists of a collection of processes: operatingsystem processes executing system code and user processes executing user
+    code. Potentially, all these processes can execute concurrently, with the CPU (or
+    CPUs) multiplexed among them. By switching the CPU between processes, the
+    operating system can make the computer more productive.</p><br><br>
+<h3><b>Process concept</b></h3>
+<p>A question that arises in discussing operating systems involves what to call
+    all the CPU activities. A batch system executes jobs, whereas a time-shared system has user programs, or tasks. Even on a single-user system, a user may
+    be able to run several programs at one time: a word processor, a Web browser,
+    and an e-mail package. And even if a user can execute only one program at a
+    time, such as on an embedded device that does not support multitasking, the
+    operating system may need to support its own internal programmed activities,
+    such as memory management. In many respects, all these activities are similar,
+    so we call all of them processes.<br><br>
+    The terms job and process are used almost interchangeably in this text.
+    Although we personally prefer the term process, much of operating-system
+    theory and terminology was developed during a time when the major activity
+    of operating systems was job processing. It would be misleading to avoid
+    the use of commonly accepted terms that include the word job (such as job
+    scheduling) simply because process has superseded job.</p><br>
+<h3><b>The Process</b></h3>
+<p>Informally, as mentioned earlier, a process is a program in execution. A process
+    is more than the program code, which is sometimes known as the text section.
+    It also includes the current activity, as represented by the value of the program
+    counter and the contents of the processor’s registers. A process generally also
+    includes the process stack, which contains temporary data (such as function
+    parameters, return addresses, and local variables), and a data section, which
+    contains global variables. A process may also include a heap, which is memory
+    that is dynamically allocated during process run time.<br><br>
+    We emphasize that a program by itself is not a process. A program is a
+    passive entity, such as a file containing a list of instructions stored on disk
+    (often called an executable file). In contrast, a process is an active entity,
+    with a program counter specifying the next instruction to execute and a set
+    of associated resources. A program becomes a process when an executable file
+    is loaded into memory.<br><br>
+    <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2015/06/process.png" width="300" height="350"><br>
+
+    Two common techniques for loading executable files are double-clicking an icon representing the executable file and entering the
+    name of the executable file on the command line (as in prog.exe or a.out).
+    Although two processes may be associated with the same program, they
+    are nevertheless considered two separate execution sequences. For instance,
+    several users may be running different copies of the mail program, or the same
+    user may invoke many copies of the web browser program. Each of these is a
+    separate process; and although the text sections are equivalent, the data, heap,
+    and stack sections vary. It is also common to have a process that spawns many
+    processes as it runs.<br><br>
+    Note that a process itself can be an execution environment for other
+    code. The Java programming environment provides a good example. In most
+    circumstances, an executable Java program is executed within the Java virtual
+    machine (JVM). The JVM executes as a process that interprets the loaded Java
+    code and takes actions (via native machine instructions) on behalf of that code.
+    For example, to run the compiled Java program Program.class, we would
+    enter<br>
+    java Program<br>
+    The command java runs the JVM as an ordinary process, which in turns
+    executes the Java program Program in the virtual machine. The concept is the
+    same as simulation, except that the code, instead of being written for a different
+    instruction set, is written in the Java language.</p><br><br>
+<h3><b>Operation on the Process</b></h3>
+<b>1. Creation:</b> The process will be ready once it has been created, enter the ready queue (main memory), and be prepared for execution.<br>
+
+<b>2. Planning:</b> The operating system picks one process to begin executing from among the numerous processes that are currently in the ready queue. Scheduling is the process of choosing the next process to run.<br>
+
+<b>3. Application:</b> The processor begins running the process as soon as it is scheduled to run. During execution, a process may become blocked or wait, at which point the processor switches to executing the other processes.<br>
+
+<b>4. Killing or Deletion:</b> The OS will terminate the process once its purpose has been fulfilled. The process’s context will be over there.<br>
+
+<b>5. Blocking:</b> When a process is waiting for an event or resource, it is blocked. The operating system will place it in a blocked state, and it will not be able to execute until the event or resource becomes available.<br>
+
+<b>6. Resumption:</b> When the event or resource that caused a process to block becomes available, the process is removed from the blocked state and added back to the ready queue.<br>
+
+<b>7. Context Switching:</b> When the operating system switches from executing one process to another, it must save the current process’s context and load the context of the next process to execute. This is known as context switching.<br>
+
+<b>8. Inter-Process Communication:</b> Processes may need to communicate with each other to share data or coordinate actions. The operating system provides mechanisms for inter-process communication, such as shared memory, message passing, and synchronization primitives.<br>
+
+<b>9. Process Synchronization:</b> Multiple processes may need to access a shared resource or critical section of code simultaneously. The operating system provides synchronization mechanisms to ensure that only one process can access the resource or critical section at a time.<br>
+
+<b>10. Process States:</b> Processes may be in one of several states, including ready, running, waiting, and terminated. The operating system manages the process states and transitions between them.<br>
+</body>
+</html>

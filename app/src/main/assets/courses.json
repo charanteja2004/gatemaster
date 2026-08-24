@@ -1,0 +1,1397 @@
+﻿{
+    "courses":  [
+                    {
+                        "title":  "Algorithms",
+                        "topics":  [
+                                       {
+                                           "title":  "Algorithms",
+                                           "pdfPath":  "",
+                                           "id":  "algorithms",
+                                           "contentPath":  "algo/algorithms.html"
+                                       },
+                                       {
+                                           "title":  "Asymptotic",
+                                           "pdfPath":  "",
+                                           "id":  "asymptotic",
+                                           "contentPath":  "algo/asymptotic.html"
+                                       },
+                                       {
+                                           "title":  "Bellmenford",
+                                           "pdfPath":  "",
+                                           "id":  "bellmenford",
+                                           "contentPath":  "algo/bellmenford.html"
+                                       },
+                                       {
+                                           "title":  "Binearysearch",
+                                           "pdfPath":  "",
+                                           "id":  "binearysearch",
+                                           "contentPath":  "algo/binearysearch.html"
+                                       },
+                                       {
+                                           "title":  "Bubblesort",
+                                           "pdfPath":  "",
+                                           "id":  "bubblesort",
+                                           "contentPath":  "algo/bubblesort.html"
+                                       },
+                                       {
+                                           "title":  "Bucketsort",
+                                           "pdfPath":  "",
+                                           "id":  "bucketsort",
+                                           "contentPath":  "algo/bucketsort.html"
+                                       },
+                                       {
+                                           "title":  "Countsort",
+                                           "pdfPath":  "",
+                                           "id":  "countsort",
+                                           "contentPath":  "algo/countsort.html"
+                                       },
+                                       {
+                                           "title":  "Dijasthras",
+                                           "pdfPath":  "",
+                                           "id":  "dijasthras",
+                                           "contentPath":  "algo/dijasthras.html"
+                                       },
+                                       {
+                                           "title":  "Divide\u0026Conq",
+                                           "pdfPath":  "",
+                                           "id":  "divide\u0026conq",
+                                           "contentPath":  "algo/divide\u0026conq.html"
+                                       },
+                                       {
+                                           "title":  "Dynamicp",
+                                           "pdfPath":  "",
+                                           "id":  "dynamicp",
+                                           "contentPath":  "algo/dynamicp.html"
+                                       },
+                                       {
+                                           "title":  "Floydwarshall",
+                                           "pdfPath":  "",
+                                           "id":  "floydwarshall",
+                                           "contentPath":  "algo/floydwarshall.html"
+                                       },
+                                       {
+                                           "title":  "Greedyalg",
+                                           "pdfPath":  "",
+                                           "id":  "greedyalg",
+                                           "contentPath":  "algo/greedyalg.html"
+                                       },
+                                       {
+                                           "title":  "Heapsort",
+                                           "pdfPath":  "",
+                                           "id":  "heapsort",
+                                           "contentPath":  "algo/heapsort.html"
+                                       },
+                                       {
+                                           "title":  "Huffman",
+                                           "pdfPath":  "",
+                                           "id":  "huffman",
+                                           "contentPath":  "algo/huffman.html"
+                                       },
+                                       {
+                                           "title":  "Insertionsort",
+                                           "pdfPath":  "",
+                                           "id":  "insertionsort",
+                                           "contentPath":  "algo/insertionsort.html"
+                                       },
+                                       {
+                                           "title":  "Knapsack01",
+                                           "pdfPath":  "",
+                                           "id":  "knapsack01",
+                                           "contentPath":  "algo/knapsack01.html"
+                                       },
+                                       {
+                                           "title":  "Krushkalminspanningtree",
+                                           "pdfPath":  "",
+                                           "id":  "krushkalminspanningtree",
+                                           "contentPath":  "algo/krushkalminspanningtree.html"
+                                       },
+                                       {
+                                           "title":  "Longestcommensub",
+                                           "pdfPath":  "",
+                                           "id":  "longestcommensub",
+                                           "contentPath":  "algo/longestcommensub.html"
+                                       },
+                                       {
+                                           "title":  "Matrixchain",
+                                           "pdfPath":  "",
+                                           "id":  "matrixchain",
+                                           "contentPath":  "algo/matrixchain.html"
+                                       },
+                                       {
+                                           "title":  "Mergesort",
+                                           "pdfPath":  "",
+                                           "id":  "mergesort",
+                                           "contentPath":  "algo/mergesort.html"
+                                       },
+                                       {
+                                           "title":  "Prims",
+                                           "pdfPath":  "",
+                                           "id":  "prims",
+                                           "contentPath":  "algo/prims.html"
+                                       },
+                                       {
+                                           "title":  "Quicksort",
+                                           "pdfPath":  "",
+                                           "id":  "quicksort",
+                                           "contentPath":  "algo/quicksort.html"
+                                       },
+                                       {
+                                           "title":  "Radixsort",
+                                           "pdfPath":  "",
+                                           "id":  "radixsort",
+                                           "contentPath":  "algo/radixsort.html"
+                                       },
+                                       {
+                                           "title":  "Search",
+                                           "pdfPath":  "",
+                                           "id":  "search",
+                                           "contentPath":  "algo/search.html"
+                                       },
+                                       {
+                                           "title":  "Selectionsort",
+                                           "pdfPath":  "",
+                                           "id":  "selectionsort",
+                                           "contentPath":  "algo/selectionsort.html"
+                                       },
+                                       {
+                                           "title":  "Sort",
+                                           "pdfPath":  "",
+                                           "id":  "sort",
+                                           "contentPath":  "algo/sort.html"
+                                       },
+                                       {
+                                           "title":  "Spanningtree",
+                                           "pdfPath":  "",
+                                           "id":  "spanningtree",
+                                           "contentPath":  "algo/spanningtree.html"
+                                       },
+                                       {
+                                           "title":  "Subsetproblemsum",
+                                           "pdfPath":  "",
+                                           "id":  "subsetproblemsum",
+                                           "contentPath":  "algo/subsetproblemsum.html"
+                                       }
+                                   ],
+                        "id":  "algo"
+                    },
+                    {
+                        "title":  "Aptitude",
+                        "topics":  [
+                                       {
+                                           "title":  "2D",
+                                           "pdfPath":  "",
+                                           "id":  "2d",
+                                           "contentPath":  "aptitude/2d.html"
+                                       },
+                                       {
+                                           "title":  "Agreement",
+                                           "pdfPath":  "",
+                                           "id":  "agreement",
+                                           "contentPath":  "aptitude/agreement.html"
+                                       },
+                                       {
+                                           "title":  "Alphanumeric",
+                                           "pdfPath":  "",
+                                           "id":  "alphanumeric",
+                                           "contentPath":  "aptitude/alphanumeric.html"
+                                       },
+                                       {
+                                           "title":  "Article",
+                                           "pdfPath":  "",
+                                           "id":  "article",
+                                           "contentPath":  "aptitude/article.html"
+                                       },
+                                       {
+                                           "title":  "Clock",
+                                           "pdfPath":  "",
+                                           "id":  "clock",
+                                           "contentPath":  "aptitude/clock.html"
+                                       },
+                                       {
+                                           "title":  "Determiners",
+                                           "pdfPath":  "",
+                                           "id":  "Determiners",
+                                           "contentPath":  "aptitude/Determiners.html"
+                                       },
+                                       {
+                                           "title":  "Grammer",
+                                           "pdfPath":  "",
+                                           "id":  "grammer",
+                                           "contentPath":  "aptitude/grammer.html"
+                                       },
+                                       {
+                                           "title":  "Inequality_Reasoning",
+                                           "pdfPath":  "",
+                                           "id":  "Inequality_Reasoning",
+                                           "contentPath":  "aptitude/Inequality_Reasoning.html"
+                                       },
+                                       {
+                                           "title":  "Modifiers",
+                                           "pdfPath":  "",
+                                           "id":  "Modifiers",
+                                           "contentPath":  "aptitude/Modifiers.html"
+                                       },
+                                       {
+                                           "title":  "Numbers",
+                                           "pdfPath":  "",
+                                           "id":  "numbers",
+                                           "contentPath":  "aptitude/numbers.html"
+                                       },
+                                       {
+                                           "title":  "Order",
+                                           "pdfPath":  "",
+                                           "id":  "Order",
+                                           "contentPath":  "aptitude/Order.html"
+                                       },
+                                       {
+                                           "title":  "Paragraph",
+                                           "pdfPath":  "",
+                                           "id":  "paragraph",
+                                           "contentPath":  "aptitude/paragraph.html"
+                                       },
+                                       {
+                                           "title":  "Passive",
+                                           "pdfPath":  "",
+                                           "id":  "passive",
+                                           "contentPath":  "aptitude/passive.html"
+                                       },
+                                       {
+                                           "title":  "Percentage",
+                                           "pdfPath":  "",
+                                           "id":  "percentage",
+                                           "contentPath":  "aptitude/percentage.html"
+                                       },
+                                       {
+                                           "title":  "Pipes",
+                                           "pdfPath":  "",
+                                           "id":  "pipes",
+                                           "contentPath":  "aptitude/pipes.html"
+                                       },
+                                       {
+                                           "title":  "Probability",
+                                           "pdfPath":  "",
+                                           "id":  "probability",
+                                           "contentPath":  "aptitude/probability.html"
+                                       },
+                                       {
+                                           "title":  "Profit",
+                                           "pdfPath":  "",
+                                           "id":  "profit",
+                                           "contentPath":  "aptitude/profit.html"
+                                       },
+                                       {
+                                           "title":  "Progression",
+                                           "pdfPath":  "",
+                                           "id":  "progression",
+                                           "contentPath":  "aptitude/progression.html"
+                                       },
+                                       {
+                                           "title":  "Puzzle",
+                                           "pdfPath":  "",
+                                           "id":  "puzzle",
+                                           "contentPath":  "aptitude/puzzle.html"
+                                       },
+                                       {
+                                           "title":  "Quantitative",
+                                           "pdfPath":  "",
+                                           "id":  "quantitative",
+                                           "contentPath":  "aptitude/quantitative.html"
+                                       },
+                                       {
+                                           "title":  "Seating_Arrangement",
+                                           "pdfPath":  "",
+                                           "id":  "Seating_Arrangement",
+                                           "contentPath":  "aptitude/Seating_Arrangement.html"
+                                       },
+                                       {
+                                           "title":  "Simple_Intrest",
+                                           "pdfPath":  "",
+                                           "id":  "simple_intrest",
+                                           "contentPath":  "aptitude/simple_intrest.html"
+                                       },
+                                       {
+                                           "title":  "Speed",
+                                           "pdfPath":  "",
+                                           "id":  "speed",
+                                           "contentPath":  "aptitude/speed.html"
+                                       },
+                                       {
+                                           "title":  "Verbal",
+                                           "pdfPath":  "",
+                                           "id":  "verbal",
+                                           "contentPath":  "aptitude/verbal.html"
+                                       },
+                                       {
+                                           "title":  "Verbal_Analog",
+                                           "pdfPath":  "",
+                                           "id":  "verbal_analog",
+                                           "contentPath":  "aptitude/verbal_analog.html"
+                                       },
+                                       {
+                                           "title":  "Work",
+                                           "pdfPath":  "",
+                                           "id":  "work",
+                                           "contentPath":  "aptitude/work.html"
+                                       }
+                                   ],
+                        "id":  "aptitude"
+                    },
+                    {
+                        "title":  "Computer Architecture",
+                        "topics":  [
+                                       {
+                                           "title":  "Addressingmodes",
+                                           "pdfPath":  "",
+                                           "id":  "addressingmodes",
+                                           "contentPath":  "cao/addressingmodes.html"
+                                       },
+                                       {
+                                           "title":  "Aludatapath",
+                                           "pdfPath":  "",
+                                           "id":  "aludatapath",
+                                           "contentPath":  "cao/aludatapath.html"
+                                       },
+                                       {
+                                           "title":  "Arithmeticinstructionpipeline",
+                                           "pdfPath":  "",
+                                           "id":  "arithmeticinstructionpipeline",
+                                           "contentPath":  "cao/arithmeticinstructionpipeline.html"
+                                       },
+                                       {
+                                           "title":  "Basic_Computer",
+                                           "pdfPath":  "",
+                                           "id":  "basic_computer",
+                                           "contentPath":  "cao/basic_computer.html"
+                                       },
+                                       {
+                                           "title":  "Cache",
+                                           "pdfPath":  "",
+                                           "id":  "cache",
+                                           "contentPath":  "cao/cache.html"
+                                       },
+                                       {
+                                           "title":  "Computerinstructions",
+                                           "pdfPath":  "",
+                                           "id":  "computerInstructions",
+                                           "contentPath":  "cao/computerInstructions.html"
+                                       },
+                                       {
+                                           "title":  "Datahazaed",
+                                           "pdfPath":  "",
+                                           "id":  "datahazaed",
+                                           "contentPath":  "cao/datahazaed.html"
+                                       },
+                                       {
+                                           "title":  "Datamanupulation_Pc",
+                                           "pdfPath":  "",
+                                           "id":  "Datamanupulation_pc",
+                                           "contentPath":  "cao/Datamanupulation_pc.html"
+                                       },
+                                       {
+                                           "title":  "Datapath",
+                                           "pdfPath":  "",
+                                           "id":  "datapath",
+                                           "contentPath":  "cao/datapath.html"
+                                       },
+                                       {
+                                           "title":  "Dma",
+                                           "pdfPath":  "",
+                                           "id":  "dma",
+                                           "contentPath":  "cao/dma.html"
+                                       },
+                                       {
+                                           "title":  "Hardwiredmicroprogrammed",
+                                           "pdfPath":  "",
+                                           "id":  "hardwiredMicroprogrammed",
+                                           "contentPath":  "cao/hardwiredMicroprogrammed.html"
+                                       },
+                                       {
+                                           "title":  "Instructioncycle",
+                                           "pdfPath":  "",
+                                           "id":  "instructioncycle",
+                                           "contentPath":  "cao/instructioncycle.html"
+                                       },
+                                       {
+                                           "title":  "Instructionformate",
+                                           "pdfPath":  "",
+                                           "id":  "instructionformate",
+                                           "contentPath":  "cao/instructionformate.html"
+                                       },
+                                       {
+                                           "title":  "Iointerface",
+                                           "pdfPath":  "",
+                                           "id":  "iointerface",
+                                           "contentPath":  "cao/iointerface.html"
+                                       },
+                                       {
+                                           "title":  "Ioprocessor",
+                                           "pdfPath":  "",
+                                           "id":  "ioprocessor",
+                                           "contentPath":  "cao/ioprocessor.html"
+                                       },
+                                       {
+                                           "title":  "Machineinstructions",
+                                           "pdfPath":  "",
+                                           "id":  "machineInstructions",
+                                           "contentPath":  "cao/machineInstructions.html"
+                                       },
+                                       {
+                                           "title":  "Memorymapping",
+                                           "pdfPath":  "",
+                                           "id":  "memorymapping",
+                                           "contentPath":  "cao/memorymapping.html"
+                                       },
+                                       {
+                                           "title":  "Memoryunit",
+                                           "pdfPath":  "",
+                                           "id":  "Memoryunit",
+                                           "contentPath":  "cao/Memoryunit.html"
+                                       },
+                                       {
+                                           "title":  "Pcinstruction",
+                                           "pdfPath":  "",
+                                           "id":  "pcinstruction",
+                                           "contentPath":  "cao/pcinstruction.html"
+                                       },
+                                       {
+                                           "title":  "Pipelining",
+                                           "pdfPath":  "",
+                                           "id":  "pipelining",
+                                           "contentPath":  "cao/pipelining.html"
+                                       },
+                                       {
+                                           "title":  "Risccisc",
+                                           "pdfPath":  "",
+                                           "id":  "risccisc",
+                                           "contentPath":  "cao/risccisc.html"
+                                       }
+                                   ],
+                        "id":  "cao"
+                    },
+                    {
+                        "title":  "Compiler Design",
+                        "topics":  [
+                                       {
+                                           "title":  "Ambigious",
+                                           "pdfPath":  "",
+                                           "id":  "ambigious",
+                                           "contentPath":  "cd/ambigious.html"
+                                       },
+                                       {
+                                           "title":  "Basicblock",
+                                           "pdfPath":  "",
+                                           "id":  "basicblock",
+                                           "contentPath":  "cd/basicblock.html"
+                                       },
+                                       {
+                                           "title":  "Clr",
+                                           "pdfPath":  "",
+                                           "id":  "clr",
+                                           "contentPath":  "cd/clr.html"
+                                       },
+                                       {
+                                           "title":  "Codeoptimization",
+                                           "pdfPath":  "",
+                                           "id":  "codeoptimization",
+                                           "contentPath":  "cd/codeoptimization.html"
+                                       },
+                                       {
+                                           "title":  "Error",
+                                           "pdfPath":  "",
+                                           "id":  "error",
+                                           "contentPath":  "cd/error.html"
+                                       },
+                                       {
+                                           "title":  "Intermediate_Code_Generator",
+                                           "pdfPath":  "",
+                                           "id":  "intermediate_code_generator",
+                                           "contentPath":  "cd/intermediate_code_generator.html"
+                                       },
+                                       {
+                                           "title":  "Into_Cd",
+                                           "pdfPath":  "",
+                                           "id":  "into_cd",
+                                           "contentPath":  "cd/into_cd.html"
+                                       },
+                                       {
+                                           "title":  "Lalr",
+                                           "pdfPath":  "",
+                                           "id":  "lalr",
+                                           "contentPath":  "cd/lalr.html"
+                                       },
+                                       {
+                                           "title":  "Lexical",
+                                           "pdfPath":  "",
+                                           "id":  "lexical",
+                                           "contentPath":  "cd/lexical.html"
+                                       },
+                                       {
+                                           "title":  "Loop",
+                                           "pdfPath":  "",
+                                           "id":  "loop",
+                                           "contentPath":  "cd/loop.html"
+                                       },
+                                       {
+                                           "title":  "Parsing",
+                                           "pdfPath":  "",
+                                           "id":  "parsing",
+                                           "contentPath":  "cd/parsing.html"
+                                       },
+                                       {
+                                           "title":  "Peephole",
+                                           "pdfPath":  "",
+                                           "id":  "peephole",
+                                           "contentPath":  "cd/peephole.html"
+                                       },
+                                       {
+                                           "title":  "Phases",
+                                           "pdfPath":  "",
+                                           "id":  "phases",
+                                           "contentPath":  "cd/phases.html"
+                                       },
+                                       {
+                                           "title":  "S-L_Attribute",
+                                           "pdfPath":  "",
+                                           "id":  "s-l_attribute",
+                                           "contentPath":  "cd/s-l_attribute.html"
+                                       },
+                                       {
+                                           "title":  "Sematic",
+                                           "pdfPath":  "",
+                                           "id":  "sematic",
+                                           "contentPath":  "cd/sematic.html"
+                                       },
+                                       {
+                                           "title":  "Slr",
+                                           "pdfPath":  "",
+                                           "id":  "slr",
+                                           "contentPath":  "cd/slr.html"
+                                       },
+                                       {
+                                           "title":  "Symbolic_Table",
+                                           "pdfPath":  "",
+                                           "id":  "symbolic_table",
+                                           "contentPath":  "cd/symbolic_table.html"
+                                       },
+                                       {
+                                           "title":  "Syntax",
+                                           "pdfPath":  "",
+                                           "id":  "syntax",
+                                           "contentPath":  "cd/syntax.html"
+                                       },
+                                       {
+                                           "title":  "Threeaddress",
+                                           "pdfPath":  "",
+                                           "id":  "threeaddress",
+                                           "contentPath":  "cd/threeaddress.html"
+                                       },
+                                       {
+                                           "title":  "Topdown",
+                                           "pdfPath":  "",
+                                           "id":  "topdown",
+                                           "contentPath":  "cd/topdown.html"
+                                       }
+                                   ],
+                        "id":  "cd"
+                    },
+                    {
+                        "title":  "Database Management",
+                        "topics":  [
+                                       {
+                                           "title":  "12Tire",
+                                           "pdfPath":  "",
+                                           "id":  "12tire",
+                                           "contentPath":  "dbms/12tire.html"
+                                       },
+                                       {
+                                           "title":  "3Tire",
+                                           "pdfPath":  "",
+                                           "id":  "3tire",
+                                           "contentPath":  "dbms/3tire.html"
+                                       },
+                                       {
+                                           "title":  "Acid",
+                                           "pdfPath":  "",
+                                           "id":  "acid",
+                                           "contentPath":  "dbms/acid.html"
+                                       },
+                                       {
+                                           "title":  "Anomali",
+                                           "pdfPath":  "",
+                                           "id":  "anomali",
+                                           "contentPath":  "dbms/anomali.html"
+                                       },
+                                       {
+                                           "title":  "Deadlockindbms",
+                                           "pdfPath":  "",
+                                           "id":  "deadlockindbms",
+                                           "contentPath":  "dbms/deadlockindbms.html"
+                                       },
+                                       {
+                                           "title":  "File",
+                                           "pdfPath":  "",
+                                           "id":  "file",
+                                           "contentPath":  "dbms/file.html"
+                                       },
+                                       {
+                                           "title":  "Functionaldependency",
+                                           "pdfPath":  "",
+                                           "id":  "functionaldependency",
+                                           "contentPath":  "dbms/functionaldependency.html"
+                                       },
+                                       {
+                                           "title":  "Hashing",
+                                           "pdfPath":  "",
+                                           "id":  "hashing",
+                                           "contentPath":  "dbms/hashing.html"
+                                       },
+                                       {
+                                           "title":  "Independence",
+                                           "pdfPath":  "",
+                                           "id":  "independence",
+                                           "contentPath":  "dbms/independence.html"
+                                       },
+                                       {
+                                           "title":  "Introtodbms",
+                                           "pdfPath":  "",
+                                           "id":  "introtoDBMS",
+                                           "contentPath":  "dbms/introtoDBMS.html"
+                                       },
+                                       {
+                                           "title":  "Introtoer",
+                                           "pdfPath":  "",
+                                           "id":  "introtoER",
+                                           "contentPath":  "dbms/introtoER.html"
+                                       },
+                                       {
+                                           "title":  "Joins",
+                                           "pdfPath":  "",
+                                           "id":  "joins",
+                                           "contentPath":  "dbms/joins.html"
+                                       },
+                                       {
+                                           "title":  "Keys",
+                                           "pdfPath":  "",
+                                           "id":  "keys",
+                                           "contentPath":  "dbms/keys.html"
+                                       },
+                                       {
+                                           "title":  "Miner",
+                                           "pdfPath":  "",
+                                           "id":  "miner",
+                                           "contentPath":  "dbms/miner.html"
+                                       },
+                                       {
+                                           "title":  "Normalforms",
+                                           "pdfPath":  "",
+                                           "id":  "normalforms",
+                                           "contentPath":  "dbms/normalforms.html"
+                                       },
+                                       {
+                                           "title":  "Normalization",
+                                           "pdfPath":  "",
+                                           "id":  "normalization",
+                                           "contentPath":  "dbms/normalization.html"
+                                       },
+                                       {
+                                           "title":  "Objects",
+                                           "pdfPath":  "",
+                                           "id":  "objects",
+                                           "contentPath":  "dbms/objects.html"
+                                       },
+                                       {
+                                           "title":  "Recoverytech",
+                                           "pdfPath":  "",
+                                           "id":  "recoverytech",
+                                           "contentPath":  "dbms/recoverytech.html"
+                                       },
+                                       {
+                                           "title":  "Recursiverelationship",
+                                           "pdfPath":  "",
+                                           "id":  "recursiveRelationship",
+                                           "contentPath":  "dbms/recursiveRelationship.html"
+                                       },
+                                       {
+                                           "title":  "Relationalalgebra",
+                                           "pdfPath":  "",
+                                           "id":  "relationalAlgebra",
+                                           "contentPath":  "dbms/relationalAlgebra.html"
+                                       },
+                                       {
+                                           "title":  "Sql",
+                                           "pdfPath":  "",
+                                           "id":  "sql",
+                                           "contentPath":  "dbms/sql.html"
+                                       },
+                                       {
+                                           "title":  "Starvation",
+                                           "pdfPath":  "",
+                                           "id":  "starvation",
+                                           "contentPath":  "dbms/starvation.html"
+                                       },
+                                       {
+                                           "title":  "Typesofsql",
+                                           "pdfPath":  "",
+                                           "id":  "typesofsql",
+                                           "contentPath":  "dbms/typesofsql.html"
+                                       },
+                                       {
+                                           "title":  "Where",
+                                           "pdfPath":  "",
+                                           "id":  "where",
+                                           "contentPath":  "dbms/where.html"
+                                       }
+                                   ],
+                        "id":  "dbms"
+                    },
+                    {
+                        "title":  "Digital Logic",
+                        "topics":  [
+                                       {
+                                           "title":  "12",
+                                           "pdfPath":  "",
+                                           "id":  "12",
+                                           "contentPath":  "dl/12.html"
+                                       },
+                                       {
+                                           "title":  "Binarytogray",
+                                           "pdfPath":  "",
+                                           "id":  "binarytogray",
+                                           "contentPath":  "dl/binarytogray.html"
+                                       },
+                                       {
+                                           "title":  "Boolean",
+                                           "pdfPath":  "",
+                                           "id":  "boolean",
+                                           "contentPath":  "dl/boolean.html"
+                                       },
+                                       {
+                                           "title":  "Carry",
+                                           "pdfPath":  "",
+                                           "id":  "carry",
+                                           "contentPath":  "dl/carry.html"
+                                       },
+                                       {
+                                           "title":  "Conical",
+                                           "pdfPath":  "",
+                                           "id":  "conical",
+                                           "contentPath":  "dl/conical.html"
+                                       },
+                                       {
+                                           "title":  "Counters",
+                                           "pdfPath":  "",
+                                           "id":  "counters",
+                                           "contentPath":  "dl/counters.html"
+                                       },
+                                       {
+                                           "title":  "Demux",
+                                           "pdfPath":  "",
+                                           "id":  "demux",
+                                           "contentPath":  "dl/demux.html"
+                                       },
+                                       {
+                                           "title":  "Encode",
+                                           "pdfPath":  "",
+                                           "id":  "encode",
+                                           "contentPath":  "dl/encode.html"
+                                       },
+                                       {
+                                           "title":  "Flipflop",
+                                           "pdfPath":  "",
+                                           "id":  "flipflop",
+                                           "contentPath":  "dl/flipflop.html"
+                                       },
+                                       {
+                                           "title":  "Floatpoint",
+                                           "pdfPath":  "",
+                                           "id":  "floatpoint",
+                                           "contentPath":  "dl/floatpoint.html"
+                                       },
+                                       {
+                                           "title":  "Full",
+                                           "pdfPath":  "",
+                                           "id":  "full",
+                                           "contentPath":  "dl/full.html"
+                                       },
+                                       {
+                                           "title":  "Greycode",
+                                           "pdfPath":  "",
+                                           "id":  "greycode",
+                                           "contentPath":  "dl/greycode.html"
+                                       },
+                                       {
+                                           "title":  "Half",
+                                           "pdfPath":  "",
+                                           "id":  "half",
+                                           "contentPath":  "dl/half.html"
+                                       },
+                                       {
+                                           "title":  "Introsequntial",
+                                           "pdfPath":  "",
+                                           "id":  "introsequntial",
+                                           "contentPath":  "dl/introsequntial.html"
+                                       },
+                                       {
+                                           "title":  "Kmap",
+                                           "pdfPath":  "",
+                                           "id":  "kmap",
+                                           "contentPath":  "dl/kmap.html"
+                                       },
+                                       {
+                                           "title":  "Logicgates",
+                                           "pdfPath":  "",
+                                           "id":  "logicGates",
+                                           "contentPath":  "dl/logicGates.html"
+                                       },
+                                       {
+                                           "title":  "Masterslave",
+                                           "pdfPath":  "",
+                                           "id":  "masterslave",
+                                           "contentPath":  "dl/masterslave.html"
+                                       },
+                                       {
+                                           "title":  "Min_Boolean",
+                                           "pdfPath":  "",
+                                           "id":  "min_boolean",
+                                           "contentPath":  "dl/min_boolean.html"
+                                       },
+                                       {
+                                           "title":  "Multiplex",
+                                           "pdfPath":  "",
+                                           "id":  "multiplex",
+                                           "contentPath":  "dl/multiplex.html"
+                                       },
+                                       {
+                                           "title":  "Numbersystem",
+                                           "pdfPath":  "",
+                                           "id":  "numbersystem",
+                                           "contentPath":  "dl/numbersystem.html"
+                                       },
+                                       {
+                                           "title":  "Parallel",
+                                           "pdfPath":  "",
+                                           "id":  "parallel",
+                                           "contentPath":  "dl/parallel.html"
+                                       },
+                                       {
+                                           "title":  "Rep_Boolean",
+                                           "pdfPath":  "",
+                                           "id":  "rep_boolean",
+                                           "contentPath":  "dl/rep_boolean.html"
+                                       },
+                                       {
+                                           "title":  "Shiftregistors",
+                                           "pdfPath":  "",
+                                           "id":  "shiftregistors",
+                                           "contentPath":  "dl/shiftregistors.html"
+                                       },
+                                       {
+                                           "title":  "Sync",
+                                           "pdfPath":  "",
+                                           "id":  "sync",
+                                           "contentPath":  "dl/sync.html"
+                                       }
+                                   ],
+                        "id":  "dl"
+                    },
+                    {
+                        "title":  "Data Structures",
+                        "topics":  [
+                                       {
+                                           "title":  "Array",
+                                           "pdfPath":  "",
+                                           "id":  "array",
+                                           "contentPath":  "ds/array.html"
+                                       },
+                                       {
+                                           "title":  "Circularqueue",
+                                           "pdfPath":  "",
+                                           "id":  "circularqueue",
+                                           "contentPath":  "ds/circularqueue.html"
+                                       },
+                                       {
+                                           "title":  "Data Types",
+                                           "pdfPath":  "",
+                                           "id":  "data types",
+                                           "contentPath":  "ds/data types.html"
+                                       },
+                                       {
+                                           "title":  "Decision Making",
+                                           "pdfPath":  "",
+                                           "id":  "decision making",
+                                           "contentPath":  "ds/decision making.html"
+                                       },
+                                       {
+                                           "title":  "Fibonachi",
+                                           "pdfPath":  "",
+                                           "id":  "fibonachi",
+                                           "contentPath":  "ds/fibonachi.html"
+                                       },
+                                       {
+                                           "title":  "Functions",
+                                           "pdfPath":  "",
+                                           "id":  "functions",
+                                           "contentPath":  "ds/functions.html"
+                                       },
+                                       {
+                                           "title":  "Graphs",
+                                           "pdfPath":  "",
+                                           "id":  "graphs",
+                                           "contentPath":  "ds/graphs.html"
+                                       },
+                                       {
+                                           "title":  "Heap",
+                                           "pdfPath":  "",
+                                           "id":  "heap",
+                                           "contentPath":  "ds/heap.html"
+                                       },
+                                       {
+                                           "title":  "Infixtopostfix",
+                                           "pdfPath":  "",
+                                           "id":  "infixtopostfix",
+                                           "contentPath":  "ds/infixtopostfix.html"
+                                       },
+                                       {
+                                           "title":  "Introtoc",
+                                           "pdfPath":  "",
+                                           "id":  "introtoC",
+                                           "contentPath":  "ds/introtoC.html"
+                                       },
+                                       {
+                                           "title":  "Ll",
+                                           "pdfPath":  "",
+                                           "id":  "ll",
+                                           "contentPath":  "ds/ll.html"
+                                       },
+                                       {
+                                           "title":  "Loops",
+                                           "pdfPath":  "",
+                                           "id":  "loops",
+                                           "contentPath":  "ds/loops.html"
+                                       },
+                                       {
+                                           "title":  "Operators",
+                                           "pdfPath":  "",
+                                           "id":  "operators",
+                                           "contentPath":  "ds/operators.html"
+                                       },
+                                       {
+                                           "title":  "Pointers",
+                                           "pdfPath":  "",
+                                           "id":  "pointers",
+                                           "contentPath":  "ds/pointers.html"
+                                       },
+                                       {
+                                           "title":  "Priorityqueue",
+                                           "pdfPath":  "",
+                                           "id":  "priorityqueue",
+                                           "contentPath":  "ds/priorityqueue.html"
+                                       },
+                                       {
+                                           "title":  "Queue",
+                                           "pdfPath":  "",
+                                           "id":  "queue",
+                                           "contentPath":  "ds/queue.html"
+                                       },
+                                       {
+                                           "title":  "Recursion",
+                                           "pdfPath":  "",
+                                           "id":  "recursion",
+                                           "contentPath":  "ds/recursion.html"
+                                       },
+                                       {
+                                           "title":  "Sll",
+                                           "pdfPath":  "",
+                                           "id":  "sll",
+                                           "contentPath":  "ds/sll.html"
+                                       },
+                                       {
+                                           "title":  "Stack",
+                                           "pdfPath":  "",
+                                           "id":  "stack",
+                                           "contentPath":  "ds/stack.html"
+                                       },
+                                       {
+                                           "title":  "Strings",
+                                           "pdfPath":  "",
+                                           "id":  "strings",
+                                           "contentPath":  "ds/strings.html"
+                                       },
+                                       {
+                                           "title":  "Struct",
+                                           "pdfPath":  "",
+                                           "id":  "struct",
+                                           "contentPath":  "ds/struct.html"
+                                       },
+                                       {
+                                           "title":  "Trees",
+                                           "pdfPath":  "",
+                                           "id":  "trees",
+                                           "contentPath":  "ds/trees.html"
+                                       },
+                                       {
+                                           "title":  "Typecasting",
+                                           "pdfPath":  "",
+                                           "id":  "typecasting",
+                                           "contentPath":  "ds/typecasting.html"
+                                       }
+                                   ],
+                        "id":  "ds"
+                    },
+                    {
+                        "title":  "Operating Systems",
+                        "topics":  [
+                                       {
+                                           "title":  "Bankers",
+                                           "pdfPath":  "",
+                                           "id":  "bankers",
+                                           "contentPath":  "os/bankers.html"
+                                       },
+                                       {
+                                           "title":  "Contactswitching",
+                                           "pdfPath":  "",
+                                           "id":  "contactSwitching",
+                                           "contentPath":  "os/contactSwitching.html"
+                                       },
+                                       {
+                                           "title":  "Cs",
+                                           "pdfPath":  "",
+                                           "id":  "cs",
+                                           "contentPath":  "os/cs.html"
+                                       },
+                                       {
+                                           "title":  "Dead",
+                                           "pdfPath":  "",
+                                           "id":  "dead",
+                                           "contentPath":  "os/dead.html"
+                                       },
+                                       {
+                                           "title":  "Detection",
+                                           "pdfPath":  "",
+                                           "id":  "detection",
+                                           "contentPath":  "os/detection.html"
+                                       },
+                                       {
+                                           "title":  "Discmanagement",
+                                           "pdfPath":  "",
+                                           "id":  "discmanagement",
+                                           "contentPath":  "os/discmanagement.html"
+                                       },
+                                       {
+                                           "title":  "Discscheduling",
+                                           "pdfPath":  "",
+                                           "id":  "discscheduling",
+                                           "contentPath":  "os/discscheduling.html"
+                                       },
+                                       {
+                                           "title":  "Dpproblem",
+                                           "pdfPath":  "",
+                                           "id":  "dpproblem",
+                                           "contentPath":  "os/dpproblem.html"
+                                       },
+                                       {
+                                           "title":  "Fcfs",
+                                           "pdfPath":  "",
+                                           "id":  "fcfs",
+                                           "contentPath":  "os/fcfs.html"
+                                       },
+                                       {
+                                           "title":  "Hrrn",
+                                           "pdfPath":  "",
+                                           "id":  "hrrn",
+                                           "contentPath":  "os/hrrn.html"
+                                       },
+                                       {
+                                           "title":  "Ipc",
+                                           "pdfPath":  "",
+                                           "id":  "ipc",
+                                           "contentPath":  "os/ipc.html"
+                                       },
+                                       {
+                                           "title":  "Ljf",
+                                           "pdfPath":  "",
+                                           "id":  "ljf",
+                                           "contentPath":  "os/ljf.html"
+                                       },
+                                       {
+                                           "title":  "Lrtf",
+                                           "pdfPath":  "",
+                                           "id":  "lrtf",
+                                           "contentPath":  "os/lrtf.html"
+                                       },
+                                       {
+                                           "title":  "Memorymanagement",
+                                           "pdfPath":  "",
+                                           "id":  "memoryManagement",
+                                           "contentPath":  "os/memoryManagement.html"
+                                       },
+                                       {
+                                           "title":  "Methods",
+                                           "pdfPath":  "",
+                                           "id":  "methods",
+                                           "contentPath":  "os/methods.html"
+                                       },
+                                       {
+                                           "title":  "Mq",
+                                           "pdfPath":  "",
+                                           "id":  "mq",
+                                           "contentPath":  "os/mq.html"
+                                       },
+                                       {
+                                           "title":  "Multitasking",
+                                           "pdfPath":  "",
+                                           "id":  "multitasking",
+                                           "contentPath":  "os/multitasking.html"
+                                       },
+                                       {
+                                           "title":  "Os_Basic1",
+                                           "pdfPath":  "",
+                                           "id":  "os_basic1",
+                                           "contentPath":  "os/os_basic1.html"
+                                       },
+                                       {
+                                           "title":  "Pageing",
+                                           "pdfPath":  "",
+                                           "id":  "pageing",
+                                           "contentPath":  "os/pageing.html"
+                                       },
+                                       {
+                                           "title":  "Pagereplacement",
+                                           "pdfPath":  "",
+                                           "id":  "pagereplacement",
+                                           "contentPath":  "os/pagereplacement.html"
+                                       },
+                                       {
+                                           "title":  "Pcb",
+                                           "pdfPath":  "",
+                                           "id":  "pcb",
+                                           "contentPath":  "os/pcb.html"
+                                       },
+                                       {
+                                           "title":  "Pcproblem",
+                                           "pdfPath":  "",
+                                           "id":  "pcproblem",
+                                           "contentPath":  "os/pcproblem.html"
+                                       },
+                                       {
+                                           "title":  "Preemptive",
+                                           "pdfPath":  "",
+                                           "id":  "preemptive",
+                                           "contentPath":  "os/preemptive.html"
+                                       },
+                                       {
+                                           "title":  "Priority",
+                                           "pdfPath":  "",
+                                           "id":  "priority",
+                                           "contentPath":  "os/priority.html"
+                                       },
+                                       {
+                                           "title":  "Process",
+                                           "pdfPath":  "",
+                                           "id":  "process",
+                                           "contentPath":  "os/process.html"
+                                       },
+                                       {
+                                           "title":  "Processstate",
+                                           "pdfPath":  "",
+                                           "id":  "processState",
+                                           "contentPath":  "os/processState.html"
+                                       },
+                                       {
+                                           "title":  "Resource",
+                                           "pdfPath":  "",
+                                           "id":  "resource",
+                                           "contentPath":  "os/resource.html"
+                                       },
+                                       {
+                                           "title":  "Rr",
+                                           "pdfPath":  "",
+                                           "id":  "rr",
+                                           "contentPath":  "os/rr.html"
+                                       },
+                                       {
+                                           "title":  "Rwproblem",
+                                           "pdfPath":  "",
+                                           "id":  "rwproblem",
+                                           "contentPath":  "os/rwproblem.html"
+                                       },
+                                       {
+                                           "title":  "Segmentation",
+                                           "pdfPath":  "",
+                                           "id":  "segmentation",
+                                           "contentPath":  "os/segmentation.html"
+                                       },
+                                       {
+                                           "title":  "Semaphores",
+                                           "pdfPath":  "",
+                                           "id":  "semaphores",
+                                           "contentPath":  "os/semaphores.html"
+                                       },
+                                       {
+                                           "title":  "Sjf",
+                                           "pdfPath":  "",
+                                           "id":  "sjf",
+                                           "contentPath":  "os/sjf.html"
+                                       },
+                                       {
+                                           "title":  "Structure",
+                                           "pdfPath":  "",
+                                           "id":  "structure",
+                                           "contentPath":  "os/structure.html"
+                                       },
+                                       {
+                                           "title":  "Swapping",
+                                           "pdfPath":  "",
+                                           "id":  "swapping",
+                                           "contentPath":  "os/swapping.html"
+                                       },
+                                       {
+                                           "title":  "Swappingtrashing",
+                                           "pdfPath":  "",
+                                           "id":  "swappingTrashing",
+                                           "contentPath":  "os/swappingTrashing.html"
+                                       },
+                                       {
+                                           "title":  "Systemcalls",
+                                           "pdfPath":  "",
+                                           "id":  "systemCalls",
+                                           "contentPath":  "os/systemCalls.html"
+                                       },
+                                       {
+                                           "title":  "Types",
+                                           "pdfPath":  "",
+                                           "id":  "types",
+                                           "contentPath":  "os/types.html"
+                                       },
+                                       {
+                                           "title":  "Vm",
+                                           "pdfPath":  "",
+                                           "id":  "vm",
+                                           "contentPath":  "os/vm.html"
+                                       }
+                                   ],
+                        "id":  "os"
+                    },
+                    {
+                        "title":  "Previous Papers",
+                        "topics":  [
+
+                                   ],
+                        "id":  "previousPapers"
+                    },
+                    {
+                        "title":  "Short Notes",
+                        "topics":  [
+                                       {
+                                           "title":  "Algorithms",
+                                           "pdfPath":  "",
+                                           "id":  "algorithms",
+                                           "contentPath":  "shortnotes/algorithms.html"
+                                       },
+                                       {
+                                           "title":  "Cao",
+                                           "pdfPath":  "",
+                                           "id":  "cao",
+                                           "contentPath":  "shortnotes/cao.html"
+                                       },
+                                       {
+                                           "title":  "Cd",
+                                           "pdfPath":  "",
+                                           "id":  "cd",
+                                           "contentPath":  "shortnotes/cd.html"
+                                       },
+                                       {
+                                           "title":  "Cn",
+                                           "pdfPath":  "",
+                                           "id":  "cn",
+                                           "contentPath":  "shortnotes/cn.html"
+                                       },
+                                       {
+                                           "title":  "Datastructure",
+                                           "pdfPath":  "",
+                                           "id":  "dataStructure",
+                                           "contentPath":  "shortnotes/dataStructure.html"
+                                       },
+                                       {
+                                           "title":  "Dbms",
+                                           "pdfPath":  "",
+                                           "id":  "dbms",
+                                           "contentPath":  "shortnotes/dbms.html"
+                                       },
+                                       {
+                                           "title":  "Dl",
+                                           "pdfPath":  "",
+                                           "id":  "dl",
+                                           "contentPath":  "shortnotes/dl.html"
+                                       },
+                                       {
+                                           "title":  "Math",
+                                           "pdfPath":  "",
+                                           "id":  "math",
+                                           "contentPath":  "shortnotes/math.html"
+                                       },
+                                       {
+                                           "title":  "Os",
+                                           "pdfPath":  "",
+                                           "id":  "os",
+                                           "contentPath":  "shortnotes/os.html"
+                                       },
+                                       {
+                                           "title":  "Toc",
+                                           "pdfPath":  "",
+                                           "id":  "toc",
+                                           "contentPath":  "shortnotes/toc.html"
+                                       }
+                                   ],
+                        "id":  "shortnotes"
+                    },
+                    {
+                        "title":  "Theory of Computation",
+                        "topics":  [
+                                       {
+                                           "title":  "Application_Of_Autometa",
+                                           "pdfPath":  "",
+                                           "id":  "application_of_autometa",
+                                           "contentPath":  "toc/application_of_autometa.html"
+                                       },
+                                       {
+                                           "title":  "Chomsky_Hirarky",
+                                           "pdfPath":  "",
+                                           "id":  "chomsky_hirarky",
+                                           "contentPath":  "toc/chomsky_hirarky.html"
+                                       },
+                                       {
+                                           "title":  "Computable",
+                                           "pdfPath":  "",
+                                           "id":  "computable",
+                                           "contentPath":  "toc/computable.html"
+                                       },
+                                       {
+                                           "title":  "Finiteautomata",
+                                           "pdfPath":  "",
+                                           "id":  "finiteAutomata",
+                                           "contentPath":  "toc/finiteAutomata.html"
+                                       },
+                                       {
+                                           "title":  "Grammer",
+                                           "pdfPath":  "",
+                                           "id":  "grammer",
+                                           "contentPath":  "toc/grammer.html"
+                                       },
+                                       {
+                                           "title":  "Intro_Toc",
+                                           "pdfPath":  "",
+                                           "id":  "intro_toc",
+                                           "contentPath":  "toc/intro_toc.html"
+                                       },
+                                       {
+                                           "title":  "Mealymoore",
+                                           "pdfPath":  "",
+                                           "id":  "mealyMoore",
+                                           "contentPath":  "toc/mealyMoore.html"
+                                       }
+                                   ],
+                        "id":  "toc"
+                    }
+                ]
+}

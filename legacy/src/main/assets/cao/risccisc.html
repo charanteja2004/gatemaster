@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    <h2><b>RISC and CISC</b></h2>
+
+
+<p dir="ltr">RISC is the way to make hardware simpler whereas CISC is the single instruction that handles multiple work. In this article, we are going to discuss RISC and CISC in detail as well as the Difference between RISC and CISC, Let&rsquo;s proceed with RISC first.</p>
+<h2><strong>Reduced Instruction Set Architecture (RISC)</strong></h2>
+<p dir="ltr">The main idea behind this is to simplify hardware by using an instruction set composed of a few basic steps for loading, evaluating, and storing operations just like a load command will load data, a store command will store the data.&nbsp;</p>
+
+    <h3><strong>Characteristics of RISC</strong></h3>
+<ul>
+<li value="1">Simpler instruction, hence simple instruction decoding.</li>
+<li value="2">Instruction comes undersize of one word.</li>
+<li value="3">Instruction takes a single clock cycle to get executed.</li>
+<li value="4">More general-purpose registers.</li>
+<li value="5">Simple Addressing Modes.</li>
+<li value="6">Fewer Data types.</li>
+<li value="7">A pipeline can be achieved.&nbsp;</li>
+</ul>
+<h3>Advantages of RISC</h3>
+<ul>
+<li value="1"><strong>Simpler instructions:&nbsp;</strong>RISC processors use a smaller set of simple instructions, which makes them easier to decode and execute quickly. This results in faster processing times.</li>
+<li value="2"><strong>Faster execution:&nbsp;</strong>Because RISC processors have a simpler instruction set, they can execute instructions faster than CISC processors.</li>
+<li value="3"><strong>Lower power consumption:</strong>&nbsp;RISC processors consume less power than CISC processors, making them ideal for portable devices.</li>
+</ul>
+<h3>Disadvantages of RISC</h3>
+<ul>
+<li value="1"><strong>More instructions required:&nbsp;</strong>RISC processors require more instructions to perform complex tasks than CISC processors.</li>
+<li value="2"><strong>Increased memory usage:&nbsp;</strong>RISC processors require more memory to store the additional instructions needed to perform complex tasks.</li>
+<li value="3"><strong>Higher cost:</strong>&nbsp;Developing and manufacturing RISC processors can be more expensive than CISC processors.</li>
+</ul>
+<h2><strong>Complex Instruction Set Architecture (CISC)</strong></h2>
+<p dir="ltr">The main idea is that a single instruction will do all loading, evaluating, and storing operations just like a multiplication command will do stuff like loading data, evaluating, and storing it, hence it&rsquo;s complex.&nbsp;</p>
+<h3><strong>Characteristics of CISC</strong></h3>
+<ul>
+<li value="1">Complex instruction, hence complex instruction decoding.</li>
+<li value="2">Instructions are larger than one-word size.</li>
+<li value="3">Instruction may take more than a single clock cycle to get executed.</li>
+<li value="4">Less number of general-purpose registers as operations get performed in memory itself.</li>
+<li value="5">Complex Addressing Modes.</li>
+<li value="6">More Data types.&nbsp;</li>
+</ul>
+<h3>Advantages of CISC</h3>
+<ul>
+<li value="1"><strong>Reduced code size:</strong>&nbsp;CISC processors use complex instructions that can perform multiple operations, reducing the amount of code needed to perform a task.</li>
+<li value="2"><strong>More memory efficient:&nbsp;</strong>Because CISC instructions are more complex, they require fewer instructions to perform complex tasks, which can result in more memory-efficient code.</li>
+<li value="3"><strong>Widely used:</strong>&nbsp;CISC processors have been in use for a longer time than RISC processors, so they have a larger user base and more available software.<br />&nbsp;</li>
+</ul>
+<h3>Disadvantages of CISC</h3>
+<h3>&nbsp;</h3>
+<ul>
+<li value="1"><strong>Slower execution:&nbsp;</strong>CISC processors take longer to execute instructions because they have more complex instructions and need more time to decode them.</li>
+<li value="2"><strong>More complex design:&nbsp;</strong>CISC processors have more complex instruction sets, which makes them more difficult to design and manufacture.</li>
+<li value="3"><strong>Higher power consumption:&nbsp;</strong>CISC processors consume more power than RISC processors because of their more complex instruction sets.</li>
+</ul>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20240313171140/RISC-and-CISC.png" alt="RISC-and-CISC" width="800" height="400" /></p>
+
+
+<h2>CPU Performance</h2>
+<p dir="ltr">Both approaches try to increase the CPU performance&nbsp;</p>
+<ul>
+<li value="1"><strong>RISC:</strong>&nbsp;Reduce the cycles per instruction at the cost of the number of instructions per program.&nbsp;</li>
+</ul>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-210.png" alt="CPU Time" width="inherit" height="inherit" />
+<p class="wp-caption-text">CPU Time</p>
+</div>
+<ul>
+<li value="1"><strong>CISC:</strong>&nbsp;The CISC approach attempts to minimize the number of instructions per program but at the cost of an increase in the number of cycles per instruction.&nbsp;</li>
+</ul>
+<p dir="ltr">Earlier when programming was done using assembly language, a need was felt to make instruction do more tasks because programming in assembly was tedious and error-prone due to which CISC architecture evolved but with the uprise of high-level language dependency on assembly reduced RISC architecture prevailed.&nbsp;</p>
+<div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+<div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+<p dir="ltr"><strong>Example:</strong></p>
+<p dir="ltr">Suppose we have to add two 8-bit numbers:&nbsp;</p>
+<ul>
+<li value="1"><strong>CISC approach:</strong>&nbsp;There will be a single command or instruction for this like ADD which will perform the task.</li>
+<li value="2"><strong>RISC approach:</strong>&nbsp;Here programmer will write the first load command to load data in registers then it will use a suitable operator and then it will store the result in the desired location.</li>
+</ul>
+<p dir="ltr">So, add operation is divided into parts i.e. load, operate, store due to which RISC programs are longer and require more memory to get stored but require fewer transistors due to less complex command.</p>
+<h2><strong>R</strong>ISC vs CISC</h2>
+<table border="1">
+<thead>
+<tr>
+<th>RISC</th>
+<th>CISC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Focus on software</td>
+<td>Focus on hardware</td>
+</tr>
+<tr>
+<td>Uses only<a href="https://www.geeksforgeeks.org/computer-organization-hardwired-vs-micro-programmed-control-unit/" rel="noopener">&nbsp;Hardwired control unit</a></td>
+<td>Uses both hardwired and&nbsp;<a href="https://www.geeksforgeeks.org/computer-organization-hardwired-vs-micro-programmed-control-unit/" rel="noopener">microprogrammed control unit</a></td>
+</tr>
+<tr>
+<td>Transistors are used for more registers</td>
+<td>Transistors are used for storing complex&nbsp;<br />Instructions</td>
+</tr>
+<tr>
+<td>Fixed sized instructions</td>
+<td>Variable sized instructions</td>
+</tr>
+<tr>
+<td>Can perform only Register to Register Arithmetic operations</td>
+<td>Can perform REG to REG or REG to MEM or MEM to MEM</td>
+</tr>
+<tr>
+<td>Requires more number of registers</td>
+<td>Requires less number of registers</td>
+</tr>
+<tr>
+<td>Code size is large</td>
+<td>Code size is small</td>
+</tr>
+<tr>
+<td>An instruction executed in a single clock cycle</td>
+<td>Instruction takes more than one clock cycle</td>
+</tr>
+<tr>
+<td>An instruction fit in one word.</td>
+<td>Instructions are larger than the size of one word</td>
+</tr>
+<tr>
+<td>Simple and limited addressing modes.&nbsp;</td>
+<td>Complex and more addressing modes.</td>
+</tr>
+<tr>
+<td>RISC is Reduced Instruction Cycle.</td>
+<td>CISC is Complex Instruction Cycle.</td>
+</tr>
+<tr>
+<td>The number of instructions are less as compared to CISC.</td>
+<td>The number of instructions are more as compared to RISC.</td>
+</tr>
+<tr>
+<td>It consumes the low power.</td>
+<td>It consumes more/high power.</td>
+</tr>
+<tr>
+<td>RISC is highly pipelined.</td>
+<td>CISC is less pipelined.</td>
+</tr>
+<tr>
+<td>RISC required more&nbsp;<a href="https://www.geeksforgeeks.org/different-types-ram-random-access-memory/" rel="noopener">RAM</a>.</td>
+<td>CISC required less RAM.</td>
+</tr>
+<tr>
+<td>Here, Addressing modes are less.</td>
+<td>Here, Addressing modes are more.</td>
+</tr>
+</tbody>
+</table>
+<br><br>
+<h2><b>Register window and register file size in RISC</b></h2>
+
+<p><strong>RISC processors :</strong><br />They are processors that use a small instruction set and simple addressing mode so that their instructions can be executed much faster within the CPU with less referring to the memory. This type of processor is classified as a reduced instruction set computer( RISC).</p>
+<p><strong>For detailed understanding of the RISC processor and its characteristics, please refer&nbsp;</strong><a href="https://www.geeksforgeeks.org/computer-organization-risc-and-cisc/"><strong>this</strong></a><br />Some other characteristics of the RISC processor are &ndash;</p>
+<div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
+<ul>
+<li>They contain a large number of registers.</li>
+<li>They use overlapped register windows to speed up procedure call and return.</li>
+<li>They have an efficient instruction pipeline.</li>
+<li>They have compiler support for efficient translation of high level language programs into machine language programs.</li>
+</ul>
+<p><strong>RISC instructions :</strong></p>
+<ul>
+<li>A typical RISC processor instruction set mainly includes the LOAD and STORE instructions that are used for communicating between memory and CPU.</li>
+<li>All other instructions are executed within the registers of the CPU without referring to the memory.</li>
+<li>A program of a RISC CPU contains LOAD and STORE instructions that have one memory and one CPU register address and computational instructions(ADD, SUB MUL &nbsp;etc.) have three addresses and all three are referring to processor registers.</li>
+</ul>
+<p><strong>For example :</strong><br />A program that evaluates X = (A*B) + (C*D), here A,B,C,D are memory locations that contain four numbers and X is a memory location that contains the result of that expression.</p>
+
+
+<figure class="table">
+<table border="1">
+<thead>
+<tr>
+<th>
+<p>Instruction&nbsp;</p>
+</th>
+<th>
+<p>comment&nbsp;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p>LOAD R1, A</p>
+<p>LOAD R2, B</p>
+<p>LOAD R3, C</p>
+<p>LOAD R4, D</p>
+<p>MUL R1, R1, R2</p>
+<p>MUL R3, R3 , R4</p>
+<p>ADD R1, R1, R3&nbsp;</p>
+<p>STORE X, R1&nbsp;</p>
+</td>
+<td>
+<p>; Processor register R1 is loaded with content of the memory location A.</p>
+<p>; Processor register R2 is loaded with content of the memory location B.</p>
+<p>; Processor register R3 is loaded with content of the memory location C.</p>
+<p>; Processor register R4 is loaded with content of the memory location D.</p>
+<p>; Multiplication of the contents of the R1 and R2 register and the result is stored in the R1 register (i.e. A*B is performed).</p>
+<p>; Multiplication of the contents of the R3 and R4 register and the result is stored in the R1 register (i.e. C*D is performed).</p>
+<p>; Addition of contents of register R1 and R3 and the result is stored in the R1 register(i.e. (A*B) + (C*D)).</p>
+<p>; Content of R1 register is stored in memory location X.&nbsp;</p>
+</td>
+</tr>
+</tbody>
+</table>
+</figure>
+<p><strong>Register organization in RISC CPU :</strong></p>
+<ul>
+<li>The characteristics of some RISC CPUs is to use an overlapped register window that provides passing of parameters to called procedure and stores the result to the calling procedure.</li>
+<li>For each procedure call, the new register window is assigned from register file used by the new procedure.</li>
+<li>Each procedure call activates the new register window by increment a pointer and the return statement decrements the pointer which causes the activation of the previous window.</li>
+<li>Windows of adjacent procedures have overlapping registers that are shared to provide passing of parameters and storage of results.</li>
+</ul>
+<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20210616200623/Untitleddrawing23.png" width="377" />
+<p class="wp-caption-text"><strong>Overlapped register window of RISC CPU</strong></p>
+</div>
+<ul>
+<li>In this organization, the RISC CPU contains 74 registers. Registers R0 to R9 are global registers that contain parameters which are common to all procedures.</li>
+<li>The remaining registers(R10 to R73) are divided into four windows to contain procedures A, B, C and D.</li>
+<li>Each window contains 10 local registers and two sets of 6 registers common to consecutive windows. Local registers contain local variables and common overlapped registers help to pass parameters between adjacent procedures without actual movement of data.</li>
+<li>One of the register window is activated at a time. The high registers of the calling procedure overlap the low registers of the called procedures, therefore parameters are passed from calling to called procedure easily.</li>
+</ul>
+<p><strong>For example</strong>:&nbsp;</p>
+<ul>
+<li>Procedure C &nbsp;called procedure D. Therefore, registers R58 to R63 are common to both procedures C and D. Therefore, procedure C stores parameters for procedure D in these registers. Procedure D uses registers R64 to R73 to store the local variables.</li>
+<li>When procedure B returns after performing its computation, then the result from registers(R26 to R31) is transferred back to window A.</li>
+<li>Registers R10 to R15 are common to procedures A and D also the four windows have a circular organization.</li>
+<li>As R0 to R9(i.e. 10 registers) is available all procedures. Therefore, a procedure contains 32 registers while procedure it is active(which includes 10 global ,10 local, 6 low overlapping registers and 6 high overlapping registers) .</li>
+<li>The organization of register windows has the relationship as</li>
+<li>Number of global registers = g</li>
+<li>Number of local registers present in each window = l</li>
+<li>Number of registers common to two adjacent windows = c</li>
+<li>Number of windows &nbsp;= w</li>
+</ul>
+<p>Then the number of registers available for each window is calculated by&nbsp;</p>
+<pre><strong>Window size = l+2c+g</strong></pre>
+<p>The total number of registers required in the processor is</p>
+<pre><strong>Register file = (l + c)w+ g</strong></pre>
+<p><strong>For example :</strong></p>
+<ul>
+<li>In the above figure we have g= 10, l= 10, c= 6, w= 4, then</li>
+<li>the window size = 10+2&times;6+4 = 36 and register file size = (10+6)&times;4 + 10 = 74</li>
+</ul>
+
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Applications of various Automata</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+<h3><b>Producer Consumer Problem using Semaphores</b></h3>
+
+<b>Prerequisite –</b> Semaphores in operating system, Inter Process Communication
+Producer consumer problem is a classical synchronization problem. We can solve this problem by using semaphores. <br><br>
+
+A semaphore S is an integer variable that can be accessed only through two standard operations : wait() and signal(). <br>
+The wait() operation reduces the value of semaphore by 1 and the signal() operation increases its value by 1. <br><br>
+
+<div class="gray">
+wait(S){<br>
+while(S<=0);   // busy waiting<br>
+S--;<br>
+}<br><br>
+</div>
+<div class="gray">
+signal(S){<br>
+S++;<br>
+}<br><br>
+</div>
+Semaphores are of two types:<br><br>
+
+<b>1.Binary Semaphore –</b> This is similar to mutex lock but not the same thing. It can have only two values – 0 and 1. Its value is initialized to 1. It is used to implement the solution of critical section problem with multiple processes.<br><br>
+
+<br>2.Counting Semaphore –</br> Its value can range over an unrestricted domain. It is used to control access to a resource that has multiple instances.<br><br>
+
+<b>Problem Statement –</b> We have a buffer of fixed size. A producer can produce an item and can place in the buffer. A consumer can pick items and can consume them. We need to ensure that when a producer is placing an item in the buffer, then at the same time consumer should not consume any item. In this problem, buffer is the critical section. <br><br>
+
+To solve this problem, we need two counting semaphores – Full and Empty. “Full” keeps track of number of items in the buffer at any given time and “Empty” keeps track of number of unoccupied slots.<br><br>
+
+<b>Initialization of semaphores – </b><br>
+mutex = 1<br>
+Full = 0 // Initially, all slots are empty. Thus full slots are 0<br>
+Empty = n // All slots are empty initially <br><br>
+
+<b>Solution for Producer – </b>
+<br>
+<div class="gray">
+do{<br><br>
+
+//produce an item<br><br>
+
+wait(empty);<br>
+wait(mutex);<br><br>
+
+//place in buffer<br><br>
+
+signal(mutex);<br>
+signal(full);<br><br>
+
+}while(true)<br><br>
+</div>
+When producer produces an item then the value of “empty” is reduced by 1 because one slot will be filled now. The value of mutex is also reduced to prevent consumer to access the buffer. Now, the producer has placed the item and thus the value of “full” is increased by 1. The value of mutex is also increased by 1 because the task of producer has been completed and consumer can access the buffer.<br><br>
+
+<b>Solution for Consumer –</b>
+<br>
+<div class="gray">
+do{<br><br>
+
+wait(full);<br>
+wait(mutex);<br><br>
+
+// consume item from buffer<br><br>
+
+signal(mutex);<br>
+signal(empty);<br><br>
+
+
+}while(true)<br><br>
+</div>
+As the consumer is removing an item from buffer, therefore the value of “full” is reduced by 1 and the value is mutex is also reduced so that the producer cannot access the buffer at this moment. Now, the consumer has consumed the item, thus increasing the value of “empty” by 1. The value of mutex is also increased so that producer can access the buffer now. <br><br>
+</body>
+</html>

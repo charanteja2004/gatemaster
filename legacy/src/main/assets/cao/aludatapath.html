@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    <h2><b>Introduction of ALU and Data Path</b></h2>
+
+<p dir="ltr">Representing and storing numbers were the basic operations of the computers of earlier times. The real go came when computation, manipulating numbers like adding and multiplying came into the picture. These operations are handled by the computer&rsquo;s&nbsp;<strong>arithmetic logic unit (ALU)</strong>. The ALU is the mathematical brain of a computer. The first ALU (Arithmetic Logic Unit) was indeed the INTEL 74181, which was implemented as part of the 7400 series TTL (Transistor-Transistor Logic) integrated circuits. It was released by Intel in 1970.</p>
+<h2>What is ALU?</h2>
+<p dir="ltr">ALU is a digital circuit that provides arithmetic and logic operations. It is the fundamental building block of the&nbsp;<a href="https://www.geeksforgeeks.org/central-processing-unit-cpu/" rel="noopener">central processing unit</a>&nbsp;of a computer. A modern central processing unit(CPU) has a very powerful ALU and it is complex in design. In addition to ALU modern CPU contains a control unit and a set of registers. Most of the operations are performed by one or more ALUs, which load data from the input register.&nbsp;<a href="https://www.geeksforgeeks.org/different-classes-of-cpu-registers/" rel="noopener">Registers</a>&nbsp;are a small amount of storage available to the CPU. These registers can be accessed very fast. The&nbsp;<a href="https://www.geeksforgeeks.org/introduction-of-control-unit-and-its-design/" rel="noopener">control unit</a>&nbsp;tells ALU what operation to perform on the available data. After calculation/manipulation, the ALU stores the output in an output register.</p>
+<div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
+<p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/888-1.png" alt="what is Arithmetic Logical Unit" width="350" height="350" /></p>
+<p>The CPU can be divided into two sections: the&nbsp;<strong>data section</strong>&nbsp;and the&nbsp;<strong>control section</strong>. The&nbsp;<em><em class="GFGEditorTheme__textItalic">data section is also known as the data path.</em></em></p>
+<h2>BUS</h2>
+<p dir="ltr">In early computers BUS were parallel electrical wires with multiple hardware connections. Therefore a bus is a communication system that transfers data between components inside a computer, or between computers. It includes hardware components like wires, optical fibers, etc and software, including communication protocols. The Registers, ALU, and the interconnecting BUS are collectively referred to as data paths.</p>
+
+
+<h3>Types of the bus</h3>
+<p dir="ltr">There are mainly three type of bus:-</p>
+<ol>
+<li value="1"><strong>Address bus:&nbsp;</strong>Transfers memory addresses from the processor to components like storage and input/output devices. It&rsquo;s one-way communication.</li>
+<li value="2"><strong>Data bus:</strong>&nbsp;carries the data between the processor and other components. The data bus is bidirectional.</li>
+    <li value="3"><strong>Control bus:</strong>&nbsp;carries&nbsp;control signals&nbsp;from the processor to other components. The control bus also carries the clock&rsquo;s pulses. The control bus is unidirectional.</li>
+</ol>
+<p dir="ltr">The bus can be dedicated, i.e., it can be used for a single purpose or it can be multiplexed, i.e., it can be used for multiple purposes. when we would have different kinds of buses, different types of bus organizations will take place.</p>
+<h2>Registers</h2>
+<p dir="ltr">In Computer Architecture, the Registers are very fast computer memory which is used to execute programs and operations efficiently. but In that scenario, registers serve as gates, sending signals to various components to carry out little tasks. Register signals are directed by the control unit, which also operates the registers.</p>
+<div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+<div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+<p dir="ltr">The following list of five registers for in-out signal data storage:</p>
+<ol>
+<li value="1"><strong>Program Counter</strong><br />A program counter (PC) is a CPU register in the computer processor which has the address of the next instruction to be executed from&nbsp;memory. As each instruction gets fetched, the program counter increases its stored value by 1. It is a digital counter needed for faster execution of tasks as well as for tracking the current execution point.&nbsp;</li>
+<li value="2"><strong>Instruction Register</strong><br />In computing, an instruction register (IR) is the part of a CPU&rsquo;s control unit that holds the instruction currently being executed or decoded. The instruction register specifically holds the instruction and provides it to the instruction decoder circuit.&nbsp;</li>
+<li value="3"><strong>Memory Address Register</strong><br />The Memory Address Register (MAR) is the CPU register that either stores the memory address from which data will be fetched from the CPU, or the address to which data will be sent and stored. It is a temporary storage component in the CPU(central processing unit) that temporarily stores the address (location) of the data sent by the memory unit until the instruction for the particular data is executed.&nbsp;</li>
+<li value="4"><strong>Memory Data Register</strong><br />The memory data register (MDR) is the register in a computer&rsquo;s processor, or central processing unit, CPU, that stores the data being transferred to and from the immediate access storage. Memory data register (MDR) is also known as memory buffer register (MBR).&nbsp;</li>
+<li value="5"><strong>General Purpose Register</strong><br />General-purpose registers are used to store temporary data within the&nbsp;microprocessor. It is a multipurpose register. They can be used either by a programmer or by a user.</li>
+</ol>
+
+
+</body>
+</html>

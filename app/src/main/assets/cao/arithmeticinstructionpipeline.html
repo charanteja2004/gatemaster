@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    <h2><b>Arithmetic Pipeline and Instruction Pipeline</b></h2>
+
+
+<p><strong>1. Arithmetic Pipeline :</strong><br />An arithmetic pipeline divides an arithmetic problem into various sub problems for execution in various pipeline segments. It is used for floating point operations, multiplication and various other computations. The process or flowchart arithmetic pipeline for floating point addition is shown in the diagram.</p>
+<p><img class="aligncenter size-full" src="https://media.geeksforgeeks.org/wp-content/uploads/20200511154658/Untitled-Diagram66-3.jpg" width="400" height="700" /></p>
+<div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
+<p><strong>Floating point addition using arithmetic pipeline :</strong><br />The following sub operations are performed in this case:</p>
+<ol>
+<li>Compare the exponents.</li>
+<li>Align the mantissas.</li>
+<li>Add or subtract the mantissas.</li>
+<li>Normalise the result</li>
+</ol>
+<p>First of all the two exponents are compared and the larger of two exponents is chosen as the result exponent. The difference in the exponents then decides how many times we must shift the smaller exponent to the right. Then after shifting of exponent, both the mantissas get aligned. Finally the addition of both numbers take place followed by normalisation of the result in the last segment.</p>
+<div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+<div id="GFG_AD_InContent_Desktop_728x280">
+<div id="GFG_AD_InContent_Desktop_350x250_1" data-google-query-id="CJbw0omai4YDFa5BnQkd2BcBUw">
+<div id="google_ads_iframe_/27823234/GFG_InContent_Desktop_350x250_1_0__container__">&nbsp;</div>
+</div>
+<div id="GFG_AD_InContent_Desktop_350x250_2" data-google-query-id="CJfw0omai4YDFa5BnQkd2BcBUw">
+<div id="google_ads_iframe_/27823234/GFG_InContent_Desktop_350x250_2_0__container__">&nbsp;</div>
+</div>
+</div>
+
+<p><strong>Example:</strong><br />Let us consider two numbers,</p>
+<div class="gray">X=0.3214*10^3 and Y=0.4500*10^2 </div>
+<p><strong>Explanation:</strong><br />First of all the two exponents are subtracted to give 3-2=1. Thus 3 becomes the exponent of result and the smaller exponent is shifted 1 times to the right to give</p>
+<div class="gray">Y=0.0450*10^3 </div>
+<p>Finally the two numbers are added to produce</p>
+<div class="gray">Z=0.3664*10^3 </div>
+<p>As the result is already normalized the result remains the same.</p>
+<p><strong>2. Instruction Pipeline :</strong><br />In this a stream of instructions can be executed by overlapping fetch, decode and execute phases of an instruction cycle. This type of technique is used to increase the throughput of the computer system. An instruction pipeline reads instruction from the memory while previous instructions are being executed in other segments of the pipeline. Thus we can execute multiple instructions simultaneously. The pipeline will be more efficient if the instruction cycle is divided into segments of equal duration.</p>
+<p>In the most general case computer needs to process each instruction in following sequence of steps:</p>
+<ol>
+<li>Fetch the instruction from memory (FI)</li>
+<li>Decode the instruction (DA)</li>
+<li>Calculate the effective address</li>
+<li>Fetch the operands from memory (FO)</li>
+<li>Execute the instruction (EX)</li>
+<li>Store the result in the proper place</li>
+</ol>
+<p>The flowchart for instruction pipeline is shown below.</p>
+<p><img class="aligncenter size-full" src="https://media.geeksforgeeks.org/wp-content/uploads/20200511153145/Untitled-Diagram66-3.jpg" width="350" height="650" /></p>
+<p><br /><br />Let us see an example of instruction pipeline.</p>
+<p><strong>Example:</strong></p>
+<p><img class="aligncenter size-full" src="https://media.geeksforgeeks.org/wp-content/uploads/20200513145926/a_page-0001.jpg" width="400" height="239" /></p>
+<p><br /><br />Here the instruction is fetched on first clock cycle in segment 1.<br />Now it is decoded in next clock cycle, then operands are fetched and finally the instruction is executed. We can see that here the fetch and decode phase overlap due to pipelining. By the time the first instruction is being decoded, next instruction is fetched by the pipeline.</p>
+<p>In case of third instruction we see that it is a branched instruction. Here when it is being decoded 4th instruction is fetched simultaneously. But as it is a branched instruction it may point to some other instruction when it is decoded. Thus fourth instruction is kept on hold until the branched instruction is executed. When it gets executed then the fourth instruction is copied back and the other phases continue as usual.</p>
+
+
+</body>
+</html>

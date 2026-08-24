@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    <h2>Selection Sort</h2>
+
+    <blockquote>
+        <p dir="ltr"><strong>Selection sort</strong>&nbsp;is a simple and efficient sorting algorithm that works by
+            repeatedly selecting the smallest (or largest) element from the unsorted portion of the list and moving it
+            to the sorted portion of the list.&nbsp;</p>
+    </blockquote>
+    <p dir="ltr">The algorithm repeatedly selects the smallest (or largest) element from the unsorted portion of the
+        list and swaps it with the first element of the unsorted part. This process is repeated for the remaining
+        unsorted portion until the entire list is sorted.&nbsp;</p>
+    <div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
+    <h2><u><span class="GFGEditorTheme__textUnderline">How does Selection Sort Algorithm work?</span></u></h2>
+    <blockquote>
+        <p dir="ltr">Lets consider the following array as an example:&nbsp;<strong>arr[] = {64, 25, 12, 22, 11}</strong>
+        </p>
+        <p dir="ltr"><strong>First pass:</strong></p>
+    </blockquote>
+
+    <ul>
+        <li value="1">For the first position in the sorted array, the whole array is traversed from index 0 to 4
+            sequentially. The first position where&nbsp;<strong>64&nbsp;</strong>is stored presently, after traversing
+            whole array it is clear that&nbsp;<strong>11&nbsp;</strong>is the lowest value.</li>
+        <li value="2">Thus, replace 64 with 11. After one iteration&nbsp;<strong>11</strong>, which happens to be the
+            least value in the array, tends to appear in the first position of the sorted list.</li>
+    </ul>
+    <div class="wp-caption alignnone"><img
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20230524115038/1.webp"
+            srcset="https://media.geeksforgeeks.org/wp-content/uploads/20230524115038/1.webp 1000w, https://media.geeksforgeeks.org/wp-content/uploads/20230524115038/1-100.webp 100w, https://media.geeksforgeeks.org/wp-content/uploads/20230524115038/1-200.webp 200w, https://media.geeksforgeeks.org/wp-content/uploads/20230524115038/1-300.webp 300w, https://media.geeksforgeeks.org/wp-content/uploads/20230524115038/1-660.webp 660w, https://media.geeksforgeeks.org/wp-content/uploads/20230524115038/1-768.webp 768w, "
+            alt="Selection Sort Algorithm | Swapping 1st element with the minimum in array" width="376" height="287" />
+        <p class="wp-caption-text">Selection Sort Algorithm | Swapping 1st element with the minimum in array</p>
+    </div>
+    <p dir="ltr"><strong>Second Pass:</strong></p>
+    <ul>
+        <li value="1">For the second position, where 25 is present, again traverse the rest of the array in a sequential
+            manner.</li>
+        <li value="2">After traversing, we found that&nbsp;<strong>12</strong>&nbsp;is the second lowest value in the
+            array and it should appear at the second place in the array, thus swap these values.</li>
+    </ul>
+    <div class="wp-caption alignnone"><img
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20230526165135/2.webp"
+            srcset="https://media.geeksforgeeks.org/wp-content/uploads/20230526165135/2.webp 1000w, https://media.geeksforgeeks.org/wp-content/uploads/20230526165135/2-100.webp 100w, https://media.geeksforgeeks.org/wp-content/uploads/20230526165135/2-200.webp 200w, https://media.geeksforgeeks.org/wp-content/uploads/20230526165135/2-300.webp 300w, https://media.geeksforgeeks.org/wp-content/uploads/20230526165135/2-660.webp 660w, https://media.geeksforgeeks.org/wp-content/uploads/20230526165135/2-768.webp 768w, "
+            alt="Selection Sort Algorithm | swapping i=1 with the next minimum element" width="365" height="283" />
+        <p class="wp-caption-text">Selection Sort Algorithm | swapping i=1 with the next minimum element</p>
+    </div>
+    <p dir="ltr"><strong>Third Pass:</strong></p>
+    <ul>
+        <li value="1">Now, for third place, where&nbsp;<strong>25</strong>&nbsp;is present again traverse the rest of
+            the array and find the third least value present in the array.</li>
+        <li value="2">While traversing,&nbsp;<strong>22&nbsp;</strong>came out to be the third least value and it should
+            appear at the third place in the array, thus swap&nbsp;<strong>22&nbsp;</strong>with element present at
+            third position.</li>
+    </ul>
+    <div class="wp-caption alignnone"><img
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20230526165200/3.webp"
+            srcset="https://media.geeksforgeeks.org/wp-content/uploads/20230526165200/3.webp 1000w, https://media.geeksforgeeks.org/wp-content/uploads/20230526165200/3-100.webp 100w, https://media.geeksforgeeks.org/wp-content/uploads/20230526165200/3-200.webp 200w, https://media.geeksforgeeks.org/wp-content/uploads/20230526165200/3-300.webp 300w, https://media.geeksforgeeks.org/wp-content/uploads/20230526165200/3-660.webp 660w, https://media.geeksforgeeks.org/wp-content/uploads/20230526165200/3-768.webp 768w, "
+            alt="Selection Sort Algorithm | swapping i=3 with the next minimum element" width="300" height="296" />
+        <p class="wp-caption-text">Selection Sort Algorithm | swapping i=2 with the next minimum element</p>
+    </div>
+    <p dir="ltr"><strong>Fourth pass:</strong></p>
+    <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
+    <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
+    <ul>
+        <li value="1">Similarly, for fourth position traverse the rest of the array and find the fourth least element in
+            the array&nbsp;</li>
+        <li value="2">As&nbsp;<strong>25&nbsp;</strong>is the 4th lowest value hence, it will place at the fourth
+            position.</li>
+    </ul>
+    <div class="wp-caption alignnone"><img
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20230526165244/4.webp"
+            srcset="https://media.geeksforgeeks.org/wp-content/uploads/20230526165244/4.webp 1000w, https://media.geeksforgeeks.org/wp-content/uploads/20230526165244/4-100.webp 100w, https://media.geeksforgeeks.org/wp-content/uploads/20230526165244/4-200.webp 200w, https://media.geeksforgeeks.org/wp-content/uploads/20230526165244/4-300.webp 300w, https://media.geeksforgeeks.org/wp-content/uploads/20230526165244/4-660.webp 660w, https://media.geeksforgeeks.org/wp-content/uploads/20230526165244/4-768.webp 768w, "
+            alt="Selection Sort Algorithm | swapping i=3 with the next minimum element" width="349" height="277" />
+        <p class="wp-caption-text">Selection Sort Algorithm | swapping i=3 with the next minimum element</p>
+    </div>
+    <p dir="ltr"><strong>Fifth Pass:</strong></p>
+    <ul>
+        <li value="1">At last the largest value present in the array automatically get placed at the last position in
+            the array</li>
+        <li value="2">The resulted array is the sorted array.</li>
+    </ul>
+    <div class="wp-caption alignnone"><img
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20230526165320/5.webp"
+            srcset="https://media.geeksforgeeks.org/wp-content/uploads/20230526165320/5.webp 1000w, https://media.geeksforgeeks.org/wp-content/uploads/20230526165320/5-100.webp 100w, https://media.geeksforgeeks.org/wp-content/uploads/20230526165320/5-200.webp 200w, https://media.geeksforgeeks.org/wp-content/uploads/20230526165320/5-300.webp 300w, https://media.geeksforgeeks.org/wp-content/uploads/20230526165320/5-660.webp 660w, https://media.geeksforgeeks.org/wp-content/uploads/20230526165320/5-768.webp 768w, "
+            alt="Selection Sort Algorithm | Required sorted array" width="384" height="290" />
+        <p class="wp-caption-text">Selection Sort Algorithm | Required sorted array</p>
+    </div>
+
+    <div class="gray"><span class="c1">// C program for implementation of selection sort</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">xp</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">yp</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="o">*</span><span class="n">xp</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">xp</span> <span class="o">=</span> <span class="o">*</span><span class="n">yp</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">yp</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">selectionSort</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">min_idx</span><span class="p">;</span>
+
+    <span class="c1">// One by one move boundary of unsorted subarray</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="mi">-1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Find the minimum element in unsorted array</span>
+        <span class="n">min_idx</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+          <span class="k">if</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">min_idx</span><span class="p">])</span>
+            <span class="n">min_idx</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
+
+        <span class="c1">// Swap the found minimum element with the first element</span>
+           <span class="k">if</span><span class="p">(</span><span class="n">min_idx</span> <span class="o">!=</span> <span class="n">i</span><span class="p">)</span>
+            <span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">arr</span><span class="p">[</span><span class="n">min_idx</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/* Function to print an array */</span>
+<span class="kt">void</span> <span class="nf">printArray</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">size</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"%d "</span><span class="p">,</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Driver program to test above functions</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">arr</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">64</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">11</span><span class="p">};</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span><span class="o">/</span><span class="k">sizeof</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="n">selectionSort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Sorted array: </span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="n">printArray</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></div>
+
+    <div class="code-output"><br /><strong>Output</strong>
+        <div class="gray">Sorted array: 
+11 12 22 25 64 </div>
+    </div>
+    <h2><u><span class="GFGEditorTheme__textUnderline">Complexity Analysis of Selection Sort</span></u></h2>
+    <p dir="ltr"><strong>Time Complexity:</strong>&nbsp;The time complexity of Selection Sort
+        is&nbsp;<strong>O(N</strong><strong><sup>2</sup></strong><strong>)</strong>&nbsp;as there are two nested loops:
+    </p>
+    <ul>
+        <li value="1">One loop to select an element of Array one by one = O(N)</li>
+        <li value="2">Another loop to compare that element with every other Array element = O(N)</li>
+        <li value="3">Therefore overall complexity = O(N) * O(N) = O(N*N) = O(N<sup>2</sup>)</li>
+    </ul>
+    <p dir="ltr"><strong>Auxiliary Space:</strong>&nbsp;O(1) as the only extra memory used is for temporary variables
+        while swapping two values in Array. The selection sort never makes more than O(N) swaps and can be useful when
+        memory writing is costly.&nbsp;</p>
+    <h2><u><span class="GFGEditorTheme__textUnderline">Advantages of Selection Sort Algorithm</span></u></h2>
+    <ul>
+        <li value="1">Simple and easy to understand.</li>
+        <li value="2">Works well with small datasets.</li>
+    </ul>
+    <h2><u><strong><strong class="GFGEditorTheme__textUnderline">Disadvantages of the Selection Sort
+                    Algorithm</strong></strong></u></h2>
+    <ul>
+        <li value="1">Selection sort has a time complexity of O(n^2) in the worst and average case.</li>
+        <li value="2">Does not work well on large datasets.</li>
+        <li value="3">Does not preserve the relative order of items with equal keys which means it is not stable.</li>
+    </ul>
+
+    <br><br>
+
+</body>
+</html>

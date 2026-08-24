@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    <div class="main_wrapper">
+       
+        <div class="article-title">
+        <h1>Normal Forms in DBMS</h1>
+        </div>
+        </div>
+        </div>
+        <div class="text">
+        <p dir="ltr"><strong>Normalization</strong>&nbsp;is the process of minimizing&nbsp;<strong>redundancy</strong>&nbsp;from a relation or set of relations. Redundancy in relation may cause insertion, deletion, and update anomalies. So, it helps to minimize the redundancy in relations.&nbsp;<strong>Normal forms</strong>&nbsp;are used to eliminate or reduce redundancy in database tables.</p>
+        <h2>Normalization of DBMS by Ranjan Hero</h2>
+        <p dir="ltr">In database management systems (DBMS), normal forms are a series of guidelines that help to ensure that the design of a database is efficient, organized, and free from data anomalies. There are several levels of normalization, each with its own set of guidelines, known as normal forms.</p>
+        <h3>Important Points Regarding Normal Forms in DBMS</h3>
+        <ul>
+        <li value="1"><strong>First Normal Form (1NF):</strong>&nbsp;This is the most basic level of normalization. In 1NF, each table cell should contain only a single value, and each column should have a unique name. The first normal form helps to eliminate duplicate data and simplify queries.</li>
+        <li value="2"><strong>Second Normal Form (2NF):</strong>&nbsp;2NF eliminates redundant data by requiring that each non-key attribute be dependent on the primary key. This means that each column should be directly related to the primary key, and not to other columns.</li>
+        <li value="3"><strong>Third Normal Form (3NF):</strong>&nbsp;3NF builds on 2NF by requiring that all non-key attributes are independent of each other. This means that each column should be directly related to the primary key, and not to any other columns in the same table.</li>
+        <li value="4"><strong>Boyce-Codd Normal Form (BCNF):</strong>&nbsp;BCNF is a stricter form of 3NF that ensures that each determinant in a table is a candidate key. In other words, BCNF ensures that each non-key attribute is dependent only on the candidate key.</li>
+        <li value="5"><strong>Fourth Normal Form (4NF):</strong>&nbsp;4NF is a further refinement of BCNF that ensures that a table does not contain any multi-valued dependencies.</li>
+        <li value="6"><strong>Fifth Normal Form (5NF):</strong>&nbsp;5NF is the highest level of normalization and involves decomposing a table into smaller tables to remove data redundancy and improve data integrity.</li>
+        </ul>
+        <p dir="ltr">Normal forms help to reduce data redundancy, increase data consistency, and improve database performance. However, higher levels of normalization can lead to more complex database designs and queries. It is important to strike a balance between normalization and practicality when designing a database.</p>
+        <h2>Advantages of Normal Form</h2>
+        <ul>
+        <li value="1"><strong>Reduced data redundancy:</strong>&nbsp;Normalization helps to eliminate duplicate data in tables, reducing the amount of storage space needed and improving database efficiency.</li>
+        <li value="2"><strong>Improved data consistency:</strong>&nbsp;Normalization ensures that data is stored in a consistent and organized manner, reducing the risk of data inconsistencies and errors.</li>
+        <li value="3"><strong>Simplified database design:</strong>&nbsp;Normalization provides guidelines for organizing tables and data relationships, making it easier to design and maintain a database.</li>
+        <li value="4"><strong>Improved query performance:&nbsp;</strong>Normalized tables are typically easier to search and retrieve data from, resulting in faster query performance.</li>
+        <li value="5"><strong>Easier database maintenance:</strong>&nbsp;Normalization reduces the complexity of a database by breaking it down into smaller, more manageable tables, making it easier to add, modify, and delete data.</li>
+        </ul>
+        <p dir="ltr">Overall, using normal forms in DBMS helps to improve data quality, increase database efficiency, and simplify database design and maintenance.</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <h2>First Normal Form</h2>
+        <p dir="ltr">If a relation contain composite or multi-valued attribute, it violates first normal form or a relation is in first normal form if it does not contain any composite or multi-valued attribute. A relation is in first normal form if every attribute in that relation is&nbsp;<strong>singled valued attribute</strong>.</p>
+        <ul>
+        <li value="1"><strong>Example 1 &ndash;</strong>&nbsp;Relation STUDENT in table 1 is not in 1NF because of multi-valued attribute STUD_PHONE. Its decomposition into 1NF has been shown in table 2.</li>
+        </ul>
+        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231101151006/1239.png" alt="Example" width="461" height="198" />
+        <p class="wp-caption-text">Example</p>
+        </div>
+        <ul>
+        <li value="1"><strong>Example 2 &ndash;</strong></li>
+        </ul>
+        <div class="gray">ID   Name   Courses<br />------------------<br />1    A      c1, c2<br />2    E      c3<br />3    M      C2, c3</div>
+        <ul>
+        <li value="1">In the above table Course is a multi-valued attribute so it is not in 1NF. Below Table is in 1NF as there is no multi-valued attribute</li>
+        </ul>
+        <div class="gray">ID   Name   Course<br />------------------<br />1    A       c1<br />1    A       c2<br />2    E       c3<br />3    M       c2<br />3    M       c3</div>
+        </div>
+        
+<h2>Second Normal Form</h2>
+<p dir="ltr">To be in second normal form, a relation must be in first normal form and relation must not contain any partial dependency. A relation is in 2NF if it has&nbsp;<strong>No Partial Dependency,&nbsp;</strong>i.e.<strong>,&nbsp;</strong>no non-prime attribute (attributes which are not part of any candidate key) is dependent on any proper subset of any candidate key of the table.&nbsp;<strong>Partial Dependency &ndash;</strong>&nbsp;If the proper subset of candidate key determines non-prime attribute, it is called partial dependency.</p>
+<ul>
+<li value="1"><strong>Example 1 &ndash;</strong>&nbsp;Consider table-3 as following below.</li>
+</ul>
+<div class="gray">STUD_NO            COURSE_NO        COURSE_FEE<br />1                     C1                  1000<br />2                     C2                  1500<br />1                     C4                  2000<br />4                     C3                  1000<br />4                     C1                  1000<br />2                     C5                  2000<br /><br /><br /></div>
+<ul>
+<li value="1">{Note that, there are many courses having the same course fee} Here, COURSE_FEE cannot alone decide the value of COURSE_NO or STUD_NO; COURSE_FEE together with STUD_NO cannot decide the value of COURSE_NO; COURSE_FEE together with COURSE_NO cannot decide the value of STUD_NO; Hence, COURSE_FEE would be a non-prime attribute, as it does not belong to the one only candidate key {STUD_NO, COURSE_NO} ; But, COURSE_NO -&gt; COURSE_FEE, i.e., COURSE_FEE is dependent on COURSE_NO, which is a proper subset of the candidate key. Non-prime attribute COURSE_FEE is dependent on a proper subset of the candidate key, which is a partial dependency and so this relation is not in 2NF. To convert the above relation to 2NF, we need to split the table into two tables such as : Table 1: STUD_NO, COURSE_NO Table 2: COURSE_NO, COURSE_FEE</li>
+</ul>
+<div class="gray">       <strong>Table 1</strong>                                                           <strong>Table 2</strong><br />STUD_NO            COURSE_NO          COURSE_NO                COURSE_FEE     <br />1                C1                 C1                        1000<br />2               C2                  C2                        1500<br />1                C4                 C3                        1000<br />4               C3                  C4                        2000<br />4               C1                 C5                         2000        </div>
+<ul>
+<li value="1"><strong>NOTE:</strong>&nbsp;2NF tries to reduce the redundant data getting stored in memory. For instance, if there are 100 students taking C1 course, we don&rsquo;t need to store its Fee as 1000 for all the 100 records, instead, once we can store it in the second table as the course fee for C1 is 1000.</li>
+<li value="2"><strong>Example 2 &ndash;</strong>&nbsp;Consider following functional dependencies in relation&nbsp; R (A,&nbsp; B , C,&nbsp; D )</li>
+</ul>
+<div class="gray">AB -&gt; C  [A and B together determine C]<br />BC -&gt; D  [B and C together determine D]</div>
+<p dir="ltr">In the above relation, AB is the only candidate key and there is no partial dependency, i.e., any proper subset of AB doesn&rsquo;t determine any non-prime attribute.</p>
+<div class="gray">X is a super key.<br />Y is a prime attribute (each element of Y is part of some candidate key).</div>
+<p dir="ltr"><strong>Example 1:&nbsp;</strong>In relation STUDENT given in Table 4, FD set: {STUD_NO -&gt; STUD_NAME, STUD_NO -&gt; STUD_STATE, STUD_STATE -&gt; STUD_COUNTRY, STUD_NO -&gt; STUD_AGE}</p>
+<p dir="ltr">Candidate Key: {STUD_NO}</p>
+<p dir="ltr">For this relation in table 4, STUD_NO -&gt; STUD_STATE and STUD_STATE -&gt; STUD_COUNTRY are true.</p>
+<p dir="ltr">So STUD_COUNTRY is transitively dependent on STUD_NO. It violates the third normal form.</p>
+<p dir="ltr">To convert it in third normal form, we will decompose the relation STUDENT (STUD_NO, STUD_NAME, STUD_PHONE, STUD_STATE, STUD_COUNTRY_STUD_AGE) as: STUDENT (STUD_NO, STUD_NAME, STUD_PHONE, STUD_STATE, STUD_AGE) STATE_COUNTRY (STATE, COUNTRY)</p>
+<p dir="ltr">Consider relation R(A, B, C, D, E) A -&gt; BC, CD -&gt; E, B -&gt; D, E -&gt; A All possible candidate keys in above relation are {A, E, CD, BC} All attributes are on right sides of all functional dependencies are prime.</p>
+<p dir="ltr"><strong>Example 2:</strong>&nbsp;Find the highest normal form of a relation R(A,B,C,D,E) with FD set as {BC-&gt;D, AC-&gt;BE, B-&gt;E}</p>
+<p dir="ltr"><strong>Step 1:&nbsp;</strong>As we can see, (AC)+ ={A,C,B,E,D} but none of its subset can determine all attribute of relation, So AC will be candidate key. A or C can&rsquo;t be derived from any other attribute of the relation, so there will be only 1 candidate key {AC}.</p>
+<p dir="ltr"><strong>Step 2:</strong>&nbsp;Prime attributes are those attributes that are part of candidate key {A, C} in this example and others will be non-prime {B, D, E} in this example.</p>
+<p dir="ltr"><strong>Step 3:</strong>&nbsp;The relation R is in 1st normal form as a relational DBMS does not allow multi-valued or composite attribute. The relation is in 2nd normal form because BC-&gt;D is in 2nd normal form (BC is not a proper subset of candidate key AC) and AC-&gt;BE is in 2nd normal form (AC is candidate key) and B-&gt;E is in 2nd normal form (B is not a proper subset of candidate key AC).</p>
+<p dir="ltr">The relation is not in 3rd normal form because in BC-&gt;D (neither BC is a super key nor D is a prime attribute) and in B-&gt;E (neither B is a super key nor E is a prime attribute) but to satisfy 3rd normal for, either LHS of an FD should be super key or RHS should be prime attribute. So the highest normal form of relation will be 2nd Normal form.</p>
+<p dir="ltr">For example consider relation R(A, B, C) A -&gt; BC, B -&gt; A and B both are super keys so above relation is in BCNF.</p>
+<h2>Third Normal Form</h2>
+<p dir="ltr">A relation is said to be in third normal form, if we did not have any transitive dependency for non-prime attributes. The basic condition with the Third Normal Form is that, the relation must be in Second Normal Form.</p>
+<p dir="ltr">Below mentioned is the basic condition that must be hold in the non-trivial functional dependency X -&gt; Y:</p>
+<ul>
+<li value="1">X is a Super Key.</li>
+<li value="2">Y is a Prime Attribute ( this means that element of Y is some part of Candidate Key).</li>
+</ul>
+<p dir="ltr">For more, refer to&nbsp;<a href="https://www.geeksforgeeks.org/third-normal-form-3nf/" rel="noopener">Third Normal Form in DBMS.</a></p>
+<h2>BCNF</h2>
+<p dir="ltr">BCNF (Boyce-Codd Normal Form) is just a advanced version of Third Normal Form. Here we have some additional rules than Third Normal Form. The basic condition for any relation to be in BCNF is that it must be in Third Normal Form.</p>
+<p dir="ltr">We have to focus on some basic rules that are for BCNF:</p>
+<div class="gray">1. Table must be in Third Normal Form.<br />2. In relation X-&gt;Y, X must be a superkey in a relation.</div>
+<p dir="ltr">For more, refer to&nbsp;<a href="https://www.geeksforgeeks.org/boyce-codd-normal-form-bcnf/" rel="noopener">BCNF in DBMS.</a></p>
+<h2>Fourth Normal Form</h2>
+<p dir="ltr">Fourth Normal Form contains no non-trivial multivaued dependency except candidate key. The basic condition with Fourth Normal Form is that the relation must be in BCNF.</p>
+<p dir="ltr">The basic rules are mentioned below.</p>
+<div class="gray">1. It must be in BCNF.<br />2. It does not have any multi-valued dependency.</div>
+<p dir="ltr">For more, refer to&nbsp;<a href="https://www.geeksforgeeks.org/introduction-of-4th-and-5th-normal-form-in-dbms/" rel="noopener">Fourth Normal Form in DBMS.</a></p>
+<h2>Fifth Normal Form</h2>
+<p dir="ltr">Fifth Normal Form is also called as Projected Normal Form. The basic conditions of Fifth Normal Form is mentioned below.</p>
+<div class="gray">Relation must be in Fourth Normal Form.<br />The relation must not be further non loss decomposed.</div>
+<p dir="ltr">For more, refer to&nbsp;<a href="https://www.geeksforgeeks.org/introduction-of-4th-and-5th-normal-form-in-dbms/" rel="noopener">Fifth Normal Form in DBMS.</a></p>
+<h2>Applications of Normal Forms in DBMS</h2>
+<ul>
+<li value="1"><strong>Data consistency:</strong>&nbsp;Normal forms ensure that data is consistent and does not contain any redundant information. This helps to prevent inconsistencies and errors in the database.</li>
+<li value="2"><strong>Data redundancy:&nbsp;</strong>Normal forms minimize data redundancy by organizing data into tables that contain only unique data. This reduces the amount of storage space required for the database and makes it easier to manage.</li>
+<li value="3"><strong>Response time:</strong>&nbsp;Normal forms can improve query performance by reducing the number of joins required to retrieve data. This helps to speed up query processing and improve overall system performance.</li>
+<li value="4"><strong>Database maintenance:&nbsp;</strong>Normal forms make it easier to maintain the database by reducing the amount of redundant data that needs to be updated, deleted, or modified. This helps to improve database management and reduce the risk of errors or inconsistencies.</li>
+<li value="5"><strong>Database design:</strong>&nbsp;Normal forms provide guidelines for designing databases that are efficient, flexible, and scalable. This helps to ensure that the database can be easily modified, updated, or expanded as needed.</li>
+</ul>
+</body>
+</html>

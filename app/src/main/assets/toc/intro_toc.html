@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Introduction to Theory Of Computation</title>
+    <style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+    border-radius: 10px;
+    color: rgba(0, 0, 0, .9);
+    font-family: Consolas, monospace;
+    margin-bottom: 10px;
+    padding:5px
+    }
+  </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+<div>
+    <h2>Introduction of Theory of Computation</h2>
+    <p> <b>Automata</b> theory (also known as Theory Of Computation) is a theoretical branch of Computer Science and Mathematics, which mainly deals with the logic of computation with respect to simple machines, referred to as automata.<br>
+
+        Automata* enables scientists to understand how machines compute the functions and solve problems. The main motivation behind developing Automata Theory was to develop methods to describe and analyze the dynamic behavior of discrete systems.<br>
+
+        Automata originated from the word “Automaton” which is closely related to “Automation”.<br>
+    </p>
+    <b>Basic Terminologies of Theory of Computation:</b><br>
+    <h3>Symbol:</h3>
+   <p> A symbol (often also called a character) is the smallest building block, which can be any alphabet, letter, or picture.</p>
+    <img src="symbol.png">
+    <h3>Alphabets (Σ):</h3>
+    <p>Alphabets are a set of symbols, which are always finite.</p>
+    <img src="alphabet.png">
+    <h3>String:</h3>
+    <p>A string is a finite sequence of symbols from some alphabet. A string is generally denoted as w and the length of a string is denoted as |w|.</p>
+    <div class="gray">
+        <p>Empty string is the string with<br>
+        zero occurrence of symbols,<br>
+        represented as ε.<br></p>
+    </div>
+    <div class="gray">
+        <p>Number of Strings (of length 2)<br>
+            that can be generated over the alphabet {a, b}:<br>
+            -   -<br>
+            a   a<br>
+            a   b<br>
+            b   a<br>
+            b   b<br>
+
+            Length of String |w| = 2<br>
+            Number of Strings = 4<br>
+
+
+            Conclusion:<br>
+            For alphabet {a, b} with length n, number of<br>
+            strings can be generated = 2n.<br></p>
+    </div>
+
+    <p>
+        <b>Closure Representation in TOC:</b>
+        L+: It is a Positive Closure that represents a set of all strings except Null or ε-strings.<br>
+
+        L*: It is “Kleene Closure“, that represents the occurrence of certain alphabets for given language alphabets from zero to the infinite number of times. In which ε-string is also included.<br>
+
+        From the above two statements, it can be concluded that:<br>
+    </p>
+    <div class="gray">
+        L* = εL+
+        <p>Example:<br>
+            (a) Regular expression for language accepting all combination of g's over Σ={g}:<br>
+            R = g*<br>
+            R={ε,g,gg,ggg,gggg,ggggg,...}<br>
+
+            (b) Regular Expression for language accepting all combination of g's over Σ={g} :<br>
+            R = g+<br>
+            R={g,gg,ggg,gggg,ggggg,gggggg,...}<br></p>
+    </div>
+
+    <h3>Language:</h3><br>
+    A language is a set of strings, chosen from some Σ* or we can say- ‘A language is a subset of Σ* ‘. A language that can be formed over ‘ Σ ‘ can be Finite or Infinite.<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>Minimization of ER Diagrams</h1>
+        </div>
+        </div>
+        </div>
+        <div class="text">
+        <p dir="ltr">Entity-Relationship (ER) Diagram is a diagrammatic representation of data in databases, it shows how data is related to one another. In this article, we require previous knowledge of ER diagrams and how to draw ER diagrams.</p>
+        <p dir="ltr">Minimization of ER Diagram simply means reducing the quantity of the tables in the ER Diagram. When there are so many tables present in the ER DIagram, it decreases the readability and understandability of the ER Diagram, and it also becomes difficult for the admin also to understand these. Minimizing the ER Diagram helps in better understanding. We reduce tables depending on the cardinality.</p>
+        <h2>Cardinality&nbsp;</h2>
+        <p dir="ltr">Cardinality&nbsp;means that what is the number of relationships between the two entity sets in any relationship model. There are four types of cardinality which are mentioned below.</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <ul>
+        <li value="1">One-to-One</li>
+        <li value="2">One-to-Many</li>
+        <li value="3">Many-to-One</li>
+        <li value="4">Many-to-Many</li>
+        </ul>
+        <h2>Many-to-One Cardinality</h2>
+        <p dir="ltr">For example, a student can be enrolled only in one course, but a course can be enrolled by many students.<br />&nbsp;</p>
+        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2015/07/many2one-300x115.png" alt="Many to One Cardinalitry" width="inherit" height="inherit" />
+        <p class="wp-caption-text">Many to One Cardinality</p>
+        </div>
+        <p dir="ltr">For Student(SID, Name), SID is the primary key.&nbsp; For Course(CID, C_name ), CID is the primary key.</p>
+        <p dir="ltr"><strong>Table Student</strong></p>
+        <table class="GFGEditorTheme__table"><colgroup><col /><col /></colgroup>
+        <thead>
+        <tr>
+        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">SID</th>
+        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">1</td>
+        <td class="GFGEditorTheme__tableCell">A</td>
+        </tr>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">2</td>
+        <td class="GFGEditorTheme__tableCell">B</td>
+        </tr>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">3</td>
+        <td class="GFGEditorTheme__tableCell">C</td>
+        </tr>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">4</td>
+        <td class="GFGEditorTheme__tableCell">D</td>
+        </tr>
+        </tbody>
+        </table>
+        <p dir="ltr"><strong>Table Course</strong></p>
+        <table class="GFGEditorTheme__table"><colgroup><col /><col /></colgroup>
+        <thead>
+        <tr>
+        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">CID</th>
+        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">C_name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">c1</td>
+        <td class="GFGEditorTheme__tableCell">Z</td>
+        </tr>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">c2</td>
+        <td class="GFGEditorTheme__tableCell">Y</td>
+        </tr>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">c3</td>
+        <td class="GFGEditorTheme__tableCell">X</td>
+        </tr>
+        </tbody>
+        </table>
+        <p dir="ltr"><strong>Table Enroll</strong></p>
+        <table class="GFGEditorTheme__table"><colgroup><col /><col /></colgroup>
+        <thead>
+        <tr>
+        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">SID</th>
+        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">CID</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">1</td>
+        <td class="GFGEditorTheme__tableCell">C1</td>
+        </tr>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">2</td>
+        <td class="GFGEditorTheme__tableCell">C1</td>
+        </tr>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">3</td>
+        <td class="GFGEditorTheme__tableCell">C3</td>
+        </tr>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">4</td>
+        <td class="GFGEditorTheme__tableCell">C2</td>
+        </tr>
+        </tbody>
+        </table>
+        <p dir="ltr">Now the question is, what should be the primary key for Enroll? Should it be SID or CID or both combined into one? We can&rsquo;t have CID as the primary key because a CID can have multiple SIDs.&nbsp;(SID, CID) can distinguish table uniquely, but it is not minimum.&nbsp;So SID is the primary key for the relation enrollment.&nbsp;</p>
+        <p dir="ltr">For the above ER diagram, we considered three tables in the database</p>
+        <table class="GFGEditorTheme__table"><colgroup><col /></colgroup>
+        <thead></thead>
+        <tbody>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">Student</td>
+        </tr>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">Enroll</td>
+        </tr>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">Course</td>
+        </tr>
+        </tbody>
+        </table>
+        <p dir="ltr">But we can combine the Student and the Enroll table renamed as Student_enroll.&nbsp;</p>
+        <p dir="ltr">Table Student_Enroll</p>
+        <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /></colgroup>
+        <thead></thead>
+        <tbody>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">SID</td>
+        <td class="GFGEditorTheme__tableCell">Name</td>
+        <td class="GFGEditorTheme__tableCell">CID</td>
+        </tr>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">1</td>
+        <td class="GFGEditorTheme__tableCell">A</td>
+        <td class="GFGEditorTheme__tableCell">C1</td>
+        </tr>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">2</td>
+        <td class="GFGEditorTheme__tableCell">B</td>
+        <td class="GFGEditorTheme__tableCell">C1</td>
+        </tr>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">3</td>
+        <td class="GFGEditorTheme__tableCell">C</td>
+        <td class="GFGEditorTheme__tableCell">C3</td>
+        </tr>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">4</td>
+        <td class="GFGEditorTheme__tableCell">D</td>
+        <td class="GFGEditorTheme__tableCell">C2</td>
+        </tr>
+        </tbody>
+        </table>
+        <p dir="ltr">Student and enroll tables are merged now.&nbsp;So require a minimum of two&nbsp;<a href="introtoDBMS.html">DBMS</a>&nbsp;tables for Student_enroll and Course.&nbsp;</p>
+        <p dir="ltr"><strong>Note:&nbsp;</strong>In One to Many relationships we can have a minimum of two tables.&nbsp;</p>
+        </div>
+        <div class="main_wrapper">
+            <div class="article-title">
+            <h2>Many to Many Cardinality</h2>
+            <p dir="ltr">Let us consider the above example with the change that now a student can enroll in more than 1 course.</p>
+            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2015/07/many2many-300x115.png" width="inherit" height="inherit" />
+            <p class="wp-caption-text">Many to Many</p>
+            </div>
+            <p dir="ltr"><strong>Table Student</strong></p>
+            <table class="GFGEditorTheme__table"><colgroup><col /><col /></colgroup>
+            <thead>
+            <tr>
+            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">SID</th>
+            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td class="GFGEditorTheme__tableCell">1</td>
+            <td class="GFGEditorTheme__tableCell">A</td>
+            </tr>
+            <tr>
+            <td class="GFGEditorTheme__tableCell">2</td>
+            <td class="GFGEditorTheme__tableCell">B</td>
+            </tr>
+            <tr>
+            <td class="GFGEditorTheme__tableCell">3</td>
+            <td class="GFGEditorTheme__tableCell">C</td>
+            </tr>
+            <tr>
+            <td class="GFGEditorTheme__tableCell">4</td>
+            <td class="GFGEditorTheme__tableCell">D</td>
+            </tr>
+            </tbody>
+            </table>
+            <p dir="ltr"><strong>Table Course</strong></p>
+            <table class="GFGEditorTheme__table"><colgroup><col /><col /></colgroup>
+            <thead>
+            <tr>
+            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">CID</th>
+            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">C_Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td class="GFGEditorTheme__tableCell">C1</td>
+            <td class="GFGEditorTheme__tableCell">Z</td>
+            </tr>
+            <tr>
+            <td class="GFGEditorTheme__tableCell">C2</td>
+            <td class="GFGEditorTheme__tableCell">Y</td>
+            </tr>
+            <tr>
+            <td class="GFGEditorTheme__tableCell">C3</td>
+            <td class="GFGEditorTheme__tableCell">X</td>
+            </tr>
+            </tbody>
+            </table>
+            <p dir="ltr"><strong>Table Enroll</strong></p>
+            <table class="GFGEditorTheme__table"><colgroup><col /><col /></colgroup>
+            <thead>
+            <tr>
+            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">SID</th>
+            <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">CID</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td class="GFGEditorTheme__tableCell">1</td>
+            <td class="GFGEditorTheme__tableCell">C1</td>
+            </tr>
+            <tr>
+            <td class="GFGEditorTheme__tableCell">1</td>
+            <td class="GFGEditorTheme__tableCell">C2</td>
+            </tr>
+            <tr>
+            <td class="GFGEditorTheme__tableCell">2</td>
+            <td class="GFGEditorTheme__tableCell">C1</td>
+            </tr>
+            <tr>
+            <td class="GFGEditorTheme__tableCell">2</td>
+            <td class="GFGEditorTheme__tableCell">C2</td>
+            </tr>
+            <tr>
+            <td class="GFGEditorTheme__tableCell">3</td>
+            <td class="GFGEditorTheme__tableCell">C3</td>
+            </tr>
+            <tr>
+            <td class="GFGEditorTheme__tableCell">4</td>
+            <td class="GFGEditorTheme__tableCell">C2</td>
+            </tr>
+            </tbody>
+            </table>
+            <p dir="ltr">Now, the same question arises. What is the primary key to Enroll relation? If we carefully analyze, the primary key for Enroll table is ( SID, CID ).&nbsp;</p>
+            <p dir="ltr">But in this case, we can&rsquo;t merge Enroll table with any of the Student and Course. If we try to merge Enroll with any one of the Student and Course it will create redundant data.&nbsp;</p>
+            <p dir="ltr"><strong>Note:</strong>&nbsp;A minimum of three tables are required in the Many to Many relationships.</p>
+            <h2>One-to-One Cardinality</h2>
+            <p dir="ltr">One to One Cardinality has two possible cases where we have the case of either total participation or no participation at one end.</p>
+            <p dir="ltr">There are two possibilities</p>
+            <h3>Total Participation at One End</h3>
+            <p dir="ltr">For example, consider the below ER diagram.&nbsp;</p>
+            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2015/07/one2oneT1-300x115.png" alt="One to One" width="inherit" height="inherit" />
+            <p class="wp-caption-text">One to One</p>
+            </div>
+            <p dir="ltr">A1 and B1 are the&nbsp;primary keys&nbsp;of E1 and E2 respectively.&nbsp;In the above diagram, we have total participation at the E1 ends.&nbsp;Only a single table is required in this case having the primary key of E2 as its primary key.&nbsp;Since E2 is in partial participation, atleast one entry in E2 does not participate in relationship set, but all entries in E1 are related to an entry in E2. Therefore E2 cannot be null for any value of E1, but E1 will be null for atleast one value of E2.</p>
+            <p dir="ltr">&nbsp;</p>
+            <p dir="ltr"><strong>Note:</strong>&nbsp;Only 1 table is required.</p>
+            <h3>No Participation at One End</h3>
+            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2015/07/one2one-300x115.png" alt="One to One" width="inherit" height="inherit" />
+            <p class="wp-caption-text">One to One</p>
+            </div>
+            <p dir="ltr">A1 and B1 are the primary keys of E1 and E2 respectively.&nbsp;</p>
+            <p dir="ltr">The primary key of R can be A1 or B1, but we can&rsquo;t still combine all three tables into one. if we do so, some entries in the combined table may have NULL entries. So the idea of merging all three tables into one is not good.&nbsp;But we can merge R into E1 or E2. So a minimum of 2 tables is required.</p>
+            </div>
+            </div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+    <div class="main_wrapper">
+        <div class="article-title">
+        <div class="main_wrapper">
+        <div class="article-title">
+        <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>Introduction of Database Normalization</h1>
+        </div>
+        </div>
+        </div>
+        <div class="text">
+        <p dir="ltr">Normalization is an important process in database design that helps improve the database&rsquo;s efficiency, consistency, and accuracy. It makes it easier to manage and maintain the data and ensures that the database is adaptable to changing business needs.</p>
+        <h2>What is Database Normalization?</h2>
+        <p dir="ltr">Database normalization is the process of organizing the attributes of the database to reduce or eliminate data redundancy (having the same data but at different places).<strong>&nbsp;</strong>Data redundancy unnecessarily increases the size of the database as the same data is repeated in many places. Inconsistency problems also arise during insert, delete, and update operations.&nbsp;</p>
+        <h2><strong>What is Functional Dependency and its Types?</strong></h2>
+        <p dir="ltr">Functional Dependency&nbsp;is a constraint between two sets of attributes about a database. A function dependency A -&gt; B means for all instances of a particular value of A, there is the same value of B.&nbsp;For example in the below table, A -&gt; B is true, but B -&gt; A is not true as there are different values of A for B = 3.&nbsp;</p>
+        <div class="gray">A   B<br />------<br />1   3<br />2   3<br />4   0<br />1   3<br />4   0</div>
+        <h3><strong>1. Trivial Functional Dependency</strong>&nbsp;</h3>
+        <div class="gray">X -&gt; Y is trivial only when Y is a subset of X.&nbsp;</div>
+        <p dir="ltr">Examples&nbsp;&nbsp;</p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <ul>
+        <li value="1">ABC -&gt; AB</li>
+        <li value="2">ABC -&gt; A</li>
+        <li value="3">ABC -&gt; ABC</li>
+        </ul>
+        <h3><strong>2. Non Trivial Functional Dependencies</strong>&nbsp;</h3>
+        <div class="gray">X -&gt; Y is a non-trivial functional dependency when Y is not a subset of X.&nbsp;<br />X -&gt; Y is called completely non-trivial when X intersect Y is NULL.&nbsp;</div>
+        <p dir="ltr"><strong>Example:&nbsp;</strong></p>
+        <ul>
+        <li value="1">Id -. Name,</li>
+        <li value="2">Name -&gt; DOB</li>
+        </ul>
+        <h3><strong>3. Semi Non Trivial Functional Dependencies</strong>&nbsp;</h3>
+        <div class="gray">X -&gt; Y is called semi non-trivial when X intersect Y is not NULL.&nbsp;</div>
+        <p dir="ltr">Examples:&nbsp;</p>
+        <ul>
+        <li value="1">AB -&gt; BC</li>
+        <li value="2">AD -&gt; DC</li>
+        </ul>
+        <h2>Advantages of Functional Dependency</h2>
+        <ul>
+        <li value="1">The database&rsquo;s data quality is maintained using it.&nbsp;</li>
+        <li value="2">It communicates the database design&rsquo;s facts.&nbsp;</li>
+        <li value="3">It aids in precisely outlining the limitations and implications of databases.&nbsp;</li>
+        <li value="4">It is useful to recognize poor designs.&nbsp;</li>
+        <li value="5">Finding the potential keys in the relationship is the first step in the&nbsp;normalization&nbsp;procedure. Identifying potential keys and normalizing the database without functional dependencies is impossible.&nbsp;</li>
+        </ul>
+        <h2>Why do we need Normalization?</h2>
+        <p dir="ltr">The primary objective for normalizing the relations is to eliminate the below anomalies. Failure to reduce anomalies results in data redundancy, which may threaten data integrity and cause additional issues as the database increases. Normalisation consists of a set of procedures that assist you in developing an effective database structure.</p>
+        <ul>
+        <li value="1"><strong>Insertion Anomalies:</strong>&nbsp;Insertion anomalies&nbsp;occur when it is not possible to insert data into a database because the required fields are missing or because the data is incomplete. For example, if a database requires that every record has a&nbsp;primary key, but no value is provided for a particular record, it cannot be inserted into the&nbsp;database.</li>
+        <li value="2"><strong>Deletion anomalies:</strong>&nbsp;Deletion anomalies occur when deleting a record from a database and can result in the unintentional loss of data. For example, if a database contains information about customers and orders, deleting a customer record may also delete all the orders associated with that customer.</li>
+        <li value="3"><strong>Updation anomalies:&nbsp;</strong>Updation anomalies occur when modifying data in a database and can result in inconsistencies or errors. For example, if a database contains information about employees and their salaries, updating an employee&rsquo;s salary in one record but not in all related records could lead to incorrect calculations and reporting.</li>
+        </ul>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="main_wrapper">
+            <div class="article-title">
+            <div class="main_wrapper">
+            <div class="article-title">
+            <div class="main_wrapper">
+            <div class="article-title">
+            <h2>Features of Database Normalization</h2>
+            <ul>
+            <li value="1"><strong>Elimination of Data Redundancy:&nbsp;</strong>One of the main features of normalization is to eliminate the data redundancy that can occur in a database. Data redundancy refers to the repetition of data in different parts of the database. Normalization helps in reducing or eliminating this redundancy, which can improve the efficiency and consistency of the database.</li>
+            <li value="2"><strong>Ensuring Data Consistency:&nbsp;</strong>Normalization helps in ensuring that the data in the database is consistent and accurate. By eliminating redundancy, normalization helps in preventing inconsistencies and contradictions that can arise due to different versions of the same data.</li>
+            <li value="3"><strong>Simplification of Data Management:</strong>&nbsp;Normalization simplifies the process of managing data in a database. By breaking down a complex data structure into simpler tables, normalization makes it easier to manage the data, update it, and retrieve it.</li>
+            <li value="4"><strong>Improved Database Design:</strong>&nbsp;Normalization helps in improving the overall design of the database. By organizing the data in a structured and systematic way, normalization makes it easier to design and maintain the database. It also makes the database more flexible and adaptable to changing business needs.</li>
+            <li value="5"><strong>Avoiding Update Anomalies:&nbsp;</strong>Normalization helps in avoiding update anomalies, which can occur when updating a single record in a table affects multiple records in other tables. Normalization ensures that each table contains only one type of data and that the relationships between the tables are clearly defined, which helps in avoiding such anomalies.</li>
+            <li value="6"><strong>Standardization:&nbsp;</strong>Normalization helps in standardizing the data in the database. By organizing the data into tables and defining relationships between them, normalization helps in ensuring that the data is stored in a consistent and uniform manner.</li>
+            </ul>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+</body>
+</html>

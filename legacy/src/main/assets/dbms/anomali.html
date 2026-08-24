@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    /* Style the heading */
+    body {
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+            background-color:#fff1dc  ;
+        }
+    .gray{
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, .9);
+        font-family: Consolas, monospace;
+        margin-bottom: 10px;
+        padding:5px
+    }
+  </style>
+</head>
+<body>
+    <div class="article-title">
+        <div class="main_wrapper">
+        <div>
+        <div class="article-title">
+        <h1>Anomalies in Relational Model</h1>
+        </div>
+        </div>
+        </div>
+        <div class="text">
+        <p dir="ltr">Anomalies in the relational model refer to inconsistencies or errors that can arise when working with relational databases, specifically in the context of data insertion, deletion, and modification. There are different types of anomalies that can occur in referencing and referenced relations which can be discussed as: &nbsp;</p>
+        <p dir="ltr">These anomalies can be categorized into three types:</p>
+        <ul>
+        <li value="1">Insertion Anomalies</li>
+        <li value="2">Deletion Anomalies</li>
+        <li value="3">Update Anomalies.</li>
+        </ul>
+        <h2>How Are Anomalies Caused in DBMS?</h2>
+        <p dir="ltr">Database anomalies are the faults in the database caused due to poor management of storing everything in the flat database. It can be removed with the process of&nbsp;<a href="normalization.html">Normalization</a>, which generally splits the database which results in reducing the anomalies in the database.</p>
+        <p dir="ltr"><strong>STUDENT Table</strong></p>
+        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
+        <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /></colgroup>
+        <thead>
+        <tr>
+        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader"><strong>STUD_NO</strong></th>
+        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader"><strong>STUD_NAME</strong></th>
+        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader"><strong>STUD_PHONE</strong></th>
+        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader"><strong>STUD_STATE</strong></th>
+        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader"><strong>STUD-COUNTRY</strong></th>
+        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader"><strong>STUD_AGE</strong></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">1</td>
+        <td class="GFGEditorTheme__tableCell">RAM</td>
+        <td class="GFGEditorTheme__tableCell">9716271721</td>
+        <td class="GFGEditorTheme__tableCell">Haryana</td>
+        <td class="GFGEditorTheme__tableCell">India</td>
+        <td class="GFGEditorTheme__tableCell">20</td>
+        </tr>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">2</td>
+        <td class="GFGEditorTheme__tableCell">RAM</td>
+        <td class="GFGEditorTheme__tableCell">9898291281</td>
+        <td class="GFGEditorTheme__tableCell">Punjab</td>
+        <td class="GFGEditorTheme__tableCell">India</td>
+        <td class="GFGEditorTheme__tableCell">19</td>
+        </tr>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">3</td>
+        <td class="GFGEditorTheme__tableCell">SUJIT</td>
+        <td class="GFGEditorTheme__tableCell">7898291981</td>
+        <td class="GFGEditorTheme__tableCell">Rajasthan</td>
+        <td class="GFGEditorTheme__tableCell">India</td>
+        <td class="GFGEditorTheme__tableCell">18</td>
+        </tr>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">4</td>
+        <td class="GFGEditorTheme__tableCell">SURESH</td>
+        <td class="GFGEditorTheme__tableCell">&nbsp;</td>
+        <td class="GFGEditorTheme__tableCell">Punjab</td>
+        <td class="GFGEditorTheme__tableCell">India</td>
+        <td class="GFGEditorTheme__tableCell">21</td>
+        </tr>
+        </tbody>
+        </table>
+        <p dir="ltr"><strong>Table 1</strong></p>
+        <p dir="ltr"><strong>STUDENT_COURSE</strong></p>
+        <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /></colgroup>
+        <thead>
+        <tr>
+        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader"><strong>STUD_NO</strong></th>
+        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader"><strong>COURSE_NO</strong></th>
+        <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader"><strong>COURSE_NAME</strong></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">1</td>
+        <td class="GFGEditorTheme__tableCell">C1</td>
+        <td class="GFGEditorTheme__tableCell">DBMS</td>
+        </tr>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">2</td>
+        <td class="GFGEditorTheme__tableCell">C2</td>
+        <td class="GFGEditorTheme__tableCell">Computer Networks</td>
+        </tr>
+        <tr>
+        <td class="GFGEditorTheme__tableCell">1</td>
+        <td class="GFGEditorTheme__tableCell">C2</td>
+        <td class="GFGEditorTheme__tableCell">Computer Networks</td>
+        </tr>
+        </tbody>
+        </table>
+        <p dir="ltr">&nbsp;<strong>Table 2</strong></p>
+        <p dir="ltr"><strong>Insertion Anomaly:&nbsp;</strong>If a tuple is inserted in referencing relation and referencing attribute value is not present in referenced attribute, it will not allow insertion in referencing relation.&nbsp;</p>
+        <p dir="ltr"><strong>Example:&nbsp;</strong>If we try to insert a record in STUDENT_COURSE with STUD_NO =7, it will not allow it.&nbsp;</p>
+        <p dir="ltr"><strong>Deletion and Updation Anomaly:</strong>&nbsp;If a tuple is deleted or updated from referenced relation and the referenced attribute value is used by referencing attribute in referencing relation, it will not allow deleting the tuple from referenced relation.</p>
+        <p dir="ltr"><strong>Example:&nbsp;</strong>If we want to update a record from STUDENT_COURSE with STUD_NO =1, We have to update it in both rows of the table. If we try to delete a record from STUDENT with STUD_NO =1, it will not allow it.&nbsp;</p>
+        <p dir="ltr">To avoid this, the following can be used in query:</p>
+        <ul>
+        <li value="1"><strong>ON DELETE/UPDATE SET NULL:</strong>&nbsp;If a tuple is deleted or updated from referenced relation and the referenced attribute value is used by referencing attribute in referencing relation, it will delete/update the tuple from referenced relation and set the value of referencing attribute to NULL.</li>
+        <li value="2"><strong>ON DELETE/UPDATE CASCADE:</strong>&nbsp;If a tuple is deleted or updated from referenced relation and the referenced attribute value is used by referencing attribute in referencing relation, it will delete/update the tuple from referenced relation and referencing relation as well.</li>
+        </ul>
+        </div>
+        </div>
+        
+<h3>How These Anomalies Occur?</h3>
+<ul>
+<li value="1"><strong>Insertion Anomalies:&nbsp;</strong>These anomalies occur when it is not possible to insert data into a database because the required fields are missing or because the data is incomplete. For example, if a database requires that every record has a&nbsp;primary key, but no value is provided for a particular record, it cannot be inserted into the<a href="intotloDBMS.html">&nbsp;database</a>.</li>
+<li value="2"><strong>Deletion anomalies:</strong>&nbsp;These anomalies occur when deleting a record from a database and can result in the unintentional loss of data. For example, if a database contains information about customers and orders, deleting a customer record may also delete all the orders associated with that customer.</li>
+<li value="3"><strong>Update anomalies:&nbsp;</strong>&nbsp;These anomalies occur when modifying data in a database and can result in inconsistencies or errors. For example, if a database contains information about employees and their salaries, updating an employee&rsquo;s salary in one record but not in all related records could lead to incorrect calculations and reporting.</li>
+</ul>
+<h2><strong>Removal of Anomalies</strong></h2>
+<p dir="ltr">These anomalies can be avoided or minimized by designing databases that adhere to the principles of normalization. Normalization involves organizing data into tables and applying rules to ensure data is stored in a consistent and efficient manner. By reducing data redundancy and ensuring data integrity, normalization helps to eliminate anomalies and improve the overall quality of the database</p>
+<p dir="ltr">According to&nbsp;<strong>E.F.Codd</strong>, who is the inventor of the&nbsp;Relational Database, the goals of Normalization include:</p>
+<ul>
+<li value="1">It helps in vacatingall the repeated data from the database.</li>
+<li value="2">It helps in removing undesirable deletion, insertion, and update anomalies.</li>
+<li value="3">It helps in making a proper and useful relationship between tables.&nbsp;&nbsp;</li>
+</ul>
+</body>
+</html>
