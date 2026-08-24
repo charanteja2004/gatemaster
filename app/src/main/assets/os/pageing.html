@@ -1,25 +1,7 @@
-multitasking<!DOCTYPE html>
-<html lang="">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Applications of various Automata</title>
-    <style>
-    /* Style the heading */
-    body {
-            font-family: Arial, sans-serif;
-
-            margin: 20px;
-            background-color:#fff1dc  ;
-        }
-    .gray{
-        background-color: #e0e0e0;
-        border-radius: 10px;
-        color: rgba(0, 0, 0, .9);
-        font-family: Consolas, monospace;
-        margin-bottom: 10px;
-        padding:5px
-    }
-  </style>
-
+    <title>Paging in Operating System</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
@@ -27,48 +9,52 @@ multitasking<!DOCTYPE html>
 <body data-gm-enriched="1">
 <h2><b>Paging in Operating System</b></h2>
 
-<p>Paging is a memory management scheme that eliminates the need for a <b>contiguous allocation</b> of physical memory. The process of retrieving processes in the form of pages from the secondary storage into the main memory is known as paging. The basic purpose of paging is to separate each procedure into pages. Additionally, frames will be used to split the main memory. This scheme permits the physical address space of a process to be non – contiguous.<br><br>
+<p>Paging is a memory management scheme that removes the requirement for a
+process to occupy one contiguous block of physical memory. Physical memory is
+cut into fixed-size blocks called <b>frames</b>, the process&rsquo;s logical
+address space is cut into blocks of exactly the same size called <b>pages</b>,
+and any page may be placed in any free frame. Because a page fits any frame,
+the operating system never has to hunt for a large enough contiguous gap.</p>
 
-    In paging, the physical memory is divided into fixed-size blocks called page frames, which are the same size as the pages used by the process. The process’s logical address space is also divided into fixed-size blocks called pages, which are the same size as the page frames. When a process requests memory, the operating system allocates one or more page frames to the process and maps the process’s logical pages to the physical page frames.<br><br>
+<h3><b>The two address spaces</b></h3>
 
-    The mapping between logical pages and physical page frames is maintained by the page table, which is used by the memory management unit to translate logical addresses into physical addresses. The page table maps each logical page number to a physical page frame number.<br><br>
+<ul>
+<li><b>Logical address</b> (also called a virtual address): the address the CPU
+produces while running a process. It is an offset into that process&rsquo;s own
+address space, not a location in RAM.</li>
+<li><b>Logical address space:</b> the set of every logical address a process can
+generate. If a logical address is <i>m</i> bits wide, the space holds
+2<sup>m</sup> addressable units.</li>
+<li><b>Physical address:</b> an actual location in main memory, the address that
+finally reaches the memory unit.</li>
+<li><b>Physical address space:</b> every physical address the machine has. If a
+physical address is <i>p</i> bits wide, the space holds 2<sup>p</sup> units.</li>
+</ul>
 
-<h3><b>Terminologies Associated with Memory Control</b></h3>
+<p>The two are independent. A logical address space is frequently
+<i>larger</i> than the physical one &mdash; that is the whole point of virtual
+memory, and it is why the example below has 13-bit logical addresses on a
+machine with only 12-bit physical addresses.</p>
 
-<li><b>Logical Address or Virtual Address:</b> This is a deal that is generated through the CPU and used by a technique to get the right of entry to reminiscence. It is known as a logical or digital deal because it isn’t always a physical vicinity in memory but an opportunity for a connection with a place inside the device’s logical address location.</li><br>
-<li><b>Logical Address Space or Virtual Address Space:</b> This is the set of all logical addresses generated via a software program. It is normally represented in phrases or bytes and is split into regular-duration pages in a paging scheme.</li><br>
-<li><b>Physical Address:</b> This is a cope that corresponds to a bodily place in reminiscence. It is the actual cope with this that is available on the memory unit and is used by the memory controller to get admission to the reminiscence.</li><br>
-<li><b>Physical Address Space:</b> This is the set of all bodily addresses that correspond to the logical addresses inside the way’s logical deal with place. It is usually represented in words or bytes and is cut up into fixed-size frames in a paging scheme.</li><br><br>
+<h3><b>How an address is translated</b></h3>
 
-In a paging scheme, the logical deal with the region is cut up into steady-duration pages, and every internet web page is mapped to a corresponding body within the physical deal with the vicinity. The going for walks tool keeps a web internet web page desk for every method, which maps the system’s logical addresses to its corresponding bodily addresses. When a method accesses memory, the CPU generates a logical address, that is translated to a bodily address using the net page table. The reminiscence controller then uses the physical cope to get the right of entry to the reminiscence.<br><br>
+<p>Page size is always a power of two, say 2<sup>n</sup> units. That choice is
+what makes translation cheap: the low <i>n</i> bits of a logical address are
+already the offset within the page, and the bits above them are already the page
+number. No division is needed &mdash; the address simply splits.</p>
 
+<ul>
+<li><b>Page number (p):</b> the upper <i>m &minus; n</i> bits. It indexes the
+page table.</li>
+<li><b>Page offset (d):</b> the lower <i>n</i> bits. It says which unit inside
+the page is wanted.</li>
+</ul>
 
-<h2><b>Important Features of Paging in PC Reminiscence Management</b></h2>
-
-<li>Logical to bodily address mapping:</b> In paging, the logical address area of a technique is divided into constant-sized pages, and each web page is mapped to a corresponding physical body within the main reminiscence. This permits the working gadget to manipulate the memory in an extra flexible way, as it is able to allocate and deallocate frames as needed.</li><br>
-<li><b>Fixed web page and frame length:</b> Paging makes use of a set web page length, which is usually identical to the size of a frame within the most important memory. This facilitates simplifying the reminiscence control technique and improves device performance.</li><br>
-<li><b>Page desk entries:</b> Each page within the logical address area of a method is represented through a page table entry (PTE), which contains facts approximately the corresponding bodily body in the predominant memory. This consists of the frame range, in addition to other manipulate bits which can be used by the running machine to manage the reminiscence.</li><br>
-<li><b>A number of page desk entries:</b> The range of page desk entries in a manner’s page desk is identical to the wide variety of pages inside the logical deal with the area of the technique.</li><br>
-<li><b>Page table stored in important memory:</b> The web page desk for each system is typically saved in important reminiscence, to allow for green get right of entry to and change by the operating device. However, this could additionally introduce overhead, because the web page table must be updated on every occasion a system is swapped in or out of the main memory.</li><br><br>
-
-<b>Example:</b>
-
-<li>If Logical Address = 31 bit, then Logical Address Space = 231 words = 2 G words (1 G = 230)</li>
-<li>If Logical Address Space = 128 M words = 27 * 220 words, then Logical Address = log2 227 = 27 bits</li>
-<li>If Physical Address = 22 bit, then Physical Address Space = 222 words = 4 M words (1 M = 220)</li>
-<li>If Physical Address Space = 16 M words = 24 * 220 words, then Physical Address = log2 224 = 24 bits</li><br><br>
-
-The mapping from virtual to physical address is done by the Memory Management Unit (MMU) which is a hardware device and this mapping is known as the paging technique.<br><br>
-
-<li>The Physical Address Space is conceptually divided into a number of fixed-size blocks, called <b>frames.</b></li><br>
-<li>The Logical Address Space is also split into fixed-size blocks, called<b> pages.</b></li><br>
-<li>Page Size = Frame Size</li><br><br>
-
-Let us consider an example:<br><br>
-
-<li>Physical Address = 12 bits, then Physical Address Space = 4 K words</li>
-<li>Logical Address = 13 bits, then Logical Address Space = 8 K words</li>
-<li>Page size = frame size = 1 K words (assumption)</li><br><br>
+<p>The page table, one per process, maps each page number to the frame number
+holding that page. The hardware that performs the lookup is the <b>memory
+management unit (MMU)</b>. It replaces the page number with the frame number and
+leaves the offset untouched, because a page and a frame are the same size, so a
+unit sits at the same offset in both.</p>
 
 <figure class="gm-figure gm-svg" data-gm-svg="1">
 <svg viewBox="0 0 340 342" xmlns="http://www.w3.org/2000/svg" role="img"
@@ -133,39 +119,88 @@ Let us consider an example:<br><br>
   <text class="val"  x="213" y="319" text-anchor="middle">offset d</text>
 </svg>
 <figcaption>The page number indexes the page table; the offset passes straight through</figcaption>
-</figure><br><br>
+</figure>
 
+<h3><b>Working out the bit widths</b></h3>
 
+<p>Almost every exam question on paging is this one calculation. Given a logical
+address of <i>m</i> bits, a physical address of <i>p</i> bits, and a page size of
+2<sup>n</sup> units:</p>
 
-The address generated by the CPU is divided into<br><br>
+<ul>
+<li>Page offset = frame offset = <i>n</i> bits.</li>
+<li>Page number = <i>m &minus; n</i> bits, so the process has
+2<sup>m&minus;n</sup> pages.</li>
+<li>Frame number = <i>p &minus; n</i> bits, so memory holds
+2<sup>p&minus;n</sup> frames.</li>
+<li>The page table has one entry per page: 2<sup>m&minus;n</sup> entries, each
+holding a frame number of <i>p &minus; n</i> bits plus a few control bits.</li>
+</ul>
 
-<li><b>Page number(p):</b> Number of bits required to represent the pages in Logical Address Space or Page number</li><br>
-<li><b>Page offset(d):</b> Number of bits required to represent a particular word in a page or page size of Logical Address Space or word number of a page or page offset.</li><br><br>
+<p><b>Worked example.</b> Logical address = 13 bits, physical address = 12 bits,
+page size = frame size = 1 K words = 2<sup>10</sup> words.</p>
 
-Physical Address is divided into<br><br>
+<ul>
+<li>Logical address space = 2<sup>13</sup> = 8 K words.</li>
+<li>Physical address space = 2<sup>12</sup> = 4 K words.</li>
+<li>Offset = 10 bits.</li>
+<li>Page number = 13 &minus; 10 = 3 bits, so there are 2<sup>3</sup> = 8 pages.</li>
+<li>Frame number = 12 &minus; 10 = 2 bits, so there are 2<sup>2</sup> = 4 frames.</li>
+<li>The page table has 8 entries, each at least 2 bits wide.</li>
+</ul>
 
-In a paging scheme, the physical cope with the area is divided into fixed-length frames, each of which contains some bytes or words. When a manner is running, its logical address space is split into constant-size pages, which might be mapped to corresponding frames within the physical address space.<br><br>
+<p>Note that the number of pages depends only on the <i>logical</i> address
+space and the page size. The physical address space never enters that
+calculation &mdash; it decides how many frames exist, which is a different
+number, and here a smaller one.</p>
 
-To represent a physical address in this scheme, parts are commonly used:<br><br>
+<h3><b>The translation lookaside buffer</b></h3>
 
-<b>Frame range:</b> This is the variety of the frame within the physical cope with the area that consists of the byte or phrase being addressed. The wide variety of bits required to represent the body range relies upon the scale of the physical cope with the area and the size of each frame. For instance, if the physical cope with area carries 2^20 frames and each frame is <b>4KB (2^12 bytes) </b>in size, then the frame range could require 20-12 = 8 bits.<br><br>
+<p>The page table lives in main memory, so a naive lookup costs two memory
+accesses for every one the program asked for: one to read the page table entry,
+one to fetch the data. The <b>TLB</b> is a small associative cache of recently
+used page-to-frame mappings that removes the first access on a hit.</p>
 
-<b>Frame offset:</b> This is the wide variety of the byte or word within the body this is being addressed. The number of bits required to represent the frame offset relies upon the size of every frame. For instance, if everybody is 4KB in size, then the frame offset could require 12 bits. So, a physical address in this scheme may be represented as follows:<br><br>
+<ul>
+<li>It is high-speed associative memory: every tag is compared at once, so a
+lookup takes constant time regardless of how many entries it holds.</li>
+<li>Each entry is a pair &mdash; a tag (the page number) and a value (the frame
+number).</li>
+<li>With TLB access time <i>t</i>, memory access time <i>M</i>, and hit ratio
+<i>h</i>, the effective access time is
+<i>h</i>(<i>t</i> + <i>M</i>) + (1 &minus; <i>h</i>)(<i>t</i> + 2<i>M</i>).</li>
+</ul>
 
-<b> Physical Address = (Frame Number << Number of Bits in Frame Offset) + Frame Offset,</b> where “<<” represents a bitwise left shift operation.<br><br>
+<h3><b>What paging costs</b></h3>
 
-<li>The TLB is associative, high-speed memory.</li>
-<li>Each entry in TLB consists of two parts: a tag and a value.</li>
-<li>When this memory is used, then an item is compared with all tags simultaneously. If the item is found, then the corresponding value is returned.</li><br><br>
+<ul>
+<li><b>It eliminates external fragmentation.</b> Free memory is a set of
+identical frames, and any page fits any frame, so free space is never unusable
+merely because it is scattered.</li>
+<li><b>It causes internal fragmentation.</b> A process rarely fills its last
+page exactly. The waste is at most one unit short of a full page per process,
+and averages about half a page &mdash; which is why very large pages are a poor
+trade.</li>
+<li><b>The page table itself consumes memory.</b> One entry per page, per
+process. A large logical address space with small pages produces a table too big
+to keep in memory outright, which is what multi-level and inverted page tables
+exist to solve.</li>
+<li><b>Every access needs a translation.</b> Without a TLB that doubles memory
+traffic, and the page table must be reloaded on a context switch.</li>
+</ul>
 
-Paging is a memory management technique used in operating systems to manage memory and allocate memory to processes. In paging, memory is divided into fixed-size blocks called pages, and processes are allocated memory in terms of these pages. Each page is of the same size, and the size is typically a power of 2, such as 4KB or 8 KB.<br><br>
+<h3><b>Points that are commonly confused</b></h3>
 
-<h3><b>Important Points About Paging in Operating Systems</b></h3>
-<li><b>Reduces internal fragmentation:</b> Paging facilitates lessening internal fragmentation by using allocating memory in fixed-size blocks (pages), which might be usually a whole lot smaller than the size of the process’s facts segments. This lets in for greater efficient use of memory in view that there are fewer unused bytes in each block.</li>
-<li><b>Enables reminiscence to be allotted on call for:</b> Paging enables memory to be allocated on call for, this means that memory is most effectively allocated when it’s far needed. This allows for extra efficient use of memory in view that only the pages that are absolutely used by the manner want to be allocated inside the physical memory.</li>
-
-<li><b>Protection and sharing of memory:</b> Paging allows for the protection and sharing of reminiscence between methods, as each procedure has its own web page table that maps its logical deal with area to its physical address space. This permits techniques to proportion facts at the same time as preventing unauthorized get right of entry to every other’s memory.</li>
-<li><b>External fragmentation:</b> Paging can result in outside fragmentation, wherein memory turns fragmented into small, non-contiguous blocks. This can make it difficult to allocate massive blocks of reminiscence to a method seeing that there may not be enough contiguous free memory to be had.</li>
-<li><b>Overhead:</b> Paging involves overhead because of the renovation of the web page table and the translation of logical addresses to physical addresses. The working device must maintain the page table for each manner and perform a deal with translation whenever a procedure accesses memory, which can slow down the machine.</li></p><br><br>
+<ul>
+<li>Paging removes external fragmentation and introduces internal
+fragmentation. Segmentation does the opposite. Getting these the right way round
+is worth a mark on its own.</li>
+<li>The offset width is fixed by the page size alone, and it is identical on
+both sides of the translation.</li>
+<li>Pages and frames are always equal in size. If a question gives them
+different sizes, it is not describing paging.</li>
+<li>Each process has its own page table, which is what keeps one process from
+addressing another&rsquo;s memory.</li>
+</ul>
 </body>
 </html>

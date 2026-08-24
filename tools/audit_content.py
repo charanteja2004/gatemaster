@@ -36,6 +36,7 @@ TAG_RE = re.compile(r"<[^>]+>")
 SCRIPT_STYLE_RE = re.compile(r"<(script|style)[^>]*>.*?</\1>", re.S | re.I)
 HREF_RE = re.compile(r'<a[^>]+href\s*=\s*["\']([^"\']+)["\']', re.I)
 SRC_RE = re.compile(r'<(?:img|iframe)[^>]+src\s*=\s*["\']([^"\']+)["\']', re.I)
+DOCTYPE_RE = re.compile(r"<!DOCTYPE", re.I)
 HEADING_RE = re.compile(r"<h[1-3][^>]*>(.*?)</h[1-3]>", re.S | re.I)
 
 PLACEHOLDER_PATTERNS = [
@@ -149,6 +150,18 @@ def audit() -> dict:
         if not HEADING_RE.search(html):
             findings["no_heading"].append({"file": rel, "detail": "no h1/h2/h3"})
 
+        # Paging had the word "multitasking" and a whole foreign <head> (title
+        # and all) glued to its front, from a different article entirely. It
+        # rendered as a stray word above the title and nothing else flagged it.
+        doctype = DOCTYPE_RE.search(html)
+        if doctype:
+            leading = html[: doctype.start()].strip()
+            if leading:
+                findings["stray_prefix"].append({
+                    "file": rel,
+                    "detail": "%r before <!DOCTYPE>" % leading[:40],
+                })
+
         # --- links ---------------------------------------------------------
         for href in HREF_RE.findall(html):
             # hrefs are HTML-escaped in source; "divide&amp;conq.html" is a
@@ -201,6 +214,7 @@ ORDER = [
     ("truncated", "Ends mid-sentence"),
     ("encoding", "Mojibake / replacement characters"),
     ("no_heading", "No heading at all"),
+    ("stray_prefix", "Text glued on before the document starts"),
     ("duplicate", "Duplicate body"),
 ]
 
