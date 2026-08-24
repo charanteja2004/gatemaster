@@ -23,6 +23,14 @@ data object PapersRoute
 @Serializable
 data object SearchRoute
 
+/** Bottom-bar tab: the full subject list for the selected paper. */
+@Serializable
+data object SubjectsRoute
+
+/** Bottom-bar tab: theme, paper and about. */
+@Serializable
+data object SettingsRoute
+
 /** [firstRun] hides the back button: there is nothing behind it yet. */
 @Serializable
 data class BranchPickerRoute(val firstRun: Boolean = false)

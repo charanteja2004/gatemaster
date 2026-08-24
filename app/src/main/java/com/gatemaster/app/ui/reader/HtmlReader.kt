@@ -13,10 +13,12 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.net.toUri
+import com.gatemaster.app.R
 import androidx.webkit.WebSettingsCompat
 import androidx.webkit.WebViewAssetLoader
 import androidx.webkit.WebViewFeature
@@ -39,12 +41,18 @@ fun HtmlReader(
     assetPath: String,
     modifier: Modifier = Modifier,
     textZoom: Int = 100,
+    isDarkTheme: Boolean = false,
     onProgress: (Float) -> Unit = {},
 ) {
     val context = LocalContext.current
 
+    // Read through a holder so the handler always sees the current theme
+    // without rebuilding the loader (and reloading the page) on every change.
+    val darkState = rememberUpdatedState(isDarkTheme)
+
     val assetLoader = remember {
         WebViewAssetLoader.Builder()
+            .addPathHandler("/assets/", ReaderCssHandler(context.assets) { darkState.value })
             .addPathHandler("/assets/", WebViewAssetLoader.AssetsPathHandler(context))
             .build()
     }
@@ -70,9 +78,11 @@ fun HtmlReader(
                         loadWithOverviewMode = true
                     }
 
-                    // Lets the bundled CSS respond to the system dark theme.
+                    // Algorithmic darkening stays OFF: the stylesheet already
+                    // carries a hand-tuned dark palette, and letting WebView
+                    // auto-invert on top of it washes out diagrams and code.
                     if (WebViewFeature.isFeatureSupported(WebViewFeature.ALGORITHMIC_DARKENING)) {
-                        WebSettingsCompat.setAlgorithmicDarkeningAllowed(settings, true)
+                        WebSettingsCompat.setAlgorithmicDarkeningAllowed(settings, false)
                     }
 
                     isVerticalScrollBarEnabled = false
@@ -117,7 +127,12 @@ fun HtmlReader(
                 val target = assetUrl(assetPath)
                 if (webView.url != target) {
                     webView.loadUrl(target)
+                } else if (webView.getTag(R.id.reader_theme_tag) != isDarkTheme) {
+                    // The stylesheet is chosen at request time, so a theme
+                    // change needs a reload to pick up the other palette.
+                    webView.reload()
                 }
+                webView.setTag(R.id.reader_theme_tag, isDarkTheme)
             },
             onRelease = { webView ->
                 webView.setOnScrollChangeListener(null)

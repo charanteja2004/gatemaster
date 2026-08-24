@@ -12,6 +12,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import com.gatemaster.app.core.model.ThemeMode
 
 private val LightScheme = lightColorScheme(
     primary = IndigoPrimaryLight,
@@ -82,11 +83,21 @@ val LocalAnswerColors = staticCompositionLocalOf {
     )
 }
 
+/** Resolves the user's choice against the system setting. */
+@Composable
+fun ThemeMode.isDark(): Boolean = when (this) {
+    ThemeMode.LIGHT -> false
+    ThemeMode.DARK -> true
+    ThemeMode.SYSTEM -> isSystemInDarkTheme()
+}
+
 @Composable
 fun GateMasterTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Material You wallpaper colours, available from Android 12.
-    dynamicColor: Boolean = true,
+    // Dynamic colour is off by default: the subject accents and the reader
+    // palette are tuned against this scheme, and Material You would repaint
+    // the app in wallpaper colours that fight them.
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit,
 ) {
     val context = LocalContext.current

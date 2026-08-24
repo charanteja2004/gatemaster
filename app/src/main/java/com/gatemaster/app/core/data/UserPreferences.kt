@@ -8,6 +8,7 @@ import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.gatemaster.app.core.model.ContentIndex
+import com.gatemaster.app.core.model.ThemeMode
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
@@ -36,6 +37,21 @@ class UserPreferences(private val context: Context) {
         context.dataStore.edit { it[KEY_BRANCH] = branchId }
     }
 
+    /**
+     * Light, dark, or follow the system.
+     *
+     * The app owns this rather than deferring to the system, because plenty of
+     * people keep their phone in dark mode and still want to read notes on a
+     * light page.
+     */
+    val themeMode: Flow<ThemeMode> = context.dataStore.data.map { prefs ->
+        ThemeMode.fromKey(prefs[KEY_THEME])
+    }
+
+    suspend fun setThemeMode(mode: ThemeMode) {
+        context.dataStore.edit { it[KEY_THEME] = mode.key }
+    }
+
     /** Reader text size, as a WebView zoom percentage. */
     val readerTextZoom: Flow<Int> = context.dataStore.data.map { prefs ->
         prefs[KEY_TEXT_ZOOM] ?: DEFAULT_TEXT_ZOOM
@@ -49,5 +65,6 @@ class UserPreferences(private val context: Context) {
         const val DEFAULT_TEXT_ZOOM = 100
         val KEY_BRANCH = stringPreferencesKey("branch_id")
         val KEY_TEXT_ZOOM = intPreferencesKey("reader_text_zoom")
+        val KEY_THEME = stringPreferencesKey("theme_mode")
     }
 }

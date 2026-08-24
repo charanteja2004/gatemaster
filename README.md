@@ -131,6 +131,20 @@ schema with MCQ / MSQ / NAT, per-question marks and sections — and writes
 `assets/tests/catalogue.json`. Questions that cannot be converted are reported
 and skipped rather than shipped broken.
 
+## Theme
+
+Light, dark or match-system, chosen in Settings and stored in DataStore. The app
+owns this rather than deferring to the phone, because reading is not the same as
+using an app: plenty of people keep their phone in dark mode all day and still
+want study notes on a light page.
+
+The notes follow the same choice. `reader.css` carries the light palette and
+`reader-dark.css` the dark one, and `ReaderCssHandler` assembles the stylesheet
+at request time through `WebViewAssetLoader`. A `@media (prefers-color-scheme)`
+block would have handed the decision back to the system — the exact bug this
+replaced. Doing it in the loader also keeps JavaScript switched off and avoids
+the flash of restyling a page after it has painted.
+
 ## Reading experience
 
 `assets/reader.css` is the single stylesheet behind every article. It gives each

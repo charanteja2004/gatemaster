@@ -25,6 +25,13 @@ data class HomeUiState(
     val errorMessage: String? = null,
 ) {
     val subjects: List<Subject> get() = branch?.subjects.orEmpty()
+
+    /**
+     * The four heaviest subjects. Home is a dashboard; the full list lives in
+     * the Study tab, and showing eleven rows here buries everything else.
+     */
+    val topSubjects: List<Subject>
+        get() = subjects.sortedByDescending { it.weightage }.take(4)
     val totalItems: Int get() = branch?.totalTopics ?: 0
     val subjectsWithNotes: Int get() = branch?.subjectsWithNotes ?: 0
 }

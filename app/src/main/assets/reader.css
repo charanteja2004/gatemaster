@@ -10,6 +10,11 @@
  * Design intent: a textbook a student actually wants to open. Long prose is
  * broken up by things the eye can land on — callouts, formula plaques, code
  * panels, complexity chips — so a page can be skimmed before it is read.
+ *
+ * The tokens below are the LIGHT palette. Dark lives in reader-dark.css, which
+ * HtmlReader appends when the app theme is dark. It is not a
+ * prefers-color-scheme block on purpose: the app owns the theme, so a reader who
+ * picks Light keeps light notes even with the phone in dark mode.
  */
 
 /* ========================================================================
@@ -49,26 +54,6 @@
   --radius:       14px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --ink:         #e6e8ee;
-    --ink-soft:    #b9bfcc;
-    --ink-faint:   #8b93a3;
-    --ground:      #0f1116;
-    --panel:       #191c23;
-    --panel-2:     #21252e;
-    --rule:        #2b303a;
-    --accent:      #a8b8ff;
-    --accent-soft: #1a2035;
-
-    --note:        #7cc4ee;   --note-bg:    #14232e;
-    --example:     #7fd6a2;   --example-bg: #12251a;
-    --key:         #f5c169;   --key-bg:     #2a2113;
-    --warn:        #ff9d90;   --warn-bg:    #2c1917;
-    --formula:     #cbb2ff;   --formula-bg: #1e1930;
-    --io:          #6fd4d4;   --io-bg:      #10262a;
-  }
-}
 
 /* ========================================================================
    Base

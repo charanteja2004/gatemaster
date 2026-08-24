@@ -11,6 +11,7 @@ import com.gatemaster.app.ui.home.HomeViewModel
 import com.gatemaster.app.ui.papers.PapersViewModel
 import com.gatemaster.app.ui.reader.ReaderViewModel
 import com.gatemaster.app.ui.search.SearchViewModel
+import com.gatemaster.app.ui.settings.SettingsViewModel
 import com.gatemaster.app.ui.subject.SubjectViewModel
 import com.gatemaster.app.ui.test.TestListViewModel
 import com.gatemaster.app.ui.test.TestPlayerViewModel
@@ -42,6 +43,12 @@ object AppViewModelProvider {
         }
         initializer {
             SearchViewModel(
+                repository = app().container.contentRepository,
+                preferences = app().container.userPreferences,
+            )
+        }
+        initializer {
+            SettingsViewModel(
                 repository = app().container.contentRepository,
                 preferences = app().container.userPreferences,
             )

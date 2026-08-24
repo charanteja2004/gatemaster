@@ -1,0 +1,27 @@
+/*
+ * Dark palette for the reader.
+ *
+ * Deliberately NOT behind @media (prefers-color-scheme: dark): the app owns
+ * the theme, so a reader who chooses Light keeps light notes even with the
+ * phone in dark mode. HtmlReader appends this file to reader.css when the
+ * app theme is dark.
+ */
+
+:root {
+  --ink:         #e6e8ee;
+  --ink-soft:    #b9bfcc;
+  --ink-faint:   #8b93a3;
+  --ground:      #0f1116;
+  --panel:       #191c23;
+  --panel-2:     #21252e;
+  --rule:        #2b303a;
+  --accent:      #a8b8ff;
+  --accent-soft: #1a2035;
+
+  --note:        #7cc4ee;   --note-bg:    #14232e;
+  --example:     #7fd6a2;   --example-bg: #12251a;
+  --key:         #f5c169;   --key-bg:     #2a2113;
+  --warn:        #ff9d90;   --warn-bg:    #2c1917;
+  --formula:     #cbb2ff;   --formula-bg: #1e1930;
+  --io:          #6fd4d4;   --io-bg:      #10262a;
+}

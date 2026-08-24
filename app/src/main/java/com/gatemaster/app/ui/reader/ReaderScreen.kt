@@ -51,6 +51,7 @@ fun ReaderScreen(
     isPdf: Boolean,
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
+    isDarkTheme: Boolean = false,
     onOpenTopic: (Topic) -> Unit = {},
     viewModel: ReaderViewModel = viewModel(factory = AppViewModelProvider.Factory),
 ) {
@@ -150,6 +151,7 @@ fun ReaderScreen(
             HtmlReader(
                 assetPath = assetPath,
                 textZoom = state.textZoom,
+                isDarkTheme = isDarkTheme,
                 onProgress = viewModel::onProgress,
                 modifier = Modifier.padding(padding),
             )

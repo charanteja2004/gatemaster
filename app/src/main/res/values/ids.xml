@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Remembers which palette a reader WebView was last rendered with, so a
+         theme change triggers exactly one reload. -->
+    <item name="reader_theme_tag" type="id" />
+</resources>
