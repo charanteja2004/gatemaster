@@ -52,31 +52,33 @@ fun PdfReader(
 ) {
     val context = LocalContext.current
 
-    val documentResult by produceState<Result<PdfDocument>?>(initialValue = null, assetPath) {
+    val result by produceState<Result<PdfDocument>?>(initialValue = null, assetPath) {
         value = PdfDocument.openFromAsset(context, assetPath)
     }
 
-    // Close the renderer when we navigate away or switch documents.
-    DisposableEffect(documentResult) {
-        onDispose { documentResult?.getOrNull()?.close() }
+    // Bind the document to a local val before the effect captures it. Keying
+    // DisposableEffect on the produceState delegate instead would close the
+    // freshly-loaded document: onDispose runs after the state has already
+    // advanced, so it would read the new value and shut it immediately.
+    val document = result?.getOrNull()
+
+    DisposableEffect(document) {
+        onDispose { document?.close() }
     }
 
     when {
-        documentResult == null -> Box(
+        result == null -> Box(
             modifier.fillMaxSize(),
             contentAlignment = Alignment.Center,
         ) { CircularProgressIndicator() }
 
-        documentResult?.isFailure == true -> EmptyState(
+        document == null -> EmptyState(
             title = "This document could not be opened",
             body = "The file may be damaged. Reinstalling the app will restore it.",
             modifier = modifier,
         )
 
-        else -> PdfPages(
-            document = documentResult!!.getOrThrow(),
-            modifier = modifier,
-        )
+        else -> PdfPages(document = document, modifier = modifier)
     }
 }
 

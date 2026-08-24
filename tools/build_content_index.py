@@ -240,14 +240,27 @@ ACRONYMS = {
 
 
 def smart_case(text: str) -> str:
-    """Rescue an ALL-CAPS heading without flattening genuine acronyms."""
+    """
+    Rescue headings that are entirely one case.
+
+    Some source files shout ("SORTING ALGORITHMS"), others whisper
+    ("operating system"). Both read badly in a list; mixed-case headings are
+    left exactly as the author wrote them.
+    """
     letters = [c for c in text if c.isalpha()]
-    if not letters or not all(c.isupper() for c in letters):
+    if not letters:
+        return text
+    all_upper = all(c.isupper() for c in letters)
+    all_lower = all(c.islower() for c in letters)
+    if not (all_upper or all_lower):
         return text
     out = []
     for word in text.split():
         bare = word.strip("()[],.:;'\"")
-        out.append(word if bare in ACRONYMS else word.capitalize())
+        if bare.upper() in ACRONYMS:
+            out.append(word.replace(bare, bare.upper()))
+        else:
+            out.append(word.capitalize())
     return " ".join(out)
 
 

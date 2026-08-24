@@ -75,7 +75,8 @@ fun HtmlReader(
                         // Honour the reader's viewport meta tag.
                         useWideViewPort = true
                         loadWithOverviewMode = true
-                        textZoom = 100
+                        // textZoom is deliberately left at its default so the
+                        // reader still honours the system font-size setting.
                     }
 
                     // Lets the bundled CSS respond to the system dark theme.

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-24T05:46:50Z",
+  "generatedAt": "2026-08-24T06:28:52Z",
   "subjects": [
     {
       "id": "aptitude",
@@ -592,7 +592,7 @@
       "topics": [
         {
           "id": "os_os_basic1",
-          "title": "operating system",
+          "title": "Operating System",
           "order": 0,
           "content": {
             "type": "html",
