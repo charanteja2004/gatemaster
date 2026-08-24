@@ -74,6 +74,7 @@ object AppViewModelProvider {
                 repository = app().container.contentRepository,
                 preferences = app().container.userPreferences,
                 studyProgress = app().container.studyProgress,
+                testRepository = app().container.testRepository,
                 savedStateHandle = createSavedStateHandle(),
             )
         }

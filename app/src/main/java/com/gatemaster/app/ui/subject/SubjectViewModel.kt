@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import com.gatemaster.app.core.data.ContentRepository
 import com.gatemaster.app.core.data.StudyProgressRepository
+import com.gatemaster.app.core.data.TestRepository
 import com.gatemaster.app.core.data.TopicProgress
 import com.gatemaster.app.core.data.UserPreferences
 import com.gatemaster.app.core.model.Subject
@@ -31,7 +32,12 @@ data class SubjectUiState(
     val selectedTab: SubjectTab = SubjectTab.TOPICS,
     val notFound: Boolean = false,
     val progress: Map<String, TopicProgress> = emptyMap(),
+    /** Topics with enough questions to offer a practice test. */
+    val practisableTopics: Set<String> = emptySet(),
+    val subjectQuestionCount: Int = 0,
 ) {
+    val canPractiseSubject: Boolean get() = subjectQuestionCount >= 5
+
     fun isRead(topicId: String): Boolean = progress[topicId]?.isRead == true
 
     fun isBookmarked(topicId: String): Boolean = progress[topicId]?.bookmarked == true
@@ -55,6 +61,7 @@ class SubjectViewModel(
     private val repository: ContentRepository,
     private val preferences: UserPreferences,
     private val studyProgress: StudyProgressRepository,
+    private val testRepository: TestRepository,
     savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
 
@@ -73,6 +80,14 @@ class SubjectViewModel(
                     subject = subject,
                     notFound = subject == null,
                     selectedTab = firstTabFor(subject),
+                )
+            }
+        }
+        viewModelScope.launch {
+            _uiState.update {
+                it.copy(
+                    practisableTopics = testRepository.topicsWithQuestions(subjectId),
+                    subjectQuestionCount = testRepository.questionCount(subjectId),
                 )
             }
         }

@@ -181,6 +181,23 @@ external CDNs, so diagrams need an internet connection and will break if those
 URLs change. Figures are framed and labelled so a missing diagram reads as an
 explained placeholder, but hosting the images is unresolved.
 
+## Practice tests
+
+A three-hour mock is the wrong shape for a phone. `assets/questions/<subject>.json`
+holds questions tagged with the topic they belong to, and `TestRepository`
+assembles a paper on demand:
+
+- **Topic practice** — up to 10 questions from one topic, offered on a topic row
+  once that topic has at least 3 questions
+- **Subject practice** — up to 20 questions across the subject
+
+Duration is roughly two minutes a question, which is the GATE pace. Questions are
+shuffled so a second attempt is not the same paper in the same order.
+
+The generated test's id encodes what to build (`quick:<subject>:<topic>`), so it
+reaches the player through exactly the same route as a bundled test — no second
+player and no second ViewModel.
+
 ## The test engine
 
 `core/model/TestModels.kt` and `core/model/Attempt.kt` model the real paper:

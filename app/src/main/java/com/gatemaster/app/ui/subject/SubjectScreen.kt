@@ -19,6 +19,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.Article
+import androidx.compose.material.icons.filled.Bolt
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.PictureAsPdf
@@ -32,6 +33,7 @@ import androidx.compose.material3.SecondaryScrollableTabRow
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -63,6 +65,7 @@ data class OpenRequest(
 fun SubjectScreen(
     onBack: () -> Unit,
     onOpen: (OpenRequest) -> Unit,
+    onPractise: (subjectId: String, topicId: String?) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: SubjectViewModel = viewModel(factory = AppViewModelProvider.Factory),
 ) {
@@ -97,6 +100,18 @@ fun SubjectScreen(
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                    }
+                },
+                actions = {
+                    if (state.canPractiseSubject && subject != null) {
+                        TextButton(onClick = { onPractise(subject.id, null) }) {
+                            Icon(
+                                Icons.Filled.Bolt,
+                                contentDescription = null,
+                                modifier = Modifier.size(17.dp),
+                            )
+                            Text(" Practise")
+                        }
                     }
                 },
             )
@@ -153,6 +168,11 @@ fun SubjectScreen(
                                 accent = accent,
                                 isRead = state.isRead(topic.id),
                                 isBookmarked = state.isBookmarked(topic.id),
+                                onPractise = if (topic.id in state.practisableTopics) {
+                                    { onPractise(subject.id, topic.id) }
+                                } else {
+                                    null
+                                },
                                 onClick = {
                                     onOpen(
                                         OpenRequest(
@@ -226,6 +246,7 @@ private fun DocumentRow(
     modifier: Modifier = Modifier,
     isRead: Boolean = false,
     isBookmarked: Boolean = false,
+    onPractise: (() -> Unit)? = null,
 ) {
     Surface(
         modifier = modifier.fillMaxWidth().clickable(onClick = onClick),
@@ -288,6 +309,19 @@ private fun DocumentRow(
                     modifier = Modifier.size(18.dp),
                     tint = accent,
                 )
+            }
+
+            // A ten-question set for this topic alone. This is the point of the
+            // whole feature: a study session that fits in a spare five minutes.
+            if (onPractise != null) {
+                IconButton(onClick = onPractise) {
+                    Icon(
+                        Icons.Filled.Bolt,
+                        contentDescription = "Practise this topic",
+                        modifier = Modifier.size(19.dp),
+                        tint = accent,
+                    )
+                }
             }
         }
     }

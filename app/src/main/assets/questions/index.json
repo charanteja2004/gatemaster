@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "banks": {
+    "algo": "questions/algo.json",
+    "os": "questions/os.json"
+  }
+}

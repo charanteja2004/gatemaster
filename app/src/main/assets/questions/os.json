@@ -1,0 +1,375 @@
+{
+  "subjectId": "os",
+  "questions": [
+    {
+      "id": "os_q001",
+      "topicId": "os_fcfs",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Three processes arrive at time 0 in the order P1, P2, P3 with burst times 24, 3 and 3. Under FCFS, what is the average waiting time?",
+      "numericAnswer": { "min": 17, "max": 17 },
+      "solution": "Waiting times are P1 = 0, P2 = 24, P3 = 27. Average = (0 + 24 + 27) / 3 = 17. Running the short jobs first would give (0 + 3 + 6) / 3 = 3, which is the convoy effect FCFS suffers from."
+    },
+    {
+      "id": "os_q002",
+      "topicId": "os_fcfs",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Which statement about FCFS scheduling is TRUE?",
+      "options": [
+        { "id": "A", "text": "It is preemptive" },
+        { "id": "B", "text": "It can cause starvation" },
+        { "id": "C", "text": "It gives the minimum average waiting time" },
+        { "id": "D", "text": "It is non-preemptive and free of starvation" }
+      ],
+      "correctOptionIds": ["D"],
+      "solution": "FCFS never preempts a running process, and because the queue is strictly first-in-first-out, every process eventually runs — so no starvation. SJF gives the minimum average waiting time, not FCFS."
+    },
+    {
+      "id": "os_q003",
+      "topicId": "os_sjf",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Shortest Job First gives the minimum average waiting time. Why is it rarely used as-is?",
+      "options": [
+        { "id": "A", "text": "It is too slow to compute" },
+        { "id": "B", "text": "The burst time of a process is not known in advance" },
+        { "id": "C", "text": "It requires preemption" },
+        { "id": "D", "text": "It cannot handle more than one process" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "SJF is provably optimal for average waiting time, but it needs the next CPU burst length, which the scheduler cannot know. Real systems estimate it with exponential averaging of past bursts."
+    },
+    {
+      "id": "os_q004",
+      "topicId": "os_sjf",
+      "type": "msq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Which of the following scheduling algorithms can cause starvation?",
+      "options": [
+        { "id": "A", "text": "Shortest Job First" },
+        { "id": "B", "text": "Round Robin" },
+        { "id": "C", "text": "Priority scheduling without ageing" },
+        { "id": "D", "text": "First Come First Serve" }
+      ],
+      "correctOptionIds": ["A", "C"],
+      "solution": "SJF can starve a long job if short jobs keep arriving, and priority scheduling can starve a low-priority process indefinitely — ageing is the standard fix. Round Robin and FCFS both guarantee every process is eventually served."
+    },
+    {
+      "id": "os_q005",
+      "topicId": "os_rr",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "In Round Robin scheduling, what happens as the time quantum becomes very large?",
+      "options": [
+        { "id": "A", "text": "It behaves like FCFS" },
+        { "id": "B", "text": "It behaves like SJF" },
+        { "id": "C", "text": "Context-switch overhead increases" },
+        { "id": "D", "text": "Response time improves" }
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "If the quantum exceeds every burst, no process is ever preempted, so Round Robin degenerates to FCFS. A very small quantum has the opposite problem: excellent response time but overwhelming context-switch overhead."
+    },
+    {
+      "id": "os_q006",
+      "topicId": "os_rr",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "hard",
+      "text": "Processes P1, P2, P3 arrive at time 0 with bursts 5, 3 and 1. With Round Robin and a time quantum of 2, what is the completion time of P3?",
+      "numericAnswer": { "min": 5, "max": 5 },
+      "solution": "Timeline: P1 runs 0&ndash;2 (3 left), P2 runs 2&ndash;4 (1 left), then P3 runs 4&ndash;5 and finishes, because it needs only 1 unit and gives the CPU back early. So P3 completes at t = 5. A process that finishes inside its quantum does not hold the CPU for the remainder of it."
+    },
+    {
+      "id": "os_q007",
+      "topicId": "os_dead",
+      "type": "msq",
+      "marks": 2,
+      "difficulty": "easy",
+      "text": "Which conditions must hold simultaneously for a deadlock to occur?",
+      "options": [
+        { "id": "A", "text": "Mutual exclusion" },
+        { "id": "B", "text": "Hold and wait" },
+        { "id": "C", "text": "Preemption of resources" },
+        { "id": "D", "text": "Circular wait" }
+      ],
+      "correctOptionIds": ["A", "B", "D"],
+      "solution": "The four Coffman conditions are mutual exclusion, hold and wait, <strong>no</strong> preemption, and circular wait. Option C states the opposite of the third condition: if resources <em>can</em> be preempted, deadlock is broken."
+    },
+    {
+      "id": "os_q008",
+      "topicId": "os_dead",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "medium",
+      "text": "A system has 3 processes and 4 identical resources. Each process needs a maximum of 2 resources. Can deadlock occur?",
+      "options": [
+        { "id": "A", "text": "Yes, if all three hold one resource each" },
+        { "id": "B", "text": "No, deadlock is impossible" },
+        { "id": "C", "text": "Only if the resources are not preemptible" },
+        { "id": "D", "text": "Not enough information" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "Deadlock needs every process holding resources and unable to finish. In the worst case each of the 3 processes holds 1, using 3 resources, leaving 1 free — which lets one process reach its maximum of 2, finish, and release. In general, deadlock is impossible when total resources &ge; sum of (max<sub>i</sub> &minus; 1) + 1 = 3(1) + 1 = 4."
+    },
+    {
+      "id": "os_q009",
+      "topicId": "os_bankers",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "What does Banker's algorithm do?",
+      "options": [
+        { "id": "A", "text": "Detects deadlocks after they occur" },
+        { "id": "B", "text": "Avoids deadlock by refusing unsafe allocations" },
+        { "id": "C", "text": "Prevents deadlock by removing mutual exclusion" },
+        { "id": "D", "text": "Recovers from deadlock by killing processes" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "Banker's algorithm is deadlock <em>avoidance</em>: before granting a request it checks whether the resulting state is safe, and refuses if not. Detection runs after the fact; prevention removes one of the Coffman conditions structurally."
+    },
+    {
+      "id": "os_q010",
+      "topicId": "os_semaphores",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "What is the key difference between a binary semaphore and a counting semaphore?",
+      "options": [
+        { "id": "A", "text": "A binary semaphore cannot block" },
+        { "id": "B", "text": "A binary semaphore takes only values 0 and 1; a counting semaphore takes any non-negative value" },
+        { "id": "C", "text": "A counting semaphore cannot be used for mutual exclusion" },
+        { "id": "D", "text": "There is no difference" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "A binary semaphore is restricted to 0 and 1 and is typically used as a mutex. A counting semaphore holds an arbitrary non-negative count, which suits a pool of N identical resources."
+    },
+    {
+      "id": "os_q011",
+      "topicId": "os_semaphores",
+      "type": "msq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Which are TRUE about the wait() operation on a semaphore S?",
+      "options": [
+        { "id": "A", "text": "It decrements S" },
+        { "id": "B", "text": "It blocks the process if S becomes negative" },
+        { "id": "C", "text": "It must execute atomically" },
+        { "id": "D", "text": "It increments S" }
+      ],
+      "correctOptionIds": ["A", "B", "C"],
+      "solution": "wait() (or P) decrements the semaphore and blocks if the value goes below zero. It must be atomic, otherwise two processes could both pass the test and break mutual exclusion. signal() (or V) is the one that increments."
+    },
+    {
+      "id": "os_q012",
+      "topicId": "os_pcproblem",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "In the producer&ndash;consumer solution, what happens if the producer executes wait(mutex) before wait(empty)?",
+      "options": [
+        { "id": "A", "text": "Nothing changes" },
+        { "id": "B", "text": "Deadlock can occur when the buffer is full" },
+        { "id": "C", "text": "The buffer overflows" },
+        { "id": "D", "text": "The consumer starves but no deadlock occurs" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "If the producer holds the mutex and then blocks on a full buffer, the consumer can never acquire the mutex to remove an item — so neither can proceed. The order matters: acquire the counting semaphore first, then the mutex."
+    },
+    {
+      "id": "os_q013",
+      "topicId": "os_pageing",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "A system uses 32-bit virtual addresses with a page size of 4 KB. How many bits are used for the page offset?",
+      "numericAnswer": { "min": 12, "max": 12 },
+      "solution": "The offset must address every byte in a page: 4 KB = 2<sup>12</sup> bytes, so 12 bits. The remaining 20 bits are the page number, giving 2<sup>20</sup> pages."
+    },
+    {
+      "id": "os_q014",
+      "topicId": "os_pageing",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Which type of fragmentation does paging suffer from?",
+      "options": [
+        { "id": "A", "text": "External only" },
+        { "id": "B", "text": "Internal only" },
+        { "id": "C", "text": "Both internal and external" },
+        { "id": "D", "text": "Neither" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "Paging divides memory into fixed-size frames, so any free frame fits any page — there is no external fragmentation. The last page of a process is usually only partly used, which is internal fragmentation. Segmentation is the opposite: external, not internal."
+    },
+    {
+      "id": "os_q015",
+      "topicId": "os_pagereplacement",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "hard",
+      "text": "Reference string 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5 with 3 frames and FIFO replacement. How many page faults occur?",
+      "numericAnswer": { "min": 9, "max": 9 },
+      "solution": "FIFO with 3 frames on this classic string gives 9 faults. It is the standard example of Belady's anomaly: increasing to 4 frames raises the fault count to 10, which is why FIFO is not a stack algorithm."
+    },
+    {
+      "id": "os_q016",
+      "topicId": "os_pagereplacement",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "medium",
+      "text": "Which page replacement algorithm can exhibit Belady's anomaly?",
+      "options": [
+        { "id": "A", "text": "LRU" },
+        { "id": "B", "text": "Optimal" },
+        { "id": "C", "text": "FIFO" },
+        { "id": "D", "text": "None of them" }
+      ],
+      "correctOptionIds": ["C"],
+      "solution": "Belady's anomaly is when more frames cause more faults. It affects FIFO. LRU and Optimal are stack algorithms — the set of pages held with n frames is always a subset of that held with n+1 — so they cannot exhibit it."
+    },
+    {
+      "id": "os_q017",
+      "topicId": "os_vm",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "What is thrashing?",
+      "options": [
+        { "id": "A", "text": "A process using more CPU than allocated" },
+        { "id": "B", "text": "The system spending more time paging than executing" },
+        { "id": "C", "text": "Two processes deadlocking on memory" },
+        { "id": "D", "text": "Excessive context switching between threads" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "Thrashing happens when processes do not have enough frames to hold their working set, so every access faults. CPU utilisation collapses; if the scheduler responds by admitting more processes it gets dramatically worse."
+    },
+    {
+      "id": "os_q018",
+      "topicId": "os_segmentation",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "How does segmentation differ from paging?",
+      "options": [
+        { "id": "A", "text": "Segments are fixed-size; pages are variable-size" },
+        { "id": "B", "text": "Segments are variable-size and correspond to logical units; pages are fixed-size" },
+        { "id": "C", "text": "Segmentation needs no hardware support" },
+        { "id": "D", "text": "Segmentation causes internal fragmentation" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "Segments match program structure — code, stack, heap — and vary in size, which produces external fragmentation. Pages are a fixed size chosen by the hardware and produce internal fragmentation instead."
+    },
+    {
+      "id": "os_q019",
+      "topicId": "os_contactswitching",
+      "type": "msq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Which of the following are saved in the PCB during a context switch?",
+      "options": [
+        { "id": "A", "text": "Program counter" },
+        { "id": "B", "text": "CPU registers" },
+        { "id": "C", "text": "Memory management information" },
+        { "id": "D", "text": "The contents of the hard disk" }
+      ],
+      "correctOptionIds": ["A", "B", "C"],
+      "solution": "The PCB holds everything needed to resume the process: program counter, register set, scheduling state, memory management information such as page tables, accounting data and I/O status. Disk contents are not part of process state."
+    },
+    {
+      "id": "os_q020",
+      "topicId": "os_processstate",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "A running process issues an I/O request. Which state transition occurs?",
+      "options": [
+        { "id": "A", "text": "Running &rarr; Ready" },
+        { "id": "B", "text": "Running &rarr; Waiting" },
+        { "id": "C", "text": "Running &rarr; Terminated" },
+        { "id": "D", "text": "Ready &rarr; Waiting" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "An I/O request blocks the process, moving it Running &rarr; Waiting. It returns to Ready when the I/O completes. Running &rarr; Ready happens on preemption, not on I/O."
+    },
+    {
+      "id": "os_q021",
+      "topicId": "os_cs",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "medium",
+      "text": "Which requirement is NOT part of a correct critical-section solution?",
+      "options": [
+        { "id": "A", "text": "Mutual exclusion" },
+        { "id": "B", "text": "Progress" },
+        { "id": "C", "text": "Bounded waiting" },
+        { "id": "D", "text": "Assumption about relative process speeds" }
+      ],
+      "correctOptionIds": ["D"],
+      "solution": "The three requirements are mutual exclusion, progress and bounded waiting. A correct solution must make <em>no</em> assumption about relative speeds or the number of CPUs — that is explicitly excluded."
+    },
+    {
+      "id": "os_q022",
+      "topicId": "os_discscheduling",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Disk requests arrive for cylinders 98, 183, 37, 122 with the head starting at 53. Using FCFS, what is the total head movement in cylinders?",
+      "numericAnswer": { "min": 361, "max": 361 },
+      "solution": "|53&minus;98| = 45, |98&minus;183| = 85, |183&minus;37| = 146, |37&minus;122| = 85. Total = 45 + 85 + 146 + 85 = 361. Servicing in arrival order ignores locality entirely, which is why SCAN and C-SCAN exist."
+    },
+    {
+      "id": "os_q023",
+      "topicId": "os_systemcalls",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Which of the following is NOT a system call?",
+      "options": [
+        { "id": "A", "text": "fork()" },
+        { "id": "B", "text": "exec()" },
+        { "id": "C", "text": "printf()" },
+        { "id": "D", "text": "open()" }
+      ],
+      "correctOptionIds": ["C"],
+      "solution": "printf() is a C library function. It formats the string in user space and then calls write(), which is the actual system call. fork(), exec() and open() trap into the kernel directly."
+    },
+    {
+      "id": "os_q024",
+      "topicId": "os_ipc",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "medium",
+      "text": "Which IPC mechanism is fastest for large data transfers between processes on the same machine?",
+      "options": [
+        { "id": "A", "text": "Message passing" },
+        { "id": "B", "text": "Shared memory" },
+        { "id": "C", "text": "Sockets" },
+        { "id": "D", "text": "Signals" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "Shared memory avoids copying through the kernel: once the region is mapped, processes read and write it directly at memory speed. The cost is that synchronisation becomes the programmer's responsibility."
+    },
+    {
+      "id": "os_q025",
+      "topicId": "os_multitasking",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "What distinguishes multiprogramming from multiprocessing?",
+      "options": [
+        { "id": "A", "text": "Multiprogramming uses several CPUs; multiprocessing uses one" },
+        { "id": "B", "text": "Multiprogramming keeps several processes in memory on one CPU; multiprocessing uses several CPUs" },
+        { "id": "C", "text": "They are the same thing" },
+        { "id": "D", "text": "Multiprocessing requires virtual memory" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "Multiprogramming keeps several jobs resident so the CPU switches to another whenever one blocks — it is about CPU utilisation on a single processor. Multiprocessing means genuinely parallel execution on multiple CPUs."
+    }
+  ]
+}

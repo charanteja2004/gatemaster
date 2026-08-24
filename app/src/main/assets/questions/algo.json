@@ -1,0 +1,411 @@
+{
+  "subjectId": "algo",
+  "questions": [
+    {
+      "id": "algo_q001",
+      "topicId": "algo_asymptotic",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Which of the following is the tightest correct bound for f(n) = 3n<sup>2</sup> + 5n log n + 100?",
+      "options": [
+        { "id": "A", "text": "O(n log n)" },
+        { "id": "B", "text": "&Theta;(n<sup>2</sup>)" },
+        { "id": "C", "text": "&Theta;(n<sup>3</sup>)" },
+        { "id": "D", "text": "&Omega;(n<sup>3</sup>)" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "The fastest-growing term is 3n<sup>2</sup>; n log n and the constant are dominated by it. Constants do not affect the growth class, so f(n) = &Theta;(n<sup>2</sup>). O(n<sup>3</sup>) is a true but loose upper bound, and &Omega;(n<sup>3</sup>) is simply false."
+    },
+    {
+      "id": "algo_q002",
+      "topicId": "algo_asymptotic",
+      "type": "msq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Let f(n) = n log n and g(n) = n<sup>1.5</sup>. Which statements are TRUE?",
+      "options": [
+        { "id": "A", "text": "f(n) = O(g(n))" },
+        { "id": "B", "text": "g(n) = O(f(n))" },
+        { "id": "C", "text": "f(n) = o(g(n))" },
+        { "id": "D", "text": "f(n) = &Theta;(g(n))" }
+      ],
+      "correctOptionIds": ["A", "C"],
+      "solution": "Compare by dividing: (n log n) / n<sup>1.5</sup> = (log n) / n<sup>0.5</sup> &rarr; 0 as n &rarr; &infin;, because any positive power of n beats a logarithm. So f grows strictly slower: f = O(g) and also f = o(g). g = O(f) and f = &Theta;(g) are both false."
+    },
+    {
+      "id": "algo_q003",
+      "topicId": "algo_asymptotic",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Solve the recurrence T(n) = 2T(n/2) + n log n, with T(1) = 1.",
+      "options": [
+        { "id": "A", "text": "&Theta;(n log n)" },
+        { "id": "B", "text": "&Theta;(n log<sup>2</sup> n)" },
+        { "id": "C", "text": "&Theta;(n<sup>2</sup>)" },
+        { "id": "D", "text": "&Theta;(n)" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "Here a = 2, b = 2, so n<sup>log<sub>b</sub>a</sup> = n. The work f(n) = n log n is larger than n by only a logarithmic factor, which is the master theorem's gap case — case 3 does not apply because n log n is not polynomially larger than n. The extended form gives T(n) = &Theta;(n log<sup>2</sup> n)."
+    },
+    {
+      "id": "algo_q004",
+      "topicId": "algo_binearysearch",
+      "type": "nat",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Binary search runs on a sorted array of 1000 distinct elements. In the worst case, how many comparisons are made?",
+      "numericAnswer": { "min": 10, "max": 10 },
+      "solution": "Each comparison halves the search space, so the worst case is &lceil;log<sub>2</sub>(1000)&rceil;. Since 2<sup>9</sup> = 512 &lt; 1000 &le; 1024 = 2<sup>10</sup>, the answer is 10."
+    },
+    {
+      "id": "algo_q005",
+      "topicId": "algo_binearysearch",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "medium",
+      "text": "Binary search is applied to an array that is <em>not</em> sorted. What happens?",
+      "options": [
+        { "id": "A", "text": "It still finds the element, but more slowly" },
+        { "id": "B", "text": "It may report the element as absent even when it is present" },
+        { "id": "C", "text": "It always enters an infinite loop" },
+        { "id": "D", "text": "It degrades to O(n) but stays correct" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "Binary search discards half the array based on one comparison, which is only valid if the array is sorted. On unsorted input it can discard the half containing the key, so it may miss an element that is present. It still terminates, so it neither loops forever nor stays correct."
+    },
+    {
+      "id": "algo_q006",
+      "topicId": "algo_sort",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Which sorting algorithm has O(n log n) worst-case time <strong>and</strong> O(1) auxiliary space?",
+      "options": [
+        { "id": "A", "text": "Merge sort" },
+        { "id": "B", "text": "Quick sort" },
+        { "id": "C", "text": "Heap sort" },
+        { "id": "D", "text": "Insertion sort" }
+      ],
+      "correctOptionIds": ["C"],
+      "solution": "Heap sort builds the heap in place and repeatedly extracts the maximum, so it uses O(1) extra space with O(n log n) worst case. Merge sort needs O(n) auxiliary space, quick sort's worst case is O(n<sup>2</sup>), and insertion sort is O(n<sup>2</sup>)."
+    },
+    {
+      "id": "algo_q007",
+      "topicId": "algo_sort",
+      "type": "msq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Which of the following sorting algorithms are <strong>stable</strong> in their standard implementation?",
+      "options": [
+        { "id": "A", "text": "Merge sort" },
+        { "id": "B", "text": "Heap sort" },
+        { "id": "C", "text": "Insertion sort" },
+        { "id": "D", "text": "Counting sort" }
+      ],
+      "correctOptionIds": ["A", "C", "D"],
+      "solution": "Stability means equal keys keep their original relative order. Merge sort (taking from the left run on ties), insertion sort and counting sort (traversing the input right to left when placing) are all stable. Heap sort is not: sifting moves elements across the array without regard to their original order."
+    },
+    {
+      "id": "algo_q008",
+      "topicId": "algo_quicksort",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Quick sort is applied to an array that is already sorted in ascending order, always choosing the <strong>last</strong> element as pivot. What is the running time?",
+      "options": [
+        { "id": "A", "text": "&Theta;(n)" },
+        { "id": "B", "text": "&Theta;(n log n)" },
+        { "id": "C", "text": "&Theta;(n<sup>2</sup>)" },
+        { "id": "D", "text": "&Theta;(log n)" }
+      ],
+      "correctOptionIds": ["C"],
+      "solution": "On sorted input the last element is the largest, so every partition splits into n&minus;1 and 0. The recurrence becomes T(n) = T(n&minus;1) + &Theta;(n), giving &Theta;(n<sup>2</sup>). This is exactly why real implementations use a randomised or median-of-three pivot."
+    },
+    {
+      "id": "algo_q009",
+      "topicId": "algo_mergesort",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Merging two sorted arrays of sizes 6 and 8 requires at most how many comparisons?",
+      "numericAnswer": { "min": 13, "max": 13 },
+      "solution": "Each comparison places at least one element. After 13 comparisons at most one element remains, and it is appended without a comparison. In general merging arrays of sizes m and n takes at most m + n &minus; 1 comparisons: 6 + 8 &minus; 1 = 13."
+    },
+    {
+      "id": "algo_q010",
+      "topicId": "algo_mergesort",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "What is the auxiliary space of merge sort on a <strong>linked list</strong>?",
+      "options": [
+        { "id": "A", "text": "O(1)" },
+        { "id": "B", "text": "O(log n)" },
+        { "id": "C", "text": "O(n)" },
+        { "id": "D", "text": "O(n log n)" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "Merging linked lists only relinks nodes, so no temporary array is needed. The only extra space is the recursion stack, which is O(log n) deep. On an array the merge does need a temporary buffer, giving O(n)."
+    },
+    {
+      "id": "algo_q011",
+      "topicId": "algo_greedyalg",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "For which problem does a greedy strategy fail to give an optimal solution in general?",
+      "options": [
+        { "id": "A", "text": "Fractional knapsack" },
+        { "id": "B", "text": "0/1 knapsack" },
+        { "id": "C", "text": "Minimum spanning tree" },
+        { "id": "D", "text": "Huffman coding" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "0/1 knapsack has no greedy-choice property: taking the highest value-per-weight item first can leave capacity that cannot be filled, so it needs dynamic programming. Fractional knapsack, MST and Huffman coding all have proofs that the greedy choice is safe."
+    },
+    {
+      "id": "algo_q012",
+      "topicId": "algo_huffman",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Characters a, b, c, d have frequencies 5, 9, 12, 13. What is the total number of bits in the Huffman-encoded message?",
+      "numericAnswer": { "min": 78, "max": 78 },
+      "solution": "Combine 5 and 9 &rarr; 14. Now {12, 13, 14}: combine 12 and 13 &rarr; 25. Then 14 + 25 = 39. Code lengths: a and b get depth 2, c and d get depth 2 as well. Total = 2(5 + 9 + 12 + 13) = 78 bits. Equivalently, the sum of all internal node values is 14 + 25 + 39 = 78."
+    },
+    {
+      "id": "algo_q013",
+      "topicId": "algo_dijasthras",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Why does Dijkstra's algorithm fail on graphs with negative edge weights?",
+      "options": [
+        { "id": "A", "text": "It cannot represent negative numbers" },
+        { "id": "B", "text": "Once a vertex is finalised, a later negative edge can still shorten its distance" },
+        { "id": "C", "text": "The priority queue cannot hold negative keys" },
+        { "id": "D", "text": "It enters an infinite loop" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "Dijkstra assumes that extending a path never reduces its cost, so once a vertex is removed from the queue its distance is treated as final. A negative edge breaks that assumption: a path found later can be shorter. Bellman&ndash;Ford relaxes every edge repeatedly and handles this correctly."
+    },
+    {
+      "id": "algo_q014",
+      "topicId": "algo_bellmenford",
+      "type": "nat",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Bellman&ndash;Ford runs on a graph with 8 vertices. How many passes of edge relaxation are performed before the negative-cycle check?",
+      "numericAnswer": { "min": 7, "max": 7 },
+      "solution": "A shortest path in a graph with V vertices uses at most V &minus; 1 edges, so V &minus; 1 = 7 passes suffice. An eighth pass that still relaxes an edge proves a negative cycle exists."
+    },
+    {
+      "id": "algo_q015",
+      "topicId": "algo_floydwarshall",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "What is the time and space complexity of Floyd&ndash;Warshall on a graph with V vertices?",
+      "options": [
+        { "id": "A", "text": "Time &Theta;(V<sup>2</sup>), space &Theta;(V)" },
+        { "id": "B", "text": "Time &Theta;(V<sup>3</sup>), space &Theta;(V<sup>2</sup>)" },
+        { "id": "C", "text": "Time &Theta;(VE), space &Theta;(V)" },
+        { "id": "D", "text": "Time &Theta;(V<sup>3</sup>), space &Theta;(V<sup>3</sup>)" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "Three nested loops over all vertices give &Theta;(V<sup>3</sup>). The distance matrix is V &times; V, and it can be updated in place, so space is &Theta;(V<sup>2</sup>) rather than &Theta;(V<sup>3</sup>)."
+    },
+    {
+      "id": "algo_q016",
+      "topicId": "algo_prims",
+      "type": "msq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Which statements about minimum spanning trees are TRUE for a connected, weighted graph?",
+      "options": [
+        { "id": "A", "text": "If all edge weights are distinct, the MST is unique" },
+        { "id": "B", "text": "The lightest edge of the graph is in some MST" },
+        { "id": "C", "text": "An MST always contains the shortest path between every pair of vertices" },
+        { "id": "D", "text": "An MST of a graph with V vertices has exactly V &minus; 1 edges" }
+      ],
+      "correctOptionIds": ["A", "B", "D"],
+      "solution": "Distinct weights force a unique MST, the lightest edge is always safe by the cut property, and a spanning tree on V vertices has V &minus; 1 edges. C is false: an MST minimises total weight, not pairwise distances — the MST path between two vertices can be far longer than their shortest path."
+    },
+    {
+      "id": "algo_q017",
+      "topicId": "algo_krushkalminspanningtree",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Kruskal's algorithm on a graph with V vertices and E edges, using sorting and union-find with path compression, runs in:",
+      "options": [
+        { "id": "A", "text": "O(V<sup>2</sup>)" },
+        { "id": "B", "text": "O(E log E)" },
+        { "id": "C", "text": "O(VE)" },
+        { "id": "D", "text": "O(E)" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "Sorting the edges costs O(E log E), which dominates. The union-find operations across all edges cost O(E &alpha;(V)), where &alpha; is the inverse Ackermann function and is effectively constant. Since E &le; V<sup>2</sup>, O(E log E) is also written O(E log V)."
+    },
+    {
+      "id": "algo_q018",
+      "topicId": "algo_dynamicp",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Which pair of properties must a problem have for dynamic programming to apply?",
+      "options": [
+        { "id": "A", "text": "Greedy choice and optimal substructure" },
+        { "id": "B", "text": "Optimal substructure and overlapping subproblems" },
+        { "id": "C", "text": "Overlapping subproblems and greedy choice" },
+        { "id": "D", "text": "Divide and conquer and memoisation" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "Optimal substructure means an optimal solution is built from optimal solutions to subproblems. Overlapping subproblems means the same subproblem recurs, which is what makes storing results worthwhile. Without overlap, plain divide and conquer is enough."
+    },
+    {
+      "id": "algo_q019",
+      "topicId": "algo_knapsack01",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Items have weights {2, 3, 4} and values {4, 5, 6}, with knapsack capacity 6. What is the maximum value obtainable in the 0/1 knapsack problem?",
+      "numericAnswer": { "min": 10, "max": 10 },
+      "solution": "Feasible subsets within capacity 6: {2,3} weight 5 value 9; {2,4} weight 6 value 10; {3,4} weight 7 exceeds capacity; {4} value 6. The best is items 1 and 3, giving value 10."
+    },
+    {
+      "id": "algo_q020",
+      "topicId": "algo_knapsack01",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "medium",
+      "text": "The standard 0/1 knapsack DP table for n items and capacity W uses O(nW) space. Why is this NOT polynomial in the input size?",
+      "options": [
+        { "id": "A", "text": "Because n can be very large" },
+        { "id": "B", "text": "Because W is encoded in binary, so its value is exponential in its number of bits" },
+        { "id": "C", "text": "Because the table stores real numbers" },
+        { "id": "D", "text": "It is polynomial; the claim is false" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "The input size includes the number of bits used to write W, roughly log W. So O(nW) is exponential in that bit length. This is why the algorithm is called <em>pseudo-polynomial</em> and why 0/1 knapsack remains NP-hard."
+    },
+    {
+      "id": "algo_q021",
+      "topicId": "algo_longestcommensub",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "What is the length of the longest common subsequence of \"ABCBDAB\" and \"BDCABA\"?",
+      "numericAnswer": { "min": 4, "max": 4 },
+      "solution": "The classic answer is 4, achieved by subsequences such as BCBA or BDAB. Note a subsequence need not be contiguous, which is what distinguishes this from the longest common <em>substring</em>."
+    },
+    {
+      "id": "algo_q022",
+      "topicId": "algo_matrixchain",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "medium",
+      "text": "Matrix chain multiplication with n matrices has which time and space complexity using dynamic programming?",
+      "options": [
+        { "id": "A", "text": "Time O(n<sup>2</sup>), space O(n)" },
+        { "id": "B", "text": "Time O(n<sup>3</sup>), space O(n<sup>2</sup>)" },
+        { "id": "C", "text": "Time O(2<sup>n</sup>), space O(n)" },
+        { "id": "D", "text": "Time O(n log n), space O(n)" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "The DP fills an n &times; n table, and each entry considers up to n split points, giving O(n<sup>3</sup>) time and O(n<sup>2</sup>) space. The brute-force count of parenthesisations is Catalan and exponential, which is what the DP avoids."
+    },
+    {
+      "id": "algo_q023",
+      "topicId": "algo_spacecomplexity",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "A recursive function computes factorial(n) with no loops and no allocation. What is its auxiliary space complexity?",
+      "options": [
+        { "id": "A", "text": "O(1)" },
+        { "id": "B", "text": "O(log n)" },
+        { "id": "C", "text": "O(n)" },
+        { "id": "D", "text": "O(n<sup>2</sup>)" }
+      ],
+      "correctOptionIds": ["C"],
+      "solution": "Each pending recursive call keeps a stack frame, and the recursion is n deep, so auxiliary space is O(n). Forgetting the recursion stack is the most common error in space-complexity questions; the iterative version really is O(1)."
+    },
+    {
+      "id": "algo_q024",
+      "topicId": "algo_strassen",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "hard",
+      "text": "Strassen's algorithm multiplies two n &times; n matrices using 7 multiplications of half-size matrices. Its running time is:",
+      "options": [
+        { "id": "A", "text": "&Theta;(n<sup>3</sup>)" },
+        { "id": "B", "text": "&Theta;(n<sup>log<sub>2</sub>7</sup>) &asymp; &Theta;(n<sup>2.81</sup>)" },
+        { "id": "C", "text": "&Theta;(n<sup>2</sup> log n)" },
+        { "id": "D", "text": "&Theta;(n<sup>2</sup>)" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "The recurrence is T(n) = 7T(n/2) + &Theta;(n<sup>2</sup>). By the master theorem, n<sup>log<sub>2</sub>7</sup> &asymp; n<sup>2.807</sup> grows faster than n<sup>2</sup>, so the leaves dominate. The naive block method uses 8 multiplications, giving n<sup>log<sub>2</sub>8</sup> = n<sup>3</sup> — no gain at all."
+    },
+    {
+      "id": "algo_q025",
+      "topicId": "algo_countsort",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Counting sort runs in O(n + k). What does k represent, and when is counting sort a poor choice?",
+      "options": [
+        { "id": "A", "text": "k is the number of elements; it is poor for small n" },
+        { "id": "B", "text": "k is the range of key values; it is poor when the range is far larger than n" },
+        { "id": "C", "text": "k is the number of digits; it is poor for short keys" },
+        { "id": "D", "text": "k is the recursion depth; it is poor for deep recursion" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "k is the size of the key range, because counting sort allocates one counter per possible key. Sorting 10 numbers drawn from 0 to 10<sup>9</sup> would allocate a billion counters, so it is only sensible when k is comparable to n."
+    },
+    {
+      "id": "algo_q026",
+      "topicId": "algo_heapsort",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Building a binary max-heap from an unsorted array of n elements using the bottom-up heapify method takes O(n<sup>c</sup>) time. What is the value of c?",
+      "numericAnswer": { "min": 1, "max": 1 },
+      "solution": "Bottom-up heap construction is &Theta;(n), not &Theta;(n log n): most nodes are near the leaves and sift down only a little. Summing height &times; node-count over all levels converges to a constant multiple of n, so c = 1. Inserting n elements one at a time would be &Theta;(n log n)."
+    },
+    {
+      "id": "algo_q027",
+      "topicId": "algo_divide_conq",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Which of the following is NOT a divide-and-conquer algorithm?",
+      "options": [
+        { "id": "A", "text": "Merge sort" },
+        { "id": "B", "text": "Binary search" },
+        { "id": "C", "text": "Dijkstra's algorithm" },
+        { "id": "D", "text": "Strassen's matrix multiplication" }
+      ],
+      "correctOptionIds": ["C"],
+      "solution": "Dijkstra's algorithm is greedy: it repeatedly finalises the nearest unvisited vertex. The other three split the input, solve the parts, and combine the results."
+    },
+    {
+      "id": "algo_q028",
+      "topicId": "algo_radixsort",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "medium",
+      "text": "Why must the intermediate sort used by radix sort be stable?",
+      "options": [
+        { "id": "A", "text": "To keep the running time linear" },
+        { "id": "B", "text": "To preserve the ordering achieved by previously sorted digits" },
+        { "id": "C", "text": "To avoid extra memory" },
+        { "id": "D", "text": "It need not be stable" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "Radix sort processes digits from least to most significant. When sorting on a higher digit, ties must retain the order established by the lower digits — that is exactly what stability guarantees. An unstable inner sort would scramble the previous passes."
+    }
+  ]
+}

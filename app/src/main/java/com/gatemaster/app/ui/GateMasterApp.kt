@@ -28,6 +28,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.gatemaster.app.core.model.ContentType
+import com.gatemaster.app.core.model.QuickTestSpec
 import com.gatemaster.app.navigation.BranchPickerRoute
 import com.gatemaster.app.navigation.HomeRoute
 import com.gatemaster.app.navigation.PapersRoute
@@ -189,6 +190,16 @@ fun GateMasterApp(
                 SubjectScreen(
                     onBack = navController::popBackStack,
                     onOpen = ::openDocument,
+                    onPractise = { subjectId, topicId ->
+                        // The id encodes the spec, so a generated paper reaches
+                        // the player through exactly the same route as a
+                        // bundled one -- no second player, no second ViewModel.
+                        navController.navigate(
+                            TestPlayerRoute(
+                                testId = QuickTestSpec(subjectId, topicId).id,
+                            ),
+                        )
+                    },
                 )
             }
 

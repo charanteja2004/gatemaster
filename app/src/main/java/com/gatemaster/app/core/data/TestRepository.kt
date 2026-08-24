@@ -4,6 +4,10 @@ import android.content.res.AssetManager
 import android.util.Log
 import com.gatemaster.app.core.model.Attempt
 import com.gatemaster.app.core.model.MockTest
+import com.gatemaster.app.core.model.QuestionBankIndex
+import com.gatemaster.app.core.model.QuickTestSpec
+import com.gatemaster.app.core.model.SubjectQuestionBank
+import com.gatemaster.app.core.model.TestSection
 import com.gatemaster.app.core.model.TestCatalogue
 import com.gatemaster.app.core.model.TestSummary
 import kotlinx.coroutines.CoroutineDispatcher
@@ -52,6 +56,8 @@ class TestRepository(
 
     private var cachedCatalogue: List<TestSummary>? = null
     private val testCache = mutableMapOf<String, MockTest>()
+    private var cachedBankIndex: QuestionBankIndex? = null
+    private val bankCache = mutableMapOf<String, SubjectQuestionBank>()
 
     suspend fun catalogue(): List<TestSummary> {
         cachedCatalogue?.let { return it }
@@ -67,6 +73,9 @@ class TestRepository(
 
     suspend fun loadTest(testId: String): Result<MockTest> {
         testCache[testId]?.let { return Result.success(it) }
+        // A quick test is assembled from the bank rather than read from a file.
+        // Recognising it here keeps the player unaware of the difference.
+        QuickTestSpec.parse(testId)?.let { return buildQuickTest(it) }
         return withContext(io) {
             runCatching {
                 val summary = catalogue().firstOrNull { it.id == testId }
@@ -76,6 +85,86 @@ class TestRepository(
             }.onSuccess { testCache[testId] = it }
                 .onFailure { Log.e(TAG, "Could not load test $testId", it) }
         }
+    }
+
+    // -- question bank --------------------------------------------------------
+
+    private suspend fun bankIndex(): QuestionBankIndex {
+        cachedBankIndex?.let { return it }
+        return withContext(io) {
+            runCatching {
+                val raw = assets.open(BANK_INDEX_ASSET).bufferedReader().use { it.readText() }
+                json.decodeFromString<QuestionBankIndex>(raw)
+            }.getOrDefault(QuestionBankIndex()).also { cachedBankIndex = it }
+        }
+    }
+
+    suspend fun bankFor(subjectId: String): SubjectQuestionBank? {
+        bankCache[subjectId]?.let { return it }
+        val path = bankIndex().banks[subjectId] ?: return null
+        return withContext(io) {
+            runCatching {
+                val raw = assets.open(path).bufferedReader().use { it.readText() }
+                json.decodeFromString<SubjectQuestionBank>(raw)
+            }.onFailure { Log.e(TAG, "Could not read question bank $path", it) }
+                .getOrNull()
+                ?.also { bankCache[subjectId] = it }
+        }
+    }
+
+    /** Topic ids that have at least [minimum] questions, so the UI can offer a test. */
+    suspend fun topicsWithQuestions(subjectId: String, minimum: Int = MIN_TOPIC_QUESTIONS): Set<String> {
+        val bank = bankFor(subjectId) ?: return emptySet()
+        return bank.questions
+            .mapNotNull { it.topicId }
+            .groupingBy { it }
+            .eachCount()
+            .filterValues { it >= minimum }
+            .keys
+    }
+
+    suspend fun questionCount(subjectId: String, topicId: String? = null): Int {
+        val bank = bankFor(subjectId) ?: return 0
+        return if (topicId == null) bank.questions.size else bank.forTopic(topicId).size
+    }
+
+    /**
+     * Assembles a practice test.
+     *
+     * Questions are shuffled so a second attempt is not the same paper in the
+     * same order, and a subject test is capped so it stays a phone-sized
+     * session rather than turning back into a mock.
+     */
+    private suspend fun buildQuickTest(spec: QuickTestSpec): Result<MockTest> {
+        val bank = bankFor(spec.subjectId)
+            ?: return Result.failure(IllegalStateException("No questions for ${spec.subjectId} yet"))
+
+        val pool = if (spec.topicId != null) bank.forTopic(spec.topicId) else bank.questions
+        if (pool.isEmpty()) {
+            return Result.failure(IllegalStateException("No questions for this topic yet"))
+        }
+
+        val limit = if (spec.topicId != null) MAX_TOPIC_QUESTIONS else MAX_SUBJECT_QUESTIONS
+        val chosen = pool.shuffled().take(limit)
+
+        val questions = chosen.mapIndexed { index, q ->
+            q.toQuestion(number = index + 1, subjectId = spec.subjectId, topicTitle = q.topicId)
+        }
+
+        val title = if (spec.topicId != null) "Topic practice" else "Subject practice"
+        val test = MockTest(
+            id = spec.id,
+            title = title,
+            description = "",
+            durationMinutes = QuickTestSpec.durationFor(questions.size),
+            sections = listOf(
+                TestSection(id = "practice", name = title, questionIds = questions.map { it.id }),
+            ),
+            questions = questions,
+        )
+
+        testCache[spec.id] = test
+        return Result.success(test)
     }
 
     // -- in-progress attempts -------------------------------------------------
@@ -140,6 +229,10 @@ class TestRepository(
     private companion object {
         const val TAG = "TestRepository"
         const val CATALOGUE_ASSET = "tests/catalogue.json"
+        const val BANK_INDEX_ASSET = "questions/index.json"
+        const val MIN_TOPIC_QUESTIONS = 3
+        const val MAX_TOPIC_QUESTIONS = 10
+        const val MAX_SUBJECT_QUESTIONS = 20
         const val MAX_HISTORY = 100
     }
 }
