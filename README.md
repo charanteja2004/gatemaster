@@ -1,7 +1,7 @@
 # GateMaster
 
-GATE Computer Science preparation app — notes, previous-year papers, and (next)
-a real mock-test engine.
+GATE Computer Science preparation app — notes, previous-year papers, and timed
+mock tests with GATE's real marking scheme.
 
 Being rebuilt from the ground up in Kotlin + Jetpack Compose. The pre-rewrite
 Java/XML app is preserved at `legacy/` and is **not** part of the build.
