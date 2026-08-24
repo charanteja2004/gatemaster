@@ -24,7 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
 <h3><b>Producer Consumer Problem using Semaphores</b></h3>
 
 <b>Prerequisite –</b> Semaphores in operating system, Inter Process Communication
@@ -46,9 +46,7 @@ S++;<br>
 </div>
 Semaphores are of two types:<br><br>
 
-<b>1.Binary Semaphore –</b> This is similar to mutex lock but not the same thing. It can have only two values – 0 and 1. Its value is initialized to 1. It is used to implement the solution of critical section problem with multiple processes.<br><br>
-
-<br>2.Counting Semaphore –</br> Its value can range over an unrestricted domain. It is used to control access to a resource that has multiple instances.<br><br>
+<b>1.Binary Semaphore –</b> This is similar to mutex lock but not the same thing. It can have only two values – 0 and 1. Its value is initialized to 1. It is used to implement the solution of critical section problem with multiple processes.<br><br>2.Counting Semaphore –</br> Its value can range over an unrestricted domain. It is used to control access to a resource that has multiple instances.<br><br>
 
 <b>Problem Statement –</b> We have a buffer of fixed size. A producer can produce an item and can place in the buffer. A consumer can pick items and can consume them. We need to ensure that when a producer is placing an item in the buffer, then at the same time consumer should not consume any item. In this problem, buffer is the critical section. <br><br>
 

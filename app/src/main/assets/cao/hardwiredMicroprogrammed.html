@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <h2><b>Hardwired v/s Micro-programmed Control Unit</b></h2>
 
 <p><strong>Introduction :</strong></p>
@@ -44,7 +44,7 @@
 <li>A controller that uses this approach can operate at high speed.</li>
 <li>RISC architecture is based on the hardwired control unit</li>
 </ul>
-<p><img src="https://www.geeksforgeeks.org/wp-content/uploads/1-9.jpg" alt="1" width="350" height="350"/></p>
+<p><figure class="gm-figure gm-remote"><img src="https://www.geeksforgeeks.org/wp-content/uploads/1-9.jpg" alt="1" width="350" height="350"/><figcaption>1</figcaption></figure></p>
 <p><strong>Micro-programmed Control Unit &ndash;</strong>&nbsp;&nbsp;</p>
 <ul>
 <li>The control signals associated with operations are stored in special memory units inaccessible by the programmer as Control Words.</li>
@@ -59,10 +59,10 @@
 <li><strong>Micro-program:</strong>&nbsp;A sequence of micro-instructions is called a micro-program, which is stored in a ROM or RAM called a Control Memory (CM).</li>
 <li><strong>Control Store:</strong>&nbsp;the micro-routines for all instructions in the instruction set of a computer are stored in a special memory called the Control Store.</li>
 </ol>
-<p><img src="https://www.geeksforgeeks.org/wp-content/uploads/2-9.jpg" alt="2" /></p>
+<p><figure class="gm-figure gm-remote"><img src="https://www.geeksforgeeks.org/wp-content/uploads/2-9.jpg" alt="2" /><figcaption>2</figcaption></figure></p>
 <p><strong>The differences between hardwired and micro-programmed control units:</strong></p>
 <figure class="table">
-<table border="1">
+<div class="gm-table"><table border="1">
 <tbody>
 <tr>
 <td>&nbsp;</td>
@@ -110,7 +110,7 @@
 <td>Easier to upgrade and maintain<br />&nbsp;</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </figure>
 
 
@@ -135,7 +135,7 @@
 <li>It is less flexible than horizontal but more flexible than that of a hardwired control unit.</li>
 </ul>
 <blockquote>
-<p><strong>Note:&nbsp;</strong>Types of Control Unit in descending order of speed :</p>
+<div class="gm-callout gm-note" data-label="Note"><p><strong>Note:&nbsp;</strong>Types of Control Unit in descending order of speed :</p></div>
 </blockquote>
 
 
@@ -152,7 +152,7 @@
 </ul>
 <h3>Difference between Horizontal and Vertical micro-programmed Control Unit:&nbsp;</h3>
 <figure class="table">
-<table border="1">
+<div class="gm-table"><table border="1">
 <thead>
 <tr>
 <th>S. No</th>
@@ -197,15 +197,15 @@
 <td>The vertical micro-programmed control unit makes more use of ROM encoding to reduce the length of the control word.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </figure>
-<p><strong>Example:&nbsp;</strong>Consider a hypothetical Control Unit that supports 4 k words. The Hardware contains 64 control signals and 16 Flags. What is the size of control word used in bits and control memory in a byte using:&nbsp;<br />a) Horizontal Programming&nbsp;<br />b) Vertical programming</p>
+<div class="gm-callout gm-example" data-label="Example"><p><strong>Example:&nbsp;</strong>Consider a hypothetical Control Unit that supports 4 k words. The Hardware contains 64 control signals and 16 Flags. What is the size of control word used in bits and control memory in a byte using:&nbsp;<br />a) Horizontal Programming&nbsp;<br />b) Vertical programming</p></div>
 
 
 
 
-<p><strong>Solution:</strong></p>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190328163139/hori-1.png" alt="" /></p>
+<p class="gm-lead gm-solution-lead"><strong>Solution:</strong></p>
+<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190328163139/hori-1.png" alt="" /></figure></p>
 <pre><strong>a)For Horizontal </strong>
 
 64 bits for 64 signals % 16 bits for flags

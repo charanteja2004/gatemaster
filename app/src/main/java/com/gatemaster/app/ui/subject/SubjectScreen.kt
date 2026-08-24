@@ -51,6 +51,9 @@ data class OpenRequest(
     val title: String,
     val subtitle: String,
     val ref: ContentRef,
+    /** Set for topics, so the reader can offer previous/next. */
+    val subjectId: String? = null,
+    val topicId: String? = null,
 )
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -143,7 +146,15 @@ fun SubjectScreen(
                                 isPdf = topic.content.type == ContentType.PDF,
                                 accent = accent,
                                 onClick = {
-                                    onOpen(OpenRequest(topic.title, subject.name, topic.content))
+                                    onOpen(
+                                        OpenRequest(
+                                            title = topic.title,
+                                            subtitle = subject.name,
+                                            ref = topic.content,
+                                            subjectId = subject.id,
+                                            topicId = topic.id,
+                                        ),
+                                    )
                                 },
                             )
                         }

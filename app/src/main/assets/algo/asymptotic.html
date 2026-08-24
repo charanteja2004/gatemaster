@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <h2>Asymptotic Notations</h2>
 
     <p dir="ltr"><strong>Asymptotic Notations:</strong></p>
@@ -63,9 +63,9 @@
     <p dir="ltr">Let g and f be the function from the set of natural numbers to itself. The function f is said to be
         &Theta;(g), if there are constants c1, c2 &gt; 0 and a natural number n0 such that c1* g(n) &le; f(n) &le; c2 *
         g(n) for all n &ge; n0</p>
-    <div class="wp-caption alignnone"><img
+    <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
             src="https://media.geeksforgeeks.org/wp-content/uploads/20220822015828/thetanotation.png" width="350"
-            height="350" />
+            height="350" /></figure>
         <p class="wp-caption-text">Theta notation</p>
     </div>
     <h3><strong>Mathematical Representation of Theta notation:</strong></h3>
@@ -74,7 +74,7 @@
             &le; f(n) &le; c2 * g(n) for all n &ge; n0}</p>
         <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
         <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
-        <p dir="ltr"><strong>Note:</strong>&nbsp;&Theta;(g) is a set</p>
+        <div class="gm-callout gm-note" data-label="Note"><p dir="ltr"><strong>Note:</strong>&nbsp;&Theta;(g) is a set</p></div>
     </blockquote>
     <p dir="ltr">The above expression can be described as if f(n) is theta of g(n), then the value f(n) is always
         between c1 * g(n) and c2 * g(n) for large values of n (n &ge; n0). The definition of theta also requires that
@@ -90,13 +90,13 @@
         always fine because there will always be a number(n) after which &Theta;(n<sup>3</sup>) has higher values
         than<strong>&nbsp;</strong>&Theta;(n<sup>2</sup>) irrespective of the constants involved.&nbsp;For a given
         function g(n), we denote &Theta;(g(n)) is following set of functions.&nbsp;</p>
-    <p dir="ltr"><strong>Examples :</strong></p>
+    <p dir="ltr" class="gm-lead gm-example-lead"><strong>Examples :</strong></p>
 
     <blockquote>
         <p dir="ltr">{ 100 , log (2000) , 10^4 } belongs to&nbsp;<strong>&Theta;(1)</strong><br />{ (n/4) , (2n+3) ,
             (n/100 + log(n)) } belongs to&nbsp;<strong>&Theta;(n)</strong><br />{ (n^2+n) , (2n^2) , (n^2+log(n))}
             belongs to&nbsp;<strong>&Theta;( n</strong><strong><sup>2</sup></strong><strong>)</strong></p>
-        <p dir="ltr"><strong>Note: &Theta; provides exact bounds.</strong></p>
+        <div class="gm-callout gm-note" data-label="Note"><p dir="ltr"><strong>Note: &Theta; provides exact bounds.</strong></p></div>
     </blockquote>
     <h2><u><strong><strong class="GFGEditorTheme__textUnderline">2. Big-O Notation
                     (O-notation)</strong></strong></u><strong>:</strong></h2>
@@ -114,8 +114,8 @@
     <p dir="ltr"><strong>It returns the highest possible output value (big-O)for a given input.</strong></p>
     <p dir="ltr"><strong>The execution time serves as an upper bound on the algorithm&rsquo;s time complexity.</strong>
     </p>
-    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/AlgoAnalysis-2.png" alt="BigO"
-            width="350" height="350" /></p>
+    <p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/AlgoAnalysis-2.png" alt="BigO"
+            width="350" height="350" /><figcaption>BigO</figcaption></figure></p>
     <h3><strong>Mathematical Representation of Big-O Notation:</strong></h3>
     <blockquote>
         <p dir="ltr">O(g(n)) = { f(n): there exist positive constants c and n0 such that 0 &le; f(n) &le; cg(n) for all
@@ -134,13 +134,13 @@
     </ul>
     <p dir="ltr">The Big-O notation is useful when we only have an upper bound on the time complexity of an algorithm.
         Many times we easily find an upper bound by simply looking at the algorithm.&nbsp;&nbsp;</p>
-    <p dir="ltr">&nbsp;<strong>Examples :</strong></p>
+    <p dir="ltr" class="gm-lead gm-example-lead">&nbsp;<strong>Examples :</strong></p>
     <blockquote>
         <p dir="ltr">{ 100 , log (2000) , 10^4 } belongs to&nbsp;<strong>O(1)</strong><br /><strong>U&nbsp;</strong>{
             (n/4) , (2n+3) , (n/100 + log(n)) } belongs to&nbsp;<strong>O(n)</strong><br /><strong>U</strong>&nbsp;{
             (n^2+n) , (2n^2) , (n^2+log(n))} belongs to<strong>&nbsp;O( n^2)&nbsp;</strong></p>
-        <p dir="ltr"><strong>Note:</strong>&nbsp;Here,<strong>&nbsp;U represents union</strong>, we can write it in
-            these manner because<strong>&nbsp;O provides exact or upper bounds .</strong></p>
+        <div class="gm-callout gm-note" data-label="Note"><p dir="ltr"><strong>Note:</strong>&nbsp;Here,<strong>&nbsp;U represents union</strong>, we can write it in
+            these manner because<strong>&nbsp;O provides exact or upper bounds .</strong></p></div>
     </blockquote>
 
 
@@ -156,8 +156,8 @@
             shortest amount of time.</strong></p>
     <p dir="ltr">Let g and f be the function from the set of natural numbers to itself. The function f is said to be
         Ω(g), if there is a constant c &gt; 0 and a natural number n0 such that c*g(n) &le; f(n) for all n &ge; n0</p>
-    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/AlgoAnalysis-3.png" alt="BigOmega"
-            width="350" height="350" /></p>
+    <p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/AlgoAnalysis-3.png" alt="BigOmega"
+            width="350" height="350" /><figcaption>BigOmega</figcaption></figure></p>
 
     <h3><strong>Mathematical Representation of Omega notation :</strong></h3>
     <blockquote>
@@ -167,21 +167,21 @@
     <p dir="ltr">Let us consider the same Insertion sort example here. The time complexity of Insertion Sort can be
         written as &Omega;(n), but it is not very useful information about insertion sort, as we are generally
         interested in worst-case and sometimes in the average case.&nbsp;</p>
-    <p dir="ltr"><strong>Examples :</strong></p>
+    <p dir="ltr" class="gm-lead gm-example-lead"><strong>Examples :</strong></p>
     <blockquote>
         <p dir="ltr">{ (n^2+n) , (2n^2) , (n^2+log(n))} belongs to&nbsp;<strong>&Omega;(
                 n^2)</strong><br /><strong>U</strong>&nbsp;{ (n/4) , (2n+3) , (n/100 + log(n)) } belongs
             to&nbsp;<strong>&Omega;(n)</strong><br /><strong>U&nbsp;</strong>{ 100 , log (2000) , 10^4 } belongs
             to&nbsp;<strong>&Omega;(1)</strong></p>
-        <p dir="ltr"><strong>Note:</strong>&nbsp;Here,&nbsp;<strong>U represents union,</strong>&nbsp;we can write it in
-            these manner because&nbsp;<strong>&Omega; provides exact or lower bounds.</strong></p>
+        <div class="gm-callout gm-note" data-label="Note"><p dir="ltr"><strong>Note:</strong>&nbsp;Here,&nbsp;<strong>U represents union,</strong>&nbsp;we can write it in
+            these manner because&nbsp;<strong>&Omega; provides exact or lower bounds.</strong></p></div>
     </blockquote>
     <h2><strong>Properties of Asymptotic Notations:</strong>&nbsp;</h2>
     <h3><strong>1. General Properties:</strong></h3>
     <p dir="ltr">
         If&nbsp;<strong>f(n)</strong>&nbsp;is&nbsp;<strong>O(g(n))</strong>&nbsp;then&nbsp;<strong>a*f(n)</strong>&nbsp;is
         also&nbsp;<strong>O(g(n))</strong>, where&nbsp;<strong>a</strong>&nbsp;is a constant.</p>
-    <p dir="ltr"><strong>Example:</strong></p>
+    <p dir="ltr" class="gm-lead gm-example-lead"><strong>Example:</strong></p>
     <blockquote>
         <p dir="ltr">f(n) = 2n&sup2;+5 is O(n&sup2;)&nbsp;<br />then, 7*f(n) = 7(2n&sup2;+5)&nbsp;= 14n&sup2;+35 is also
             O(n&sup2;).</p>
@@ -199,7 +199,7 @@
     <p dir="ltr">
         If&nbsp;<strong>f(n)</strong>&nbsp;is<strong>&nbsp;O(g(n))</strong>&nbsp;and&nbsp;<strong>g(n)</strong>&nbsp;is&nbsp;<strong>O(h(n))</strong>&nbsp;then&nbsp;<strong>f(n)
             = O(h(n))</strong>.</p>
-    <p dir="ltr"><strong>Example:</strong></p>
+    <p dir="ltr" class="gm-lead gm-example-lead"><strong>Example:</strong></p>
     <blockquote>
         <p dir="ltr">If f(n) = n, g(n) = n&sup2; and h(n)=n&sup3;<br />n is O(n&sup2;) and n&sup2; is O(n&sup3;) then, n
             is O(n&sup3;)</p>
@@ -214,7 +214,7 @@
     <p dir="ltr">Reflexive properties are always easy to understand after transitive.<br />If f(n) is given then f(n) is
         O(f(n)). Since&nbsp;<em><em class="GFGEditorTheme__textItalic">MAXIMUM VALUE OF f(n) will be f(n)
                 ITSELF!</em></em><br />Hence x = f(n) and y = O(f(n) tie themselves in reflexive relation always.</p>
-    <p dir="ltr"><strong>Example:</strong></p>
+    <p dir="ltr" class="gm-lead gm-example-lead"><strong>Example:</strong></p>
     <blockquote>
         <p dir="ltr">f(n) = n&sup2; ; O(n&sup2;) i.e O(f(n))<br />Similarly, this property satisfies both &Theta; and
             &Omega; notation. &nbsp;</p>
@@ -228,7 +228,7 @@
     <p dir="ltr">
         If&nbsp;<strong>f(n)</strong>&nbsp;is&nbsp;<strong>&Theta;(g(n))&nbsp;</strong>then&nbsp;<strong>g(n)</strong>&nbsp;is<strong>&nbsp;&Theta;(f(n))</strong>.
     </p>
-    <p dir="ltr"><strong>Example:</strong></p>
+    <p dir="ltr" class="gm-lead gm-example-lead"><strong>Example:</strong></p>
     <blockquote>
         <p dir="ltr">If(n) = n&sup2; and g(n) = n&sup2;<br />then, f(n) = &Theta;(n&sup2;) and g(n) = &Theta;(n&sup2;)
         </p>
@@ -238,7 +238,7 @@
     <p dir="ltr">
         If&nbsp;<strong>f(n)</strong>&nbsp;is&nbsp;<strong>O(g(n))</strong>&nbsp;then&nbsp;<strong>g(n)</strong>&nbsp;is<strong>&nbsp;&Omega;
             (f(n))</strong>.</p>
-    <p dir="ltr"><strong>Example:</strong></p>
+    <p dir="ltr" class="gm-lead gm-example-lead"><strong>Example:</strong></p>
     <blockquote>
         <p dir="ltr">If(n) = n , g(n) = n&sup2;<br />then n is O(n&sup2;) and n&sup2; is &Omega; (n)&nbsp;</p>
         <p dir="ltr"><em><em class="GFGEditorTheme__textItalic">This property only satisfies O and &Omega;
@@ -252,15 +252,15 @@
     <div id="GFG_AD_gfg_outstream_incontent-5" data-google-query-id="CKKZ6dX_noYDFRtLnQkdi48DMw">
         <div id="google_ads_iframe_/27823234/gfg_outstream_incontent_6_0__container__">&nbsp;</div>
     </div>
-    <p dir="ltr"><strong>Example:</strong></p>
+    <p dir="ltr" class="gm-lead gm-example-lead"><strong>Example:</strong></p>
     <blockquote>
         <p dir="ltr">f(n) = n i.e O(n)&nbsp;<br />d(n) = n&sup2; i.e O(n&sup2;)&nbsp;<br />then f(n) + d(n) = n +
             n&sup2; i.e O(n&sup2;)</p>
     </blockquote>
-    <p dir="ltr">3.
+    <div class="gm-formula"><p dir="ltr">3.
         If&nbsp;<strong>f(n)=O(g(n))</strong>&nbsp;and&nbsp;<strong>d(n)=O(e(n))&nbsp;</strong>then&nbsp;<strong>f(n) *
-            d(n) = O( g(n) * e(n))</strong></p>
-    <p dir="ltr"><strong>Example:&nbsp;</strong></p>
+            d(n) = O( g(n) * e(n))</strong></p></div>
+    <p dir="ltr" class="gm-lead gm-example-lead"><strong>Example:&nbsp;</strong></p>
     <blockquote>
         <p dir="ltr">f(n) = n i.e O(n)&nbsp;<br />d(n) = n&sup2; i.e O(n&sup2;)<br />then f(n) * d(n) = n * n&sup2; =
             n&sup3; i.e

@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     
 <div class="article-title">
     <h1>Introduction of Relational Algebra in DBMS</h1>
@@ -44,9 +44,9 @@
     </ol>
     <p><strong>1. Selection(&sigma;):&nbsp;</strong>It is used to select required tuples of the relations.</p>
     <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
-    <p><strong>Example:</strong></p>
+    <p class="gm-lead gm-example-lead"><strong>Example:</strong></p>
     <figure class="table">
-    <table>
+    <div class="gm-table"><table>
     <thead>
     <tr>
     <th><strong>A &nbsp; &nbsp; &nbsp;&nbsp;</strong></th>
@@ -76,11 +76,11 @@
     <td>4</td>
     </tr>
     </tbody>
-    </table>
+    </table></div>
     </figure>
     <p>For the above relation,&nbsp;<strong>&sigma;(c&gt;3)R</strong>&nbsp;will select the tuples which have c more than 3.</p>
     <figure class="table">
-    <table>
+    <div class="gm-table"><table>
     <thead>
     <tr>
     <th><strong>A &nbsp; &nbsp; &nbsp;&nbsp;</strong></th>
@@ -100,14 +100,14 @@
     <td>4</td>
     </tr>
     </tbody>
-    </table>
+    </table></div>
     </figure>
-    <p><strong>Note:</strong>&nbsp;The selection operator only selects the required tuples but does not display them. For display, the data projection operator is used.&nbsp;</p>
+    <div class="gm-callout gm-note" data-label="Note"><p><strong>Note:</strong>&nbsp;The selection operator only selects the required tuples but does not display them. For display, the data projection operator is used.&nbsp;</p></div>
     <p><strong>2. Projection(&pi;):&nbsp;</strong>It is used to project required column data from a relation.&nbsp;</p>
-    <p><strong>Example:&nbsp;</strong>Consider Table 1. Suppose we want columns B and C from Relation R.</p>
+    <div class="gm-callout gm-example" data-label="Example"><p><strong>Example:&nbsp;</strong>Consider Table 1. Suppose we want columns B and C from Relation R.</p></div>
     <div class="gray">&pi;(B,C)R will show following columns.</div>
     <figure class="table">
-    <table>
+    <div class="gm-table"><table>
     <thead>
     <tr>
     <th><strong>B &nbsp; &nbsp; &nbsp;&nbsp;</strong></th>
@@ -128,14 +128,14 @@
     <td>4</td>
     </tr>
     </tbody>
-    </table>
+    </table></div>
     </figure>
-    <p><strong>Note:&nbsp;</strong>By Default, projection removes duplicate data. &nbsp;&nbsp;</p>
+    <div class="gm-callout gm-note" data-label="Note"><p><strong>Note:&nbsp;</strong>By Default, projection removes duplicate data. &nbsp;&nbsp;</p></div>
     <p><strong>3. Union(U):</strong>&nbsp;Union operation in relational algebra is the same as union operation in&nbsp;<a href="https://www.geeksforgeeks.org/set-operations/">set theory</a>.</p>
-    <p><strong>Example:</strong></p>
+    <p class="gm-lead gm-example-lead"><strong>Example:</strong></p>
     <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>FRENCH</strong></p>
     <figure class="table">
-    <table>
+    <div class="gm-table"><table>
     <thead>
     <tr>
     <th><strong>Student_Name &nbsp; &nbsp;</strong></th>
@@ -160,11 +160,11 @@
     <td>17</td>
     </tr>
     </tbody>
-    </table>
+    </table></div>
     </figure>
     <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong>GERMAN</strong></p>
     <figure class="table">
-    <table>
+    <div class="gm-table"><table>
     <thead>
     <tr>
     <th><strong>Student_Name &nbsp; &nbsp;</strong></th>
@@ -189,12 +189,12 @@
     <td>25</td>
     </tr>
     </tbody>
-    </table>
+    </table></div>
     </figure>
     <p>Consider the following table of Students having different optional subjects in their course.</p>
     <div class="gray">&pi;(Student_Name)FRENCH U &pi;(Student_Name)GERMAN</div>
     <figure class="table">
-    <table>
+    <div class="gm-table"><table>
     <thead>
     <tr>
     <th><strong>Student_Name</strong></th>
@@ -220,15 +220,15 @@
     <td>Rohan</td>
     </tr>
     </tbody>
-    </table>
+    </table></div>
     </figure>
-    <p><strong>Note:</strong>&nbsp;The only constraint in the union of two relations is that both relations must have the same set of Attributes. &nbsp;&nbsp;</p>
+    <div class="gm-callout gm-note" data-label="Note"><p><strong>Note:</strong>&nbsp;The only constraint in the union of two relations is that both relations must have the same set of Attributes. &nbsp;&nbsp;</p></div>
     <div class="article-title">
         <p><strong>4. Set Difference(-):</strong>&nbsp;Set Difference in relational algebra is the same set difference operation as in set theory.</p>
-        <p><strong>Example:&nbsp;</strong>From the above table of FRENCH and GERMAN, Set Difference is used as follows</p>
+        <div class="gm-callout gm-example" data-label="Example"><p><strong>Example:&nbsp;</strong>From the above table of FRENCH and GERMAN, Set Difference is used as follows</p></div>
         <div class="gray">&pi;(Student_Name)FRENCH - &pi;(Student_Name)GERMAN</div>
         <figure class="table">
-        <table>
+        <div class="gm-table"><table>
         <thead>
         <tr>
         <th><strong>Student_Name</strong></th>
@@ -242,14 +242,14 @@
         <td>Mohan</td>
         </tr>
         </tbody>
-        </table>
+        </table></div>
         </figure>
-        <p><strong>Note:</strong>&nbsp;The only constraint in the Set Difference between two relations is that both relations must have the same set of Attributes. &nbsp;&nbsp;</p>
+        <div class="gm-callout gm-note" data-label="Note"><p><strong>Note:</strong>&nbsp;The only constraint in the Set Difference between two relations is that both relations must have the same set of Attributes. &nbsp;&nbsp;</p></div>
         <p><strong>5. Set Intersection(&cap;):&nbsp;</strong>Set Intersection in relational algebra is the same set intersection operation in set theory.</p>
-        <p><strong>Example:&nbsp;</strong>From the above table of FRENCH and GERMAN, the Set Intersection is used as follows</p>
+        <div class="gm-callout gm-example" data-label="Example"><p><strong>Example:&nbsp;</strong>From the above table of FRENCH and GERMAN, the Set Intersection is used as follows</p></div>
         <div class="gray">&pi;(Student_Name)FRENCH &cap; &pi;(Student_Name)GERMAN</div>
         <figure class="table">
-        <table>
+        <div class="gm-table"><table>
         <thead>
         <tr>
         <th><strong>Student_Name</strong></th>
@@ -263,16 +263,16 @@
         <td>Geeta</td>
         </tr>
         </tbody>
-        </table>
+        </table></div>
         </figure>
-        <p><strong>Note:</strong>&nbsp;The only constraint in the Set Difference between two relations is that both relations must have the same set of Attributes. &nbsp;</p>
+        <div class="gm-callout gm-note" data-label="Note"><p><strong>Note:</strong>&nbsp;The only constraint in the Set Difference between two relations is that both relations must have the same set of Attributes. &nbsp;</p></div>
         <p><strong>6. Rename(&rho;):</strong>&nbsp;Rename is a unary operation used for renaming attributes of a relation.</p>
         <div class="gray"> <strong>&rho;(a/b)R</strong> will rename the attribute 'b' of the relation by 'a'.   </div>
         <p><strong>7. Cross Product(X):</strong>&nbsp;Cross-product between two relations. Let&rsquo;s say A and B, so the cross product between A X B will result in all the attributes of A followed by each attribute of B. Each record of A will pair with every record of B.</p>
-        <p><strong>Example:&nbsp;</strong></p>
+        <p class="gm-lead gm-example-lead"><strong>Example:&nbsp;</strong></p>
         <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>A</strong></p>
         <figure class="table">
-        <table>
+        <div class="gm-table"><table>
         <thead>
         <tr>
         <th><strong>Name &nbsp; &nbsp;&nbsp;</strong></th>
@@ -297,11 +297,11 @@
         <td>M</td>
         </tr>
         </tbody>
-        </table>
+        </table></div>
         </figure>
         <p>&nbsp; &nbsp;&nbsp;<strong>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; B</strong></p>
         <figure class="table">
-        <table>
+        <div class="gm-table"><table>
         <thead>
         <tr>
         <th><strong>ID &nbsp; &nbsp;&nbsp;</strong></th>
@@ -318,11 +318,11 @@
         <td>DBMS</td>
         </tr>
         </tbody>
-        </table>
+        </table></div>
         </figure>
         <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong>A X B</strong></p>
         <figure class="table">
-        <table>
+        <div class="gm-table"><table>
         <thead>
         <tr>
         <th><strong>Name &nbsp; &nbsp;&nbsp;</strong></th>
@@ -376,7 +376,7 @@
         <td>DBMS</td>
         </tr>
         </tbody>
-        </table>
+        </table></div>
         </figure>
         </div>
         <div class="article-title">
@@ -387,10 +387,10 @@
             <li><a href="joins.html">Conditional Join</a></li>
             </ol>
             <p><strong>1. Natural Join(⋈):&nbsp;</strong>Natural join is a binary operator. Natural join between two or more relations will result in a set of all combinations of tuples where they have an equal common attribute.&nbsp;</p>
-            <p><strong>Example:</strong></p>
+            <p class="gm-lead gm-example-lead"><strong>Example:</strong></p>
             <p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; EMP</strong></p>
             <figure class="table">
-            <table>
+            <div class="gm-table"><table>
             <thead>
             <tr>
             <th><strong>Name &nbsp; &nbsp; &nbsp;</strong></th>
@@ -420,11 +420,11 @@
             <td>IT</td>
             </tr>
             </tbody>
-            </table>
+            </table></div>
             </figure>
             <p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;DEPT</strong></p>
             <figure class="table">
-            <table>
+            <div class="gm-table"><table>
             <thead>
             <tr>
             <th><strong>Dept_Name &nbsp; &nbsp;&nbsp;</strong></th>
@@ -445,13 +445,13 @@
             <td>A</td>
             </tr>
             </tbody>
-            </table>
+            </table></div>
             </figure>
             <p>Natural join between EMP and DEPT with condition :</p>
             <p><strong>EMP.Dept_Name = DEPT.Dept_Name</strong>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
             <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>EMP ⋈ DEPT</strong></p>
             <figure class="table">
-            <table>
+            <div class="gm-table"><table>
             <thead>
             <tr>
             <th><strong>Name &nbsp; &nbsp;&nbsp;</strong></th>
@@ -480,13 +480,13 @@
             <td>A</td>
             </tr>
             </tbody>
-            </table>
+            </table></div>
             </figure>
             <p><strong>2. Conditional Join:&nbsp;</strong>Conditional join works similarly to natural join. In natural join, by default condition is equal between common attributes while in conditional join we can specify any condition such as greater than, less than, or not equal.&nbsp;</p>
-            <p><strong>Example:</strong></p>
+            <p class="gm-lead gm-example-lead"><strong>Example:</strong></p>
             <p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; R</strong></p>
             <figure class="table">
-            <table>
+            <div class="gm-table"><table>
             <thead>
             <tr>
             <th><strong>ID &nbsp; &nbsp;&nbsp;</strong></th>
@@ -511,11 +511,11 @@
             <td>60</td>
             </tr>
             </tbody>
-            </table>
+            </table></div>
             </figure>
             <p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;S</strong></p>
             <figure class="table">
-            <table>
+            <div class="gm-table"><table>
             <thead>
             <tr>
             <th><strong>ID &nbsp; &nbsp;&nbsp;</strong></th>
@@ -540,11 +540,11 @@
             <td>59</td>
             </tr>
             </tbody>
-            </table>
+            </table></div>
             </figure>
             <p>Join between R and S with condition &nbsp;<strong>R.marks &gt;= S.marks</strong></p>
             <figure class="table">
-            <table>
+            <div class="gm-table"><table>
             <thead>
             <tr>
             <th><strong>R.ID &nbsp;&nbsp;</strong></th>
@@ -613,7 +613,7 @@
             <td>59</td>
             </tr>
             </tbody>
-            </table>
+            </table></div>
             </figure>
         </div>a</div>
 </body>

@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <div class="main_wrapper">
        
         <div class="article-title">
@@ -60,7 +60,7 @@
         <ul>
         <li value="1"><strong>Example 1 &ndash;</strong>&nbsp;Relation STUDENT in table 1 is not in 1NF because of multi-valued attribute STUD_PHONE. Its decomposition into 1NF has been shown in table 2.</li>
         </ul>
-        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231101151006/1239.png" alt="Example" width="461" height="198" />
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231101151006/1239.png" alt="Example" width="461" height="198" /><figcaption>Example</figcaption></figure>
         <p class="wp-caption-text">Example</p>
         </div>
         <ul>
@@ -78,7 +78,7 @@
 <ul>
 <li value="1"><strong>Example 1 &ndash;</strong>&nbsp;Consider table-3 as following below.</li>
 </ul>
-<div class="gray">STUD_NO            COURSE_NO        COURSE_FEE<br />1                     C1                  1000<br />2                     C2                  1500<br />1                     C4                  2000<br />4                     C3                  1000<br />4                     C1                  1000<br />2                     C5                  2000<br /><br /><br /></div>
+<div class="gray">STUD_NO            COURSE_NO        COURSE_FEE<br />1                     C1                  1000<br />2                     C2                  1500<br />1                     C4                  2000<br />4                     C3                  1000<br />4                     C1                  1000<br />2                     C5                  2000<br><br></div>
 <ul>
 <li value="1">{Note that, there are many courses having the same course fee} Here, COURSE_FEE cannot alone decide the value of COURSE_NO or STUD_NO; COURSE_FEE together with STUD_NO cannot decide the value of COURSE_NO; COURSE_FEE together with COURSE_NO cannot decide the value of STUD_NO; Hence, COURSE_FEE would be a non-prime attribute, as it does not belong to the one only candidate key {STUD_NO, COURSE_NO} ; But, COURSE_NO -&gt; COURSE_FEE, i.e., COURSE_FEE is dependent on COURSE_NO, which is a proper subset of the candidate key. Non-prime attribute COURSE_FEE is dependent on a proper subset of the candidate key, which is a partial dependency and so this relation is not in 2NF. To convert the above relation to 2NF, we need to split the table into two tables such as : Table 1: STUD_NO, COURSE_NO Table 2: COURSE_NO, COURSE_FEE</li>
 </ul>
@@ -90,16 +90,16 @@
 <div class="gray">AB -&gt; C  [A and B together determine C]<br />BC -&gt; D  [B and C together determine D]</div>
 <p dir="ltr">In the above relation, AB is the only candidate key and there is no partial dependency, i.e., any proper subset of AB doesn&rsquo;t determine any non-prime attribute.</p>
 <div class="gray">X is a super key.<br />Y is a prime attribute (each element of Y is part of some candidate key).</div>
-<p dir="ltr"><strong>Example 1:&nbsp;</strong>In relation STUDENT given in Table 4, FD set: {STUD_NO -&gt; STUD_NAME, STUD_NO -&gt; STUD_STATE, STUD_STATE -&gt; STUD_COUNTRY, STUD_NO -&gt; STUD_AGE}</p>
+<div class="gm-callout gm-example" data-label="Example"><p dir="ltr"><strong>Example 1:&nbsp;</strong>In relation STUDENT given in Table 4, FD set: {STUD_NO -&gt; STUD_NAME, STUD_NO -&gt; STUD_STATE, STUD_STATE -&gt; STUD_COUNTRY, STUD_NO -&gt; STUD_AGE}</p></div>
 <p dir="ltr">Candidate Key: {STUD_NO}</p>
 <p dir="ltr">For this relation in table 4, STUD_NO -&gt; STUD_STATE and STUD_STATE -&gt; STUD_COUNTRY are true.</p>
 <p dir="ltr">So STUD_COUNTRY is transitively dependent on STUD_NO. It violates the third normal form.</p>
 <p dir="ltr">To convert it in third normal form, we will decompose the relation STUDENT (STUD_NO, STUD_NAME, STUD_PHONE, STUD_STATE, STUD_COUNTRY_STUD_AGE) as: STUDENT (STUD_NO, STUD_NAME, STUD_PHONE, STUD_STATE, STUD_AGE) STATE_COUNTRY (STATE, COUNTRY)</p>
 <p dir="ltr">Consider relation R(A, B, C, D, E) A -&gt; BC, CD -&gt; E, B -&gt; D, E -&gt; A All possible candidate keys in above relation are {A, E, CD, BC} All attributes are on right sides of all functional dependencies are prime.</p>
-<p dir="ltr"><strong>Example 2:</strong>&nbsp;Find the highest normal form of a relation R(A,B,C,D,E) with FD set as {BC-&gt;D, AC-&gt;BE, B-&gt;E}</p>
-<p dir="ltr"><strong>Step 1:&nbsp;</strong>As we can see, (AC)+ ={A,C,B,E,D} but none of its subset can determine all attribute of relation, So AC will be candidate key. A or C can&rsquo;t be derived from any other attribute of the relation, so there will be only 1 candidate key {AC}.</p>
-<p dir="ltr"><strong>Step 2:</strong>&nbsp;Prime attributes are those attributes that are part of candidate key {A, C} in this example and others will be non-prime {B, D, E} in this example.</p>
-<p dir="ltr"><strong>Step 3:</strong>&nbsp;The relation R is in 1st normal form as a relational DBMS does not allow multi-valued or composite attribute. The relation is in 2nd normal form because BC-&gt;D is in 2nd normal form (BC is not a proper subset of candidate key AC) and AC-&gt;BE is in 2nd normal form (AC is candidate key) and B-&gt;E is in 2nd normal form (B is not a proper subset of candidate key AC).</p>
+<div class="gm-callout gm-example" data-label="Example"><p dir="ltr"><strong>Example 2:</strong>&nbsp;Find the highest normal form of a relation R(A,B,C,D,E) with FD set as {BC-&gt;D, AC-&gt;BE, B-&gt;E}</p></div>
+<p dir="ltr" class="gm-step"><strong>Step 1:&nbsp;</strong>As we can see, (AC)+ ={A,C,B,E,D} but none of its subset can determine all attribute of relation, So AC will be candidate key. A or C can&rsquo;t be derived from any other attribute of the relation, so there will be only 1 candidate key {AC}.</p>
+<p dir="ltr" class="gm-step"><strong>Step 2:</strong>&nbsp;Prime attributes are those attributes that are part of candidate key {A, C} in this example and others will be non-prime {B, D, E} in this example.</p>
+<p dir="ltr" class="gm-step"><strong>Step 3:</strong>&nbsp;The relation R is in 1st normal form as a relational DBMS does not allow multi-valued or composite attribute. The relation is in 2nd normal form because BC-&gt;D is in 2nd normal form (BC is not a proper subset of candidate key AC) and AC-&gt;BE is in 2nd normal form (AC is candidate key) and B-&gt;E is in 2nd normal form (B is not a proper subset of candidate key AC).</p>
 <p dir="ltr">The relation is not in 3rd normal form because in BC-&gt;D (neither BC is a super key nor D is a prime attribute) and in B-&gt;E (neither B is a super key nor E is a prime attribute) but to satisfy 3rd normal for, either LHS of an FD should be super key or RHS should be prime attribute. So the highest normal form of relation will be 2nd Normal form.</p>
 <p dir="ltr">For example consider relation R(A, B, C) A -&gt; BC, B -&gt; A and B both are super keys so above relation is in BCNF.</p>
 <h2>Third Normal Form</h2>

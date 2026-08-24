@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <h3>Introduction to Dijkstra’s Shortest Path Algorithm</h3>
 
     <h2 id="dijkstras-algorithm"><u><span class="GFGEditorTheme__textUnderline">Dijkstra&rsquo;s Algorithm:</span></u>
@@ -83,9 +83,9 @@
     </p>
 
     <p dir="ltr"><strong>Consider the below graph:</strong></p>
-    <div class="wp-caption alignnone"><img
+    <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
             src="https://media.geeksforgeeks.org/wp-content/uploads/20230303115424/d1-(1).png"
-            alt="Dijkstra's Algorithm" width="820" height="501" />
+            alt="Dijkstra's Algorithm" width="820" height="501" /><figcaption>Dijkstra</figcaption></figure>
         <p class="wp-caption-text">Dijkstra&rsquo;s Algorithm</p>
     </div>
     <p dir="ltr">The algorithm will generate the shortest path from node 0 to all the other nodes in the graph.</p>
@@ -102,57 +102,57 @@
         <li value="2">The distance from the source node to all other node is unknown so we mark all of them as infinity.
         </li>
     </ul>
-    <p dir="ltr">Example: 0 -&gt; 0, 1-&gt; &infin;,2-&gt; &infin;,3-&gt; &infin;,4-&gt; &infin;,5-&gt; &infin;,6-&gt;
-        &infin;.</p>
+    <div class="gm-callout gm-example" data-label="Example"><p dir="ltr">Example: 0 -&gt; 0, 1-&gt; &infin;,2-&gt; &infin;,3-&gt; &infin;,4-&gt; &infin;,5-&gt; &infin;,6-&gt;
+        &infin;.</p></div>
     <ul>
         <li value="1">we&rsquo;ll also have an array of unvisited elements that will keep track of unvisited or unmarked
             Nodes.</li>
         <li value="2">Algorithm will complete when all the nodes marked as visited and the distance between them added
             to the path.<strong>&nbsp;Unvisited Nodes:- 0 1 2 3 4 5 6.</strong></li>
     </ul>
-    <p dir="ltr"><strong>Step 1:&nbsp;</strong>Start from Node 0 and mark Node as visited as you can check in below
+    <p dir="ltr" class="gm-step"><strong>Step 1:&nbsp;</strong>Start from Node 0 and mark Node as visited as you can check in below
         image visited Node is marked red.</p>
-    <div class="wp-caption alignnone"><img
+    <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
             src="https://media.geeksforgeeks.org/wp-content/uploads/20230303124731/d2-(1).png"
-            alt="Dijkstra's Algorithm" width="828" height="415" />
+            alt="Dijkstra's Algorithm" width="828" height="415" /><figcaption>Dijkstra</figcaption></figure>
         <p class="wp-caption-text">Dijkstra&rsquo;s Algorithm</p>
     </div>
-    <p dir="ltr"><strong>Step 2:&nbsp;</strong>Check for adjacent Nodes, Now we have to choices (Either choose Node1
+    <p dir="ltr" class="gm-step"><strong>Step 2:&nbsp;</strong>Check for adjacent Nodes, Now we have to choices (Either choose Node1
         with distance 2 or either choose Node 2 with distance 6 ) and choose Node with minimum distance. In this
         step<strong>&nbsp;Node 1</strong>&nbsp;is Minimum distance adjacent Node, so marked it as visited and add up the
         distance.</p>
     <p dir="ltr"><strong>Distance: Node 0 -&gt; Node 1 = 2</strong></p>
-    <div class="wp-caption alignnone"><img
+    <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
             src="https://media.geeksforgeeks.org/wp-content/uploads/20230303125338/d3-(1).png"
-            alt="Dijkstra's Algorithm" width="862" height="432" />
+            alt="Dijkstra's Algorithm" width="862" height="432" /><figcaption>Dijkstra</figcaption></figure>
         <p class="wp-caption-text">Dijkstra&rsquo;s Algorithm</p>
     </div>
-    <p dir="ltr"><strong>Step 3: &nbsp;</strong>Then Move Forward and check for adjacent Node which is Node 3, so marked
+    <p dir="ltr" class="gm-step"><strong>Step 3: &nbsp;</strong>Then Move Forward and check for adjacent Node which is Node 3, so marked
         it as visited and add up the distance, Now the distance will be:</p>
     <p dir="ltr"><strong>Distance: Node 0 -&gt; Node 1 -&gt; Node 3 = 2 + 5 = 7</strong></p>
-    <div class="wp-caption alignnone"><img
+    <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
             src="https://media.geeksforgeeks.org/wp-content/uploads/20240102151831/Dijkstra-Algorithm--step-3-768.jpg"
-            alt="Dijkstra's Algorithm" width="890" height="446" />
+            alt="Dijkstra's Algorithm" width="890" height="446" /><figcaption>Dijkstra</figcaption></figure>
         <p class="wp-caption-text">Dijkstra&rsquo;s Algorithm</p>
     </div>
-    <p dir="ltr"><strong>Step 4:</strong>&nbsp;Again we have two choices for adjacent Nodes (Either we can choose Node 4
+    <p dir="ltr" class="gm-step"><strong>Step 4:</strong>&nbsp;Again we have two choices for adjacent Nodes (Either we can choose Node 4
         with distance 10 or either we can choose Node 5 with distance 15) so choose Node with minimum distance. In this
         step<strong>&nbsp;Node 4</strong>&nbsp;is Minimum distance adjacent Node, so marked it as visited and add up the
         distance.</p>
     <p dir="ltr"><strong>Distance: Node 0 -&gt; Node 1 -&gt; Node 3 -&gt; Node 4 = 2 + 5 + 10 = 17</strong></p>
     <div id="GFG_AD_gfg_outstream_incontent-1">&nbsp;</div>
-    <div class="wp-caption alignnone"><img
+    <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
             src="https://media.geeksforgeeks.org/wp-content/uploads/20230303133722/d5-(1).png"
-            alt="Dijkstra's Algorithm" width="854" height="428" />
+            alt="Dijkstra's Algorithm" width="854" height="428" /><figcaption>Dijkstra</figcaption></figure>
         <p class="wp-caption-text">Dijkstra&rsquo;s Algorithm</p>
     </div>
-    <p dir="ltr"><strong>Step 5:</strong>&nbsp;&nbsp;Again, Move Forward and check for adjacent Node which
+    <p dir="ltr" class="gm-step"><strong>Step 5:</strong>&nbsp;&nbsp;Again, Move Forward and check for adjacent Node which
         is<strong>&nbsp;Node 6</strong>, so marked it as visited and add up the distance, Now the distance will be:</p>
     <p dir="ltr"><strong>Distance: Node 0 -&gt; Node 1 -&gt; Node 3 -&gt; Node 4 -&gt; Node 6 = 2 + 5 + 10 + 2 =
             19</strong></p>
-    <div class="wp-caption alignnone"><img
+    <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
             src="https://media.geeksforgeeks.org/wp-content/uploads/20230303134335/d6.png" alt="Dijkstra's Algorithm"
-            width="846" height="424" />
+            width="846" height="424" /><figcaption>Dijkstra</figcaption></figure>
         <p class="wp-caption-text">Dijkstra&rsquo;s Algorithm</p>
     </div>
     <p dir="ltr"><strong>So, the Shortest Distance from the Source Vertex is 19 which is optimal one</strong></p>
@@ -208,15 +208,15 @@
                     (Heap)</span></u></a></h3>
     <p dir="ltr">In this Implementation, we are given a graph and a source vertex in the graph, finding the shortest
         paths from the source to all vertices in the given graph.</p>
-    <p dir="ltr"><strong>Example:</strong></p>
+    <p dir="ltr" class="gm-lead gm-example-lead"><strong>Example:</strong></p>
     <blockquote>
-        <p dir="ltr"><strong>Input:&nbsp;</strong>Source = 0</p>
-        <div class="wp-caption alignnone"><img
+        <div class="gm-callout gm-syntax" data-label="Input"><p dir="ltr"><strong>Input:&nbsp;</strong>Source = 0</p></div>
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20230224110301/dijkstras1.png" width="492"
-                height="350" />
+                height="350" /></figure>
             <p class="wp-caption-text">Example</p>
         </div>
-        <p dir="ltr"><strong>Output:</strong>&nbsp;Vertex</p>
+        <div class="gm-callout gm-syntax" data-label="Output"><p dir="ltr"><strong>Output:</strong>&nbsp;Vertex</p></div>
         <p dir="ltr">Vertex Distance from Source</p>
         <div id="GFG_AD_gfg_outstream_incontent-3" data-google-query-id="CJC4lu-to4YDFV1bnQkdQesEMg">
             <div id="google_ads_iframe_/27823234/gfg_outstream_incontent_5_0__container__">&nbsp;</div>
@@ -265,11 +265,11 @@
     <h3>How to find Shortest Paths from Source to all Vertices using Dijkstra’s Algorithm</h3>
     <p dir="ltr">Given a weighted graph and a source vertex in the graph, find the&nbsp;<strong>shortest
             paths</strong>&nbsp;from the source to all the other vertices in the given graph.</p>
-    <p dir="ltr"><strong>Note:&nbsp;</strong>The given graph does not contain any negative edge.</p>
+    <div class="gm-callout gm-note" data-label="Note"><p dir="ltr"><strong>Note:&nbsp;</strong>The given graph does not contain any negative edge.</p></div>
     <div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
-    <p dir="ltr"><strong>Examples:</strong></p>
+    <p dir="ltr" class="gm-lead gm-example-lead"><strong>Examples:</strong></p>
     <blockquote>
-        <p dir="ltr"><strong>Input:</strong>&nbsp;src = 0, the graph is shown below.</p>
+        <div class="gm-callout gm-syntax" data-label="Input"><p dir="ltr"><strong>Input:</strong>&nbsp;src = 0, the graph is shown below.</p></div>
         <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
         <div id="GFG_AD_InContent_Desktop_728x280">
             <div id="GFG_AD_InContent_Desktop_350x250_1" data-google-query-id="CKa074ivo4YDFTFLnQkd08oALA">
@@ -279,14 +279,14 @@
     </blockquote>
 
 
-    <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20240111182238/Working-of-Dijkstras-Algorithm-768.jpg"
-            alt="1-(2)" width="674" height="337" /></p>
-    <p dir="ltr"><strong>Output:</strong>&nbsp;0 4 12 19 21 11 9 8 14<br /><strong>Explanation:</strong>&nbsp;The
+    <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20240111182238/Working-of-Dijkstras-Algorithm-768.jpg"
+            alt="1-(2)" width="674" height="337" /><figcaption>1-(2)</figcaption></figure></p>
+    <div class="gm-callout gm-syntax" data-label="Output"><p dir="ltr"><strong>Output:</strong>&nbsp;0 4 12 19 21 11 9 8 14<br /><strong>Explanation:</strong>&nbsp;The
         distance from 0 to 1 = 4.<br />The minimum distance from 0 to 2 = 12. 0-&gt;1-&gt;2<br />The minimum distance
         from 0 to 3 = 19. 0-&gt;1-&gt;2-&gt;3<br />The minimum distance from 0 to 4 = 21.
         0-&gt;7-&gt;6-&gt;5-&gt;4<br />The minimum distance from 0 to 5 = 11. 0-&gt;7-&gt;6-&gt;5<br />The minimum
         distance from 0 to 6 = 9. 0-&gt;7-&gt;6<br />The minimum distance from 0 to 7 = 8. 0-&gt;7<br />The minimum
-        distance from 0 to 8 = 14. 0-&gt;1-&gt;2-&gt;8</p>
+        distance from 0 to 8 = 14. 0-&gt;1-&gt;2-&gt;8</p></div>
 
     <h2><u><span class="GFGEditorTheme__textUnderline">Dijkstra&rsquo;s Algorithm using&nbsp;</span></u><a
             href="https://www.geeksforgeeks.org/adjacency-matrix-meaning-and-definition-in-dsa/" rel=""><u><span
@@ -330,10 +330,10 @@
             </ul>
         </li>
     </ul>
-    <p dir="ltr"><strong>Note:</strong>&nbsp;We use a boolean array&nbsp;<strong>sptSet[]</strong>&nbsp;to represent the
+    <div class="gm-callout gm-note" data-label="Note"><p dir="ltr"><strong>Note:</strong>&nbsp;We use a boolean array&nbsp;<strong>sptSet[]</strong>&nbsp;to represent the
         set of vertices included in&nbsp;<strong>SPT</strong>. If a value&nbsp;<strong>sptSet[v]</strong>&nbsp;is true,
         then vertex v is included in&nbsp;<strong>SPT</strong>, otherwise not.
-        Array&nbsp;<strong>dist[]&nbsp;</strong>is used to store the shortest distance values of all vertices.</p>
+        Array&nbsp;<strong>dist[]&nbsp;</strong>is used to store the shortest distance values of all vertices.</p></div>
     <div id="GFG_AD_gfg_outstream_incontent" data-google-query-id="CKi074ivo4YDFTFLnQkd08oALA">
         <div id="google_ads_iframe_/27823234/gfg_outstream_incontent_0__container__">&nbsp;</div>
     </div>
@@ -343,9 +343,9 @@
         <p dir="ltr">To understand the Dijkstra&rsquo;s Algorithm lets take a graph and find the shortest path from
             source to all nodes.</p>
         <p dir="ltr">Consider below graph and&nbsp;<strong>src = 0</strong></p>
-        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240111182238/Working-of-Dijkstras-Algorithm-768.jpg"
-            alt="1-(2)" width="786" height="393" />
-        <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 1:</strong></strong></u></p>
+        <figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20240111182238/Working-of-Dijkstras-Algorithm-768.jpg"
+            alt="1-(2)" width="786" height="393" /><figcaption>1-(2)</figcaption></figure>
+        <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 1:</strong></strong></u></p>
         <ul>
             <li value="1">The set&nbsp;<em><strong><strong
                             class="GFGEditorTheme__textItalic">sptSet</strong></strong></em>&nbsp;is initially empty and
@@ -364,46 +364,46 @@
             distance values are shown. The vertices included in&nbsp;<strong>SPT</strong>&nbsp;are shown
             in&nbsp;<strong>green</strong>&nbsp;colour.</p>
         <div id="GFG_AD_gfg_outstream_incontent">&nbsp;</div>
-        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20231121131452/6.jpg" alt="6" width="806"
-            height="403" />
+        <figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231121131452/6.jpg" alt="6" width="806"
+            height="403" /><figcaption>6</figcaption></figure>
     </blockquote>
 
-    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 2:</strong></strong></u></p>
+    <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 2:</strong></strong></u></p>
     <ul>
         <li value="1">Pick the vertex with minimum distance value and not already included
             in&nbsp;<strong>SPT</strong>&nbsp;(not in&nbsp;<strong>sptSET</strong>). The vertex 1 is picked and added
             to&nbsp;<strong>sptSet</strong>.&nbsp;</li>
         <li value="2">So&nbsp;<strong>sptSet</strong>&nbsp;now becomes {0, 1}. Update the distance values of adjacent
             vertices of 1.&nbsp;</li>
-        <li value="3">The distance value of vertex 2 becomes&nbsp;<strong>12</strong>.<br /><img
+        <li value="3">The distance value of vertex 2 becomes&nbsp;<strong>12</strong>.<br /><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20231121131946/4.jpg" alt="4" width="770"
-                height="385" /></li>
+                height="385" /><figcaption>4</figcaption></figure></li>
     </ul>
-    <p dir="ltr"><br /><u><strong><strong class="GFGEditorTheme__textUnderline">Step 3:&nbsp;</strong></strong></u></p>
+    <p dir="ltr" class="gm-step"><br /><u><strong><strong class="GFGEditorTheme__textUnderline">Step 3:&nbsp;</strong></strong></u></p>
     <ul>
         <li value="1">Pick the vertex with minimum distance value and not already included
             in&nbsp;<strong>SPT</strong>&nbsp;(not in&nbsp;<strong>sptSET</strong>). Vertex 7 is picked.
             So&nbsp;<strong>sptSet</strong>&nbsp;now becomes&nbsp;<strong>{0, 1, 7}.</strong>&nbsp;</li>
         <li value="2">Update the distance values of adjacent vertices of 7. The distance value of vertex 6 and 8 becomes
-            finite (<strong>15 and 9</strong>&nbsp;respectively).&nbsp;<br /><img
+            finite (<strong>15 and 9</strong>&nbsp;respectively).&nbsp;<br /><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20231121132026/5.jpg" alt="5" width="794"
-                height="397" /></li>
+                height="397" /><figcaption>5</figcaption></figure></li>
     </ul>
-    <p dir="ltr"><br /><u><strong><strong class="GFGEditorTheme__textUnderline">Step 4:</strong></strong></u></p>
+    <p dir="ltr" class="gm-step"><br /><u><strong><strong class="GFGEditorTheme__textUnderline">Step 4:</strong></strong></u></p>
     <ul>
         <li value="1">Pick the vertex with minimum distance value and not already included
             in&nbsp;<strong>SPT</strong>&nbsp;(not in&nbsp;<strong>sptSET</strong>). Vertex 6 is picked.
             So&nbsp;<strong>sptSet</strong>&nbsp;now becomes&nbsp;<strong>{0, 1, 7, 6}</strong>.&nbsp;</li>
         <li value="2">Update the distance values of adjacent vertices of 6. The distance value of vertex 5 and 8 are
-            updated.<br /><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231121132105/3-(1).jpg"
-                alt="3-(1)" width="776" height="388" /></li>
+            updated.<br /><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231121132105/3-(1).jpg"
+                alt="3-(1)" width="776" height="388" /><figcaption>3-(1)</figcaption></figure></li>
     </ul>
     <p dir="ltr"><br />We repeat the above steps until&nbsp;<em><strong><strong
                     class="GFGEditorTheme__textItalic">sptSet</strong></strong></em><em><em
                 class="GFGEditorTheme__textItalic">&nbsp;</em></em>includes<strong>&nbsp;</strong>all vertices of the
         given graph. Finally, we get the following S<strong>hortest Path Tree (SPT).</strong></p>
-    <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231121132145/2-(2).jpg" alt="2-(2)" width="768"
-            height="384" /></p>
+    <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231121132145/2-(2).jpg" alt="2-(2)" width="768"
+            height="384" /><figcaption>2-(2)</figcaption></figure></p>
 
 
     Below is the implementation of the above approach:<br>
@@ -545,11 +545,11 @@
 
 </div>
     </div>
-    <p dir="ltr"><strong>Time Complexity:&nbsp;</strong>O(V<sup>2</sup>)<br /><strong>Auxiliary
+    <p dir="ltr" class="gm-complexity" data-label="Time complexity"><strong>Time Complexity:&nbsp;</strong>O(V<sup>2</sup>)<br /><strong>Auxiliary
             Space:&nbsp;</strong>O(V)</p>
 
 
-    <p dir="ltr"><strong>Notes:</strong>&nbsp;</p>
+    <p dir="ltr" class="gm-lead gm-note-lead"><strong>Notes:</strong>&nbsp;</p>
     <ul>
         <li value="1">The code calculates the shortest distance but doesn&rsquo;t calculate the path information. Create
             a parent array, update the parent array when distance is updated and use it to show the shortest path from
@@ -568,17 +568,17 @@
         once a node is added to the set of visited nodes, its distance is finalized and will not change. However, in the
         presence of negative weights, this assumption can lead to incorrect results.</p>
     <p dir="ltr">Consider the following graph for the example:</p>
-    <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231106115051/Failure-of-Dijkstra-in-case-of-negative-edges.jpg"
-            alt="Failure-of-Dijkstra-in-case-of-negative-edges" width="702" height="351" /></p>
+    <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231106115051/Failure-of-Dijkstra-in-case-of-negative-edges.jpg"
+            alt="Failure-of-Dijkstra-in-case-of-negative-edges" width="702" height="351" /><figcaption>Failure-of-Dijkstra-in-case-of-negative-edges</figcaption></figure></p>
     <p dir="ltr">In the above graph, A is the source node, among the
         edges&nbsp;<strong>A</strong>&nbsp;to&nbsp;<strong>B&nbsp;</strong>and&nbsp;<strong>A</strong>&nbsp;to&nbsp;<strong>C</strong>&nbsp;,&nbsp;<strong>A</strong>&nbsp;to&nbsp;<strong>B&nbsp;</strong>is
         the smaller weight and Dijkstra assigns the shortest distance of&nbsp;<strong>B</strong>&nbsp;as 2, but because
         of existence of a negative edge from&nbsp;<strong>C</strong>&nbsp;to&nbsp;<strong>B</strong>, the actual
         shortest distance reduces to 1 which Dijkstra fails to detect.</p>
     <div id="GFG_AD_gfg_outstream_incontent-1">&nbsp;</div>
-    <p dir="ltr"><strong>Note:&nbsp;</strong>We use&nbsp;<a
+    <div class="gm-callout gm-note" data-label="Note"><p dir="ltr"><strong>Note:&nbsp;</strong>We use&nbsp;<a
             href="https://www.geeksforgeeks.org/bellman-ford-algorithm-dp-23/" rel="">Bellman Ford&rsquo;s Shortest path
-            algorithm&nbsp;</a>in case we have negative edges in the graph.</p>
+            algorithm&nbsp;</a>in case we have negative edges in the graph.</p></div>
 
 
     <h2><u><span class="GFGEditorTheme__textUnderline">Dijkstra&rsquo;s Algorithm using&nbsp;</span></u><a

@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <div class="article-title">
         <div class="main_wrapper">
         <div>
@@ -72,7 +72,7 @@
         <p><strong>EXAMPLE&nbsp;</strong><br /><strong>Construct a CLR parsing table for the given context-free grammar</strong></p>
         <div class="gray">S--&gt;AA    
         A--&gt;aA|b</div>
-        <p><strong>Solution :</strong><br /><strong>STEP 1 &ndash;</strong>&nbsp;Find augmented grammar</p>
+        <div class="gm-callout gm-solution" data-label="Solution"><p><strong>Solution :</strong><br /><strong>STEP 1 &ndash;</strong>&nbsp;Find augmented grammar</p></div>
         <p>The augmented grammar of the given grammar is:-</p>
         <div class="gray">S'--&gt;.S ,$   [0th production]    
         S--&gt;.AA ,$ [1st production]    
@@ -86,7 +86,7 @@
         <li>Now, the 3rd production is a part of the 2nd production.So, the look ahead will be the same.</li>
         </ul>
         <p><strong>STEP 2 &ndash;&nbsp;</strong>Find LR(1) collection of items<br />Below is the figure showing the LR(1) collection of items. We will understand everything one by one.</p>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20210622142046/22.png" width="367" height="247" /></p>
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20210622142046/22.png" width="367" height="247" /></figure></p>
         <p>The terminals of this grammar are {a,b}<br />The non-terminals of this grammar are {S,A}</p>
         </div>
         
@@ -111,8 +111,8 @@
 <li>I6 goes to I6 when &nbsp;&lsquo; . &lsquo; of the 2nd production is shifted towards right (A-&gt;a.A) . a is seen by the compiler. Since I6 is a part of the 2nd production, the lookahead is the same i.e. $.</li>
 <li>I6 goes to I7 when &nbsp;&lsquo; . &lsquo; of the 3rd production is shifted towards right (A-&gt;b.) . b is seen by the compiler. Since I6 is a part of the 3rd production, the lookahead is the same ie $.</li>
 </ul>
-<p><strong>STEP 3-&nbsp;</strong>&nbsp;defining 2 functions:goto[list of terminals] and action[list of non-terminals] in the parsing table.Below is the CLR parsing table</p>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20210621160336/CLR.png" width="739" height="332" /></p>
+<p class="gm-step"><strong>STEP 3-&nbsp;</strong>&nbsp;defining 2 functions:goto[list of terminals] and action[list of non-terminals] in the parsing table.Below is the CLR parsing table</p>
+<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20210621160336/CLR.png" width="739" height="332" /></figure></p>
 <ul>
 <li>$ is by default a non terminal which takes accepting state.</li>
 <li>0,1,2,3,4,5,6,7,8,9 denotes I0,I1,I2,I3,I4,I5,I6,I7,I8,I9</li>

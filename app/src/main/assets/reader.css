@@ -1,153 +1,552 @@
 /*
- * Shared stylesheet for every bundled article.
+ * Reading experience for every bundled article.
  *
  * The source documents were written for a desktop browser: fixed margins, a
- * hardcoded cream background, no viewport tag. This is injected as the last
- * stylesheet in <head> by tools/normalize_content_html.py so it wins over the
- * per-file <style> blocks, and it uses !important only where those blocks set
- * a colour directly on the element.
+ * hardcoded cream background, undifferentiated walls of prose. This is injected
+ * as the last stylesheet in <head> by tools/normalize_content_html.py so it wins
+ * over the per-file <style> blocks, and tools/enrich_content.py adds the
+ * gm-* hooks it styles.
+ *
+ * Design intent: a textbook a student actually wants to open. Long prose is
+ * broken up by things the eye can land on — callouts, formula plaques, code
+ * panels, complexity chips — so a page can be skimmed before it is read.
  */
 
+/* ========================================================================
+   Tokens
+   ======================================================================== */
+
 :root {
-  --ink: #1b1b21;
-  --ink-muted: #46464f;
-  --ground: #fbf8ff;
-  --panel: #eef0f7;
-  --rule: #dcdfe8;
-  --accent: #2b4bb8;
-  --code-ground: #f1f2f7;
+  --ink:          #16181d;
+  --ink-soft:     #414654;
+  --ink-faint:    #6b7180;
+  --ground:       #fbfaf8;
+  --panel:        #f2f2f5;
+  --panel-2:      #e8e9ee;
+  --rule:         #e0e1e7;
+  --accent:       #2b4bb8;
+  --accent-soft:  #eaeeff;
+
+  --note:         #1d6fa5;   --note-bg:    #e8f3fb;
+  --example:      #1b6c3a;   --example-bg: #e6f5ec;
+  --key:          #8a5100;   --key-bg:     #fdf2e0;
+  --warn:         #a8321f;   --warn-bg:    #fceceb;
+  --formula:      #6b4ba8;   --formula-bg: #f2ecfd;
+  --io:           #00696e;   --io-bg:      #e5f5f5;
+
+  /* The code panel stays dark in both themes: students read code in editors,
+     and a light code block beside dark syntax colours reads as a mistake. */
+  --code-bg:      #171a21;
+  --code-ink:     #dfe3ec;
+  --code-rule:    #2a2f3a;
+  --code-key:     #ff9db8;
+  --code-str:     #b8e08a;
+  --code-com:     #7d8798;
+  --code-num:     #f7c86b;
+  --code-type:    #8fd0ff;
+  --code-fn:      #c8b0ff;
+
+  --radius:       14px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --ink: #e4e1e9;
-    --ink-muted: #c7c5d0;
-    --ground: #121318;
-    --panel: #1e2029;
-    --rule: #33353f;
-    --accent: #b8c3ff;
-    --code-ground: #1a1c24;
+    --ink:         #e6e8ee;
+    --ink-soft:    #b9bfcc;
+    --ink-faint:   #8b93a3;
+    --ground:      #0f1116;
+    --panel:       #191c23;
+    --panel-2:     #21252e;
+    --rule:        #2b303a;
+    --accent:      #a8b8ff;
+    --accent-soft: #1a2035;
+
+    --note:        #7cc4ee;   --note-bg:    #14232e;
+    --example:     #7fd6a2;   --example-bg: #12251a;
+    --key:         #f5c169;   --key-bg:     #2a2113;
+    --warn:        #ff9d90;   --warn-bg:    #2c1917;
+    --formula:     #cbb2ff;   --formula-bg: #1e1930;
+    --io:          #6fd4d4;   --io-bg:      #10262a;
   }
 }
 
-html {
-  -webkit-text-size-adjust: 100%;
-}
+/* ========================================================================
+   Base
+   ======================================================================== */
+
+html { -webkit-text-size-adjust: 100%; }
 
 body {
   background: var(--ground) !important;
   color: var(--ink) !important;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif !important;
   font-size: 17px;
-  line-height: 1.65;
+  line-height: 1.72;
   margin: 0 !important;
-  padding: 18px 16px 56px !important;
-  max-width: 46rem;
+  /* Generous bottom padding: the last paragraph should never sit under the
+     navigation bar. */
+  padding: 20px 18px 96px !important;
+  max-width: 44rem;
   overflow-wrap: break-word;
+  text-rendering: optimizeLegibility;
 }
 
-/* Headings ---------------------------------------------------------------- */
+/* The source files wrap everything in these; neutralise their own spacing. */
+.main_wrapper, .article-title, .text, .content {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  max-width: none !important;
+}
+
+/* ========================================================================
+   Headings — each level gets a different visual anchor so hierarchy is
+   obvious at a glance while scrolling, not just by size.
+   ======================================================================== */
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--ink) !important;
   line-height: 1.25;
-  margin: 1.6em 0 0.5em;
   text-wrap: balance;
+  font-weight: 700;
 }
 
-h1 { font-size: 1.65rem; margin-top: 0; }
-h2 { font-size: 1.3rem; }
-h3 { font-size: 1.1rem; }
-h4, h5, h6 { font-size: 1rem; }
-
-p, li, td, th, blockquote, div, span, strong, em, b, i {
-  color: inherit;
+h1 {
+  font-size: 1.72rem;
+  margin: 0 0 1.1em;
+  padding-bottom: 0.42em;
+  border-bottom: 3px solid var(--accent);
+  letter-spacing: -0.02em;
 }
 
-p { margin: 0 0 1em; }
-
-/* Lists ------------------------------------------------------------------- */
-
-ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
-li { margin-bottom: 0.4em; }
-
-/* Quotes and callouts ----------------------------------------------------- */
-
-blockquote {
-  background: var(--panel) !important;
-  border-left: 3px solid var(--accent);
-  margin: 0 0 1.2em;
-  padding: 0.8em 1em;
-  border-radius: 0 6px 6px 0;
+h2 {
+  font-size: 1.28rem;
+  margin: 2.1em 0 0.7em;
+  padding-left: 0.62em;
+  border-left: 4px solid var(--accent);
+  letter-spacing: -0.01em;
 }
 
-blockquote p:last-child { margin-bottom: 0; }
+h3 {
+  font-size: 1.08rem;
+  margin: 1.7em 0 0.55em;
+  color: var(--accent) !important;
+}
 
-/* The source documents use .gray for code-ish call-outs. */
-.gray {
-  background: var(--code-ground) !important;
-  color: var(--ink) !important;
-  border-radius: 8px;
-  padding: 0.75em 0.9em !important;
-  margin-bottom: 1em;
+h4, h5, h6 {
+  font-size: 1rem;
+  margin: 1.4em 0 0.45em;
+  color: var(--ink-soft) !important;
+}
+
+p { margin: 0 0 1.05em; }
+
+strong, b { font-weight: 650; color: var(--ink); }
+em, i { font-style: italic; }
+u { text-decoration-color: var(--accent); text-underline-offset: 3px; }
+
+/* ========================================================================
+   Lists
+   ======================================================================== */
+
+ul, ol { padding-left: 1.35em; margin: 0 0 1.1em; }
+li { margin-bottom: 0.5em; padding-left: 0.15em; }
+li::marker { color: var(--accent); font-weight: 600; }
+li > ul, li > ol { margin-top: 0.5em; }
+
+/* ========================================================================
+   Callouts — the enrichment pass tags these. A label chip plus a coloured
+   rail means a skimming reader can find the example or the warning without
+   reading the paragraph first.
+   ======================================================================== */
+
+.gm-callout {
+  --c: var(--accent);
+  --c-bg: var(--accent-soft);
+  position: relative;
+  background: var(--c-bg) !important;
+  border-left: 4px solid var(--c);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 0.95em 1.05em 0.95em 1.1em;
+  margin: 1.3em 0;
+}
+
+.gm-callout > :first-child { margin-top: 0; }
+.gm-callout > :last-child { margin-bottom: 0; }
+
+.gm-callout::before {
+  content: attr(data-label);
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--c);
+  margin-bottom: 0.42em;
+}
+
+.gm-note      { --c: var(--note);    --c-bg: var(--note-bg); }
+.gm-example   { --c: var(--example); --c-bg: var(--example-bg); }
+.gm-key       { --c: var(--key);     --c-bg: var(--key-bg); }
+.gm-warn      { --c: var(--warn);    --c-bg: var(--warn-bg); }
+.gm-syntax    { --c: var(--io);      --c-bg: var(--io-bg); }
+.gm-solution  { --c: var(--example); --c-bg: var(--example-bg); }
+.gm-definition{ --c: var(--formula); --c-bg: var(--formula-bg); }
+
+/* A bare "Example:" or "Note:" introducing a list below. Not a box — just a
+   coloured, tightly-spaced label so the eye registers it as a section start. */
+.gm-lead {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 1.5em 0 0.4em !important;
+  color: var(--accent);
+}
+
+.gm-lead strong, .gm-lead b { font-weight: 700; color: inherit !important; }
+
+.gm-note-lead       { color: var(--note); }
+.gm-example-lead    { color: var(--example); }
+.gm-key-lead        { color: var(--key); }
+.gm-warn-lead       { color: var(--warn); }
+.gm-syntax-lead     { color: var(--io); }
+.gm-solution-lead   { color: var(--example); }
+.gm-definition-lead { color: var(--formula); }
+.gm-complexity-lead { color: var(--ink-faint); }
+
+/* ========================================================================
+   Formula plaque — centred, larger, unmissable. Formulas are what a student
+   scrolls back to find, so they must not look like body text.
+   ======================================================================== */
+
+.gm-formula {
+  background: var(--formula-bg) !important;
+  border: 1px solid color-mix(in srgb, var(--formula) 35%, transparent);
+  border-radius: var(--radius);
+  padding: 1em 1.1em;
+  margin: 1.4em 0;
+  text-align: center;
+  font-size: 1.06em;
+  line-height: 1.9;
   overflow-x: auto;
 }
 
-/* Code -------------------------------------------------------------------- */
+.gm-formula strong, .gm-formula b { color: var(--formula) !important; }
+.gm-formula > :first-child { margin-top: 0; }
+.gm-formula > :last-child { margin-bottom: 0; }
 
-pre, code, kbd, samp {
-  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
-  font-size: 0.9em;
-}
-
-pre {
-  background: var(--code-ground) !important;
-  color: var(--ink) !important;
-  padding: 0.9em 1em;
-  border-radius: 8px;
-  overflow-x: auto;
-  line-height: 1.5;
-}
-
-code { background: var(--code-ground); padding: 0.1em 0.35em; border-radius: 4px; }
-pre code { background: none; padding: 0; }
-
-/* Tables ------------------------------------------------------------------ */
-
-/* Wide tables scroll inside their own box instead of stretching the page. */
-table {
+/* Complexity chips: "Time Complexity: O(n log n)" is a fact students hunt
+   for, so it gets its own compact, scannable form. */
+.gm-complexity {
   display: block;
-  width: 100%;
-  overflow-x: auto;
-  border-collapse: collapse;
-  margin: 0 0 1.2em;
+  background: var(--panel) !important;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 0.6em 0.85em;
+  margin: 0.7em 0;
   font-size: 0.95em;
 }
 
-th, td {
-  border: 1px solid var(--rule) !important;
-  padding: 0.5em 0.7em;
-  text-align: left;
+.gm-complexity::before {
+  content: attr(data-label);
+  display: block;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 0.1em;
 }
 
-th { background: var(--panel) !important; font-weight: 600; }
+.gm-complexity strong, .gm-complexity b {
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  color: var(--accent) !important;
+}
 
-/* Media ------------------------------------------------------------------- */
+/* ========================================================================
+   Code — a real editor panel, dark in both themes, with the source's own
+   syntax tokens mapped to a legible palette.
+   ======================================================================== */
 
-img, svg, video, iframe {
+pre, code, kbd, samp {
+  font-family: ui-monospace, "Cascadia Mono", "SF Mono", Consolas, monospace;
+}
+
+/* Inline code */
+code {
+  font-size: 0.88em;
+  background: var(--panel-2);
+  color: var(--ink);
+  padding: 0.12em 0.38em;
+  border-radius: 5px;
+  border: 1px solid var(--rule);
+}
+
+pre {
+  background: var(--code-bg) !important;
+  color: var(--code-ink) !important;
+  padding: 1em 1.1em;
+  border-radius: var(--radius);
+  overflow-x: auto;
+  line-height: 1.62;
+  font-size: 0.86rem;
+  margin: 1.3em 0;
+  border: 1px solid var(--code-rule);
+}
+
+pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* Grouped run of SyntaxHighlighter ".line" divs, wrapped by the enrichment
+   pass so scattered lines become one panel. */
+.gm-code {
+  background: var(--code-bg) !important;
+  border: 1px solid var(--code-rule);
+  border-radius: var(--radius);
+  margin: 1.3em 0;
+  overflow: hidden;
+}
+
+.gm-code::before {
+  content: attr(data-lang);
+  display: block;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8b93a3;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid var(--code-rule);
+  padding: 0.5em 1em;
+}
+
+.gm-code-body {
+  padding: 0.85em 0;
+  overflow-x: auto;
+}
+
+.gm-code .line {
+  display: block;
+  white-space: pre;
+  padding: 0 1.1em;
+  color: var(--code-ink) !important;
+  background: none !important;
+  font-size: 0.85rem;
+  line-height: 1.65;
+}
+
+.gm-code .line:hover { background: rgba(255, 255, 255, 0.03) !important; }
+
+/* Token colours, from the source's own class names. */
+.gm-code code { background: none !important; border: 0; padding: 0; font-size: inherit; }
+.gm-code .comments, .gm-code .comment { color: var(--code-com) !important; font-style: italic; }
+.gm-code .keyword, .gm-code .kt, .gm-code .k { color: var(--code-key) !important; font-weight: 600; }
+.gm-code .string, .gm-code .s   { color: var(--code-str) !important; }
+.gm-code .value, .gm-code .mi, .gm-code .m { color: var(--code-num) !important; }
+.gm-code .color1, .gm-code .preprocessor { color: var(--code-type) !important; }
+.gm-code .functions, .gm-code .nf { color: var(--code-fn) !important; }
+.gm-code .plain, .gm-code .n, .gm-code .o { color: var(--code-ink) !important; }
+.gm-code .spaces { color: inherit !important; }
+
+/* The source's own call-out box, often program output. */
+.gray {
+  background: var(--panel) !important;
+  color: var(--ink) !important;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 0.8em 0.95em !important;
+  margin: 1.1em 0 !important;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+/* ========================================================================
+   Quotes
+   ======================================================================== */
+
+blockquote {
+  background: var(--panel) !important;
+  border-left: 4px solid var(--accent);
+  margin: 1.3em 0;
+  padding: 0.9em 1.05em;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  color: var(--ink) !important;
+}
+
+blockquote > :first-child { margin-top: 0; }
+blockquote > :last-child { margin-bottom: 0; }
+
+/* ========================================================================
+   Tables — wide tables scroll inside their own card rather than stretching
+   the page, and rows alternate so a long comparison stays readable.
+   ======================================================================== */
+
+.gm-table {
+  overflow-x: auto;
+  margin: 1.3em 0;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--ground);
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.92rem;
+  margin: 0;
+  background: none !important;
+}
+
+/* A table not caught by the enrichment pass still must not break the page. */
+table:not(.gm-table table) { display: block; overflow-x: auto; }
+
+th, td {
+  border: 0 !important;
+  border-bottom: 1px solid var(--rule) !important;
+  padding: 0.62em 0.85em;
+  text-align: left;
+  vertical-align: top;
+  color: var(--ink) !important;
+  background: none !important;
+}
+
+th {
+  background: var(--panel-2) !important;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--ink-soft) !important;
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+}
+
+tbody tr:nth-child(even) td { background: var(--panel) !important; }
+tbody tr:last-child td { border-bottom: 0 !important; }
+
+/* Neutralise the source's alternating-row classes; ours handles it. */
+.alt1, .alt2 { background: none !important; }
+
+/* ========================================================================
+   Figures
+   ======================================================================== */
+
+img, svg, video {
   max-width: 100%;
   height: auto;
-  border-radius: 6px;
+  border-radius: 10px;
+  display: block;
 }
 
-/* Diagrams in these articles are screenshots on a white canvas; without this
-   they become dark rectangles with invisible labels in dark mode. */
-@media (prefers-color-scheme: dark) {
-  img { background: #ffffff; padding: 4px; }
+.gm-figure {
+  margin: 1.4em 0;
+  padding: 0;
+  text-align: center;
 }
 
-/* Links ------------------------------------------------------------------- */
+.gm-figure img {
+  margin: 0 auto;
+  /* Diagrams are screenshots on a white canvas; without this they become dark
+     rectangles with invisible labels in dark mode. */
+  background: #ffffff;
+  padding: 8px;
+  border: 1px solid var(--rule);
+  min-height: 3em;
+}
 
-a { color: var(--accent) !important; text-underline-offset: 2px; }
+.gm-figure figcaption {
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  margin-top: 0.55em;
+  line-height: 1.5;
+  font-style: italic;
+}
 
-hr { border: 0; border-top: 1px solid var(--rule); margin: 2em 0; }
+/* Images hosted elsewhere cannot load offline. Rather than leaving a silent
+   gap where a diagram should be, the figure itself becomes a labelled frame:
+   if the image loads it fills the frame, and if it does not the reader is told
+   why the space is there instead of wondering what they are missing. */
+.gm-remote {
+  border: 1px dashed var(--rule);
+  border-radius: var(--radius);
+  padding: 0.85em;
+  background: var(--panel);
+}
+
+.gm-remote::before {
+  content: "Diagram";
+  display: block;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 0.5em;
+}
+
+.gm-remote img {
+  min-height: 2.5em;
+  background: #ffffff;
+  color: #555;
+  font-size: 0.78rem;
+}
+
+/* No "failed to load" text here: CSS cannot tell whether the image arrived,
+   and a false failure notice under a diagram that loaded is worse than the
+   dashed frame explaining the space on its own. */
+
+/* ========================================================================
+   Links, rules, misc
+   ======================================================================== */
+
+a {
+  color: var(--accent) !important;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2.5px;
+  text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+a:active { text-decoration-color: var(--accent); }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 2.2em 0;
+}
+
+sub, sup { font-size: 0.72em; line-height: 0; }
+
+/* Steps: "Step 1:", "Step 2:" get a numbered flow feel. */
+.gm-step {
+  border-left: 3px solid var(--rule);
+  padding-left: 1em;
+  margin: 0.6em 0 0.6em 0.2em;
+}
+
+.gm-step strong:first-child { color: var(--accent) !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* Small screens: reclaim horizontal space. */
+@media (max-width: 380px) {
+  body { padding: 16px 14px 90px !important; font-size: 16.5px; }
+  h1 { font-size: 1.55rem; }
+  h2 { font-size: 1.2rem; }
+}

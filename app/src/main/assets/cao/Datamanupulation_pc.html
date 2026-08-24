@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <h2><b>Data transfer instructions</b></h2>
 
 Computer organization refers to the way in which the components of a computer system are organized and interconnected to perform specific tasks. One of the most fundamental aspects of computer organization is the set of basic computer instructions that the system can execute.<br><br>
@@ -41,7 +41,7 @@ The basic computer has 16-bit instruction register (IR) which can denote either 
 
 <b>1.Memory Reference –</b> These instructions refer to memory address as an operand. The other operand is always accumulator. Specifies 12-bit address, 3-bit opcode (other than 111) and 1-bit addressing mode for direct and indirect addressing.<br><br>
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/mref-1.jpg" width="300" height="100"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/mref-1.jpg" width="300" height="100"></figure><br><br>
     <div class="gray">
 <b>Example –</b> IR register contains = 0001XXXXXXXXXXXX, i.e. ADD after fetching and decoding of instruction we find out that it is a memory reference instruction for ADD operation.<br><br>
 
@@ -52,7 +52,7 @@ AC ← AC + DR, SC ← 0<br><br>
 
 <b>1.Register Reference –</b> These instructions perform operations on registers rather than memory addresses. The IR(14 – 12) is 111 (differentiates it from memory reference) and IR(15) is 0 (differentiates it from input/output instructions). The rest 12 bits specify register operation.<br><br>
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/rref-1.jpg" width="300" height="100"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/rref-1.jpg" width="300" height="100"></figure><br><br>
     <div class="gray">
 <b>Example – </b>IR register contains = 0111001000000000, i.e. CMA after fetch and decode cycle we find out that it is a register reference instruction for complement accumulator.<br><br>
 
@@ -62,7 +62,7 @@ Hence, AC ← ~AC<br>
 
 <b>1.Input/Output –</b> These instructions are for communication between computer and outside environment. The IR(14 – 12) is 111 (differentiates it from memory reference) and IR(15) is 1 (differentiates it from register reference instructions). The rest 12 bits specify I/O operation<br><br>
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/ioref-1.jpg" width="300" height="100"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/ioref-1.jpg" width="300" height="100"></figure><br><br>
 
     <div class="gray">
 <b>Example –</b> IR register contains = 1111100000000000, i.e. INP after fetch and decode cycle we find out that it is an input/output instruction for inputing character. Hence, INPUT character from peripheral device.<br><br>
@@ -136,7 +136,7 @@ Let’s discuss them one by one.<br><br>
 
 <b>1.Arithmetic instructions:</b> The four basic operations are addition, subtraction, multiplication, and division. Most computers provide instructions for all four operations. <b>Typical Arithmetic Instructions –</b>
 
-<table border="1">
+<div class="gm-table"><table border="1">
 <tr>
 <th>Name</th>
 <th>Mnemonic</th>
@@ -252,12 +252,12 @@ This means simply operand by -1.
 B<-B’+1</td>
 </tr>
 
-</table>
+</table></div>
 <br><br>
 
 <b>1.Logical and Bit Manipulation Instructions:</b> Logical instructions perform binary operations on strings of bits stored in registers. They are helpful for manipulating individual bits or a group of bits. <b>Typical Logical and Bit Manipulation Instructions –</b><br><br>
 
-<table border="1">
+<div class="gm-table"><table border="1">
 <tr>
 <th>Name</th>
 <th>Mnemonic</th>
@@ -368,7 +368,7 @@ Carry flag<- (Carry flag)’</td>
 <td>It will enable the interrupt
 </td>
 </tr>
-</table>
+</table></div>
 
 
 <b>1.Shift Instructions:</b> Shifts are operations in which the bits of a word are moved to the left or right. Shift instructions may specify either logical shifts, arithmetic shifts, or rotate-type operations.<br><br>

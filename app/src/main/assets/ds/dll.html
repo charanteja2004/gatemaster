@@ -6,7 +6,7 @@
     <title>Doubly Linked List</title>
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
 <h1>Doubly Linked List</h1>
 
 <p>A doubly linked list gives every node a pointer to its <strong>predecessor</strong> as well as its
@@ -48,7 +48,7 @@ free(p);</pre>
 </blockquote>
 
 <h2>Cost of each operation</h2>
-<table>
+<div class="gm-table"><table>
   <tr><th>Operation</th><th>Singly linked</th><th>Doubly linked</th></tr>
   <tr><td>Insert at head</td><td>O(1)</td><td>O(1)</td></tr>
   <tr><td>Insert at tail (tail pointer kept)</td><td>O(1)</td><td>O(1)</td></tr>
@@ -57,7 +57,7 @@ free(p);</pre>
   <tr><td>Search by value</td><td>O(n)</td><td>O(n)</td></tr>
   <tr><td>Traverse backwards</td><td>Not possible</td><td>O(n)</td></tr>
   <tr><td>Extra memory per node</td><td>1 pointer</td><td>2 pointers</td></tr>
-</table>
+</table></div>
 
 <h2>Trade-offs</h2>
 <ul>

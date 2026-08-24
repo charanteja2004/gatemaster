@@ -24,7 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
 <h2><b>Process State</b></h2>
 <p>As a process executes, it changes state. The state of a process is defined in part
     by the current activity of that process. A process may be in one of the following
@@ -54,7 +54,7 @@ The states of a process are as follows: <br>
 <li><b>Suspend Ready:</b> Process that was initially in the ready state but was swapped out of main memory(refer to Virtual Memory topic) and placed onto external storage by the scheduler is said to be in suspend ready state. The process will transition back to a ready state whenever the process is again brought onto the main memory.</li>
 <li><b>Suspend wait or suspend blocked:</b> Similar to suspend ready but uses the process which was performing I/O operation and lack of main memory caused them to move to secondary memory. When work is finished it may go to suspend ready.</li><br>
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/20190604122001/states_modified.png" width="450" height="350"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190604122001/states_modified.png" width="450" height="350"></figure><br><br>
 
 <b>CPU and I/O Bound Processes:</b> If the process is intensive in terms of CPU operations, then it is called CPU bound process. Similarly, If the process is intensive in terms of I/O operations then it is called I/O bound process. <br><br>
 

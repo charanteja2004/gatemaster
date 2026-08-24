@@ -6,7 +6,7 @@
     <title>Space Complexity</title>
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
 <h1>Space Complexity</h1>
 
 <p>Space complexity is the total memory an algorithm needs as a function of the input size, counting
@@ -22,11 +22,11 @@ Because the input array is already there whatever you do, comparisons between al
 always comparisons of auxiliary space. When a question says "space complexity of merge sort", the
 expected answer is nearly always the auxiliary space, O(n).</p>
 
-<table>
+<div class="gm-table"><table>
   <tr><th></th><th>Space complexity</th><th>Auxiliary space</th></tr>
   <tr><td>Bubble sort</td><td>O(n)</td><td>O(1)</td></tr>
   <tr><td>Merge sort</td><td>O(n)</td><td>O(n)</td></tr>
-</table>
+</table></div>
 
 <p>Both are O(n) overall, and the two algorithms look identical on that measure. Auxiliary space is
 what distinguishes them.</p>
@@ -44,7 +44,7 @@ is part of auxiliary space. This is the most common source of wrong answers.</p>
 &mdash; not O(1). A loop doing the same job would be O(1).</p>
 
 <h2>Sorting algorithms</h2>
-<table>
+<div class="gm-table"><table>
   <tr><th>Algorithm</th><th>Auxiliary space</th><th>Why</th></tr>
   <tr><td>Bubble, Selection, Insertion</td><td>O(1)</td><td>A few loop variables; swaps in place</td></tr>
   <tr><td>Heap sort</td><td>O(1)</td><td>Heapifies the array in place, iteratively</td></tr>
@@ -53,7 +53,7 @@ is part of auxiliary space. This is the most common source of wrong answers.</p>
   <tr><td>Merge sort (linked list)</td><td>O(log n)</td><td>Merging needs no temporary; only the stack</td></tr>
   <tr><td>Counting sort</td><td>O(k)</td><td>k = range of the key values</td></tr>
   <tr><td>Radix sort</td><td>O(n + k)</td><td>Buckets plus output array</td></tr>
-</table>
+</table></div>
 
 <p>Quick sort's O(log n) becomes O(n) if the recursion is not arranged carefully. Recursing on the
 smaller partition first and looping on the larger one bounds the stack at O(log n) even in the worst
@@ -66,7 +66,7 @@ is not. Quick sort is usually called in place despite its O(log n) stack, which 
 worth pinning down before answering.</p>
 
 <h2>Graph algorithms</h2>
-<table>
+<div class="gm-table"><table>
   <tr><th>Algorithm</th><th>Auxiliary space</th></tr>
   <tr><td>BFS</td><td>O(V) &mdash; queue plus visited array</td></tr>
   <tr><td>DFS</td><td>O(V) &mdash; recursion stack plus visited array</td></tr>
@@ -74,7 +74,7 @@ worth pinning down before answering.</p>
   <tr><td>Floyd&ndash;Warshall</td><td>O(V<sup>2</sup>) &mdash; the distance matrix</td></tr>
   <tr><td>0/1 Knapsack (2-D table)</td><td>O(nW)</td></tr>
   <tr><td>0/1 Knapsack (rolling row)</td><td>O(W)</td></tr>
-</table>
+</table></div>
 
 <p>That last pair is a useful pattern: many dynamic-programming tables only ever read the previous
 row, so the table collapses from O(nW) to O(W) without changing the running time.</p>

@@ -24,7 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
 <h2><b>DEADLOCK</b></h2>
 
 <h3><b>Introduction of Deadlock in Operating System</b></h3>
@@ -38,7 +38,7 @@
 
     Consider an example when two trains are coming toward each other on the same track and there is only one track, none of the trains can move once they are in front of each other. A similar situation occurs in operating systems when there are two or more processes that hold some resources and wait for resources held by other(s). For example, in the below diagram, Process 1 is holding Resource 1 and waiting for resource 2 which is acquired by process 2, and process 2 is waiting for resource 1.<br><br>
 
-    <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2015/06/deadlock.png" width="350" height="350"><br><br>
+    <figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2015/06/deadlock.png" width="350" height="350"></figure><br><br>
 
     <b> Examples Of Deadlock</b><br>
 
@@ -48,7 +48,7 @@
     <li>P1 executes wait(B).</li>
     <li>Now P0 and P1 enter in deadlock.</li><br><br>
 
-<table border="1">
+<div class="gm-table"><table border="1">
     <tr>
         <th><b>P0</b></th>
         <th><b>P1</b></th>
@@ -62,13 +62,13 @@
         <td>Wait(B);</td>
         <td>Wait(A)</td>
     </tr>
-</table>
+</table></div>
 <br><br>
 
 3.  Assume the space is available for allocation of 200K bytes, and the following sequence of events occurs.<br><br>
 
 
-<table border="1">
+<div class="gm-table"><table border="1">
     <tr>
         <th><b>P0</b></th>
         <th><b>P1</b></th>
@@ -82,7 +82,7 @@
         <td>Request 60KB;</td>
         <td>Request 80KB;</td>
     </tr>
-</table>
+</table></div>
 <br><br>
 
 Deadlock occurs if both processes progress to their second request.  <br><br>
@@ -184,7 +184,7 @@ A safe state can be defined as a state in which there is no deadlock. It is achi
     <b>Disadvantages in Deadlock</b>
     Deadlock is an infinite Process it means that once a process goes into deadlock it will never come out of the loop and the process will enter for an indefinite amount of time. There are only detection, resolution, and prevention techniques. But, there are no Deadlock-stopping techniques.<br><br>
 
-    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20230726155616/img2.jpg" width="350" height="400"><br><br>
+    <figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230726155616/img2.jpg" width="350" height="400"></figure><br><br>
 
     Consider a simple scenario that includes two processes (Process A and Process B) and two resources (Resource 1 and Resource 2).<br><br>
 

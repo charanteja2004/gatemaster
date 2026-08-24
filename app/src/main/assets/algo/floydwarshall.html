@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <h2>Floyd Warshall Algorithm</h2>
 
     <p>The Floyd-Warshall algorithm, named after its creators Robert Floyd and Stephen Warshall, is a fundamental
@@ -62,8 +62,8 @@
         <p dir="ltr">The following figure shows the above optimal substructure property in floyd warshall algorithm:</p>
         <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
         <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
-        <img src="https://media.geeksforgeeks.org/wp-content/uploads/dpFloyd-Warshall-.jpg" width="350"
-            height="350" />
+        <figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/dpFloyd-Warshall-.jpg" width="350"
+            height="350" /></figure>
     </blockquote>
     <h2 id="floyd-warshall-algorithm-algorithm"><u><span class="GFGEditorTheme__textUnderline">Floyd Warshall Algorithm
                 Algorithm:</span></u></h2>
@@ -98,16 +98,16 @@
                 Floyd Warshall Algorithm :</span></u></h2>
     <blockquote>
         <p dir="ltr">Suppose we have a graph as shown in the image:</p>
-        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20231018105930/dryRun1drawio.png"
-            alt="dryRun1drawio" width="574" height="523" />
-        <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step
+        <figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231018105930/dryRun1drawio.png"
+            alt="dryRun1drawio" width="574" height="523" /><figcaption>dryRun1drawio</figcaption></figure>
+        <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step
                         1</strong></strong></u><strong>:</strong>&nbsp;Initialize the Distance[][] matrix using the
             input graph such that Distance[i][j]= weight of edge
             from<strong>&nbsp;i&nbsp;</strong>to&nbsp;<strong>j</strong>, also Distance[i][j] = Infinity if there is no
             edge from&nbsp;<strong>i</strong>&nbsp;to&nbsp;<strong>j.</strong></p>
-        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20231018110503/step1drawio.png" alt="step1drawio"
-            width="521" height="361" />
-        <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 2</strong></strong></u>: Treat
+        <figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231018110503/step1drawio.png" alt="step1drawio"
+            width="521" height="361" /><figcaption>step1drawio</figcaption></figure>
+        <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 2</strong></strong></u>: Treat
             node&nbsp;<strong>A</strong>&nbsp;as an intermediate node and calculate the Distance[][] for every {i,j}
             node pair using the formula:</p>
         <p dir="ltr">= Distance[i][j] = minimum (Distance[i][j], (Distance from i to&nbsp;<strong>A</strong>) +
@@ -115,45 +115,45 @@
             Distance[i][<strong>A</strong>] + Distance[<strong>A</strong>][j])</p>
     </blockquote>
 
-    <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231018110522/step2drawio.png" alt="step2drawio"
-            width="721" height="381" /></p>
-    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 3</strong></strong></u>: Treat
+    <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231018110522/step2drawio.png" alt="step2drawio"
+            width="721" height="381" /><figcaption>step2drawio</figcaption></figure></p>
+    <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 3</strong></strong></u>: Treat
         node&nbsp;<strong>B</strong>&nbsp;as an intermediate node and calculate the Distance[][] for every {i,j} node
         pair using the formula:</p>
     <p dir="ltr">= Distance[i][j] = minimum (Distance[i][j], (Distance from i to&nbsp;<strong>B</strong>) + (Distance
         from&nbsp;<strong>B</strong>&nbsp;to j ))<br />= Distance[i][j] = minimum (Distance[i][j],
         Distance[i][<strong>B</strong>] + Distance[<strong>B</strong>][j])</p>
-    <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231018110544/step3drawio.png" alt="step3drawio"
-            width="721" height="381" /></p>
-    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 4</strong></strong></u>: Treat
+    <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231018110544/step3drawio.png" alt="step3drawio"
+            width="721" height="381" /><figcaption>step3drawio</figcaption></figure></p>
+    <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 4</strong></strong></u>: Treat
         node&nbsp;<strong>C&nbsp;</strong>as an intermediate node and calculate the Distance[][] for every {i,j} node
         pair using the formula:</p>
     <p dir="ltr">= Distance[i][j] = minimum (Distance[i][j], (Distance from i to&nbsp;<strong>C</strong>) + (Distance
         from&nbsp;<strong>C&nbsp;</strong>to j ))<br />= Distance[i][j] = minimum (Distance[i][j],
         Distance[i][<strong>C</strong>] + Distance[<strong>C</strong>][j])</p>
-    <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231018110559/step4drawio.png" alt="step4drawio"
-            width="721" height="381" /></p>
-    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 5</strong></strong></u>: Treat
+    <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231018110559/step4drawio.png" alt="step4drawio"
+            width="721" height="381" /><figcaption>step4drawio</figcaption></figure></p>
+    <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 5</strong></strong></u>: Treat
         node&nbsp;<strong>D&nbsp;</strong>as an intermediate node and calculate the Distance[][] for every {i,j} node
         pair using the formula:</p>
     <p dir="ltr">= Distance[i][j] = minimum (Distance[i][j], (Distance from i to<strong>&nbsp;D</strong>) + (Distance
         from&nbsp;<strong>D&nbsp;</strong>to j ))<br />= Distance[i][j] = minimum (Distance[i][j],
         Distance[i][<strong>D</strong>] + Distance[<strong>D</strong>][j])</p>
-    <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231018110612/step5drawio.png" alt="step5drawio"
-            width="721" height="381" /></p>
-    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 6</strong></strong></u>: Treat
+    <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231018110612/step5drawio.png" alt="step5drawio"
+            width="721" height="381" /><figcaption>step5drawio</figcaption></figure></p>
+    <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 6</strong></strong></u>: Treat
         node&nbsp;<strong>E&nbsp;</strong>as an intermediate node and calculate the Distance[][] for every {i,j} node
         pair using the formula:</p>
     <p dir="ltr">= Distance[i][j] = minimum (Distance[i][j], (Distance from i to&nbsp;<strong>E</strong>) + (Distance
         from&nbsp;<strong>E</strong>&nbsp;to j ))<br />= Distance[i][j] = minimum (Distance[i][j],
         Distance[i][<strong>E</strong>] + Distance[<strong>E</strong>][j])</p>
-    <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231018110626/step6drawio.png" alt="step6drawio"
-            width="721" height="381" /></p>
-    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 7</strong></strong></u>: Since all the
+    <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231018110626/step6drawio.png" alt="step6drawio"
+            width="721" height="381" /><figcaption>step6drawio</figcaption></figure></p>
+    <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 7</strong></strong></u>: Since all the
         nodes have been treated as an intermediate node, we can now return the updated Distance[][] matrix as our answer
         matrix.</p>
-    <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231018110639/step7drawio.png" alt="step7drawio"
-            width="641" height="371" /></p>
+    <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231018110639/step7drawio.png" alt="step7drawio"
+            width="641" height="371" /><figcaption>step7drawio</figcaption></figure></p>
 
     Below is the implementation of the above approach:<br>
 
@@ -266,9 +266,9 @@ INF INF INF 0
         <li value="2"><strong>Auxiliary Space:&nbsp;</strong>O(V<sup>2</sup>), to create a 2-D matrix in order to store
             the shortest distance for each pair of nodes.</li>
     </ul>
-    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Note</strong></strong></u>: The above program
+    <div class="gm-callout gm-note" data-label="Note"><p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Note</strong></strong></u>: The above program
         only prints the shortest distances. We can modify the solution to print the shortest paths also by storing the
-        predecessor information in a separate 2D matrix.&nbsp;</p>
+        predecessor information in a separate 2D matrix.&nbsp;</p></div>
     <h2 id="why-floydwarshall-algorithm-better-for-dense-graphs-and-not-for-sparse-graphs"><u><span
                 class="GFGEditorTheme__textUnderline">Why Floyd-Warshall Algorithm better for Dense Graphs and not for
                 Sparse Graphs?</span></u></h2>
@@ -312,7 +312,7 @@ INF INF INF 0
             href="https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/" target="_blank"
             rel="noopener">&nbsp;shortest path</a>&nbsp;matrix, while the space complexity is determined by the need to
         store the distances between all pairs of vertices in a 2D array.</p>
-    <table>
+    <div class="gm-table"><table>
         <thead>
             <tr>
                 <th>Aspect</th>
@@ -329,7 +329,7 @@ INF INF INF 0
                 <td>O(V<sup>2</sup>)</td>
             </tr>
         </tbody>
-    </table>
+    </table></div>
     <p dir="ltr">Let&rsquo;s explore the detailed time and space complexity of the&nbsp;<strong>Floyd Warshall
             Algorithm</strong>:</p>
     <div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>

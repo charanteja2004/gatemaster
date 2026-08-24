@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <div class="main_wrapper">
         <div>
             <div class="article-title">
@@ -59,8 +59,8 @@
         <p><strong>EXAMPLE</strong><br /><strong>Construct CLR parsing table for the given context free grammar</strong></p>
         <pre>S--&gt;AA    
             A--&gt;aA|b</pre>
-            <p><strong>Solution:</strong></p>
-    <p><strong>STEP1-</strong>&nbsp;Find augmented grammar<br />The augmented grammar of the given grammar is:-</p>
+            <p class="gm-lead gm-solution-lead"><strong>Solution:</strong></p>
+    <p class="gm-step"><strong>STEP1-</strong>&nbsp;Find augmented grammar<br />The augmented grammar of the given grammar is:-</p>
     <pre>S'--&gt;.S ,$   [0th production]    
         S--&gt;.AA ,$ [1st production]    
         A--&gt;.aA ,a|b [2nd production]      
@@ -73,8 +73,8 @@
         <li>Now,the 3rd production is a part of the 2nd production.So, the look ahead will be the same.</li>
     </ul>
     <p><strong>STEP2 &ndash;</strong>&nbsp;Find LR(0) collection of items<br />Below is the figure showing the LR(0) collection of items. We will understand everything one by one.</p>
-    <p>&nbsp;</p>
-    <img src="image.png" alt="STEP2" height="300px" width="300px">
+    
+    <figure class="gm-figure"><img src="image.png" alt="STEP2" height="300px" width="300px"><figcaption>STEP2</figcaption></figure>
     <p>The terminals of this grammar are {a,b}<br />The non-terminals of this grammar are {S,A}</p>
 </div>
 <div class="main_wrapper">
@@ -100,7 +100,7 @@
             <li>I6 goes to I7 when &nbsp;&lsquo; . &lsquo; of the 3rd production is shifted towards right (A-&gt;b.) . b is seen by the compiler. Since I6 is a part of the 3rd production, the lookahead is same i.e. $.</li>
         </ul>
         <p><strong>STEP 3 &ndash;</strong><br />Defining 2 functions: goto[list of terminals] and action[list of non-terminals] in the parsing table.Below is the CLR parsing table</p>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20210622142437/CLR.png" sizes="100vw" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20210622142437/CLR-660x297.png  660w, https://media.geeksforgeeks.org/wp-content/uploads/20210622142437/CLR-768x345.png  768w, https://media.geeksforgeeks.org/wp-content/uploads/20210622142437/CLR.png, " width="547" height="246" /></p>
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20210622142437/CLR.png" sizes="100vw" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20210622142437/CLR-660x297.png  660w, https://media.geeksforgeeks.org/wp-content/uploads/20210622142437/CLR-768x345.png  768w, https://media.geeksforgeeks.org/wp-content/uploads/20210622142437/CLR.png, " width="547" height="246" /></figure></p>
         <p>Once we make a CLR parsing table, we can easily make a LALR parsing table from it.</p>
         <p>In the step2 diagram, we can see that&nbsp;</p>
         <ul>
@@ -115,7 +115,7 @@
             <li>Wherever there is 8 or 9, make it &nbsp;89(combined form)</li>
         </ul>
         <p>Below is the LALR parsing table.&nbsp;</p>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20210623093821/55.png" sizes="100vw" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20210623093821/55-660x295.png  660w, https://media.geeksforgeeks.org/wp-content/uploads/20210623093821/55-768x343.png  768w, https://media.geeksforgeeks.org/wp-content/uploads/20210623093821/55.png, " width="538" height="240" /></p>
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20210623093821/55.png" sizes="100vw" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20210623093821/55-660x295.png  660w, https://media.geeksforgeeks.org/wp-content/uploads/20210623093821/55-768x343.png  768w, https://media.geeksforgeeks.org/wp-content/uploads/20210623093821/55.png, " width="538" height="240" /></figure></p>
         <p>Now we have to remove the unwanted rows</p>
         <ul>
             <li>As we can see, 36 row has same data twice, so we delete 1 row.</li>
@@ -123,7 +123,7 @@
         <li>We combine two 89 row into one by combining each value in the single 89 row.</li>
         </ul>
         <p>The final LALR table looks like the below.</p>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20210623094220/4.png" sizes="100vw" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20210623094220/4-660x297.png  660w, https://media.geeksforgeeks.org/wp-content/uploads/20210623094220/4-768x345.png  768w, https://media.geeksforgeeks.org/wp-content/uploads/20210623094220/4.png, " width="478" height="215" /></p>
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20210623094220/4.png" sizes="100vw" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20210623094220/4-660x297.png  660w, https://media.geeksforgeeks.org/wp-content/uploads/20210623094220/4-768x345.png  768w, https://media.geeksforgeeks.org/wp-content/uploads/20210623094220/4.png, " width="478" height="215" /></figure></p>
     </div>
 </div>
 

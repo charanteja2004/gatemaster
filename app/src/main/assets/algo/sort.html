@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
 
-<body>
+<body data-gm-enriched="1">
 
     <h2>SORTING ALGORITHMS</h2>
     <h3>Analysis of different sorting techniques</h3>
@@ -48,12 +48,12 @@
         <li value="5"><strong>Quick sort &ndash;</strong>&nbsp;<br />It is a divide and conquer approach with recurrence
             relation:&nbsp;<br />&nbsp;</li>
     </ul>
-    <div class="gray"> T(n) = T(k) + T(n-k-1) + cn<br /><br /><br /><br /><br /></div>
+    <div class="gray"> T(n) = T(k) + T(n-k-1) + cn<br><br></div>
     <ul>
         <li value="1">Worst case: when the array is sorted or reverse sorted, the partition algorithm divides the array
             in two subarrays with 0 and n-1 elements. Therefore,&nbsp;<br />&nbsp;</li>
     </ul>
-    <div class="gray">T(n) = T(0) + T(n-1) + cn<br />Solving this we get, T(n) = O(n^2)<br /><br /><br /><br /><br /></div>
+    <div class="gray">T(n) = T(0) + T(n-1) + cn<br />Solving this we get, T(n) = O(n^2)<br><br></div>
     <ul>
         <li value="1">Best case and Average case: On an average, the partition algorithm divides the array in two
             subarrays with equal size. Therefore,&nbsp;<br />&nbsp;</li>
@@ -101,12 +101,12 @@
         <li value="3">When the array is sorted, insertion and bubble sort gives complexity of n but quick sort gives
             complexity of n^2.</li>
     </ul>
-    <p dir="ltr">&nbsp;</p>
+    
     <p><strong>Que &ndash; 1.</strong>&nbsp;Which sorting algorithm will take the least time when all elements of input
         array are identical? Consider typical implementations of sorting algorithms.&nbsp;<br />(A) Insertion
         Sort&nbsp;<br />(B) Heap Sort&nbsp;<br />(C) Merge Sort&nbsp;<br />(D) Selection Sort&nbsp;</p>
-    <p><strong>Solution:</strong>&nbsp;As discussed, insertion sort will have the complexity of n when the input array
-        is already sorted.&nbsp;</p>
+    <div class="gm-callout gm-solution" data-label="Solution"><p><strong>Solution:</strong>&nbsp;As discussed, insertion sort will have the complexity of n when the input array
+        is already sorted.&nbsp;</p></div>
     <div id="GFG_AD_gfg_outstream_incontent" data-google-query-id="CKOK9qnWoIYDFVdRnQkdXyENVw">
         <div id="google_ads_iframe_/27823234/gfg_outstream_incontent_0__container__">&nbsp;</div>
     </div>
@@ -117,14 +117,14 @@
     <p>(B) T(n) &lt;= T(n/5) + T(4n/5) + n</p>
     <p>(C) T(n) &lt;= 2T(4n/5) + n</p>
     <p>(D) T(n) &lt;= 2T(n/2) + n</p>
-    <p><strong>Solution:</strong>&nbsp;The complexity of quick sort can be written as:&nbsp;<br />&nbsp;</p>
-    <div class="gray">T(n) = T(k) + T(n-k-1) + cn<br /><br /><br /><br /><br /></div>
+    <div class="gm-callout gm-solution" data-label="Solution"><p><strong>Solution:</strong>&nbsp;The complexity of quick sort can be written as:&nbsp;<br />&nbsp;</p></div>
+    <div class="gray">T(n) = T(k) + T(n-k-1) + cn<br><br></div>
     <p dir="ltr">As given in question, one list contains 1/5th of total elements. Therefore, another list will have 4/5
         of total elements. Putting values, we get:&nbsp;</p>
     <p>T(n) = T(n/5) + T(4n/5) + cn, which matches option (B).&nbsp;</p>
 
     <h3>Time and Space Complexity Comparison Table :</h3>
-    <table border="1" class="GFGEditorTheme__table" style="height: 513px;" width="633">
+    <div class="gm-table"><table border="1" class="GFGEditorTheme__table" style="height: 513px;" width="633">
         <colgroup>
             <col />
             <col />
@@ -226,9 +226,9 @@
                 <td class="GFGEditorTheme__tableCell" style="width: 149.297px;"><strong>O(N)</strong></td>
             </tr>
         </tbody>
-    </table>
+    </table></div>
     <p dir="ltr"><strong>Sort stability, Efficiency, Passes Comparison Table :</strong></p>
-    <table border="1" class="GFGEditorTheme__table">
+    <div class="gm-table"><table border="1" class="GFGEditorTheme__table">
         <colgroup>
             <col />
             <col />
@@ -364,8 +364,8 @@
                 </td>
             </tr>
         </tbody>
-    </table>
-    <p>&nbsp;</p>
+    </table></div>
+    
     <br><br>
 </body>
 

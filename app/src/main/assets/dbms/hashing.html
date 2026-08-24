@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <div class="article-title">
         <div class="main_wrapper">
         <div>
@@ -50,8 +50,8 @@
         <p dir="ltr">1. The hash index generated isn&rsquo;t already occupied by any other value. So, the address of the data record will be stored here.</p>
         <p dir="ltr">2. The hash index generated is already occupied by some other value. This is called collision so to counter this, a collision resolution technique will be applied.</p>
         <p dir="ltr">3. Now whenever we query a specific record, the hash function will be applied and returns the data record comparatively faster than indexing because we can directly reach the exact location of the data record through the hash function rather than searching through indices one by one.</p>
-        <p dir="ltr"><strong>Example:</strong></p>
-        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231025191909/Buckets-(1).png" alt="Buckets-(1)" width="419" height="180" />
+        <p dir="ltr" class="gm-lead gm-example-lead"><strong>Example:</strong></p>
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231025191909/Buckets-(1).png" alt="Buckets-(1)" width="419" height="180" /><figcaption>Buckets-(1)</figcaption></figure>
         <p class="wp-caption-text">Hashing</p>
         </div>
         <h2>Types of Hashing in DBMS</h2>
@@ -59,8 +59,8 @@
         <h2>1. Static Hashing</h2>
         <p dir="ltr">In static hashing, the hash function always generates the same bucket&rsquo;s address. For example, if we have a data record for employee_id = 107, the hash function is mod-5 which is &ndash; H(x) % 5, where x = id. Then the operation will take place like this:</p>
         <div class="gray">H(106) % 5 = 1.<br />This indicates that the data record should be placed or searched in the 1st bucket (or 1st hash index) in the hash table.</pre>
-        <p dir="ltr"><strong>Example:</strong></p>
-        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231025234639/static-hash.png" alt="static-hash" width="440" height="146" />
+        <p dir="ltr" class="gm-lead gm-example-lead"><strong>Example:</strong></p>
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231025234639/static-hash.png" alt="static-hash" width="440" height="146" /><figcaption>static-hash</figcaption></figure>
         <p class="wp-caption-text">Static Hashing Technique</p>
         </div>
         <p dir="ltr">The primary key is used as the input to the hash function and the hash function generates the output as the hash index (bucket&rsquo;s address) which contains the address of the actual data record on the disk block.</p>
@@ -90,8 +90,8 @@
 <li value="6"><strong>Global Depth:&nbsp;</strong>It is defined as the number of bits in each directory id. The more the number of records, the more bits are there.</li>
 </ul>
 <h3>Working of Dynamic Hashing</h3>
-<p dir="ltr"><strong>Example:</strong>&nbsp;If global depth: k = 2, the keys will be mapped accordingly to the hash index. K bits starting from LSB will be taken to map a key to the buckets. That leaves us with the following 4 possibilities: 00, 11, 10, 01.</p>
-<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231026004607/directories.png" alt="directories" width="441" height="156" />
+<div class="gm-callout gm-example" data-label="Example"><p dir="ltr"><strong>Example:</strong>&nbsp;If global depth: k = 2, the keys will be mapped accordingly to the hash index. K bits starting from LSB will be taken to map a key to the buckets. That leaves us with the following 4 possibilities: 00, 11, 10, 01.</p></div>
+<div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231026004607/directories.png" alt="directories" width="441" height="156" /><figcaption>directories</figcaption></figure>
 <p class="wp-caption-text">Dynamic Hashing &ndash; mapping</p>
 </div>
 <p dir="ltr">As we can see in the above image, the k bits from LSBs are taken in the hash index to map to their appropriate buckets through directory IDs. The hash indices point to the directories, and the k bits are taken from the directories&rsquo; IDs and then mapped to the buckets. Each bucket holds the value corresponding to the IDs converted in binary.</p>

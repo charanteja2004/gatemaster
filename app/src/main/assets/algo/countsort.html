@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <h2>Counting Sort</h2>
 
     <h2><u><span class="GFGEditorTheme__textUnderline">What is Counting Sort?</span></u></h2>
@@ -36,14 +36,14 @@
             positions.</p>
     </blockquote>
     <h2><u><span class="GFGEditorTheme__textUnderline">How does Counting Sort Algorithm work?</span></u></h2>
-    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step1 :</strong></strong></u></p>
+    <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step1 :</strong></strong></u></p>
     <div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
     <ul>
         <li value="1">Find out the&nbsp;<strong>maximum</strong>&nbsp;element from the given array.</li>
     </ul>
-    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182425/1.png"
-            alt="Finding maximum element in inputArray[]" width="372" height="335" /></p>
-    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 2:</strong></strong></u></p>
+    <p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182425/1.png"
+            alt="Finding maximum element in inputArray[]" width="372" height="335" /><figcaption>Finding maximum element in inputArray[]</figcaption></figure></p>
+    <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 2:</strong></strong></u></p>
     <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
     <div id="GFG_AD_InContent_Desktop_728x280">
         <div id="GFG_AD_InContent_Desktop_350x250_1" data-google-query-id="CNPfiqTeoIYDFWBcnQkd8qcJ2Q">
@@ -56,9 +56,9 @@
             length&nbsp;<strong>max+1</strong>&nbsp;with all elements as&nbsp;<strong>0</strong>. This array will be
             used for storing the occurrences of the elements of the input array.</li>
     </ul>
-    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182436/2.png"
-            alt="Initialize countArray[]" width="343" height="419" /></p>
-    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 3:</strong></strong></u></p>
+    <p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182436/2.png"
+            alt="Initialize countArray[]" width="343" height="419" /><figcaption>Initialize countArray[]</figcaption></figure></p>
+    <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 3:</strong></strong></u></p>
     <ul>
         <li value="1">In the&nbsp;<strong>countArray[]</strong>, store the count of each unique element of the input
             array at their respective indices.</li>
@@ -69,20 +69,20 @@
             store&nbsp;<strong>1</strong>&nbsp;at index&nbsp;<strong>5</strong>&nbsp;in
             the&nbsp;<strong>countArray[]</strong>.</li>
     </ul>
-    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230922132754/3.png"
-            alt="Maintain count of each element in countArray[]" width="343" height="419" /></p>
+    <p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230922132754/3.png"
+            alt="Maintain count of each element in countArray[]" width="343" height="419" /><figcaption>Maintain count of each element in countArray[]</figcaption></figure></p>
     <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
     <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
-    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 4:</strong></strong></u></p>
+    <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 4:</strong></strong></u></p>
     <ul>
         <li value="1">Store the&nbsp;<strong>cumulative sum</strong>&nbsp;or&nbsp;<strong>prefix sum</strong>&nbsp;of
             the elements of the&nbsp;<strong>countArray[]&nbsp;</strong>by doing&nbsp;<strong>countArray[i] =
                 countArray[i &ndash; 1] + countArray[i].</strong>&nbsp;This will help in placing the elements of the
             input array at the correct index in the output array.</li>
     </ul>
-    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182646/4.png"
-            alt="Store the cumulative sum in countArray[]" width="352" height="425" /></p>
-    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 5:</strong></strong></u></p>
+    <p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182646/4.png"
+            alt="Store the cumulative sum in countArray[]" width="352" height="425" /><figcaption>Store the cumulative sum in countArray[]</figcaption></figure></p>
+    <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 5:</strong></strong></u></p>
     <ul>
         <li value="1">Iterate from end of the input array and because traversing input array from end preserves the
             order of equal elements, which eventually makes this sorting algorithm&nbsp;<strong>stable</strong>.</li>
@@ -95,9 +95,9 @@
                     inputArray[i] ]</strong>&ndash; -.</li>
         </ul>
     </blockquote>
-    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182656/5.png" alt="5" width="329"
-            height="413" /></p>
-    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 6:</strong></strong></u>&nbsp;<strong>For
+    <p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182656/5.png" alt="5" width="329"
+            height="413" /><figcaption>5</figcaption></figure></p>
+    <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 6:</strong></strong></u>&nbsp;<strong>For
             i = 6</strong>,</p>
     <blockquote>
         <p dir="ltr">Update&nbsp;<strong>outputArray[ countArray[ inputArray[6] ] &ndash; 1] =
@@ -107,63 +107,63 @@
             <div id="google_ads_iframe_/27823234/gfg_outstream_incontent_0__container__">&nbsp;</div>
         </div>
     </blockquote>
-    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182724/6.png"
-            alt="Placing inputArray[6] at it correct position in outputArray[]" width="388" height="443" /></p>
-    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 7:</strong></strong></u><strong>&nbsp;For
+    <p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182724/6.png"
+            alt="Placing inputArray[6] at it correct position in outputArray[]" width="388" height="443" /><figcaption>Placing inputArray[6] at it correct position in outputArray[]</figcaption></figure></p>
+    <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 7:</strong></strong></u><strong>&nbsp;For
             i = 5</strong>,</p>
     <blockquote>
         <p dir="ltr">Update&nbsp;<strong>outputArray[ countArray[ inputArray[5] ] &ndash; 1] =
                 inputArray[5]</strong><br />Also, update&nbsp;<strong>countArray[ inputArray[5] ] = countArray[
                 inputArray[5] ]- &ndash;</strong></p>
     </blockquote>
-    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182741/7.png"
-            alt="Placing inputArray[5] at it correct position in outputArray[]" width="331" height="414" /></p>
-    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 8:</strong></strong></u><strong>&nbsp;For
+    <p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182741/7.png"
+            alt="Placing inputArray[5] at it correct position in outputArray[]" width="331" height="414" /><figcaption>Placing inputArray[5] at it correct position in outputArray[]</figcaption></figure></p>
+    <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 8:</strong></strong></u><strong>&nbsp;For
             i = 4</strong>,</p>
     <blockquote>
         <p dir="ltr">Update&nbsp;<strong>outputArray[ countArray[ inputArray[4] ] &ndash; 1] =
                 inputArray[4]</strong><br />Also, update&nbsp;<strong>countArray[ inputArray[4] ] = countArray[
                 inputArray[4] ]- &ndash;</strong></p>
     </blockquote>
-    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182752/8.png"
-            alt="Placing inputArray[4] at it correct position in outputArray[]" width="339" height="418" /></p>
-    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 9:</strong></strong></u><strong>&nbsp;For
+    <p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182752/8.png"
+            alt="Placing inputArray[4] at it correct position in outputArray[]" width="339" height="418" /><figcaption>Placing inputArray[4] at it correct position in outputArray[]</figcaption></figure></p>
+    <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 9:</strong></strong></u><strong>&nbsp;For
             i = 3</strong>,</p>
     <blockquote>
         <p dir="ltr">Update&nbsp;<strong>outputArray[ countArray[ inputArray[3] ] &ndash; 1] =
                 inputArray[3]</strong><br />Also, update&nbsp;<strong>countArray[ inputArray[3] ] = countArray[
                 inputArray[3] ]- &ndash;</strong></p>
     </blockquote>
-    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182807/9.png"
-            alt="Placing inputArray[3] at it correct position in outputArray[]" width="354" height="427" /></p>
+    <p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182807/9.png"
+            alt="Placing inputArray[3] at it correct position in outputArray[]" width="354" height="427" /><figcaption>Placing inputArray[3] at it correct position in outputArray[]</figcaption></figure></p>
     <div id="GFG_AD_gfg_outstream_incontent-1">&nbsp;</div>
-    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step
+    <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step
                     10:</strong></strong></u><strong>&nbsp;For i = 2</strong>,</p>
     <blockquote>
         <p dir="ltr">Update&nbsp;<strong>outputArray[ countArray[ inputArray[2] ] &ndash; 1] =
                 inputArray[2]</strong><br />Also, update&nbsp;<strong>countArray[ inputArray[2] ] = countArray[
                 inputArray[2] ]- &ndash;</strong></p>
     </blockquote>
-    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182827/10.png"
-            alt="Placing inputArray[2] at it correct position in outputArray[]" width="460" height="429" /></p>
-    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step
+    <p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182827/10.png"
+            alt="Placing inputArray[2] at it correct position in outputArray[]" width="460" height="429" /><figcaption>Placing inputArray[2] at it correct position in outputArray[]</figcaption></figure></p>
+    <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step
                     11:</strong></strong></u><strong>&nbsp;For i = 1</strong>,</p>
     <blockquote>
         <p dir="ltr">Update&nbsp;<strong>outputArray[ countArray[ inputArray[1] ] &ndash; 1] =
                 inputArray[1]</strong><br />Also, update&nbsp;<strong>countArray[ inputArray[1] ] = countArray[
                 inputArray[1] ]- &ndash;</strong></p>
     </blockquote>
-    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182855/11.png"
-            alt="Placing inputArray[1] at it correct position in outputArray[]" width="394" height="396" /></p>
-    <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step
+    <p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182855/11.png"
+            alt="Placing inputArray[1] at it correct position in outputArray[]" width="394" height="396" /><figcaption>Placing inputArray[1] at it correct position in outputArray[]</figcaption></figure></p>
+    <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step
                     12:</strong></strong></u><strong>&nbsp;For i = 0,</strong></p>
     <blockquote>
         <p dir="ltr">Update&nbsp;<strong>outputArray[ countArray[ inputArray[0] ] &ndash; 1] =
                 inputArray[0]</strong><br />Also, update&nbsp;<strong>countArray[ inputArray[0] ] = countArray[
                 inputArray[0] ]- &ndash;</strong></p>
     </blockquote>
-    <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182910/12.png"
-            alt="Placing inputArray[0] at it correct position in outputArray[]" width="385" height="391" /></p>
+    <p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230920182910/12.png"
+            alt="Placing inputArray[0] at it correct position in outputArray[]" width="385" height="391" /><figcaption>Placing inputArray[0] at it correct position in outputArray[]</figcaption></figure></p>
     <h2><u><span class="GFGEditorTheme__textUnderline">Counting Sort Algorithm:</span></u></h2>
     <ul>
         <li value="1">Declare an auxiliary array<strong>&nbsp;countArray[]</strong>&nbsp;of

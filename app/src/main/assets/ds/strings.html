@@ -24,9 +24,9 @@
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
 
-<body><h2>Strings</h2>
+<body data-gm-enriched="1"><h2>Strings</h2>
 <p dir="ltr">A String in C programming is a sequence of characters terminated with a null character &lsquo;\0&rsquo;. The C String is stored as an array of characters. The difference between a character array and a C string is that the string in C is terminated with a unique character &lsquo;\0&rsquo;.</p>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230412184146/Strings-in-C.webp" alt="string in c" width="350" height="350" /></p>
+<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230412184146/Strings-in-C.webp" alt="string in c" width="350" height="350" /><figcaption>string in c</figcaption></figure></p>
 <div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
 <h2>C String Declaration Syntax</h2>
 <p dir="ltr">Declaring a string in C is as simple as declaring a one-dimensional array. Below is the basic syntax for declaring a string.</p>
@@ -53,7 +53,7 @@
 <p dir="ltr">We can assign character by character without size with the NULL character at the end. The size of the string is determined by the compiler automatically.</p>
 <div class="gray">char str[] = { 'G','e','e','k','s','f','o','r','G','e','e','k','s','\0'};</div>
 <blockquote>
-<p dir="ltr"><strong>Note:</strong>&nbsp;When a Sequence of characters enclosed in the double quotation marks is encountered by the compiler, a null character &lsquo;\0&rsquo; is appended at the end of the string by default.</p>
+<div class="gm-callout gm-note" data-label="Note"><p dir="ltr"><strong>Note:</strong>&nbsp;When a Sequence of characters enclosed in the double quotation marks is encountered by the compiler, a null character &lsquo;\0&rsquo; is appended at the end of the string by default.</p></div>
 </blockquote>
 <p dir="ltr">Let us now look at a sample program to get a clear understanding of declaring, and initializing a string in C, and also how to print a string with its size.</p>
 
@@ -70,21 +70,21 @@
 <div class="editor-buttons-container">
 <div class="editor-buttons">
 <div class="editor-buttons-div" title="Run and Edit"><em id="copy-code-button" class="gfg-icon gfg-icon_copy code-sidebar-button padding-2px copy-code-button" title="Copy Code"></em>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+
+
+
 </div>
 </div>
 </div>
 </div>
 <div class="code-container">
 <div id="highlighter_926550" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="comments">// C program to illustrate strings</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C program to illustrate strings</code></div>
 <div class="line number2 index1 alt1">&nbsp;</div>
 <div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
 <div class="line number4 index3 alt1"><code class="preprocessor">#include &lt;string.h&gt;</code></div>
@@ -104,12 +104,13 @@
 <div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Length of string str is %d"</code><code class="plain">, length);</code></div>
 <div class="line number19 index18 alt2">&nbsp;</div>
 <div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
-<div class="line number21 index20 alt2"><code class="plain">}</code></div>
+<div class="line number21 index20 alt2"><code class="plain">}</code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>
@@ -123,7 +124,7 @@ Length of string str is 5
 </div>
 <p dir="ltr">We can see in the above program that strings can be printed using normal printf statements just like we print any other variable. Unlike arrays, we do not need to print a string, character by character.</p>
 <blockquote>
-<p dir="ltr"><strong>Note:</strong>&nbsp;The C language does not provide an inbuilt data type for strings but it has an access specifier &ldquo;<strong>%s</strong>&rdquo; which can be used to print and read strings directly.&nbsp;</p>
+<div class="gm-callout gm-note" data-label="Note"><p dir="ltr"><strong>Note:</strong>&nbsp;The C language does not provide an inbuilt data type for strings but it has an access specifier &ldquo;<strong>%s</strong>&rdquo; which can be used to print and read strings directly.&nbsp;</p></div>
 </blockquote>
 <h2>Read a String Input From the User</h2>
 <p dir="ltr">The following example demonstrates how to take string input using scanf() function in C</p>
@@ -138,21 +139,21 @@ Length of string str is 5
 <div class="editor-buttons-container">
 <div class="editor-buttons">
 <div class="editor-buttons-div" title="Run and Edit">
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+
+
+
 </div>
 </div>
 </div>
 </div>
 <div class="code-container">
 <div id="highlighter_854791" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="comments">// C program to read string from user</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C program to read string from user</code></div>
 <div class="line number2 index1 alt1"><code class="preprocessor">#include&lt;stdio.h&gt;</code></div>
 <div class="line number3 index2 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code>&nbsp;</div>
 <div class="line number4 index3 alt1"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
@@ -167,12 +168,13 @@ Length of string str is 5
 <div class="line number13 index12 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%s"</code><code class="plain">,str);</code></div>
 <div class="line number14 index13 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code>&nbsp;</div>
 <div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
-<div class="line number16 index15 alt1"><code class="plain">}</code></div>
+<div class="line number16 index15 alt1"><code class="plain">}</code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>
@@ -194,21 +196,21 @@ Length of string str is 5
 <div class="editor-buttons-container">
 <div class="editor-buttons">
 <div class="editor-buttons-div" title="Run and Edit">
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+
+
+
 </div>
 </div>
 </div>
 </div>
 <div class="code-container">
 <div id="highlighter_18135" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="comments">// C Program to take input string which is separated by</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C Program to take input string which is separated by</code></div>
 <div class="line number2 index1 alt1"><code class="comments">// whitespaces</code></div>
 <div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
 <div class="line number4 index3 alt1">&nbsp;</div>
@@ -224,12 +226,13 @@ Length of string str is 5
 <div class="line number14 index13 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%s"</code><code class="plain">, str);</code></div>
 <div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code>&nbsp;</div>
 <div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
-<div class="line number17 index16 alt2"><code class="plain">}</code></div>
+<div class="line number17 index16 alt2"><code class="plain">}</code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>
@@ -243,7 +246,7 @@ Length of string str is 5
 <div class="gray">Geeks</div>
 <p dir="ltr">Here, the string is read only till the whitespace is encountered.</p>
 <blockquote>
-<p dir="ltr"><strong>Note:</strong>&nbsp;After declaration, if we want to assign some other text to the string, we have to assign it one by one or use the built-in strcpy() function because the direct assignment of the string literal to character array is only possible in declaration.</p>
+<div class="gm-callout gm-note" data-label="Note"><p dir="ltr"><strong>Note:</strong>&nbsp;After declaration, if we want to assign some other text to the string, we have to assign it one by one or use the built-in strcpy() function because the direct assignment of the string literal to character array is only possible in declaration.</p></div>
 </blockquote>
 <h2>How to Read a String Separated by Whitespaces in C?</h2>
 <p dir="ltr">We can use multiple methods to read a string separated by spaces in C. The two of the common ones are:</p>
@@ -266,21 +269,21 @@ Length of string str is 5
 <div class="editor-buttons-container">
 <div class="editor-buttons">
 <div class="editor-buttons-div" title="Run and Edit"><em id="copy-code-button" class="gfg-icon gfg-icon_copy code-sidebar-button padding-2px copy-code-button" title="Copy Code"></em>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+
+
+
 </div>
 </div>
 </div>
 </div>
 <div class="code-container">
 <div id="highlighter_999320" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="comments">// C program to illustrate</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C program to illustrate</code></div>
 <div class="line number2 index1 alt1"><code class="comments">// fgets()</code></div>
 <div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
 <div class="line number4 index3 alt1"><code class="preprocessor">#define MAX 50</code></div>
@@ -297,12 +300,13 @@ Length of string str is 5
 <div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">puts</code><code class="plain">(str);</code></div>
 <div class="line number16 index15 alt1">&nbsp;</div>
 <div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
-<div class="line number18 index17 alt1"><code class="plain">}</code></div>
+<div class="line number18 index17 alt1"><code class="plain">}</code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>
@@ -328,21 +332,21 @@ Length of string str is 5
 <div class="editor-buttons-container">
 <div class="editor-buttons">
 <div class="editor-buttons-div" title="Run and Edit"><em id="copy-code-button" class="gfg-icon gfg-icon_copy code-sidebar-button padding-2px copy-code-button" title="Copy Code"></em>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+
+
+
 </div>
 </div>
 </div>
 </div>
 <div class="code-container">
 <div id="highlighter_39247" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="comments">// C Program to take string separated by whitespace using</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C Program to take string separated by whitespace using</code></div>
 <div class="line number2 index1 alt1"><code class="comments">// scanset characters</code></div>
 <div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
 <div class="line number4 index3 alt1">&nbsp;</div>
@@ -359,12 +363,13 @@ Length of string str is 5
 <div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%s"</code><code class="plain">, str);</code></div>
 <div class="line number16 index15 alt1">&nbsp;</div>
 <div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
-<div class="line number18 index17 alt1"><code class="plain">}</code></div>
+<div class="line number18 index17 alt1"><code class="plain">}</code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>
@@ -392,21 +397,21 @@ Length of string str is 5
 <div class="editor-buttons-container">
 <div class="editor-buttons">
 <div class="editor-buttons-div" title="Run and Edit"><em id="copy-code-button" class="gfg-icon gfg-icon_copy code-sidebar-button padding-2px copy-code-button" title="Copy Code"></em>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+
+
+
 </div>
 </div>
 </div>
 </div>
 <div class="code-container">
 <div id="highlighter_312356" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="comments">// C program to illustrate how to</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C program to illustrate how to</code></div>
 <div class="line number2 index1 alt1"><code class="comments">// pass string to functions</code></div>
 <div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
 <div class="line number4 index3 alt1">&nbsp;</div>
@@ -422,12 +427,13 @@ Length of string str is 5
 <div class="line number14 index13 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">printStr(str);</code></div>
 <div class="line number15 index14 alt2">&nbsp;</div>
 <div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
-<div class="line number17 index16 alt2"><code class="plain">}</code></div>
+<div class="line number17 index16 alt2"><code class="plain">}</code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>
@@ -439,11 +445,11 @@ Length of string str is 5
 
 
 <div class="gray">String is : GeeksforGeeks</div>
-<p dir="ltr"><strong>Note:</strong>&nbsp;We can&rsquo;t read a string value with spaces, we can use either&nbsp;<a href="https://www.geeksforgeeks.org/fgets-gets-c-language/">gets()</a>&nbsp;or&nbsp;<a href="https://www.geeksforgeeks.org/fgets-gets-c-language/">fgets()</a>&nbsp;in the C programming language.</p>
+<div class="gm-callout gm-note" data-label="Note"><p dir="ltr"><strong>Note:</strong>&nbsp;We can&rsquo;t read a string value with spaces, we can use either&nbsp;<a href="https://www.geeksforgeeks.org/fgets-gets-c-language/">gets()</a>&nbsp;or&nbsp;<a href="https://www.geeksforgeeks.org/fgets-gets-c-language/">fgets()</a>&nbsp;in the C programming language.</p></div>
 <h2>Strings and Pointers in C</h2>
 <p dir="ltr">In Arrays, the variable name points to the address of the first element.</p>
 <p dir="ltr">Below is the memory representation of the string str = &ldquo;Geeks&rdquo;.</p>
-<p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230412184222/strings-and-pointers.webp" alt="memory representation of strings" width="350" height="350" /></p>
+<p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230412184222/strings-and-pointers.webp" alt="memory representation of strings" width="350" height="350" /><figcaption>memory representation of strings</figcaption></figure></p>
 <p dir="ltr">Similar to arrays, In C, we can create a character pointer to a string that points to the starting address of the string which is the first character of the string. The string can be accessed with the help of pointers as shown in the below example.&nbsp;</p>
 
 
@@ -455,21 +461,21 @@ Length of string str is 5
 <div class="editor-buttons-container">
 <div class="editor-buttons">
 <div class="editor-buttons-div" title="Run and Edit">
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+
+
+
 </div>
 </div>
 </div>
 </div>
 <div class="code-container">
 <div id="highlighter_987238" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="comments">// C program to print string using Pointers</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C program to print string using Pointers</code></div>
 <div class="line number2 index1 alt1"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
 <div class="line number3 index2 alt2">&nbsp;</div>
 <div class="line number4 index3 alt1"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
@@ -493,12 +499,13 @@ Length of string str is 5
 <div class="line number22 index21 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div>
 <div class="line number23 index22 alt2">&nbsp;</div>
 <div class="line number24 index23 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
-<div class="line number25 index24 alt2"><code class="plain">}</code></div>
+<div class="line number25 index24 alt2"><code class="plain">}</code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>
@@ -511,7 +518,7 @@ Length of string str is 5
 </div>
 <h2>Standard C Library &ndash; String.h &nbsp;Functions</h2>
 <p dir="ltr">The C language comes bundled with&nbsp;<a href="https://www.geeksforgeeks.org/c-library-string-h/"><strong>&lt;string.h&gt;</strong></a>&nbsp;which contains some useful string-handling functions. Some of them are as follows:</p>
-<table border="1">
+<div class="gm-table"><table border="1">
 <thead>
 <tr>
 <th>Function Name</th>
@@ -548,13 +555,13 @@ Length of string str is 5
 <td>Find the first occurrence of s2 in s1.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 
 <h2>Structures</h2>
 
 <p>The structure in C is a user-defined data type that can be used to group items of possibly different types into a single type. The&nbsp;<strong>struct keyword&nbsp;</strong>is used to define the structure in the C programming language. The items in the structure are called its&nbsp;<strong>member</strong>&nbsp;and they can be of any valid data type.</p>
-<h2><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Structure-In-C.png" alt="C Structures" /></h2>
+<h2><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Structure-In-C.png" alt="C Structures" /><figcaption>C Structures</figcaption></figure></h2>
 <h2>C Structure Declaration</h2>
 <p>We have to declare structure in C before using it in our program. In structure declaration, we specify its member variables along with their datatype. We can use the struct keyword to declare the structure in C using the following syntax:</p>
 <div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
@@ -621,8 +628,7 @@ str.member3 = value3;
 <h2>Example of Structure in C</h2>
 <p>The following C program shows how to use structures</p>
 <div id="GFG_AD_gfg_outstream_incontent" data-google-query-id="CNfxmIOlnoYDFaVjnQkdnVAM4g">&nbsp;</div>
-
-<div class="line number1 index0 alt2"><code class="comments">// C program to illustrate the use of structures </code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C program to illustrate the use of structures </code></div>
 <div class="line number2 index1 alt1"><code class="preprocessor">#include &lt;stdio.h&gt; </code></div>
 <div class="line number3 index2 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
 <div class="line number4 index3 alt1"><code class="comments">// declaring structure with name str1 </code></div>
@@ -661,7 +667,8 @@ str.member3 = value3;
 <div class="line number37 index36 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">var3.cc, var3.ff); </code></div>
 <div class="line number38 index37 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
 <div class="line number39 index38 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
-<div class="line number40 index39 alt1"><code class="plain">}</code></div>
+<div class="line number40 index39 alt1"><code class="plain">}</code></div></div></div>
+
 
 
 <div class="code-output"><strong>Output</strong>
@@ -685,21 +692,21 @@ Struct 3
 <div class="editor-buttons-container">
 <div class="editor-buttons">
 <div class="editor-buttons-div" title="Run and Edit">
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+
+
+
 </div>
 </div>
 </div>
 </div>
 <div class="code-container">
 <div id="highlighter_701910" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="comments">// C Program to illustrate the use of typedef with </code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C Program to illustrate the use of typedef with </code></div>
 <div class="line number2 index1 alt1"><code class="comments">// structures </code></div>
 <div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt; </code></div>
 <div class="line number4 index3 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
@@ -726,12 +733,13 @@ Struct 3
 <div class="line number25 index24 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"var2.x = %d"</code><code class="plain">, var2.x); </code></div>
 <div class="line number26 index25 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
 <div class="line number27 index26 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
-<div class="line number28 index27 alt1"><code class="plain">}</code></div>
+<div class="line number28 index27 alt1"><code class="plain">}</code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>
@@ -794,21 +802,21 @@ struct mem {
 <div class="editor-buttons-container">
 <div class="editor-buttons">
 <div class="editor-buttons-div" title="Run and Edit">
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+
+
+
 </div>
 </div>
 </div>
 </div>
 <div class="code-container">
 <div id="highlighter_759448" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="comments">// C Program to illustrate structure nesting along with </code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C Program to illustrate structure nesting along with </code></div>
 <div class="line number2 index1 alt1"><code class="comments">// forward declaration </code></div>
 <div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt; </code></div>
 <div class="line number4 index3 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
@@ -835,12 +843,13 @@ struct mem {
 <div class="line number25 index24 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"var1.b.c = %c"</code><code class="plain">, var1.b.c); </code></div>
 <div class="line number26 index25 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
 <div class="line number27 index26 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
-<div class="line number28 index27 alt1"><code class="plain">}</code></div>
+<div class="line number28 index27 alt1"><code class="plain">}</code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>
@@ -858,8 +867,8 @@ var1.b.c = A</div>
 
 
 <p>The Union is a user-defined data type in C language that can contain elements of the different data types just like structure. But unlike structures, all the members in the C union are stored in the same memory location. Due to this, only one member can store data at the given instance.</p>
-<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230324153659/union-in-c.png" alt="unions-in-c" width="565" height="397" />
-<p class="wp-caption-text">&nbsp;</p>
+<div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230324153659/union-in-c.png" alt="unions-in-c" width="565" height="397" /><figcaption>unions-in-c</figcaption></figure>
+
 </div>
 <h2>Syntax of Union in C</h2>
 <p>The syntax of the union in C can be divided into three steps which are as follows:</p>
@@ -918,21 +927,21 @@ var1.b.c = A</div>
 <div class="editor-buttons-container">
 <div class="editor-buttons">
 <div class="editor-buttons-div" title="Run and Edit">
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+
+
+
 </div>
 </div>
 </div>
 </div>
 <div class="code-container">
 <div id="highlighter_441520" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="comments">// C Program to demonstrate how to use union</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C Program to demonstrate how to use union</code></div>
 <div class="line number2 index1 alt1"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
 <div class="line number3 index2 alt2">&nbsp;</div>
 <div class="line number4 index3 alt1"><code class="comments">// union template or declaration</code></div>
@@ -956,12 +965,13 @@ var1.b.c = A</div>
 <div class="line number22 index21 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">var1.member1);</code></div>
 <div class="line number23 index22 alt2">&nbsp;</div>
 <div class="line number24 index23 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
-<div class="line number25 index24 alt2"><code class="plain">}</code></div>
+<div class="line number25 index24 alt2"><code class="plain">}</code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>
@@ -976,7 +986,7 @@ var1.b.c = A</div>
 </div>
 <h2>Size of Union</h2>
 <p>The size of the union will always be equal to the size of the largest member of the array. All the less-sized elements can store the data in the same space without any overflow.</p>
-<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230324152918/memory-allocation-in-union.png" alt="memory allocation in c union" width="745" height="350" />
+<div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230324152918/memory-allocation-in-union.png" alt="memory allocation in c union" width="745" height="350" /><figcaption>memory allocation in c union</figcaption></figure>
 <p class="wp-caption-text">Memory Allocation in C Union</p>
 </div>
 <h3>Example 1: C program to find the size of the union</h3>
@@ -989,21 +999,21 @@ var1.b.c = A</div>
 <div class="editor-buttons-container">
 <div class="editor-buttons">
 <div class="editor-buttons-div" title="Run and Edit">
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+
+
+
 </div>
 </div>
 </div>
 </div>
 <div class="code-container">
 <div id="highlighter_595146" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="comments">// C Program to find the size of the union</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C Program to find the size of the union</code></div>
 <div class="line number2 index1 alt1"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
 <div class="line number3 index2 alt2">&nbsp;</div>
 <div class="line number4 index3 alt1"><code class="comments">// declaring multiple unions</code></div>
@@ -1034,12 +1044,13 @@ var1.b.c = A</div>
 <div class="line number29 index28 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Sizeof test2: %d\n"</code><code class="plain">, size2);</code></div>
 <div class="line number30 index29 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Sizeof test3: %d"</code><code class="plain">, size3);</code></div>
 <div class="line number31 index30 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
-<div class="line number32 index31 alt1"><code class="plain">}</code></div>
+<div class="line number32 index31 alt1"><code class="plain">}</code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>
@@ -1056,7 +1067,7 @@ Sizeof test3: 40</div>
 <h2>Difference between C Structure and C Union</h2>
 <p>The following table lists the key difference between the structure and union in C:</p>
 <figure class="table">
-<table border="1">
+<div class="gm-table"><table border="1">
 <thead>
 <tr>
 <th>Structure</th>
@@ -1077,13 +1088,13 @@ Sizeof test3: 40</div>
 <td>It is declared using the union keyword.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </figure>
 
 <h2>Dynamic Memory Allocation</h2>
 
 <p dir="ltr">Since C is a structured language, it has some fixed rules for programming. One of them includes changing the size of an array. An array is a collection of items stored at contiguous memory locations.&nbsp;</p>
-<p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2015/05/Arrays.png" alt="arrays" width="350" height="350" /></p>
+<p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2015/05/Arrays.png" alt="arrays" width="350" height="350" /><figcaption>arrays</figcaption></figure></p>
 <div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
 <p dir="ltr">As can be seen, the length (size) of the array above is 9. But what if there is a requirement to change this length (size)? For example,&nbsp;</p>
 <ul>
@@ -1108,7 +1119,7 @@ Sizeof test3: 40</div>
 </blockquote>
 <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
 <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
-<p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Malloc-function-in-c.png" width="350" height="350" /></p>
+<p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Malloc-function-in-c.png" width="350" height="350" /></figure></p>
 <p dir="ltr">If space is insufficient, allocation fails and returns a NULL pointer.</p>
 <h3>Example of malloc() in C</h3>
 
@@ -1116,21 +1127,21 @@ Sizeof test3: 40</div>
 <div class="editor-buttons-container">
 <div class="editor-buttons">
 <div class="editor-buttons-div" title="Run and Edit"><em id="copy-code-button" class="gfg-icon gfg-icon_copy code-sidebar-button padding-2px copy-code-button" title="Copy Code"></em>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+
+
+
 </div>
 </div>
 </div>
 </div>
 <div class="code-container">
 <div id="highlighter_598718" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
 <div class="line number2 index1 alt1"><code class="preprocessor">#include &lt;stdlib.h&gt;</code></div>
 <div class="line number3 index2 alt2">&nbsp;</div>
 <div class="line number4 index3 alt1"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
@@ -1154,16 +1165,16 @@ Sizeof test3: 40</div>
 <div class="line number22 index21 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">if</code> <code class="plain">(ptr == NULL) {</code></div>
 <div class="line number23 index22 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Memory not allocated.\n"</code><code class="plain">);</code></div>
 <div class="line number24 index23 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">exit</code><code class="plain">(0);</code></div>
-<div class="line number25 index24 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div>
+<div class="line number25 index24 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
-
-<div class="line number26 index25 alt1"><code class="undefined spaces">&nbsp;</code><code class="keyword bold">else</code> <code class="plain">{</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number26 index25 alt1"><code class="undefined spaces">&nbsp;</code><code class="keyword bold">else</code> <code class="plain">{</code></div>
 <div class="line number27 index26 alt2">&nbsp;</div>
 <div class="line number28 index27 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Memory has been successfully allocated</code></div>
 <div class="line number29 index28 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Memory successfully allocated using malloc.\n"</code><code class="plain">);</code></div>
@@ -1180,7 +1191,8 @@ Sizeof test3: 40</div>
 <div class="line number40 index39 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div>
 <div class="line number41 index40 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div>
 <div class="line number42 index41 alt1">&nbsp;</div>
-<div class="line number43 index42 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
+<div class="line number43 index42 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div></div></div>
+
 
 
 <div class="code-output"><strong>Output</strong>
@@ -1200,17 +1212,17 @@ The elements of the array are: 1, 2, 3, 4, 5,
 </ol>
 <h3>Syntax of calloc() in C</h3>
 <div class="gray">ptr = (cast-type*)calloc(n, element-size);<br />here, n is the no. of elements and element-size is the size of each element.<br /><br /></div>
-<p dir="ltr"><strong>For Example:</strong>&nbsp;</p>
+<p dir="ltr" class="gm-lead gm-example-lead"><strong>For Example:</strong>&nbsp;</p>
 <blockquote>
 <p dir="ltr"><strong>ptr = (float*) calloc(25, sizeof(float));</strong><br />This statement allocates contiguous space in memory for 25 elements each with the size of the float.<br />&nbsp;</p>
 </blockquote>
-<p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/calloc-function-in-c.png" width="350" height="350" /></p>
+<p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/calloc-function-in-c.png" width="350" height="350" /></figure></p>
 <p dir="ltr">If space is insufficient, allocation fails and returns a NULL pointer.</p>
 <h3>Example of calloc() in C</h3>
 
 <p dir="ltr">If space is insufficient, allocation fails and returns a NULL pointer.</p>
 <h3>Example of calloc() in C</h3>
-<div class="line number1 index0 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
 <div class="line number2 index1 alt1"><code class="preprocessor">#include &lt;stdlib.h&gt;</code></div>
 <div class="line number3 index2 alt2">&nbsp;</div>
 <div class="line number4 index3 alt1"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
@@ -1234,7 +1246,8 @@ The elements of the array are: 1, 2, 3, 4, 5,
 <div class="line number22 index21 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Memory not allocated.\n"</code><code class="plain">);</code></div>
 <div class="line number23 index22 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">exit</code><code class="plain">(0);</code></div>
 <div class="line number24 index23 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div>
-<div class="line number25 index24 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">else</code> <code class="plain">{</code></div>
+<div class="line number25 index24 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">else</code> <code class="plain">{</code></div></div></div>
+
 
 <p dir="ltr">If space is insufficient, allocation fails and returns a NULL pointer.</p>
 <h3>Example of calloc() in C</h3>
@@ -1243,12 +1256,12 @@ The elements of the array are: 1, 2, 3, 4, 5,
 <div class="code-block">
 <div class="code-container">
 <div id="highlighter_15978" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number27 index26 alt2"><code class="undefined spaces">&nbsp;</code><code class="comments">// Memory has been successfully allocated</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number27 index26 alt2"><code class="undefined spaces">&nbsp;</code><code class="comments">// Memory has been successfully allocated</code></div>
 <div class="line number28 index27 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Memory successfully allocated using calloc.\n"</code><code class="plain">);</code></div>
 <div class="line number29 index28 alt2">&nbsp;</div>
 <div class="line number30 index29 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Get the elements of the array</code></div>
@@ -1264,12 +1277,13 @@ The elements of the array are: 1, 2, 3, 4, 5,
 <div class="line number40 index39 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div>
 <div class="line number41 index40 alt2">&nbsp;</div>
 <div class="line number42 index41 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
-<div class="line number43 index42 alt2"><code class="plain">}</code></div>
+<div class="line number43 index42 alt2"><code class="plain">}</code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>
@@ -1289,10 +1303,9 @@ The elements of the array are: 1, 2, 3, 4, 5,
 <p dir="ltr"><strong>&ldquo;free&rdquo;</strong>&nbsp;method in C is used to dynamically&nbsp;<strong>de-allocate</strong>&nbsp;the memory. The memory allocated using functions malloc() and calloc() is not de-allocated on their own. Hence the free() method is used, whenever the dynamic memory allocation takes place. It helps to reduce wastage of memory by freeing it.</p>
 <h3>Syntax of free() in C</h3>
 <div class="gray">free(ptr);<br /><br /></div>
-<p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Free-function-in-c.png" width="350" height="350" /></p>
+<p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Free-function-in-c.png" width="350" height="350" /></figure></p>
 <h3>Example of free() in C</h3>
-
-<div class="line number1 index0 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
 <div class="line number2 index1 alt1"><code class="preprocessor">#include &lt;stdlib.h&gt;</code></div>
 <div class="line number3 index2 alt2">&nbsp;</div>
 <div class="line number4 index3 alt1"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
@@ -1318,7 +1331,8 @@ The elements of the array are: 1, 2, 3, 4, 5,
 <div class="line number24 index23 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">if</code> <code class="plain">(ptr == NULL || ptr1 == NULL) {</code></div>
 <div class="line number25 index24 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Memory not allocated.\n"</code><code class="plain">);</code></div>
 <div class="line number26 index25 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">exit</code><code class="plain">(0);</code></div>
-<div class="line number27 index26 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div>
+<div class="line number27 index26 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div></div></div>
+
 
 
 
@@ -1327,12 +1341,12 @@ The elements of the array are: 1, 2, 3, 4, 5,
 <div class="code-block">
 <div class="code-container">
 <div id="highlighter_420533" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number28 index27 alt1"><code class="keyword bold">else</code> <code class="plain">{</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number28 index27 alt1"><code class="keyword bold">else</code> <code class="plain">{</code></div>
 <div class="line number29 index28 alt2">&nbsp;</div>
 <div class="line number30 index29 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Memory has been successfully allocated</code></div>
 <div class="line number31 index30 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Memory successfully allocated using malloc.\n"</code><code class="plain">);</code></div>
@@ -1350,12 +1364,13 @@ The elements of the array are: 1, 2, 3, 4, 5,
 <div class="line number43 index42 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div>
 <div class="line number44 index43 alt1">&nbsp;</div>
 <div class="line number45 index44 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
-<div class="line number46 index45 alt1"><code class="plain">}</code></div>
+<div class="line number46 index45 alt1"><code class="plain">}</code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>
@@ -1377,15 +1392,13 @@ Calloc Memory successfully freed.
 <p dir="ltr"><strong>&ldquo;realloc&rdquo;</strong>&nbsp;or&nbsp;<strong>&ldquo;re-allocation&rdquo;</strong>&nbsp;method in C is used to dynamically change the memory allocation of a previously allocated memory. In other words, if the memory previously allocated with the help of malloc or calloc is insufficient, realloc can be used to&nbsp;<strong>dynamically re-allocate memory</strong>. re-allocation of memory maintains the already present value and new blocks will be initialized with the default garbage value.</p>
 <h3>Syntax of realloc() in C</h3>
 <div class="gray">ptr = realloc(ptr, newSize);<br />where ptr is reallocated with new size 'newSize'.<br /><br /></div>
-<p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/realloc-function-in-c.png" width="350" height="350" /></p>
+<p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/realloc-function-in-c.png" width="350" height="350" /></figure></p>
 <p dir="ltr">If space is insufficient, allocation fails and returns a NULL pointer.</p>
 <h3>Example of realloc() in C</h3>
 <div class="responsive-tabs">
 <h2 class="tabtitle">C</h2>
 </div>
-
-
-<div class="line number1 index0 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
 <div class="line number2 index1 alt1"><code class="preprocessor">#include &lt;stdlib.h&gt;</code></div>
 <div class="line number3 index2 alt2">&nbsp;</div>
 <div class="line number4 index3 alt1"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
@@ -1438,19 +1451,20 @@ Calloc Memory successfully freed.
 <div class="line number51 index50 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Get the new elements of the array</code></div>
 <div class="line number52 index51 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">for</code> <code class="plain">(i = 5; i &lt; n; ++i) {</code></div>
 <div class="line number53 index52 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">ptr[i] = i + 1;</code></div>
-<div class="line number54 index53 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div>
+<div class="line number54 index53 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div></div></div>
+
 
 <div class="responsive-tabs">
 <div class="tabcontent">
 <div class="code-block">
 <div class="code-container">
 <div id="highlighter_85736" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number56 index55 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Print the elements of the array</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number56 index55 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Print the elements of the array</code></div>
 <div class="line number57 index56 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"The elements of the array are: "</code><code class="plain">);</code></div>
 <div class="line number58 index57 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">for</code> <code class="plain">(i = 0; i &lt; n; ++i) {</code></div>
 <div class="line number59 index58 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%d, "</code><code class="plain">, ptr[i]);</code></div>
@@ -1460,12 +1474,13 @@ Calloc Memory successfully freed.
 <div class="line number63 index62 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div>
 <div class="line number64 index63 alt1">&nbsp;</div>
 <div class="line number65 index64 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
-<div class="line number66 index65 alt1"><code class="plain">}</code></div>
+<div class="line number66 index65 alt1"><code class="plain">}</code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>

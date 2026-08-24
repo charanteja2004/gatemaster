@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
 
-<body>
+<body data-gm-enriched="1">
 
     <h2>DYNAMIC PROGRAMMING</h2>
     <p><strong>Dynamic Programming</strong>&nbsp;is a method used in mathematics and computer science to solve complex
@@ -50,7 +50,7 @@
             solved only once, reducing computation time.</li>
     </ul>
     <h2 id="examples-of-dynamic-programming-dp"><strong>Examples of Dynamic Programming (DP)</strong></h2>
-    <p dir="ltr"><strong>Example 1:&nbsp;</strong>Consider the problem of finding the Fibonacci sequence:</p>
+    <div class="gm-callout gm-example" data-label="Example"><p dir="ltr"><strong>Example 1:&nbsp;</strong>Consider the problem of finding the Fibonacci sequence:</p></div>
 
     <blockquote>
         <p dir="ltr"><strong>Fibonacci sequence:</strong>&nbsp;0, 1, 1, 2, 3, 5, 8, 13, 21, 34, &hellip;</p>
@@ -67,12 +67,12 @@
         <div class="toolbar floating"><button class="toolbar-item spaced" title="Change Image Text Alternative"
                 aria-label="Insert link"></button>
             <div class="divider">&nbsp;</div>
-            <p>&nbsp;</p>
+            
             <div class="triangle-down">&nbsp;</div>
         </div>
     </div>
-    <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220919185437/nthfibonacciseriesdynamicprogramming.png"
-            width="350" height="350" /></p>
+    <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220919185437/nthfibonacciseriesdynamicprogramming.png"
+            width="350" height="350" /></figure></p>
     <div class="ImageNode__contentEditable">
         <p dir="ltr"><span data-lexical-text="true">Fibonacci Series using Dynamic Programming</span></p>
     </div>
@@ -88,19 +88,19 @@
     <p dir="ltr">By using DP, we can efficiently calculate the Fibonacci sequence without having to recompute
         subproblems.</p>
 
-    <p dir="ltr"><strong>Example 2:&nbsp;</strong>Longest common subsequence (finding the longest subsequence that is
-        common to two strings)</p>
-    <p dir="ltr"><strong>Example 3:&nbsp;</strong>Shortest path in a graph (finding the shortest path between two nodes
-        in a graph)</p>
-    <p dir="ltr"><strong>Example 4:&nbsp;</strong>Knapsack problem (finding the maximum value of items that can be
-        placed in a knapsack with a given capacity)</p>
+    <div class="gm-callout gm-example" data-label="Example"><p dir="ltr"><strong>Example 2:&nbsp;</strong>Longest common subsequence (finding the longest subsequence that is
+        common to two strings)</p></div>
+    <div class="gm-callout gm-example" data-label="Example"><p dir="ltr"><strong>Example 3:&nbsp;</strong>Shortest path in a graph (finding the shortest path between two nodes
+        in a graph)</p></div>
+    <div class="gm-callout gm-example" data-label="Example"><p dir="ltr"><strong>Example 4:&nbsp;</strong>Knapsack problem (finding the maximum value of items that can be
+        placed in a knapsack with a given capacity)</p></div>
     <h2 id="when-to-use-dynamic-programming-dp">When to Use Dynamic Programming (DP)?</h2>
     <p dir="ltr">Dynamic programming is an optimization technique used when solving problems that consists of the
         following characteristics:</p>
     <h3>1. Optimal Substructure:</h3>
     <p dir="ltr">Optimal substructure means that we combine the optimal results of subproblems to achieve the optimal
         result of the bigger problem.</p>
-    <p dir="ltr"><strong>Example:</strong></p>
+    <p dir="ltr" class="gm-lead gm-example-lead"><strong>Example:</strong></p>
     <blockquote>
         <p dir="ltr">Consider the problem of finding the&nbsp;<strong>minimum cost&nbsp;</strong>path in a weighted
             graph from a&nbsp;<strong>source</strong>&nbsp;node to a&nbsp;<strong>destination</strong>&nbsp;node. We can
@@ -117,7 +117,7 @@
     </blockquote>
     <h3>2. Overlapping Subproblems:</h3>
     <p dir="ltr">The same subproblems are solved repeatedly in different parts of the problem.</p>
-    <p dir="ltr"><strong>Example:</strong></p>
+    <p dir="ltr" class="gm-lead gm-example-lead"><strong>Example:</strong></p>
     <div id="GFG_AD_gfg_outstream_incontent-1">&nbsp;</div>
     <blockquote>
         <p dir="ltr">Consider the problem of computing the&nbsp;<strong>Fibonacci series</strong>. To compute the

@@ -24,14 +24,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
 <div>
     <h3>Introduction of Finite Automata</h3>
     <p>
         Finite Automata(FA) is the simplest machine to recognize patterns.It is used to characterize a Regular Language, for example: /baa+!/.<br>
         Also it is used to analyze and recognize Natural language Expressions. The finite automata or finite state machine is an abstract machine that has five elements or tuples. It has a set of states and rules for moving from one state to another but it depends upon the applied input symbol. Based on the states and the set of rules the input string can be either accepted or rejected. Basically, it is an abstract model of a digital computer which reads an input string and changes its internal state depending on the current input symbol. Every automaton defines a language i.e. set of strings it accepts. The following figure shows some essential features of general automation.
     </p>
-    <img src="fa.png">
+    <figure class="gm-figure"><img src="fa.png"></figure>
     <p>
         The above figure shows the following features of automata:<br>
 
@@ -71,14 +71,14 @@
         L = {a, aa, aaa, aaaa, aaaaa, ba, bba, bbbaa, aba, abba, aaba, abaa}<br>
         Above is simple subset of the possible acceptable strings there can many other strings which ends with ‘a’ and contains symbols {a,b}.<br>
     </p>
-    <img src="fa2.png">
+    <figure class="gm-figure"><img src="fa2.png"></figure>
     <p>
         Strings not accepted are,<br>
         ab, bb, aab, abbb, etc.<br><br>
 
         State transition table for above automaton,
     </p>
-    <table>
+    <div class="gm-table"><table>
         <tr>
             <th>?State\Symbol?</th>
             <th>a</th>
@@ -94,7 +94,7 @@
             <td>q1</td>
             <td>q0</td>
         </tr>
-    </table>
+    </table></div>
     <p>One important thing to note is, there can be many possible DFAs for a pattern. A DFA with a minimum number of states is generally preferred. </p>
    <p> <h3>2) Nondeterministic Finite Automata(NFA):</h3> NFA is similar to DFA except following additional features:<br>
 
@@ -106,6 +106,6 @@
     <div class="gray">?: Transition Function<br>
         ?:  Q X (? U ? ) --> 2 ^ Q. </div>
     <p>As you can see in the transition function is for any input including null (or ?), NFA can go to any state number of states. For example, below is an NFA for the above problem. </p>
-    <img src="nfa.png"></div>
+    <figure class="gm-figure"><img src="nfa.png"></figure></div>
 </body>
 </html>

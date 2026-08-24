@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <h2><b>Instruction Formats</b></h2>
 
 
@@ -57,7 +57,7 @@ Based on the number of addresses, instructions are classified as: <br>
 <h3><b>Zero Address Instructions</b></h3>
 These instructions do not specify any operands or addresses. Instead, they operate on data stored in registers or memory locations implicitly defined by the instruction. For example, a zero-address instruction might simply add the contents of two registers together without specifying the register names.<br><br>
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-drawing4-1.jpg" width="300" heigth="250"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-drawing4-1.jpg" width="300" heigth="250"></figure><br><br>
 
 A stack-based computer does not use the address field in the instruction. To evaluate an expression, it is first converted to reverse Polish Notation i.e. Postfix Notation.<br><br>
     <div class="gray">
@@ -66,7 +66,7 @@ Postfixed : X = AB+CD+*<br>
 TOP means top of stack
 M[X] is any memory location
     </div>
-<table border="1">
+<div class="gm-table"><table border="1">
 <tr>
 <td>PUSH</td>
 <td>A</td>
@@ -107,7 +107,7 @@ M[X] is any memory location
 <td>X</td>
 <td>M[X]=TOP</td>
 </tr>
-</table>
+</table></div>
 <br><br>
 
 <h3><b>One Address Instructions</b></h3>
@@ -115,7 +115,7 @@ These instructions specify one operand or address, which typically refers to a m
 
 This uses an implied ACCUMULATOR register for data manipulation. One operand is in the accumulator and the other is in the register or memory location. Implied means that the CPU already knows that one operand is in the accumulator so there is no need to specify it.<br><br>
 
-<img src=" https://media.geeksforgeeks.org/wp-content/uploads/Untitled-drawing2.png"width="350" height="150"><br><br>
+<figure class="gm-figure"><img src=" https://media.geeksforgeeks.org/wp-content/uploads/Untitled-drawing2.png"width="350" height="150"></figure><br><br>
 
 
     <div class="gray">
@@ -125,7 +125,7 @@ M[] is any memory location<br>
 M[T] is temporary location<br><br>
     </div>
 
-<table border="1">
+<div class="gm-table"><table border="1">
 <tr>
 <td>LOAD</td>
 <td>A</td>
@@ -166,7 +166,7 @@ M[T] is temporary location<br><br>
 <td>X</td>
 <td>M[X]=TOP</td>
 </tr>
-</table>
+</table></div>
 
 
 <h3><b>Two Address Instructions</b></h3>
@@ -174,7 +174,7 @@ These instructions specify two operands or addresses, which may be memory locati
 
 This is common in commercial computers. Here two addresses can be specified in the instruction. Unlike earlier in one address instruction, the result was stored in the accumulator, here the result can be stored at different locations rather than just accumulators, but require more number of bit to represent the address.<br><br>
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-drawing6-1.png" width="350" height="200"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-drawing6-1.png" width="350" height="200"></figure><br><br>
 
 Here destination address can also contain an operand. <br><br>
     <div class="gray">
@@ -183,7 +183,7 @@ R1, R2 are registers<br>
 M[] is any memory location<br><br>
     </div>
 
-<table border="1">
+<div class="gm-table"><table border="1">
 <tr>
 <td>MOV</td>
 <td>,R1A</td>
@@ -215,14 +215,14 @@ M[] is any memory location<br><br>
 <td>M[X] = R1
 </td>
 <tr>
-</table>
+</table></div>
 
 <h3><b>Three Address Instructions</b></h3>
 These instructions specify three operands or addresses, which may be memory locations or registers. The instruction operates on the contents of all three operands, and the result may be stored in the same or a different location. For example, a three-address instruction might multiply the contents of two registers together and add the contents of a third register, storing the result in a fourth register.<br><br>
 
 This has three address fields to specify a register or a memory location. Programs created are much short in size but number of bits per instruction increases. These instructions make the creation of the program much easier but it does not mean that program will run much faster because now instructions only contain more information but each micro-operation (changing the content of the register, loading address in the address bus etc.) will be performed in one cycle only. <br><br>
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-drawing5.png" width="350" height="150"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-drawing5.png" width="350" height="150"></figure><br><br>
 
     <div class="gray">
 Expression: X = (A+B)*(C+D)<br>
@@ -230,7 +230,7 @@ R1, R2 are registers<br>
 M[] is any memory location<br><br>
     </div>
 
-<table border="1">
+<div class="gm-table"><table border="1">
 <tr>
 <td>ADD</td>
 <td>R1, A, B</td>
@@ -246,7 +246,7 @@ M[] is any memory location<br><br>
 <td>X, R1, R2	</td>
 <td>M[X] = R1 * R2</td>
 </tr>
-</table>
+</table></div>
 <br><br>
 </body>
 </html>

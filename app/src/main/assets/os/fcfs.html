@@ -24,7 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
 <div class="main_wrapper">
     <div>
         <div class="article-title">
@@ -65,8 +65,8 @@
         <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
     </blockquote>
     <h3><strong>Examples to Show Working of Non-Preemptive First come First Serve CPU Scheduling Algorithm</strong></h3>
-    <p dir="ltr"><strong>Example-1:&nbsp;</strong>Consider the following table of&nbsp;<a href="https://www.geeksforgeeks.org/difference-between-arrival-time-and-burst-time-in-cpu-scheduling/">arrival time and burst time</a>&nbsp;for five processes&nbsp;<strong>P1, P2, P3, P4</strong>&nbsp;and&nbsp;<strong>P5</strong>.&nbsp;</p>
-    <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /></colgroup>
+    <div class="gm-callout gm-example" data-label="Example"><p dir="ltr"><strong>Example-1:&nbsp;</strong>Consider the following table of&nbsp;<a href="https://www.geeksforgeeks.org/difference-between-arrival-time-and-burst-time-in-cpu-scheduling/">arrival time and burst time</a>&nbsp;for five processes&nbsp;<strong>P1, P2, P3, P4</strong>&nbsp;and&nbsp;<strong>P5</strong>.&nbsp;</p></div>
+    <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /></colgroup>
         <thead>
         <tr>
             <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Processes &nbsp; &nbsp; &nbsp;&nbsp;</th>
@@ -101,14 +101,14 @@
             <td class="GFGEditorTheme__tableCell">5</td>
         </tr>
         </tbody>
-    </table>
+    </table></div>
     <p dir="ltr">The<strong>&nbsp;First come First serve</strong>&nbsp;CPU Scheduling Algorithm will work on the basis of steps as mentioned below:</p>
-    <p dir="ltr"><strong>Step 0:&nbsp;</strong>At time = 0,</p>
+    <p dir="ltr" class="gm-step"><strong>Step 0:&nbsp;</strong>At time = 0,</p>
     <ul>
         <li value="1">The process begins with&nbsp;<strong>P1&nbsp;</strong></li>
         <li value="2">As it has an arrival time 0</li>
     </ul>
-    <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+    <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
         <thead>
         <tr>
             <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -131,19 +131,19 @@
             <td class="GFGEditorTheme__tableCell">3ms</td>
         </tr>
         </tbody>
-    </table>
-    <p dir="ltr">&nbsp;</p>
+    </table></div>
+    
 </div>
 <div class="main_wrapper">
     <div>
         <div class="article-title">
-            <p dir="ltr"><strong>Step 1:&nbsp;</strong>At time = 1,</p>
+            <p dir="ltr" class="gm-step"><strong>Step 1:&nbsp;</strong>At time = 1,</p>
             <ul>
                 <li value="1">The process&nbsp;<strong>P2&nbsp;</strong>arrives</li>
                 <li value="2">But process&nbsp;<strong>P1&nbsp;</strong>still executing,&nbsp;</li>
                 <li value="3">Thus,&nbsp;<strong>P2 is&nbsp;</strong>kept on a waiting table and waits for its execution.</li>
             </ul>
-            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+            <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
                 <thead>
                 <tr>
                     <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -174,13 +174,13 @@
                     <td class="GFGEditorTheme__tableCell">3ms</td>
                 </tr>
                 </tbody>
-            </table>
-            <p dir="ltr"><strong>Step 3:&nbsp;</strong>At time = 2,</p>
+            </table></div>
+            <p dir="ltr" class="gm-step"><strong>Step 3:&nbsp;</strong>At time = 2,</p>
             <ul>
                 <li value="1">The process&nbsp;<strong>P3&nbsp;</strong>arrives and kept in a waiting queue&nbsp;</li>
                 <li value="2">While process&nbsp;<strong>P1&nbsp;</strong>is still executing as its burst time is 4.</li>
             </ul>
-            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+            <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
                 <thead>
                 <tr>
                     <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -219,13 +219,13 @@
                     <td class="GFGEditorTheme__tableCell">1ms</td>
                 </tr>
                 </tbody>
-            </table>
-            <p dir="ltr"><strong>Step 4:&nbsp;</strong>At time = 3,</p>
+            </table></div>
+            <p dir="ltr" class="gm-step"><strong>Step 4:&nbsp;</strong>At time = 3,</p>
             <ul>
                 <li value="1">The process&nbsp;<strong>P4&nbsp;</strong>arrives and kept in the waiting queue&nbsp;</li>
                 <li value="2">While process&nbsp;<strong>P1&nbsp;</strong>is still executing as its burst time is&nbsp;<strong>4</strong></li>
             </ul>
-            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+            <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
                 <thead>
                 <tr>
                     <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -272,8 +272,8 @@
                     <td class="GFGEditorTheme__tableCell">2ms</td>
                 </tr>
                 </tbody>
-            </table>
-            <p dir="ltr"><strong>Step 5:</strong>&nbsp;At time = 4,</p>
+            </table></div>
+            <p dir="ltr" class="gm-step"><strong>Step 5:</strong>&nbsp;At time = 4,</p>
             <ul>
                 <li value="1">The process&nbsp;<strong>P1&nbsp;</strong>completes its execution&nbsp;</li>
                 <li value="2">Process&nbsp;<strong>P5&nbsp;</strong>arrives in waiting queue while process&nbsp;<strong>P2&nbsp;</strong>starts executing</li>
@@ -283,7 +283,7 @@
 </div>
 <div class="main_wrapper">
     <div class="article-title">
-        <table class="GFGEditorTheme__table">
+        <div class="gm-table"><table class="GFGEditorTheme__table">
             <thead>
             <tr>
                 <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -330,12 +330,12 @@
                 <td class="GFGEditorTheme__tableCell">5ms</td>
             </tr>
             </tbody>
-        </table>
-        <p dir="ltr"><strong>Step 6:&nbsp;</strong>At time = 5,</p>
+        </table></div>
+        <p dir="ltr" class="gm-step"><strong>Step 6:&nbsp;</strong>At time = 5,</p>
         <ul>
             <li value="1">The process&nbsp;<strong>P2&nbsp;</strong>completes its execution&nbsp;</li>
         </ul>
-        <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+        <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
             <thead>
             <tr>
                 <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -382,12 +382,12 @@
                 <td class="GFGEditorTheme__tableCell">5ms</td>
             </tr>
             </tbody>
-        </table>
-        <p dir="ltr"><strong>Step 7:&nbsp;</strong>At time = 7,</p>
+        </table></div>
+        <p dir="ltr" class="gm-step"><strong>Step 7:&nbsp;</strong>At time = 7,</p>
         <ul>
             <li value="1">Process&nbsp;<strong>P3&nbsp;</strong>starts executing, it has burst time of 1 thus, it completes execution at time interval 8</li>
         </ul>
-        <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+        <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
             <thead>
             <tr>
                 <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -426,21 +426,21 @@
                 <td class="GFGEditorTheme__tableCell">5ms</td>
             </tr>
             </tbody>
-        </table>
+        </table></div>
         <blockquote>
-            <p dir="ltr">&nbsp;</p>
+            
         </blockquote>
     </div>
 </div>
 <div class="main_wrapper">
     <div class="article-title">
         <blockquote>
-            <p dir="ltr"><strong>Step 8:&nbsp;</strong>At time 8,</p>
+            <p dir="ltr" class="gm-step"><strong>Step 8:&nbsp;</strong>At time 8,</p>
             <ul>
                 <li value="1">The process of&nbsp;<strong>P3&nbsp;</strong>completes its execution&nbsp;</li>
                 <li value="2">Process&nbsp;<strong>P4&nbsp;</strong>starts executing, it has burst time of 2 thus, it completes execution at time interval 10.</li>
             </ul>
-            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+            <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
                 <thead>
                 <tr>
                     <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -471,13 +471,13 @@
                     <td class="GFGEditorTheme__tableCell">5ms</td>
                 </tr>
                 </tbody>
-            </table>
-            <p dir="ltr"><strong>Step 9:&nbsp;</strong>At time 10,</p>
+            </table></div>
+            <p dir="ltr" class="gm-step"><strong>Step 9:&nbsp;</strong>At time 10,</p>
             <ul>
                 <li value="1">The process&nbsp;<strong>P4&nbsp;</strong>completes its execution&nbsp;</li>
                 <li value="2">Process&nbsp;<strong>P5&nbsp;</strong>starts executing, it has burst time of 5 thus, it completes execution at time interval 15.</li>
             </ul>
-            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+            <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
                 <thead>
                 <tr>
                     <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -500,8 +500,8 @@
                     <td class="GFGEditorTheme__tableCell"><s><span class="GFGEditorTheme__textStrikethrough">0ms</span></s></td>
                 </tr>
                 </tbody>
-            </table>
-            <p dir="ltr"><strong>Step 10:&nbsp;</strong>At time 15,</p>
+            </table></div>
+            <p dir="ltr" class="gm-step"><strong>Step 10:&nbsp;</strong>At time 15,</p>
             <ul>
                 <li value="1">Process P5 will finish its execution.</li>
                 <li value="2">The overall execution of the processes will be as shown below:</li>
@@ -511,7 +511,7 @@
 </div>
 
                 <h3><strong>Gantt Chart for Above Execution</strong></h3>
-                <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220426170549/UntitledDiagram2-300x75.jpg" alt="Gantt chart for First come First serve Scheduling" width="inherit" height="inherit" />
+                <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220426170549/UntitledDiagram2-300x75.jpg" alt="Gantt chart for First come First serve Scheduling" width="inherit" height="inherit" /><figcaption>Gantt chart for First come First serve Scheduling</figcaption></figure>
                     <p class="wp-caption-text">Gantt chart for First come First serve Scheduling</p>
                 </div>
                 <blockquote>

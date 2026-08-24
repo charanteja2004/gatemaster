@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <h2>Prim’s Algorithm for Minimum Spanning Tree (MST)</h2>
 
     <h2>Introduction to Prim&rsquo;s algorithm:</h2>
@@ -47,15 +47,15 @@ f    </blockquote>
     <p dir="ltr">The working of Prim&rsquo;s algorithm can be described by using the following steps:</p>
 
     <blockquote>
-        <p dir="ltr"><strong>Step 1:</strong>&nbsp;Determine an arbitrary vertex as the starting vertex of the
+        <p dir="ltr" class="gm-step"><strong>Step 1:</strong>&nbsp;Determine an arbitrary vertex as the starting vertex of the
             MST.<br /><strong>Step 2:</strong>&nbsp;Follow steps 3 to 5 till there are vertices that are not included in
             the MST (known as fringe vertex).<br /><strong>Step 3:</strong>&nbsp;Find edges connecting any tree vertex
             with the fringe vertices.<br /><strong>Step 4:</strong>&nbsp;Find the minimum among these
             edges.<br /><strong>Step 5:</strong>&nbsp;Add the chosen edge to the MST if it does not form any
             cycle.<br /><strong>Step 6:</strong>&nbsp;Return the MST and exit</p>
     </blockquote>
-    <p dir="ltr"><strong>Note:</strong>&nbsp;For determining a cycle, we can divide the vertices into two sets [one set
-        contains the vertices included in MST and the other contains the fringe vertices.]</p>
+    <div class="gm-callout gm-note" data-label="Note"><p dir="ltr"><strong>Note:</strong>&nbsp;For determining a cycle, we can divide the vertices into two sets [one set
+        contains the vertices included in MST and the other contains the fringe vertices.]</p></div>
 
 
 
@@ -67,103 +67,103 @@ f    </blockquote>
             (MST).</p>
         <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
         <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
-        <div class="wp-caption alignnone"><img
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20230223140007/mstdrawio.png"
-                alt="Example of a graph" width="350" height="350" />
+                alt="Example of a graph" width="350" height="350" /><figcaption>Example of a graph</figcaption></figure>
             <p class="wp-caption-text">Example of a graph</p>
         </div>
-        <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step
+        <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step
                         1:</strong></strong></u>&nbsp;Firstly, we select an arbitrary vertex that acts as the starting
             vertex of the Minimum Spanning Tree. Here we have selected vertex&nbsp;<strong>0</strong>&nbsp;as the
             starting vertex.</p>
-        <div class="wp-caption alignnone"><img
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20230223140425/mst1drawio.png"
-                alt="0 is selected as starting vertex" width="350" height="371" />
+                alt="0 is selected as starting vertex" width="350" height="371" /><figcaption>0 is selected as starting vertex</figcaption></figure>
             <p class="wp-caption-text">0 is selected as starting vertex</p>
         </div>
-        <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 2:</strong></strong></u>&nbsp;All the
+        <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 2:</strong></strong></u>&nbsp;All the
             edges connecting the incomplete MST and other vertices are the edges {0, 1} and {0, 7}. Between these two
             the edge with minimum weight is {0, 1}. So include the edge and vertex 1 in the MST.</p>
-        <div class="wp-caption alignnone"><img
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20230223140811/mst2drawio.png"
-                alt="1 is added to the MST" width="350" height="363" />
+                alt="1 is added to the MST" width="350" height="363" /><figcaption>1 is added to the MST</figcaption></figure>
             <p class="wp-caption-text">1 is added to the MST</p>
         </div>
-        <p dir="ltr">&nbsp;<u><strong><strong class="GFGEditorTheme__textUnderline">Step
+        <p dir="ltr" class="gm-step">&nbsp;<u><strong><strong class="GFGEditorTheme__textUnderline">Step
                         3:</strong></strong></u>&nbsp;The edges connecting the incomplete MST to other vertices are {0,
             7}, {1, 7} and {1, 2}. Among these edges the minimum weight is 8 which is of the edges {0, 7} and {1, 2}.
             Let us here include the edge {0, 7} and the vertex 7 in the MST. [We could have also included edge {1, 2}
             and vertex 2 in the MST].&nbsp;</p>
-        <div class="wp-caption alignnone"><img
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20230223152544/mst3drawio.png"
-                alt="7 is added in the MST" width="600" height="348" />
+                alt="7 is added in the MST" width="600" height="348" /><figcaption>7 is added in the MST</figcaption></figure>
             <p class="wp-caption-text">7 is added in the MST</p>
         </div>
-        <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 4:</strong></strong></u>&nbsp;The
+        <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 4:</strong></strong></u>&nbsp;The
             edges that connect the incomplete MST with the fringe vertices are {1, 2}, {7, 6} and {7, 8}. Add the edge
             {7, 6} and the vertex 6 in the MST as it has the least weight (i.e., 1).</p>
-        <div class="wp-caption alignnone"><img
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20230223153113/mst4drawio.png"
-                alt="6 is added in the MST" width="350" height="335" />
+                alt="6 is added in the MST" width="350" height="335" /><figcaption>6 is added in the MST</figcaption></figure>
             <p class="wp-caption-text">6 is added in the MST</p>
         </div>
-        <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 5:</strong></strong></u>&nbsp;The
+        <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 5:</strong></strong></u>&nbsp;The
             connecting edges now are {7, 8}, {1, 2}, {6, 8} and {6, 5}. Include edge {6, 5} and vertex 5 in the MST as
             the edge has the minimum weight (i.e., 2) among them.</p>
-        <div class="wp-caption alignnone"><img
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20230223153329/mst5drawio.png"
-                alt="Include vertex 5 in the MST" width="609" height="353" />
+                alt="Include vertex 5 in the MST" width="609" height="353" /><figcaption>Include vertex 5 in the MST</figcaption></figure>
             <p class="wp-caption-text">Include vertex 5 in the MST</p>
         </div>
-        <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 6:</strong></strong></u>&nbsp;Among
+        <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 6:</strong></strong></u>&nbsp;Among
             the current connecting edges, the edge {5, 2} has the minimum weight. So include that edge and the vertex 2
             in the MST.</p>
         <div id="GFG_AD_gfg_outstream_incontent" data-google-query-id="CKaNkpOzo4YDFcNSnQkdkVAA2w">
             <div id="google_ads_iframe_/27823234/gfg_outstream_incontent_0__container__">&nbsp;</div>
         </div>
-        <div class="wp-caption alignnone"><img
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20230223153618/mst6drawio.png"
-                alt="Include vertex 2 in the MST" width="350" height="385" />
+                alt="Include vertex 2 in the MST" width="350" height="385" /><figcaption>Include vertex 2 in the MST</figcaption></figure>
             <p class="wp-caption-text">Include vertex 2 in the MST</p>
         </div>
-        <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 7:</strong></strong></u>&nbsp;The
+        <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 7:</strong></strong></u>&nbsp;The
             connecting edges between the incomplete MST and the other edges are {2, 8}, {2, 3}, {5, 3} and {5, 4}. The
             edge with minimum weight is edge {2, 8} which has weight 2. So include this edge and the vertex 8 in the
             MST.</p>
-        <div class="wp-caption alignnone"><img
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20230223153852/mst7drawio.png"
-                alt="Add vertex 8 in the MST" width="341" height="372" />
+                alt="Add vertex 8 in the MST" width="341" height="372" /><figcaption>Add vertex 8 in the MST</figcaption></figure>
             <p class="wp-caption-text">Add vertex 8 in the MST</p>
         </div>
-        <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 8:</strong></strong></u>&nbsp;See
+        <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 8:</strong></strong></u>&nbsp;See
             here that the edges {7, 8} and {2, 3} both have same weight which are minimum. But 7 is already part of MST.
             So we will consider the edge {2, 3} and include that edge and vertex 3 in the MST.</p>
-        <div class="wp-caption alignnone"><img
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20230223154124/mst8drawio.png"
-                alt="Include vertex 3 in MST" width="350" height="377" />
+                alt="Include vertex 3 in MST" width="350" height="377" /><figcaption>Include vertex 3 in MST</figcaption></figure>
             <p class="wp-caption-text">Include vertex 3 in MST</p>
         </div>
-        <p dir="ltr"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 9:</strong></strong></u>&nbsp;Only
+        <p dir="ltr" class="gm-step"><u><strong><strong class="GFGEditorTheme__textUnderline">Step 9:</strong></strong></u>&nbsp;Only
             &nbsp;the vertex 4 remains to be included. The minimum weighted edge from the incomplete MST to 4 is {3, 4}.
         </p>
-        <div class="wp-caption alignnone"><img
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20230223154246/mst9drawio.png"
-                alt="Include vertex 4 in the MST" width="407" height="358" />
+                alt="Include vertex 4 in the MST" width="407" height="358" /><figcaption>Include vertex 4 in the MST</figcaption></figure>
             <p class="wp-caption-text">Include vertex 4 in the MST</p>
         </div>
         <p dir="ltr">The final structure of the MST is as follows and the weight of the edges of the MST is (4 + 8 + 1 +
             2 + 4 + 2 + 7 + 9) =&nbsp;<strong>37</strong>.</p>
-        <div class="wp-caption alignnone"><img
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20230223154442/finalmstdrawio.png"
-                alt="The structure of the MST formed using the above method" width="340" height="371" />
+                alt="The structure of the MST formed using the above method" width="340" height="371" /><figcaption>The structure of the MST formed using the above method</figcaption></figure>
             <p class="wp-caption-text">The structure of the MST formed using the above method</p>
         </div>
-        <p dir="ltr"><strong>Note:</strong>&nbsp;If we had selected the edge {1, 2} in the third step then the MST would
-            look like the following.</p>
-        <div class="wp-caption alignnone"><img
+        <div class="gm-callout gm-note" data-label="Note"><p dir="ltr"><strong>Note:</strong>&nbsp;If we had selected the edge {1, 2} in the third step then the MST would
+            look like the following.</p></div>
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20230223154535/alternatemstdrawio.png"
                 alt="Structure of the alternate MST if we had selected edge {1, 2} in the MST" width="433"
-                height="367" />
+                height="367" /><figcaption>Structure of the alternate MST if we had selected edge {1, 2} in the MST</figcaption></figure>
             <p class="wp-caption-text">Structure of the alternate MST if we had selected edge {1, 2} in the MST</p>
         </div>
     </blockquote>
@@ -200,8 +200,7 @@ f    </blockquote>
         included in MST, the key value for these vertices indicates the minimum weight edges connecting them to the set
         of vertices included in MST.</p>
     <p dir="ltr">Below is the implementation of the approach:</p>
-
-    <div class="line number1 index0 alt2"><code class="comments">// A C program for Prim's Minimum</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// A C program for Prim's Minimum</code></div>
     <div class="line number2 index1 alt1"><code class="comments">// Spanning Tree (MST) algorithm. The program is</code>
     </div>
     <div class="line number3 index2 alt2"><code
@@ -380,7 +379,8 @@ f    </blockquote>
             class="comments">// print the constructed MST</code></div>
     <div class="line number87 index86 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
             class="plain">printMST(parent, graph);</code></div>
-    <div class="line number88 index87 alt1"><code class="plain">}</code></div>
+    <div class="line number88 index87 alt1"><code class="plain">}</code></div></div></div>
+
     <div class="responsive-tabs-wrapper">
         <div class="responsive-tabs responsive-tabs--enabled">
             <div id="tablist1-panel2" class="tabcontent responsive-tabs__panel responsive-tabs__panel--active"
@@ -388,12 +388,12 @@ f    </blockquote>
                 <div class="code-block">
                     <div class="code-container">
                         <div id="highlighter_447087" class="syntaxhighlighter nogutter  ">
-                            <table border="0" cellspacing="0" cellpadding="0">
+                            <div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
                                 <tbody>
                                     <tr>
                                         <td class="code">
                                             <div class="container">
-                                                <div class="line number90 index89 alt1"><code
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number90 index89 alt1"><code
                                                         class="comments">// Driver's code</code></div>
                                                 <div class="line number91 index90 alt2"><code
                                                         class="color1 bold">int</code> <code class="plain">main()</code>
@@ -429,12 +429,13 @@ f    </blockquote>
                                                         class="keyword bold">return</code> <code class="plain">0;</code>
                                                 </div>
                                                 <div class="line number103 index102 alt2"><code class="plain">}</code>
-                                                </div>
+                                                </div></div></div>
+
                                             </div>
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </table></div>
                         </div>
                     </div>
                 </div>
@@ -454,7 +455,7 @@ f    </blockquote>
             target="_blank" rel="noreferrer noopener"><strong>Complexity Analysis of Prim&rsquo;s
                 Algorithm:</strong></a></p>
     <div id="GFG_AD_gfg_outstream_incontent-1">&nbsp;</div>
-    <p dir="ltr"><strong>Time Complexity:&nbsp;</strong>O(V<sup>2</sup>), If the input&nbsp;<a
+    <p dir="ltr" class="gm-complexity" data-label="Time complexity"><strong>Time Complexity:&nbsp;</strong>O(V<sup>2</sup>), If the input&nbsp;<a
             href="https://www.geeksforgeeks.org/archives/27134">graph is represented using an adjacency list</a>, then
         the time complexity of Prim&rsquo;s algorithm can be reduced to O(E * logV) with the help of a binary heap.
         &nbsp;In this implementation, we are always considering the spanning tree to start from the root of the

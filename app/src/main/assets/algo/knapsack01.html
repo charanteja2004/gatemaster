@@ -23,23 +23,23 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <h2> 0/1 KnapSack</h2>
     <p dir="ltr">Given&nbsp;<strong>N</strong>&nbsp;items where each item has some weight and profit associated with it
         and also given a bag with capacity&nbsp;<strong>W</strong>, [i.e., the bag can hold at
         most&nbsp;<strong>W</strong>&nbsp;weight in it]. The task is to put the items into the bag such that the sum of
         profits associated with them is the maximum possible.&nbsp;</p>
-    <p dir="ltr"><strong>Note:</strong>&nbsp;The constraint here is we can either put an item completely into the bag or
-        cannot put it at all [It is not possible to put a part of an item into the bag].</p>
-    <p dir="ltr"><strong>Examples:</strong></p>
+    <div class="gm-callout gm-note" data-label="Note"><p dir="ltr"><strong>Note:</strong>&nbsp;The constraint here is we can either put an item completely into the bag or
+        cannot put it at all [It is not possible to put a part of an item into the bag].</p></div>
+    <p dir="ltr" class="gm-lead gm-example-lead"><strong>Examples:</strong></p>
 
-    <p dir="ltr"><strong>Input:&nbsp;</strong>N = 3, W = 4, profit[] = {1, 2, 3}, weight[] = {4, 5,
+    <div class="gm-callout gm-syntax" data-label="Input"><p dir="ltr"><strong>Input:&nbsp;</strong>N = 3, W = 4, profit[] = {1, 2, 3}, weight[] = {4, 5,
         1}<br /><strong>Output:</strong>&nbsp;3<br /><strong>Explanation:</strong>&nbsp;There are two items which have
         weight less than or equal to 4. If we select the item with weight 4, the possible profit is 1. And if we select
         the item with weight 1, the possible profit is 3. So the maximum possible profit is 3. Note that we cannot put
-        both the items with weight 4 and 1 together as the capacity of the bag is 4.</p>
-    <p dir="ltr"><strong>Input:&nbsp;</strong>N = 3, W = 3, profit[] = {1, 2, 3}, weight[] = {4, 5,
-        6}<br /><strong>Output:</strong>&nbsp;0</p>
+        both the items with weight 4 and 1 together as the capacity of the bag is 4.</p></div>
+    <div class="gm-callout gm-syntax" data-label="Input"><p dir="ltr"><strong>Input:&nbsp;</strong>N = 3, W = 3, profit[] = {1, 2, 3}, weight[] = {4, 5,
+        6}<br /><strong>Output:</strong>&nbsp;0</p></div>
 
     <h2><u><strong><strong class="GFGEditorTheme__textUnderline">Recursion Approach for 0/1 Knapsack
                     Problem:</strong></strong></u></h2>
@@ -120,15 +120,15 @@
 
 </div>
     </div>
-    <p dir="ltr"><strong>Time Complexity:&nbsp;</strong>O(2<sup>N</sup>)<br /><strong>Auxiliary
+    <p dir="ltr" class="gm-complexity" data-label="Time complexity"><strong>Time Complexity:&nbsp;</strong>O(2<sup>N</sup>)<br /><strong>Auxiliary
             Space:&nbsp;</strong>O(N), Stack space required for recursion</p>
     <div id="GFG_AD_gfg_outstream_incontent" data-google-query-id="CPXLmo2Io4YDFS1cnQkdDCcAKA">
         <div id="google_ads_iframe_/27823234/gfg_outstream_incontent_0__container__">&nbsp;</div>
     </div>
     <h2>Dynamic Programming Approach for 0/1 Knapsack Problem</h2>
     <h3><u><span class="GFGEditorTheme__textUnderline">Memoization Approach for 0/1 Knapsack Problem:</span></u></h3>
-    <p dir="ltr"><strong>Note:&nbsp;</strong>It should be noted that the above function using recursion computes the
-        same subproblems again and again. See the following recursion tree, K(1, 1) is being evaluated twice.&nbsp;</p>
+    <div class="gm-callout gm-note" data-label="Note"><p dir="ltr"><strong>Note:&nbsp;</strong>It should be noted that the above function using recursion computes the
+        same subproblems again and again. See the following recursion tree, K(1, 1) is being evaluated twice.&nbsp;</p></div>
     <blockquote>
         <p dir="ltr">In the following recursion tree,&nbsp;<strong>K()</strong>&nbsp;refers&nbsp; to knapSack(). The two
             parameters indicated in the following recursion tree are n and W.<br />The recursion tree is for following
@@ -166,7 +166,7 @@
             in exponential complexity we can directly return its result stored in the table in constant time.</p>
     </blockquote>
 
-    <p dir="ltr"><strong>Time Complexity:</strong>&nbsp;O(N * W).&nbsp;As redundant calculations of states are
+    <p dir="ltr" class="gm-complexity" data-label="Time complexity"><strong>Time Complexity:</strong>&nbsp;O(N * W).&nbsp;As redundant calculations of states are
         avoided.<br /><strong>Auxiliary Space:</strong>&nbsp;O(N * W) + O(N).&nbsp;The use of a 2D array data structure
         for storing intermediate states and O(N) auxiliary stack space(ASS) has been used for recursion stack</p>
     <h3><u><strong><strong class="GFGEditorTheme__textUnderline">Bottom-up Approach for 0/1 Knapsack
@@ -190,7 +190,7 @@
         <ul>
             <li value="1">If no element is filled, then the possible profit is 0.</li>
         </ul>
-        <table>
+        <div class="gm-table"><table>
             <thead>
                 <tr>
                     <th>weight⇢<br />item⇣/</th>
@@ -245,12 +245,12 @@
                     <td>&nbsp;</td>
                 </tr>
             </tbody>
-        </table>
+        </table></div>
         <ul>
             <li value="1"><strong>For filling the first item in the bag:</strong>&nbsp;If we follow the above mentioned
                 procedure, the table will look like the following.</li>
         </ul>
-        <table>
+        <div class="gm-table"><table>
             <thead>
                 <tr>
                     <th>weight⇢<br />item⇣/</th>
@@ -305,14 +305,14 @@
                     <td>&nbsp;</td>
                 </tr>
             </tbody>
-        </table>
+        </table></div>
         <ul>
             <li value="1"><strong>For filling the second item:</strong>&nbsp;&nbsp;<br />When jthWeight = 2, then
                 maximum possible profit is max (10, DP[1][2-2] + 15) = max(10, 15) = 15.<br />When jthWeight = 3, then
                 maximum possible profit is &nbsp;max(2 not put, 2 is put into bag) = max(DP[1][3], 15+DP[1][3-2]) =
                 max(10, 25) = 25.</li>
         </ul>
-        <table>
+        <div class="gm-table"><table>
             <thead>
                 <tr>
                     <th>weight⇢<br />item⇣/</th>
@@ -367,7 +367,7 @@
                     <td>&nbsp;</td>
                 </tr>
             </tbody>
-        </table>
+        </table></div>
         <ul>
             <li value="1"><strong>For filling the third item:</strong><br />When jthWeight = 3, the maximum possible
                 profit is max(DP[2][3], 40+DP[2][3-3]) = max(25, 40) = 40.<br />When jthWeight = 4, the maximum possible
@@ -375,7 +375,7 @@
                 profit is max(DP[2][5], 40+DP[2][5-3]) = max(25, 55) = 55.<br />When jthWeight = 6, the maximum possible
                 profit is max(DP[2][6], 40+DP[2][6-3]) = max(25, 65) = 65.</li>
         </ul>
-        <table>
+        <div class="gm-table"><table>
             <thead>
                 <tr>
                     <th>weight⇢<br />item⇣/</th>
@@ -430,7 +430,7 @@
                     <td>65</td>
                 </tr>
             </tbody>
-        </table>
+        </table></div>
     </blockquote>
 
 
@@ -487,7 +487,7 @@
 
 </div>
     </div>
-    <p dir="ltr"><strong>Time Complexity:</strong>&nbsp;O(N * W).&nbsp;where &lsquo;N&rsquo; is the number of elements
+    <p dir="ltr" class="gm-complexity" data-label="Time complexity"><strong>Time Complexity:</strong>&nbsp;O(N * W).&nbsp;where &lsquo;N&rsquo; is the number of elements
         and &lsquo;W&rsquo; is capacity.&nbsp;<br /><strong>Auxiliary Space:</strong>&nbsp;O(N * W).&nbsp;The use of a
         2-D array of size &lsquo;N*W&rsquo;.</p>
     <h3><u><strong><strong class="GFGEditorTheme__textUnderline">Space optimized Approach for 0/1 Knapsack Problem using
@@ -555,7 +555,7 @@
 
 </div>
     </div>
-    <p dir="ltr"><strong>Time Complexity</strong>: O(N * W).&nbsp;As redundant calculations of states are
+    <p dir="ltr" class="gm-complexity" data-label="Time complexity"><strong>Time Complexity</strong>: O(N * W).&nbsp;As redundant calculations of states are
         avoided<br /><strong>Auxiliary Space</strong>: O(W) As we are using a 1-D array instead of a 2-D array</p>
 
     <h2> Subset-Sum problem</h2>
@@ -563,15 +563,15 @@
 
     <p dir="ltr">Given a set of non-negative integers and a value&nbsp;<strong>sum</strong>, the task is to check if
         there is a subset of the given set whose sum is equal to the given&nbsp;<strong>sum</strong>.&nbsp;</p>
-    <p dir="ltr"><strong>Examples:</strong>&nbsp;</p>
+    <p dir="ltr" class="gm-lead gm-example-lead"><strong>Examples:</strong>&nbsp;</p>
     <div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
     <blockquote>
-        <p dir="ltr"><strong>Input:</strong>&nbsp;set[] = {3, 34, 4, 12, 5, 2}, sum =
+        <div class="gm-callout gm-syntax" data-label="Input"><p dir="ltr"><strong>Input:</strong>&nbsp;set[] = {3, 34, 4, 12, 5, 2}, sum =
             9<br /><strong>Output:</strong>&nbsp;True<br /><strong>Explanation:</strong>&nbsp;There is a subset (4, 5)
-            with sum 9.</p>
-        <p dir="ltr"><strong>Input:</strong>&nbsp;set[] = {3, 34, 4, 12, 5, 2}, sum =
+            with sum 9.</p></div>
+        <div class="gm-callout gm-syntax" data-label="Input"><p dir="ltr"><strong>Input:</strong>&nbsp;set[] = {3, 34, 4, 12, 5, 2}, sum =
             30<br /><strong>Output:</strong>&nbsp;False<br /><strong>Explanation:</strong>&nbsp;There is no subset that
-            add up to 30.</p>
+            add up to 30.</p></div>
     </blockquote>
 </body>
 </html>

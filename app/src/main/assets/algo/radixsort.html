@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <h3>Radix Sort</h3>
     <blockquote>
         <p dir="ltr"><strong>Radix Sort&nbsp;</strong>is a linear sorting algorithm that sorts elements by processing
@@ -43,14 +43,14 @@
     <blockquote>
         <p dir="ltr">To perform radix sort on the array [170, 45, 75, 90, 802, 24, 2, 66], we follow these steps:</p>
     </blockquote>
-    <div class="wp-caption alignnone"><img
+    <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
             src="https://media.geeksforgeeks.org/wp-content/uploads/20230609164537/Radix-Sort.png" width="385"
-            height="314" />
+            height="314" /></figure>
         <p class="wp-caption-text">How does Radix Sort Algorithm work | Step 1</p>
     </div>
-    <p dir="ltr"><strong>Step 1:&nbsp;</strong>Find the largest element in the array, which is 802. It has three digits,
+    <p dir="ltr" class="gm-step"><strong>Step 1:&nbsp;</strong>Find the largest element in the array, which is 802. It has three digits,
         so we will iterate three times, once for each significant place.</p>
-    <p dir="ltr"><strong>Step 2:</strong>&nbsp;Sort the elements based on the unit place digits (X=0). We use a stable
+    <p dir="ltr" class="gm-step"><strong>Step 2:</strong>&nbsp;Sort the elements based on the unit place digits (X=0). We use a stable
         sorting technique, such as counting sort, to sort the digits at each significant place.</p>
     <p dir="ltr"><strong>Sorting based on the unit place:</strong></p>
     <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
@@ -59,45 +59,44 @@
         <li value="1">Perform counting sort on the array based on the unit place digits.</li>
         <li value="2">The sorted array based on the unit place is [170, 90, 802, 2, 24, 45, 75, 66].</li>
     </ul>
-    <div class="wp-caption alignnone"><img
+    <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
             src="https://media.geeksforgeeks.org/wp-content/uploads/20230609164536/Radix-Sort--1.png" width="340"
-            height="336" />
+            height="336" /></figure>
         <p class="wp-caption-text">How does Radix Sort Algorithm work | Step 2</p>
     </div>
-    <p dir="ltr"><strong>Step 3:&nbsp;</strong>Sort the elements based on the tens place digits.</p>
+    <p dir="ltr" class="gm-step"><strong>Step 3:&nbsp;</strong>Sort the elements based on the tens place digits.</p>
     <p dir="ltr"><strong>Sorting based on the tens place:</strong></p>
     <ul>
         <li value="1">Perform counting sort on the array based on the tens place digits.</li>
         <li value="2">The sorted array based on the tens place is [802, 2, 24, 45, 66, 170, 75, 90].</li>
     </ul>
-    <div class="wp-caption alignnone"><img
+    <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
             src="https://media.geeksforgeeks.org/wp-content/uploads/20230609164535/Radix-Sort--2.png" width="313"
-            height="325" />
+            height="325" /></figure>
         <p class="wp-caption-text">How does Radix Sort Algorithm work | Step 3</p>
     </div>
-    <p dir="ltr"><strong>Step 4:&nbsp;</strong>Sort the elements based on the hundreds place digits.</p>
+    <p dir="ltr" class="gm-step"><strong>Step 4:&nbsp;</strong>Sort the elements based on the hundreds place digits.</p>
     <p dir="ltr"><strong>Sorting based on the hundreds place:</strong></p>
     <ul>
         <li value="1">Perform counting sort on the array based on the hundreds place digits.</li>
         <li value="2">The sorted array based on the hundreds place is [2, 24, 45, 66, 75, 90, 170, 802].</li>
     </ul>
-    <div class="wp-caption alignnone"><img
+    <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
             src="https://media.geeksforgeeks.org/wp-content/uploads/20230609164535/Radix-Sort--3.png" width="305"
-            height="322" />
+            height="322" /></figure>
         <p class="wp-caption-text">How does Radix Sort Algorithm work | Step 4</p>
     </div>
-    <p dir="ltr"><strong>Step 5:&nbsp;</strong>The array is now sorted in ascending order.</p>
+    <p dir="ltr" class="gm-step"><strong>Step 5:&nbsp;</strong>The array is now sorted in ascending order.</p>
     <p dir="ltr">The final sorted array using radix sort is [2, 24, 45, 66, 75, 90, 170, 802].</p>
     <div id="GFG_AD_gfg_outstream_incontent" data-google-query-id="CObrmpLdoIYDFUlknQkd3cEMmw">
         <div id="google_ads_iframe_/27823234/gfg_outstream_incontent_0__container__">&nbsp;</div>
     </div>
-    <div class="wp-caption alignnone"><img
+    <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
             src="https://media.geeksforgeeks.org/wp-content/uploads/20230609164534/Radix-Sort--4.png" width="305"
-            height="322" />
+            height="322" /></figure>
         <p class="wp-caption-text">How does Radix Sort Algorithm work | Step 5</p>
     </div>
-
-    <div class="line number1 index0 alt2"><code class="comments">// C Program to implement Radix Sort</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C Program to implement Radix Sort</code></div>
     <div class="line number2 index1 alt1"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
     <div class="line number3 index2 alt2">&nbsp;</div>
     <div class="line number4 index3 alt1"><code
@@ -179,18 +178,19 @@
     <div class="line number40 index39 alt1"><code
             class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
             class="plain">arr[i] = output[i];</code></div>
-    <div class="line number41 index40 alt2"><code class="plain">}</code></div>
+    <div class="line number41 index40 alt2"><code class="plain">}</code></div></div></div>
+
     <div class="responsive-tabs">
         <div class="tabcontent">
             <div class="code-block">
                 <div class="code-container">
                     <div id="highlighter_601255" class="syntaxhighlighter nogutter  ">
-                        <table border="0" cellspacing="0" cellpadding="0">
+                        <div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
                             <tbody>
                                 <tr>
                                     <td class="code">
                                         <div class="container">
-                                            <div class="line number43 index42 alt2"><code
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number43 index42 alt2"><code
                                                     class="comments">// The main function to that sorts arr[] of size n using</code>
                                             </div>
                                             <div class="line number44 index43 alt1"><code
@@ -292,12 +292,13 @@
                                                     class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
                                                     class="keyword bold">return</code> <code class="plain">0;</code>
                                             </div>
-                                            <div class="line number75 index74 alt2"><code class="plain">}</code></div>
+                                            <div class="line number75 index74 alt2"><code class="plain">}</code></div></div></div>
+
                                         </div>
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table></div>
                     </div>
                 </div>
             </div>
@@ -308,7 +309,7 @@
     </div>
     <h2><a href="https://www.geeksforgeeks.org/time-and-space-complexity-of-radix-sort-algorithm/" target="_blank"
             rel="noreferrer noopener"><strong>Complexity Analysis of Radix Sort</strong></a><strong>:</strong></h2>
-    <p dir="ltr"><strong>Time Complexity:</strong>&nbsp;</p>
+    <p dir="ltr" class="gm-lead gm-complexity-lead"><strong>Time Complexity:</strong>&nbsp;</p>
     <ul>
         <li value="1">Radix sort is a non-comparative integer sorting algorithm that sorts data with integer keys by
             grouping the keys by the individual digits which share the same significant position and value. It has a
@@ -319,7 +320,7 @@
             However, its time complexity grows linearly with the number of digits, and so it is not as efficient for
             small datasets.</li>
     </ul>
-    <p dir="ltr"><strong>Auxiliary Space:&nbsp;</strong></p>
+    <p dir="ltr" class="gm-lead gm-complexity-lead"><strong>Auxiliary Space:&nbsp;</strong></p>
     <ul>
         <li value="1">Radix sort also has a space complexity of&nbsp;<strong>O(n + b),</strong>&nbsp;where n is the
             number of elements and b is the base of the number system. This space complexity comes from the need to

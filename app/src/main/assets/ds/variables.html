@@ -6,7 +6,7 @@
     <title>Variables and Storage Classes in C</title>
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
 <h1>Variables and Storage Classes in C</h1>
 
 <p>A variable is a named region of memory. In C, four properties of that region are decided
@@ -23,14 +23,14 @@ value</strong>.</p>
 <p>A variable may be declared many times but defined exactly once across the whole program.</p>
 
 <h2>Storage classes</h2>
-<table>
+<div class="gm-table"><table>
   <tr><th>Class</th><th>Scope</th><th>Lifetime</th><th>Default value</th><th>Stored in</th></tr>
   <tr><td><code>auto</code></td><td>Block</td><td>Until the block exits</td><td><strong>Garbage</strong></td><td>Stack</td></tr>
   <tr><td><code>register</code></td><td>Block</td><td>Until the block exits</td><td>Garbage</td><td>Register if possible</td></tr>
   <tr><td><code>static</code> (local)</td><td>Block</td><td><strong>Whole program</strong></td><td>0</td><td>Data segment</td></tr>
   <tr><td><code>static</code> (global)</td><td>Its file only</td><td>Whole program</td><td>0</td><td>Data segment</td></tr>
   <tr><td><code>extern</code></td><td>Whole program</td><td>Whole program</td><td>0</td><td>Data segment</td></tr>
-</table>
+</table></div>
 
 <blockquote>
   <p>The single most examined line in this table: an <strong>uninitialised local variable holds
@@ -60,13 +60,13 @@ programmer can. The one part of the rule that still binds: you <strong>cannot ta
 of a <code>register</code> variable, so <code>&amp;x</code> is a compile error.</p>
 
 <h2>Scope</h2>
-<table>
+<div class="gm-table"><table>
   <tr><th>Scope</th><th>Where the name is visible</th></tr>
   <tr><td>Block</td><td>From its declaration to the closing brace of the enclosing block</td></tr>
   <tr><td>Function</td><td>Labels only &mdash; the targets of <code>goto</code></td></tr>
   <tr><td>File</td><td>From its declaration to the end of the file</td></tr>
   <tr><td>Function prototype</td><td>Parameter names inside a prototype</td></tr>
-</table>
+</table></div>
 
 <p>An inner declaration <strong>shadows</strong> an outer one of the same name for the rest of the
 inner block:</p>
@@ -83,14 +83,14 @@ int main(void) {
 }</pre>
 
 <h2>Memory layout</h2>
-<table>
+<div class="gm-table"><table>
   <tr><th>Segment</th><th>Holds</th></tr>
   <tr><td>Text</td><td>Compiled instructions; usually read-only</td></tr>
   <tr><td>Data</td><td>Initialised globals and statics</td></tr>
   <tr><td>BSS</td><td>Uninitialised globals and statics &mdash; zeroed at load</td></tr>
   <tr><td>Heap</td><td><code>malloc</code>, <code>calloc</code>, <code>realloc</code>; grows upward</td></tr>
   <tr><td>Stack</td><td>Locals, parameters, return addresses; grows downward</td></tr>
-</table>
+</table></div>
 
 <p>String literals sit in the read-only region, which is why
 <code>char *s = "abc"; s[0] = 'A';</code> is undefined behaviour and typically segfaults, while

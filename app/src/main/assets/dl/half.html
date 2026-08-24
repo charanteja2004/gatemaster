@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
 
-<body>
+<body data-gm-enriched="1">
 
     <div class="article-title">
         <h1>Half Adder in Digital Logic</h1>
@@ -58,23 +58,23 @@
         <p>let us consider two input bits A and B, then sum bit (s) is the X-OR of A and B. it is evident from the
             function of a half adder that it requires one X-OR gate and one AND gate for its construction.&nbsp;</p>
         <p><strong>Truth Table:</strong></p>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2015/07/ha_truth-300x235.png"
-                alt="ha_truth" /></p>
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2015/07/ha_truth-300x235.png"
+                alt="ha_truth" /><figcaption>ha_truth</figcaption></figure></p>
         <p>Here we perform two operations Sum and Carry, thus we need two K-maps one for each to derive the expression.
         </p>
         <h3>Logical Expression:&nbsp;</h3>
         <p><strong>For Sum:</strong><br /><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong></p>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20211017121522/xorkmap.jpg" /></p>
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20211017121522/xorkmap.jpg" /></figure></p>
         <p><strong>Sum = A XOR B</strong></p>
         <p><strong>For Carry:&nbsp;</strong><br /><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong></p>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20211017125041/Inkedandkmap1-200x155.jpg" /></p>
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20211017125041/Inkedandkmap1-200x155.jpg" /></figure></p>
         <p><strong>Carry = A AND B&nbsp;</strong></p>
         <h3>Implementation:</h3>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Half_Adder.jpg" alt="halfadder" /></p>
-        <p><strong>Note:&nbsp;</strong>Half adder has only two inputs and there is no provision to add a carry coming
-            from the lower order bits when multi addition is performed.&nbsp;</p>
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Half_Adder.jpg" alt="halfadder" /><figcaption>halfadder</figcaption></figure></p>
+        <div class="gm-callout gm-note" data-label="Note"><p><strong>Note:&nbsp;</strong>Half adder has only two inputs and there is no provision to add a carry coming
+            from the lower order bits when multi addition is performed.&nbsp;</p></div>
 
         <div class="article-title">
             <h1>Half Subtractor in Digital Logic</h1>
@@ -82,7 +82,7 @@
     </div>
     <div class="three_dot_dropdown">
         <div>
-            <p>&nbsp;</p>
+            
         </div>
     </div>
     </div>
@@ -100,28 +100,28 @@
             between the two binary bits at the input and also produces an output (Borrow) to indicate if a 1 has been
             borrowed. In the subtraction (A-B), A is called a&nbsp;<strong>Minuend bit&nbsp;</strong>and B is called
             a&nbsp;<strong>Subtrahend bit.</strong>&nbsp;</p>
-        <div class="wp-caption alignnone"><img
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2015/08/halfsub.png"
-                alt="Half Subtractor" width="297" height="160" />
-            <p class="wp-caption-text">&nbsp;</p>
+                alt="Half Subtractor" width="297" height="160" /><figcaption>Half Subtractor</figcaption></figure>
+            
         </div>
         <p><strong>Truth Table&nbsp;</strong></p>
         <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
-        <div class="wp-caption alignnone"><img
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2015/08/hs_truthtable.png" width="318"
-                height="242" />
-            <p class="wp-caption-text">&nbsp;</p>
+                height="242" /></figure>
+            
         </div>
-        <p>&nbsp;&nbsp;</p>
+        
         <p>The SOP form of the Diff and Borrow is as follows:</p>
         fclass="gray">Diff= A'B+AB'
         Borrow = A'B
     </div>
     <p><strong>&nbsp;Implementation&nbsp;</strong></p>
-    <div class="wp-caption alignnone"><img
+    <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
             src="https://media.geeksforgeeks.org/wp-content/uploads/20230316145016/Half-Subtractor-in-Digital-Logic.png"
-            width="448" height="224" />
-        <p class="wp-caption-text">&nbsp;</p>
+            width="448" height="224" /></figure>
+        
     </div>
     <p><strong>Logical Expression&nbsp;</strong></p>
     <div class="gray">Difference = A XOR B
@@ -148,7 +148,7 @@
             <li>Noise susceptibility: NAND and NOR gates can be susceptible to noise and other types of interference, which can cause incorrect operation of the circuit.</li>
             <li>In conclusion, while NAND and NOR gates have their advantages, they are not suitable for all applications. The choice of gates depends on the specific requirements of the circuit and the design trade-offs between performance, cost, and power consumption.</li>
             </ol>
-            <p><strong>Implementation of Half Adder using NAND gates :</strong>&nbsp;Total 5 NAND gates are required to implement half adder.<img src="https://media.geeksforgeeks.org/wp-content/uploads/1-71.png" alt="" width="429" height="214" /><strong>Implementation of Half Adder using NOR gates :</strong>&nbsp;Total 5 NOR gates are required to implement half adder.<img src="https://media.geeksforgeeks.org/wp-content/uploads/2-45.png" alt="" width="480" height="162" /><strong>Implementation of Half Subtractor using NAND gates :</strong>&nbsp;Total 5 NAND gates are required to implement half subtractor.<img src="https://media.geeksforgeeks.org/wp-content/uploads/3-52.png" alt="" width="498" height="161" /><strong>Implementation of Half Subtractor using NOR gates :</strong>&nbsp;Total 5 NOR gates are required to implement half subtractor.<img src="https://media.geeksforgeeks.org/wp-content/uploads/4-29.png" alt="" width="505" height="184" /></p>
+            <p><strong>Implementation of Half Adder using NAND gates :</strong>&nbsp;Total 5 NAND gates are required to implement half adder.<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/1-71.png" alt="" width="429" height="214" /></figure><strong>Implementation of Half Adder using NOR gates :</strong>&nbsp;Total 5 NOR gates are required to implement half adder.<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/2-45.png" alt="" width="480" height="162" /></figure><strong>Implementation of Half Subtractor using NAND gates :</strong>&nbsp;Total 5 NAND gates are required to implement half subtractor.<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/3-52.png" alt="" width="498" height="161" /></figure><strong>Implementation of Half Subtractor using NOR gates :</strong>&nbsp;Total 5 NOR gates are required to implement half subtractor.<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/4-29.png" alt="" width="505" height="184" /></figure></p>
             </div>
             </div>
 </body>

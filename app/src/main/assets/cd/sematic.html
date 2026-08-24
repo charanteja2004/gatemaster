@@ -25,7 +25,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <div class="main_wrapper">
         <div class="article-title">
         <div class="main_wrapper">
@@ -36,8 +36,8 @@
         </div>
         <div class="text">
         <p>Parser uses a CFG(Context-free-Grammar) to validate the input string and produce output for the next phase of the compiler. Output could be either a parse tree or an abstract syntax tree. Now to interleave semantic analysis with the syntax analysis phase of the compiler, we use Syntax Directed Translation.&nbsp;</p>
-        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220526122512/ConceptualviewofSyntaxdirectedtranslation-660x47.jfif" width="548" height="39" />
-        <p class="wp-caption-text">&nbsp;</p>
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220526122512/ConceptualviewofSyntaxdirectedtranslation-660x47.jfif" width="548" height="39" /></figure>
+        
         </div>
         <p>Conceptually, with both syntax-directed definition and translation schemes, we parse the input token stream, build the parse tree, and then traverse the tree as needed to evaluate the semantic rules at the parse tree nodes. Evaluation of the semantic rules may generate code, save information in a symbol table, issue error messages, or perform any other activities. The translation of the token stream is the result obtained by evaluating the semantic rules.</p>
         <p><strong>Definition</strong>&nbsp;<br />Syntax Directed Translation has augmented rules to the grammar that facilitate semantic analysis. SDT involves passing information bottom-up and/or top-down to the parse tree in form of attributes attached to the nodes. Syntax-directed translation rules use 1) lexical values of nodes, 2) constants &amp; 3) attributes associated with the non-terminals in their definitions.&nbsp;</p>
@@ -54,11 +54,11 @@
         F -&gt; INTLIT  { F.val = INTLIT.lexval }   PR#5</pre>
         <p>For understanding translation rules further, we take the first SDT augmented to [ E -&gt; E+T ] production rule. The translation rule in consideration has val as an attribute for both the non-terminals &ndash; E &amp; T. Right-hand side of the translation rule corresponds to attribute values of the right-side nodes of the production rule and vice-versa. Generalizing, SDT are augmented rules to a CFG that associate 1) set of attributes to every node of the grammar and 2) a set of translation rules to every production rule using attributes, constants, and lexical values.&nbsp;</p>
         <p>Let&rsquo;s take a string to see how semantic analysis happens &ndash; S = 2+3*4. Parse tree corresponding to S would be&nbsp;</p>
-        <p>&nbsp;</p>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/vineet_article.png" alt="vineet_article" /></p>
+        
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/vineet_article.png" alt="vineet_article" /><figcaption>vineet_article</figcaption></figure></p>
         <p>To evaluate translation rules, we can employ one depth-first search traversal on the parse tree. This is possible only because SDT rules don&rsquo;t impose any specific order on evaluation until children&rsquo;s attributes are computed before parents for a grammar having all synthesized attributes. Otherwise, we would have to figure out the best-suited plan to traverse through the parse tree and evaluate all the attributes in one or more traversals. For better understanding, we will move bottom-up in the left to right fashion for computing the translation rules of our example.&nbsp;</p>
-        <p>&nbsp;</p>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/Syntax_Directed_Translation.jpg" width="509" height="338" /></p>
+        
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Syntax_Directed_Translation.jpg" width="509" height="338" /></figure></p>
         <p>The above diagram shows how semantic analysis could happen. The flow of information happens bottom-up and all the children&rsquo;s attributes are computed before parents, as discussed above. Right-hand side nodes are sometimes annotated with subscript 1 to distinguish between children and parents.&nbsp;<br />Additional Information&nbsp;<br /><strong>Synthesized Attributes</strong>&nbsp;are such attributes that depend only on the attribute values of children nodes.&nbsp;<br />Thus [ E -&gt; E+T { E.val = E.val + T.val } ] has a synthesized attribute val corresponding to node E. If all the semantic attributes in an augmented grammar are synthesized, one depth-first search traversal in any order is sufficient for the semantic analysis phase.&nbsp;</p>
         <p><strong>Inherited Attributes</strong>&nbsp;are such attributes that depend on parent and/or sibling&rsquo;s attributes.&nbsp;<br />Thus [ Ep -&gt; E+T { Ep.val = E.val + T.val, T.val = Ep.val } ], where E &amp; Ep are same production symbols annotated to differentiate between parent and child, has an inherited attribute val corresponding to node T.&nbsp;</p>
         </div>
@@ -90,13 +90,13 @@
             <li>All interior nodes need to be non-terminals.</li>
             <li>In-order traversal gives the original input string.</li>
             </ol>
-            <p><strong>Example 1:</strong>&nbsp;Let us take an example of Grammar (Production Rules).</p>
+            <div class="gm-callout gm-example" data-label="Example"><p><strong>Example 1:</strong>&nbsp;Let us take an example of Grammar (Production Rules).</p></div>
             <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
             <pre>S -&gt; sAB
             A -&gt; a
             B -&gt; b</pre>
             <p>The input string is &ldquo;sab&rdquo;, then the Parse Tree is:</p>
-            <p><a href="https://media.geeksforgeeks.org/wp-content/uploads/20200913131917/cd2-299x300.PNG"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20200913131917/cd2-299x300.PNG" /></a></p>
+            <p><a href="https://media.geeksforgeeks.org/wp-content/uploads/20200913131917/cd2-299x300.PNG"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20200913131917/cd2-299x300.PNG" /></figure></a></p>
             </div>
            
         </div>

@@ -9,6 +9,7 @@ import com.gatemaster.app.GateMasterApplication
 import com.gatemaster.app.ui.branch.BranchPickerViewModel
 import com.gatemaster.app.ui.home.HomeViewModel
 import com.gatemaster.app.ui.papers.PapersViewModel
+import com.gatemaster.app.ui.reader.ReaderViewModel
 import com.gatemaster.app.ui.search.SearchViewModel
 import com.gatemaster.app.ui.subject.SubjectViewModel
 import com.gatemaster.app.ui.test.TestListViewModel
@@ -49,6 +50,13 @@ object AppViewModelProvider {
         initializer {
             TestPlayerViewModel(
                 repository = app().container.testRepository,
+                savedStateHandle = createSavedStateHandle(),
+            )
+        }
+        initializer {
+            ReaderViewModel(
+                repository = app().container.contentRepository,
+                preferences = app().container.userPreferences,
                 savedStateHandle = createSavedStateHandle(),
             )
         }

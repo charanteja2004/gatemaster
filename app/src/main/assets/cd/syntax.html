@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
 
-<body>
+<body data-gm-enriched="1">
     <div class="article-title">
         <div class="main_wrapper">
             <div class="article-title">
@@ -84,18 +84,18 @@
                     </ul>
                     <p>The pushdown automata (PDA) is used to design the syntax analysis phase.</p>
                     <p>The Grammar for a Language consists of Production rules.</p>
-                    <p><strong><u>Example:</u></strong>&nbsp;Suppose Production rules for the Grammar of a language are:
-                    </p>
+                    <div class="gm-callout gm-example" data-label="Example"><p><strong><u>Example:</u></strong>&nbsp;Suppose Production rules for the Grammar of a language are:
+                    </p></div>
                     <div> S -&gt; cAd
                         A -&gt; bc|a
                         And the input string is &ldquo;cad&rdquo;.</div>
                     <p>Now the parser attempts to construct a syntax tree from this grammar for the given input string.
                         It uses the given production rules and applies those as needed to generate the string. To
                         generate string &ldquo;cad&rdquo; it uses the rules as shown in the given diagram:<a
-                            href="https://media.geeksforgeeks.org/wp-content/uploads/Introduction-to-Syntax-Analysis.png"><img
+                            href="https://media.geeksforgeeks.org/wp-content/uploads/Introduction-to-Syntax-Analysis.png"><figure class="gm-figure gm-remote"><img
                                 class="no-zoom-in-cursor"
                                 src="https://media.geeksforgeeks.org/wp-content/uploads/Introduction-to-Syntax-Analysis.png"
-                                alt="syntaxAnalysis" width="518" height="206" /></a></p>
+                                alt="syntaxAnalysis" width="518" height="206" /><figcaption>syntaxAnalysis</figcaption></figure></a></p>
                     <p>In step (iii) above, the production rule A-&gt;bc was not a suitable one to apply (because the
                         string produced is &ldquo;cbcd&rdquo; not &ldquo;cad&rdquo;), here the parser needs to
                         backtrack, and apply the next production rule available with A which is shown in step (iv), and
@@ -137,7 +137,7 @@
                 </ol>
             </li>
         </ol>
-        <p><strong>Example 1:</strong>&nbsp;</p>
+        <p class="gm-lead gm-example-lead"><strong>Example 1:</strong>&nbsp;</p>
         <div class="gray">Production Rules of Grammar
             E -&gt; TE&rsquo;
             E&rsquo; -&gt; +T E&rsquo;|?
@@ -152,7 +152,7 @@
             FIRST(T&rsquo;) = { *, ? }
             FIRST(F) = { ( , id }
         </div>
-        <p><strong>Notes:&nbsp;</strong></p>
+        <p class="gm-lead gm-note-lead"><strong>Notes:&nbsp;</strong></p>
         <ol>
             <li>The grammar used above is Context-Free Grammar (CFG). Syntax of most programming languages can be
                 specified using CFG.</li>
@@ -182,7 +182,7 @@
                 <div class="gray">S -&gt;Aa | Ac<br />A -&gt;b  <br /><br />      S                  S  <br />     /  \              /   \<br />    A    a            A     c<br />    |                 |<br />    b                 b   <br /><br />Here, FOLLOW (A) = {a, c}</div>
                 <h3>Rules to compute FOLLOW set:&nbsp;</h3>
                 <div class="gray">1) FOLLOW(S) = { $ }   // where S is the starting Non-Terminal<br /><br />2) If A -&gt; pBq is a production, where p, B and q are any grammar symbols,<br />   then everything in FIRST(q)  except Є is in FOLLOW(B).<br /><br />3) If A-&gt;pB is a production, then everything in FOLLOW(A) is in FOLLOW(B).<br /><br />4) If A-&gt;pBq is a production and FIRST(q) contains Є, <br />   then FOLLOW(B) contains { FIRST(q) &ndash; Є } U FOLLOW(A) </div>
-                <p dir="ltr"><strong>Example 1:</strong>&nbsp;</p>
+                <p dir="ltr" class="gm-lead gm-example-lead"><strong>Example 1:</strong>&nbsp;</p>
                 <div class="gray"><strong>Production Rules:</strong><br />E -&gt; TE&rsquo;<br />E&rsquo; -&gt; +T E&rsquo;|Є<br />T -&gt; F T&rsquo;<br />T&rsquo; -&gt; *F T&rsquo; | Є<br />F -&gt; (E) | id<br /><br /><strong>FIRST set</strong><br />FIRST(E) = FIRST(T) = { ( , id }<br />FIRST(E&rsquo;) = { +, Є }<br />FIRST(T) = FIRST(F) = { ( , id }<br />FIRST(T&rsquo;) = { *, Є }<br />FIRST(F) = { ( , id }<br /><br /><strong>FOLLOW Set</strong><br />FOLLOW(E)  = { $ , ) }  // Note  ')' is there because of 5th rule<br />FOLLOW(E&rsquo;) = FOLLOW(E) = {  $, ) }  // See 1st production rule<br />FOLLOW(T)  = { FIRST(E&rsquo;) &ndash; Є } U FOLLOW(E&rsquo;) U FOLLOW(E) = { + , $ , ) }<br />FOLLOW(T&rsquo;) = FOLLOW(T) =      { + , $ , ) }<br />FOLLOW(F)  = { FIRST(T&rsquo;) &ndash;  Є } U FOLLOW(T&rsquo;) U FOLLOW(T) = { *, +, $, ) }</div>
             </div>
         </div>

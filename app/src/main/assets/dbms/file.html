@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <div class="article-title">
         <h1>File Organization in DBMS&nbsp;</h1>
         </div>
@@ -57,29 +57,29 @@
         <p dir="ltr">The easiest method for file Organization is the Sequential method. In this method, the file is stored one after another in a sequential manner. There are two ways to implement this method:</p>
         <h3><strong>1. Pile File Method</strong></h3>
         <p dir="ltr">This method is quite simple, in which we store the records in a sequence i.e. one after the other in the order in which they are inserted into the tables.&nbsp;</p>
-        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230619153354/aa.webp" alt="Pile File Method" width="401" height="197" />
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230619153354/aa.webp" alt="Pile File Method" width="401" height="197" /><figcaption>Pile File Method</figcaption></figure>
         <p class="wp-caption-text">Pile File Method</p>
         </div>
         <p dir="ltr"><strong>Insertion of the new record:&nbsp;</strong>Let the R1, R3, and so on up to R5 and R4 be four records in the sequence. Here, records are nothing but a row in any table. Suppose a new record R2 has to be inserted in the sequence, then it is simply placed at the end of the file.&nbsp;</p>
-        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230619153513/ab.webp" alt="New Record Insertion" width="468" height="168" />
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230619153513/ab.webp" alt="New Record Insertion" width="468" height="168" /><figcaption>New Record Insertion</figcaption></figure>
         <p class="wp-caption-text">New Record Insertion</p>
         </div>
         <h3><strong>2. Sorted File Method</strong></h3>
         <p dir="ltr">In this method, As the name itself suggests whenever a new record has to be inserted, it is always inserted in a sorted (ascending or descending) manner. The sorting of records may be based on any&nbsp;<a href="https://www.geeksforgeeks.org/postgresql-primary-key/">primary key</a>&nbsp;or any other key.&nbsp;</p>
-        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230619153555/ac.webp" alt="Sorted File Method" width="419" height="161" />
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230619153555/ac.webp" alt="Sorted File Method" width="419" height="161" /><figcaption>Sorted File Method</figcaption></figure>
         <p class="wp-caption-text">Sorted File Method</p>
         </div>
         <p dir="ltr"><strong>Insertion of the new record:&nbsp;</strong>Let us assume that there is a preexisting sorted sequence of four records R1, R3, and so on up to R7 and R8. Suppose a new record R2 has to be inserted in the sequence, then it will be inserted at the end of the file and then it will sort the sequence.&nbsp;</p>
-        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230619153653/ad.webp" alt="new Record Insertion" width="402" height="185" /></div>
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230619153653/ad.webp" alt="new Record Insertion" width="402" height="185" /><figcaption>new Record Insertion</figcaption></figure></div>
         </div>
         <div class="article-title">
             <h2>Heap File Organization</h2>
             <p dir="ltr"><strong>Heap File Organization</strong>&nbsp;works with data blocks. In this method, records are inserted at the end of the file, into the data blocks. No Sorting or Ordering is required in this method. If a data block is full, the new record is stored in some other block, Here the other data block need not be the very next data block, but it can be any block in the memory. It is the responsibility of DBMS to store and manage the new records.&nbsp;</p>
-            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230619153826/ae.webp" alt="Heap File Organization" width="326" height="inherit" />
+            <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230619153826/ae.webp" alt="Heap File Organization" width="326" height="inherit" /><figcaption>Heap File Organization</figcaption></figure>
             <p class="wp-caption-text">Heap File Organization</p>
             </div>
             <p dir="ltr"><strong>Insertion of the new record:&nbsp;</strong>Suppose we have four records in the heap R1, R5, R6, R4, and R3, and suppose a new record R2 has to be inserted in the heap then, since the last data block i.e data block 3 is full it will be inserted in any of the data blocks selected by the DBMS, let&rsquo;s say data block 1.</p>
-            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230619153910/af.webp" alt="New Record Insertion" width="401" height="inherit" />
+            <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230619153910/af.webp" alt="New Record Insertion" width="401" height="inherit" /><figcaption>New Record Insertion</figcaption></figure>
             <p class="wp-caption-text">New Record Insertion</p>
             </div>
             <p dir="ltr">If we want to search, delete or update data in the heap file Organization we will traverse the data from the beginning of the file till we get the requested record. Thus if the database is very huge, searching, deleting, or updating the record will take a lot of time.</p>

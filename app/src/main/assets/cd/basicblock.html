@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <div class="text">
         <div class="main_wrapper">
         <div class="article-title">
@@ -42,7 +42,7 @@
         <p dir="ltr"><strong>Basic Block</strong>&nbsp;is a straight line code sequence that has no branches in and out branches except to the entry and at the end respectively. Basic Block is a set of statements that always executes one after other, in a sequence.&nbsp;</p>
         <p dir="ltr">The first task is to partition a sequence of&nbsp;<a href="https://www.geeksforgeeks.org/three-address-code-compiler/">three-address codes</a>&nbsp;into basic blocks. A new basic block is begun with the first instruction and instructions are added until a jump or a label is met. In the absence of a jump, control moves further consecutively from one instruction to another. The idea is standardized in the algorithm below:&nbsp;</p>
         <p><strong>Algorithm:</strong>&nbsp;Partitioning three-address code into basic blocks.&nbsp;</p>
-        <p><strong>Input:</strong>&nbsp;A sequence of three address instructions.&nbsp;</p>
+        <div class="gm-callout gm-syntax" data-label="Input"><p><strong>Input:</strong>&nbsp;A sequence of three address instructions.&nbsp;</p></div>
         <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
         <p><strong>Process:</strong>&nbsp;Instructions from intermediate code which are leaders are determined. The following are the rules used for finding a leader:&nbsp;</p>
         <ol>
@@ -51,14 +51,14 @@
         <li value="3">Instructions that immediately follow unconditional or conditional jump/goto statements are considered leaders.&nbsp;</li>
         </ol>
         <p dir="ltr">Each leader thus determined its basic block contains itself and all instructions up to excluding the next leader.&nbsp;</p>
-        <p><strong>Example 1:&nbsp;</strong></p>
+        <p class="gm-lead gm-example-lead"><strong>Example 1:&nbsp;</strong></p>
         <p dir="ltr">The following sequence of three-address statements forms a basic block:</p>
-        <p dir="ltr"><strong>t1 := a*a</strong></p>
-        <p dir="ltr"><strong>t2 := a*b</strong></p>
+        <div class="gm-formula"><p dir="ltr"><strong>t1 := a*a</strong></p></div>
+        <div class="gm-formula"><p dir="ltr"><strong>t2 := a*b</strong></p></div>
         <p dir="ltr"><strong>t3 := 2*t2</strong></p>
-        <p dir="ltr"><strong>t4 := t1+t3</strong></p>
-        <p dir="ltr"><strong>t5 := b*b</strong></p>
-        <p dir="ltr"><strong>t6 := t4 +t5</strong></p>
+        <div class="gm-formula"><p dir="ltr"><strong>t4 := t1+t3</strong></p></div>
+        <div class="gm-formula"><p dir="ltr"><strong>t5 := b*b</strong></p></div>
+        <div class="gm-formula"><p dir="ltr"><strong>t6 := t4 +t5</strong></p></div>
         <p dir="ltr">A three address statement x:= y+z is said to define x and to use y and z. A name in a basic block is said to be live at a given point if its value is used after that point in the program, perhaps in another basic block.</p>
         </div>
         </div>
@@ -87,7 +87,7 @@
         <li>Structure preserving transformations</li>
         <li>Algebraic transformations</li>
         </ol>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220307133838/BasicBlockOptimization.jpg" alt="Basic Block Optimization" width="462" height="139" /></p>
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220307133838/BasicBlockOptimization.jpg" alt="Basic Block Optimization" width="462" height="139" /><figcaption>Basic Block Optimization</figcaption></figure></p>
         <h3>Structure-Preserving Transformations:</h3>
         <p>The structure-preserving transformation on basic blocks includes:</p>
         <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
@@ -99,7 +99,7 @@
         </ol>
         <h3>1.Dead Code Elimination:&nbsp;</h3>
         <p>Dead code is defined as that part of the code that never executes during the program execution. So, for optimization, such code or dead code is eliminated. The code which is never executed during the program (Dead code) takes time so, for optimization and speed, it is eliminated from the code. Eliminating the dead code increases the speed of the program as the compiler does not have to translate the dead code.</p>
-        <p><strong>Example:</strong></p>
+        <p class="gm-lead gm-example-lead"><strong>Example:</strong></p>
         <pre>// Program with Dead code
         int main()
         {
@@ -119,14 +119,14 @@
         }</pre>
         <h3>2.Common Subexpression Elimination:</h3>
         <p>In this technique, the sub-expression which are common are used frequently are calculated only once and reused when needed. DAG ( Directed Acyclic Graph ) is used to eliminate common subexpressions.</p>
-        <p><strong>Example:&nbsp;</strong></p>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220303132609/Untitled.png" width="399" height="296" /></p>
+        <p class="gm-lead gm-example-lead"><strong>Example:&nbsp;</strong></p>
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220303132609/Untitled.png" width="399" height="296" /></figure></p>
         <h3>3.Renaming of Temporary Variables:&nbsp;</h3>
         <p>Statements containing instances of a temporary variable can be changed to instances of a new temporary variable without changing the basic block value.</p>
-        <p><strong>Example:&nbsp;</strong>Statement t = a + b can be changed to x = a + b where t is a temporary variable and x is a new temporary variable without changing the value of the basic block.</p>
+        <div class="gm-callout gm-example" data-label="Example"><p><strong>Example:&nbsp;</strong>Statement t = a + b can be changed to x = a + b where t is a temporary variable and x is a new temporary variable without changing the value of the basic block.</p></div>
         <h4><strong>4.Interchange of Two Independent Adjacent Statements: &nbsp;</strong></h4>
         <p>If a block has two adjacent statements which are independent can be interchanged without affecting the basic block value.</p>
-        <p><strong>Example:&nbsp;</strong></p>
+        <p class="gm-lead gm-example-lead"><strong>Example:&nbsp;</strong></p>
         <pre>t1 = a + b
         t2 = c + d </pre>
         <p>These two independent statements of a block can be interchanged without affecting the value of the block.</p>
@@ -139,7 +139,7 @@
         </ol>
         <h4>1. Constant Folding:</h4>
         <p>Solve the constant terms which are continuous so that compiler does not need to solve this expression.</p>
-        <p><strong>Example:</strong></p>
+        <p class="gm-lead gm-example-lead"><strong>Example:</strong></p>
         <pre>x = 2 * 3 + y   <strong>&rArr; </strong>x = 6 + y  (Optimized code)</pre>
         <h4>2. Copy Propagation:&nbsp;</h4>
         <p>It is of two types, Variable Propagation, and Constant Propagation.</p>
@@ -151,7 +151,7 @@
         <p><strong>Constant Propagation:</strong></p>
         <blockquote>
         <p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong>&nbsp;x = 3 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span class="text-huge">&nbsp;&rArr;&nbsp;</span>z = 3 + a (Optimized code)</p>
-        <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; z = x + a&nbsp;</p>
+        <div class="gm-formula"><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; z = x + a&nbsp;</p></div>
         </blockquote>
         <h4>3. Strength Reduction:&nbsp;</h4>
         <p>Replace expensive statement/ instruction with cheaper ones.</p>

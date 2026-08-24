@@ -24,27 +24,27 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     
 <h2>Heaps</h2>
 <h3>Introduction to Heap</h3>
 <h2>Complexity Analysis of Bucket Sort Algorithm:</h2>
-<p dir="ltr"><strong>Time Complexity:</strong>&nbsp;O(n<sup>2</sup>),</p>
+<p dir="ltr" class="gm-complexity" data-label="Time complexity"><strong>Time Complexity:</strong>&nbsp;O(n<sup>2</sup>),</p>
 <ul>
 <li value="1">If we assume that insertion in a bucket takes O(1) time then steps 1 and 2 of the above algorithm clearly take O(n) time.</li>
 <li value="2">The O(1) is easily possible if we use a linked list to represent a bucket.</li>
 <li value="3">Step 4 also takes O(n) time as there will be n items in all buckets.&nbsp;</li>
 <li value="4">The main step to analyze is step 3. This step also takes O(n) time on average if all numbers are uniformly distributed.</li>
 </ul>
-<p dir="ltr"><strong>Auxiliary Space:&nbsp;</strong>O(n+k)</p>
+<p dir="ltr" class="gm-complexity" data-label="Auxiliary space"><strong>Auxiliary Space:&nbsp;</strong>O(n+k)</p>
 
 <h3><strong>Min-Heap:&nbsp;</strong></h3>
 <p>In this heap, the value of the root node must be the smallest among all its child nodes and the same thing must be done for its left and right sub-tree also.</p>
 <blockquote>
 <p>The total number of comparisons required in the min heap is according to the height of the tree. The height of the complete binary tree is always logn; therefore, the time complexity would also be O(logn).</p>
 </blockquote>
-<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20221220165711/MinHeapAndMaxHeap1.png" />
-<p class="wp-caption-text">&nbsp;</p>
+<div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20221220165711/MinHeapAndMaxHeap1.png" /></figure>
+
 </div>
 <h2>Properties of Heap:</h2>
 <h4>Heap has the following Properties:</h4>
@@ -71,7 +71,7 @@
 </ul>
 <p>This operation also takes&nbsp;<strong>O(logN)</strong>&nbsp;time.</p>
 
-<p><strong>Examples:</strong></p>
+<p class="gm-lead gm-example-lead"><strong>Examples:</strong></p>
 <blockquote>
 <p>Assume initially heap(taking&nbsp;<strong>max-heap</strong>) is as follows</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;8<br />&nbsp; &nbsp; &nbsp; &nbsp; / &nbsp; \<br />&nbsp; &nbsp; &nbsp;4 &nbsp; &nbsp; 5<br />&nbsp; &nbsp;/ \<br />1 &nbsp; 2</p>
@@ -87,7 +87,7 @@
 <li>Since we delete the root element from the heap it will distort the properties of the heap so we need to perform heapify operations so that it maintains the property of the heap.&nbsp;</li>
 </ul>
 <p>It takes&nbsp;<strong>O(logN)</strong>&nbsp;time.</p>
-<p><strong>Example:</strong></p>
+<p class="gm-lead gm-example-lead"><strong>Example:</strong></p>
 <blockquote>
 <p>Assume initially heap(taking max-heap) is as follows<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;15<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/ &nbsp; \<br />&nbsp; &nbsp; &nbsp; 5 &nbsp; &nbsp; 7<br />&nbsp; &nbsp;/ &nbsp;\<br />2 &nbsp; &nbsp; 3</p>
 <p>Now if we delete 15 into the heap it will be replaced by leaf node of the tree for temporary.<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;3<br />&nbsp; &nbsp; &nbsp; &nbsp; / &nbsp; \<br />&nbsp; &nbsp; &nbsp;5 &nbsp; &nbsp; 7<br />&nbsp; &nbsp;/ &nbsp; &nbsp;<br />2</p>
@@ -146,7 +146,7 @@
 <li value="1">The root element will be at Arr[0].</li>
 <li value="2">The below table shows indices of other nodes for the i<sup>th</sup>&nbsp;node, i.e., Arr[i]:</li>
 </ul>
-<table class="GFGEditorTheme__table"><colgroup><col /><col /></colgroup>
+<div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /></colgroup>
 <thead></thead>
 <tbody>
 <tr>
@@ -162,9 +162,9 @@
 <td class="GFGEditorTheme__tableCell">Returns the right child node</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p dir="ltr">The traversal method use to achieve Array representation is<strong>&nbsp;</strong><strong>Level Order Traversal</strong></a>. Please refer to&nbsp;>Array Representation Of Binary Heap</a>&nbsp;for details.</p>
-<p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/binaryheap.png" alt="Binary Heap Tree" width="350" height="350" /></p>
+<p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/binaryheap.png" alt="Binary Heap Tree" width="350" height="350" /><figcaption>Binary Heap Tree</figcaption></figure></p>
 <h2><u><span class="GFGEditorTheme__textUnderline">Operations on Heap:</span></u></h2>
 <p dir="ltr">Below are some standard operations on min heap:</p>
 <ul>
@@ -212,7 +212,7 @@
 </blockquote>
 
 <p dir="ltr"><strong>Build Complete Binary Tree:</strong>&nbsp;Build a complete binary tree from the array.</p>
-<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230530092618/1-(1).webp" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20230530092618/1-(1).webp 1000w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092618/1-(1)-100.webp 100w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092618/1-(1)-200.webp 200w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092618/1-(1)-300.webp 300w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092618/1-(1)-660.webp 660w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092618/1-(1)-768.webp 768w, " alt="Heap sort algorithm | Build Complete Binary Tree" width="804" height="378" />
+<div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230530092618/1-(1).webp" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20230530092618/1-(1).webp 1000w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092618/1-(1)-100.webp 100w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092618/1-(1)-200.webp 200w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092618/1-(1)-300.webp 300w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092618/1-(1)-660.webp 660w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092618/1-(1)-768.webp 768w, " alt="Heap sort algorithm | Build Complete Binary Tree" width="804" height="378" /><figcaption>Heap sort algorithm | Build Complete Binary Tree</figcaption></figure>
 <p class="wp-caption-text">Heap sort algorithm | Build Complete Binary Tree</p>
 </div>
 <p dir="ltr"><strong>Transform into max heap:</strong>&nbsp;After that, the task is to construct a tree from that unsorted array and try to convert it into&nbsp;<a href="heap.html">max heap.</a></p>
@@ -224,7 +224,7 @@
 </li>
 <li value="2">Now,&nbsp;<strong>4&nbsp;</strong>as a parent is smaller than the child&nbsp;<strong>5</strong>, thus swap both of these again and the resulted heap and array should be like this:</li>
 </ul>
-<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230530092705/2-(1).webp" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20230530092705/2-(1).webp 1000w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092705/2-(1)-100.webp 100w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092705/2-(1)-200.webp 200w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092705/2-(1)-300.webp 300w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092705/2-(1)-660.webp 660w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092705/2-(1)-768.webp 768w, " alt="Heap sort algorithm | Max Heapify constructed binary tree" width="826" height="388" />
+<div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230530092705/2-(1).webp" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20230530092705/2-(1).webp 1000w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092705/2-(1)-100.webp 100w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092705/2-(1)-200.webp 200w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092705/2-(1)-300.webp 300w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092705/2-(1)-660.webp 660w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092705/2-(1)-768.webp 768w, " alt="Heap sort algorithm | Max Heapify constructed binary tree" width="826" height="388" /><figcaption>Heap sort algorithm | Max Heapify constructed binary tree</figcaption></figure>
 <p class="wp-caption-text">Heap sort algorithm | Max Heapify constructed binary tree</p>
 </div>
 <p dir="ltr"><strong>Perform heap sort:</strong>&nbsp;Remove the maximum element in each step (i.e., move it to the end position and remove that) and then consider the remaining elements and transform it into a max heap.</p>
@@ -237,25 +237,25 @@
 </ul>
 </li>
 </ul>
-<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230530092725/3-(1).webp" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20230530092725/3-(1).webp 1000w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092725/3-(1)-100.webp 100w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092725/3-(1)-200.webp 200w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092725/3-(1)-300.webp 300w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092725/3-(1)-660.webp 660w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092725/3-(1)-768.webp 768w, " alt="Heap sort algorithm | Remove maximum from root and max heapify" width="804" height="378" />
+<div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230530092725/3-(1).webp" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20230530092725/3-(1).webp 1000w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092725/3-(1)-100.webp 100w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092725/3-(1)-200.webp 200w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092725/3-(1)-300.webp 300w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092725/3-(1)-660.webp 660w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092725/3-(1)-768.webp 768w, " alt="Heap sort algorithm | Remove maximum from root and max heapify" width="804" height="378" /><figcaption>Heap sort algorithm | Remove maximum from root and max heapify</figcaption></figure>
 <p class="wp-caption-text">Heap sort algorithm | Remove maximum from root and max heapify</p>
 </div>
 <ul>
 <li value="1">Repeat the above steps and it will look like the following:</li>
 </ul>
-<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230530092805/4-(1).webp" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20230530092805/4-(1).webp 1000w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092805/4-(1)-100.webp 100w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092805/4-(1)-200.webp 200w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092805/4-(1)-300.webp 300w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092805/4-(1)-660.webp 660w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092805/4-(1)-768.webp 768w, " alt="Heap sort algorithm | Remove next maximum from root nad max heapify" width="872" height="410" />
+<div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230530092805/4-(1).webp" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20230530092805/4-(1).webp 1000w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092805/4-(1)-100.webp 100w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092805/4-(1)-200.webp 200w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092805/4-(1)-300.webp 300w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092805/4-(1)-660.webp 660w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092805/4-(1)-768.webp 768w, " alt="Heap sort algorithm | Remove next maximum from root nad max heapify" width="872" height="410" /><figcaption>Heap sort algorithm | Remove next maximum from root nad max heapify</figcaption></figure>
 <p class="wp-caption-text">Heap sort algorithm | Remove next maximum from root nad max heapify</p>
 </div>
 <ul>
 <li value="1">Now remove the root (i.e. 3) again and perform heapify.</li>
 </ul>
-<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230530092841/6.webp" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20230530092841/6.webp 1000w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092841/6-100.webp 100w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092841/6-200.webp 200w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092841/6-300.webp 300w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092841/6-660.webp 660w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092841/6-768.webp 768w, " alt="Heap sort algorithm | Repeat previous step" width="832" height="391" />
+<div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230530092841/6.webp" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20230530092841/6.webp 1000w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092841/6-100.webp 100w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092841/6-200.webp 200w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092841/6-300.webp 300w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092841/6-660.webp 660w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092841/6-768.webp 768w, " alt="Heap sort algorithm | Repeat previous step" width="832" height="391" /><figcaption>Heap sort algorithm | Repeat previous step</figcaption></figure>
 <p class="wp-caption-text">Heap sort algorithm | Repeat previous step</p>
 </div>
 <ul>
 <li value="1">Now when the root is removed once again it is sorted. and the sorted array will be like&nbsp;<strong>arr[] = {1, 3, 4, 5, 10}</strong>.</li>
 </ul>
-<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230530092858/7.webp" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20230530092858/7.webp 1000w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092858/7-100.webp 100w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092858/7-200.webp 200w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092858/7-300.webp 300w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092858/7-660.webp 660w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092858/7-768.webp 768w, " alt="Heap sort algorithm | Final sorted array" width="813" height="382" />
+<div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230530092858/7.webp" srcset="https://media.geeksforgeeks.org/wp-content/uploads/20230530092858/7.webp 1000w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092858/7-100.webp 100w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092858/7-200.webp 200w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092858/7-300.webp 300w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092858/7-660.webp 660w, https://media.geeksforgeeks.org/wp-content/uploads/20230530092858/7-768.webp 768w, " alt="Heap sort algorithm | Final sorted array" width="813" height="382" /><figcaption>Heap sort algorithm | Final sorted array</figcaption></figure>
 <p class="wp-caption-text">Heap sort algorithm | Final sorted array</p>
 </div>
 
@@ -364,7 +364,7 @@
 </div>
 </div>
 <h2>Complexity Analysis of&nbsp;<strong>Heap Sort</strong></h2>
-<p dir="ltr"><strong>Time Complexity:&nbsp;</strong>O(N log N)<br /><strong>Auxiliary Space:&nbsp;</strong>O(log n), due to the recursive call stack. However, auxiliary space can be O(1) for iterative implementation.</p>
+<p dir="ltr" class="gm-complexity" data-label="Time complexity"><strong>Time Complexity:&nbsp;</strong>O(N log N)<br /><strong>Auxiliary Space:&nbsp;</strong>O(log n), due to the recursive call stack. However, auxiliary space can be O(1) for iterative implementation.</p>
 <h2><strong>Important points about Heap Sort:</strong></h2>
 <ul>
 <li value="1">Heap sort is an in-place algorithm.&nbsp;</li>
@@ -386,7 +386,7 @@
 
 <h2>Maximum element in min heap</h2>
 <p>Given a&nbsp;<a href="https://www.geeksforgeeks.org/binary-heap/">min heap</a>, find the maximum element present in the heap.</p>
-<p><strong>Examples:</strong>&nbsp;</p>
+<p class="gm-lead gm-example-lead"><strong>Examples:</strong>&nbsp;</p>
 <div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
 <div class="gray"><strong>Input :</strong>      10 
            /    \ 
@@ -403,7 +403,7 @@
 <p>We can check all the nodes in the min-heap to get the maximum element. Note that this approach works on any binary tree and does not makes use of any property of the min-heap. It has a time and space complexity of O(n). Since min-heap is a complete binary tree, we generally use arrays to store them, so we can check all the nodes by simply traversing the array. If the heap is stored using pointers, then we can use recursion to check all the nodes.</p>
 
 <p><strong>Algorithm:</strong></p>
-<p><strong>Step 1:&nbsp;</strong>Create a function named &ldquo;findMaximumElement&rdquo; which takes the heap array and the number of nodes n as input parameter with the int return type.&nbsp;<br /><strong>Step 2:&nbsp;</strong>Create a variable named &ldquo;maximumElement&rdquo; and initialize it with the first element of the heap array.&nbsp;<br /><strong>Step 3:&nbsp;</strong>Start a for loop and traverse over the elements of the heap array starting from the second element.&nbsp;<br /><strong>Step 4:&nbsp;</strong>In each iteration, compare the current element with the &ldquo;maximumElement&rdquo; and update it if the current element is greater.&nbsp;<br /><strong>Step 5:&nbsp;</strong>After the loop completes, return the &ldquo;maximumElement&rdquo;.</p>
+<p class="gm-step"><strong>Step 1:&nbsp;</strong>Create a function named &ldquo;findMaximumElement&rdquo; which takes the heap array and the number of nodes n as input parameter with the int return type.&nbsp;<br /><strong>Step 2:&nbsp;</strong>Create a variable named &ldquo;maximumElement&rdquo; and initialize it with the first element of the heap array.&nbsp;<br /><strong>Step 3:&nbsp;</strong>Start a for loop and traverse over the elements of the heap array starting from the second element.&nbsp;<br /><strong>Step 4:&nbsp;</strong>In each iteration, compare the current element with the &ldquo;maximumElement&rdquo; and update it if the current element is greater.&nbsp;<br /><strong>Step 5:&nbsp;</strong>After the loop completes, return the &ldquo;maximumElement&rdquo;.</p>
 
 <div class="responsive-tabs-wrapper">
 <div class="responsive-tabs responsive-tabs--enabled">
@@ -411,12 +411,12 @@
 <div class="code-block">
 <div class="code-container">
 <div id="highlighter_89150" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="comments">// C++ implementation of above approach</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C++ implementation of above approach</code></div>
 <div class="line number2 index1 alt1"><code class="preprocessor">#include &lt;bits/stdc++.h&gt;</code></div>
 <div class="line number3 index2 alt2"><code class="keyword bold">using</code> <code class="keyword bold">namespace</code> <code class="plain">std;</code></div>
 <div class="line number4 index3 alt1">&nbsp;</div>
@@ -452,12 +452,13 @@
 <div class="line number34 index33 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">cout &lt;&lt; findMaximumElement(heap, n);</code></div>
 <div class="line number35 index34 alt2">&nbsp;</div>
 <div class="line number36 index35 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
-<div class="line number37 index36 alt2"><code class="plain">}</code></div>
+<div class="line number37 index36 alt2"><code class="plain">}</code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>
@@ -475,7 +476,7 @@
 <h2>Minimum element in a max heap</h2>
 
 <p>Given a max heap, find the minimum element present in the heap.</p>
-<p><strong>Examples:</strong>&nbsp;&nbsp;</p>
+<p class="gm-lead gm-example-lead"><strong>Examples:</strong>&nbsp;&nbsp;</p>
 <div class="gray"><strong>Input :</strong>     100
            /    \ 
           75     50 
@@ -492,7 +493,7 @@
 
 
 <h3>Below is the implementation of the above approach: </h3>
-<div class="line number1 index0 alt2"><code class="comments">// C++ implementation of above approach</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C++ implementation of above approach</code></div>
 <div class="line number2 index1 alt1"><code class="preprocessor">#include &lt;bits/stdc++.h&gt;</code></div>
 <div class="line number3 index2 alt2"><code class="keyword bold">using</code> <code class="keyword bold">namespace</code> <code class="plain">std;</code></div>
 <div class="line number4 index3 alt1">&nbsp;</div>
@@ -527,7 +528,8 @@
 <div class="line number33 index32 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">cout &lt;&lt; findMinimumElement(heap, n);</code></div>
 <div class="line number34 index33 alt1">&nbsp;</div>
 <div class="line number35 index34 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
-<div class="line number36 index35 alt1"><code class="plain">}</code></div>
+<div class="line number36 index35 alt1"><code class="plain">}</code></div></div></div>
+
 
 <div class="code-output"><strong>Output</strong>
 <div class="gray">3</div>

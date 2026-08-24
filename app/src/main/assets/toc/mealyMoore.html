@@ -24,7 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
 <div>
     <h2>Mealy and Moore Machines</h2>
     <p>Moore and Mealy Machines are Transducers that help in producing outputs based on the input of the current state or previous state. In this article we are going to discuss Moore Machines and Mealy Machines, the difference between these two machines as well as Conversion from Moore to Mealy and Conversion from Mealy to Moore Machines.</p>
@@ -42,7 +42,7 @@
             <li>λ is the output function which maps Q → O.</li>
         </ul>
     </div>
-    <img src="moore.png">
+    <figure class="gm-figure"><img src="moore.png"></figure>
 
     <p>In the Moore machine shown in Figure 1, the output is represented with each input state separated by /. The length of output for a Moore Machine is greater than input by 1.</p>
     <ul>
@@ -63,7 +63,7 @@
             <li>‘λ’ is the output function that maps Q×∑→ O.</li>
         </ul>
     </div>
-    <img src="mealy.png">
+    <figure class="gm-figure"><img src="mealy.png"></figure>
     <p>In the mealy machine shown in Figure 1, the output is represented with each input symbol for each state separated by /.  The length of output for a mealy machine is equal to the length of input.</p>
     <ul>
         <li>Input:1,1</li>
@@ -72,7 +72,7 @@
     </ul>
 
     <h3>Moore Machines vs Mealy Machines</h3>
-    <table>
+    <div class="gm-table"><table>
         <tr>
             <th>Aspect</th>
             <th>Moore Machines</th>
@@ -98,9 +98,9 @@
             <td>Can be simpler due to separation of output behavior.</td>
             <td>Can be more complex due to combined state-input cases.</td>
         </tr>
-    </table>
+    </table></div>
     <h3>Conversion From Mealy to Moore Machine</h3>
-    <table>
+    <div class="gm-table"><table>
         <tr>
             <th>Present State</th>
             <th>Input=0</th>
@@ -121,9 +121,9 @@
             <td>q1</td>
             <td>q2</td>
         </tr>
-    </table>
+    </table></div>
     <br>
-    <table>
+    <div class="gm-table"><table>
         <tr>
             <th>Present State</th>
             <th>Input</th>
@@ -163,7 +163,7 @@
             <td>q2</td>
             <td>0</td>
         </tr>
-    </table>
+    </table></div>
   <p>  <b>Table 1</b>
 
     <b>Step 1.</b> First, find out those states which have more than 1 output associated with them. q1 and q2 are the states which have both output 0 and 1 associated with them.<br>
@@ -171,7 +171,7 @@
     <b>Step 2</b> Create two states for these states. For q1, two states will be q10 (a state with output 0) and q11 (a state with output 1). Similarly, for q2, two states will be q20 and q21.<br>
 
    <b>Step 3:</b>  Create an empty Moore machine with a newly generated state. For more machines, Output will be associated with each state irrespective of inputs.</p>
-    <table>
+    <div class="gm-table"><table>
         <tr>
             <th>Present State</th>
             <th>Next State</th>
@@ -202,11 +202,11 @@
             <td></td>
             <td></td>
         </tr>
-    </table>
+    </table></div>
     <p><b>Table 2</b>
 
         <b>Step 4:</b> Fill in the entries of the next state using the mealy machine transition table shown in Table 1. For q0 on input 0, the next state is q10 (q1 with output 0). Similarly, for q0 on input 1, the next state is q20 (q2 with output 0). For q1 (both q10 and q11) on input 0, the next state is q10. Similarly, for q1(both q10 and q11), next state is q21.  For q10, the output will be 0 and for q11, the output will be 1. Similarly, other entries can be filled.</p>
-    <table>
+    <div class="gm-table"><table>
         <tr>
             <th>Present State</th>
             <th>Next State (Input=0)</th>
@@ -243,7 +243,7 @@
             <td>q20</td>
             <td>1</td>
         </tr>
-    </table>
+    </table></div>
     <p><b>Table 3</b>
 
     This is the transition table of the Moore machine shown in Figure 1</p>
@@ -252,7 +252,7 @@
     <p>et us take the Moore machine of Figure 1 and its transition table is shown in Table 3.
 
         Step 1. Construct an empty mealy machine using all states of the Moore machine as shown in Table 4.</p>
-    <table>
+    <div class="gm-table"><table>
     <tr>
         <th rowspan="2">Present State</th>
         <th colspan="2">Input=0</th>
@@ -299,11 +299,11 @@
         <td></td>
         <td></td>
     </tr>
-    </table>
+    </table></div>
     <p><b>Table 4</b>
 
        <b>Step 2:</b>Next state for each state can also be directly found from Moore machine transition Table as:</p>
-    <table>
+    <div class="gm-table"><table>
         <tr>
             <th>Present State</th>
             <th>Input=0</th>
@@ -334,9 +334,9 @@
             <td>q11</td>
             <td>q20</td>
         </tr>
-    </table>
+    </table></div>
     <br>
-    <table>
+    <div class="gm-table"><table>
         <tr>
             <th>Present State</th>
             <th>Input</th>
@@ -403,12 +403,12 @@
             <td>q20</td>
             <td></td>
         </tr>
-    </table>
+    </table></div>
     <p><b>Table 5</b>
 
         <b>Step 3:</b> As we can see output corresponds to each input in the Moore machine transition table. Use this to fill the Output entries.<br>
         <b>Example:</b> Output corresponding to q10, q11, q20 and q21 are 0, 1, 0 and 1 respectively.   </p>
-    <table>
+    <div class="gm-table"><table>
         <tr>
             <th>Present State</th>
             <th>Input=0</th>
@@ -439,9 +439,9 @@
             <td>q11</td>
             <td>q20</td>
         </tr>
-    </table>
+    </table></div>
     <br>
-    <table>
+    <div class="gm-table"><table>
         <tr>
             <th>Present State</th>
             <th>Input</th>
@@ -508,11 +508,11 @@
             <td>q20</td>
             <td>0</td>
         </tr>
-    </table>
+    </table></div>
     <p><b>Table 6</b>
 
         <b>Step 4:</b>  As we can see from Table 6, q10 and q11 are similar to each other (same value of next state and Output for different Inputs). Similarly, q20 and q21 are also similar. So, q11 and q21 can be eliminated./p>
-    <table>
+    <div class="gm-table"><table>
         <tr>
             <th>Present State</th>
             <th>Input=0</th>
@@ -533,9 +533,9 @@
             <td>q11</td>
             <td>q20</td>
         </tr>
-    </table>
+    </table></div>
     <br>
-    <table>
+    <div class="gm-table"><table>
         <tr>
             <th>Present State</th>
             <th>Input</th>
@@ -578,12 +578,12 @@
             <td>q20</td>
             <td>0</td>
         </tr>
-    </table>
+    </table></div>
     <p>Table 7
 
         This is the same mealy machine shown in Table 1. So we have converted Mealy to Moore machine and converted back Moore to Mealy.</p>
-    <p><b>Example:</b> The Finite state machine is described by the following state diagram with A as starting state, where an arc label is x / y and x stands for 1-bit input and y stands for 2-bit output.</p>
-    <img src="mq1.png">
+    <div class="gm-callout gm-example" data-label="Example"><p><b>Example:</b> The Finite state machine is described by the following state diagram with A as starting state, where an arc label is x / y and x stands for 1-bit input and y stands for 2-bit output.</p></div>
+    <figure class="gm-figure"><img src="mq1.png"></figure>
     <p>
         Outputs the sum of the present and the previous bits of the input.<br>
 

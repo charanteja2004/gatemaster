@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     
 <h2>RECURSION</h2>
 
@@ -57,7 +57,7 @@ step4 - Combine the solutions: Combine the solutions of the subproblems to solve
 <p>but there is another mathematical approach of representing this,</p>
 <blockquote>
 <p><strong>approach(2) &ndash; Recursive adding&nbsp;</strong></p>
-<p><strong>f(n) = 1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;n=1</strong></p>
+<div class="gm-formula"><p><strong>f(n) = 1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;n=1</strong></p></div>
 <p><strong>f(n) = n + f(n-1) &nbsp; &nbsp;n&gt;1</strong></p>
 </blockquote>
 <p>There is a simple difference between the approach (1) and approach(2) and that is in&nbsp;<strong>approach(2)</strong>&nbsp;the function &ldquo;<strong>&nbsp;f( )&nbsp;</strong>&rdquo; itself is being called inside the function, so this phenomenon is named recursion, and the function containing recursion is called recursive function, at the end, this is a great tool in the hand of the programmers to code some problems in a lot easier and efficient way.</p>
@@ -123,7 +123,7 @@ void indirectRecFun2()
 
 <p><strong>Recursion VS Iteration</strong></p>
 <figure class="table">
-<table border="1">
+<div class="gm-table"><table border="1">
 <tbody>
 <tr>
 <td><strong>SR No.</strong></td>
@@ -151,7 +151,7 @@ void indirectRecFun2()
 <td>Larger code size.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </figure>
 <p>Now, let&rsquo;s discuss a few practical problems which can be solved by using recursion and understand its basic working. For basic understanding please read the following articles.&nbsp;<br /><a href="https://www.geeksforgeeks.org/recursion/">Basic understanding of Recursion.</a><br /><strong>Problem 1:&nbsp;</strong>Write a program and recurrence relation to find the Fibonacci series of n where n&gt;2 .&nbsp;<br /><em>Mathematical Equation:</em>&nbsp;&nbsp;</p>
 <div class="gray">n if n == 0, n == 1;      
@@ -162,8 +162,7 @@ fib(n) = fib(n-1) + fib(n-2) otherwise;</div>
 <div class="gray"><strong>Input:</strong> n = 5 
 <strong>Output:</strong>
 Fibonacci series of 5 numbers is : 0 1 1 2 3</div>
-
-<div class="line number1 index0 alt2"><code class="comments">// C code to implement Fibonacci series </code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C code to implement Fibonacci series </code></div>
 <div class="line number2 index1 alt1"><code class="preprocessor">#include &lt;stdio.h&gt; </code></div>
 <div class="line number3 index2 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
 <div class="line number4 index3 alt1"><code class="comments">// Function for fibonacci </code></div>
@@ -196,7 +195,8 @@ Fibonacci series of 5 numbers is : 0 1 1 2 3</div>
 <div class="line number31 index30 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%d "</code><code class="plain">, fib(i)); </code></div>
 <div class="line number32 index31 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">} </code></div>
 <div class="line number33 index32 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
-<div class="line number34 index33 alt1"><code class="plain">}</code></div>
+<div class="line number34 index33 alt1"><code class="plain">}</code></div></div></div>
+
 
 
 <b>Output</b>
@@ -205,7 +205,7 @@ Fibonacci series of 5 numbers is : 0 1 1 2 3</div>
 <div class="code-output">
 <div class="gray">Fibonacci series of 5 numbers is: 0 1 1 2 3 </div>
 </div>
-<p><strong>Time Complexity:&nbsp;</strong>O(2<sup>n</sup>)<br /><strong>Auxiliary Space:&nbsp;</strong>O(n)</p>
+<p class="gm-complexity" data-label="Time complexity"><strong>Time Complexity:&nbsp;</strong>O(2<sup>n</sup>)<br /><strong>Auxiliary Space:&nbsp;</strong>O(n)</p>
 <p>Here is the recursive tree for input 5 which shows a clear picture of how a big problem can be solved into smaller ones.&nbsp;<br />fib(n) is a Fibonacci function. The time complexity of the given program can depend on the function call.&nbsp;</p>
 <blockquote>
 <p>fib(n) -&gt; level CBT (UB) -&gt; 2^n-1 nodes -&gt; 2^n function call -&gt; 2^n*O(1) -&gt; T(n) = O(2^n)&nbsp;&nbsp;</p>
@@ -213,7 +213,7 @@ Fibonacci series of 5 numbers is : 0 1 1 2 3</div>
 <p>For Best Case.&nbsp;</p>
 <div class="gray">T(n) =   ?(2^n\2)</div>
 <p><strong>Working:</strong>&nbsp;</p>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20191107235734/fib1.jpg" alt="" /></p>
+<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20191107235734/fib1.jpg" alt="" /></figure></p>
 <p><strong>Problem 2:</strong>&nbsp;Write a program and recurrence relation to find the Factorial of n where n&gt;2 .&nbsp;<br /><strong>Mathematical Equation:</strong>&nbsp;</p>
 <div class="gray">1 if n == 0 or n == 1;      
 f(n) = n*f(n-1) if n&gt; 1;</div>
@@ -231,10 +231,10 @@ T(n) = 1 + T(n-1) for n &gt; 0</div>
 <li value="2">Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack i.e. a disk can only be moved if it is the uppermost disk on a stack.</li>
 <li value="3">No disk may be placed on top of a smaller disk.</li>
 </ul>
-<p dir="ltr"><strong>Examples:</strong></p>
+<p dir="ltr" class="gm-lead gm-example-lead"><strong>Examples:</strong></p>
 <blockquote>
-<p dir="ltr"><strong>Input</strong>: 2<br /><strong>Output:</strong>&nbsp;Disk 1 moved from A to B<br />Disk 2 moved from A to C<br />Disk 1 moved from B to C</p>
-<p dir="ltr"><strong>Input:</strong>&nbsp;3<br /><strong>Output:</strong>&nbsp;Disk 1 moved from A to C<br />Disk 2 moved from A to B<br />Disk 1 moved from C to B<br />Disk 3 moved from A to C<br />Disk 1 moved from B to A<br />Disk 2 moved from B to C<br />Disk 1 moved from A to C</p>
+<div class="gm-callout gm-syntax" data-label="Input"><p dir="ltr"><strong>Input</strong>: 2<br /><strong>Output:</strong>&nbsp;Disk 1 moved from A to B<br />Disk 2 moved from A to C<br />Disk 1 moved from B to C</p></div>
+<div class="gm-callout gm-syntax" data-label="Input"><p dir="ltr"><strong>Input:</strong>&nbsp;3<br /><strong>Output:</strong>&nbsp;Disk 1 moved from A to C<br />Disk 2 moved from A to B<br />Disk 1 moved from C to B<br />Disk 3 moved from A to C<br />Disk 1 moved from B to A<br />Disk 2 moved from B to C<br />Disk 1 moved from A to C</p></div>
 </blockquote>
 
 
@@ -247,7 +247,7 @@ T(n) = 1 + T(n-1) for n &gt; 0</div>
 <li value="3">Shift &lsquo;N-1&rsquo; disks from &lsquo;B&rsquo; to &lsquo;C&rsquo;, using A.</li>
 </ul>
 </blockquote>
-<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/tower-of-hanoi.png" alt="faq.disk3" width="350" height="350" />
+<div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/tower-of-hanoi.png" alt="faq.disk3" width="350" height="350" /><figcaption>faq.disk3</figcaption></figure>
 <p class="wp-caption-text">Image illustration for 3 disks</p>
 </div>
 <p dir="ltr">Follow the steps below to solve the problem:</p>
@@ -281,9 +281,9 @@ T(n) = 1 + T(n-1) for n &gt; 0</div>
       TOH((n-1), z, y, x)
    }
 }</div>
-<p><br /><br /><strong>Analysis of Recursion</strong>&nbsp;<br /><br />Recursive Equation :&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-90b51bf3414c73d5a5b0faa58e8d0c64_l3.svg" alt="T(n) = 2T(n-1) + 1     " width="248" height="27" />&mdash;&mdash;-equation-1&nbsp;<br /><br />Solving it by Backsubstitution :&nbsp;<br /><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-9edc6d3393323a0376d055c72e30592a_l3.svg" alt="T(n-1) = 2T(n-2) + 1     " width="293" height="27" />&mdash;&mdash;&mdash;&ndash;equation-2&nbsp;<br /><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-8ce6c10a27f10765140344aa02a21fce_l3.svg" alt="T(n-2) = 2T(n-3) + 1     " width="293" height="27" />&mdash;&mdash;&mdash;&ndash;equation-3&nbsp;<br /><br />Put the value of T(n-2) in the equation&ndash;2 with help of equation-3&nbsp;<br /><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-4bfad0e69afbdd6fec0f2a05386acadd_l3.svg" alt="T(n-1)= 2( 2T(n-3) + 1 ) + 1     " width="372" height="27" />&mdash;&mdash;equation-4&nbsp;<br /><br />Put the value of T(n-1) in equation-1 with help of equation-4&nbsp;<br /><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-13c6288a74957c83509368ba3a40f7a3_l3.svg" alt="T(n)= 2( 2( 2T(n-3) + 1 ) + 1 ) + 1     " width="406" height="27" /><br /><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-4a0829bb162ff7a2f85f12265fced9c9_l3.svg" alt="T(n) = 2^3 T(n-3) + 2^2 + 2^1 + 1     " width="373" height="30" /><br /><br />After Generalization :&nbsp;<br /><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-fc0117fd107998fb9c16d5db68fdc005_l3.svg" alt="T(n)= 2^k T(n-k) + 2^{(k-1)} + 2^{(k-2)} + ............ +2^2 + 2^1 + 1     " width="695" height="32" /><br /><br />Base condition T(1) =1&nbsp;<br />n &ndash; k = 1&nbsp;<br />k = n-1<br />put, k = n-1<br /><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-bb95547d79238c8685a81c2b6d4cdc33_l3.svg" alt="T(n) =2^{(n-1)}T(1) + + 2^{(n-2)} + ............ +2^2 +2^1 + 1     " width="611" height="32" /><br /><br />It is a GP series, and the sum is&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-62c769a868111d1bafabc32f3078d77c_l3.svg" alt="2^n - 1     " width="69" height="19" /></p>
+<p><br /><br /><strong>Analysis of Recursion</strong>&nbsp;<br /><br />Recursive Equation :&nbsp;<figure class="gm-figure gm-remote"><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-90b51bf3414c73d5a5b0faa58e8d0c64_l3.svg" alt="T(n) = 2T(n-1) + 1     " width="248" height="27" /><figcaption>T(n) = 2T(n-1) + 1</figcaption></figure>&mdash;&mdash;-equation-1&nbsp;<br /><br />Solving it by Backsubstitution :&nbsp;<br /><figure class="gm-figure gm-remote"><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-9edc6d3393323a0376d055c72e30592a_l3.svg" alt="T(n-1) = 2T(n-2) + 1     " width="293" height="27" /><figcaption>T(n-1) = 2T(n-2) + 1</figcaption></figure>&mdash;&mdash;&mdash;&ndash;equation-2&nbsp;<br /><figure class="gm-figure gm-remote"><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-8ce6c10a27f10765140344aa02a21fce_l3.svg" alt="T(n-2) = 2T(n-3) + 1     " width="293" height="27" /><figcaption>T(n-2) = 2T(n-3) + 1</figcaption></figure>&mdash;&mdash;&mdash;&ndash;equation-3&nbsp;<br /><br />Put the value of T(n-2) in the equation&ndash;2 with help of equation-3&nbsp;<br /><figure class="gm-figure gm-remote"><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-4bfad0e69afbdd6fec0f2a05386acadd_l3.svg" alt="T(n-1)= 2( 2T(n-3) + 1 ) + 1     " width="372" height="27" /><figcaption>T(n-1)= 2( 2T(n-3) + 1 ) + 1</figcaption></figure>&mdash;&mdash;equation-4&nbsp;<br /><br />Put the value of T(n-1) in equation-1 with help of equation-4&nbsp;<br /><figure class="gm-figure gm-remote"><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-13c6288a74957c83509368ba3a40f7a3_l3.svg" alt="T(n)= 2( 2( 2T(n-3) + 1 ) + 1 ) + 1     " width="406" height="27" /><figcaption>T(n)= 2( 2( 2T(n-3) + 1 ) + 1 ) + 1</figcaption></figure><br /><figure class="gm-figure gm-remote"><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-4a0829bb162ff7a2f85f12265fced9c9_l3.svg" alt="T(n) = 2^3 T(n-3) + 2^2 + 2^1 + 1     " width="373" height="30" /><figcaption>T(n) = 2^3 T(n-3) + 2^2 + 2^1 + 1</figcaption></figure><br /><br />After Generalization :&nbsp;<br /><figure class="gm-figure gm-remote"><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-fc0117fd107998fb9c16d5db68fdc005_l3.svg" alt="T(n)= 2^k T(n-k) + 2^{(k-1)} + 2^{(k-2)} + ............ +2^2 + 2^1 + 1     " width="695" height="32" /><figcaption>T(n)= 2^k T(n-k) + 2^{(k-1)} + 2^{(k-2)} + ............ +2^2 + 2^1 + 1</figcaption></figure><br /><br />Base condition T(1) =1&nbsp;<br />n &ndash; k = 1&nbsp;<br />k = n-1<br />put, k = n-1<br /><figure class="gm-figure gm-remote"><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-bb95547d79238c8685a81c2b6d4cdc33_l3.svg" alt="T(n) =2^{(n-1)}T(1) + + 2^{(n-2)} + ............ +2^2 +2^1 + 1     " width="611" height="32" /><figcaption>T(n) =2^{(n-1)}T(1) + + 2^{(n-2)} + ............ +2^2 +2^1 + 1</figcaption></figure><br /><br />It is a GP series, and the sum is&nbsp;<figure class="gm-figure gm-remote"><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-62c769a868111d1bafabc32f3078d77c_l3.svg" alt="2^n - 1     " width="69" height="19" /><figcaption>2^n - 1</figcaption></figure></p>
 
-<p><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-77b397fa8ece0ee87edcf6f1e9e8f769_l3.svg" alt="T(n)= O( 2^n - 1)     " width="202" height="27" />, or you can say&nbsp;<img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-fb5021c68d2c13e10b238a0cd9a95f72_l3.svg" alt="O(2^n)     " width="65" height="27" />which is exponential</p>
+<div class="gm-formula"><p><figure class="gm-figure gm-remote"><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-77b397fa8ece0ee87edcf6f1e9e8f769_l3.svg" alt="T(n)= O( 2^n - 1)     " width="202" height="27" /><figcaption>T(n)= O( 2^n - 1)</figcaption></figure>, or you can say&nbsp;<figure class="gm-figure gm-remote"><img class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com" src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-fb5021c68d2c13e10b238a0cd9a95f72_l3.svg" alt="O(2^n)     " width="65" height="27" /><figcaption>O(2^n)</figcaption></figure>which is exponential</p></div>
 <p>for 5 disks i.e. n=5 It will take 2^5-1=31 moves.</p>
 
 
@@ -303,12 +303,12 @@ T(n) = 1 + T(n-1) for n &gt; 0</div>
 <div class="code-block">
 <div class="code-container">
 <div id="highlighter_610580" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="comments">// Code Showing Tail Recursion </code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// Code Showing Tail Recursion </code></div>
 <div class="line number2 index1 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
 <div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt; </code></div>
 <div class="line number4 index3 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
@@ -329,12 +329,13 @@ T(n) = 1 + T(n-1) for n &gt; 0</div>
 <div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">x = 3; </code></div>
 <div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">fun(x); </code></div>
 <div class="line number21 index20 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
-<div class="line number22 index21 alt1"><code class="plain">} </code></div>
+<div class="line number22 index21 alt1"><code class="plain">} </code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>
@@ -348,7 +349,7 @@ T(n) = 1 + T(n-1) for n &gt; 0</div>
 <div class="gray">3 2 1 </div>
 </div>
 <p>Let&rsquo;s understand the example by&nbsp;<strong>tracing tree of recursive function.</strong>&nbsp;That is how the calls are made and how the outputs are produced.</p>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190621015455/tail1.jpg" alt="" /></p>
+<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190621015455/tail1.jpg" alt="" /></figure></p>
 <p><strong>Time Complexity For Tail Recursion : O(n)</strong>&nbsp;<br /><strong>Space Complexity For Tail Recursion : O(n)</strong><br /><strong>Note:</strong>&nbsp;Time &amp; Space Complexity is given for this specific example. It may vary for another example.</p>
 
 <p>Let&rsquo;s now converting Tail Recursion into Loop and compare each other in terms of Time &amp; Space Complexity and decide which is more efficient.</p>
@@ -359,12 +360,12 @@ T(n) = 1 + T(n-1) for n &gt; 0</div>
 <div class="code-block">
 <div class="code-container">
 <div id="highlighter_251394" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="comments">// Converting Tail Recursion into Loop </code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// Converting Tail Recursion into Loop </code></div>
 <div class="line number2 index1 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
 <div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt; </code></div>
 <div class="line number4 index3 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
@@ -382,12 +383,13 @@ T(n) = 1 + T(n-1) for n &gt; 0</div>
 <div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">x = 3; </code></div>
 <div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">fun(x); </code></div>
 <div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
-<div class="line number19 index18 alt2"><code class="plain">} </code></div>
+<div class="line number19 index18 alt2"><code class="plain">} </code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>
@@ -397,8 +399,8 @@ T(n) = 1 + T(n-1) for n &gt; 0</div>
 <div class="code-output"><strong>Output</strong>
 <div class="gray">3 2 1 </div>
 </div>
-<p><strong>Time Complexity: O(n)</strong>&nbsp;<br /><strong>Space Complexity: O(1)</strong></p>
-<p><strong>Note:</strong>&nbsp;Time &amp; Space Complexity is given for this specific example. It may vary for another example.<br />So it was seen that in case of loop the Space Complexity is O(1) so it was better to write code in loop instead of tail recursion in terms of Space Complexity which is more efficient than tail recursion.</p>
+<p class="gm-complexity" data-label="Time complexity"><strong>Time Complexity: O(n)</strong>&nbsp;<br /><strong>Space Complexity: O(1)</strong></p>
+<div class="gm-callout gm-note" data-label="Note"><p><strong>Note:</strong>&nbsp;Time &amp; Space Complexity is given for this specific example. It may vary for another example.<br />So it was seen that in case of loop the Space Complexity is O(1) so it was better to write code in loop instead of tail recursion in terms of Space Complexity which is more efficient than tail recursion.</p></div>
 <p><strong>Why space complexity is less in case of loop ?</strong><br />Before explaining this I am assuming that you are familiar with the knowledge that&rsquo;s how the data stored in main memory during execution of a program. In brief,when the program executes,the main memory divided into three parts. One part for code section, the second one is heap memory and another one is stack memory.&nbsp;<strong>Remember that the program can directly access only the stack memory, it can&rsquo;t directly access the heap memory so we need the help of pointer to access the heap memory.</strong></p>
 <p>Let&rsquo;s now understand why space complexity is less in case of loop ?<br />In case of loop when function &ldquo;(void fun(int y))&rdquo; executes there only one activation record created in stack memory(activation record created for only &lsquo;y&rsquo; variable) so it takes only &lsquo;one&rsquo; unit of memory inside stack so it&rsquo;s space complexity is O(1) but in case of recursive function every time it calls itself for each call a separate activation record created in stack.So if there&rsquo;s &lsquo;n&rsquo; no of call then it takes &lsquo;n&rsquo; unit of memory inside stack so it&rsquo;s space complexity is O(n).&nbsp;</p>
 
@@ -412,12 +414,12 @@ T(n) = 1 + T(n-1) for n &gt; 0</div>
 <div class="code-block">
 <div class="code-container">
 <div id="highlighter_803971" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="comments">// C program showing Head Recursion </code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C program showing Head Recursion </code></div>
 <div class="line number2 index1 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
 <div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt; </code></div>
 <div class="line number4 index3 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
@@ -439,12 +441,13 @@ T(n) = 1 + T(n-1) for n &gt; 0</div>
 <div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">x = 3; </code></div>
 <div class="line number21 index20 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">fun(x); </code></div>
 <div class="line number22 index21 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
-<div class="line number23 index22 alt2"><code class="plain">} </code></div>
+<div class="line number23 index22 alt2"><code class="plain">} </code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>
@@ -455,9 +458,9 @@ T(n) = 1 + T(n-1) for n &gt; 0</div>
 <div class="gray"> 1 2 3</div>
 </div>
 <p>Let&rsquo;s understand the example by&nbsp;<strong>tracing tree of recursive function.</strong>&nbsp;That is how the calls are made and how the outputs are produced.</p>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190621015721/head3.jpg" alt="" /></p>
+<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190621015721/head3.jpg" alt="" /></figure></p>
 <p><strong>Time Complexity For Head Recursion: O(n)</strong>&nbsp;<br /><strong>Space Complexity For Head Recursion: O(n)</strong></p>
-<p><strong>Note:</strong>&nbsp;Time &amp; Space Complexity is given for this specific example. It may vary for another example.<br /><strong>Note:</strong>&nbsp;Head recursion can&rsquo;t easily convert into loop as Tail Recursion but it can. Let&rsquo;s convert the above code into the loop.</p>
+<div class="gm-callout gm-note" data-label="Note"><p><strong>Note:</strong>&nbsp;Time &amp; Space Complexity is given for this specific example. It may vary for another example.<br /><strong>Note:</strong>&nbsp;Head recursion can&rsquo;t easily convert into loop as Tail Recursion but it can. Let&rsquo;s convert the above code into the loop.</p></div>
 
 <div class="responsive-tabs-wrapper">
 <div class="responsive-tabs responsive-tabs--enabled">
@@ -465,12 +468,12 @@ T(n) = 1 + T(n-1) for n &gt; 0</div>
 <div class="code-block">
 <div class="code-container">
 <div id="highlighter_857607" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="comments">// Converting Head Recursion into Loop </code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// Converting Head Recursion into Loop </code></div>
 <div class="line number2 index1 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
 <div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt; </code></div>
 <div class="line number4 index3 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
@@ -490,12 +493,13 @@ T(n) = 1 + T(n-1) for n &gt; 0</div>
 <div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">x = 3; </code></div>
 <div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">fun(x); </code></div>
 <div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
-<div class="line number21 index20 alt2"><code class="plain">} </code></div>
+<div class="line number21 index20 alt2"><code class="plain">} </code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>
@@ -526,12 +530,12 @@ T(n) = 1 + T(n-1) for n &gt; 0</div>
 <div class="code-block">
 <div class="code-container">
 <div id="highlighter_276625" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="comments">// C program to show Tree Recursion </code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C program to show Tree Recursion </code></div>
 <div class="line number2 index1 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
 <div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt; </code></div>
 <div class="line number4 index3 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
@@ -554,12 +558,13 @@ T(n) = 1 + T(n-1) for n &gt; 0</div>
 <div class="line number21 index20 alt2"><code class="plain">{ </code></div>
 <div class="line number22 index21 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">fun(3); </code></div>
 <div class="line number23 index22 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
-<div class="line number24 index23 alt1"><code class="plain">} </code></div>
+<div class="line number24 index23 alt1"><code class="plain">} </code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>
@@ -570,7 +575,7 @@ T(n) = 1 + T(n-1) for n &gt; 0</div>
 <div class="gray"> 3 2 1 1 2 1 1</div>
 </div>
 <p>Let&rsquo;s understand the example by&nbsp;<strong>tracing tree of recursive function.</strong>&nbsp;That is how the calls are made and how the outputs are produced.</p>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190621015814/tree4.jpg" alt="" /></p>
+<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190621015814/tree4.jpg" alt="" /></figure></p>
 <p><strong>Time Complexity For Tree Recursion: O(2^n)</strong>&nbsp;<br /><strong>Space Complexity For Tree Recursion: O(n)</strong><br /><strong>Note:</strong>&nbsp;Time &amp; Space Complexity is given for this specific example. It may vary for another example.</p>
 <ul>
 <li><strong>Nested Recursion</strong>: In this recursion, a recursive function will pass the parameter as a recursive call. That means&nbsp;<strong>&ldquo;recursion inside recursion&rdquo;.</strong>&nbsp;Let see the example to understand this recursion.<br /><strong>Example:</strong></li>
@@ -582,12 +587,12 @@ T(n) = 1 + T(n-1) for n &gt; 0</div>
 <div class="code-block">
 <div class="code-container">
 <div id="highlighter_86462" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="comments">// C program to show Nested Recursion </code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C program to show Nested Recursion </code></div>
 <div class="line number2 index1 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
 <div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt; </code></div>
 <div class="line number4 index3 alt1"><code class="color1 bold">int</code> <code class="plain">fun(</code><code class="color1 bold">int</code> <code class="plain">n) </code></div>
@@ -608,12 +613,13 @@ T(n) = 1 + T(n-1) for n &gt; 0</div>
 <div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">r = fun(95); </code></div>
 <div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%d\n"</code><code class="plain">, r); </code></div>
 <div class="line number21 index20 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
-<div class="line number22 index21 alt1"><code class="plain">} </code></div>
+<div class="line number22 index21 alt1"><code class="plain">} </code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>
@@ -624,14 +630,14 @@ T(n) = 1 + T(n-1) for n &gt; 0</div>
 <div class="gray"> 91</div>
 </div>
 <p>Let&rsquo;s understand the example by&nbsp;<strong>tracing tree of recursive function.</strong>&nbsp;That is how the calls are made and how the outputs are produced.</p>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190621015942/nested2.jpg" alt="" /></p>
+<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190621015942/nested2.jpg" alt="" /></figure></p>
 <p><strong>2. Indirect Recursion</strong>: In this recursion, there may be more than one functions and they are calling one another in a circular manner.</p>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190608232223/Capture34.jpg" alt="" /></p>
+<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190608232223/Capture34.jpg" alt="" /></figure></p>
 <p>From the above diagram fun(A) is calling for fun(B), fun(B) is calling for fun(C) and fun(C) is calling for fun(A) and thus it makes a cycle.</p>
 
 
 <p>Let&rsquo;s understand the example by&nbsp;<strong>tracing tree of recursive function.</strong>&nbsp;That is how the calls are made and how the outputs are produced.</p>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190621015857/indirect1.jpg" alt="" /></p>
+<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190621015857/indirect1.jpg" alt="" /></figure></p>
 
 
 <p>The analysis of the complexity of a recurrence relation involves finding the asymptotic upper bound on the running time of a recursive algorithm. This is usually done by finding a closed-form expression for the number of operations performed by the algorithm as a function of the input size, and then determining the order of growth of the expression as the input size becomes large.</p>
@@ -670,7 +676,7 @@ T(n) = 1 + T(n-1) for n &gt; 0</div>
 <p>In this method, we draw a recurrence tree and calculate the time taken by every level of the tree. Finally, we sum the work done at all levels. To draw the recurrence tree, we start from the given recurrence and keep drawing till we find a pattern among levels. The pattern is typically arithmetic or geometric series.&nbsp;<br />&nbsp;</p>
 <blockquote>
 <p>For example, consider the recurrence relation&nbsp;</p>
-<p>T(n) = T(n/4) + T(n/2) + cn<sup>2</sup></p>
+<div class="gm-formula"><p>T(n) = T(n/4) + T(n/2) + cn<sup>2</sup></p></div>
 <div id="GFG_AD_gfg_outstream_incontent-1">&nbsp;</div>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cn<sup>2</sup><br /><sup>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</sup>/ &nbsp; &nbsp; &nbsp;\<br />&nbsp; T(n/4) &nbsp; &nbsp; T(n/2)</p>
 <p>If we further break down the expression T(n/4) and T(n/2),&nbsp;<br />we get the following recursion tree.</p>
@@ -696,14 +702,14 @@ T(n) = 1 + T(n-1) for n &gt; 0</div>
 </ul>
 <h3><strong>How does this work?</strong>&nbsp;</h3>
 <p>The master method is mainly derived from the recurrence tree method. If we draw the recurrence tree of T(n) = aT(n/b) + f(n), we can see that the work done at the root is f(n), and work done at all leaves is ?(n<sup>c</sup>) where c is Log<sub>b</sub>a. And the height of the recurrence tree is Log<sub>b</sub>n&nbsp;<br />&nbsp;</p>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/AlgoAnalysis.png" alt="Master Theorem" /></p>
+<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/AlgoAnalysis.png" alt="Master Theorem" /><figcaption>Master Theorem</figcaption></figure></p>
 <p>In the recurrence tree method, we calculate the total work done. If the work done at leaves is polynomially more, then leaves are the dominant part, and our result becomes the work done at leaves (Case 1). If work done at leaves and root is asymptotically the same, then our result becomes height multiplied by work done at any level (Case 2). If work done at the root is asymptotically more, then our result becomes work done at the root (Case 3).&nbsp;</p>
 <p><strong>Examples of some standard algorithms whose time complexity can be evaluated using the Master Method&nbsp;</strong></p>
 <ul>
 <li><a href="https://www.geeksforgeeks.org/merge-sort/">Merge Sort</a>: T(n) = 2T(n/2) + ?(n). It falls in case 2 as c is 1 and Log<sub>b</sub>a] is also 1. So the solution is ?(n Logn)&nbsp;</li>
 <li><a href="https://www.geeksforgeeks.org/binary-search/">Binary Search</a>: T(n) = T(n/2) + ?(1). It also falls in case 2 as c is 0 and Log<sub>b</sub>a is also 0. So the solution is ?(Logn)&nbsp;</li>
 </ul>
-<p><strong>Notes:&nbsp;</strong></p>
+<p class="gm-lead gm-note-lead"><strong>Notes:&nbsp;</strong></p>
 <ul>
 <li>It is not necessary that a recurrence of the form T(n) = aT(n/b) + f(n) can be solved using Master Theorem. The given three cases have some gaps between them. For example, the recurrence T(n) = 2T(n/2) + n/Logn cannot be solved using master method.&nbsp;</li>
 <li>Case 2 can be extended for f(n) = ?(n<sup>c</sup>Log<sup>k</sup>n)&nbsp;<br />If f(n) = ?(n<sup>c</sup>Log<sup>k</sup>n) for some constant k &gt;= 0 and c = Log<sub>b</sub>a, then T(n) = ?(n<sup>c</sup>Log<sup>k+1</sup>n)&nbsp;</li>
@@ -713,7 +719,7 @@ T(n) = 1 + T(n-1) for n &gt; 0</div>
 <h2> master theorem for divide and conquer recurrences</h2>
 
 <p>The Master Theorem is a tool used to solve recurrence relations that arise in the analysis of divide-and-conquer algorithms. The Master Theorem provides a systematic way of solving recurrence relations of the form:</p>
-<p>T(n) = aT(n/b) + f(n)</p>
+<div class="gm-formula"><p>T(n) = aT(n/b) + f(n)</p></div>
 <div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
 <ol>
 <li>where a, b, and f(n) are positive functions and n is the size of the problem. The Master Theorem provides conditions for the solution of the recurrence to be in the form of O(n^k) for some constant k, and it gives a formula for determining the value of k.</li>
@@ -741,8 +747,8 @@ Combine the results of all sub-problems</div>
 <li>f(n) is not a polynomial, ex: T(n) = 2T(n/2) + 2<sup>n</sup></li>
 </ul>
 <p>This theorem is an advance version of master theorem that can be used to determine running time of divide and conquer algorithms if the recurrence is of the following form :-&nbsp;</p>
-<p>&nbsp;</p>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/ma-1.png" alt="Formula to calculate runtime of divide and conquer algorithms" /></p>
+
+<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/ma-1.png" alt="Formula to calculate runtime of divide and conquer algorithms" /><figcaption>Formula to calculate runtime of divide and conquer algorithms</figcaption></figure></p>
 <p>where n = size of the problem&nbsp;<br />a = number of subproblems in the recursion and a &gt;= 1&nbsp;<br />n/b = size of each subproblem&nbsp;<br />b &gt; 1, k &gt;= 0 and p is a real number.&nbsp;</p>
 <p>Then,&nbsp;<br />&nbsp;</p>
 <ol>
@@ -755,13 +761,13 @@ Combine the results of all sub-problems</div>
 <li><strong>Example-1: Binary Search &ndash;</strong>&nbsp;T(n) = T(n/2) + O(1)&nbsp;<br />a = 1, b = 2, k = 0 and p = 0&nbsp;<br />b<sup>k</sup>&nbsp;= 1. So, a = b<sup>k</sup>&nbsp;and p &gt; -1 [Case 2.(a)]&nbsp;<br />T(n) = &theta;(n<sup>log</sup><sub><sup>b</sup></sub><sup>a</sup>&nbsp;log<sup>p+1</sup>n)&nbsp;<br />T(n) = &theta;(logn)</li>
 <li><strong>Example-2: Merge Sort &ndash;</strong>&nbsp;T(n) = 2T(n/2) + O(n)&nbsp;<br />a = 2, b = 2, k = 1, p = 0&nbsp;<br />b<sup>k</sup>&nbsp;= 2. So, a = b<sup>k</sup>&nbsp;and p &gt; -1 [Case 2.(a)]&nbsp;<br />T(n) = &theta;(n<sup>log</sup><sub><sup>b</sup></sub><sup>a</sup>&nbsp;log<sup>p+1</sup>n)&nbsp;<br />T(n) = &theta;(nlogn)</li>
 <li><strong>Example-3:</strong>&nbsp;T(n) = 3T(n/2) + n<sup>2</sup>&nbsp;<br />a = 3, b = 2, k = 2, p = 0&nbsp;<br />b<sup>k</sup>&nbsp;= 4. So, a &lt; b<sup>k</sup>&nbsp;and p = 0 [Case 3.(a)]&nbsp;<br />T(n) = &theta;(n<sup>k</sup>&nbsp;log<sup>p</sup>n)&nbsp;<br />T(n) = &theta;(n<sup>2</sup>)&nbsp;
-<p>&nbsp;</p>
+
 </li>
 <li><strong>Example-4:</strong>&nbsp;T(n) = 3T(n/2) + log<sup>2</sup>n&nbsp;<br />a = 3, b = 2, k = 0, p = 2&nbsp;<br />b<sup>k</sup>&nbsp;= 1. So, a &gt; b<sup>k</sup>&nbsp;[Case 1]&nbsp;<br />T(n) = &theta;(n<sup>log</sup><sub><sup>b</sup></sub><sup>a</sup>&nbsp;)&nbsp;<br />T(n) = &theta;(n<sup>log</sup><sub><sup>2</sup></sub><sup>3</sup>)&nbsp;
-<p>&nbsp;</p>
+
 </li>
 <li><strong>Example-5:</strong>&nbsp;T(n) = 2T(n/2) + nlog<sup>2</sup>n&nbsp;<br />a = 2, b = 2, k = 1, p = 2&nbsp;<br />b<sup>k</sup>&nbsp;= 2. So, a = b<sup>k</sup>&nbsp;[Case 2.(a)]&nbsp;<br />T(n) = &theta;(n<sup>log</sup><sub><sup>b</sup></sub><sup>a</sup>log<sup>p+1</sup>n )&nbsp;<br />T(n) = &theta;(n<sup>log</sup><sub><sup>2</sup></sub><sup>2</sup>log<sup>3</sup>n)&nbsp;<br />T(n) = &theta;(nlog<sup>3</sup>n)&nbsp;
-<p>&nbsp;</p>
+
 </li>
 <li><strong>Example-6:</strong>&nbsp;T(n) = 2<sup>n</sup>T(n/2) + n<sup>n</sup>&nbsp;<br />This recurrence can&rsquo;t be solved using above method since function is not of form T(n) = aT(n/b) + &theta;(n<sup>k</sup>&nbsp;log<sup>p</sup>n)&nbsp;</li>
 </ul>

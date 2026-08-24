@@ -24,7 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
 <h2><b>Disk Scheduling Algorithms</b></h2>
 
 <b>Disk scheduling </b>is done by operating systems to schedule I/O requests arriving for the disk. Disk scheduling is also known as I/O Scheduling.<br><br>
@@ -52,7 +52,7 @@
 
 
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/disc-scheduling-algorithms.png" width="350" height="300"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/disc-scheduling-algorithms.png" width="350" height="300"></figure><br><br>
 
 
 <li><b>Disk Response Time:</b> Response Time is the average time spent by a request waiting to perform its I/O operation. The average Response time is the response time of all requests. Variance Response Time is the measure of how individual requests are serviced with respect to average response time. So the disk scheduling algorithm that gives minimum variance response time is better.</li><br><br>
@@ -64,7 +64,7 @@ There are several Disk Several Algorithms. We will discuss each one of them.<br>
 
 FCFS is the simplest of all Disk Scheduling Algorithms. In FCFS, the requests are addressed in the order they arrive in the disk queue. Let us understand this with the help of an example.<br><br>
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/20200608201201/fcfs3.jpg" width="350" height="400"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20200608201201/fcfs3.jpg" width="350" height="400"></figure><br><br>
 
 
 <b>Example:</b><br>
@@ -97,7 +97,7 @@ In SSTF (Shortest Seek Time First), requests having the shortest seek time are e
 
 <b>Example:</b>
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/20200608201702/sstf1.jpg" width="300" height="350"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20200608201702/sstf1.jpg" width="300" height="350"></figure><br><br>
 
 
 Suppose the order of request is- (82,170,43,140,24,16,190)
@@ -131,7 +131,7 @@ In the SCAN algorithm the disk arm moves in a particular direction and services 
 <b>Example:</b>
 <br>
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/20200608202008/scan4.jpg" width="300" height="350"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20200608202008/scan4.jpg" width="300" height="350"></figure><br><br>
 
 
 Suppose the requests to be addressed are-82,170,43,140,24,16,190. And the Read/Write arm is at 50, and it is also given that the disk arm should move “towards the larger value”.<br><br>
@@ -161,7 +161,7 @@ These situations are avoided in the CSCAN algorithm in which the disk arm instea
 
 <b>Example:</b><br>
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/20200608202230/cscan1.jpg" width="350" heighht="3500"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20200608202230/cscan1.jpg" width="350" heighht="3500"></figure><br><br>
 
 
 
@@ -182,7 +182,7 @@ LOOK Algorithm is similar to the SCAN disk scheduling algorithm except for the d
 
 <b>Example:</b>
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/20200608202613/look1.jpg" width="350" height="350"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20200608202613/look1.jpg" width="350" height="350"></figure><br><br>
 
 
 
@@ -200,7 +200,7 @@ As LOOK is similar to the SCAN algorithm, in a similar way, C-LOOK is similar to
 1.Suppose the requests to be addressed are-82,170,43,140,24,16,190. And the Read/Write arm is at 50, and it is also given that the disk arm should move<b> “towards the larger value”</b>
 <br><br>
 
-<img src=" https://media.geeksforgeeks.org/wp-content/uploads/20200608202846/clook1.jpg" width="350" height="350"><br><br>
+<figure class="gm-figure"><img src=" https://media.geeksforgeeks.org/wp-content/uploads/20200608202846/clook1.jpg" width="350" height="350"></figure><br><br>
 
 
 So, the total overhead movement  (total distance covered by the disk arm) is calculated as<br>

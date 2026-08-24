@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.gatemaster.app.core.model.ContentIndex
@@ -35,7 +36,18 @@ class UserPreferences(private val context: Context) {
         context.dataStore.edit { it[KEY_BRANCH] = branchId }
     }
 
+    /** Reader text size, as a WebView zoom percentage. */
+    val readerTextZoom: Flow<Int> = context.dataStore.data.map { prefs ->
+        prefs[KEY_TEXT_ZOOM] ?: DEFAULT_TEXT_ZOOM
+    }
+
+    suspend fun setReaderTextZoom(percent: Int) {
+        context.dataStore.edit { it[KEY_TEXT_ZOOM] = percent }
+    }
+
     private companion object {
+        const val DEFAULT_TEXT_ZOOM = 100
         val KEY_BRANCH = stringPreferencesKey("branch_id")
+        val KEY_TEXT_ZOOM = intPreferencesKey("reader_text_zoom")
     }
 }

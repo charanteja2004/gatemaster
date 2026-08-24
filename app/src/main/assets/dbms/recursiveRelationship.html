@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <div class="main_wrapper">
         <div class="article-title">
         <div class="main_wrapper">
@@ -40,13 +40,13 @@
         <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
         <p>We use cardinality constraints to specify the number of instances of the entity that can participate in the relationship. For example, in an organizational chart, an employee can have many subordinates, but each subordinate can only have one manager. This is represented as a one-to-many (1:N) relationship between the employee entity and itself.</p>
         <p>Overall, recursive relationships are an important concept in ER modeling, and they allow us to represent complex relationships between entities of the same type. They are particularly useful in modeling hierarchical data structures and networks.</p>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/DBMS.jpg" /></p>
-        <p><strong>Example:&nbsp;</strong>Let us suppose that we have an employee table. A manager supervises a subordinate. Every employee can have a supervisor except the CEO and there can be at most one boss for each employee. One employee may be the boss of more than one employee. Let&rsquo;s suppose that REPORTS_TO is a recursive relationship on the Employee entity type where each Employee plays two roles.</p>
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/DBMS.jpg" /></figure></p>
+        <div class="gm-callout gm-example" data-label="Example"><p><strong>Example:&nbsp;</strong>Let us suppose that we have an employee table. A manager supervises a subordinate. Every employee can have a supervisor except the CEO and there can be at most one boss for each employee. One employee may be the boss of more than one employee. Let&rsquo;s suppose that REPORTS_TO is a recursive relationship on the Employee entity type where each Employee plays two roles.</p></div>
         <ol>
         <li>Supervisor</li>
         <li>Subordinate</li>
         </ol>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/dbms2.jpg" width="244" height="246" /><br />&nbsp;Supervisors and subordinates are called&nbsp;<strong>&ldquo;Role Names&rdquo;</strong>. Here the degree of the REPORTS_TO relationship is 1 i.e. a unary relationship.&nbsp;&nbsp;</p>
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/dbms2.jpg" width="244" height="246" /></figure><br />&nbsp;Supervisors and subordinates are called&nbsp;<strong>&ldquo;Role Names&rdquo;</strong>. Here the degree of the REPORTS_TO relationship is 1 i.e. a unary relationship.&nbsp;&nbsp;</p>
         <ul>
         <li>The minimum cardinality of the Supervisor entity is ZERO since the lowest level employee may not be a manager for anyone.</li>
         <li>The maximum cardinality of the Supervisor entity is N since an employee can manage many employees.</li>

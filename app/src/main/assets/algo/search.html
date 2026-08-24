@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
 
-<body>
+<body data-gm-enriched="1">
 
     <h2>SEARCHING ALGORITHMS</h2>
     <h2>Linear Search Algorithm</h2>
@@ -34,9 +34,9 @@
         and goes through each element of a list until the desired element is found, otherwise the search continues till
         the end of the data set. In this article, we will learn about the basics of Linear Search Algorithm,
         Applications, Advantages, Disadvantages, etc. to provide a deep understanding of Linear Search.</p>
-    <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20240506105158/Linear-Search-algorithm-banner-(1).webp"
+    <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20240506105158/Linear-Search-algorithm-banner-(1).webp"
             srcset="https://media.geeksforgeeks.org/wp-content/uploads/20240506105158/Linear-Search-algorithm-banner-(1).webp 1001w,https://media.geeksforgeeks.org/wp-content/uploads/20240506105158/Linear-Search-algorithm-banner-(1)-100.webp 100w,https://media.geeksforgeeks.org/wp-content/uploads/20240506105158/Linear-Search-algorithm-banner-(1)-200.webp 200w,https://media.geeksforgeeks.org/wp-content/uploads/20240506105158/Linear-Search-algorithm-banner-(1)-300.webp 300w,https://media.geeksforgeeks.org/wp-content/uploads/20240506105158/Linear-Search-algorithm-banner-(1)-660.webp 660w,https://media.geeksforgeeks.org/wp-content/uploads/20240506105158/Linear-Search-algorithm-banner-(1)-768.webp 768w"
-            alt="Linear-Search-algorithm-banner-(1)" width="769" height="362" /></p>
+            alt="Linear-Search-algorithm-banner-(1)" width="769" height="362" /><figcaption>Linear-Search-algorithm-banner-(1)</figcaption></figure></p>
 
     <h2 id="what-is-linear-search"><u><span class="GFGEditorTheme__textUnderline">What is Linear Search?</span></u></h2>
     <p dir="ltr"><strong>Linear Search&nbsp;</strong>is a method for searching an element in a collection of elements.
@@ -65,37 +65,37 @@
             is returned.</li>
         <li value="3">If no element is found equal to the key, the search yields &ldquo;No match found&rdquo;.</li>
     </ul>
-    <p dir="ltr"><strong>For example:</strong>&nbsp;Consider the array&nbsp;<strong>arr[] = {10, 50, 30, 70, 80, 20, 90,
-            40}</strong>&nbsp;and&nbsp;<strong>key</strong>&nbsp;= 30</p>
+    <div class="gm-callout gm-example" data-label="Example"><p dir="ltr"><strong>For example:</strong>&nbsp;Consider the array&nbsp;<strong>arr[] = {10, 50, 30, 70, 80, 20, 90,
+            40}</strong>&nbsp;and&nbsp;<strong>key</strong>&nbsp;= 30</p></div>
     <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
     <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
     <blockquote>
-        <p dir="ltr"><strong>Step 1:</strong>&nbsp;Start from the first element (index 0) and
+        <p dir="ltr" class="gm-step"><strong>Step 1:</strong>&nbsp;Start from the first element (index 0) and
             compare&nbsp;<strong>key</strong>&nbsp;with each element (arr[i]).</p>
         <ul>
             <li value="1">Comparing key with first element arr[0]. SInce not equal, the iterator moves to the next
                 element as a potential match.</li>
         </ul>
-        <div class="wp-caption alignnone"><img
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20230519161339/Linear-search-algorithm-1.webp"
-                alt="Compare key with arr[0]" width="350" height="300" />
+                alt="Compare key with arr[0]" width="350" height="300" /><figcaption>Compare key with arr[0]</figcaption></figure>
             <p class="wp-caption-text">Compare key with arr[0]</p>
         </div>
         <ul>
             <li value="1">Comparing key with next element arr[1]. SInce not equal, the iterator moves to the next
                 element as a potential match.</li>
         </ul>
-        <div class="wp-caption alignnone"><img
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20230519161415/Linear-search-algorithm-2.webp"
-                alt="Compare key with arr[1]" width="350" height="304" />
+                alt="Compare key with arr[1]" width="350" height="304" /><figcaption>Compare key with arr[1]</figcaption></figure>
             <p class="wp-caption-text">Compare key with arr[1]</p>
         </div>
-        <p dir="ltr"><strong>Step 2:</strong>&nbsp;Now when comparing arr[2] with key, the value matches. So the Linear
+        <p dir="ltr" class="gm-step"><strong>Step 2:</strong>&nbsp;Now when comparing arr[2] with key, the value matches. So the Linear
             Search Algorithm will yield a successful message and return the index of the element when key is found (here
             2).</p>
-        <div class="wp-caption alignnone"><img
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20230519161442/Linear-search-algorithm-3.webp"
-                alt="Compare key with arr[2]" width="350" height="308" />
+                alt="Compare key with arr[2]" width="350" height="308" /><figcaption>Compare key with arr[2]</figcaption></figure>
             <p class="wp-caption-text">Compare key with arr[2]</p>
         </div>
     </blockquote>
@@ -157,7 +157,7 @@
             href="https://www.geeksforgeeks.org/time-and-space-complexity-of-linear-search-algorithm/" target="_blank"
             rel="noreferrer noopener"><u><span class="GFGEditorTheme__textUnderline">Time and Space Complexity of Linear
                     Search:</span></u></a></h2>
-    <p dir="ltr"><strong>Time Complexity:</strong></p>
+    <p dir="ltr" class="gm-lead gm-complexity-lead"><strong>Time Complexity:</strong></p>
     <ul>
         <li value="1"><strong>Best Case:</strong>&nbsp;In the best case, the key might be present at the first index. So
             the best case complexity is O(1)</li>
@@ -166,7 +166,7 @@
             O(N) where N is the size of the list.</li>
         <li value="3"><strong>Average Case:</strong>&nbsp;O(N)</li>
     </ul>
-    <p dir="ltr"><strong>Auxiliary Space:</strong>&nbsp;O(1) as except for the variable to iterate through the list, no
+    <p dir="ltr" class="gm-complexity" data-label="Auxiliary space"><strong>Auxiliary Space:</strong>&nbsp;O(1) as except for the variable to iterate through the list, no
         other variable is used.&nbsp;</p>
     <div id="GFG_AD_gfg_outstream_incontent" data-google-query-id="CJP2uJDRoIYDFbpDnQkdpGsgCA">
         <div id="google_ads_iframe_/27823234/gfg_outstream_incontent_0__container__">&nbsp;</div>

@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <div class="main_wrapper">
         <div>
         <div class="article-title">
@@ -38,7 +38,7 @@
         <div class="gray">STUD_NO-&gt;STUD_NAME, STUD_NO-&gt;STUD_PHONE <strong>hold</strong></div>
         <p dir="ltr">but&nbsp;</p>
         <div class="gray">STUD_NAME-&gt;STUD_STATE <strong>do not hold</strong></div>
-        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231103120941/image23.png" alt="Student Table" width="442" height="116" /></div>
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231103120941/image23.png" alt="Student Table" width="442" height="116" /><figcaption>Student Table</figcaption></figure></div>
         <div class="wp-caption alignnone">
         <h2><strong>How to find Functional Dependencies for a Relation?</strong></h2>
         <p dir="ltr">Functional Dependencies in a relation are dependent on the domain of the relation. Consider the STUDENT relation given in Table 1.&nbsp;</p>
@@ -86,10 +86,10 @@
     <div class="text">
     <p>In a relational database management, functional dependency is a concept that specifies the relationship between two sets of attributes where one attribute determines the value of another attribute. It is denoted as&nbsp;<strong>X &rarr; Y</strong>, where the attribute set on the left side of the arrow,&nbsp;<strong>X&nbsp;</strong>is called&nbsp;<strong>Determinant</strong>, and&nbsp;<strong>Y&nbsp;</strong>is called the&nbsp;<strong>Dependent</strong>.&nbsp;</p>
     <p>Functional dependencies are used to mathematically express relations among database entities and are very important to understand advanced concepts in Relational Database System and understanding problems in competitive exams like Gate.</p>
-    <p><strong>Example:</strong></p>
+    <p class="gm-lead gm-example-lead"><strong>Example:</strong></p>
     <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
     <figure class="table">
-    <table>
+    <div class="gm-table"><table>
     <thead>
     <tr>
     <th>roll_no</th>
@@ -136,7 +136,7 @@
     <td>B2</td>
     </tr>
     </tbody>
-    </table>
+    </table></div>
     </figure>
     <p><strong>From the above table we can conclude some valid functional dependencies:</strong></p>
     <ul>
@@ -166,9 +166,9 @@
     </ol>
     <h4>1. Trivial Functional Dependency</h4>
     <p>In&nbsp;<strong>Trivial Functional Dependency</strong>, a dependent is always a subset of the determinant. i.e. If&nbsp;<strong>X &rarr; Y</strong>&nbsp;and&nbsp;<strong>Y is the subset of X</strong>, then it is called trivial functional dependency</p>
-    <p><strong>Example:</strong></p>
+    <p class="gm-lead gm-example-lead"><strong>Example:</strong></p>
     <figure class="table">
-    <table>
+    <div class="gm-table"><table>
     <thead>
     <tr>
     <th>roll_no</th>
@@ -193,14 +193,14 @@
     <td>18</td>
     </tr>
     </tbody>
-    </table>
+    </table></div>
     </figure>
     <p>Here,&nbsp;<strong>{roll_no, name} &rarr; name</strong>&nbsp;is a trivial functional dependency, since the dependent&nbsp;<strong>name</strong>&nbsp;is a subset of determinant set&nbsp;<strong>{roll_no, name}.&nbsp;</strong>Similarly,&nbsp;<strong>roll_no &rarr; roll_no&nbsp;</strong>is also an example of trivial functional dependency.&nbsp;</p>
     <h4>2. Non-trivial Functional Dependency</h4>
     <p>In&nbsp;<strong>Non-trivial functional dependency</strong>, the dependent is strictly not a subset of the determinant. i.e. If&nbsp;<strong>X &rarr; Y&nbsp;</strong>and&nbsp;<strong>Y</strong>&nbsp;<strong>is not a subset of X</strong>, then it is called Non-trivial functional dependency.</p>
-    <p><strong>Example:</strong></p>
+    <p class="gm-lead gm-example-lead"><strong>Example:</strong></p>
     <figure class="table">
-    <table>
+    <div class="gm-table"><table>
     <thead>
     <tr>
     <th><strong>roll_no</strong></th>
@@ -225,16 +225,16 @@
     <td>18</td>
     </tr>
     </tbody>
-    </table>
+    </table></div>
     </figure>
     <p>Here,&nbsp;<strong>roll_no &rarr; name</strong>&nbsp;is a non-trivial functional dependency, since the dependent&nbsp;<strong>name</strong>&nbsp;is&nbsp;<strong>not a subset of&nbsp;</strong>determinant<strong>&nbsp;roll_no.&nbsp;</strong>Similarly,&nbsp;<strong>{roll_no, name} &rarr; age</strong>&nbsp;is also a non-trivial functional dependency, since&nbsp;<strong>age</strong>&nbsp;is<strong>&nbsp;not a subset of {roll_no, name}&nbsp;</strong></p>
-    <p>&nbsp;</p>
+    
     <div class="article-title">
         <h4>3. Multivalued Functional Dependency</h4>
         <p>In&nbsp;<strong>Multivalued functional dependency</strong>, entities of the dependent set are&nbsp;<strong>not dependent</strong>&nbsp;<strong>on each other.&nbsp;</strong>i.e. If&nbsp;<strong>a &rarr; {b, c}</strong>&nbsp;and there exists&nbsp;<strong>no functional dependency</strong>&nbsp;between&nbsp;<strong>b and c</strong>, then it is called a&nbsp;<strong>multivalued functional dependency.</strong></p>
         <p><strong>For example,</strong></p>
         <figure class="table">
-        <table>
+        <div class="gm-table"><table>
         <thead>
         <tr>
         <th>roll_no</th>
@@ -264,14 +264,14 @@
         <td>19</td>
         </tr>
         </tbody>
-        </table>
+        </table></div>
         </figure>
         <p>Here,&nbsp;<strong>roll_no &rarr; {name, age}&nbsp;</strong>is a multivalued functional dependency, since the dependents&nbsp;<strong>name</strong>&nbsp;&amp;&nbsp;<strong>age</strong>&nbsp;are&nbsp;<strong>not dependent</strong>&nbsp;on each other(i.e.&nbsp;<strong>name &rarr; age&nbsp;</strong>or<strong>&nbsp;age &rarr; name doesn&rsquo;t exist !</strong>)</p>
         <h4>4. Transitive Functional Dependency</h4>
         <p>In transitive functional dependency, dependent is indirectly dependent on determinant. i.e. If&nbsp;<strong>a &rarr; b</strong>&nbsp;&amp;&nbsp;<strong>b &rarr; c</strong>, then according to axiom of transitivity,&nbsp;<strong>a &rarr; c</strong>. This is a&nbsp;<strong>transitive functional dependency.</strong></p>
         <p><strong>For example,</strong></p>
         <figure class="table">
-        <table>
+        <div class="gm-table"><table>
         <thead>
         <tr>
         <th>enrol_no</th>
@@ -306,7 +306,7 @@
         <td>2</td>
         </tr>
         </tbody>
-        </table>
+        </table></div>
         </figure>
         <p>Here,&nbsp;<strong>enrol_no &rarr; dept</strong>&nbsp;and&nbsp;<strong>dept &rarr; building_no.&nbsp;</strong>Hence, according to the axiom of transitivity,&nbsp;<strong>enrol_no &rarr; building_no</strong>&nbsp;is a valid functional dependency. This is an indirect functional dependency, hence called Transitive functional dependency.</p>
         <h4><strong>5. Fully Functional Dependency</strong></h4>

@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <div class="main_wrapper">
         <div class="article-title">
         <div class="main_wrapper">
@@ -51,7 +51,7 @@
         <li>If two elements have the same priority, they are served according to their order in the queue.</li>
         </ul>
         <p>In the below priority queue, an element with a maximum ASCII value will have the highest priority. The elements with higher priority are served first.&nbsp;</p>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Priority-Queue-min-1024x512.png" alt="" width="520" height="260" /></p>
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Priority-Queue-min-1024x512.png" alt="" width="520" height="260" /></figure></p>
         <h2><strong>How is Priority assigned to the elements in a Priority Queue?</strong></h2>
         <p>In a priority queue, generally, the value of an element is considered for assigning the priority.&nbsp;</p>
         <p>For example, the element with the highest value is assigned the highest priority and the element with the lowest value is assigned the lowest priority. The reverse case can also be used i.e., the element with the lowest value can be assigned the highest priority. Also, the priority can be assigned according to our needs.&nbsp;</p>
@@ -68,7 +68,7 @@
         <p>As the name suggests, in ascending order priority queue, the element with a lower priority value is given a higher priority in the priority list. For example, if we have the following elements in a priority queue arranged in ascending order like 4,6,8,9,10. Here, 4 is the smallest number, therefore, it will get the highest priority in a priority queue and so when we dequeue from this type of priority queue, 4 will remove from the queue and dequeue returns 4.</p>
         <h3><strong>2) Descending order Priority Queue&nbsp;</strong></h3>
         <p>The root node is the maximum element in a max heap, as you may know. It will also remove the element with the highest priority first. As a result, the root node is removed from the queue. This deletion leaves an empty space, which will be filled with fresh insertions in the future. The heap invariant is then maintained by comparing the newly inserted element to all other entries in the queue.</p>
-        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220623153252/priorityqueue.jpg" alt="Types of Priority Queues" width="411" height="337" />
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220623153252/priorityqueue.jpg" alt="Types of Priority Queues" width="411" height="337" /><figcaption>Types of Priority Queues</figcaption></figure>
         <p class="wp-caption-text">Types of Priority Queues</p>
         </div>
         <h2><strong>Difference between Priority Queue and Normal Queue?</strong></h2>
@@ -104,7 +104,7 @@
             <li><strong>peek()/top():</strong>&nbsp;This function is used to get the highest priority element in the queue without removing it from the queue.</li>
             </ul>
             <figure class="table">
-            <table>
+            <div class="gm-table"><table>
             <thead>
             <tr>
             <th>
@@ -137,8 +137,8 @@
             </td>
             </tr>
             </tbody>
-            </table>
-            <p>&nbsp;</p>
+            </table></div>
+            
             <h3><strong>2) Implement Priority Queue Using Linked List:&nbsp;</strong></h3>
             <p>In a LinkedList implementation, the entries are sorted in descending order based on their priority. The highest priority element is always added to the front of the priority queue, which is formed using linked lists. The functions like&nbsp;<strong>push()</strong>,&nbsp;<strong>pop()</strong>, and<strong>&nbsp;peek()</strong>&nbsp;are used to implement a priority queue using a linked list and are explained as follows:</p>
             <ul>
@@ -147,7 +147,7 @@
             <li><strong>peek() / top():&nbsp;</strong>This function is used to get the highest priority element in the queue without removing it from the queue.</li>
             </ul>
             <figure class="table">
-            <table>
+            <div class="gm-table"><table>
             <thead>
             <tr>
             <th>
@@ -180,7 +180,7 @@
             </td>
             </tr>
             </tbody>
-            </table>
+            </table></div>
             <h3><strong>3) Implement Priority Queue Using Heaps:</strong>&nbsp;</h3>
             <p>Binary Heap is generally preferred for priority queue implementation because heaps provide better performance compared to arrays or LinkedList. Considering the properties of a heap, The entry with the largest key is on the top and can be removed immediately. It will, however, take time O(log n) to restore the heap property for the remaining keys. However if another entry is to be inserted immediately, then some of this time may be combined with the O(log n) time needed to insert the new entry. Thus the representation of a priority queue as a heap proves advantageous for large n, since it is represented efficiently in contiguous storage and is guaranteed to require only logarithmic time for both insertions and deletions. Operations on Binary Heap are as follows:&nbsp;</p>
             <ul>
@@ -191,7 +191,7 @@
             <li><strong>changePriority(i, p):</strong>&nbsp;Changes the priority of an element pointed by&nbsp;<strong>i to p</strong>.</li>
             </ul>
             <figure class="table">
-            <table>
+            <div class="gm-table"><table>
             <thead>
             <tr>
             <th>
@@ -224,7 +224,7 @@
             </td>
             </tr>
             </tbody>
-            </table>
+            </table></div>
             </figure>
             </figure>
             </figure>
@@ -352,7 +352,7 @@
                 <div>}</div>
                 <div>&nbsp;</div>
                 <div>// this code is contributed by phasing17</div>
-                <p>&nbsp;</p>
+                
                 <figure class="table">
                 <figure class="table"></figure>
                 </figure>

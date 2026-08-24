@@ -8,8 +8,8 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
-    <p>&nbsp;</p>
+<body data-gm-enriched="1">
+    
 <div class="main_wrapper">
 <div>
 <div class="article-title">
@@ -39,8 +39,8 @@
 <li value="1">User threads</li>
 <li value="2">Kernel threads</li>
 </ul>
-<p dir="ltr"><em><em class="GFGEditorTheme__textItalic">Example:</em></em>&nbsp;Java thread, POSIX threads.Example : Window Solaris.&nbsp;<br />&nbsp;<br />&nbsp;</p>
-<table>
+<div class="gm-callout gm-example" data-label="Example"><p dir="ltr"><em><em class="GFGEditorTheme__textItalic">Example:</em></em>&nbsp;Java thread, POSIX threads.Example : Window Solaris.&nbsp;<br />&nbsp;<br />&nbsp;</p></div>
+<div class="gm-table"><table>
 <thead>
 <tr>
 <th><strong>User level thread</strong></th>
@@ -71,9 +71,9 @@
 <th>If one kernel thread performs blocking operation then another thread can continue execution.</th>
 </tr>
 </thead>
-</table>
+</table></div>
 </div>
-<p>&nbsp;</p>
+
 <p dir="ltr">&nbsp;<br /><a href="https://www.geeksforgeeks.org/gate-notes-operating-system-process-management-introduction/"><strong>Process:</strong></a>&nbsp;A process is a program under execution. The value of program counter (PC) indicates the address of the next instruction of the process being executed. Each process is represented by a Process Control Block (PCB).&nbsp;</p>
 <p dir="ltr"><a href="https://www.geeksforgeeks.org/gate-notes-operating-system-process-scheduling/"><strong>Process Scheduling:</strong></a>&nbsp;Below are different times with respect to a process.</p>
 <ol>
@@ -170,7 +170,7 @@
 <li value="2"><strong>Best Fit &ndash;</strong>&nbsp;The arriving process is allotted the hole of memory in which it fits the best by leaving the minimum memory empty.</li>
 <li value="3"><strong>Worst Fit &ndash;</strong>&nbsp;The arriving process is allotted the hole of memory in which it leaves the maximum gap.</li>
 </ol>
-<p dir="ltr"><strong>Note:</strong></p>
+<p dir="ltr" class="gm-lead gm-note-lead"><strong>Note:</strong></p>
 <ul>
 <li value="1">Best fit does not necessarily give the best results for memory allocation.</li>
 <li value="2">The cause of external fragmentation is the condition in Fixed partitioning and Variable partitioning saying that entire process should be allocated in a contiguous memory location. Therefore&nbsp;<strong>Paging</strong>&nbsp;is used.</li>
@@ -180,7 +180,7 @@
 <li value="2"><strong>Segmentation &ndash;</strong>&nbsp;Segmentation is implemented to give users view of memory. The logical address space is a collection of segments. Segmentation can be implemented with or without the use of paging.</li>
 </ol>
 <p dir="ltr"><a href="https://www.geeksforgeeks.org/operating-system-page-fault-handling/"><strong>Page Fault:</strong></a><br />A page fault is a type of interrupt, raised by the hardware when a running program accesses a memory page that is mapped into the virtual address space, but not loaded in main/virtual memory.&nbsp;</p>
-<p dir="ltr">&nbsp;</p>
+
 <p dir="ltr"><a href="https://www.geeksforgeeks.org/page-replacement-algorithms-in-operating-systems/"><strong>Page Replacement Algorithms:</strong></a></p>
 <ol>
 <li value="1"><strong>First In First Out (FIFO) &ndash;</strong>&nbsp;This is the simplest page replacement algorithm. In this algorithm, operating system keeps track of all pages in the memory in a queue, oldest page is in the front of the queue. When a page needs to be replaced page in the front of the queue is selected for removal. For example, consider page reference string 1, 3, 0, 3, 5, 6 and 3 page slots. Initially, all slots are empty, so when 1, 3, 0 came they are allocated to the empty slots &mdash;&gt; 3 Page Faults. When 3 comes, it is already in memory so &mdash;&gt; 0 Page Faults. Then 5 comes, it is not available in memory so it replaces the oldest page slot i.e 1. &mdash;&gt; 1 Page Fault. Finally, 6 comes,&nbsp; it is also not available in memory so it replaces the oldest page slot i.e 3 &mdash;&gt; 6 Page Fault.&nbsp;<br /><strong>Belady&rsquo;s anomaly:</strong>&nbsp;Belady&rsquo;s anomaly proves that it is possible to have more page faults when increasing the number of page frames while using the First in First Out (FIFO) page replacement algorithm.&nbsp; For example, if we consider reference string &nbsp;&nbsp;&nbsp;&nbsp; 3 &nbsp;&nbsp; &nbsp;2 &nbsp;&nbsp; &nbsp;1 &nbsp;&nbsp; &nbsp;0 &nbsp;&nbsp; &nbsp;3 &nbsp;&nbsp; &nbsp;2 &nbsp;&nbsp; &nbsp;4 &nbsp;&nbsp; &nbsp;3 &nbsp;&nbsp; &nbsp;2 &nbsp;&nbsp; &nbsp;1 &nbsp;&nbsp; &nbsp;0 &nbsp;&nbsp; &nbsp;4 and 3 slots, we get 9 total page faults, but if we increase slots to 4, we get 10 page faults.</li>
@@ -202,7 +202,7 @@
 </ol>
 </li>
 </ol>
-<p dir="ltr">&nbsp;</p>
+
 <ol>
 <li value="3">
 <ol>

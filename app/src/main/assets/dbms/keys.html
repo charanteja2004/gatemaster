@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <div class="main_wrapper">
         <div>
         <div class="article-title">
@@ -32,7 +32,7 @@
         </div>
         <div class="three_dot_dropdown">
         <div>
-        <p>&nbsp;</p>
+        
         </div>
         </div>
         </div>
@@ -60,11 +60,11 @@
         <li value="8">The value of the Candidate Key is unique and may be null for a tuple.</li>
         <li value="9">There can be more than one candidate key in a relationship.&nbsp;</li>
         </ul>
-        <p dir="ltr"><strong>Example:</strong></p>
+        <p dir="ltr" class="gm-lead gm-example-lead"><strong>Example:</strong></p>
         <div class="gray"> STUD_NO is the candidate key for relation STUDENT.</div>
         <p dir="ltr"><strong>Table STUDENT</strong></p>
         <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
-        <table>
+        <div class="gm-table"><table>
         <thead>
         <tr>
         <th><strong>STUD_NO &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong></th>
@@ -93,14 +93,14 @@
         <td>175468965</td>
         </tr>
         </tbody>
-        </table>
+        </table></div>
         <ul>
         <li value="1">The candidate key can be simple (having only one attribute) or composite as well.&nbsp;</li>
         </ul>
-        <p dir="ltr"><strong>Example:</strong></p>
+        <p dir="ltr" class="gm-lead gm-example-lead"><strong>Example:</strong></p>
         <div class="gray"> {STUD_NO, COURSE_NO} is a composite <br /> candidate key for relation STUDENT_COURSE.</div>
         <p dir="ltr"><strong>Table STUDENT_COURSE</strong></p>
-        <table>
+        <div class="gm-table"><table>
         <thead>
         <tr>
         <th><strong>STUD_NO</strong></th>
@@ -120,8 +120,8 @@
         <td>C005</td>
         </tr>
         </tbody>
-        </table>
-        <p dir="ltr"><strong>Note:&nbsp;</strong>In<a href="sql.html">&nbsp;SQL</a>&nbsp;Server a unique constraint that has a nullable column,&nbsp;<strong>allows</strong>&nbsp;the value &lsquo;<strong>null</strong>&lsquo; in that column&nbsp;<strong>only once</strong>. That&rsquo;s why the STUD_PHONE attribute is a candidate here, but can not be a &lsquo;null&rsquo; value in the primary key attribute.&nbsp;</p>
+        </table></div>
+        <div class="gm-callout gm-note" data-label="Note"><p dir="ltr"><strong>Note:&nbsp;</strong>In<a href="sql.html">&nbsp;SQL</a>&nbsp;Server a unique constraint that has a nullable column,&nbsp;<strong>allows</strong>&nbsp;the value &lsquo;<strong>null</strong>&lsquo; in that column&nbsp;<strong>only once</strong>. That&rsquo;s why the STUD_PHONE attribute is a candidate here, but can not be a &lsquo;null&rsquo; value in the primary key attribute.&nbsp;</p></div>
         <h3><strong>Primary Key</strong></h3>
         <p dir="ltr">There can be more than one candidate key in relation out of which one can be chosen as the primary key. For Example, STUD_NO, as well as STUD_PHONE, are candidate keys for relation STUDENT but STUD_NO can be chosen as the&nbsp;primary key&nbsp;(only one out of many candidate keys).&nbsp;</p>
         <ul>
@@ -131,10 +131,10 @@
         <li value="4">It cannot be NULL.</li>
         <li value="5">Primary keys are not necessarily to be a single column; more than one column can also be a primary key for a table.</li>
         </ul>
-        <p dir="ltr"><strong>Example:</strong></p>
+        <p dir="ltr" class="gm-lead gm-example-lead"><strong>Example:</strong></p>
         <div class="gray">STUDENT table -&gt; Student(STUD_NO, SNAME, <br />ADDRESS, PHONE) , STUD_NO is a primary key  </div>
         <p dir="ltr"><strong>Table STUDENT</strong></p>
-        <table>
+        <div class="gm-table"><table>
         <thead>
         <tr>
         <th><strong>STUD_NO &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</strong></th>
@@ -163,7 +163,7 @@
         <td>175468965</td>
         </tr>
         </tbody>
-        </table>
+        </table></div>
         </div>
         <div class="main_wrapper">
             <div class="article-title">
@@ -174,9 +174,9 @@
             <li value="2">A candidate key is a super key but vice versa is not true.</li>
             <li value="3">Super Key values may also be NULL.</li>
             </ul>
-            <p dir="ltr"><strong>Example:</strong></p>
+            <p dir="ltr" class="gm-lead gm-example-lead"><strong>Example:</strong></p>
             <div class="gray">Consider the table shown above.<br />STUD_NO+PHONE is a super key<strong>.</strong></div>
-            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230314093236/keys-in-dbms.jpg" alt="Relation between Primary Key, Candidate Key and Super Key" width="468" height="234" />
+            <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230314093236/keys-in-dbms.jpg" alt="Relation between Primary Key, Candidate Key and Super Key" width="468" height="234" /><figcaption>Relation between Primary Key, Candidate Key and Super Key</figcaption></figure>
             <p class="wp-caption-text">Relation between Primary Key, Candidate Key, and Super Key</p>
             </div>
             <h3><strong>Alternate Key</strong></h3>
@@ -188,9 +188,9 @@
             <li value="4">These values are repeated.</li>
             <li value="5">Eg:- SNAME, and ADDRESS is Alternate keys</li>
             </ul>
-            <p dir="ltr"><strong>Example:</strong></p>
+            <p dir="ltr" class="gm-lead gm-example-lead"><strong>Example:</strong></p>
             <div class="gray">Consider the table shown above.<br />STUD_NO, as well as PHONE both, <br />are candidate keys for relation STUDENT but <br />PHONE will be an alternate key <br />(only one out of many candidate keys).</div>
-            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230314093606/Primary-key-alternative-key-in-dbms.png" alt="Primary Key, Candidate Key and Alternate Key" width="514" height="257" />
+            <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230314093606/Primary-key-alternative-key-in-dbms.png" alt="Primary Key, Candidate Key and Alternate Key" width="514" height="257" /><figcaption>Primary Key, Candidate Key and Alternate Key</figcaption></figure>
             <p class="wp-caption-text">Primary Key, Candidate Key, and Alternate Key</p>
             </div>
             <h3><strong>Foreign Key</strong></h3>
@@ -201,10 +201,10 @@
             <li value="3">They act as a cross-reference between the tables.</li>
             <li value="4">For example, DNO is a primary key in the DEPT table and a non-key in EMP</li>
             </ul>
-            <p dir="ltr"><strong>Example:</strong></p>
+            <p dir="ltr" class="gm-lead gm-example-lead"><strong>Example:</strong></p>
             <div class="gray"> Refer Table STUDENT shown above.<br /> STUD_NO in STUDENT_COURSE is a <br /> foreign key to STUD_NO in STUDENT relation.</div>
             <p dir="ltr"><strong>Table STUDENT_COURSE</strong></p>
-            <table>
+            <div class="gm-table"><table>
             <thead>
             <tr>
             <th><strong>STUD_NO</strong></th>
@@ -224,9 +224,9 @@
             <td>C005</td>
             </tr>
             </tbody>
-            </table>
+            </table></div>
             <p dir="ltr">It may be worth noting that, unlike the Primary Key of any given relation, Foreign Key can be NULL as well as may contain duplicate tuples i.e. it need not follow uniqueness constraint.&nbsp;For Example, STUD_NO in the STUDENT_COURSE relation is not unique. It has been repeated for the first and third tuples. However, the STUD_NO in STUDENT relation is a primary key and it needs to be always unique, and it cannot be null.&nbsp;</p>
-            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230314173852/Foreign-keys.png" alt="Relation between Primary Key and Foreign Key" width="464" height="232" /></div>
+            <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230314173852/Foreign-keys.png" alt="Relation between Primary Key and Foreign Key" width="464" height="232" /><figcaption>Relation between Primary Key and Foreign Key</figcaption></figure></div>
             </div>
             </div>
             <div class="main_wrapper">
@@ -238,9 +238,9 @@
                 <li value="2">Two or more attributes are used together to make a&nbsp;composite key.</li>
                 <li value="3">Different combinations of attributes may give different accuracy in terms of identifying the rows uniquely.</li>
                 </ul>
-                <p dir="ltr"><strong>Example:</strong></p>
+                <p dir="ltr" class="gm-lead gm-example-lead"><strong>Example:</strong></p>
                 <div class="gray">FULLNAME + DOB can be combined <br />together to access the details of a student.</div>
-                <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230314174012/Different-types-of-keys.png" alt="Different Types of Keys" width="336" height="168" /></div>
+                <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230314174012/Different-types-of-keys.png" alt="Different Types of Keys" width="336" height="168" /><figcaption>Different Types of Keys</figcaption></figure></div>
                 </div>
                 </div>
 </body>

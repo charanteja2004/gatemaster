@@ -24,7 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
 <h2><b>Page Replacement Algorithms in Operating Systems</b></h2>
 
 <p>In an operating system that uses paging for memory management, a page replacement algorithm is needed to decide which page needs to be replaced when a new page comes in. Page replacement becomes necessary when a page fault occurs and there are no free page frames in memory. However, another page fault would arise if the replaced page is referenced again. Hence it is important to replace a page that is not likely to be referenced in the immediate future. If no page frame is free, the virtual memory manager performs a page replacement operation to replace one of the pages existing in memory with the page whose reference caused the page fault. It is performed as follows: The virtual memory manager uses a page replacement algorithm to select one of the pages currently in memory for replacement, accesses the page table entry of the selected page to mark it as “not present” in memory, and initiates a page-out operation for it if the modified bit of its page table entry indicates that it is a dirty page.<br><br>
@@ -36,7 +36,7 @@
 
 <b>Example 1:</b> Consider page reference string 1, 3, 0, 3, 5, 6, 3 with 3 page frames.Find the number of page faults. <br><br>
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/20190412160604/fifo2.png" width="350" height="300"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190412160604/fifo2.png" width="350" height="300"></figure><br><br>
 
 
 Initially, all slots are empty, so when 1, 3, 0 came they are allocated to the empty slots —> 3 <b>Page Faults.</b><bR><br>
@@ -49,7 +49,7 @@ when 3 comes, it is already in memory so —> <b>0 Page Faults.</b> Then 5 comes
 
 <b>Example-2:</b> Consider the page references 7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2, 3 with 4 page frame. Find number of page fault.<br><br>
 
-<img src=" https://media.geeksforgeeks.org/wp-content/uploads/20190412160500/optimal.png" width="350" height="300"><br><br>
+<figure class="gm-figure"><img src=" https://media.geeksforgeeks.org/wp-content/uploads/20190412160500/optimal.png" width="350" height="300"></figure><br><br>
 
 
 
@@ -65,7 +65,7 @@ Optimal page replacement is perfect, but not possible in practice as the operati
 
 <b>Example-3:</b> Consider the page reference string 7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2, 3 with 4 page frames. Find number of page faults.<br><br>
 
-<img src=" https://media.geeksforgeeks.org/wp-content/uploads/20190412161533/optimal2.png" width="350" height="300"><br><br>
+<figure class="gm-figure"><img src=" https://media.geeksforgeeks.org/wp-content/uploads/20190412161533/optimal2.png" width="350" height="300"></figure><br><br>
 
 
 
@@ -77,7 +77,7 @@ Now for the further page reference string —><b> 0 Page fault </b>because they 
 
 <b>4. Most Recently Used (MRU):</b> In this algorithm, page will be replaced which has been used recently. Belady’s anomaly can occur in this algorithm.<br><br>
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/20230519223827/finL.png" width="350" height="300"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230519223827/finL.png" width="350" height="300"></figure><br><br>
 
 <p>Initially, all slots are empty, so when 7 0 1 2 are allocated to the empty slots —> <b>4 Page faults</b> <br><br>
 

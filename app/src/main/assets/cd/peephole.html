@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     
 <div class="article-title">
     <h1>Peephole Optimization</h1>
@@ -56,7 +56,7 @@
     <pre>a := a + 0;<br />a := a * 1;<br />a := a/1;<br />a := a - 0;</pre>
     <p dir="ltr"><strong>E. Combine operations:</strong>&nbsp;Several operations are replaced by a single equivalent operation.</p>
     <p dir="ltr"><strong>F. Deadcode Elimination:-&nbsp;</strong>Dead code refers to portions of the program that are never executed or do not affect the program&rsquo;s observable behavior. Eliminating dead code helps improve the efficiency and performance of the compiled program by reducing unnecessary computations and memory usage.</p>
-    <pre><strong>Initial Code:-</strong><br />int Dead(void)<br />{<br />    int a=10;<br />    int z=50;<br />    int c;<br />    c=z*5;<br />    printf(c);<br />    a=20; <br />    a=a*10; //No need of These Two Lines <br />    return 0;<br />    }<br /><strong>Optimized Code:-</strong><br />int Dead(void)<br />{<br />    int a=10;<br />    int z=50;<br />    int c;<br />    c=z*5;<br />    printf(c);<br />    return 0;<br />    }    <br /><br /><br /></pre>
+    <pre><strong>Initial Code:-</strong><br />int Dead(void)<br />{<br />    int a=10;<br />    int z=50;<br />    int c;<br />    c=z*5;<br />    printf(c);<br />    a=20; <br />    a=a*10; //No need of These Two Lines <br />    return 0;<br />    }<br /><strong>Optimized Code:-</strong><br />int Dead(void)<br />{<br />    int a=10;<br />    int z=50;<br />    int c;<br />    c=z*5;<br />    printf(c);<br />    return 0;<br />    }<br><br></pre>
     </div>
     
 </body>

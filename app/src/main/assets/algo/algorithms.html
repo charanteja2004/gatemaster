@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
 
-<body>
+<body data-gm-enriched="1">
 
     <h2>Algorithms</h2>
     <h2><u><span class="GFGEditorTheme__textUnderline">Definition of Algorithm</span></u></h2>
@@ -40,8 +40,8 @@
     </blockquote>
     <p dir="ltr">Therefore Algorithm refers to a sequence of finite steps to solve a particular problem.</p>
     <div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
-    <p><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20191016135223/What-is-Algorithm_-1024x631.jpg"
-            alt="What is Algorithm" width="789" height="486" /></p>
+    <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20191016135223/What-is-Algorithm_-1024x631.jpg"
+            alt="What is Algorithm" width="789" height="486" /><figcaption>What is Algorithm</figcaption></figure></p>
     <h2><u><span class="GFGEditorTheme__textUnderline">Use of the Algorithms:</span></u></h2>
     <p dir="ltr">Algorithms play a crucial role in various fields and have many applications. Some of the key areas
         where algorithms are used include:</p>
@@ -81,9 +81,9 @@
             many others to optimize processes, analyze data, make predictions, and provide solutions to problems.</li>
     </ol>
     <h2><u><span class="GFGEditorTheme__textUnderline">What are the Characteristics of an Algorithm?</span></u></h2>
-    <p dir="ltr"><img
+    <p dir="ltr"><figure class="gm-figure gm-remote"><img
             src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20191016135220/Characteristics-of-an-Algorithm-1024x630.jpg"
-            alt=" Characteristics of an Algorithm" width="811" height="499" /></p>
+            alt=" Characteristics of an Algorithm" width="811" height="499" /><figcaption>Characteristics of an Algorithm</figcaption></figure></p>
     <p dir="ltr">As one would not follow any written instructions to cook the recipe, but only the standard one.
         Similarly, not all written instructions for programming are an algorithm. For some instructions to be an
         algorithm, it must have the following characteristics:</p>
@@ -229,7 +229,7 @@
     <p dir="ltr">Then the algorithm is written with the help of the above parameters such that it solves the problem.
     </p>
     <div id="GFG_AD_gfg_outstream_incontent-1">&nbsp;</div>
-    <p dir="ltr"><strong>Example:</strong>&nbsp;Consider the example to add three numbers and print the sum.</p>
+    <div class="gm-callout gm-example" data-label="Example"><p dir="ltr"><strong>Example:</strong>&nbsp;Consider the example to add three numbers and print the sum.</p></div>
     <h3><strong>Step 1: Fulfilling the pre-requisites</strong>&nbsp;</h3>
     <p dir="ltr">As discussed above, to write an algorithm, its prerequisites must be fulfilled.&nbsp;</p>
     <ol>
@@ -261,8 +261,7 @@
     <h3><strong>Step 3: Testing the algorithm by implementing it.</strong></h3>
     <p dir="ltr">To test the algorithm, let&rsquo;s implement it in C language.</p>
     <p dir="ltr"><strong>Program:</strong></p>
-
-    <div class="line number1 index0 alt2"><code class="comments">// C program to add three numbers</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C program to add three numbers</code></div>
     <div class="line number2 index1 alt1"><code class="comments">// with the help of above designed algorithm</code>
     </div>
     <div class="line number3 index2 alt2">&nbsp;</div>
@@ -328,7 +327,8 @@
     <div class="line number34 index33 alt1">&nbsp;</div>
     <div class="line number35 index34 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
             class="keyword bold">return</code> <code class="plain">0;</code></div>
-    <div class="line number36 index35 alt1"><code class="plain">}</code></div>
+    <div class="line number36 index35 alt1"><code class="plain">}</code></div></div></div>
+
     <div class="code-output"><br /><strong>Output</strong>
         <div class="gray">Enter the 1st number: 0
 Enter the 2nd number: 0
@@ -351,7 +351,7 @@ Sum of the 3 numbers is: -1577141152
         <li value="10">Use the cout statement to print the sum of the three numbers.</li>
         <li value="11">The main function returns 0, which indicates the successful execution of the program.</li>
     </ol>
-    <p dir="ltr"><strong>Time complexity:</strong>&nbsp;O(1)<br /><strong>Auxiliary Space:</strong>&nbsp;O(1)&nbsp;</p>
+    <p dir="ltr" class="gm-complexity" data-label="Time complexity"><strong>Time complexity:</strong>&nbsp;O(1)<br /><strong>Auxiliary Space:</strong>&nbsp;O(1)&nbsp;</p>
     <p dir="ltr"><strong>One problem, many solutions:</strong>&nbsp;The solution to an algorithm can be or cannot be
         more than one. It means that while implementing the algorithm, there can be more than one method to implement
         it. For example, in the above problem of adding 3 numbers, the sum can be calculated in many ways:</p>
@@ -410,9 +410,9 @@ Sum of the 3 numbers is: -1577141152
     </ul>
 
 
-    <p dir="ltr"><strong>Example:</strong>&nbsp;Consider the below algorithm for Linear Search</p>
+    <div class="gm-callout gm-example" data-label="Example"><p dir="ltr"><strong>Example:</strong>&nbsp;Consider the below algorithm for Linear Search</p></div>
     <blockquote>
-        <p dir="ltr">Step 1: START<br />Step 2: Get n elements of the array in arr and the number to be searched in
+        <p dir="ltr" class="gm-step">Step 1: START<br />Step 2: Get n elements of the array in arr and the number to be searched in
             x<br />Step 3: Start from the leftmost element of arr[] and one by one compare x with each element of
             arr[]<br />Step 4: If x matches with an element, Print True.<br />Step 5: If x doesn&rsquo;t match with any
             of the elements, Print False.<br />Step 6: END<br />Here, There are 2 variables arr[], and x, where the
@@ -431,17 +431,17 @@ Sum of the 3 numbers is: -1577141152
         <li value="1"><strong>Constant time part:</strong>&nbsp;Any instruction that is executed just once comes in this
             part. For example, input, output, if-else, switch, arithmetic operations, etc.</li>
         <li value="2"><strong>Variable Time Part:</strong>&nbsp;Any instruction that is executed more than once, say n
-            times, comes in this part. For example, loops, recursion, etc.<br />Therefore Time complexity&nbsp;<img
+            times, comes in this part. For example, loops, recursion, etc.<br />Therefore Time complexity&nbsp;<figure class="gm-figure gm-remote"><img
                 class="ql-img-inline-formula quicklatex-auto-format" title="Rendered by QuickLaTeX.com"
                 src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-eb034c715561f90f4edf3091e06bb21e_l3.svg"
-                alt="T(P)                        " width="58" height="27" />of any algorithm P is&nbsp;<strong>T(P) = C
+                alt="T(P)                        " width="58" height="27" /><figcaption>T(P)</figcaption></figure>of any algorithm P is&nbsp;<strong>T(P) = C
                 + TP(I)</strong>, where C is the constant time part and TP(I) is the variable part of the algorithm,
             which depends on the instance characteristic I.</li>
     </ul>
-    <p dir="ltr"><strong>Example:</strong>&nbsp;In the algorithm of Linear Search above, the time complexity is
-        calculated as follows:</p>
+    <div class="gm-callout gm-example" data-label="Example"><p dir="ltr"><strong>Example:</strong>&nbsp;In the algorithm of Linear Search above, the time complexity is
+        calculated as follows:</p></div>
     <blockquote>
-        <p dir="ltr">Step 1: &ndash;Constant Time<br />Step 2: &mdash; Variable Time (Taking n inputs)<br />Step 3:
+        <p dir="ltr" class="gm-step">Step 1: &ndash;Constant Time<br />Step 2: &mdash; Variable Time (Taking n inputs)<br />Step 3:
             &ndash;Variable Time (Till the length of the Array (n) or the index of the found element)<br />Step 4:
             &ndash;Constant Time<br />Step 5: &ndash;Constant Time<br />Step 6: &ndash;Constant Time<br />Hence, T(P) =
             1 + n + n(1 + 1) + 1 = 2 + 3n, which can be said as T(n).</p>

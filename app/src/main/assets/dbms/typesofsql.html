@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <div class="main_wrapper">
         <div>
         <div class="article-title">
@@ -61,13 +61,13 @@
         <li value="5"><strong>TCL&nbsp;</strong>&ndash; Transaction Control Language</li>
         </ol>
         <p dir="ltr">Now, we will see all of these in detail.</p>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20210920153429/new.png" alt="sql commands categories" width="380" height="319" /></p>
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20210920153429/new.png" alt="sql commands categories" width="380" height="319" /><figcaption>sql commands categories</figcaption></figure></p>
         <h2 id="ddl-data-definition-language"><strong>DDL (Data Definition Language)</strong></h2>
         <p dir="ltr">DDL&nbsp;or Data Definition Language actually consists of the SQL commands that can be used to define the database schema. It simply deals with descriptions of the database schema and is used to create and modify the structure of database objects in the database.</p>
         <p dir="ltr">DDL is a set of SQL commands used to create, modify, and delete database structures but not data. These commands are normally not used by a general user, who should be accessing the database via an application.</p>
         <h3>List of DDL Commands</h3>
         <p dir="ltr">Some DDL commands and their syntax are:</p>
-        <table>
+        <div class="gm-table"><table>
         <thead>
         <tr>
         <th>Command</th>
@@ -107,7 +107,7 @@
         <td><code>RENAME TABLE old_table_name TO new_table_name;</code></td>
         </tr>
         </tbody>
-        </table>
+        </table></div>
         </div>
         <div class="main_wrapper">
             <div class="article-title">
@@ -116,7 +116,7 @@
             <p dir="ltr">This command allows getting the data out of the database to perform operations with it. When a SELECT is fired against a table or tables the result is compiled into a further temporary table, which is displayed or perhaps received by the program i.e. a front-end.</p>
             <h3>DQL Command</h3>
             <p dir="ltr">There is only one DQL command in SQL i.e.</p>
-            <table>
+            <div class="gm-table"><table>
             <thead>
             <tr>
             <th>Command</th>
@@ -137,13 +137,13 @@
             </td>
             </tr>
             </tbody>
-            </table>
+            </table></div>
             <h2 id="dmldata-manipulation-language"><strong>DML(Data Manipulation Language)</strong></h2>
             <p dir="ltr">The SQL commands that deal with the manipulation of data present in the database belong to DML or Data Manipulation Language and this includes most of the SQL statements.&nbsp;</p>
             <p dir="ltr">It is the component of the SQL statement that controls access to data and to the database. Basically, DCL statements are grouped with DML statements.</p>
             <h3>List of DML commands</h3>
             <p dir="ltr">Some DML commands and their syntax are:</p>
-            <table>
+            <div class="gm-table"><table>
             <thead>
             <tr>
             <th>Command</th>
@@ -183,12 +183,12 @@
             <td><code>EXPLAIN PLAN FOR SELECT * FROM table_name;</code></td>
             </tr>
             </tbody>
-            </table>
+            </table></div>
             <h2 id="dcl-data-control-language"><strong>DCL (Data Control Language)</strong></h2>
             <p dir="ltr">DCL includes commands such as GRANT and REVOKE which mainly deal with the rights, permissions, and other controls of the database system.&nbsp;</p>
             <h3>List of &nbsp;DCL commands:</h3>
             <p dir="ltr">Two important DCL commands and their syntax are:</p>
-            <table>
+            <div class="gm-table"><table>
             <thead>
             <tr>
             <th>Command</th>
@@ -208,13 +208,13 @@
             <td><code>REVOKE [GRANT OPTION FOR] privilege_type [(column_list)] ON [object_type] object_name FROM user [CASCADE];</code></td>
             </tr>
             </tbody>
-            </table>
+            </table></div>
             <h2 id="tcl-transaction-control-language"><strong>TCL (Transaction Control Language)</strong></h2>
             <p dir="ltr">Transactions group a set of tasks into a single execution unit. Each transaction begins with a specific task and ends when all the tasks in the group are successfully completed. If any of the tasks fail, the transaction fails.</p>
             <p dir="ltr">Therefore, a transaction has only two results: success or failure. You can explore more about transactions<em><strong><strong class="GFGEditorTheme__textItalic">&nbsp;</strong></strong></em><em><strong><strong class="GFGEditorTheme__textItalic">here</strong></strong></em>. Hence, the following TCL commands are used to control the execution of a transaction:&nbsp;</p>
             <h3>List of TCL Commands</h3>
             <p dir="ltr">Some TCL commands and their syntax are:</p>
-            <table>
+            <div class="gm-table"><table>
             <thead>
             <tr>
             <th>Command</th>
@@ -244,7 +244,7 @@
             <td><code>SAVEPOINT savepoint_name;</code></td>
             </tr>
             </tbody>
-            </table>
+            </table></div>
             </div>
             </div>
             <div class="main_wrapper">
@@ -264,7 +264,7 @@
                 </ol>
                 <h2 id="sql-commands-with-examples">SQL Commands With Examples</h2>
                 <p dir="ltr">The examples demonstrates how to use an SQL command. Here is the list of popular SQL commands with Examples.</p>
-                <table>
+                <div class="gm-table"><table>
                 <thead>
                 <tr>
                 <th>SQL Command</th>
@@ -313,7 +313,7 @@
                 <td><code>SELECT e.first_name, e.last_name, d.department_name FROM employees e JOIN departments d ON e.department_id = d.department_id;</code></td>
                 </tr>
                 </tbody>
-                </table>
+                </table></div>
                 </div>
 </body>
 </html>

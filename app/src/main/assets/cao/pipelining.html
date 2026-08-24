@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <h2><b>Pipelining (Execution, Stages and Throughput)</b></h2>
 <p dir="ltr">To improve the performance of a CPU we have two options: 1) Improve the hardware by introducing faster circuits. 2) Arrange the hardware such that more than one operation can be performed at the same time. Since there is a limit on the speed of hardware and the cost of faster circuits is quite high, we have to adopt the 2<sup>nd</sup>&nbsp;option.&nbsp;</p>
 <p dir="ltr"><strong>Pipelining&nbsp;</strong>is a process of arrangement of hardware elements of the CPU such that its overall performance is increased. Simultaneous execution of more than one instruction takes place in a pipelined processor. Let us see a real-life example that works on the concept of pipelined operation. Consider a water bottle packaging plant. Let there be 3 stages that a bottle should pass through, Inserting the bottle(<strong>I</strong>), Filling water in the bottle(<strong>F</strong>), and Sealing the bottle(<strong>S</strong>). Let us consider these stages as stage 1, stage 2, and stage 3 respectively. Let each stage take 1 minute to complete its operation. Now, in a non-pipelined operation, a bottle is first inserted in the plant, after 1 minute it is moved to stage 2 where water is filled. Now, in stage 1 nothing is happening. Similarly, when the bottle moves to stage 3, both stage 1 and stage 2 are idle. But in pipelined operation, when the bottle is in stage 2, another bottle can be loaded at stage 1. Similarly, when the bottle is in stage 3, there can be one bottle each in stage 1 and stage 2. So, after each minute, we get a new bottle at the end of stage 3. Hence, the average time taken to manufacture 1 bottle is:&nbsp;</p>
@@ -45,7 +45,7 @@
 <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
 <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
 <p dir="ltr"><strong>Non-overlapped execution:</strong></p>
-<table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /><col /><col /></colgroup>
+<div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /><col /><col /></colgroup>
 <thead>
 <tr>
 <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Stage / Cycle</th>
@@ -105,10 +105,10 @@
 <td class="GFGEditorTheme__tableCell">I<sub>2</sub></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p dir="ltr">Total time = 8 Cycle&nbsp;</p>
 <p dir="ltr"><strong>Overlapped execution:</strong></p>
-<table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /></colgroup>
+<div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /></colgroup>
 <thead>
 <tr>
 <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Stage / Cycle</th>
@@ -153,7 +153,7 @@
 <td class="GFGEditorTheme__tableCell">I<sub>2</sub></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 
 
@@ -200,9 +200,9 @@
 
 
 
-<p><strong>1. Linear Pipeline :</strong>&nbsp;Linear pipeline is a pipeline in which a series of processors are connected together in a serial manner. In linear pipeline the data flows from the first block to the final block of processor. The processing of data is done in a linear and sequential manner. The input is supplied to the first block and we get the output from the last block till which the processing of data is being done. The linear pipelines can be further be divided into synchronous and asynchronous models. Linear pipelines are typically used when the data transformation process is straightforward and can be performed in a single path.<img src="https://media.geeksforgeeks.org/wp-content/uploads/20200612215615/LINEAR2.png" width="350"/><strong>2. Non-Linear Pipeline :</strong>&nbsp;Non-Linear pipeline is a pipeline which is made of different pipelines that are present at different stages. The different pipelines are connected to perform multiple functions. It also has feedback and feed-forward connections. It is made such that it performs various function at different time intervals. In Non-Linear pipeline the functions are dynamically assigned. In Non-Linear pipeline the functions are dynamically assigned.<img src="https://media.geeksforgeeks.org/wp-content/uploads/20200612220132/nonlineargfg.png" width="350" />&nbsp;<br /><strong>Difference between Linear Pipeline and Non-Linear Pipeline :</strong></p>
+<p><strong>1. Linear Pipeline :</strong>&nbsp;Linear pipeline is a pipeline in which a series of processors are connected together in a serial manner. In linear pipeline the data flows from the first block to the final block of processor. The processing of data is done in a linear and sequential manner. The input is supplied to the first block and we get the output from the last block till which the processing of data is being done. The linear pipelines can be further be divided into synchronous and asynchronous models. Linear pipelines are typically used when the data transformation process is straightforward and can be performed in a single path.<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20200612215615/LINEAR2.png" width="350"/></figure><strong>2. Non-Linear Pipeline :</strong>&nbsp;Non-Linear pipeline is a pipeline which is made of different pipelines that are present at different stages. The different pipelines are connected to perform multiple functions. It also has feedback and feed-forward connections. It is made such that it performs various function at different time intervals. In Non-Linear pipeline the functions are dynamically assigned. In Non-Linear pipeline the functions are dynamically assigned.<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20200612220132/nonlineargfg.png" width="350" /></figure>&nbsp;<br /><strong>Difference between Linear Pipeline and Non-Linear Pipeline :</strong></p>
 <figure class="table">
-<table border="1">
+<div class="gm-table"><table border="1">
 <thead>
 <tr>
 <th>S.NO.</th>
@@ -242,7 +242,7 @@
 <td>Functional partitioning is difficult in non-linear pipeline.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </figure>
 </body>
 </html>

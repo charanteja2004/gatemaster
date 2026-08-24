@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     
 ><h2>Pointers</h2>
 
@@ -73,11 +73,11 @@
 <p dir="ltr"><strong>Example</strong></p>
 <div class="gray">int *<strong>ptr = &amp;</strong>var;<br /><br /></div>
 <blockquote>
-<p dir="ltr"><strong>Note:</strong>&nbsp;It is recommended that the pointers should always be initialized to some value before starting using it. Otherwise, it may lead to number of errors.</p>
+<div class="gm-callout gm-note" data-label="Note"><p dir="ltr"><strong>Note:</strong>&nbsp;It is recommended that the pointers should always be initialized to some value before starting using it. Otherwise, it may lead to number of errors.</p></div>
 </blockquote>
 <h3>3. Pointer Dereferencing</h3>
 <p dir="ltr">Dereferencing a pointer is the process of accessing the value stored in the memory address specified in the pointer. We use the same&nbsp;<strong>( * ) dereferencing operator</strong>&nbsp;that we used in the pointer declaration.</p>
-<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230223170531/2.png" alt="dereferencing a pointer in c" width="350" height="350" />
+<div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230223170531/2.png" alt="dereferencing a pointer in c" width="350" height="350" /><figcaption>dereferencing a pointer in c</figcaption></figure>
 <p class="wp-caption-text">Dereferencing a Pointer in C</p>
 </div>
 
@@ -153,7 +153,7 @@ Value at *ptr = 10
 <p dir="ltr"><strong>Syntax</strong></p>
 <div class="gray">int (*ptr)(int, char);<br /><br /></div>
 <blockquote>
-<p dir="ltr">Note: The syntax of the function pointers changes according to the function prototype.</p>
+<div class="gm-callout gm-note" data-label="Note"><p dir="ltr">Note: The syntax of the function pointers changes according to the function prototype.</p></div>
 </blockquote>
 
 <h3>5. Double Pointers</h3>
@@ -166,7 +166,7 @@ Value at *ptr = 10
 <p dir="ltr"><strong>Dereferencing Double Pointer</strong></p>
 <div class="gray">*pointer_name; // get the address stored in the inner level pointer<br />**pointer_name; // get the value pointed by inner level pointer<br /><br /></div>
 <blockquote>
-<p dir="ltr"><strong>Note:</strong>&nbsp;In C, we can create&nbsp;<a href="https://www.geeksforgeeks.org/chain-of-pointers-in-c-with-examples/">multi-level pointers&nbsp;</a>with any number of levels such as &ndash; ***ptr3, ****ptr4, ******ptr5 and so on.</p>
+<div class="gm-callout gm-note" data-label="Note"><p dir="ltr"><strong>Note:</strong>&nbsp;In C, we can create&nbsp;<a href="https://www.geeksforgeeks.org/chain-of-pointers-in-c-with-examples/">multi-level pointers&nbsp;</a>with any number of levels such as &ndash; ***ptr3, ****ptr4, ******ptr5 and so on.</p></div>
 </blockquote>
 <h3>6. NULL Pointer</h3>
 <p dir="ltr">The&nbsp;<a href="https://www.geeksforgeeks.org/few-bytes-on-null-pointer-in-c/">Null Pointers</a>&nbsp;are those pointers that do not point to any memory location. They can be created by assigning a NULL value to the pointer. A pointer of any type can be assigned the NULL value.</p>
@@ -345,7 +345,7 @@ Value of ptr = 0x7ffe8ba7ec58</div>
 <p dir="ltr">In C programming language, pointers and arrays are closely related. An array name acts like a pointer constant. The value of this pointer constant is the address of the first element.&nbsp;For example, if we have an array named val then&nbsp;<strong>val</strong>&nbsp;and&nbsp;<strong>&amp;val[0]</strong>&nbsp;can be used interchangeably.</p>
 <p dir="ltr">If we assign this value to a non-constant pointer of the same type, then we can access the elements of the array using this pointer.</p>
 <h3>Example 1: Accessing Array Elements using Pointer with Array Subscript</h3>
-<p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230223170733/3.png" alt="relationship between array and pointer" width="350" height="350" /></p>
+<p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230223170733/3.png" alt="relationship between array and pointer" width="350" height="350" /><figcaption>relationship between array and pointer</figcaption></figure></p>
 <div class="codeblock-container" data-mode="light">C
 <div class="code-container">
 <div class="code-box">
@@ -400,7 +400,7 @@ Value of ptr = 0x7ffe8ba7ec58</div>
 
 
 <h3>Example 2: Accessing Array Elements using Pointer Arithmetic</h3>
-<p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230223170849/4.png" alt="accessing array elements using pointer arithmetic" width="350" height="350" /></p>
+<p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230223170849/4.png" alt="accessing array elements using pointer arithmetic" width="350" height="350" /><figcaption>accessing array elements using pointer arithmetic</figcaption></figure></p>
 <div class="codeblock-container" data-mode="light">C
 <div class="code-container">
 <div class="code-box">
@@ -495,21 +495,21 @@ Value of ptr = 0x7ffe8ba7ec58</div>
 <div class="editor-buttons-container">
 <div class="editor-buttons">
 <div class="editor-buttons-div" title="Run and Edit">
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+
+
+
 </div>
 </div>
 </div>
 </div>
 <div class="code-container">
 <div id="highlighter_673193" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="comments">// C program to swap two values </code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C program to swap two values </code></div>
 <div class="line number2 index1 alt1"><code class="comments">//&nbsp; without passing pointer to&nbsp; </code></div>
 <div class="line number3 index2 alt2"><code class="comments">// swap function. </code></div>
 <div class="line number4 index3 alt1"><code class="preprocessor">#include &lt;stdio.h&gt; </code></div>
@@ -529,12 +529,13 @@ Value of ptr = 0x7ffe8ba7ec58</div>
 <div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Values after swap function are: %d, %d"</code><code class="plain">, </code></div>
 <div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">a, b); </code></div>
 <div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
-<div class="line number21 index20 alt2"><code class="plain">}</code></div>
+<div class="line number21 index20 alt2"><code class="plain">}</code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>
@@ -556,21 +557,21 @@ Value of ptr = 0x7ffe8ba7ec58</div>
 <div class="editor-buttons-container">
 <div class="editor-buttons">
 <div class="editor-buttons-div" title="Run and Edit">
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+
+
+
 </div>
 </div>
 </div>
 </div>
 <div class="code-container">
 <div id="highlighter_395818" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="comments">// C program to swap two values </code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C program to swap two values </code></div>
 <div class="line number2 index1 alt1"><code class="comments">// without passing pointer to&nbsp; </code></div>
 <div class="line number3 index2 alt2"><code class="comments">// swap function. </code></div>
 <div class="line number4 index3 alt1"><code class="preprocessor">#include &lt;stdio.h&gt; </code></div>
@@ -593,12 +594,13 @@ Value of ptr = 0x7ffe8ba7ec58</div>
 <div class="line number21 index20 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Values after swap function are: %d, %d"</code><code class="plain">,&nbsp; </code></div>
 <div class="line number22 index21 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">a, b); </code></div>
 <div class="line number23 index22 alt2"><code class="undefined spaces">&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
-<div class="line number24 index23 alt1"><code class="plain">}</code></div>
+<div class="line number24 index23 alt1"><code class="plain">}</code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>
@@ -624,15 +626,15 @@ Values after swap function are: 20, 10</div>
 </ol>
 <h2>1. Increment/Decrement of a Pointer</h2>
 <p><strong>Increment:</strong>&nbsp;It is a condition that also comes under addition. When a pointer is incremented, it actually increments by the number equal to the size of the data type for which it is a pointer.&nbsp;</p>
-<p><strong>For Example:</strong><br />If an integer pointer that stores&nbsp;<strong>address 1000</strong>&nbsp;is incremented, then it will increment by 4(<strong>size of an int</strong>), and the new address will point to&nbsp;<strong>1004</strong>. While if a float type pointer is incremented then it will increment by 4(<strong>size of a float</strong>) and the new address will be&nbsp;<strong>1004</strong>.</p>
+<div class="gm-callout gm-example" data-label="Example"><p><strong>For Example:</strong><br />If an integer pointer that stores&nbsp;<strong>address 1000</strong>&nbsp;is incremented, then it will increment by 4(<strong>size of an int</strong>), and the new address will point to&nbsp;<strong>1004</strong>. While if a float type pointer is incremented then it will increment by 4(<strong>size of a float</strong>) and the new address will be&nbsp;<strong>1004</strong>.</p></div>
 
 <p><strong>Decrement:</strong>&nbsp;It is a condition that also comes under subtraction. When a pointer is decremented, it actually decrements by the number equal to the size of the data type for which it is a pointer.&nbsp;</p>
-<p><strong>For Example:</strong><br />If an integer pointer that stores&nbsp;<strong>address 1000</strong>&nbsp;is decremented, then it will decrement by 4(<strong>size of an int</strong>), and the new address will point to&nbsp;<strong>996</strong>. While if a float type pointer is decremented then it will decrement by 4(<strong>size of a float</strong>) and the new address will be&nbsp;<strong>996</strong>.</p>
-<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230424100855/Pointer-Increment-Decrement.webp" alt="pointer increment and decrement" />
-<p class="wp-caption-text">&nbsp;</p>
+<div class="gm-callout gm-example" data-label="Example"><p><strong>For Example:</strong><br />If an integer pointer that stores&nbsp;<strong>address 1000</strong>&nbsp;is decremented, then it will decrement by 4(<strong>size of an int</strong>), and the new address will point to&nbsp;<strong>996</strong>. While if a float type pointer is decremented then it will decrement by 4(<strong>size of a float</strong>) and the new address will be&nbsp;<strong>996</strong>.</p></div>
+<div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230424100855/Pointer-Increment-Decrement.webp" alt="pointer increment and decrement" /><figcaption>pointer increment and decrement</figcaption></figure>
+
 </div>
 <blockquote>
-<p><strong>Note:&nbsp;</strong>It is assumed here that the architecture is 64-bit and all the data types are sized accordingly. For example, integer is of 4 bytes.</p>
+<div class="gm-callout gm-note" data-label="Note"><p><strong>Note:&nbsp;</strong>It is assumed here that the architecture is 64-bit and all the data types are sized accordingly. For example, integer is of 4 bytes.</p></div>
 </blockquote>
 <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
 <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
@@ -644,21 +646,21 @@ Values after swap function are: 20, 10</div>
 <div class="editor-buttons-container">
 <div class="editor-buttons">
 <div class="editor-buttons-div" title="Run and Edit">
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+
+
+
 </div>
 </div>
 </div>
 </div>
 <div class="code-container">
 <div id="highlighter_393586" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
 <div class="line number2 index1 alt1"><code class="comments">// pointer increment and decrement</code></div>
 <div class="line number3 index2 alt2"><code class="comments">//pointers are incremented and decremented by the size of the data type they point to </code></div>
 <div class="line number4 index3 alt1"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
@@ -687,12 +689,13 @@ Values after swap function are: 20, 10</div>
 <div class="line number27 index26 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">r--;</code></div>
 <div class="line number28 index27 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"r-- = %u\n"</code><code class="plain">, r);&nbsp;&nbsp; </code><code class="comments">//r-- = 6422283&nbsp;&nbsp;&nbsp;&nbsp; -1&nbsp; // restored to original value</code></div>
 <div class="line number29 index28 alt2">&nbsp;</div>
-<div class="line number30 index29 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
+<div class="line number30 index29 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 
@@ -709,13 +712,13 @@ r++ = 1441900792
 r-- = 1441900791</div>
 </div>
 <blockquote>
-<p><strong>Note:</strong>&nbsp;Pointers can be outputted using %p, since, most of the computers store the address value in hexadecimal form using %p gives the value in that form. But for simplicity and understanding we can also use %u to get the value in Unsigned int form.</p>
+<div class="gm-callout gm-note" data-label="Note"><p><strong>Note:</strong>&nbsp;Pointers can be outputted using %p, since, most of the computers store the address value in hexadecimal form using %p gives the value in that form. But for simplicity and understanding we can also use %u to get the value in Unsigned int form.</p></div>
 </blockquote>
 <h2>2. Addition of Integer to Pointer</h2>
 <p>When a pointer is added with an integer value, the value is first multiplied by the size of the data type and then added to the pointer.</p>
-<p><strong>For Example:</strong><br />Consider the same example as above where the&nbsp;<strong>ptr&nbsp;</strong>is an&nbsp;<strong>integer pointer&nbsp;</strong>that stores&nbsp;<strong>1000&nbsp;</strong>as an address. If we add integer 5 to it using the expression,&nbsp;<strong>ptr = ptr + 5,</strong>&nbsp;then, the final address stored in the ptr will be&nbsp;<strong>ptr = 1000 + sizeof(int) * 5 = 1020.</strong></p>
-<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230424100935/Pointer-Addition.webp" alt="pointer addition" />
-<p class="wp-caption-text">&nbsp;</p>
+<div class="gm-callout gm-example" data-label="Example"><p><strong>For Example:</strong><br />Consider the same example as above where the&nbsp;<strong>ptr&nbsp;</strong>is an&nbsp;<strong>integer pointer&nbsp;</strong>that stores&nbsp;<strong>1000&nbsp;</strong>as an address. If we add integer 5 to it using the expression,&nbsp;<strong>ptr = ptr + 5,</strong>&nbsp;then, the final address stored in the ptr will be&nbsp;<strong>ptr = 1000 + sizeof(int) * 5 = 1020.</strong></p></div>
+<div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230424100935/Pointer-Addition.webp" alt="pointer addition" /><figcaption>pointer addition</figcaption></figure>
+
 </div>
 <h3>Example of Addition of Integer to Pointer</h3>
 
@@ -756,9 +759,9 @@ Pointer ptr2 after Addition: 0x7ffca373daa8 </div>
 </div>
 <h2>3. Subtraction &nbsp;of Integer to Pointer</h2>
 <p>When a pointer is subtracted with an integer value, the value is first multiplied by the size of the data type and then subtracted from the pointer similar to addition.</p>
-<p><strong>For Example:</strong><br />Consider the same example as above where the&nbsp;<strong>ptr&nbsp;</strong>is an&nbsp;<strong>integer pointer&nbsp;</strong>that stores&nbsp;<strong>1000&nbsp;</strong>as an address. If we subtract integer 5 from it using the expression,&nbsp;<strong>ptr = ptr &ndash; 5,</strong>&nbsp;then, the final address stored in the ptr will be&nbsp;<strong>ptr = 1000 &ndash; sizeof(int) * 5 = 980.</strong></p>
-<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230424101002/Pointer-Subtraction.webp" alt="pointer substraction" />
-<p class="wp-caption-text">&nbsp;</p>
+<div class="gm-callout gm-example" data-label="Example"><p><strong>For Example:</strong><br />Consider the same example as above where the&nbsp;<strong>ptr&nbsp;</strong>is an&nbsp;<strong>integer pointer&nbsp;</strong>that stores&nbsp;<strong>1000&nbsp;</strong>as an address. If we subtract integer 5 from it using the expression,&nbsp;<strong>ptr = ptr &ndash; 5,</strong>&nbsp;then, the final address stored in the ptr will be&nbsp;<strong>ptr = 1000 &ndash; sizeof(int) * 5 = 980.</strong></p></div>
+<div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230424101002/Pointer-Subtraction.webp" alt="pointer substraction" /><figcaption>pointer substraction</figcaption></figure>
+
 </div>
 <h3>Example of Subtraction of Integer from Pointer</h3>
 <p>Below is the program to illustrate pointer Subtraction:</p>
@@ -772,21 +775,21 @@ Pointer ptr2 after Addition: 0x7ffca373daa8 </div>
 <div class="editor-buttons-container">
 <div class="editor-buttons">
 <div class="editor-buttons-div" title="Run and Edit">
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+
+
+
 </div>
 </div>
 </div>
 </div>
 <div class="code-container">
 <div id="highlighter_814958" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="comments">// C program to illustrate pointer Subtraction</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C program to illustrate pointer Subtraction</code></div>
 <div class="line number2 index1 alt1"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
 <div class="line number3 index2 alt2">&nbsp;</div>
 <div class="line number4 index3 alt1"><code class="comments">// Driver Code</code></div>
@@ -811,12 +814,13 @@ Pointer ptr2 after Addition: 0x7ffca373daa8 </div>
 <div class="line number23 index22 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%p \n"</code><code class="plain">, ptr2);</code></div>
 <div class="line number24 index23 alt1">&nbsp;</div>
 <div class="line number25 index24 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
-<div class="line number26 index25 alt1"><code class="plain">}</code></div>
+<div class="line number26 index25 alt1"><code class="plain">}</code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>
@@ -831,7 +835,7 @@ Pointer ptr2 after Subtraction: 0x7ffd718ffeb0 </div>
 
 <h2>4. Subtraction of Two Pointers</h2>
 <p>The subtraction of two pointers is possible only when they have the same data type. The result is generated by calculating the difference between the addresses of the two pointers and calculating how many bits of data it is according to the pointer data type. The subtraction of two pointers gives the increments between the two pointers.&nbsp;</p>
-<p><strong>For Example:</strong>&nbsp;<br />Two integer pointers say&nbsp;<strong>ptr1(address:1000)</strong>&nbsp;and&nbsp;<strong>ptr2(address:1004)</strong>&nbsp;are subtracted. The difference between addresses is 4 bytes. Since the size of int is 4 bytes, therefore the&nbsp;<strong>increment between ptr1 and ptr2</strong>&nbsp;is given by&nbsp;<strong>(4/4) = 1</strong>.</p>
+<div class="gm-callout gm-example" data-label="Example"><p><strong>For Example:</strong>&nbsp;<br />Two integer pointers say&nbsp;<strong>ptr1(address:1000)</strong>&nbsp;and&nbsp;<strong>ptr2(address:1004)</strong>&nbsp;are subtracted. The difference between addresses is 4 bytes. Since the size of int is 4 bytes, therefore the&nbsp;<strong>increment between ptr1 and ptr2</strong>&nbsp;is given by&nbsp;<strong>(4/4) = 1</strong>.</p></div>
 <h3>Example of Subtraction of Two Pointer</h3>
 <p>Below is the implementation to illustrate the Subtraction of Two Pointers:</p>
 
@@ -844,21 +848,21 @@ Pointer ptr2 after Subtraction: 0x7ffd718ffeb0 </div>
 <div class="editor-buttons-container">
 <div class="editor-buttons">
 <div class="editor-buttons-div" title="Run and Edit">
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+
+
+
 </div>
 </div>
 </div>
 </div>
 <div class="code-container">
 <div id="highlighter_86643" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="comments">// C program to illustrate Subtraction</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C program to illustrate Subtraction</code></div>
 <div class="line number2 index1 alt1"><code class="comments">// of two pointers</code></div>
 <div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
 <div class="line number4 index3 alt1">&nbsp;</div>
@@ -888,12 +892,13 @@ Pointer ptr2 after Subtraction: 0x7ffd718ffeb0 </div>
 <div class="line number28 index27 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">x);</code></div>
 <div class="line number29 index28 alt2">&nbsp;</div>
 <div class="line number30 index29 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
-<div class="line number31 index30 alt2"><code class="plain">}</code></div>
+<div class="line number31 index30 alt2"><code class="plain">}</code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>
@@ -924,21 +929,21 @@ Subtraction of ptr1 &amp; ptr2 is 1</div>
 <div class="editor-buttons-container">
 <div class="editor-buttons">
 <div class="editor-buttons-div" title="Run and Edit">
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+
+
+
 </div>
 </div>
 </div>
 </div>
 <div class="code-container">
 <div id="highlighter_517886" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="comments">// C Program to illustrare pointer comparision</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C Program to illustrare pointer comparision</code></div>
 <div class="line number2 index1 alt1"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
 <div class="line number3 index2 alt2">&nbsp;</div>
 <div class="line number4 index3 alt1"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
@@ -961,12 +966,13 @@ Subtraction of ptr1 &amp; ptr2 is 1</div>
 <div class="line number21 index20 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div>
 <div class="line number22 index21 alt1">&nbsp;</div>
 <div class="line number23 index22 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
-<div class="line number24 index23 alt1"><code class="plain">}</code></div>
+<div class="line number24 index23 alt1"><code class="plain">}</code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>
@@ -991,21 +997,21 @@ Subtraction of ptr1 &amp; ptr2 is 1</div>
 <div class="editor-buttons-container">
 <div class="editor-buttons">
 <div class="editor-buttons-div" title="Run and Edit"><em id="copy-code-button" class="gfg-icon gfg-icon_copy code-sidebar-button padding-2px copy-code-button" title="Copy Code"></em>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+
+
+
 </div>
 </div>
 </div>
 </div>
 <div class="code-container">
 <div id="highlighter_667981" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="comments">// C Program to demonstrate the pointer comparison with NULL</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C Program to demonstrate the pointer comparison with NULL</code></div>
 <div class="line number2 index1 alt1"><code class="comments">// value</code></div>
 <div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
 <div class="line number4 index3 alt1">&nbsp;</div>
@@ -1021,12 +1027,13 @@ Subtraction of ptr1 &amp; ptr2 is 1</div>
 <div class="line number14 index13 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"The pointer is not NULL"</code><code class="plain">);</code></div>
 <div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div>
 <div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div>
-<div class="line number17 index16 alt2"><code class="plain">}</code></div>
+<div class="line number17 index16 alt2"><code class="plain">}</code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>
@@ -1056,21 +1063,21 @@ Subtraction of ptr1 &amp; ptr2 is 1</div>
 <div class="editor-buttons-container">
 <div class="editor-buttons">
 <div class="editor-buttons-div" title="Run and Edit">
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+
+
+
 </div>
 </div>
 </div>
 </div>
 <div class="code-container">
 <div id="highlighter_84390" class="syntaxhighlighter nogutter  ">
-<table border="0" cellspacing="0" cellpadding="0">
+<div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="comments">// Pointer Comparision in Array</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// Pointer Comparision in Array</code></div>
 <div class="line number2 index1 alt1"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
 <div class="line number3 index2 alt2">&nbsp;</div>
 <div class="line number4 index3 alt1"><code class="color1 bold">int</code> <code class="plain">main()</code></div>
@@ -1099,12 +1106,13 @@ Subtraction of ptr1 &amp; ptr2 is 1</div>
 <div class="line number27 index26 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">count_even);</code></div>
 <div class="line number28 index27 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"\nNo of odd elements in an array is : %d"</code><code class="plain">,</code></div>
 <div class="line number29 index28 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">count_odd);</code></div>
-<div class="line number30 index29 alt1"><code class="plain">}</code></div>
+<div class="line number30 index29 alt1"><code class="plain">}</code></div></div></div>
+
 </div>
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 </div>
@@ -1119,13 +1127,13 @@ No of odd elements in an array is : 5</div>
 
 <h2>Pointer Arithmetic on Arrays</h2>
 <p>Pointers contain addresses. Adding two addresses makes no sense because there is no idea what it would point to. Subtracting two addresses lets you compute the offset between the two addresses. An array name acts like a pointer constant. The value of this pointer constant is the address of the first element.</p>
-<p><strong>For Example:</strong>&nbsp;if an array is named&nbsp;<strong>arr</strong>&nbsp;then&nbsp;<strong>arr and &amp;arr[0]</strong>&nbsp;can be used to reference the array as a pointer.</p>
+<div class="gm-callout gm-example" data-label="Example"><p><strong>For Example:</strong>&nbsp;if an array is named&nbsp;<strong>arr</strong>&nbsp;then&nbsp;<strong>arr and &amp;arr[0]</strong>&nbsp;can be used to reference the array as a pointer.</p></div>
 <p>Below is the program to illustrate the Pointer Arithmetic on arrays:</p>
 <p><strong>Program 1:</strong>&nbsp;</p>
 <div class="responsive-tabs-wrapper">
 <td class="code">
 <div class="container">
-<div class="line number1 index0 alt2"><code class="comments">// C program to illustrate the array</code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C program to illustrate the array</code></div>
 <div class="line number2 index1 alt1"><code class="comments">// traversal using pointers</code></div>
 <div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt;</code></div>
 <div class="line number4 index3 alt1">&nbsp;</div>
@@ -1153,7 +1161,8 @@ No of odd elements in an array is : 5</div>
 <div class="line number26 index25 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%d "</code><code class="plain">, ptr[0]);</code></div>
 <div class="line number27 index26 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">ptr++;</code></div>
 <div class="line number28 index27 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div>
-<div class="line number29 index28 alt2"><code class="plain">}</code></div>
+<div class="line number29 index28 alt2"><code class="plain">}</code></div></div></div>
+
 </div>
 </td>
 </tr>

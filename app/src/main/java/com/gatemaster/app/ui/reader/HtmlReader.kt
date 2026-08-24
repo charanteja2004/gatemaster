@@ -1,6 +1,7 @@
 package com.gatemaster.app.ui.reader
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.view.ViewGroup
@@ -10,15 +11,8 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material3.LinearProgressIndicator
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.viewinterop.AndroidView
@@ -36,16 +30,18 @@ import androidx.webkit.WebViewFeature
  * many — still resolve.
  *
  * JavaScript stays disabled: every bundled document is static prose, so there
- * is nothing for it to do and no reason to widen the attack surface.
+ * is nothing for it to do and no reason to widen the attack surface. Reading
+ * progress therefore comes from the WebView's own scroll position rather than
+ * from a script injected into the page.
  */
-@SuppressLint("SetJavaScriptEnabled")
 @Composable
 fun HtmlReader(
     assetPath: String,
     modifier: Modifier = Modifier,
+    textZoom: Int = 100,
+    onProgress: (Float) -> Unit = {},
 ) {
     val context = LocalContext.current
-    var loading by remember(assetPath) { mutableStateOf(true) }
 
     val assetLoader = remember {
         WebViewAssetLoader.Builder()
@@ -57,7 +53,7 @@ fun HtmlReader(
         AndroidView(
             modifier = Modifier.fillMaxSize(),
             factory = { ctx ->
-                WebView(ctx).apply {
+                ReaderWebView(ctx).apply {
                     layoutParams = ViewGroup.LayoutParams(
                         ViewGroup.LayoutParams.MATCH_PARENT,
                         ViewGroup.LayoutParams.MATCH_PARENT,
@@ -67,21 +63,25 @@ fun HtmlReader(
                         javaScriptEnabled = false
                         allowFileAccess = false
                         allowContentAccess = false
-                        // The content is authored at a fixed width; let the
-                        // user zoom without the floating +/- controls.
                         builtInZoomControls = true
                         displayZoomControls = false
                         setSupportZoom(true)
-                        // Honour the reader's viewport meta tag.
                         useWideViewPort = true
                         loadWithOverviewMode = true
-                        // textZoom is deliberately left at its default so the
-                        // reader still honours the system font-size setting.
                     }
 
                     // Lets the bundled CSS respond to the system dark theme.
                     if (WebViewFeature.isFeatureSupported(WebViewFeature.ALGORITHMIC_DARKENING)) {
                         WebSettingsCompat.setAlgorithmicDarkeningAllowed(settings, true)
+                    }
+
+                    isVerticalScrollBarEnabled = false
+
+                    setOnScrollChangeListener { _, _, scrollY, _, _ ->
+                        val scrollable = verticalScrollRange - verticalScrollExtent
+                        onProgress(
+                            if (scrollable > 0) scrollY / scrollable.toFloat() else 0f,
+                        )
                     }
 
                     webViewClient = object : WebViewClient() {
@@ -105,33 +105,39 @@ fun HtmlReader(
                         }
 
                         override fun onPageFinished(view: WebView, url: String) {
-                            loading = false
+                            onProgress(0f)
                         }
                     }
                 }
             },
             update = { webView ->
+                if (webView.settings.textZoom != textZoom) {
+                    webView.settings.textZoom = textZoom
+                }
                 val target = assetUrl(assetPath)
                 if (webView.url != target) {
-                    loading = true
                     webView.loadUrl(target)
                 }
             },
             onRelease = { webView ->
+                webView.setOnScrollChangeListener(null)
                 webView.stopLoading()
                 webView.destroy()
             },
         )
-
-        if (loading) {
-            LinearProgressIndicator(
-                modifier = Modifier
-                    .align(Alignment.TopCenter)
-                    .fillMaxWidth(),
-                color = MaterialTheme.colorScheme.primary,
-            )
-        }
     }
+}
+
+/**
+ * WebView's scroll metrics are protected, so a subclass exposes the two values
+ * needed to turn a scroll position into a reading-progress fraction. Using them
+ * rather than `contentHeight * scale` avoids the deprecated `scale` property and
+ * is correct when the user has pinch-zoomed.
+ */
+@SuppressLint("ViewConstructor")
+private class ReaderWebView(context: Context) : WebView(context) {
+    val verticalScrollRange: Int get() = computeVerticalScrollRange()
+    val verticalScrollExtent: Int get() = computeVerticalScrollExtent()
 }
 
 private const val ASSET_HOST = "appassets.androidplatform.net"

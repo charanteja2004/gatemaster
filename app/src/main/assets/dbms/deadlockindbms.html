@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <div class="main_wrapper">
         <div class="article-title">
         <h1>Deadlock in DBMS</h1>
@@ -37,15 +37,15 @@
         <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
         <p dir="ltr">In a database, a deadlock is an unwanted situation in which two or more transactions are waiting indefinitely for one another to give up locks. Deadlock is said to be one of the most feared complications in DBMS as it brings the whole system to a Halt.&nbsp;<br /><strong>Example &ndash;</strong>&nbsp;let us understand the concept of Deadlock with an example :&nbsp;<br />Suppose, Transaction T1 holds a lock on some rows in the Students table and&nbsp;<strong>needs to update</strong>&nbsp;some rows in the Grades table. Simultaneously, Transaction&nbsp;<strong>T2 holds</strong>&nbsp;locks on those very rows (Which T1 needs to update) in the Grades table&nbsp;<strong>but needs</strong>&nbsp;to update the rows in the Student table&nbsp;<strong>held by Transaction T1</strong>.&nbsp;</p>
         <p>Now, the main problem arises. Transaction T1 will wait for transaction T2 to give up the lock, and similarly, transaction T2 will wait for transaction T1 to give up the lock. As a consequence, All activity comes to a halt and remains at a standstill forever unless the DBMS detects the deadlock and aborts one of the transactions.&nbsp;</p>
-        <p>&nbsp;</p>
-        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/deadlock.png" width="360" height="171" />
+        
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/deadlock.png" width="360" height="171" /></figure>
         <p class="wp-caption-text">Deadlock in DBMS</p>
         </div>
         <p dir="ltr"><strong>Deadlock Avoidance:&nbsp;</strong>When a database is stuck in a deadlock, It is always better to avoid the deadlock rather than restarting or aborting the database. The deadlock avoidance method is suitable for smaller databases whereas the deadlock prevention method is suitable for larger databases.&nbsp;</p>
         <p dir="ltr">One method of avoiding deadlock is using application-consistent logic. In the above-given example, Transactions that access Students and&nbsp; Grades should always access the tables in the same order. In this way, in the scenario described above, Transaction T1 simply waits for transaction T2 to release the lock on &nbsp;Grades before it begins. When transaction T2 releases the lock, Transaction T1 can proceed freely.&nbsp;<br />Another method for avoiding deadlock is to apply both the row-level locking mechanism and the READ COMMITTED isolation level. However, It does not guarantee to remove deadlocks completely.&nbsp;</p>
         <p><strong>Deadlock Detection:&nbsp;</strong>When a transaction waits indefinitely to obtain a lock, The database management system should detect whether the transaction is involved in a deadlock or not.&nbsp;</p>
         <p><strong>Wait-for-graph</strong>&nbsp;is one of the methods for detecting the deadlock situation. This method is suitable for smaller databases. In this method, a graph is drawn based on the transaction and its lock on the resource. If the graph created has a closed loop or a cycle, then there is a deadlock.&nbsp;<br />For the above-mentioned scenario, the Wait-For graph is drawn below:</p>
-        <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/transaction1.png" width="197" height="137" /></p>
+        <p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/transaction1.png" width="197" height="137" /></figure></p>
         <p dir="ltr"><strong>Deadlock prevention:&nbsp;</strong>For a large database, the deadlock prevention method is suitable. A deadlock can be prevented if the resources are allocated in such a way that a deadlock never occurs. The DBMS analyzes the operations whether they can create a deadlock situation or not, If they do, that transaction is never allowed to be executed.&nbsp;</p>
         <p dir="ltr">Deadlock prevention mechanism proposes two schemes:&nbsp;</p>
         </div>
@@ -57,7 +57,7 @@
     <li value="2"><strong>Wound Wait Scheme:&nbsp;</strong>In this scheme, if an older transaction requests for a resource held by a younger transaction, then an older transaction forces a younger transaction to kill the transaction and release the resource. The younger transaction is restarted with a minute delay but with the same timestamp. If the younger transaction is requesting a resource that is held by an older one, then the younger transaction is asked to wait till the older one releases it.&nbsp;</li>
     </ul>
     <p dir="ltr">The following table lists the differences between Wait &ndash; Die and Wound -Wait scheme prevention schemes:</p>
-    <table>
+    <div class="gm-table"><table>
     <thead>
     <tr>
     <th>Wait &ndash; Die&nbsp;</th>
@@ -78,7 +78,7 @@
     <td>In this, the number of aborts and rollback is lesser.</td>
     </tr>
     </tbody>
-    </table>
+    </table></div>
     <h3>Applications:</h3>
     <p dir="ltr"><strong>Delayed Transactions:&nbsp;</strong>Deadlocks can cause transactions to be delayed, as the resources they need are being held by other transactions. This can lead to slower response times and longer wait times for users.</p>
     <p dir="ltr"><strong>Lost Transactions:&nbsp;</strong>In some cases, deadlocks can cause transactions to be lost or aborted, which can result in data inconsistencies or other issues.</p>

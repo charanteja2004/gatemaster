@@ -24,12 +24,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
 <h2><b>Swapping</b></h2>
 
 Swapping is a process out means removing all of its pages from memory, or marking them so that they will be removed by the normal page replacement process. Suspending a process ensures that it is not runnable while it is swapped out. At some later time, the system swaps back the process from the secondary storage to the main memory. When a process is busy swapping pages in and out then this situation is called thrashing. <br><br>
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/20230711080232/VirtualDiagram-2.webp" width="400" height="350"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230711080232/VirtualDiagram-2.webp" width="400" height="350"></figure><br><br>
 
 
 <h2><b>Thrashing</b></h2>
@@ -40,7 +40,7 @@ In the given diagram, the initial degree of multiprogramming up to some extent o
 
 <h3><b>Causes of Thrashing</b></h3>
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/20230711080259/VirtualDiagram-3.webp" width="350" height="300"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230711080259/VirtualDiagram-3.webp" width="350" height="300"></figure><br><br>
 
 
 <b>1. High Degree of Multiprogramming:</b> If the number of processes keeps on increasing in the memory then the number of frames allocated to each process will be decreased. So, fewer frames will be available for each process. Due to this, a page fault will occur more frequently and more CPU time will be wasted in just swapping in and out of pages and the utilization will keep on decreasing. <br><br>

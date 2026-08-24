@@ -43,6 +43,8 @@ fun GateMasterApp(
                 subtitle = request.subtitle,
                 path = request.ref.path,
                 isPdf = request.ref.type == ContentType.PDF,
+                subjectId = request.subjectId,
+                topicId = request.topicId,
             ),
         )
     }
@@ -129,6 +131,22 @@ fun GateMasterApp(
                 assetPath = route.path,
                 isPdf = route.isPdf,
                 onBack = navController::popBackStack,
+                onOpenTopic = { topic ->
+                    // Replace rather than stack, so back returns to the topic
+                    // list instead of walking every article already read.
+                    navController.navigate(
+                        ReaderRoute(
+                            title = topic.title,
+                            subtitle = route.subtitle,
+                            path = topic.content.path,
+                            isPdf = topic.content.type == ContentType.PDF,
+                            subjectId = route.subjectId,
+                            topicId = topic.id,
+                        ),
+                    ) {
+                        popUpTo<ReaderRoute> { inclusive = true }
+                    }
+                },
             )
         }
     }

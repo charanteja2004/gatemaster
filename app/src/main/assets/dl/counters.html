@@ -25,14 +25,14 @@
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
 
-<body>
+<body data-gm-enriched="1">
 
     <div class="article-title">
         <h1>Counters in Digital Logic</h1>
     </div>
      <div class="three_dot_dropdown">
         <div>
-            <p>&nbsp;</p>
+            
         </div>
     </div>
 
@@ -59,9 +59,9 @@
         <p>In asynchronous counter we don&rsquo;t use universal clock, only first flip flop is driven by main clock and
             the clock input of rest of the following flip flop is driven by output of previous flip flops. We can
             understand it by following diagram-</p>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/counters-in-digital-logic.png" alt="digi1"
-                width="379" height="404" /></p>
-        <p>&nbsp;</p>
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/counters-in-digital-logic.png" alt="digi1"
+                width="379" height="404" /><figcaption>digi1</figcaption></figure></p>
+        
         <p>It is evident from timing diagram that Q0 is changing as soon as the rising edge of clock pulse is
             encountered, Q1 is changing when rising edge of Q0 is encountered(because Q0 is like clock pulse for second
             flip flop) and so on. In this way ripples are generated through Q0,Q1,Q2,Q3 hence it is also
@@ -73,14 +73,14 @@
             output changes in parallel. The one advantage of synchronous counter over asynchronous counter is, it can
             operate on higher frequency than asynchronous counter as it does not have cumulative delay because of same
             clock is given to each flip flop.&nbsp;It is also called as parallel counter.</p>
-        <p>&nbsp;</p>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/synchronous-counters.png" alt="digi2"
-                width="458" height="252" /></p>
+        
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/synchronous-counters.png" alt="digi2"
+                width="458" height="252" /><figcaption>digi2</figcaption></figure></p>
         <p><strong>&nbsp;&nbsp; Synchronous&nbsp; counter circuit</strong>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/timing-diagram-synchronous-counter.png"
-                alt="digi3" width="473" height="351" /></p>
-        <p>&nbsp;</p>
+        
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/timing-diagram-synchronous-counter.png"
+                alt="digi3" width="473" height="351" /><figcaption>digi3</figcaption></figure></p>
+        
         <p><strong>Timing diagram synchronous counter</strong></p>
         <p>From circuit diagram we see that Q0 bit gives response to each falling edge of clock while Q1 is dependent on
             Q0, Q2 is dependent on Q1 and Q0 , Q3 is dependent on Q2,Q1 and Q0.&nbsp;<br />&nbsp;</p>
@@ -89,7 +89,7 @@
             will count from 0 to 9 but we can also make the decade counters which can go through any ten states between
             0 to 15(for 4 bit counter).&nbsp;<br />&nbsp;</p>
         <figure class="table">
-            <table>
+            <div class="gm-table"><table>
                 <tbody>
                     <tr>
                         <td>Clock pulse</td>
@@ -176,16 +176,16 @@
                         <td>0</td>
                     </tr>
                 </tbody>
-            </table>
-            <p>&nbsp;</p>
+            </table></div>
+            
         </figure>
         <div class="text">
             <figure class="table">
                 <p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Truth table for simple decade counter</strong></p>
-                <p>&nbsp;</p>
-                <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/decade-counter-circuit-diagram.png"
-                        alt="digi4" width="420" height="193" /></p>
-                <p>&nbsp;</p>
+                
+                <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/decade-counter-circuit-diagram.png"
+                        alt="digi4" width="420" height="193" /><figcaption>digi4</figcaption></figure></p>
+                
                 <p><strong>Decade counter circuit diagram</strong></p>
                 <p>We see from circuit diagram that we have used nand gate for Q3 and Q1 and feeding this to clear input
                     line because binary representation of 10 is&mdash;&nbsp;</p>
@@ -198,16 +198,16 @@
                 <p><strong><u>Some previous years gate questions on Counters</u></strong></p>
                 <p><strong>Q1. Consider the partial implementation of a 2-bit counter using T flip-flops following the
                         sequence 0-2-3-1-0, as shown below</strong>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/counters-in-digital-logic-3.png"
-                        alt="digi5" width="272" height="156" /></p>
+                
+                <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/counters-in-digital-logic-3.png"
+                        alt="digi5" width="272" height="156" /><figcaption>digi5</figcaption></figure></p>
                 <p><strong>To complete the circuit, the input X should be</strong>&nbsp;</p>
                 <p><strong>(A)&nbsp;Q2?</strong>&nbsp;<br /><strong>(B)&nbsp;Q2 +
                         Q1</strong>&nbsp;<br /><strong>(C)&nbsp;(Q1 ? Q2)&rsquo;</strong>&nbsp;<br /><strong>(D)&nbsp;Q1
                         ?
                         Q2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     (GATE-CS-2004)&nbsp;</p>
-                <p><strong>Solution:</strong>&nbsp;</p>
+                <p class="gm-lead gm-solution-lead"><strong>Solution:</strong>&nbsp;</p>
                 <p>From circuit we see&nbsp;</p>
                 <p>T1=XQ1&rsquo;+X&rsquo;Q1&mdash;-(1)&nbsp;</p>
                 <p>AND&nbsp;</p>

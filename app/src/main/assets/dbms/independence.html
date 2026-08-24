@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <div class="main_wrapper">
         <div class="article-title">
         <div class="main_wrapper">
@@ -50,13 +50,13 @@
         <p dir="ltr">The logical level thus describes the entire database in terms of a small number of relatively simple structures. Although implementation of the simple structures at the logical level may involve complex physical-level structures, the user of the logical level does not need to be aware of this complexity. This is referred to as physical data independence. Database administrators, who must decide what information to keep in the database, use the logical level of abstraction.</p>
         <h3><strong>View or External Level</strong></h3>
         <p dir="ltr">This is the highest level of abstraction. Only a part of the actual database is viewed by the users. This level exists to ease the accessibility of the database by an individual user. Users view data in the form of rows and columns. Tables and relations are used to store data. Multiple views of the same database may exist. Users can just view the data and interact with the database, storage and implementation details are hidden from them.&nbsp;Even though the logical level uses simpler structures, complexity remains because of the variety of information stored in a large database. Many users of the database system do not need all this information; instead, they need to access only a part of the database. The view level of abstraction exists to simplify their interaction with the system</p>
-        <p dir="ltr"><strong>Example:&nbsp;</strong>In case of storing customer data,</p>
+        <div class="gm-callout gm-example" data-label="Example"><p dir="ltr"><strong>Example:&nbsp;</strong>In case of storing customer data,</p></div>
         <ul>
         <li value="1"><strong>Physical level</strong>&nbsp;&ndash; it will contains block of storages (bytes,GB,TB,etc)</li>
         <li value="2"><strong>Logical level &ndash;</strong>&nbsp;&nbsp;it will contain the fields and the attributes of data.</li>
         <li value="3"><strong>View level</strong>&nbsp;&ndash; it works with&nbsp;<a href="https://www.geeksforgeeks.org/linux-operating-system-cli-command-line-interface-and-gui-graphic-user-interface/">CLI&nbsp;</a>or&nbsp;<a href="https://www.geeksforgeeks.org/difference-between-cli-and-gui/">GUI</a>&nbsp;access of database</li>
         </ul>
-        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231030153527/13-1-(1).png" alt="Data Abstraction" width="374" height="306" />
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231030153527/13-1-(1).png" alt="Data Abstraction" width="374" height="306" /><figcaption>Data Abstraction</figcaption></figure>
         <p class="wp-caption-text">Data Abstraction</p>
         </div>
         <p dir="ltr">The main purpose of data abstraction is to achieve data independence in order to save the time and cost required when the database is modified or altered.&nbsp;</p>
@@ -72,7 +72,7 @@
             <li value="1">Phys<strong>i</strong>cal level data independence</li>
             <li value="2">Logical level data independence</li>
             </ul>
-            <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231031152106/Data-Abstraction-and-Data-Independence.webp" alt="Data-Abstraction-and-Data-Independence" width="405" height="386" />
+            <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231031152106/Data-Abstraction-and-Data-Independence.webp" alt="Data-Abstraction-and-Data-Independence" width="405" height="386" /><figcaption>Data-Abstraction-and-Data-Independence</figcaption></figure>
             <p class="wp-caption-text">Data Independence</p>
             </div>
             <h3><strong>Physical Level Data Independence</strong></h3>

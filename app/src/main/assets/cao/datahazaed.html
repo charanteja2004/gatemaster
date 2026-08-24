@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <h2><b>Pipelining(Dependencies and Data Hazard)</b></h2>
 
 
@@ -34,7 +34,7 @@
  3) Data Dependency<br>
  These dependencies may introduce stalls in the pipeline.&nbsp;<strong>Stall :</strong>&nbsp;A stall is a cycle in the pipeline without new input. &nbsp;&nbsp;<strong>Structural dependency</strong>&nbsp;This dependency arises due to the resource conflict in the pipeline. A resource conflict is a situation when more than one instruction tries to access the same resource in the same cycle. A resource can be a register, memory, or ALU. Example:</p>
 <figure class="table">
-<table border="1">
+<div class="gm-table"><table border="1">
 <thead>
 <tr>
 <th>Instruction / Cycle</th>
@@ -79,12 +79,12 @@
 <td>ID</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </figure>
 <p>In the above scenario, in cycle 4, instructions I<sub>1</sub>&nbsp;and I<sub>4</sub>&nbsp;are trying to access same resource (Memory) which introduces a resource conflict. To avoid this problem, we have to keep the instruction on wait until the required resource (memory in our case) becomes available. This wait will introduce stalls in the pipeline as shown below:</p>
 <div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
 <figure class="table">
-<table border="1">
+<div class="gm-table"><table border="1">
 <thead>
 <tr>
 <th>Cycle</th>
@@ -144,11 +144,11 @@
 <td>&nbsp;</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </figure>
 <p>&nbsp;&nbsp;<strong>Solution for structural dependency</strong>&nbsp;To minimize structural dependency stalls in the pipeline, we use a hardware mechanism called Renaming.&nbsp;<strong>Renaming :</strong>&nbsp;According to renaming, we divide the memory into two independent modules used to store the instruction and data separately called Code memory(CM) and Data memory(DM) respectively. CM will contain all the instructions and DM will contain all the operands that are required for the instructions.</p>
 <figure class="table">
-<table border="1">
+<div class="gm-table"><table border="1">
 <thead>
 <tr>
 <th>Instruction/ Cycle</th>
@@ -233,13 +233,13 @@
 <td>IF(CM)</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </figure>
 <p>&nbsp; &nbsp;&nbsp;<strong>Control Dependency (Branch Hazards)</strong>&nbsp;This type of dependency occurs during the transfer of control instructions such as BRANCH, CALL, JMP, etc. On many instruction architectures, the processor will not know the target address of these instructions when it needs to insert the new instruction into the pipeline. Due to this, unwanted instructions are fed to the pipeline. Consider the following sequence of instructions in the program: 100: I<sub>1</sub>&nbsp;101: I<sub>2</sub>&nbsp;(JMP 250) 102: I<sub>3</sub>&nbsp;. . 250: BI<sub>1</sub>&nbsp;Expected output: I<sub>1</sub>&nbsp;-&gt; I<sub>2</sub>&nbsp;-&gt; BI<sub>1</sub>&nbsp;NOTE: Generally, the target address of the JMP instruction is known after ID stage only.</p>
 
 
 <figure class="table">
-<table border="1">
+<div class="gm-table"><table border="1">
 <thead>
 <tr>
 <th>Instruction/ Cycle</th>
@@ -289,11 +289,11 @@
 <td>EX</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </figure>
 <p>Output Sequence: I<sub>1</sub>&nbsp;-&gt; I<sub>2</sub>&nbsp;-&gt; I<sub>3</sub>&nbsp;-&gt; BI<sub>1</sub>&nbsp;So, the output sequence is not equal to the expected output, that means the pipeline is not implemented correctly. To correct the above problem we need to stop the Instruction fetch until we get target address of branch instruction. This can be implemented by introducing delay slot until we get the target address.</p>
 <figure class="table">
-<table border="1">
+<div class="gm-table"><table border="1">
 <thead>
 <tr>
 <th>Instruction/ Cycle</th>
@@ -343,18 +343,18 @@
 <td>EX</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </figure>
-<p>Output Sequence: I<sub>1</sub>&nbsp;-&gt; I<sub>2</sub>&nbsp;-&gt; Delay (Stall) -&gt; BI<sub>1</sub>&nbsp;As the delay slot performs no operation, this output sequence is equal to the expected output sequence. But this slot introduces stall in the pipeline.&nbsp;<strong>Solution for Control dependency</strong>&nbsp;Branch Prediction is the method through which stalls due to control dependency can be eliminated. In this at 1st stage prediction is done about which branch will be taken.For branch prediction Branch penalty is zero.&nbsp;<strong>Branch penalty :</strong>&nbsp;The number of stalls introduced during the branch operations in the pipelined processor is known as branch penalty.&nbsp;<strong>NOTE :</strong>&nbsp;As we see that the target address is available after the ID stage, so the number of stalls introduced in the pipeline is 1. Suppose, the branch target address would have been present after the ALU stage, there would have been 2 stalls. Generally, if the target address is present after the k<sup>th</sup>&nbsp;stage, then there will be (k &ndash; 1) stalls in the pipeline. Total number of stalls introduced in the pipeline due to branch instructions =&nbsp;<strong>Branch frequency * Branch Penalty</strong>&nbsp;&nbsp; &nbsp;&nbsp;<strong>Data Dependency (Data Hazard)</strong>&nbsp;Let us consider an ADD instruction S, such that S : ADD R1, R2, R3 Addresses read by S = I(S) = {R2, R3} Addresses written by S = O(S) = {R1} Now, we say that instruction S2 depends in instruction S1, when<a href="https://media.geeksforgeeks.org/wp-content/uploads/formula-41.jpg"><img class="no-zoom-in-cursor" src="https://media.geeksforgeeks.org/wp-content/uploads/formula-41.jpg" alt="pipelining 7" width="400" /></a>This condition is called Bernstein condition. Three cases exist:</p>
+<p>Output Sequence: I<sub>1</sub>&nbsp;-&gt; I<sub>2</sub>&nbsp;-&gt; Delay (Stall) -&gt; BI<sub>1</sub>&nbsp;As the delay slot performs no operation, this output sequence is equal to the expected output sequence. But this slot introduces stall in the pipeline.&nbsp;<strong>Solution for Control dependency</strong>&nbsp;Branch Prediction is the method through which stalls due to control dependency can be eliminated. In this at 1st stage prediction is done about which branch will be taken.For branch prediction Branch penalty is zero.&nbsp;<strong>Branch penalty :</strong>&nbsp;The number of stalls introduced during the branch operations in the pipelined processor is known as branch penalty.&nbsp;<strong>NOTE :</strong>&nbsp;As we see that the target address is available after the ID stage, so the number of stalls introduced in the pipeline is 1. Suppose, the branch target address would have been present after the ALU stage, there would have been 2 stalls. Generally, if the target address is present after the k<sup>th</sup>&nbsp;stage, then there will be (k &ndash; 1) stalls in the pipeline. Total number of stalls introduced in the pipeline due to branch instructions =&nbsp;<strong>Branch frequency * Branch Penalty</strong>&nbsp;&nbsp; &nbsp;&nbsp;<strong>Data Dependency (Data Hazard)</strong>&nbsp;Let us consider an ADD instruction S, such that S : ADD R1, R2, R3 Addresses read by S = I(S) = {R2, R3} Addresses written by S = O(S) = {R1} Now, we say that instruction S2 depends in instruction S1, when<a href="https://media.geeksforgeeks.org/wp-content/uploads/formula-41.jpg"><figure class="gm-figure gm-remote"><img class="no-zoom-in-cursor" src="https://media.geeksforgeeks.org/wp-content/uploads/formula-41.jpg" alt="pipelining 7" width="400" /><figcaption>pipelining 7</figcaption></figure></a>This condition is called Bernstein condition. Three cases exist:</p>
 <ul>
 <li>Flow (data) dependence/ True Dependence: O(S1) ? I (S2), S1 ? S2 and S1 writes after something read by S2</li>
 <li>Anti-dependence: I(S1) ? O(S2), S1 ? S2 and S1 reads something before S2 overwrites it</li>
 <li>Output dependence: O(S1) ? O(S2), S1 ? S2 and both write the same memory location.</li>
 </ul>
     <div class="gray">
-        <p>Example: Let there be two instructions I1 and I2 such that: I1 : ADD R1, R2, R3 I2 : SUB R4, R1, R2 When the above instructions are executed in a pipelined processor, then data dependency condition will occur, which means that I<sub>2</sub>&nbsp;tries to read the data before I<sub>1</sub>&nbsp;writes it, therefore, I<sub>2</sub>&nbsp;incorrectly gets the old value from I<sub>1</sub>.</p></div>
+        <div class="gm-callout gm-example" data-label="Example"><p>Example: Let there be two instructions I1 and I2 such that: I1 : ADD R1, R2, R3 I2 : SUB R4, R1, R2 When the above instructions are executed in a pipelined processor, then data dependency condition will occur, which means that I<sub>2</sub>&nbsp;tries to read the data before I<sub>1</sub>&nbsp;writes it, therefore, I<sub>2</sub>&nbsp;incorrectly gets the old value from I<sub>1</sub>.</p></div></div>
 <figure class="table">
-<table border="1">
+<div class="gm-table"><table border="1">
 <thead>
 <tr>
 <th>Instruction / Cycle</th>
@@ -380,13 +380,13 @@
 <td>EX</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </figure>
 
 
 <p>To minimize data dependency stalls in the pipeline,&nbsp;<strong>operand forwarding&nbsp;</strong>is used.&nbsp;<strong>Operand Forwarding :</strong>&nbsp;In operand forwarding, we use the interface registers present between the stages to hold intermediate output so that dependent instruction can access new value from the interface register directly. Operand Forwarding can avoid stalls only if the dependent instructions are ALU type instructions. Considering the same example: I1 : ADD R1, R2, R3 I2 : SUB R4, R1, R2</p>
 <figure class="table">
-<table border="1">
+<div class="gm-table"><table border="1">
 <thead>
 <tr>
 <th>Instruction / Cycle</th>
@@ -412,7 +412,7 @@
 <td>EX</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </figure>
 <p>&nbsp; &nbsp;&nbsp;<strong>Data Hazards</strong>&nbsp;Data hazards occur when instructions that exhibit data dependence, modify data in different stages of a pipeline. Hazard cause delays in the pipeline. There are mainly three types of data hazards: 1) RAW (Read after Write) [Flow/True data dependency] 2) WAR (Write after Read) [Anti-Data dependency] 3) WAW (Write after Write) [Output data dependency] Let there be two instructions I and J, such that J follow I. Then,</p>
 <ul>

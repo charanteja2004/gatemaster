@@ -108,6 +108,8 @@ fun SearchScreen(
                                         title = hit.topic.title,
                                         subtitle = hit.subject.name,
                                         ref = hit.topic.content,
+                                        subjectId = hit.subject.id,
+                                        topicId = hit.topic.id,
                                     ),
                                 )
                             },

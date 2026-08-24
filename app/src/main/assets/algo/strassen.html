@@ -6,7 +6,7 @@
     <title>Strassen's Matrix Multiplication</title>
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
 <h1>Strassen's Matrix Multiplication</h1>
 
 <p>Multiplying two n &times; n matrices the obvious way costs &Theta;(n<sup>3</sup>). Strassen's
@@ -66,12 +66,12 @@ A11&middot;B11 + A12&middot;B21, which is exactly what the block formula demands
 n<sup>log<sub>2</sub>7</sup> &asymp; n<sup>2.807</sup> grows faster than n<sup>2</sup>, so the
 recursion leaves dominate.</p>
 
-<table>
+<div class="gm-table"><table>
   <tr><th>Method</th><th>Multiplications per level</th><th>Time</th></tr>
   <tr><td>Naive iterative</td><td>&mdash;</td><td>&Theta;(n<sup>3</sup>)</td></tr>
   <tr><td>Divide and conquer</td><td>8</td><td>&Theta;(n<sup>3</sup>)</td></tr>
   <tr><td><strong>Strassen</strong></td><td><strong>7</strong></td><td>&Theta;(n<sup>2.8074</sup>)</td></tr>
-</table>
+</table></div>
 
 <p>Additions rise from 4 to 18, but additions cost &Theta;(n<sup>2</sup>) while a multiplication
 costs a full recursive call &mdash; so removing one multiplication is worth a great many additions.</p>

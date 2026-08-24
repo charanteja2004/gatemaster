@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <div class="responsive-tabs-wrapper">
         <div class="responsive-tabs responsive-tabs--enabled">
         <div class="main_wrapper">
@@ -36,15 +36,15 @@
         <div class="text">
         <p>Typecasting in C is the process of converting one data type to another data type by the programmer using the casting operator during program design.&nbsp;</p>
         <p>In typecasting, the destination data type may be smaller than the source data type when converting the data type to another data type, that&rsquo;s why it is also called narrowing conversion.</p>
-        <p><strong>Syntax:</strong></p>
+        <p class="gm-lead gm-syntax-lead"><strong>Syntax:</strong></p>
         <div class="gray">int x;
         float y;
         y = (float) x;</div>
         <h2>Types of Type Casting in C</h2>
         <p>In C there are two major types to perform type casting.</p>
         <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
-        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220920132835/Typecasting.png" alt="Type Casting in C" width="473" height="183" />
-        <p class="wp-caption-text">&nbsp;</p>
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220920132835/Typecasting.png" alt="Type Casting in C" width="473" height="183" /><figcaption>Type Casting in C</figcaption></figure>
+        
         </div>
         <ul>
         <li>Implicit type casting</li>
@@ -53,8 +53,8 @@
         <h3>1. Implicit Type Casting</h3>
         <p>Implicit type casting in C is used to convert the data type of any variable without using the actual value that the variable holds. It performs the conversions without altering any of the values which are stored in the data variable. Conversion of lower data type to higher data type will occur automatically.</p>
         <p>Integer promotion will be performed first by the compiler. After that, it will determine whether two of the operands have different data types. Using the hierarchy below, the conversion would appear as follows if they both have varied data types:</p>
-        <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220920140427/hierarchyofarithmeticconversion.png" alt="Implicit Type Casting" width="374" height="387" />
-        <p class="wp-caption-text">&nbsp;</p>
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220920140427/hierarchyofarithmeticconversion.png" alt="Implicit Type Casting" width="374" height="387" /><figcaption>Implicit Type Casting</figcaption></figure>
+        
         </div>
         <h3>2. Explicit Type Casting</h3>
         <p>There are some cases where if the&nbsp;<a href="data types.html">datatype</a>&nbsp;remains unchanged, it can give incorrect output. In such cases, typecasting can help to get the correct output and reduce the time of compilation. In explicit type casting, we have to force the conversion between data types. This type of casting is explicitly defined within the program.</p>
@@ -70,12 +70,12 @@
         </div>
         <div class="code-container">
         <div id="highlighter_706751" class="syntaxhighlighter nogutter  ">
-        <table border="0" cellspacing="0" cellpadding="0">
+        <div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
         <tbody>
         <tr>
         <td class="code">
         <div class="container">
-        <div class="line number1 index0 alt2"><code class="comments">// C program to illustrate the use of </code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C program to illustrate the use of </code></div>
         <div class="line number2 index1 alt1"><code class="comments">// typecasting </code></div>
         <div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt; </code></div>
         <div class="line number4 index3 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
@@ -92,12 +92,13 @@
         <div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"The result is %f\n"</code><code class="plain">, </code><code class="functions bold">div</code><code class="plain">); </code></div>
         <div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
         <div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
-        <div class="line number18 index17 alt1"><code class="plain">}</code></div>
+        <div class="line number18 index17 alt1"><code class="plain">}</code></div></div></div>
+
         </div>
         </td>
         </tr>
         </tbody>
-        </table>
+        </table></div>
         </div>
         </div>
         </div>

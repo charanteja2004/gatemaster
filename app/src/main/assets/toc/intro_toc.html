@@ -24,7 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
 <div>
     <h2>Introduction of Theory of Computation</h2>
     <p> <b>Automata</b> theory (also known as Theory Of Computation) is a theoretical branch of Computer Science and Mathematics, which mainly deals with the logic of computation with respect to simple machines, referred to as automata.<br>
@@ -36,10 +36,10 @@
     <b>Basic Terminologies of Theory of Computation:</b><br>
     <h3>Symbol:</h3>
    <p> A symbol (often also called a character) is the smallest building block, which can be any alphabet, letter, or picture.</p>
-    <img src="symbol.png">
+    <figure class="gm-figure"><img src="symbol.png"></figure>
     <h3>Alphabets (Σ):</h3>
     <p>Alphabets are a set of symbols, which are always finite.</p>
-    <img src="alphabet.png">
+    <figure class="gm-figure"><img src="alphabet.png"></figure>
     <h3>String:</h3>
     <p>A string is a finite sequence of symbols from some alphabet. A string is generally denoted as w and the length of a string is denoted as |w|.</p>
     <div class="gray">
@@ -75,14 +75,14 @@
     </p>
     <div class="gray">
         L* = εL+
-        <p>Example:<br>
+        <div class="gm-callout gm-example" data-label="Example"><p>Example:<br>
             (a) Regular expression for language accepting all combination of g's over Σ={g}:<br>
             R = g*<br>
             R={ε,g,gg,ggg,gggg,ggggg,...}<br>
 
             (b) Regular Expression for language accepting all combination of g's over Σ={g} :<br>
             R = g+<br>
-            R={g,gg,ggg,gggg,ggggg,gggggg,...}<br></p>
+            R={g,gg,ggg,gggg,ggggg,gggggg,...}<br></p></div>
     </div>
 
     <h3>Language:</h3><br>

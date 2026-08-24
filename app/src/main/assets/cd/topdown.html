@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
 
-<body>
+<body data-gm-enriched="1">
 
     <div>
         <div class="article-title">
@@ -70,10 +70,10 @@
         <p dir="ltr"><strong>Recursive Descent Parsing</strong></p>
         <div>S()<br />{     Choose any S production, S -&gt;X<sub>1</sub>X<sub>2</sub>&hellip;..Xk;<br />      for (i = 1 to k)<br />      {<br />          If ( Xi is a non-terminal)<br />          Call procedure Xi();<br />          else if ( Xi equals the current input, increment input)<br />          Else /* error has occurred, backtrack and try another possibility */<br />      }<br />}</div>
         <p dir="ltr">Let&rsquo;s understand it better with an example:</p>
-        <div class="wp-caption alignnone"><img
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/Recursive-Decent-Parsing.jpg" width="393"
-                height="240" />
-            <p class="wp-caption-text">&nbsp;</p>
+                height="240" /></figure>
+            
         </div>
         <p dir="ltr">A recursive descent parsing program consists of a set of procedures, one for each nonterminal.
             Execution begins with the procedure for the start symbol which halts if its procedure body scans the entire
@@ -101,26 +101,26 @@
                 FOLLOW(A).&nbsp;</li>
             <li value="3">Size of parsing table = (No. of terminals + 1) * #variables&nbsp;</li>
         </ul>
-        <p dir="ltr"><strong>Example:</strong>&nbsp;&nbsp;</p>
+        <p dir="ltr" class="gm-lead gm-example-lead"><strong>Example:</strong>&nbsp;&nbsp;</p>
         <p dir="ltr">Consider the grammar&nbsp;<br />S &rarr; (L) | a&nbsp;<br />L &rarr; SL&rsquo;&nbsp;<br />L&rsquo;
             &rarr; &epsilon; | SL&rsquo;&nbsp;</p>
-        <div class="wp-caption alignnone"><img
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/Construction-of-LL1.jpg" width="515"
-                height="204" />
-            <p class="wp-caption-text">&nbsp;</p>
+                height="204" /></figure>
+            
         </div>
-        <div class="wp-caption alignnone"><img
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/multipleentriesllgrammar.jpg" width="525"
-                height="176" />
-            <p class="wp-caption-text">&nbsp;</p>
+                height="176" /></figure>
+            
         </div>
         <p dir="ltr">For any grammar, if M has multiple entries then it is not LL(1) grammar.</p>
-        <p dir="ltr"><strong>Example:</strong><br />S &rarr; iEtSS&rsquo;/a&nbsp;<br />S&rsquo;
-            &rarr;eS/&epsilon;&nbsp;<br />E &rarr; b&nbsp;</p>
-        <div class="wp-caption alignnone"><img
+        <div class="gm-callout gm-example" data-label="Example"><p dir="ltr"><strong>Example:</strong><br />S &rarr; iEtSS&rsquo;/a&nbsp;<br />S&rsquo;
+            &rarr;eS/&epsilon;&nbsp;<br />E &rarr; b&nbsp;</p></div>
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/nomultipleentriesllgrammar.jpg" width="inherit"
-                height="inherit" />
-            <p class="wp-caption-text">&nbsp;</p>
+                height="inherit" /></figure>
+            
         </div>
         <p dir="ltr"><strong>Important Notes</strong></p>
         <p dir="ltr">If a grammar contains left factoring then it can not be LL(1).&nbsp;</p>
@@ -140,9 +140,9 @@
         </div>
         <div class="text">
         <p>In this article, we are discussing the Bottom Up parser.&nbsp;<strong>Bottom-up Parsers / Shift Reduce Parsers</strong>&nbsp;Build the parse tree from leaves to root. Bottom-up parsing can be defined as an attempt to reduce the input string w to the start symbol of grammar by tracing out the rightmost derivations of w in reverse. Eg.&nbsp;</p>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/Parsing1.png" alt="" width="529" height="228" />&nbsp;</p>
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Parsing1.png" alt="" width="529" height="228" /></figure>&nbsp;</p>
         <p><strong><u>Classification of Bottom-up Parsers:</u></strong></p>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/Parsing2.png" alt="" width="432" height="305" /></p>
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Parsing2.png" alt="" width="432" height="305" /></figure></p>
         <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
         <p>A general shift reduce parsing is LR parsing. The L stands for scanning the input from left to right and R stands for constructing a rightmost derivation in reverse.&nbsp;</p>
         <p><strong>Benefits of LR parsing:</strong></p>
@@ -169,13 +169,13 @@
             <li>Initially every item in I is added to closure(I).</li>
             <li>If A -&gt; ?.B? is in closure(I) and B -&gt; ? is a production then add the item B -&gt; .? to I, If it is not already there. We apply this rule until no more items can be added to closure(I).</li>
             </ol>
-            <p>Eg:<img src="https://media.geeksforgeeks.org/wp-content/uploads/Parsing3.png" alt="" width="404" height="163" />&nbsp;<br />&nbsp;</p>
-            <p><strong>Goto Operation&nbsp;</strong>: Goto(I, X) =&nbsp;</p>
+            <p>Eg:<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Parsing3.png" alt="" width="404" height="163" /></figure>&nbsp;<br />&nbsp;</p>
+            <div class="gm-formula"><p><strong>Goto Operation&nbsp;</strong>: Goto(I, X) =&nbsp;</p></div>
             <ol>
             <li>Add I by moving dot after X.</li>
             <li>Apply closure to first step.&nbsp;</li>
             </ol>
-            <p>\<img src="https://media.geeksforgeeks.org/wp-content/uploads/Parsing4.png" alt="" width="442" height="215" /></p>
+            <p>\<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Parsing4.png" alt="" width="442" height="215" /></figure></p>
             <p>&nbsp;<br /><strong>Construction of GOTO graph-</strong></p>
             <ul>
             <li>State I<sub>0</sub>&nbsp;&ndash; closure of augmented LR(0) item</li>
@@ -194,7 +194,7 @@
             </li>
             <li>We extend the GOTO function, defined on sets of items, to states: if GOTO[I<sub>i</sub>&nbsp;, A] = I<sub>j</sub>&nbsp;then GOTO also maps a state i and a nonterminal A to state j.</li>
             </ul>
-            <p>Eg: Consider the grammar S -&gt;AA A -&gt; aA | b Augmented grammar S&rsquo; -&gt; S S -&gt; AA A -&gt; aA | b The LR(0) parsing table for above GOTO graph will be &ndash;<img src="https://media.geeksforgeeks.org/wp-content/uploads/parsing5.png" alt="" width="524" height="295" /></p>
+            <p>Eg: Consider the grammar S -&gt;AA A -&gt; aA | b Augmented grammar S&rsquo; -&gt; S S -&gt; AA A -&gt; aA | b The LR(0) parsing table for above GOTO graph will be &ndash;<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/parsing5.png" alt="" width="524" height="295" /></figure></p>
             <p>Action part of the table contains all the terminals of the grammar whereas the goto part contains all the nonterminals. For every state of goto graph we write all the goto operations in the table. If goto is applied to a terminal then it is written in the action part if goto is applied on a nonterminal it is written in goto part. If on applying goto a production is reduced ( i.e if the dot reaches at the end of production and no further closure can be applied) then it is denoted as R<sub>i</sub>&nbsp;and if the production is not reduced (shifted) it is denoted as S<sub>i</sub>. If a production is reduced it is written under the terminals given by follow of the left side of the production which is reduced for ex: in I<sub>5</sub>&nbsp;S-&gt;AA is reduced so R<sub>1</sub>&nbsp;is written under the terminals in follow(S)={$} (To know more about how to calculate follow function:&nbsp;<a href="https://www.geeksforgeeks.org/compiler-design-follow-set-in-syntax-analysis/">Click here</a>&nbsp;) in LR(0) parser. If in a state the start symbol of grammar is reduced it is written under $ symbol as accepted.&nbsp;</p>
             </div>
             </div>

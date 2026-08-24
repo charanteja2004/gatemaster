@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     
     <h2>Longest Common Subsequence</h2>
 
@@ -33,23 +33,23 @@
         <p dir="ltr">A&nbsp;<strong>longest common subsequence (LCS)&nbsp;</strong>is defined as the longest subsequence
             which is common in all given input sequences.</p>
     </blockquote>
-    <p><strong>Examples:</strong></p>
-    <p dir="ltr"><strong>Input:</strong>&nbsp;S1 = &ldquo;ABC&rdquo;, S2 =
+    <p class="gm-lead gm-example-lead"><strong>Examples:</strong></p>
+    <div class="gm-callout gm-syntax" data-label="Input"><p dir="ltr"><strong>Input:</strong>&nbsp;S1 = &ldquo;ABC&rdquo;, S2 =
         &ldquo;ACD&rdquo;<br /><strong>Output:</strong>&nbsp;2<br /><strong>Explanation:</strong>&nbsp;The longest
-        subsequence which is present in both strings is &ldquo;AC&rdquo;.</p>
-    <p dir="ltr"><strong>Input:</strong>&nbsp;S1 = &ldquo;AGGTAB&rdquo;, S2 =
+        subsequence which is present in both strings is &ldquo;AC&rdquo;.</p></div>
+    <div class="gm-callout gm-syntax" data-label="Input"><p dir="ltr"><strong>Input:</strong>&nbsp;S1 = &ldquo;AGGTAB&rdquo;, S2 =
         &ldquo;GXTXAYB&rdquo;<br /><strong>Output:</strong>&nbsp;4<br /><strong>Explanation:</strong>&nbsp;The longest
-        common subsequence is &ldquo;GTAB&rdquo;.</p>
-    <p dir="ltr"><strong>Input:</strong>&nbsp;S1 = &ldquo;ABC&rdquo;, S2 =
+        common subsequence is &ldquo;GTAB&rdquo;.</p></div>
+    <div class="gm-callout gm-syntax" data-label="Input"><p dir="ltr"><strong>Input:</strong>&nbsp;S1 = &ldquo;ABC&rdquo;, S2 =
         &ldquo;CBA&rdquo;<br /><strong>Output:</strong>&nbsp;1<br /><strong>Explanation:</strong>&nbsp;There are three
         common subsequences of length 1, &ldquo;A&rdquo;, &ldquo;B&rdquo; and &ldquo;C&rdquo; and no common
-        subsequence.of length more than 1.</p>
+        subsequence.of length more than 1.</p></div>
     <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
     <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
-    <p dir="ltr"><strong>Input:</strong>&nbsp;S1 = &ldquo;XYZW&rdquo;, S2 =
+    <div class="gm-callout gm-syntax" data-label="Input"><p dir="ltr"><strong>Input:</strong>&nbsp;S1 = &ldquo;XYZW&rdquo;, S2 =
         &ldquo;XYWZ&rdquo;<br /><strong>Output:</strong>&nbsp;3<br /><strong>Explanation:</strong>&nbsp;There are two
         common subsequences of length 3 &ldquo;XYZ&rdquo;, and&rdquo;XYW&rdquo;, and no common subsequence. of length
-        more than 3.</p>
+        more than 3.</p></div>
 
 
     <h2><u><span class="GFGEditorTheme__textUnderline">Longest Common Subsequence (LCS) using Recursion:</span></u></h2>
@@ -114,7 +114,7 @@
         <div class="gray">Length of LCS is 4
 </div>
     </div>
-    <p dir="ltr"><strong>Time Complexity:</strong>&nbsp;O(2<sup>m+n</sup>)<br /><strong>Auxiliary
+    <p dir="ltr" class="gm-complexity" data-label="Time complexity"><strong>Time Complexity:</strong>&nbsp;O(2<sup>m+n</sup>)<br /><strong>Auxiliary
             Space:</strong>&nbsp;O(1)</p>
     <h2><u><span class="GFGEditorTheme__textUnderline">Longest Common Subsequence (LCS) using&nbsp;</span></u><a
             href="https://www.geeksforgeeks.org/what-is-memoization-a-complete-tutorial/"><u><span
@@ -217,7 +217,7 @@
         <div class="gray">Length of LCS is 4
 </div>
     </div>
-    <p dir="ltr"><strong>Time Complexity:</strong>&nbsp;O(m * n) where m and n are the string
+    <p dir="ltr" class="gm-complexity" data-label="Time complexity"><strong>Time Complexity:</strong>&nbsp;O(m * n) where m and n are the string
         lengths.<br /><strong>Auxiliary Space:&nbsp;</strong>O(m * n) Here the recursive stack space is ignored.</p>
 
     <h2><u><span class="GFGEditorTheme__textUnderline">Longest Common Subsequence (LCS) using Bottom-Up
@@ -255,48 +255,48 @@
             whose first row and first column are filled with 0.</p>
     </blockquote>
 
-    <figure class="image"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230228145703/lcs1drawio.png"
-            alt="Creating the dp table" width="350" height="350" />
+    <figure class="image"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230228145703/lcs1drawio.png"
+            alt="Creating the dp table" width="350" height="350" /><figcaption>Creating the dp table</figcaption></figure>
         <figcaption>Creating the dp table</figcaption>
     </figure>
     <p dir="ltr"><strong>Second step:</strong>&nbsp;Traverse for i = 1. When j becomes 5, S1[0] and S2[4] are equal. So
         the dp[][] is updated. For the other elements take the maximum of dp[i-1][j] and dp[i][j-1]. (In this case, if
         both values are equal, we have used arrows to the previous rows).</p>
-    <figure class="image"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230228145739/lcs2drawio.png"
-            alt="Filling the row no 1" width="350" height="350" />
+    <figure class="image"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230228145739/lcs2drawio.png"
+            alt="Filling the row no 1" width="350" height="350" /><figcaption>Filling the row no 1</figcaption></figure>
         <figcaption>Filling the row no 1</figcaption>
     </figure>
     <p dir="ltr"><strong>Third step:</strong>&nbsp;While traversed for i = 2, S1[1] and S2[0] are the same (both are
         &lsquo;G&rsquo;). So the dp value in that cell is updated. Rest of the elements are updated as per the
         conditions.</p>
-    <figure class="image"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230228145821/lcs3drawio.png"
-            alt="Filling the row no. 2" width="350" height="350" />
+    <figure class="image"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230228145821/lcs3drawio.png"
+            alt="Filling the row no. 2" width="350" height="350" /><figcaption>Filling the row no. 2</figcaption></figure>
         <figcaption>Filling the row no. 2</figcaption>
     </figure>
 
 
     <p dir="ltr"><strong>Fourth step:</strong>&nbsp;For i = 3, S1[2] and S2[0] are again same. The updations are as
         follows.</p>
-    <figure class="image"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230228145851/lcs4drawio.png"
-            alt="Filling row no. 3" width="350" height="350" />
+    <figure class="image"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230228145851/lcs4drawio.png"
+            alt="Filling row no. 3" width="350" height="350" /><figcaption>Filling row no. 3</figcaption></figure>
         <figcaption>Filling row no. 3</figcaption>
     </figure>
     <p dir="ltr"><strong>Fifth step:</strong>&nbsp;For i = 4, we can see that S1[3] and S2[2] are same. So dp[4][3]
         updated as dp[3][2] + 1 = 2.</p>
-    <figure class="image"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230228145958/lcs5drawio.png"
-            alt="Filling row 4" width="350" height="350" />
+    <figure class="image"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230228145958/lcs5drawio.png"
+            alt="Filling row 4" width="350" height="350" /><figcaption>Filling row 4</figcaption></figure>
         <figcaption>Filling row 4</figcaption>
     </figure>
     <p dir="ltr"><strong>Sixth step:</strong>&nbsp;Here we can see that for i = 5 and j = 5 the values of S1[4] and
         S2[4] are same (i.e., both are &lsquo;A&rsquo;). So dp[5][5] is updated accordingly and becomes 3.</p>
-    <figure class="image"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230228150025/lcs6drawio.png"
-            alt="Filling row 5" width="350" height="350" />
+    <figure class="image"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230228150025/lcs6drawio.png"
+            alt="Filling row 5" width="350" height="350" /><figcaption>Filling row 5</figcaption></figure>
         <figcaption>Filling row 5</figcaption>
     </figure>
     <p dir="ltr"><strong>Final step:</strong>&nbsp;For i = 6, see the last characters of both strings are same (they are
         &lsquo;B&rsquo;). Therefore the value of dp[6][7] becomes 4.</p>
-    <figure class="image"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230228150050/lcs7drawio.png"
-            alt="Filling the final row" width="350" height="350" />
+    <figure class="image"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230228150050/lcs7drawio.png"
+            alt="Filling the final row" width="350" height="350" /><figcaption>Filling the final row</figcaption></figure>
         <figcaption>Filling the final row</figcaption>
     </figure>
     <p dir="ltr">So we get the maximum length of common subsequence as&nbsp;<strong>4</strong>.</p>
@@ -358,7 +358,7 @@
         <div class="gray">Length of LCS is 4
 </div>
     </div>
-    <p dir="ltr"><strong>Time Complexity:</strong>&nbsp;O(m * n) which is much better than the worst-case time
+    <p dir="ltr" class="gm-complexity" data-label="Time complexity"><strong>Time Complexity:</strong>&nbsp;O(m * n) which is much better than the worst-case time
         complexity of Naive Recursive implementation.&nbsp;<br /><strong>Auxiliary Space:</strong>&nbsp;O(m * n) because
         the algorithm uses an array of size (m+1)*(n+1) to store the length of the common substrings.</p>
     <h2><u><span class="GFGEditorTheme__textUnderline">Longest Common Subsequence (LCS) using Bottom-Up
@@ -424,7 +424,7 @@
         <div class="gray">Length of LCS is 4
 </div>
     </div>
-    <p dir="ltr"><strong>Time Complexity:</strong>&nbsp;O(m * n), which remains the same.<br /><strong>Auxiliary
+    <p dir="ltr" class="gm-complexity" data-label="Time complexity"><strong>Time Complexity:</strong>&nbsp;O(m * n), which remains the same.<br /><strong>Auxiliary
             Space:</strong>&nbsp;O(m) because the algorithm uses two arrays of size m.</p>
 </body>
 </html>

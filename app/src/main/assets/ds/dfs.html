@@ -6,7 +6,7 @@
     <title>Depth-First Search</title>
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
 <h1>Depth-First Search (DFS)</h1>
 
 <p>DFS follows one path as deep as it can go, then backtracks and tries the next unexplored branch.
@@ -39,22 +39,22 @@ discovered but not finished (it is on the current recursion stack), and <strong>
 finished. A vertex is grey exactly while it sits on the stack.</p>
 
 <h2>Complexity</h2>
-<table>
+<div class="gm-table"><table>
   <tr><th>Representation</th><th>Time</th><th>Space</th></tr>
   <tr><td>Adjacency list</td><td>&Theta;(V + E)</td><td>O(V) recursion stack</td></tr>
   <tr><td>Adjacency matrix</td><td>&Theta;(V<sup>2</sup>)</td><td>O(V)</td></tr>
-</table>
+</table></div>
 
 <h2>Edge classification</h2>
 <p>DFS on a <strong>directed</strong> graph classifies every edge (u, v) by the colour of v at the
 moment the edge is explored:</p>
-<table>
+<div class="gm-table"><table>
   <tr><th>Colour of v</th><th>Edge type</th><th>Meaning</th></tr>
   <tr><td>White</td><td>Tree edge</td><td>v is discovered from u</td></tr>
   <tr><td>Grey</td><td><strong>Back edge</strong></td><td>v is an ancestor of u &mdash; a cycle</td></tr>
   <tr><td>Black, d[u] &lt; d[v]</td><td>Forward edge</td><td>v is a descendant, already finished</td></tr>
   <tr><td>Black, d[u] &gt; d[v]</td><td>Cross edge</td><td>v is in another subtree</td></tr>
-</table>
+</table></div>
 
 <blockquote>
   <p>A directed graph has a cycle <strong>if and only if</strong> DFS finds a back edge. In an

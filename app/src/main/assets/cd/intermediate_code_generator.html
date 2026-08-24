@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
 
-<body>
+<body data-gm-enriched="1">
     <div class="article-title">
         <h1>Intermediate Code Generation&nbsp;</h1>
     </div>
@@ -45,8 +45,8 @@
             <li value="3">It is easier to apply source code modification to improve the performance of source code by
                 optimizing the intermediate code.</li>
         </ul>
-        <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/1-34.png" alt="1" width="381"
-                height="393" />&nbsp;<br />If we generate machine code directly from source code then for n target
+        <p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/1-34.png" alt="1" width="381"
+                height="393" /><figcaption>1</figcaption></figure>&nbsp;<br />If we generate machine code directly from source code then for n target
             machine we will have optimizers and n code generator but if we will have a machine-independent intermediate
             code, we will have only one optimizer. Intermediate code can be either language-specific (e.g., Bytecode for
             Java) or language. independent (three-address code). The following are commonly used intermediate code
@@ -107,10 +107,10 @@
                         discern the sequence in which operands should be processed.</li>
                     <li value="4">The syntax tree not only condenses the parse tree but also offers an improved visual
                         representation of the program&rsquo;s syntactic structure,<br /><strong>Example:</strong>&nbsp;x
-                        = (a + b * c) / (a &ndash; b * c)<br />&nbsp;<img
+                        = (a + b * c) / (a &ndash; b * c)<br />&nbsp;<figure class="gm-figure gm-remote"><img
                             src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/2-19.png" alt="2" width="355"
-                            height="320" />
-                        <p>&nbsp;</p>
+                            height="320" /><figcaption>2</figcaption></figure>
+                        
                     </li>
                 </ul>
             </li>

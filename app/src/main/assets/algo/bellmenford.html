@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <h2>Bellman–Ford Algorithm</h2>
 
     <P>Imagine you have a map with different cities connected by roads, each road having a certain distance. The
@@ -105,20 +105,20 @@
     <blockquote>
         <p dir="ltr">Let&rsquo;s suppose we have a graph which is given below and we want to find whether there exists a
             negative cycle or not using Bellman-Ford.</p>
-        <div class="wp-caption alignnone"><img
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20230816131246/Bellman-Ford-To-Detect-A-Negative-Cycle-In-A-Graph.png"
-                width="768" height="384" />
+                width="768" height="384" /></figure>
             <p class="wp-caption-text">Initial Graph</p>
         </div>
-        <p dir="ltr"><strong>Step 1:&nbsp;</strong>Initialize a distance array Dist[] to store the shortest distance for
+        <p dir="ltr" class="gm-step"><strong>Step 1:&nbsp;</strong>Initialize a distance array Dist[] to store the shortest distance for
             each vertex from the source vertex. Initially distance of source will be 0 and Distance of other vertices
             will be INFINITY.</p>
-        <div class="wp-caption alignnone"><img
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20230816131322/file.png" width="798"
-                height="399" />
+                height="399" /></figure>
             <p class="wp-caption-text">Initialize a distance array</p>
         </div>
-        <p dir="ltr"><strong>Step 2:&nbsp;</strong>Start relaxing the edges, during 1st Relaxation:</p>
+        <p dir="ltr" class="gm-step"><strong>Step 2:&nbsp;</strong>Start relaxing the edges, during 1st Relaxation:</p>
         <div id="GFG_AD_gfg_outstream_incontent" data-google-query-id="CMvLs6-wo4YDFcFLnQkdMXYN9Q">
             <div id="google_ads_iframe_/27823234/gfg_outstream_incontent_0__container__">&nbsp;</div>
         </div>
@@ -129,9 +129,9 @@
                 </ul>
             </li>
         </ul>
-        <div class="wp-caption alignnone"><img
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20230816153449/file.png" width="698"
-                height="349" />
+                height="349" /></figure>
             <p class="wp-caption-text">1st Relaxation</p>
         </div>
         <strong>Step 3:</strong>&nbsp;During 2nd Relaxation:
@@ -147,12 +147,12 @@
                 </ul>
             </li>
         </ul>
-        <div class="wp-caption alignnone"><img
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20230816131450/file.png" width="744"
-                height="372" />
+                height="372" /></figure>
             <p class="wp-caption-text">2nd Relaxation</p>
         </div>
-        <p dir="ltr"><strong>Step 4:&nbsp;</strong>During 3rd Relaxation:</p>
+        <p dir="ltr" class="gm-step"><strong>Step 4:&nbsp;</strong>During 3rd Relaxation:</p>
         <ul>
             <li value="1">Current Distance of F &gt; (Distance of D ) + (Weight of D to F) i.e. Infinity &gt; 7 + 2
                 <ul>
@@ -165,12 +165,12 @@
                 </ul>
             </li>
         </ul>
-        <div class="wp-caption alignnone"><img
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20230816132008/file.png" width="838"
-                height="419" />
+                height="419" /></figure>
             <p class="wp-caption-text">3rd Relaxation</p>
         </div>
-        <p dir="ltr"><strong>Step 5:</strong>&nbsp;During 4th Relaxation:</p>
+        <p dir="ltr" class="gm-step"><strong>Step 5:</strong>&nbsp;During 4th Relaxation:</p>
         <ul>
             <li value="1">Current Distance of D &gt; (Distance of E) + (Weight of E to D) i.e. 7 &gt; 7 + (-1)
                 <ul>
@@ -183,12 +183,12 @@
                 </ul>
             </li>
         </ul>
-        <div class="wp-caption alignnone"><img
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20230816132039/file.png" width="772"
-                height="386" />
+                height="386" /></figure>
             <p class="wp-caption-text">4th Relaxation</p>
         </div>
-        <p dir="ltr"><strong>Step 6:&nbsp;</strong>During 5th Relaxation:</p>
+        <p dir="ltr" class="gm-step"><strong>Step 6:&nbsp;</strong>During 5th Relaxation:</p>
         <ul>
             <li value="1">Current Distance of F &gt; (Distance of D) + (Weight of D to F) i.e. 9 &gt; 6 + 2
                 <ul>
@@ -203,14 +203,14 @@
             <li value="3">Since the graph h 6 vertices, So during the 5th relaxation the shortest distance for all the
                 vertices should have been calculated.</li>
         </ul>
-        <div class="wp-caption alignnone"><img
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20230816132100/file.png" width="804"
-                height="402" /></div>
+                height="402" /></figure></div>
     </blockquote>
 
 
     <blockquote>
-        <p dir="ltr"><strong>Step 7:&nbsp;</strong>Now the final relaxation i.e. the 6th relaxation should indicate the
+        <p dir="ltr" class="gm-step"><strong>Step 7:&nbsp;</strong>Now the final relaxation i.e. the 6th relaxation should indicate the
             presence of negative cycle if there is any changes in the distance array of 5th relaxation.</p>
         <p dir="ltr">During the 6th relaxation, following changes can be seen:</p>
         <ul>
@@ -227,9 +227,9 @@
         </ul>
         <p dir="ltr">Since, we observer changes in the Distance array Hence ,we can conclude the presence of a negative
             cycle in the graph.</p>
-        <div class="wp-caption alignnone"><img
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20230816132118/file.png" width="788"
-                height="394" />
+                height="394" /></figure>
             <p class="wp-caption-text">6th Relaxation</p>
         </div>
         <p dir="ltr"><strong>Result:</strong>&nbsp;A negative cycle (D-&gt;F-&gt;E) exists in the graph.</p>

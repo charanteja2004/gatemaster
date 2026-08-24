@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <h2>Huffman Coding</h2>
 
     <p>Huffman coding is a lossless data compression algorithm. The idea is to assign variable-length codes to input
@@ -105,8 +105,8 @@ return Get_min (0)
         internal node with frequency 5 + 9 = 14.&nbsp;<br />&nbsp;</p>
     <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
     <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
-    <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220906180150/1.png"
-            alt="Illustration of step 2" />
+    <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220906180150/1.png"
+            alt="Illustration of step 2" /><figcaption>Illustration of step 2</figcaption></figure>
         <p class="wp-caption-text">Illustration of step 2</p>
     </div>
     <p>Now min heap contains 5 nodes where 4 nodes are roots of trees with single element each, and one heap node is
@@ -117,10 +117,10 @@ return Get_min (0)
  Internal Node         14
        e               16
        f                45</div>
-    <p><strong>Step 3:</strong>&nbsp;Extract two minimum frequency nodes from heap. Add a new internal node with
+    <p class="gm-step"><strong>Step 3:</strong>&nbsp;Extract two minimum frequency nodes from heap. Add a new internal node with
         frequency 12 + 13 = 25<br />&nbsp;</p>
-    <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220906180227/2.png"
-            alt="Illustration of step 3" />
+    <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220906180227/2.png"
+            alt="Illustration of step 3" /><figcaption>Illustration of step 3</figcaption></figure>
         <p class="wp-caption-text">Illustration of step 3</p>
     </div>
     <p>Now min heap contains 4 nodes where 2 nodes are roots of trees with single element each, and two heap nodes are
@@ -130,10 +130,10 @@ Internal Node          14
        e               16
 Internal Node          25
        f               45</div>
-    <p><strong>Step 4:</strong>&nbsp;Extract two minimum frequency nodes. Add a new internal node with frequency 14 + 16
+    <p class="gm-step"><strong>Step 4:</strong>&nbsp;Extract two minimum frequency nodes. Add a new internal node with frequency 14 + 16
         = 30<br />&nbsp;</p>
-    <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220906180302/3.png"
-            alt="Illustration of step 4" width="766" height="383" />
+    <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220906180302/3.png"
+            alt="Illustration of step 4" width="766" height="383" /><figcaption>Illustration of step 4</figcaption></figure>
         <p class="wp-caption-text">Illustration of step 4</p>
     </div>
     <p>Now min heap contains 3 nodes.</p>
@@ -141,23 +141,23 @@ Internal Node          25
 Internal Node         25
 Internal Node         30
       f               45 </div>
-    <p><strong>Step 5:</strong>&nbsp;Extract two minimum frequency nodes. Add a new internal node with frequency 25 + 30
+    <p class="gm-step"><strong>Step 5:</strong>&nbsp;Extract two minimum frequency nodes. Add a new internal node with frequency 25 + 30
         = 55<br />&nbsp;</p>
     <div id="GFG_AD_gfg_outstream_incontent" data-google-query-id="CJPB17C0o4YDFTpUnQkd3HQKDA">
         <div id="google_ads_iframe_/27823234/gfg_outstream_incontent_0__container__">&nbsp;</div>
     </div>
-    <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230117162332/4.png"
-            alt="Illustration of step 5" width="350" height="308" />
+    <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230117162332/4.png"
+            alt="Illustration of step 5" width="350" height="308" /><figcaption>Illustration of step 5</figcaption></figure>
         <p class="wp-caption-text">Illustration of step 5</p>
     </div>
     <p>Now min heap contains 2 nodes.</p>
     <div class="gray">character     Frequency
        f         45
 Internal Node    55</div>
-    <p><strong>Step 6:</strong>&nbsp;Extract two minimum frequency nodes. Add a new internal node with frequency 45 + 55
+    <p class="gm-step"><strong>Step 6:</strong>&nbsp;Extract two minimum frequency nodes. Add a new internal node with frequency 45 + 55
         = 100<br />&nbsp;</p>
-    <div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220906180416/5.png"
-            alt="Illustration of step 6" width="350" height="425" />
+    <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220906180416/5.png"
+            alt="Illustration of step 6" width="350" height="425" /><figcaption>Illustration of step 6</figcaption></figure>
         <p class="wp-caption-text">Illustration of step 6</p>
     </div>
     <p>Now min heap contains only one node.</p>
@@ -185,8 +185,7 @@ Internal Node    100</div>
 
 
     Below is the implementation of above approach: <br>
-
-    <div class="line number1 index0 alt2"><code class="comments">// C program for Huffman Coding </code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C program for Huffman Coding </code></div>
     <div class="line number2 index1 alt1"><code class="preprocessor">#include &lt;stdio.h&gt; </code></div>
     <div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdlib.h&gt; </code></div>
     <div class="line number4 index3 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
@@ -715,7 +714,8 @@ Internal Node    100</div>
     <div class="line number290 index289 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
             class="plain">printCodes(root, arr, top); </code></div>
     <div class="line number291 index290 alt2"><code class="plain">} </code></div>
-    <div class="line number292 index291 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+    <div class="line number292 index291 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div></div></div>
+
 
     <div class="responsive-tabs-wrapper">
         <div class="responsive-tabs responsive-tabs--enabled">
@@ -724,12 +724,12 @@ Internal Node    100</div>
                 <div class="code-block">
                     <div class="code-container">
                         <div id="highlighter_462528" class="syntaxhighlighter nogutter  ">
-                            <table border="0" cellspacing="0" cellpadding="0">
+                            <div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
                                 <tbody>
                                     <tr>
                                         <td class="code">
                                             <div class="container">
-                                                <div class="line number293 index292 alt2"><code
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number293 index292 alt2"><code
                                                         class="comments">// Driver code </code></div>
                                                 <div class="line number294 index293 alt1"><code
                                                         class="color1 bold">int</code> <code
@@ -774,12 +774,13 @@ Internal Node    100</div>
                                                         class="keyword bold">return</code> <code
                                                         class="plain">0; </code></div>
                                                 <div class="line number305 index304 alt2"><code class="plain">}</code>
-                                                </div>
+                                                </div></div></div>
+
                                             </div>
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </table></div>
                         </div>
                     </div>
                 </div>
@@ -794,11 +795,11 @@ a: 1100
 b: 1101
 e: 111</div>
     </div>
-    <p><strong>Time complexity:</strong>&nbsp;O(nlogn) where n is the number of unique characters. If there are n nodes,
+    <p class="gm-complexity" data-label="Time complexity"><strong>Time complexity:</strong>&nbsp;O(nlogn) where n is the number of unique characters. If there are n nodes,
         extractMin() is called 2*(n &ndash; 1) times. extractMin() takes O(logn) time as it calls minHeapify(). So, the
         overall complexity is O(nlogn).<br />If the input array is sorted, there exists a linear time algorithm. We will
         soon be discussing this in our next post.</p>
-    <p><strong>Space complexity :- O(N)</strong></p>
+    <p class="gm-complexity" data-label="Space complexity"><strong>Space complexity :- O(N)</strong></p>
     <h4>Applications of Huffman Coding:</h4>
     <ol>
         <li>They are used for transmitting fax and text.</li>

@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <h2>Bucket Sort</h2>
     <blockquote>
         <p dir="ltr"><strong>Bucket sort</strong>&nbsp;is a sorting technique that involves dividing elements into
@@ -43,14 +43,14 @@
     <h2>How does Bucket Sort work?</h2>
     <p dir="ltr">To apply bucket sort on the input array&nbsp;<strong>[0.78, 0.17, 0.39, 0.26, 0.72, 0.94, 0.21, 0.12,
             0.23, 0.68]</strong>, we follow these steps:</p>
-    <p dir="ltr"><strong>Step 1:</strong>&nbsp;Create an array of size 10, where each slot represents a bucket.</p>
+    <p dir="ltr" class="gm-step"><strong>Step 1:</strong>&nbsp;Create an array of size 10, where each slot represents a bucket.</p>
 
-    <div class="wp-caption alignnone"><img
+    <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
             src="https://media.geeksforgeeks.org/wp-content/uploads/20230705162208/file.png"
-            alt="Creating Buckets for sorting" width="360" height="380" />
+            alt="Creating Buckets for sorting" width="360" height="380" /><figcaption>Creating Buckets for sorting</figcaption></figure>
         <p class="wp-caption-text">Creating Buckets for sorting</p>
     </div>
-    <p dir="ltr"><strong>Step 2:&nbsp;</strong>Insert elements into the buckets from the input array based on their
+    <p dir="ltr" class="gm-step"><strong>Step 2:&nbsp;</strong>Insert elements into the buckets from the input array based on their
         range.</p>
     <p dir="ltr">Inserting elements into the buckets:</p>
     <ul>
@@ -62,12 +62,12 @@
         <li value="4">Insert the element into the bucket corresponding to the calculated index.</li>
         <li value="5">Repeat these steps for all elements in the input array.</li>
     </ul>
-    <div class="wp-caption alignnone"><img
+    <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
             src="https://media.geeksforgeeks.org/wp-content/uploads/20230705162234/file.png"
-            alt="Inserting Array elements into respective buckets" width="356" height="378" />
+            alt="Inserting Array elements into respective buckets" width="356" height="378" /><figcaption>Inserting Array elements into respective buckets</figcaption></figure>
         <p class="wp-caption-text">Inserting Array elements into respective buckets</p>
     </div>
-    <p dir="ltr"><strong>Step 3:&nbsp;</strong>Sort the elements within each bucket. In this example, we use quicksort
+    <p dir="ltr" class="gm-step"><strong>Step 3:&nbsp;</strong>Sort the elements within each bucket. In this example, we use quicksort
         (or any stable sorting algorithm) to sort the elements within each bucket.</p>
     <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
     <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
@@ -77,12 +77,12 @@
             bucket.</li>
         <li value="2">The elements within each bucket are now sorted.</li>
     </ul>
-    <div class="wp-caption alignnone"><img
+    <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
             src="https://media.geeksforgeeks.org/wp-content/uploads/20230705162300/file.png"
-            alt="Sorting individual bucket" width="348" height="424" />
+            alt="Sorting individual bucket" width="348" height="424" /><figcaption>Sorting individual bucket</figcaption></figure>
         <p class="wp-caption-text">Sorting individual bucket</p>
     </div>
-    <p dir="ltr"><strong>Step 4:&nbsp;</strong>Gather the elements from each bucket and put them back into the original
+    <p dir="ltr" class="gm-step"><strong>Step 4:&nbsp;</strong>Gather the elements from each bucket and put them back into the original
         array.</p>
     <p dir="ltr">Gathering elements from each bucket:</p>
     <ul>
@@ -91,22 +91,22 @@
         <li value="3">Once an element is copied, it is removed from the bucket.</li>
         <li value="4">Repeat this process for all buckets until all elements have been gathered.</li>
     </ul>
-    <div class="wp-caption alignnone"><img
+    <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
             src="https://media.geeksforgeeks.org/wp-content/uploads/20230705162320/file.png"
-            alt="Inserting buckets in ascending order into the resultant array" width="342" height="421" />
+            alt="Inserting buckets in ascending order into the resultant array" width="342" height="421" /><figcaption>Inserting buckets in ascending order into the resultant array</figcaption></figure>
         <p class="wp-caption-text">Inserting buckets in ascending order into the resultant array</p>
     </div>
 
-    <p dir="ltr"><strong>Step 5:&nbsp;</strong>The original array now contains the sorted elements.</p>
+    <p dir="ltr" class="gm-step"><strong>Step 5:&nbsp;</strong>The original array now contains the sorted elements.</p>
     <p dir="ltr">The final sorted array using bucket sort for the given input is [0.12, 0.17, 0.21, 0.23, 0.26, 0.39,
         0.68, 0.72, 0.78, 0.94].</p>
-    <div class="wp-caption alignnone"><img
+    <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
             src="https://media.geeksforgeeks.org/wp-content/uploads/20230705162345/file.png"
-            alt="Return the Sorted Array" width="358" height="379" />
+            alt="Return the Sorted Array" width="358" height="379" /><figcaption>Return the Sorted Array</figcaption></figure>
         <p class="wp-caption-text">Return the Sorted Array</p>
     </div>
     <h2>Complexity Analysis of Bucket Sort Algorithm:</h2>
-    <p dir="ltr"><strong>Time Complexity:</strong>&nbsp;O(n<sup>2</sup>),</p>
+    <p dir="ltr" class="gm-complexity" data-label="Time complexity"><strong>Time Complexity:</strong>&nbsp;O(n<sup>2</sup>),</p>
     <ul>
         <li value="1">If we assume that insertion in a bucket takes O(1) time then steps 1 and 2 of the above algorithm
             clearly take O(n) time.</li>
@@ -115,6 +115,6 @@
         <li value="4">The main step to analyze is step 3. This step also takes O(n) time on average if all numbers are
             uniformly distributed.</li>
     </ul>
-    <p dir="ltr"><strong>Auxiliary Space:&nbsp;</strong>O(n+k)</p>
+    <p dir="ltr" class="gm-complexity" data-label="Auxiliary space"><strong>Auxiliary Space:&nbsp;</strong>O(n+k)</p>
 </body>
 </html>

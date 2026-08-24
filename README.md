@@ -53,6 +53,8 @@ To add or change material: drop files into the right assets folder, then
 ```sh
 python tools/build_content_index.py      # rebuild the index
 python tools/normalize_content_html.py   # make new HTML phone-readable
+python tools/fix_content.py              # mechanical defect fixes
+python tools/enrich_content.py           # add the reader's semantic hooks
 python tools/build_test_bank.py          # rebuild the mock-test question bank
 ./gradlew :app:testDebugUnitTest         # verify nothing is orphaned
 ```
@@ -100,12 +102,51 @@ EC, CE, CH, IN, DA) carry a full subject breakdown with syllabus bullets and
 mark weightage; the remaining 22 carry their section names, and the app says so
 rather than pretending otherwise.
 
+### `tools/enrich_content.py`
+
+Adds the semantic structure `reader.css` styles. The source articles are
+undifferentiated prose — a note, a worked example, a formula and a complexity
+result all look identical, which is what makes them tiring to read on a phone.
+This pass finds them by the conventions the authors already used and tags them:
+
+- runs of SyntaxHighlighter `.line` divs become a single code panel
+- `<table>` gets a scroll container so wide tables stop stretching the page
+- `<img>` becomes a `<figure>` with its alt text as a caption, marked when the
+  source is remote
+- lead-in paragraphs become callouts (Note, Example, Syntax, Solution,
+  Definition, Time/Space Complexity, Step N)
+- short relational lines become formula plaques
+
+A bare "Example:" introducing a list becomes a compact section label rather than
+a box, since framing a lone word just repeats it. The formula detector is
+deliberately conservative: a paragraph wrongly promoted to a plaque looks worse
+than one left as plain prose.
+
+Idempotent and marker-guarded.
+
 ### `tools/build_test_bank.py`
 
 Converts the legacy `assets/mock1.json` into `assets/tests/` — the GATE-shaped
 schema with MCQ / MSQ / NAT, per-question marks and sections — and writes
 `assets/tests/catalogue.json`. Questions that cannot be converted are reported
 and skipped rather than shipped broken.
+
+## Reading experience
+
+`assets/reader.css` is the single stylesheet behind every article. It gives each
+heading level its own visual anchor, puts code in a dark editor panel in both
+themes (mapping the source's own syntax tokens to a legible palette), frames
+diagrams so they stay visible against a dark background, and gives callouts,
+formula plaques and complexity chips distinct, skimmable forms.
+
+The reader itself adds a scroll-progress bar, a text-size control persisted in
+DataStore, and previous/next topic navigation so studying is a sequence rather
+than repeated trips back to a list.
+
+**Known limitation:** 899 of the 918 images in the bundled notes are hotlinks to
+external CDNs, so diagrams need an internet connection and will break if those
+URLs change. Figures are framed and labelled so a missing diagram reads as an
+explained placeholder, but hosting the images is unresolved.
 
 ## The test engine
 

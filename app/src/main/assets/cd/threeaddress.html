@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <div class="text">
 
         <div class="article-title">
@@ -44,9 +44,9 @@
         <h3><strong>General Representation</strong></h3>
         <pre> a = b op c </pre>
         <p dir="ltr">Where a, b or c represents operands like names, constants or compiler generated temporaries and op represents the operator&nbsp;</p>
-        <p dir="ltr"><strong>Example-1:&nbsp;</strong>Convert the expression a * &ndash; (b + c) into three address code.</p>
+        <div class="gm-callout gm-example" data-label="Example"><p dir="ltr"><strong>Example-1:&nbsp;</strong>Convert the expression a * &ndash; (b + c) into three address code.</p></div>
         <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
-        <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/as-10.png" width="inherit" height="inherit" /></p>
+        <p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/as-10.png" width="inherit" height="inherit" /></figure></p>
         <p dir="ltr"><strong>Implementation of Three Address Code</strong><br />There are 3 representations of three address code namely</p>
         <ol>
         <li value="1">Quadruple</li>
@@ -66,7 +66,7 @@
         </ul>
         <p dir="ltr"><strong>Example &ndash;</strong>&nbsp;Consider expression a = b * &ndash; c + b * &ndash; c. The three address code is:</p>
         <pre>t1 = uminus c   (Unary minus operation on c)<br />t2 = b * t1 <br />t3 = uminus c (Another unary minus operation on c)<br />t4 = b * t3 <br />t5 = t2 + t4 <br />a = t5  (Assignment of t5 to a)</pre>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190911110401/Capture888.jpg" width="325" height="192" />&nbsp;</p>
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190911110401/Capture888.jpg" width="325" height="192" /></figure>&nbsp;</p>
         <p dir="ltr"><strong>2. Triples &ndash;</strong>&nbsp;This representation doesn&rsquo;t make use of extra temporary variable to represent a single operation instead when a reference to another triple&rsquo;s value is needed, a pointer to that triple is used. So, it consist of only three fields namely op, arg1 and arg2.&nbsp;</p>
         <p dir="ltr"><strong>Disadvantage &ndash;</strong></p>
         <ul>
@@ -74,16 +74,16 @@
         <li value="2">It is difficult to optimize because optimization involves moving intermediate code. When a triple is moved, any other triple referring to it must be updated also. With help of pointer one can directly access symbol table entry.</li>
         </ul>
         <p dir="ltr"><strong>Example &ndash;</strong>&nbsp;Consider expression a = b * &ndash; c + b * &ndash; c&nbsp;</p>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/ty-2.png" width="231" height="173" />&nbsp;</p>
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/ty-2.png" width="231" height="173" /></figure>&nbsp;</p>
         <p dir="ltr"><strong>3. Indirect Triples &ndash;</strong>&nbsp;This representation makes use of pointer to the listing of all references to computations which is made separately and stored. Its similar in utility as compared to quadruple representation but requires less space than it. Temporaries are implicit and easier to rearrange code.&nbsp;</p>
         <p dir="ltr"><strong>Example &ndash;</strong>&nbsp;Consider expression a = b * &ndash; c + b * &ndash; c&nbsp;</p>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/ty-4.png" width="271" height="156" />&nbsp;</p>
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/ty-4.png" width="271" height="156" /></figure>&nbsp;</p>
         <p dir="ltr"><strong>Question &ndash;</strong>&nbsp;Write quadruple, triples and indirect triples for following expression : (x + y) * (y + z) + (x + y + z)</p>
         <p dir="ltr"><strong>Explanation &ndash;</strong>&nbsp;The three address code is:</p>
         <pre>(1) t1 = x + y<br />(2) t2 = y + z<br />(3) t3 = t1 * t2<br />(4) t4 = t1 + z<br />(5) t5 = t3 + t4</pre>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/ty-1-1.png" width="296" height="158" />&nbsp;&nbsp;</p>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/ty-2-1.png" width="266" height="178" />&nbsp;&nbsp;</p>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/ty-5.png" width="350" height="184" /></p>
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/ty-1-1.png" width="296" height="158" /></figure>&nbsp;&nbsp;</p>
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/ty-2-1.png" width="266" height="178" /></figure>&nbsp;&nbsp;</p>
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/ty-5.png" width="350" height="184" /></figure></p>
         </div>
 
 </body>

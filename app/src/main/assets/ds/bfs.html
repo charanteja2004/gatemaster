@@ -6,7 +6,7 @@
     <title>Breadth-First Search</title>
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
 <h1>Breadth-First Search (BFS)</h1>
 
 <p>BFS explores a graph <strong>level by level</strong>: it visits every vertex at distance 1 from
@@ -39,11 +39,11 @@ dequeue instead lets the same vertex enter the queue several times, which is a c
 wrong answers.</p>
 
 <h2>Complexity</h2>
-<table>
+<div class="gm-table"><table>
   <tr><th>Representation</th><th>Time</th><th>Space</th></tr>
   <tr><td>Adjacency list</td><td>&Theta;(V + E)</td><td>&Theta;(V)</td></tr>
   <tr><td>Adjacency matrix</td><td>&Theta;(V<sup>2</sup>)</td><td>&Theta;(V)</td></tr>
-</table>
+</table></div>
 
 <p>With an adjacency list every vertex is enqueued and dequeued once (&Theta;(V)) and every edge is
 examined once in a directed graph, twice in an undirected one (&Theta;(E)). With a matrix, finding
@@ -77,13 +77,13 @@ differ by at most 1. There are no forward or back edges &mdash; a frequent one-m
 </ul>
 
 <h2>BFS against DFS</h2>
-<table>
+<div class="gm-table"><table>
   <tr><th></th><th>BFS</th><th>DFS</th></tr>
   <tr><td>Data structure</td><td>Queue</td><td>Stack / recursion</td></tr>
   <tr><td>Shortest path (unweighted)</td><td>Yes</td><td>No</td></tr>
   <tr><td>Worst-case space</td><td>O(V) &mdash; widest level</td><td>O(V) &mdash; deepest path</td></tr>
   <tr><td>Typical use</td><td>Distance, bipartite check</td><td>Cycles, topological sort, SCC</td></tr>
-</table>
+</table></div>
 
 <p>Both run in &Theta;(V + E) on an adjacency list. They differ in the <em>order</em> of visits, not
 in asymptotic cost. See <a href="dfs.html">Depth-First Search</a> and

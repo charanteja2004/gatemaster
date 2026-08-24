@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <h2><b>I/O Interface </b></h2>
 
 <p>The method that is used to transfer information between internal storage and external I/O devices is known as I/O interface. The CPU is interfaced using special communication links by the peripherals connected to any computer system. These communication links are used to resolve the differences between CPU and peripheral. There exists special hardware components between CPU and peripherals to supervise and synchronize all the input and output transfers that are called interface units.</p>
@@ -92,15 +92,15 @@
 <p>In first case it is simple because both have different set of address space and instruction but require more buses.</p>
 <div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
 <h4>Isolated I/O &ndash;</h4>
-<p>Then we have Isolated I/O in which we Have common bus(data and address) for I/O and memory but separate read and write control lines for I/O. So when CPU decode instruction then if data is for I/O then it places the address on the address line and set I/O read or write control line on due to which data transfer occurs between CPU and I/O. As the address space of memory and I/O is isolated and the name is so. The address for I/O here is called ports. Here we have different read-write instruction for both I/O and memory.<img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-drawing-1-3-1.png" width="350 " height="350"/></p>
+<p>Then we have Isolated I/O in which we Have common bus(data and address) for I/O and memory but separate read and write control lines for I/O. So when CPU decode instruction then if data is for I/O then it places the address on the address line and set I/O read or write control line on due to which data transfer occurs between CPU and I/O. As the address space of memory and I/O is isolated and the name is so. The address for I/O here is called ports. Here we have different read-write instruction for both I/O and memory.<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-drawing-1-3-1.png" width="350 " height="350"/></figure></p>
 
 
 <h4>Memory Mapped I/O &ndash;</h4>
-<p>In this case every bus in common due to which the same set of instructions work for memory and I/O. Hence we manipulate I/O same as memory and both have same address space, due to which addressing capability of memory become less because some part is occupied by the I/O.<img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-drawing-2-1.png" width="350 " height="350" /><strong>Differences between memory mapped I/O and isolated I/O &ndash;</strong></p>
+<p>In this case every bus in common due to which the same set of instructions work for memory and I/O. Hence we manipulate I/O same as memory and both have same address space, due to which addressing capability of memory become less because some part is occupied by the I/O.<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-drawing-2-1.png" width="350 " height="350" /></figure><strong>Differences between memory mapped I/O and isolated I/O &ndash;</strong></p>
 
 <div align="center">
 <figure class="table">
-<table border="1">
+<div class="gm-table"><table border="1">
 <thead>
 <tr>
 <th>Isolated I/O</th>
@@ -137,7 +137,7 @@
 <td>Simpler logic is used as I/O is also treated as memory only.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </figure>
 </div>
 <h3>Advantages of Memory-Mapped I/O:</h3>

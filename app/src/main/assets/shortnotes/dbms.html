@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
 
-<body>
+<body data-gm-enriched="1">
     <div class="text">
         <p dir="ltr" style="text-align: justify;"><span>Database Management System is an organized collection of
                 interrelated data that helps in accessing data quickly, along with efficient insertion, and deletion of
@@ -91,7 +91,7 @@
                 number of tables required for a given ER diagram. Generally, the following criteria are used: </span>
         </p>
 
-        <table>
+        <div class="gm-table"><table>
             <thead>
                 <tr>
                     <th><b><strong>Cardinality</strong></b></th>
@@ -116,7 +116,7 @@
                     <td><span>3</span></td>
                 </tr>
             </tbody>
-        </table>
+        </table></div>
         <ul>
             <li value="1"><span>If the relation is one-to-many or many-to-one then two or more relational tables can be
                     combined.</span></li>
@@ -126,9 +126,9 @@
             <li value="4"><span>If there is total participation of both entities then one table can be obtained by
                     combining one table and both entities of the relation. </span></li>
         </ul>
-        <p dir="ltr" style="text-align: justify;"><b><strong>Note:</strong></b><span> This is a general observation.
+        <div class="gm-callout gm-note" data-label="Note"><p dir="ltr" style="text-align: justify;"><b><strong>Note:</strong></b><span> This is a general observation.
                 Special cases need to be taken care of. We may need an extra table if the attribute of a relationship
-                can&#8217;t be moved to any entity side. </span></p>
+                can&#8217;t be moved to any entity side. </span></p></div>
         <div id="GFG_AD_Desktop_InContent_ATF_336x280" style="text-align:center;max-height: 280px;"></div>
         <div id="GFG_AD_gfg_mobile_336x280_1" style="margin: 5px 0;"></div>
 
@@ -207,9 +207,9 @@
                 statement that is always considered true and used as a starting point for further arguments. Armstrong
                 axiom is used to generate a closure set in a relational database. </span></p>
 
-        <div style="width: 810px" class="wp-caption alignnone"><img alt="Armstrong Axiom" height="inherit"
+        <div style="width: 810px" class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img alt="Armstrong Axiom" height="inherit"
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20220728154854/Armstrongaxiomdrawio-660x211.png"
-                width="660" />
+                width="660" /><figcaption>Armstrong Axiom</figcaption></figure>
             <p class="wp-caption-text">Armstrong Axiom</p>
         </div>
         <p dir="ltr" style="text-align: justify;"><a
@@ -223,8 +223,8 @@
             <li value="2"><b><strong>Non-prime Attribute: </strong></b><span>An attribute that is not a part of any
                     candidate key. </span></li>
         </ul>
-        <p dir="ltr" style="text-align: justify;"><b><strong>Example:</strong></b><span> If the relation R(ABCD)
-                {A-&gt;B, B-&gt;C, C-&gt;D}, then the attribute closure of </span></p>
+        <div class="gm-callout gm-example" data-label="Example"><p dir="ltr" style="text-align: justify;"><b><strong>Example:</strong></b><span> If the relation R(ABCD)
+                {A-&gt;B, B-&gt;C, C-&gt;D}, then the attribute closure of </span></p></div>
 
         <p dir="ltr" style="text-align: justify;"><span>A will be (A</span><sup><span>+</span></sup><span>)={ABCD} [A
                 can determine B, B can determine C, C can determine D]</span><br /><span>B will be
@@ -233,14 +233,14 @@
             </span><br /><span>D will be (D</span><sup><span>+</span></sup><span>)={D} [D can determine itself] </span>
         </p>
 
-        <p dir="ltr" style="text-align: justify;"><span>Note: With the help of Attribute closure, we can easily
+        <div class="gm-callout gm-note" data-label="Note"><p dir="ltr" style="text-align: justify;"><span>Note: With the help of Attribute closure, we can easily
                 determine the Superkey [</span><i><em class="GFGEditorTheme__textItalic">The set of attributes whose
                     closure contains all attributes of a relation</em></i><span>] of a relation, So in the above example
                 A is the superkey of the given relation. There can be more than one superkey in a relationship. </span>
-        </p>
+        </p></div>
 
-        <p dir="ltr" style="text-align: justify;"><b><strong>Example: </strong></b><span>If the relation R(ABCDE)
-                {A-&gt;BC, CD-&gt;E, B-&gt;D, E-&gt;A}, then the attribute closure will be</span></p>
+        <div class="gm-callout gm-example" data-label="Example"><p dir="ltr" style="text-align: justify;"><b><strong>Example: </strong></b><span>If the relation R(ABCDE)
+                {A-&gt;BC, CD-&gt;E, B-&gt;D, E-&gt;A}, then the attribute closure will be</span></p></div>
 
         <p dir="ltr" style="text-align: justify;"><span>A</span><sup><span>+</span></sup><span>=
                 {ABCDE}</span><br /><span>B</span><sup><span>+</span></sup><span>=
@@ -300,8 +300,8 @@
                     Suppose X is any candidate key, Y is a proper subset of candidate key, and A is a Non-prime
                     attribute.</span><br /><span> </span></li>
         </ul>
-        <div style="width: 810px" class="wp-caption alignnone"><img height="inherit" loading="lazy"
-                src="https://media.geeksforgeeks.org/wp-content/uploads/20220728165842/partial.jfif" width="267" />
+        <div style="width: 810px" class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img height="inherit" loading="lazy"
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20220728165842/partial.jfif" width="267" /></figure>
             <p class="wp-caption-text">Partial Dependency</p>
         </div>
         <p dir="ltr" style="text-align: justify;"><span> Y-&gt;A will be partial dependency iff, Y is a proper subset of
@@ -322,7 +322,7 @@
                 the LHS of every FD is super key. The relationship between Normal Forms can be represented as
             </span><b><strong>1NF, 2NF, 3NF or BCNF.</strong></b></p>
 
-        <table>
+        <div class="gm-table"><table>
             <thead>
                 <tr>
                     <th><span>Design Goal</span></th>
@@ -355,7 +355,7 @@
                     <td><span>Sometimes Not possible</span></td>
                 </tr>
             </tbody>
-        </table>
+        </table></div>
         <p dir="ltr" style="text-align: justify;"><b><strong>Properties of Decomposition:</strong></b></p>
         <div style="text-align:center;margin:20px 0;max-height:280px" id="GFG_AD_gfg_outstream_incontent-2"></div>
 
@@ -395,17 +395,17 @@
         <p dir="ltr" style="text-align: justify;"><b><strong>Query Language:</strong></b><span> Language using which any
                 user can retrieve some data from the database. </span></p>
 
-        <img height="inherit" loading="lazy"
-            src="https://media.geeksforgeeks.org/wp-content/uploads/20220728173513/sql.jpg" width="531" />
-        <p dir="ltr" style="text-align: justify;"><b><strong>Note: </strong></b><span>Relational model is a theoretical
-                framework RDBMS is its implementation. </span></p>
+        <figure class="gm-figure gm-remote"><img height="inherit" loading="lazy"
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20220728173513/sql.jpg" width="531" /></figure>
+        <div class="gm-callout gm-note" data-label="Note"><p dir="ltr" style="text-align: justify;"><b><strong>Note: </strong></b><span>Relational model is a theoretical
+                framework RDBMS is its implementation. </span></p></div>
 
         <p dir="ltr" style="text-align: justify;"><a
                 href="https://www.geeksforgeeks.org/database-management-system-relational-algebra/"><b><strong>Relational
                         Algebra</strong></b></a><span>: Procedural language with basic and extended operators. </span>
         </p>
 
-        <table>
+        <div class="gm-table"><table>
             <thead>
                 <tr>
                     <th><b><strong>Basic Operator</strong></b></th>
@@ -443,8 +443,8 @@
                     <td><span>Renaming a relation to another relation.</span></td>
                 </tr>
             </tbody>
-        </table>
-        <table>
+        </table></div>
+        <div class="gm-table"><table>
             <thead>
                 <tr>
                     <th><b><strong>Extended Operator</strong></b></th>
@@ -501,7 +501,7 @@
                             Attribute of B.</span></td>
                 </tr>
             </tbody>
-        </table>
+        </table></div>
         <p dir="ltr" style="text-align: justify;"><b><strong>Relational Calculus: </strong></b><span>Relational calculus
                 is a non-procedural query language. It explains what to do but not how to do it. It is of two
                 types:</span></p>
@@ -545,7 +545,7 @@
                 href="https://www.geeksforgeeks.org/sql-ddl-dql-dml-dcl-tcl-commands/"><b><strong>SQL
                         Commands:</strong></b></a></p>
 
-        <table>
+        <div class="gm-table"><table>
             <thead>
                 <tr>
                     <th><b><strong>Operator</strong></b></th>
@@ -637,7 +637,7 @@
                             functions. </span></td>
                 </tr>
             </tbody>
-        </table>
+        </table></div>
         <h2><span>File Structure</span></h2>
         <p dir="ltr" style="text-align: justify;"><a
                 href="https://www.geeksforgeeks.org/file-organization-in-dbms-set-1/"><b><strong>File
@@ -921,8 +921,8 @@
             <li value="4"><b><strong>Strict Recoverable Schedule:</strong></b><span> If there is no read or write in the
                     schedule before the commit, then such schedule are known as a Strict recoverable schedule. </span>
             </li>
-        </ul><img height="inherit" loading="lazy"
-            src="https://media.geeksforgeeks.org/wp-content/uploads/20220729163900/serializability.jpg" width="642" />
+        </ul><figure class="gm-figure gm-remote"><img height="inherit" loading="lazy"
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20220729163900/serializability.jpg" width="642" /></figure>
         <p dir="ltr" style="text-align: justify;"><b><strong>Concurrency Control with Locks: </strong></b></p>
 
         <p dir="ltr" style="text-align: justify;"><span>To achieve consistency, isolation is the most important concept.

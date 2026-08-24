@@ -60,6 +60,10 @@ DROP_IMAGE_PATTERNS = [
 # "/#some-section" anchors left over from the source site's in-page navigation.
 STRAY_ANCHOR = re.compile(r'<a[^>]+href\s*=\s*["\']/#[^"\']*["\'][^>]*>(.*?)</a>', re.S | re.I)
 
+# Empty paragraphs and stacked line breaks leave big dead gaps mid-article.
+EMPTY_PARA = re.compile(r"<p[^>]*>(?:\s|&nbsp;|<br\s*/?>)*</p>", re.I)
+BR_RUN = re.compile(r"(?:\s*<br\s*/?>\s*){3,}", re.I)
+
 # Titles for the articles that carry no heading of their own.
 MISSING_HEADINGS = {
     "aptitude/2d.html": "Data Interpretation",
@@ -140,6 +144,14 @@ def main(argv: list[str]) -> int:
             new, n = STRAY_ANCHOR.subn(r"\1", new)
             if n:
                 note(rel, "unwrapped %d stray /#anchor link(s)" % n)
+
+            new, n = EMPTY_PARA.subn("", new)
+            if n:
+                note(rel, "removed %d empty paragraph(s)" % n)
+
+            new, n = BR_RUN.subn("<br><br>", new)
+            if n:
+                note(rel, "collapsed %d run(s) of line breaks" % n)
 
             if new != src and not check_only:
                 write_text(path, new)

@@ -24,21 +24,21 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <h2><b>Locality of Reference and Cache Operation in Cache Memory</b></h2>
 
 Locality of reference refers to a phenomenon in which a computer program tends to access same set of memory locations for a particular time period. In other words, Locality of Reference refers to the tendency of the computer program to access instructions whose addresses are near one another. The property of locality of reference is mainly shown by loops and subroutine calls in a program.<br><br>
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-Diagram-14.jpg" width="350" height="300"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-Diagram-14.jpg" width="350" height="300"></figure><br><br>
 
 1.In case of loops in program control processing unit repeatedly refers to the set of instructions that constitute the loop.<br>
 2.In case of subroutine calls, everytime the set of instructions are fetched from memory.<br>
 3.References to data items also get localized that means same data item is referenced again and again.<br><br>
 
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-Diagram1-2.jpg" width="350" height="200"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-Diagram1-2.jpg" width="350" height="200"></figure><br><br>
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-Diagram2-3.jpg" width="350" height="300"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-Diagram2-3.jpg" width="350" height="300"></figure><br><br>
 
 
 In the above figure, you can see that the CPU wants to read or fetch the data or instruction. First, it will access the cache memory as it is near to it and provides very fast access. If the required data or instruction is found, it will be fetched. This situation is known as a cache hit. But if the required data or instruction is not found in the cache memory then this situation is known as a cache miss. Now the main memory will be searched for the required data or instruction that was being searched and if found will go through one of the two ways:<br><br>
@@ -51,14 +51,14 @@ In the above figure, you can see that the CPU wants to read or fetch the data or
 
 <b>1.Temporal Locality –</b> Temporal locality means current data or instruction that is being fetched may be needed soon. So we should store that data or instruction in the cache memory so that we can avoid again searching in main memory for the same data.<br><br>
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-Diagram3.jpg" width="350" height="300"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-Diagram3.jpg" width="350" height="300"></figure><br><br>
 
 
 When CPU accesses the current main memory location for reading required data or instruction, it also gets stored in the cache memory which is based on the fact that same data or instruction may be needed in near future. This is known as temporal locality. If some data is referenced, then there is a high probability that it will be referenced again in the near future.<br><br>
 
 <b>2.Spatial Locality –</b> Spatial locality means instruction or data near to the current memory location that is being fetched, may be needed soon in the near future. This is slightly different from the temporal locality. Here we are talking about nearly located memory locations while in temporal locality we were talking about the actual memory location that was being fetched.<br><br>
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-Diagram4.jpg" width=350" height="300"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-Diagram4.jpg" width=350" height="300"></figure><br><br>
 
 
 <b>Cache Performance:</b> The performance of the cache is measured in terms of hit ratio. When CPU refers to memory and find the data or instruction within the Cache Memory, it is known as cache hit. If the desired data or instruction is not found in the cache memory and CPU refers to the main memory to find that data or instruction, it is known as a cache miss.<br><br>
@@ -89,7 +89,7 @@ Cache Memory is a special very high-speed memory. The cache is a smaller and fas
 <li>Cache memory is costlier than main memory or disk memory but more economical than CPU registers.</li>
 <li>Cache Memory is used to speed up and synchronize with a high-speed CPU.</li><br><br>
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/cache.png" width="350" height="200"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/cache.png" width="350" height="200"></figure><br><br>
 
 
 <h4><b>Levels of Memory</b></h4>
@@ -134,26 +134,26 @@ j = main memory block number<br>
         m = number of lines in the cache<br><br></div>
 
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/20190305171558/1232.png" width="350" height="200"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190305171558/1232.png" width="350" height="200"></figure><br><br>
 
 
 For purposes of cache access, each main memory address can be viewed as consisting of three fields. The least significant w bits identify a unique word or byte within a block of main memory. In most contemporary machines, the address is at the byte level. The remaining s bits specify one of the 2s blocks of main memory. The cache logic interprets these s bits as a tag of s-r bits (the most significant portion) and a line field of r bits. This latter field identifies one of the m=2r lines of the cache. Line offset is index bits in the direct mapping.<br><br>
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/cache1.png" width="350" height="300"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/cache1.png" width="350" height="300"></figure><br><br>
 
 
 <h4><b>2. Associative Mapping</b></h4>
 
 In this type of mapping, associative memory is used to store the content and addresses of the memory word. Any block can go into any line of the cache. This means that the word id bits are used to identify which word in the block is needed, but the tag becomes all of the remaining bits. This enables the placement of any word at any place in the cache memory. It is considered to be the fastest and most flexible mapping form. In associative mapping, the index bits are zero.<br><br>
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/cache2.png" wwidth="300" height="300"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/cache2.png" wwidth="300" height="300"></figure><br><br>
 
 
 <h4><b>3. Set-Associative Mapping</b></h4>
 
 This form of mapping is an enhanced form of direct mapping where the drawbacks of direct mapping are removed. Set associative addresses the problem of possible thrashing in the direct mapping method. It does this by saying that instead of having exactly one line that a block can map to in the cache, we will group a few lines together creating a set. Then a block in memory can map to any one of the lines of a specific<b> set.</b> Set-associative mapping allows each word that is present in the cache can have two or more words in the main memory for the same index address. Set associative cache mapping combines the best of direct and associative cache mapping techniques. In set associative mapping the index bits are given by the set offset bits. In this case, the cache consists of a number of sets, each of which consists of a number of lines. <br><br>
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/20190305171821/setassociative.png" width="350" height="200"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190305171821/setassociative.png" width="350" height="200"></figure><br><br>
 
 
 Relationships in the Set-Associative Mapping can be defined as:<br><br>
@@ -168,7 +168,7 @@ v = number of sets<br>
 m = number of lines in the cache number of sets<br> 
 k = number of lines in each set<br><br>
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/cache4.png" width="300" height="350"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/cache4.png" width="300" height="350"></figure><br><br>
 
 
 <h2><b>Block Replacement methods</b></h2>
@@ -203,6 +203,6 @@ Put (key=1, value=A) into the cache<br><br>
 
 The above operations are performed one after another as shown in the image below:<br><br>
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/20230817150709/Working-of-LRU-Cache-(1).png" width="350" height="350"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230817150709/Working-of-LRU-Cache-(1).png" width="350" height="350"></figure><br><br>
 </body>
 </html>

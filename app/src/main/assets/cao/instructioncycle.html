@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <h2><b> Different Instruction Cycles</b></h2>
 
 <p>Registers Involved In Each Instruction Cycle:&nbsp;<br />&nbsp;</p>
@@ -52,40 +52,40 @@
 <p>Each phase of Instruction Cycle can be decomposed into a sequence of elementary micro-operations. In the above examples, there is one sequence each for the&nbsp;<em>Fetch, Indirect, Execute and Interrupt Cycles</em>.&nbsp;<br />&nbsp;</p>
 <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
 <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-29-00-57-59.png" alt="" /></p>
+<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-29-00-57-59.png" alt="" /></figure></p>
 <p>The&nbsp;<em>Indirect Cycle</em>&nbsp;is always followed by the&nbsp;<em>Execute Cycle</em>. The&nbsp;<em>Interrupt Cycle</em>&nbsp;is always followed by the&nbsp;<em>Fetch Cycle</em>. For both fetch and execute cycles, the next cycle depends on the state of the system.&nbsp;</p>
-<p>&nbsp;</p>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-29-09-49-05.png" alt="" /></p>
+
+<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-29-09-49-05.png" alt="" /></figure></p>
 <p>We assumed a new 2-bit register called&nbsp;<em>Instruction Cycle Code&nbsp;</em>(ICC). The ICC designates the state of processor in terms of which portion of the cycle it is in:-&nbsp;</p>
 <p>00 : Fetch Cycle&nbsp;<br />01 : Indirect Cycle&nbsp;<br />10 : Execute Cycle&nbsp;<br />11 : Interrupt Cycle&nbsp;</p>
 
 <p>At the end of the each cycles, the ICC is set appropriately. The above flowchart of&nbsp;<em>Instruction Cycle</em>&nbsp;describes the complete sequence of micro-operations, depending only on the instruction sequence and the interrupt pattern(this is a simplified example). The operation of the processor is described as the performance of a sequence of micro-operation.&nbsp;</p>
 <p>Different Instruction Cycles:&nbsp;</p>
-<p>&nbsp;</p>
+
 <ul>
 <li><strong>The Fetch Cycle &ndash;</strong>&nbsp;<br />At the beginning of the fetch cycle, the address of the next instruction to be executed is in the&nbsp;<em>Program Counter</em>(PC).&nbsp;</li>
 </ul>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-27-23-37-15.png" alt="" /></p>
+<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-27-23-37-15.png" alt="" /></figure></p>
 <ul>
 <li>Step 1: The address in the program counter is moved to the memory address register(MAR), as this is the only register which is connected to address lines of the system bus.&nbsp;</li>
 </ul>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-27-23-45-16.png" alt="" /></p>
+<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-27-23-45-16.png" alt="" /></figure></p>
 <ul>
 <li>Step 2: The address in MAR is placed on the address bus, now the control unit issues a READ command on the control bus, and the result appears on the data bus and is then copied into the memory buffer register(MBR). Program counter is incremented by one, to get ready for the next instruction. (These two action can be performed simultaneously to save time)&nbsp;
-<p>&nbsp;</p>
+
 </li>
 </ul>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-27-23-49-10.png" alt="" /></p>
+<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-27-23-49-10.png" alt="" /></figure></p>
 <ul>
 <li>Step 3: The content of the MBR is moved to the instruction register(IR).&nbsp;
-<p>&nbsp;</p>
+
 </li>
 </ul>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-27-23-58-06.png" alt="" /></p>
+<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-27-23-58-06.png" alt="" /></figure></p>
 <ul>
 <li>Thus, a simple&nbsp;<em>Fetch Cycle&nbsp;</em>consist of three steps and four micro-operation. Symbolically, we can write these sequence of events as follows:-&nbsp;</li>
 </ul>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-28-00-16-10-2.png" alt="" /></p>
+<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-28-00-16-10-2.png" alt="" /></figure></p>
 <ul>
 <li>Here &lsquo;I&rsquo; is the instruction length. The notations (t1, t2, t3) represents successive time units. We assume that a clock is available for timing purposes and it emits regularly spaced clock pulses. Each clock pulse defines a time unit. Thus, all time units are of equal duration. Each micro-operation can be performed within the time of a single time unit.&nbsp;<br />First time unit: Move the contents of the PC to MAR.&nbsp;<br />Second time unit: Move contents of memory location specified by MAR to MBR. Increment content of PC by I.&nbsp;<br />Third time unit: Move contents of MBR to IR.&nbsp;<br /><strong>Note:</strong>&nbsp;Second and third micro-operations both take place during the second time unit.&nbsp;</li>
 </ul>
@@ -96,52 +96,52 @@
 <ul>
 <li><strong>The Indirect Cycles &ndash;</strong>&nbsp;
 <p>Once an instruction is fetched, the next step is to fetch source operands.&nbsp;<em>Source Operand</em>&nbsp;is being fetched by indirect addressing( it can be fetched by any&nbsp;<a href="https://www.geeksforgeeks.org/addressing-modes/">addressing mode</a>, here its done by indirect addressing). Register-based operands need not be fetched. Once the opcode is executed, a similar process may be needed to store the result in main memory. Following&nbsp;<em>micro-operations</em>&nbsp;takes place:-&nbsp;</p>
-<p>&nbsp;</p>
+
 </li>
 </ul>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-28-23-10-36.png" alt="" /></p>
+<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-28-23-10-36.png" alt="" /></figure></p>
 <div id="GFG_AD_gfg_outstream_incontent-1">&nbsp;</div>
 <ul>
 <li>Step 1: The address field of the instruction is transferred to the MAR. This is used to fetch the address of the operand.&nbsp;<br />Step 2: The address field of the IR is updated from the MBR.(So that it now contains a direct addressing rather than indirect addressing)&nbsp;<br />Step 3: The IR is now in the state, as if indirect addressing has not been occurred.&nbsp;
-<p><strong>Note:</strong>&nbsp;Now IR is ready for the execute cycle, but it skips that cycle for a moment to consider the&nbsp;<em>Interrupt Cycle&nbsp;</em>.&nbsp;</p>
-<p>&nbsp;</p>
+<div class="gm-callout gm-note" data-label="Note"><p><strong>Note:</strong>&nbsp;Now IR is ready for the execute cycle, but it skips that cycle for a moment to consider the&nbsp;<em>Interrupt Cycle&nbsp;</em>.&nbsp;</p></div>
+
 </li>
 <li><strong>The Execute Cycle</strong>&nbsp;
 <p>The other three cycles(<em>Fetch, Indirect and Interrupt</em>) are simple and predictable. Each of them requires simple, small and fixed sequence of micro-operation. In each case same micro-operation are repeated each time around.&nbsp;<br />Execute Cycle is different from them. Like, for a machine with N different opcodes there are N different sequence of micro-operations that can occur.&nbsp;<br />Lets take an hypothetical example :-&nbsp;<br />consider an add instruction:&nbsp;</p>
-<p>&nbsp;</p>
+
 </li>
 </ul>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-28-22-50-12.png" alt="" /></p>
+<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-28-22-50-12.png" alt="" /></figure></p>
 <ul>
 <li>Here, this instruction adds the content of location X to register R. Corresponding micro-operation will be:-&nbsp;</li>
 </ul>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-28-23-07-52.png" alt="" /></p>
+<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-28-23-07-52.png" alt="" /></figure></p>
 <ul>
 <li>We begin with the IR containing the ADD instruction.&nbsp;<br />Step 1: The address portion of IR is loaded into the MAR.&nbsp;<br />Step 2: The address field of the IR is updated from the MBR, so the reference memory location is read.&nbsp;<br />Step 3: Now, the contents of R and MBR are added by the ALU.&nbsp;
 <p>Lets take a complex example :-&nbsp;</p>
-<p>&nbsp;</p>
+
 </li>
 </ul>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-28-23-15-27.png" alt="" /></p>
+<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-28-23-15-27.png" alt="" /></figure></p>
 <ul>
 <li>Here, the content of location X is incremented by 1. If the result is 0, the next instruction will be skipped. Corresponding sequence of micro-operation will be :-&nbsp;
-<p>&nbsp;</p>
+
 </li>
 </ul>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-28-23-22-31.png" alt="" /></p>
+<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-28-23-22-31.png" alt="" /></figure></p>
 <ul>
 <li>Here, the PC is incremented if (MBR) = 0. This test (is MBR equal to zero or not) and action (PC is incremented by 1) can be implemented as one micro-operation.&nbsp;<br /><strong>Note</strong>&nbsp;: This test and action micro-operation can be performed during the same time unit during which the updated value MBR is stored back to memory.&nbsp;
-<p>&nbsp;</p>
+
 </li>
 <li><strong>The Interrupt Cycle</strong>:&nbsp;<br />At the completion of the Execute Cycle, a test is made to determine whether any enabled interrupt has occurred or not. If an enabled interrupt has occurred then Interrupt Cycle occurs. The nature of this cycle varies greatly from one machine to another.&nbsp;<br />Lets take a sequence of micro-operation:-</li>
 </ul>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-29-00-07-19.png" alt="" /></p>
+<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-29-00-07-19.png" alt="" /></figure></p>
 
 
 
 <ul>
 <li>Step 1: Contents of the PC is transferred to the MBR, so that they can be saved for return.&nbsp;<br />Step 2: MAR is loaded with the address at which the contents of the PC are to be saved.&nbsp;<br />PC is loaded with the address of the start of the interrupt-processing routine.&nbsp;<br />Step 3: MBR, containing the old value of PC, is stored in memory.&nbsp;
-<p><strong>Note:</strong>&nbsp;In step 2, two actions are implemented as one micro-operation. However, most processor provide multiple types of interrupts, it may take one or more micro-operation to obtain the save_address and the routine_address before they are transferred to the MAR and PC respectively.&nbsp;</p>
+<div class="gm-callout gm-note" data-label="Note"><p><strong>Note:</strong>&nbsp;In step 2, two actions are implemented as one micro-operation. However, most processor provide multiple types of interrupts, it may take one or more micro-operation to obtain the save_address and the routine_address before they are transferred to the MAR and PC respectively.&nbsp;</p></div>
 </li>
 </ul>
 <p><strong>Uses of Different Instruction Cycles :</strong></p>

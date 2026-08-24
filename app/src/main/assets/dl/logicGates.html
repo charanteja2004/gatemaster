@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
 
-<body>
+<body data-gm-enriched="1">
     <div class="main_wrapper">
         <div>
             <div class="article-title">
@@ -103,7 +103,7 @@
                 <li value="2">XNOR Gate</li>
             </ol>
             <p dir="ltr">Let us now discuss each of these types of logic gates in detail one-by-one.</p>
-            <p dir="ltr">&nbsp;</p>
+            
             <div class="article-title">
                 <h2 id="and-gate"><strong>AND Gate</strong></h2>
                 <p dir="ltr">In digital electronics, the AND gate is one of the basic logic gate that performs the
@@ -120,11 +120,11 @@
                     Boolean expression of the AND gate.</p>
                 <p dir="ltr">For two-input AND gate, the Boolean expression is given by,</p>
                 <blockquote>
-                    <p dir="ltr"><span class="katex"><span class="katex-mathml">𝑍=𝐴.𝐵</span><span class="katex-html"
+                    <div class="gm-formula"><p dir="ltr"><span class="katex"><span class="katex-mathml">𝑍=𝐴.𝐵</span><span class="katex-html"
                                 aria-hidden="true"><span class="base"><span class="mord mathnormal">Z</span><span
                                         class="mrel">=</span></span><span class="base"><span
                                         class="mord mathnormal">A</span><span class="mord">.</span><span
-                                        class="mord mathnormal">B</span></span></span></span></p>
+                                        class="mord mathnormal">B</span></span></span></span></p></div>
                 </blockquote>
                 <p dir="ltr">Where, A and B are inputs to the AND gate, while Z denotes the output of the AND gate.</p>
                 <p dir="ltr">We can extend this expression to any number of input variables, such as,</p>
@@ -140,7 +140,7 @@
                 </blockquote>
                 <h3>Truth Table of AND Gate:</h3>
                 <p dir="ltr">The&nbsp;truth table&nbsp;of a two input AND gate is given below:</p>
-                <table>
+                <div class="gm-table"><table>
                     <thead>
                         <tr>
                             <th colspan="2">
@@ -208,12 +208,12 @@
                             </td>
                         </tr>
                     </tbody>
-                </table>
+                </table></div>
                 <h3>Symbol of AND Gate:</h3>
                 <p dir="ltr">The logic symbol of a two input AND gate is shown in the following figure.</p>
-                <div class="wp-caption alignnone"><img
+                <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                         src="https://media.geeksforgeeks.org/wp-content/uploads/20211105170309/SymbolofANDgate.jpg"
-                        alt="AND Gate Symbol" width="inherit" height="inherit" />
+                        alt="AND Gate Symbol" width="inherit" height="inherit" /><figcaption>AND Gate Symbol</figcaption></figure>
                     <p class="wp-caption-text">Symbol of Two-Input AND Gate</p>
                 </div>
                 <h2 id="or-gate"><strong>OR Gate</strong></h2>
@@ -233,18 +233,18 @@
                     expression called Boolean expression of the OR gate.</p>
                 <p dir="ltr">The boolean expression for a two input OR gate is given by,</p>
                 <blockquote>
-                    <p dir="ltr">Z = A + B</p>
+                    <div class="gm-formula"><p dir="ltr">Z = A + B</p></div>
                 </blockquote>
                 <p dir="ltr">The boolean expression for a three-input OR gate is,</p>
                 <blockquote>
-                    <p dir="ltr">Z = A + B + C</p>
+                    <div class="gm-formula"><p dir="ltr">Z = A + B + C</p></div>
                 </blockquote>
                 <p dir="ltr">Here, A, B, and C are inputs and Z is the output variables. We can extend this boolean
                     expression to any number of input variables.</p>
                 <h3>Truth Table of OR Gate:</h3>
                 <p dir="ltr">The truth table of an OR gate describes the relationship between inputs and output. The
                     following is the truth table for the two-input OR gate:</p>
-                <table>
+                <div class="gm-table"><table>
                     <thead>
                         <tr>
                             <th colspan="2">
@@ -312,12 +312,12 @@
                             </td>
                         </tr>
                     </tbody>
-                </table>
+                </table></div>
                 <h3><strong>Symbol of OR Gate:</strong></h3>
                 <p dir="ltr">The logic symbol of a two-input OR gate is shown in the following figure.</p>
-                <div class="wp-caption alignnone"><img
+                <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                         src="https://media.geeksforgeeks.org/wp-content/uploads/20211107115351/SymbolofORgate.jpg"
-                        alt="OR Gate" width="inherit" height="inherit" /></div>
+                        alt="OR Gate" width="inherit" height="inherit" /><figcaption>OR Gate</figcaption></figure></div>
             </div>
             <div class="article-title">
                 <h2 id="not-gate"><strong>NOT Gate</strong></h2>
@@ -347,7 +347,7 @@
                 <h3>Truth Table of OR Gate:</h3>
                 <p dir="ltr">The truth table describes the relationship between input and output. The following is the
                     truth table for the NOT gate:</p>
-                <table>
+                <div class="gm-table"><table>
                     <thead>
                         <tr>
                             <th>
@@ -384,13 +384,13 @@
                             </td>
                         </tr>
                     </tbody>
-                </table>
+                </table></div>
                 <h3>Symbol of NOT Gate</h3>
                 <p dir="ltr">The logic circuit symbol of a NOT gate is shown in the following figure. Here, A is the
                     input line and Z is the output line.</p>
-                <div class="wp-caption alignnone"><img
+                <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                         src="https://media.geeksforgeeks.org/wp-content/uploads/20211107120202/SymbolofNOTgate.jpg"
-                        alt="Logic gates" width="inherit" height="inherit" />
+                        alt="Logic gates" width="inherit" height="inherit" /><figcaption>Logic gates</figcaption></figure>
                     <p class="wp-caption-text">Symbol of NOT the Gate</p>
                 </div>
                 <h2 id="nor-gate"><strong>NOR Gate</strong></h2>
@@ -429,7 +429,7 @@
                 <h3>Truth Table of NOR Gate:</h3>
                 <p dir="ltr">The following is the truth table of a two-input NOR gate showing the relationship between
                     its inputs and output:</p>
-                <table>
+                <div class="gm-table"><table>
                     <thead>
                         <tr>
                             <th colspan="2">
@@ -497,10 +497,10 @@
                             </td>
                         </tr>
                     </tbody>
-                </table>
-                <div class="wp-caption alignnone"><img
+                </table></div>
+                <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                         src="https://media.geeksforgeeks.org/wp-content/uploads/20211107121157/sybmolofNORgate.jpg"
-                        alt="NOR Gate Symbol" width="inherit" height="inherit" /></div>
+                        alt="NOR Gate Symbol" width="inherit" height="inherit" /><figcaption>NOR Gate Symbol</figcaption></figure></div>
             </div>
             <div class="article-title">
                 <h2 id="nand-gate"><strong>NAND Gate</strong></h2>
@@ -537,7 +537,7 @@
                 <h3>Truth Table of NAND Gate:</h3>
                 <p dir="ltr">The truth table is a table of inputs and output that describes the operation of the NAND
                     gate and shows the logical relationship between them:</p>
-                <table>
+                <div class="gm-table"><table>
                     <thead>
                         <tr>
                             <th colspan="2">
@@ -605,13 +605,13 @@
                             </td>
                         </tr>
                     </tbody>
-                </table>
+                </table></div>
                 <h3>Symbol of NAND Gate:</h3>
                 <p dir="ltr">The logic symbol of a NAND gate is represented as a AND gate with a bubble on its output
                     end as depicted in the following figure. It is the symbol of a two-input NAND gate.</p>
-                <div class="wp-caption alignnone"><img
+                <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                         src="https://media.geeksforgeeks.org/wp-content/uploads/20211107122015/symbolofNANDgate-300x112.jpg"
-                        alt="NAND Gate Symbol" width="inherit" height="inherit" />
+                        alt="NAND Gate Symbol" width="inherit" height="inherit" /><figcaption>NAND Gate Symbol</figcaption></figure>
                     <p class="wp-caption-text">Symbol of NAND Gate</p>
                 </div>
                 <h2 id="xor-gate"><strong>XOR Gate</strong></h2>
@@ -657,7 +657,7 @@
                 <p dir="ltr">The truth table is a table of inputs and output that describe the relationship between them
                     and the operation of the XOR gate for different input combinations. The truth table of the XOR gate
                     is given below:</p>
-                <table>
+                <div class="gm-table"><table>
                     <thead>
                         <tr>
                             <th colspan="2">
@@ -725,12 +725,12 @@
                             </td>
                         </tr>
                     </tbody>
-                </table>
+                </table></div>
                 <h3>Symbol of XOR Gate:</h3>
                 <p dir="ltr">The logic symbol of an XOR gate is shown in the following figure.</p>
-                <div class="wp-caption alignnone"><img
+                <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                         src="https://media.geeksforgeeks.org/wp-content/uploads/20211107123017/SymbolofXORgate.png"
-                        alt="XNOR Gate" width="inherit" height="inherit" /></div>
+                        alt="XNOR Gate" width="inherit" height="inherit" /><figcaption>XNOR Gate</figcaption></figure></div>
             </div>
             <div class="article-title">
                 <h2 id="xnor-gate"><strong>XNOR Gate</strong></h2>
@@ -752,11 +752,11 @@
                 <p dir="ltr">The operation of XNOR gate can be described through a mathematical equation called the
                     boolean expression of XNOR gate. Here is the boolean expression of the XNOR gate.</p>
                 <blockquote>
-                    <p dir="ltr"><span class="katex"><span class="katex-mathml">𝑌=𝐴⊙𝐵</span><span class="katex-html"
+                    <div class="gm-formula"><p dir="ltr"><span class="katex"><span class="katex-mathml">𝑌=𝐴⊙𝐵</span><span class="katex-html"
                                 aria-hidden="true"><span class="base"><span class="mord mathnormal">Y</span><span
                                         class="mrel">=</span></span><span class="base"><span
                                         class="mord mathnormal">A</span><span class="mbin">⊙</span></span><span
-                                    class="base"><span class="mord mathnormal">B</span></span></span></span></p>
+                                    class="base"><span class="mord mathnormal">B</span></span></span></span></p></div>
                 </blockquote>
                 <p dir="ltr">We can also write this expression as follows:</p>
                 <blockquote>
@@ -778,7 +778,7 @@
                 <h3>Truth Table of XNOR Gate:</h3>
                 <p dir="ltr">The truth table of the XNOR gate is given below. This truth table is describing the
                     relationship between inputs and output of the XNOR gate.</p>
-                <table>
+                <div class="gm-table"><table>
                     <thead>
                         <tr>
                             <th colspan="2">
@@ -846,13 +846,13 @@
                             </td>
                         </tr>
                     </tbody>
-                </table>
+                </table></div>
                 <h3>Symbol of XNOR Gate:</h3>
                 <p dir="ltr">The logic symbol of XNOR gate is shown in the following figure. Here, A and B are inputs
                     and Y is the output.</p>
-                <div class="wp-caption alignnone"><img
+                <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
                         src="https://media.geeksforgeeks.org/wp-content/uploads/20211107124605/SymbolofXnorgate-300x132.jpg"
-                        alt="LOGIC Gate" width="inherit" height="inherit" />
+                        alt="LOGIC Gate" width="inherit" height="inherit" /><figcaption>LOGIC Gate</figcaption></figure>
                     <p class="wp-caption-text">Symbol of XNOR gate</p>
                 </div>
                 <h2 id="applications-of-logic-gates">Applications of Logic Gates</h2>

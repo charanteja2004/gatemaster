@@ -24,7 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
                             <div class="article-title">
                                 <div class="main_wrapper">
                                     <div>
@@ -76,9 +76,9 @@
                                         <li value="4"><strong>Step-4:</strong>&nbsp;Repeat the above both steps until execute all the processes.&nbsp;<br />&nbsp;</li>
                                     </ul>
                                     <h2>Examples to show working of Preemptive Longest Job First CPU Scheduling Algorithm:</h2>
-                                    <p dir="ltr"><strong>Example-1:</strong>&nbsp;Consider the following table of arrival time and burst time for four processes P1, P2, P3 and P4.&nbsp;</p>
-                                    <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
-                                    <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /></colgroup>
+                                    <div class="gm-callout gm-example" data-label="Example"><p dir="ltr"><strong>Example-1:</strong>&nbsp;Consider the following table of arrival time and burst time for four processes P1, P2, P3 and P4.&nbsp;</p></div>
+                                    
+                                    <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /></colgroup>
                                         <thead>
                                         <tr>
                                             <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Processes</th>
@@ -124,7 +124,7 @@
                                             </td>
                                         </tr>
                                         </tbody>
-                                    </table>
+                                    </table></div>
                                     <p dir="ltr">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br /><strong>The Longest Remaining Time First CPU Scheduling Algorithm will work on the basis of steps as mentioned below:</strong><br />&nbsp;</p>
                                 </div>
                             </div>
@@ -136,7 +136,7 @@
                                                                     <ul>
                                                                         <li value="1">Available Process : P1. So, select P1 and execute 1 ms.&nbsp;</li>
                                                                     </ul>
-                                                                    <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                                                    <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
                                                                         <thead>
                                                                         <tr>
                                                                             <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -159,13 +159,13 @@
                                                                             <td class="GFGEditorTheme__tableCell"><strong>1ms</strong></td>
                                                                         </tr>
                                                                         </tbody>
-                                                                    </table>
+                                                                    </table></div>
                                                                     <p dir="ltr"><strong>At time = 2,&nbsp;</strong></p>
                                                                     <ul>
                                                                         <li value="1">Available Process : P1, P2.&nbsp;</li>
                                                                         <li value="2">So, select P2 and execute 1 ms (since B.T(P1) = 1 which is less than B.T(P2) = 4)&nbsp;</li>
                                                                     </ul>
-                                                                    <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                                                    <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
                                                                         <thead>
                                                                         <tr>
                                                                             <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -195,13 +195,13 @@
                                                                             <td class="GFGEditorTheme__tableCell"><strong>3ms</strong></td>
                                                                         </tr>
                                                                         </tbody>
-                                                                    </table>
+                                                                    </table></div>
                                                                     <p dir="ltr"><strong>At time = 3,</strong>&nbsp;</p>
                                                                     <ul>
                                                                         <li value="1">Available Process : P1, P2, P3.&nbsp;</li>
                                                                         <li value="2">So, select P3 and execute 1 ms (since, B.T(P1) = 1 , B.T(P2) = 3 , B.T(P3) = 6).&nbsp;</li>
                                                                     </ul>
-                                                                    <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                                                    <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
                                                                         <thead>
                                                                         <tr>
                                                                             <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -238,7 +238,7 @@
                                                                             <td class="GFGEditorTheme__tableCell"><strong>5ms</strong></td>
                                                                         </tr>
                                                                         </tbody>
-                                                                    </table>
+                                                                    </table></div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -250,7 +250,7 @@
                                                                     <li value="1">Available processes: P1, P2, P3, P4.&nbsp;</li>
                                                                     <li value="2">So, select P4 (as burst time of P4 is largest) and execute 1 ms (since, B.T(P1) = 1 , B.T(P2) = 3 , B.T(P3) = 5, B.T(P4) = 8).&nbsp;</li>
                                                                 </ul>
-                                                                <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                                                <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
                                                                     <thead>
                                                                     <tr>
                                                                         <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -294,13 +294,13 @@
                                                                         <td class="GFGEditorTheme__tableCell"><strong>7ms</strong></td>
                                                                     </tr>
                                                                     </tbody>
-                                                                </table>
+                                                                </table></div>
                                                                 <p dir="ltr"><strong>At time = 5,</strong></p>
                                                                 <ul>
                                                                     <li value="1">Available processes: P1, P2, P3, P4,&nbsp;</li>
                                                                     <li value="2">Process P4 will continue its execution as no other process has burst time larger than the Process P4</li>
                                                                 </ul>
-                                                                <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                                                <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
                                                                     <thead>
                                                                     <tr>
                                                                         <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -344,7 +344,7 @@
                                                                         <td class="GFGEditorTheme__tableCell"><strong>5ms</strong></td>
                                                                     </tr>
                                                                     </tbody>
-                                                                </table>
+                                                                </table></div>
                                                             </div>
                                                         </div>
 
@@ -356,7 +356,7 @@
                                                                 <li value="2">hence If two processes have the same burst time then the tie is broken using&nbsp;<a href="https://www.geeksforgeeks.org/program-for-fcfs-cpu-scheduling-set-1/">FCFS&nbsp;</a>i.e. the process that arrived first is processed first.&nbsp;</li>
                                                                 <li value="3">Therefore P3 will get executed for 1ms</li>
                                                             </ul>
-                                                            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                                            <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
                                                                 <thead>
                                                                 <tr>
                                                                     <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -400,13 +400,13 @@
                                                                     <td class="GFGEditorTheme__tableCell">5ms</td>
                                                                 </tr>
                                                                 </tbody>
-                                                            </table>
+                                                            </table></div>
                                                             <p dir="ltr"><strong>At time = 8,</strong></p>
                                                             <ul>
                                                                 <li value="1">Available processes: P1, P2, P3, P4,&nbsp;</li>
                                                                 <li value="2">Process P4 will again continue its execution as no other process has burst time larger than the Process P4</li>
                                                             </ul>
-                                                            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                                            <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
                                                                 <thead>
                                                                 <tr>
                                                                     <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -450,7 +450,7 @@
                                                                     <td class="GFGEditorTheme__tableCell"><strong>4ms</strong></td>
                                                                 </tr>
                                                                 </tbody>
-                                                            </table>
+                                                            </table></div>
                                                         </div>
                                                     </div>
 
@@ -460,7 +460,7 @@
                                     <li value="1">Available processes: P1, P2, P3, P4,&nbsp;</li>
                                     <li value="2">Process P3 continue its execution on the basis of FCFS rule.</li>
                                 </ul>
-                                <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
                                     <thead>
                                     <tr>
                                         <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -504,13 +504,13 @@
                                         <td class="GFGEditorTheme__tableCell">4ms</td>
                                     </tr>
                                     </tbody>
-                                </table>
+                                </table></div>
                                 <p dir="ltr"><strong>At time = 10,</strong></p>
                                 <ul>
                                     <li value="1">Available processes: P1, P2, P3, P4,&nbsp;</li>
                                     <li value="2">Now again the burst time of P4 is largest, thus it will execute further.</li>
                                 </ul>
-                                <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                                <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
                                     <thead>
                                     <tr>
                                         <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -554,7 +554,7 @@
                                         <td class="GFGEditorTheme__tableCell"><strong>3ms</strong></td>
                                     </tr>
                                     </tbody>
-                                </table>
+                                </table></div>
                             </div>
                             <p dir="ltr"><strong>At time = 11,</strong></p>
                             <ul>
@@ -562,7 +562,7 @@
                                 <li value="2">Process P2 will continue its execution as the burst time of P2, P3, P4 is same&nbsp;</li>
                                 <li value="3">Thus, in this case the further execution will be decided on the basis of FCFS i.e. the process that arrived first is processed first.&nbsp;</li>
                             </ul>
-                            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                            <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
                                 <thead>
                                 <tr>
                                     <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -606,13 +606,13 @@
                                     <td class="GFGEditorTheme__tableCell">3ms</td>
                                 </tr>
                                 </tbody>
-                            </table>
+                            </table></div>
                             <p dir="ltr"><strong>At time = 12,&nbsp;</strong></p>
                             <ul>
                                 <li value="1">Available processes: P1, P2, P3, P4,&nbsp;</li>
                                 <li value="2">Process P3 continue its execution on the basis of above explanation.</li>
                             </ul>
-                            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                            <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
                                 <thead>
                                 <tr>
                                     <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -656,13 +656,13 @@
                                     <td class="GFGEditorTheme__tableCell">3ms</td>
                                 </tr>
                                 </tbody>
-                            </table>
+                            </table></div>
                             <p dir="ltr"><strong>At time = 13,</strong></p>
                             <ul>
                                 <li value="1">Available processes: P1, P2, P3, P4,&nbsp;</li>
                                 <li value="2">Now again the burst time of P4 is largest, thus it will execute further.</li>
                             </ul>
-                            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                            <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
                                 <thead>
                                 <tr>
                                     <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -706,13 +706,13 @@
                                     <td class="GFGEditorTheme__tableCell"><strong>2ms</strong></td>
                                 </tr>
                                 </tbody>
-                            </table>
+                            </table></div>
                             <p dir="ltr"><strong>At time = 14,</strong></p>
                             <ul>
                                 <li value="1">Available processes: P1, P2, P3, P4&nbsp;</li>
                                 <li value="2">Now, the process P2 will again begin to execute first among all</li>
                             </ul>
-                            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                            <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
                                 <thead>
                                 <tr>
                                     <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -756,12 +756,12 @@
                                     <td class="GFGEditorTheme__tableCell">2ms</td>
                                 </tr>
                                 </tbody>
-                            </table>
+                            </table></div>
                             <p dir="ltr"><strong>At time = 15,</strong></p>
                             <ul>
                                 <li value="1">Available processes: P1, P2, P3, P4, now P3 will execute</li>
                             </ul>
-                            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                            <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
                                 <thead>
                                 <tr>
                                     <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -805,14 +805,14 @@
                                     <td class="GFGEditorTheme__tableCell">2ms</td>
                                 </tr>
                                 </tbody>
-                            </table>
-                            <p dir="ltr"><br /><br /></p>
+                            </table></div>
+                            
                             <p dir="ltr"><strong>At time = 16,</strong></p>
                             <ul>
                                 <li value="1">Available processes: P1, P2, P3, P4,&nbsp;</li>
                                 <li value="2">here, P4 will execute as it has the largest Burst time among all</li>
                             </ul>
-                            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                            <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
                                 <thead>
                                 <tr>
                                     <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -856,13 +856,13 @@
                                     <td class="GFGEditorTheme__tableCell"><strong>1ms</strong></td>
                                 </tr>
                                 </tbody>
-                            </table>
+                            </table></div>
                             <p dir="ltr"><strong>At time = 17,</strong></p>
                             <ul>
                                 <li value="1">Available processes: P1, P2, P3, P4,&nbsp;</li>
                                 <li value="2">Process P1 will execute here on the basis of above explanation</li>
                             </ul>
-                            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                            <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
                                 <thead>
                                 <tr>
                                     <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -906,14 +906,14 @@
                                     <td class="GFGEditorTheme__tableCell">1ms</td>
                                 </tr>
                                 </tbody>
-                            </table>
-                            <p>&nbsp;</p>
+                            </table></div>
+                            
                             <p dir="ltr"><strong>At time = 18,</strong></p>
                             <ul>
                                 <li value="1">Available processes: P2, P3, P4, &nbsp;</li>
                                 <li value="2">Process P2 will execute.</li>
                             </ul>
-                            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                            <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
                                 <thead>
                                 <tr>
                                     <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -950,13 +950,13 @@
                                     <td class="GFGEditorTheme__tableCell">1ms</td>
                                 </tr>
                                 </tbody>
-                            </table>
+                            </table></div>
                             <p dir="ltr"><strong>At time = 19,</strong></p>
                             <ul>
                                 <li value="1">Available processes: P3, P4, &nbsp;</li>
                                 <li value="2">Process P3 will execute.</li>
                             </ul>
-                            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                            <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
                                 <thead>
                                 <tr>
                                     <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -986,12 +986,12 @@
                                     <td class="GFGEditorTheme__tableCell">1ms</td>
                                 </tr>
                                 </tbody>
-                            </table>
+                            </table></div>
                             <p dir="ltr"><strong>At time = 20,</strong></p>
                             <ul>
                                 <li value="1">Process P4 will execute at the end.</li>
                             </ul>
-                            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
+                            <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>
                                 <thead>
                                 <tr>
                                     <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Time Instance</th>
@@ -1014,22 +1014,22 @@
                                     <td class="GFGEditorTheme__tableCell"><s><strong><strong class="GFGEditorTheme__textStrikethrough">0ms</strong></strong></s></td>
                                 </tr>
                                 </tbody>
-                            </table>
-                            <p dir="ltr"><strong>Note:</strong>&nbsp;CPU will be idle for 0 to 1 unit time since there is no process available in the given interval.&nbsp;</p>
+                            </table></div>
+                            <div class="gm-callout gm-note" data-label="Note"><p dir="ltr"><strong>Note:</strong>&nbsp;CPU will be idle for 0 to 1 unit time since there is no process available in the given interval.&nbsp;</p></div>
                             <p><strong>Gantt chart</strong>&nbsp;will be as following below:&nbsp;<br />&nbsp;</p>
-                            <p dir="ltr"><img src="https://media.geeksforgeeks.org/wp-content/uploads/88888888.png" width="inherit" height="inherit" /></p>
-                            <p dir="ltr">&nbsp;</p>
+                            <p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/88888888.png" width="inherit" height="inherit" /></figure></p>
+                            
                             <p>Since, completion time (C.T) can be directly determined by Gantt chart, and&nbsp;<br />&nbsp;</p>
                             <blockquote>
                                 <p dir="ltr"><strong>Turn Around Time (TAT)</strong><br />= (Completion Time) &ndash; (Arrival Time)</p>
                                 <p dir="ltr">Also,<strong>&nbsp;Waiting Time (WT)</strong><br />= (Turn Around Time) &ndash; (Burst Time)&nbsp;</p>
                             </blockquote>
                             <p dir="ltr">Therefore, final table look like,&nbsp;</p>
-                            <p>&nbsp;<img src="https://media.geeksforgeeks.org/wp-content/uploads/222223333.png" width="inherit" height="inherit" /></p>
+                            <p>&nbsp;<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/222223333.png" width="inherit" height="inherit" /></figure></p>
                             <blockquote>
                                 <p dir="ltr">Total Turn Around Time = 68 ms<br />So,&nbsp;<strong>Average Turn Around Time</strong>&nbsp;= 68/4 = 17.00 ms</p>
                                 <p dir="ltr">And, Total Waiting Time = 48 ms<br />So&nbsp;<strong>Average Waiting Time</strong>&nbsp;= 48/4 = 12.00 ms&nbsp;</p>
                             </blockquote>
-                            <p dir="ltr"><br /><br /></p>
+                            
 </body>
 </html>

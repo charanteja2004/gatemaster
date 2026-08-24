@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <h2><b>RISC and CISC</b></h2>
 
 
@@ -78,7 +78,7 @@
 <li value="2"><strong>More complex design:&nbsp;</strong>CISC processors have more complex instruction sets, which makes them more difficult to design and manufacture.</li>
 <li value="3"><strong>Higher power consumption:&nbsp;</strong>CISC processors consume more power than RISC processors because of their more complex instruction sets.</li>
 </ul>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20240313171140/RISC-and-CISC.png" alt="RISC-and-CISC" width="800" height="400" /></p>
+<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20240313171140/RISC-and-CISC.png" alt="RISC-and-CISC" width="800" height="400" /><figcaption>RISC-and-CISC</figcaption></figure></p>
 
 
 <h2>CPU Performance</h2>
@@ -86,7 +86,7 @@
 <ul>
 <li value="1"><strong>RISC:</strong>&nbsp;Reduce the cycles per instruction at the cost of the number of instructions per program.&nbsp;</li>
 </ul>
-<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-210.png" alt="CPU Time" width="inherit" height="inherit" />
+<div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-210.png" alt="CPU Time" width="inherit" height="inherit" /><figcaption>CPU Time</figcaption></figure>
 <p class="wp-caption-text">CPU Time</p>
 </div>
 <ul>
@@ -95,7 +95,7 @@
 <p dir="ltr">Earlier when programming was done using assembly language, a need was felt to make instruction do more tasks because programming in assembly was tedious and error-prone due to which CISC architecture evolved but with the uprise of high-level language dependency on assembly reduced RISC architecture prevailed.&nbsp;</p>
 <div id="GFG_AD_Desktop_InContent_ATF_336x280">&nbsp;</div>
 <div id="GFG_AD_gfg_mobile_336x280_1">&nbsp;</div>
-<p dir="ltr"><strong>Example:</strong></p>
+<p dir="ltr" class="gm-lead gm-example-lead"><strong>Example:</strong></p>
 <p dir="ltr">Suppose we have to add two 8-bit numbers:&nbsp;</p>
 <ul>
 <li value="1"><strong>CISC approach:</strong>&nbsp;There will be a single command or instruction for this like ADD which will perform the task.</li>
@@ -103,7 +103,7 @@
 </ul>
 <p dir="ltr">So, add operation is divided into parts i.e. load, operate, store due to which RISC programs are longer and require more memory to get stored but require fewer transistors due to less complex command.</p>
 <h2><strong>R</strong>ISC vs CISC</h2>
-<table border="1">
+<div class="gm-table"><table border="1">
 <thead>
 <tr>
 <th>RISC</th>
@@ -176,7 +176,7 @@
 <td>Here, Addressing modes are more.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <br><br>
 <h2><b>Register window and register file size in RISC</b></h2>
 
@@ -195,11 +195,11 @@
 <li>All other instructions are executed within the registers of the CPU without referring to the memory.</li>
 <li>A program of a RISC CPU contains LOAD and STORE instructions that have one memory and one CPU register address and computational instructions(ADD, SUB MUL &nbsp;etc.) have three addresses and all three are referring to processor registers.</li>
 </ul>
-<p><strong>For example :</strong><br />A program that evaluates X = (A*B) + (C*D), here A,B,C,D are memory locations that contain four numbers and X is a memory location that contains the result of that expression.</p>
+<div class="gm-callout gm-example" data-label="Example"><p><strong>For example :</strong><br />A program that evaluates X = (A*B) + (C*D), here A,B,C,D are memory locations that contain four numbers and X is a memory location that contains the result of that expression.</p></div>
 
 
 <figure class="table">
-<table border="1">
+<div class="gm-table"><table border="1">
 <thead>
 <tr>
 <th>
@@ -234,7 +234,7 @@
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </figure>
 <p><strong>Register organization in RISC CPU :</strong></p>
 <ul>
@@ -243,7 +243,7 @@
 <li>Each procedure call activates the new register window by increment a pointer and the return statement decrements the pointer which causes the activation of the previous window.</li>
 <li>Windows of adjacent procedures have overlapping registers that are shared to provide passing of parameters and storage of results.</li>
 </ul>
-<div class="wp-caption alignnone"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20210616200623/Untitleddrawing23.png" width="377" />
+<div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20210616200623/Untitleddrawing23.png" width="377" /></figure>
 <p class="wp-caption-text"><strong>Overlapped register window of RISC CPU</strong></p>
 </div>
 <ul>
@@ -252,7 +252,7 @@
 <li>Each window contains 10 local registers and two sets of 6 registers common to consecutive windows. Local registers contain local variables and common overlapped registers help to pass parameters between adjacent procedures without actual movement of data.</li>
 <li>One of the register window is activated at a time. The high registers of the calling procedure overlap the low registers of the called procedures, therefore parameters are passed from calling to called procedure easily.</li>
 </ul>
-<p><strong>For example</strong>:&nbsp;</p>
+<p class="gm-lead gm-example-lead"><strong>For example</strong>:&nbsp;</p>
 <ul>
 <li>Procedure C &nbsp;called procedure D. Therefore, registers R58 to R63 are common to both procedures C and D. Therefore, procedure C stores parameters for procedure D in these registers. Procedure D uses registers R64 to R73 to store the local variables.</li>
 <li>When procedure B returns after performing its computation, then the result from registers(R26 to R31) is transferred back to window A.</li>
@@ -268,7 +268,7 @@
 <pre><strong>Window size = l+2c+g</strong></pre>
 <p>The total number of registers required in the processor is</p>
 <pre><strong>Register file = (l + c)w+ g</strong></pre>
-<p><strong>For example :</strong></p>
+<p class="gm-lead gm-example-lead"><strong>For example :</strong></p>
 <ul>
 <li>In the above figure we have g= 10, l= 10, c= 6, w= 4, then</li>
 <li>the window size = 10+2&times;6+4 = 36 and register file size = (10+6)&times;4 + 10 = 74</li>

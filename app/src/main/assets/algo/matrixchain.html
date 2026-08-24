@@ -23,32 +23,32 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <h2> Matrix Chain Multiplication using Dynamic Methods</h2>
 
     <p>Given the dimension of a sequence of matrices in an array&nbsp;<strong>arr[]</strong>, where the dimension of
         the&nbsp;<strong>i<sup>th</sup></strong>&nbsp;matrix is&nbsp;<strong>(arr[i-1] * arr[i])</strong>, the task is
         to find the most efficient way to multiply these matrices together such that the total number of element
         multiplications is minimum.</p>
-    <p><strong>Examples:</strong></p>
+    <p class="gm-lead gm-example-lead"><strong>Examples:</strong></p>
     <div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
     <blockquote>
-        <p><strong>Input:</strong>&nbsp;arr[] = {40, 20, 30, 10,
+        <div class="gm-callout gm-syntax" data-label="Input"><p><strong>Input:</strong>&nbsp;arr[] = {40, 20, 30, 10,
             30}<br /><strong>Output:</strong>&nbsp;26000<br /><strong>Explanation:</strong>There are 4 matrices of
             dimensions 40&times;20, 20&times;30, 30&times;10, 10&times;30.<br />Let the input 4 matrices be A, B, C and
             D.<br />The minimum number of &nbsp;multiplications are obtained by&nbsp;<br />putting parenthesis in
-            following way (A(BC))D.<br />The minimum is 20*30*10 + 40*20*10 + 40*10*30</p>
-        <p><strong>Input:</strong>&nbsp;arr[] = {1, 2, 3, 4,
+            following way (A(BC))D.<br />The minimum is 20*30*10 + 40*20*10 + 40*10*30</p></div>
+        <div class="gm-callout gm-syntax" data-label="Input"><p><strong>Input:</strong>&nbsp;arr[] = {1, 2, 3, 4,
             3}<br /><strong>Output:</strong>&nbsp;30<br /><strong>Explanation:</strong>&nbsp;There are 4 matrices of
             dimensions 1&times;2, 2&times;3, 3&times;4, 4&times;3.&nbsp;<br />Let the input 4 matrices be A, B, C and D.
             &nbsp;<br />The minimum number of multiplications are obtained by&nbsp;<br />putting parenthesis in
-            following way ((AB)C)D.<br />The minimum number is 1*2*3 + 1*3*4 + 1*4*3 = 30</p>
+            following way ((AB)C)D.<br />The minimum number is 1*2*3 + 1*3*4 + 1*4*3 = 30</p></div>
     </blockquote>
 
-    <p><strong>Input:</strong>&nbsp;arr[] = {10, 20,
+    <div class="gm-callout gm-syntax" data-label="Input"><p><strong>Input:</strong>&nbsp;arr[] = {10, 20,
         30}<br /><strong>Output:</strong>&nbsp;6000<strong>&nbsp;</strong>&nbsp;<br /><strong>Explanation:</strong>&nbsp;There
         are only two matrices of dimensions 10&times;20 and 20&times;30.&nbsp;<br />So there &nbsp;is only one way to
-        multiply the matrices, cost of which is 10*20*30</p>
+        multiply the matrices, cost of which is 10*20*30</p></div>
 
     <h2>Matrix Chain Multiplication using Recursion:</h2>
     <p>We can solve the problem using recursion based on the following facts and observations:</p>
@@ -85,9 +85,7 @@
             the required answer.</li>
     </ul>
     <p>Below is the implementation of the above approach.</p>
-
-
-    <div class="line number1 index0 alt2"><code class="comments">// C code to implement the </code></div>
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C code to implement the </code></div>
     <div class="line number2 index1 alt1"><code class="comments">// matrix chain multiplication using recursion</code>
     </div>
     <div class="line number3 index2 alt2">&nbsp;</div>
@@ -150,7 +148,8 @@
             class="comments">// Return minimum count</code></div>
     <div class="line number33 index32 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
             class="keyword bold">return</code> <code class="plain">min;</code></div>
-    <div class="line number34 index33 alt1"><code class="plain">}</code></div>
+    <div class="line number34 index33 alt1"><code class="plain">}</code></div></div></div>
+
 
     <div class="responsive-tabs-wrapper">
         <div class="responsive-tabs responsive-tabs--enabled">
@@ -159,12 +158,12 @@
                 <div class="code-block">
                     <div class="code-container">
                         <div id="highlighter_595744" class="syntaxhighlighter nogutter  ">
-                            <table border="0" cellspacing="0" cellpadding="0">
+                            <div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
                                 <tbody>
                                     <tr>
                                         <td class="code">
                                             <div class="container">
-                                                <div class="line number36 index35 alt1"><code
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number36 index35 alt1"><code
                                                         class="comments">// Driver code</code></div>
                                                 <div class="line number37 index36 alt2"><code
                                                         class="color1 bold">int</code> <code class="plain">main()</code>
@@ -205,12 +204,13 @@
                                                         class="keyword bold">return</code> <code class="plain">0;</code>
                                                 </div>
                                                 <div class="line number47 index46 alt2"><code class="plain">}</code>
-                                                </div>
+                                                </div></div></div>
+
                                             </div>
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </table></div>
                         </div>
                     </div>
                 </div>
@@ -224,8 +224,8 @@
 
     <h2>Dynamic Programming Solution for Matrix Chain Multiplication using Memoization:</h2>
     <p>Below is the recursion tree for the 2nd example of the above recursive approach:</p>
-    <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/matrixchainmultiplication.png"
-            alt="Recursion tree for the above approach" /></p>
+    <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/matrixchainmultiplication.png"
+            alt="Recursion tree for the above approach" /><figcaption>Recursion tree for the above approach</figcaption></figure></p>
     <p>If observed carefully you can find the following two properties:</p>
     <blockquote>
         <p><strong>1) Optimal Substructure:</strong>&nbsp;In the above case, we are breaking the bigger groups into
@@ -289,8 +289,7 @@
         <li>The value stored at&nbsp;<strong>dp[1][N-1]</strong>&nbsp;is the required answer.</li>
     </ul>
     <p>Below is the implementation of the above approach.</p>
-
-    <div class="line number1 index0 alt2"><code
+<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code
             class="comments">// See the Cormen book for details of the following</code></div>
     <div class="line number2 index1 alt1"><code class="comments">// algorithm</code></div>
     <div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;limits.h&gt;</code></div>
@@ -419,12 +418,13 @@
             class="functions bold">getchar</code><code class="plain">();</code></div>
     <div class="line number60 index59 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
             class="keyword bold">return</code> <code class="plain">0;</code></div>
-    <div class="line number61 index60 alt2"><code class="plain">}</code></div>
+    <div class="line number61 index60 alt2"><code class="plain">}</code></div></div></div>
+
 
     <div class="code-output"><strong>Output</strong>
         <div class="gray">Minimum number of multiplications is 18</div>
     </div>
-    <p><strong>Time Complexity:</strong>&nbsp;O(N<sup>3</sup>&nbsp;)<br /><strong>Auxiliary
+    <p class="gm-complexity" data-label="Time complexity"><strong>Time Complexity:</strong>&nbsp;O(N<sup>3</sup>&nbsp;)<br /><strong>Auxiliary
             Space:&nbsp;</strong>O(N<sup>2</sup>)</p>
 </body>
 </html>

@@ -24,7 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
 <div class="main_wrapper">
     <div class="article-title">
         <div class="main_wrapper">
@@ -40,26 +40,26 @@
                         </div>
                         <div class="text">
                             <p dir="ltr">A round-robin<strong>&nbsp;scheduling algorithm</strong>&nbsp;is used to schedule the process fairly for each job a time slot or quantum and the interrupting the job if it is not completed by then the job come after the other job which is arrived in the quantum time that makes these scheduling fairly.</p>
-                            <p dir="ltr"><strong>Note:</strong>&nbsp;&nbsp;</p>
+                            <p dir="ltr" class="gm-lead gm-note-lead"><strong>Note:</strong>&nbsp;&nbsp;</p>
                             <ul>
                                 <li value="1">Round-robin is cyclic in nature, so starvation doesn&rsquo;t occur</li>
                                 <li value="2">Round-robin is a variant of first come, first served scheduling</li>
                                 <li value="3">No priority, special importance is given to any process or task</li>
                                 <li value="4">RR scheduling is also known as Time slicing scheduling</li>
                             </ul>
-                            <p dir="ltr"><strong>Advantages:</strong>&nbsp;&nbsp;</p>
+                            <p dir="ltr" class="gm-lead gm-note-lead"><strong>Advantages:</strong>&nbsp;&nbsp;</p>
                             <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
                             <ul>
                                 <li value="1">Each process is served by CPU for a fixed time, so priority is the same for each one</li>
                                 <li value="2">Starvation does not occur because of its cyclic nature.</li>
                             </ul>
-                            <p dir="ltr"><strong>Disadvantages:</strong>&nbsp;&nbsp;</p>
+                            <p dir="ltr" class="gm-lead gm-warn-lead"><strong>Disadvantages:</strong>&nbsp;&nbsp;</p>
                             <ul>
                                 <li value="1">Throughput depends on quantum time.</li>
                                 <li value="2">If the time quantum is too large RR degrades to FCFS.</li>
                                 <li value="3">If we want to give some process priority, we cannot.</li>
                             </ul>
-                            <table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /></colgroup>
+                            <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /><col /><col /><col /><col /></colgroup>
                                 <thead>
                                 <tr>
                                     <th class="GFGEditorTheme__tableCell GFGEditorTheme__tableCellHeader">Process</th>
@@ -104,7 +104,7 @@
                                     <td class="GFGEditorTheme__tableCell">5</td>
                                 </tr>
                                 </tbody>
-                            </table>
+                            </table></div>
                             <p dir="ltr"><strong>Quantum time is 2&nbsp;</strong>this means each process is only executing for 2 units of time at a time.<br /><strong>How to compute these process requests:-</strong>&nbsp;&nbsp;</p>
                             <ol>
                                 <li value="1">Take the process which occurs first and start executing the process(for quantum time only).</li>

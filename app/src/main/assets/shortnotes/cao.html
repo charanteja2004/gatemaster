@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <div class="main_wrapper">
         <div>
         <div class="article-title">
@@ -19,7 +19,7 @@
         <h3>Basic Terminology</h3>
         <ul>
         <li value="1"><strong>Control Unit &ndash;</strong>&nbsp;A control unit (CU) handles all processor control signals. It directs all input and output flow, fetches the code for instructions and controlling how data moves around the system.</li>
-        <li value="2"><strong>Arithmetic and Logic Unit (ALU) &ndash;</strong>&nbsp;The arithmetic logic unit is that part of the CPU that handles all the calculations the CPU may need, e.g. Addition, Subtraction, Comparisons. It performs Logical Operations, Bit Shifting Operations, and Arithmetic Operation.<img src="https://media.geeksforgeeks.org/wp-content/uploads/vn_cpu.png" width="315" height="197" /><strong>Figure &ndash;</strong>&nbsp;Basic CPU structure, illustrating ALU</li>
+        <li value="2"><strong>Arithmetic and Logic Unit (ALU) &ndash;</strong>&nbsp;The arithmetic logic unit is that part of the CPU that handles all the calculations the CPU may need, e.g. Addition, Subtraction, Comparisons. It performs Logical Operations, Bit Shifting Operations, and Arithmetic Operation.<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/vn_cpu.png" width="315" height="197" /></figure><strong>Figure &ndash;</strong>&nbsp;Basic CPU structure, illustrating ALU</li>
         <li value="3"><strong>Main Memory Unit (Registers) &ndash;</strong>
         <ol>
         <li value="1"><strong>Accumulator:</strong>&nbsp;Stores the results of calculations made by ALU.</li>
@@ -54,10 +54,10 @@
         </ol>
         <h3><a href="https://www.geeksforgeeks.org/addressing-modes/" target="_blank" rel="noopener">Addressing Modes</a></h3>
         <p dir="ltr">The term addressing modes refers to the way in which the operand of an instruction is specified. The addressing mode specifies a rule for interpreting or modifying the address field of the instruction before the operand is actually executed. An assembly language program instruction consists of two parts</p>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Addressing_Modes_1.jpg" alt="am1" width="496" height="38" /></p>
-        <p dir="ltr">&nbsp;</p>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190611145323/co11.png" width="483" height="217" /></p>
-        <p>&nbsp;</p>
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Addressing_Modes_1.jpg" alt="am1" width="496" height="38" /><figcaption>am1</figcaption></figure></p>
+        
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190611145323/co11.png" width="483" height="217" /></figure></p>
+        
         </div>
         <div class="main_wrapper">
             <div>
@@ -177,7 +177,7 @@
                 <li value="4"><strong><strong>Instruction Register(IR)</strong></strong>&nbsp;: Holds the last instruction fetched.</li>
                 </ul>
                 </li>
-                <li value="19"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-29-00-57-59.png" width="inherit" height="inherit" /></li>
+                <li value="19"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-29-00-57-59.png" width="inherit" height="inherit" /></figure></li>
                 <li value="20">The</li>
                 <li value="21"><em><em class="GFGEditorTheme__textItalic">Indirect Cycle</em></em></li>
                 <li value="22">is always followed by the</li>
@@ -210,10 +210,10 @@
                     <p><strong>Micro-operations:</strong></p>
                     <p>Micro-operations are the atomic operations which executes a particular micro-instruction. Example of micro-operation during the fetch cycle:</p>
                     <div class="gray">t1: MAR &larr;(PC)<br />t2: MBR &larr;Memory<br />    PC &larr;(PC) + I<br />t3: IR &larr;(MBR)<br /><br /></div>
-                    <p>&nbsp;</p>
+                    
                     <h2>Memory Organization :</h2>
                     <p>Memories are made up of registers. Each register in the memory is one storage location. The storage location is also called a memory location. Memory locations are identified using Address. The total number of bit a memory can store is its capacity.</p>
-                    <table>
+                    <div class="gm-table"><table>
                     <thead>
                     <tr>
                     <th><u><span class="GFGEditorTheme__textUnderline">Byte Addressable Memory</span></u></th>
@@ -230,9 +230,9 @@
                     <td>Based on this data storage i.e.&nbsp;<em><em class="GFGEditorTheme__textItalic">Wordwise storage</em></em>, the memory chip configuration is named as&nbsp;<u><strong><strong class="GFGEditorTheme__textUnderline">Word Addressable Memory</strong></strong></u>.</td>
                     </tr>
                     </tbody>
-                    </table>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
+                    </table></div>
+                    
+                    
                     </div>
                     </div>
                     </div>
@@ -378,7 +378,7 @@
 <p><strong>The Sign of Mantissa &ndash;</strong>&nbsp;This is as simple as the name. 0 represents a positive number while 1 represents a negative number.</p>
 <p><strong>The Biased exponent &ndash;</strong>&nbsp;The exponent field needs to represent both positive and negative exponents. A bias is added to the actual exponent in order to get the stored exponent.</p>
 <p><strong>The Normalised Mantisa &ndash;</strong>&nbsp;The mantissa is part of a number in scientific notation or a floating-point number, consisting of its significant digits. Here we have only 2 digits, i.e. O and 1. So a normalised mantissa is one with only one 1 to the left of the decimal.</p>
-<table>
+<div class="gm-table"><table>
 <thead>
 <tr>
 <th>TYPES</th>
@@ -404,10 +404,10 @@
 <td>1023</td>
 </tr>
 </tbody>
-</table>
-<p>&nbsp;</p>
+</table></div>
+
 <p><strong>Formula for finding decimal value:</strong></p>
-<p>Decimal value = (-1)</p>
+<div class="gm-formula"><p>Decimal value = (-1)</p></div>
 <p><sup>s</sup></p>
 <p>* 1.F * 2</p>
 <p><sup>(E-Bias)</sup></p>

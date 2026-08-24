@@ -24,7 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
 <h2><b>Introduction of System Call</b></h2>
 <p>System calls provide an interface to the services made available by an operating
     system. These calls are generally available as routines written in C and
@@ -93,9 +93,9 @@
     Why would an application programmer prefer programming according to
     an API rather than invoking actual system calls? There are several reasons for
     doing so. One benefit concerns program portability.<br>
-    <img src=" https://image3.slideserve.com/5750584/example-of-system-calls-l.jpg" alt="example of how system calls are used" width="350"><br>
+    <figure class="gm-figure"><img src=" https://image3.slideserve.com/5750584/example-of-system-calls-l.jpg" alt="example of how system calls are used" width="350"><figcaption>example of how system calls are used</figcaption></figure><br>
 
-    <img src="https://image1.slideserve.com/1583876/example-of-standard-api-l.jpg" width="350" height="300"><br><br>
+    <figure class="gm-figure gm-remote"><img src="https://image1.slideserve.com/1583876/example-of-standard-api-l.jpg" width="350" height="300"></figure><br><br>
     An application programrun on any system that supports the same API (although, in reality, architectural
     differences often make this more difficult than it may appear). Furthermore,
     actual system calls can often be more detailed and difficult to work with than
@@ -111,7 +111,7 @@
     a number is associated with each system call, and the system-call interface
     maintains a table indexed according to these numbers. <br>
 
-    <img src="https://i.stack.imgur.com/tGPV0.png" alt="The handling of a user application invoking the open() system call." width="350" height="300"><br>
+    <figure class="gm-figure gm-remote"><img src="https://i.stack.imgur.com/tGPV0.png" alt="The handling of a user application invoking the open() system call." width="350" height="300"><figcaption>The handling of a user application invoking the open() system call.</figcaption></figure><br>
 
     The system call interface then invokes the intended system call in the operating-system kernel and
     returns the status of the system call and any return values.<br>
@@ -142,8 +142,8 @@
     being passed.</p><br>
 
 
-<img src="https://image1.slideserve.com/2215668/parameter-passing-via-table-l.jpg
-" alt="Passing of parameters as a table" width="350" height="300"><br>
+<figure class="gm-figure gm-remote"><img src="https://image1.slideserve.com/2215668/parameter-passing-via-table-l.jpg
+" alt="Passing of parameters as a table" width="350" height="300"><figcaption>Passing of parameters as a table</figcaption></figure><br>
 
 <h2><b>Types of System Calls</b></h2>
 <p>System calls can be grouped roughly into six major categories: process
@@ -215,9 +215,7 @@
     execute a program as directed by, for example, a user command, the click of a mouse, or a batch command. An interesting question is where to return control
     when the loaded program terminates. This question is related to whether the
     existing program is lost, saved, or allowed to continue execution concurrently
-    with the new program.<br>
-    <br><br>
-    <b>open():</b> Accessing a file on a file system is possible with the open() system call. It gives the file resources it needs and a handle the process can use. A file can be opened by multiple processes simultaneously or just one process. Everything is based on the structure and file system.<br>
+    with the new program.<br><br><b>open():</b> Accessing a file on a file system is possible with the open() system call. It gives the file resources it needs and a handle the process can use. A file can be opened by multiple processes simultaneously or just one process. Everything is based on the structure and file system.<br>
 
     <b>read():</b> Data from a file on the file system is retrieved using it. In general, it accepts three arguments:<br>
 
@@ -246,11 +244,7 @@
     the ability to determine and reset the attributes of a job or process, including the job’s priority, its maximum allowable execution time, and so on
     (get process attributes() and set process attributes()). We may also
     want to terminate a job or process that we created (terminate process()) if
-    we find that it is incorrect or is no longer needed.<br>
-
-    <br><br>
-
-    Having created new jobs or processes, we may need to wait for them to
+    we find that it is incorrect or is no longer needed.<br><br>Having created new jobs or processes, we may need to wait for them to
     finish their execution. We may want to wait for a certain amount of time to
     pass (wait time()). More probably, we will want to wait for a specific event
     to occur (wait event()). The jobs or processes should then signal when that
@@ -267,11 +261,7 @@
     system is an example of a single-tasking system. It has a command interpreter
     that is invoked when the computer is started (Figure 2.9(a)). Because MS-DOS
     is single-tasking, it uses a simple method to run a program and does not create
-    a new process. It loads the program into memory, writing over most of itself to give the program as much memory as possible.<br>
-    <br><br>
-
-
-    Next, it sets the
+    a new process. It loads the program into memory, writing over most of itself to give the program as much memory as possible.<br><br>Next, it sets the
     instruction pointer to the first instruction of the program. The program then
     runs, and either an error causes a trap, or the program executes a system call
     to terminate. In either case, the error code is saved in the system memory for
@@ -344,7 +334,7 @@ Here is the detailed explanation step by step how system call work:
 <p>System Programming can be defined as the act of building Systems Software using System Programming Languages. According to Computer Hierarchy, Hardware comes first then is Operating System, System Programs, and finally Application Programs. Program Development and Execution can be done conveniently in System Programs. Some of the System Programs are simply user interfaces, others are complex. It traditionally sits between the user interface and system calls.<br>
     In the context of an operating system, system programs are nothing but a special software which give us facility to manage and control the computer’s hardware and resources. As we have mentioned earlier these programs are more closely with the operating system so it executes the operation fast and helpful in performing essential operation which can’t be handled by application software .</P><br>
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/20200530070640/sYSTEMPROGAMS.png" width="350" height="300"><br><br>
+<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20200530070640/sYSTEMPROGAMS.png" width="350" height="300"></figure><br><br>
 
 <b>Note :</b> The user can only view up-to-the System Programs he cannot see System Calls.<br>
 

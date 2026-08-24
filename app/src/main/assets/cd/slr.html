@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
 
-<body>
+<body data-gm-enriched="1">
 
     <div class="main_wrapper">
         <div>
@@ -69,7 +69,7 @@
         <p><strong>EXAMPLE &ndash; Construct LR parsing table for the
                 given&nbsp;</strong>context-free<strong>&nbsp;grammar</strong></p>
         <p><strong>&nbsp;S&ndash;&gt;AA &nbsp;&nbsp;</strong><br /><strong>&nbsp;A&ndash;&gt;aA|b</strong></p>
-        <p><strong>Solution:</strong></p>
+        <p class="gm-lead gm-solution-lead"><strong>Solution:</strong></p>
         <p><strong>STEP1 &ndash;</strong>&nbsp;Find augmented grammar<br />The augmented grammar of the given grammar
             is:-</p>
         <p>&nbsp;S&rsquo;&ndash;&gt;.S &nbsp; &nbsp;[0th production] &nbsp; &nbsp;<br />&nbsp;S&ndash;&gt;.AA &nbsp;[1st
@@ -77,7 +77,7 @@
             &nbsp;<br />&nbsp;A&ndash;&gt;.b &nbsp;[3rd production]</p>
         <p><strong>STEP2 &ndash;&nbsp;</strong>Find LR(0) collection of items<br />Below is the figure showing the LR(0)
             collection of items. We will understand everything one by one.</p>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20210621171025/11.png" /></p>
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20210621171025/11.png" /></figure></p>
         <p>The terminals of this grammar are {a,b}.<br />The non-terminals of this grammar are {S,A}</p>
         <p><strong>RULE &ndash;&nbsp;</strong><br />If any non-terminal has &lsquo; . &lsquo; preceding it, we have to
             write all its production and add &lsquo; . &lsquo; preceding each of its production.</p>
@@ -107,11 +107,11 @@
                 a is seen by the compiler.</li>
         </ul>
         <p><strong>STEP3 &ndash;&nbsp;</strong><br />Find FOLLOW of LHS of production</p>
-        <p>FOLLOW(S)=$<br />FOLLOW(A)=a,b,$</p>
+        <div class="gm-formula"><p>FOLLOW(S)=$<br />FOLLOW(A)=a,b,$</p></div>
         <p>To find FOLLOW of non-terminals, please read<a
                 href="https://www.geeksforgeeks.org/follow-set-in-syntax-analysis/">&nbsp;follow set in syntax
                 analysis.</a></p>
-        <p>&nbsp;</p>
+        
     </div>
 
     <div>
@@ -119,10 +119,10 @@
     </div>
     </div>
     <div class="text">
-        <p>&nbsp;</p>
-        <p><strong>STEP 4-&nbsp;</strong><br />Defining 2 functions:goto[list of non-terminals] and action[list of
+        
+        <p class="gm-step"><strong>STEP 4-&nbsp;</strong><br />Defining 2 functions:goto[list of non-terminals] and action[list of
             terminals] in the parsing table. Below is the SLR parsing table.</p>
-        <p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20210621141854/21.png" /></p>
+        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20210621141854/21.png" /></figure></p>
         <ul>
             <li>$ is by default a nonterminal that takes accepting state.</li>
             <li>0,1,2,3,4,5,6 denotes I0,I1,I2,I3,I4,I5,I6</li>

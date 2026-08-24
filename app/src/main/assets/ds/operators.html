@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     
 <h2>Operators in C</h2>
 
@@ -32,9 +32,9 @@
 <h2><strong>What is a C Operator?</strong></h2>
 <p dir="ltr">An operator in C can be defined as the symbol that helps us to perform some specific mathematical, relational, bitwise, conditional, or logical computations on values and variables. The values and variables used with operators are called operands. So we can say that the operators are the symbols that perform operations on operands.</p>
 <div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231214120748/Operators-in-C.png" alt="Operators-in-C" width="800" height="600" /></p>
+<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231214120748/Operators-in-C.png" alt="Operators-in-C" width="800" height="600" /><figcaption>Operators-in-C</figcaption></figure></p>
 <p dir="ltr"><strong>For example,</strong></p>
-<div class="gray">c = a + b;<br /><br /><br /></div>
+<div class="gray">c = a + b;<br><br></div>
 <p dir="ltr">Here, &lsquo;+&rsquo; is the operator known as the addition operator, and &lsquo;a&rsquo; and &lsquo;b&rsquo; are operands. The addition operator tells the compiler to add both of the operands &lsquo;a&rsquo; and &lsquo;b&rsquo;.</p>
 
 
@@ -50,7 +50,7 @@
 </ol>
 <h2><strong>1. Arithmetic Operations in C</strong></h2>
 <p dir="ltr">The arithmetic operators are used to perform arithmetic/mathematical operations on operands. There are 9 arithmetic operators in C language:</p>
-<table border="1">
+<div class="gm-table"><table border="1">
 <thead>
 <tr>
 <th>
@@ -205,7 +205,7 @@
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3><strong>Example of C Arithmetic Operators</strong></h3>
 <div class="codeblock-container" data-mode="light">C
 <div class="code-container">
@@ -262,7 +262,7 @@ a-- = 26
 <h2><strong>2. Relational Operators in C</strong></h2>
 <p dir="ltr">The relational operators in C are used for the comparison of the two operands. All these operators are binary operators that return true or false values as the result of comparison.</p>
 <p dir="ltr">These are a total of 6 relational operators in C:</p>
-<table border="1">
+<div class="gm-table"><table border="1">
 <thead>
 <tr>
 <th>
@@ -346,7 +346,7 @@ a-- = 26
 <td><strong>a != b</strong></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3>Example of C Relational Operators</h3>
 <div class="codeblock-container" data-mode="light">C
 <div class="code-container">
@@ -398,7 +398,7 @@ a != b : 1
 
 <h2><strong>3. Logical Operator in C</strong></h2>
 <p dir="ltr">Logical Operators are used to combine two or more conditions/constraints or to complement the evaluation of the original condition in consideration. The result of the operation of a logical operator is a Boolean value either&nbsp;<strong>true</strong>&nbsp;or&nbsp;<strong>false</strong>.</p>
-<table border="1">
+<div class="gm-table"><table border="1">
 <thead>
 <tr>
 <th>
@@ -455,7 +455,7 @@ a != b : 1
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3>Example of Logical Operators in C</h3>
 <div class="codeblock-container" data-mode="light">C
 <div class="code-container">
@@ -502,7 +502,7 @@ a || b : 1
 <h2><strong>4. Bitwise Operators in C</strong></h2>
 <p dir="ltr">The Bitwise operators are used to perform bit-level operations on the operands. The operators are first converted to bit-level and then the calculation is performed on the operands. Mathematical operations such as addition, subtraction, multiplication, etc. can be performed at the bit level for faster processing.</p>
 <p dir="ltr">There are 6 bitwise operators in C:</p>
-<table border="1">
+<div class="gm-table"><table border="1">
 <thead>
 <tr>
 <th>
@@ -586,7 +586,7 @@ a || b : 1
 <td><strong>a &gt;&gt; b</strong></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3>Example of Bitwise Operators</h3>
 <div class="codeblock-container" data-mode="light">C
 <div class="code-container">
@@ -641,7 +641,7 @@ a &lt;&lt; b: 800
 
 <p dir="ltr">The assignment operators can be combined with some other operators in C to provide multiple operations using single operator. These operators are called compound operators.</p>
 <p dir="ltr">In C, there are 11 assignment operators :</p>
-<table border="1">
+<div class="gm-table"><table border="1">
 <thead>
 <tr>
 <th>
@@ -802,7 +802,7 @@ a &lt;&lt; b: 800
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 <h3>Example of C Assignment Operators</h3>
 <div class="codeblock-container" data-mode="light">C
@@ -869,7 +869,7 @@ a &lt;&lt;= b: 160
 <li value="4">Basically, the sizeof the operator is used to compute the size of the variable or datatype.</li>
 </ul>
 <p dir="ltr"><strong>Syntax</strong></p>
-<div class="gray"><strong>sizeof</strong> (operand)<br /><br /><br /></div>
+<div class="gray"><strong>sizeof</strong> (operand)<br><br></div>
 <p dir="ltr">To know more about the topic refer to&nbsp;<a href="https://www.geeksforgeeks.org/sizeof-operator-c/">this</a>&nbsp;article.</p>
 <h3><strong>Comma Operator ( , )</strong></h3>
 <ul>
@@ -878,7 +878,7 @@ a &lt;&lt;= b: 160
 <li value="3">Comma acts as both operator and separator.&nbsp;</li>
 </ul>
 <p dir="ltr"><strong>Syntax</strong></p>
-<div class="gray">operand1 <strong>, </strong>operand2 <br /><br /><br /></div>
+<div class="gray">operand1 <strong>, </strong>operand2<br><br></div>
 <p dir="ltr">To know more about the topic refer to&nbsp;<a href="https://www.geeksforgeeks.org/comna-in-c-and-c/">this</a>&nbsp;article.</p>
 <h3><strong>Conditional Operator ( ? : )</strong></h3>
 <ul>
@@ -898,9 +898,9 @@ a &lt;&lt;= b: 160
 </ul>
 <p dir="ltr"><strong>Syntax</strong></p>
 <div id="GFG_AD_gfg_outstream_incontent-1">&nbsp;</div>
-<div class="gray">structure_variable <strong>.</strong> member;<br /><br /><br /></div>
+<div class="gray">structure_variable <strong>.</strong> member;<br><br></div>
 <p dir="ltr">and</p>
-<div class="gray">structure_pointer <strong>-&gt;</strong> member;<br /><br /><br /></div>
+<div class="gray">structure_pointer <strong>-&gt;</strong> member;<br><br></div>
 <p dir="ltr">To know more about dot operators refer to&nbsp;<a href="https://www.geeksforgeeks.org/dot-operator-in-c-c/">this</a>&nbsp;article and to know more about arrow(-&gt;) operators refer to&nbsp;<a href="https://www.geeksforgeeks.org/arrow-operator-in-c-c-with-examples/">this</a>&nbsp;article.</p>
 <h3><strong>Cast Operator</strong></h3>
 <ul>
@@ -909,7 +909,7 @@ a &lt;&lt;= b: 160
 <li value="3">The most general cast supported by most of the C compilers is as follows &minus; &nbsp;<strong>&nbsp;[ (type) expression ]</strong>.</li>
 </ul>
 <p dir="ltr"><strong>Syntax</strong></p>
-<div class="gray"><strong>(new_type) </strong>operand;<br /><br /><br /></div>
+<div class="gray"><strong>(new_type) </strong>operand;<br><br></div>
 <p dir="ltr">To know more about the topic refer to&nbsp;<a href="https://www.geeksforgeeks.org/typecasting-in-c/">this</a>&nbsp;article.</p>
 <h3><strong>addressof (&amp;) and Dereference (*) Operators</strong></h3>
 <ul>
@@ -975,7 +975,7 @@ a &lt;&lt;= b: 160
 <p dir="ltr"><strong>Operator Precedence and Associativity&nbsp;</strong>is the concept that decides which operator will be evaluated first in the case when there are multiple operators present in an expression.</p>
 </blockquote>
 <p dir="ltr">The below table describes the precedence order and associativity of operators in C. The precedence of the operator decreases from top to bottom.&nbsp;</p>
-<table border="1">
+<div class="gm-table"><table border="1">
 <thead>
 <tr>
 <th>
@@ -1380,7 +1380,7 @@ a &lt;&lt;= b: 160
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </body>
 </html>
 

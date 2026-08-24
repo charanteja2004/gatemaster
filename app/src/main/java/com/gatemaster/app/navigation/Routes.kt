@@ -44,4 +44,7 @@ data class ReaderRoute(
     val subtitle: String,
     val path: String,
     val isPdf: Boolean,
+    /** Set when the document is a topic, so the reader can offer prev/next. */
+    val subjectId: String? = null,
+    val topicId: String? = null,
 )

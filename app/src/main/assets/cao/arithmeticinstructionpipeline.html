@@ -24,12 +24,12 @@
 
     <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
 </head>
-<body>
+<body data-gm-enriched="1">
     <h2><b>Arithmetic Pipeline and Instruction Pipeline</b></h2>
 
 
 <p><strong>1. Arithmetic Pipeline :</strong><br />An arithmetic pipeline divides an arithmetic problem into various sub problems for execution in various pipeline segments. It is used for floating point operations, multiplication and various other computations. The process or flowchart arithmetic pipeline for floating point addition is shown in the diagram.</p>
-<p><img class="aligncenter size-full" src="https://media.geeksforgeeks.org/wp-content/uploads/20200511154658/Untitled-Diagram66-3.jpg" width="400" height="700" /></p>
+<p><figure class="gm-figure gm-remote"><img class="aligncenter size-full" src="https://media.geeksforgeeks.org/wp-content/uploads/20200511154658/Untitled-Diagram66-3.jpg" width="400" height="700" /></figure></p>
 <div id="GFG_AD_gfg_mobile_336x280">&nbsp;</div>
 <p><strong>Floating point addition using arithmetic pipeline :</strong><br />The following sub operations are performed in this case:</p>
 <ol>
@@ -49,7 +49,7 @@
 </div>
 </div>
 
-<p><strong>Example:</strong><br />Let us consider two numbers,</p>
+<div class="gm-callout gm-example" data-label="Example"><p><strong>Example:</strong><br />Let us consider two numbers,</p></div>
 <div class="gray">X=0.3214*10^3 and Y=0.4500*10^2 </div>
 <p><strong>Explanation:</strong><br />First of all the two exponents are subtracted to give 3-2=1. Thus 3 becomes the exponent of result and the smaller exponent is shifted 1 times to the right to give</p>
 <div class="gray">Y=0.0450*10^3 </div>
@@ -67,10 +67,10 @@
 <li>Store the result in the proper place</li>
 </ol>
 <p>The flowchart for instruction pipeline is shown below.</p>
-<p><img class="aligncenter size-full" src="https://media.geeksforgeeks.org/wp-content/uploads/20200511153145/Untitled-Diagram66-3.jpg" width="350" height="650" /></p>
+<p><figure class="gm-figure gm-remote"><img class="aligncenter size-full" src="https://media.geeksforgeeks.org/wp-content/uploads/20200511153145/Untitled-Diagram66-3.jpg" width="350" height="650" /></figure></p>
 <p><br /><br />Let us see an example of instruction pipeline.</p>
-<p><strong>Example:</strong></p>
-<p><img class="aligncenter size-full" src="https://media.geeksforgeeks.org/wp-content/uploads/20200513145926/a_page-0001.jpg" width="400" height="239" /></p>
+<p class="gm-lead gm-example-lead"><strong>Example:</strong></p>
+<p><figure class="gm-figure gm-remote"><img class="aligncenter size-full" src="https://media.geeksforgeeks.org/wp-content/uploads/20200513145926/a_page-0001.jpg" width="400" height="239" /></figure></p>
 <p><br /><br />Here the instruction is fetched on first clock cycle in segment 1.<br />Now it is decoded in next clock cycle, then operands are fetched and finally the instruction is executed. We can see that here the fetch and decode phase overlap due to pipelining. By the time the first instruction is being decoded, next instruction is fetched by the pipeline.</p>
 <p>In case of third instruction we see that it is a branched instruction. Here when it is being decoded 4th instruction is fetched simultaneously. But as it is a branched instruction it may point to some other instruction when it is decoded. Thus fourth instruction is kept on hold until the branched instruction is executed. When it gets executed then the fourth instruction is copied back and the other phases continue as usual.</p>
 
