@@ -62,8 +62,47 @@
         <li value="4"><strong>isEmpty()&nbsp;</strong>returns true if the stack is empty else false.</li>
         <li value="5"><strong>size()</strong>&nbsp;returns the size of the stack.</li>
         </ul>
-        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220714004311/Stack-660x566.png" width="303" height="260" /></figure>
-        <p class="wp-caption-text">Stack</p>
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-svg" data-gm-svg="1">
+<svg viewBox="0 0 340 186" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-label="A stack where push and pop both act on the top element"
+     style="width:100%;max-width:340px;height:auto;color:currentColor">
+  <style>
+    .bx   { fill: none; stroke: currentColor; stroke-width: 1.6; }
+    .hit  { fill: currentColor; opacity: .20; }
+    .soft { fill: currentColor; opacity: .09; }
+    .out  { fill: currentColor; opacity: .05; }
+    .val  { fill: currentColor; font: 700 14px ui-monospace, monospace; }
+    .name { fill: currentColor; font: 600 12.5px system-ui, sans-serif; }
+    .step { fill: currentColor; font: 600 11.5px system-ui, sans-serif; opacity: .7; }
+    .note { fill: currentColor; font: 12px system-ui, sans-serif; opacity: .85; }
+    .edge { fill: currentColor; font: 11.5px system-ui, sans-serif; opacity: .75; }
+    .arr  { stroke: currentColor; stroke-width: 1.6; fill: none; marker-end: url(#gm-tip); }
+    .dash { stroke: currentColor; stroke-width: 1.4; fill: none; opacity: .65;
+            stroke-dasharray: 5 4; marker-end: url(#gm-tip); }
+  </style>
+  <defs>
+    <marker id="gm-tip" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+    </marker>
+  </defs>
+  <rect class="soft" x="120" y="50" width="100" height="34"/>
+  <rect class="bx" x="120" y="50" width="100" height="34"/>
+  <text class="val" x="170" y="72" text-anchor="middle">30</text>
+  <rect class="bx" x="120" y="84" width="100" height="34"/>
+  <text class="val" x="170" y="106" text-anchor="middle">20</text>
+  <rect class="bx" x="120" y="118" width="100" height="34"/>
+  <text class="val" x="170" y="140" text-anchor="middle">10</text>
+  <line x1="120" y1="152" x2="220" y2="152" stroke="currentColor" stroke-width="3"/>
+  <text class="step" x="170" y="42" text-anchor="middle">top</text>
+  <text class="step" x="170" y="170" text-anchor="middle">bottom (closed)</text>
+  <path class="arr" d="M40,26 L110,52"/>
+  <text class="name" x="34" y="22" text-anchor="end">push</text>
+  <path class="arr" d="M230,52 L300,26"/>
+  <text class="name" x="306" y="22">pop</text>
+</svg>
+<figcaption>Push and pop act on the same end, so the last item in is the first out</figcaption>
+</figure>
         </div>
         <h3><u><strong><strong class="GFGEditorTheme__textUnderline">Time Complexity of Stack Operations:</strong></strong></u></h3>
         <div class="gm-table"><table class="GFGEditorTheme__table"><colgroup><col /><col /></colgroup>

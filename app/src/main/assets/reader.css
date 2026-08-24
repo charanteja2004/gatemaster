@@ -494,6 +494,43 @@ img, svg, video {
    and a false failure notice under a diagram that loaded is worse than the
    dashed frame explaining the space on its own. */
 
+/* Diagrams we drew ourselves. These are inline SVG, so they need no network,
+   add a couple of KB rather than a couple of hundred, and — because every
+   stroke is `currentColor` — they take the reader's ink colour instead of
+   being a white screenshot pasted onto a dark page. Solid border rather than
+   the dashed one above: there is nothing here that can fail to arrive. */
+.gm-svg {
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 1em 0.85em 0.85em;
+  background: var(--panel);
+  /* Wide diagrams get their own scroller so the article body never slides
+     sideways underneath the reader's thumb. */
+  overflow-x: auto;
+}
+
+.gm-svg::before {
+  content: "Diagram";
+  display: block;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 0.7em;
+}
+
+.gm-svg svg {
+  display: block;
+  margin: 0 auto;
+  color: var(--ink-soft);
+  /* A phone in portrait is narrower than most of these drawings. Let the
+     figure scroll on its own rather than shrinking labels to nothing. */
+  max-width: 100%;
+  height: auto;
+}
+
+
 /* ========================================================================
    Links, rules, misc
    ======================================================================== */

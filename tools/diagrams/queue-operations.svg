@@ -1,0 +1,40 @@
+<svg viewBox="0 0 340 136" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-label="A queue where items enter at the rear and leave from the front"
+     style="width:100%;max-width:340px;height:auto;color:currentColor">
+  <style>
+    .bx   { fill: none; stroke: currentColor; stroke-width: 1.6; }
+    .hit  { fill: currentColor; opacity: .20; }
+    .soft { fill: currentColor; opacity: .09; }
+    .out  { fill: currentColor; opacity: .05; }
+    .val  { fill: currentColor; font: 700 14px ui-monospace, monospace; }
+    .name { fill: currentColor; font: 600 12.5px system-ui, sans-serif; }
+    .step { fill: currentColor; font: 600 11.5px system-ui, sans-serif; opacity: .7; }
+    .note { fill: currentColor; font: 12px system-ui, sans-serif; opacity: .85; }
+    .edge { fill: currentColor; font: 11.5px system-ui, sans-serif; opacity: .75; }
+    .arr  { stroke: currentColor; stroke-width: 1.6; fill: none; marker-end: url(#gm-tip); }
+    .dash { stroke: currentColor; stroke-width: 1.4; fill: none; opacity: .65;
+            stroke-dasharray: 5 4; marker-end: url(#gm-tip); }
+  </style>
+  <defs>
+    <marker id="gm-tip" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+    </marker>
+  </defs>
+  <rect class="soft" x="62" y="56" width="55" height="44"/>
+  <rect class="bx" x="62" y="56" width="55" height="44"/>
+  <text class="val" x="89.5" y="83" text-anchor="middle">10</text>
+  <rect class="bx" x="117" y="56" width="55" height="44"/>
+  <text class="val" x="144.5" y="83" text-anchor="middle">20</text>
+  <rect class="bx" x="172" y="56" width="55" height="44"/>
+  <text class="val" x="199.5" y="83" text-anchor="middle">30</text>
+  <rect class="soft" x="227" y="56" width="55" height="44"/>
+  <rect class="bx" x="227" y="56" width="55" height="44"/>
+  <text class="val" x="254.5" y="83" text-anchor="middle">40</text>
+  <path class="arr" d="M56,78 L18,78"/>
+  <text class="name" x="36" y="44" text-anchor="middle">dequeue</text>
+  <path class="arr" d="M330,78 L292,78"/>
+  <text class="name" x="308" y="44" text-anchor="middle">enqueue</text>
+  <text class="step" x="90"  y="120" text-anchor="middle">front</text>
+  <text class="step" x="254" y="120" text-anchor="middle">rear</text>
+</svg>

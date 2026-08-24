@@ -70,7 +70,70 @@ Let us consider an example:<br><br>
 <li>Logical Address = 13 bits, then Logical Address Space = 8 K words</li>
 <li>Page size = frame size = 1 K words (assumption)</li><br><br>
 
-<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230703093831/paging.webp" width="400" height="350"></figure><br><br>
+<figure class="gm-figure gm-svg" data-gm-svg="1">
+<svg viewBox="0 0 340 342" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-label="A virtual address splitting into a page number and offset, with the page table mapping the page to a frame while the offset passes through unchanged"
+     style="width:100%;max-width:340px;height:auto;color:currentColor">
+  <style>
+    .bx   { fill: none; stroke: currentColor; stroke-width: 1.6; }
+    .hit  { fill: currentColor; opacity: .20; }
+    .soft { fill: currentColor; opacity: .09; }
+    .out  { fill: currentColor; opacity: .05; }
+    .val  { fill: currentColor; font: 700 14px ui-monospace, monospace; }
+    .name { fill: currentColor; font: 600 12.5px system-ui, sans-serif; }
+    .step { fill: currentColor; font: 600 11.5px system-ui, sans-serif; opacity: .7; }
+    .note { fill: currentColor; font: 12px system-ui, sans-serif; opacity: .85; }
+    .edge { fill: currentColor; font: 11.5px system-ui, sans-serif; opacity: .75; }
+    .arr  { stroke: currentColor; stroke-width: 1.6; fill: none; marker-end: url(#gm-tip); }
+    .dash { stroke: currentColor; stroke-width: 1.4; fill: none; opacity: .65;
+            stroke-dasharray: 5 4; marker-end: url(#gm-tip); }
+  </style>
+  <defs>
+    <marker id="gm-tip" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+    </marker>
+  </defs>
+  <text class="step" x="18" y="14">VIRTUAL ADDRESS</text>
+  <rect class="hit"  x="18"  y="22" width="150" height="36"/>
+  <rect class="bx"   x="18"  y="22" width="150" height="36"/>
+  <text class="val"  x="93"  y="45" text-anchor="middle">page  p</text>
+  <rect class="soft" x="168" y="22" width="90"  height="36"/>
+  <rect class="bx"   x="168" y="22" width="90"  height="36"/>
+  <text class="val"  x="213" y="45" text-anchor="middle">offset d</text>
+  <path class="arr" d="M93,58 L93,100"/>
+  <text class="edge" x="100" y="82">index</text>
+  <text class="step" x="18" y="118">PAGE TABLE</text>
+  <rect class="bx" x="18" y="126" width="150" height="104"/>
+  <line x1="93" y1="126" x2="93" y2="230" stroke="currentColor" stroke-width="1.2" opacity=".45"/>
+  <line x1="18" y1="152" x2="168" y2="152" stroke="currentColor" stroke-width="1.2" opacity=".45"/>
+  <line x1="18" y1="178" x2="168" y2="178" stroke="currentColor" stroke-width="1.2" opacity=".45"/>
+  <line x1="18" y1="204" x2="168" y2="204" stroke="currentColor" stroke-width="1.2" opacity=".45"/>
+  <text class="step" x="55.5" y="145" text-anchor="middle">PAGE</text>
+  <text class="step" x="130"  y="145" text-anchor="middle">FRAME</text>
+  <rect class="hit" x="19" y="179" width="148" height="25"/>
+  <text class="val" x="55.5" y="171" text-anchor="middle">0</text>
+  <text class="val" x="130"  y="171" text-anchor="middle">5</text>
+  <text class="val" x="55.5" y="197" text-anchor="middle">1</text>
+  <text class="val" x="130"  y="197" text-anchor="middle">2</text>
+  <text class="val" x="55.5" y="223" text-anchor="middle">2</text>
+  <text class="val" x="130"  y="223" text-anchor="middle">7</text>
+  <path class="arr" d="M168,192 Q196,192 196,250 L140,250 L140,291"/>
+  <text class="edge" x="202" y="212">frame f</text>
+  <path class="dash" d="M213,58 Q300,58 300,250 L230,250 L230,291"/>
+  <text class="edge" x="306" y="130">offset</text>
+  <text class="edge" x="306" y="146">is</text>
+  <text class="edge" x="306" y="162">copied</text>
+  <text class="step" x="18" y="288">PHYSICAL ADDRESS</text>
+  <rect class="hit"  x="18"  y="296" width="150" height="36"/>
+  <rect class="bx"   x="18"  y="296" width="150" height="36"/>
+  <text class="val"  x="93"  y="319" text-anchor="middle">frame f</text>
+  <rect class="soft" x="168" y="296" width="90"  height="36"/>
+  <rect class="bx"   x="168" y="296" width="90"  height="36"/>
+  <text class="val"  x="213" y="319" text-anchor="middle">offset d</text>
+</svg>
+<figcaption>The page number indexes the page table; the offset passes straight through</figcaption>
+</figure><br><br>
 
 
 

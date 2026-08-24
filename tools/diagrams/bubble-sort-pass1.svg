@@ -1,0 +1,66 @@
+<svg viewBox="0 0 340 166" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-label="First pass of bubble sort moving 6 to the end"
+     style="width:100%;max-width:340px;height:auto;color:currentColor">
+  <style>
+    .bx   { fill: none; stroke: currentColor; stroke-width: 1.6; }
+    .hit  { fill: currentColor; opacity: .20; }
+    .soft { fill: currentColor; opacity: .09; }
+    .out  { fill: currentColor; opacity: .05; }
+    .val  { fill: currentColor; font: 700 14px ui-monospace, monospace; }
+    .name { fill: currentColor; font: 600 12.5px system-ui, sans-serif; }
+    .step { fill: currentColor; font: 600 11.5px system-ui, sans-serif; opacity: .7; }
+    .note { fill: currentColor; font: 12px system-ui, sans-serif; opacity: .85; }
+    .edge { fill: currentColor; font: 11.5px system-ui, sans-serif; opacity: .75; }
+    .arr  { stroke: currentColor; stroke-width: 1.6; fill: none; marker-end: url(#gm-tip); }
+    .dash { stroke: currentColor; stroke-width: 1.4; fill: none; opacity: .65;
+            stroke-dasharray: 5 4; marker-end: url(#gm-tip); }
+  </style>
+  <defs>
+    <marker id="gm-tip" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+    </marker>
+  </defs>
+  <text class="step" x="68" y="33" text-anchor="end">start</text>
+  <rect class="hit" x="73" y="9" width="82" height="38" rx="5"/>
+  <rect class="bx" x="76" y="12" width="38" height="32"/>
+  <text class="val" x="95" y="33" text-anchor="middle">6</text>
+  <rect class="bx" x="114" y="12" width="38" height="32"/>
+  <text class="val" x="133" y="33" text-anchor="middle">0</text>
+  <rect class="bx" x="152" y="12" width="38" height="32"/>
+  <text class="val" x="171" y="33" text-anchor="middle">3</text>
+  <rect class="bx" x="190" y="12" width="38" height="32"/>
+  <text class="val" x="209" y="33" text-anchor="middle">5</text>
+  <text class="note" x="238" y="33">6 &gt; 0, swap</text>
+  <rect class="hit" x="111" y="49" width="82" height="38" rx="5"/>
+  <rect class="bx" x="76" y="52" width="38" height="32"/>
+  <text class="val" x="95" y="73" text-anchor="middle">0</text>
+  <rect class="bx" x="114" y="52" width="38" height="32"/>
+  <text class="val" x="133" y="73" text-anchor="middle">6</text>
+  <rect class="bx" x="152" y="52" width="38" height="32"/>
+  <text class="val" x="171" y="73" text-anchor="middle">3</text>
+  <rect class="bx" x="190" y="52" width="38" height="32"/>
+  <text class="val" x="209" y="73" text-anchor="middle">5</text>
+  <text class="note" x="238" y="73">6 &gt; 3, swap</text>
+  <rect class="hit" x="149" y="89" width="82" height="38" rx="5"/>
+  <rect class="bx" x="76" y="92" width="38" height="32"/>
+  <text class="val" x="95" y="113" text-anchor="middle">0</text>
+  <rect class="bx" x="114" y="92" width="38" height="32"/>
+  <text class="val" x="133" y="113" text-anchor="middle">3</text>
+  <rect class="bx" x="152" y="92" width="38" height="32"/>
+  <text class="val" x="171" y="113" text-anchor="middle">6</text>
+  <rect class="bx" x="190" y="92" width="38" height="32"/>
+  <text class="val" x="209" y="113" text-anchor="middle">5</text>
+  <text class="note" x="238" y="113">6 &gt; 5, swap</text>
+  <text class="step" x="68" y="153" text-anchor="end">done</text>
+  <rect class="bx" x="76" y="132" width="38" height="32"/>
+  <text class="val" x="95" y="153" text-anchor="middle">0</text>
+  <rect class="bx" x="114" y="132" width="38" height="32"/>
+  <text class="val" x="133" y="153" text-anchor="middle">3</text>
+  <rect class="bx" x="152" y="132" width="38" height="32"/>
+  <text class="val" x="171" y="153" text-anchor="middle">5</text>
+  <rect class="soft" x="190" y="132" width="38" height="32"/>
+  <rect class="bx" x="190" y="132" width="38" height="32"/>
+  <text class="val" x="209" y="153" text-anchor="middle">6</text>
+  <text class="note" x="238" y="153">6 is in place</text>
+</svg>

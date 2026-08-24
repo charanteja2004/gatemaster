@@ -54,7 +54,60 @@ The states of a process are as follows: <br>
 <li><b>Suspend Ready:</b> Process that was initially in the ready state but was swapped out of main memory(refer to Virtual Memory topic) and placed onto external storage by the scheduler is said to be in suspend ready state. The process will transition back to a ready state whenever the process is again brought onto the main memory.</li>
 <li><b>Suspend wait or suspend blocked:</b> Similar to suspend ready but uses the process which was performing I/O operation and lack of main memory caused them to move to secondary memory. When work is finished it may go to suspend ready.</li><br>
 
-<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190604122001/states_modified.png" width="450" height="350"></figure><br><br>
+<figure class="gm-figure gm-svg" data-gm-svg="1">
+<svg viewBox="0 0 340 324" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-label="The five process states and the transitions between them"
+     style="width:100%;max-width:340px;height:auto;color:currentColor">
+  <style>
+    .bx   { fill: none; stroke: currentColor; stroke-width: 1.6; }
+    .hit  { fill: currentColor; opacity: .20; }
+    .soft { fill: currentColor; opacity: .09; }
+    .out  { fill: currentColor; opacity: .05; }
+    .val  { fill: currentColor; font: 700 14px ui-monospace, monospace; }
+    .name { fill: currentColor; font: 600 12.5px system-ui, sans-serif; }
+    .step { fill: currentColor; font: 600 11.5px system-ui, sans-serif; opacity: .7; }
+    .note { fill: currentColor; font: 12px system-ui, sans-serif; opacity: .85; }
+    .edge { fill: currentColor; font: 11.5px system-ui, sans-serif; opacity: .75; }
+    .arr  { stroke: currentColor; stroke-width: 1.6; fill: none; marker-end: url(#gm-tip); }
+    .dash { stroke: currentColor; stroke-width: 1.4; fill: none; opacity: .65;
+            stroke-dasharray: 5 4; marker-end: url(#gm-tip); }
+  </style>
+  <defs>
+    <marker id="gm-tip" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+    </marker>
+  </defs>
+  <rect class="soft" x="125" y="8" width="90" height="36" rx="10"/>
+  <rect class="bx" x="125" y="8" width="90" height="36" rx="10"/>
+  <text class="name" x="170" y="30.5" text-anchor="middle">New</text>
+  <rect class="soft" x="125" y="92" width="90" height="36" rx="10"/>
+  <rect class="bx" x="125" y="92" width="90" height="36" rx="10"/>
+  <text class="name" x="170" y="114.5" text-anchor="middle">Ready</text>
+  <rect class="hit" x="125" y="186" width="90" height="36" rx="10"/>
+  <rect class="bx" x="125" y="186" width="90" height="36" rx="10"/>
+  <text class="name" x="170" y="208.5" text-anchor="middle">Running</text>
+  <rect class="soft" x="18" y="276" width="92" height="36" rx="10"/>
+  <rect class="bx" x="18" y="276" width="92" height="36" rx="10"/>
+  <text class="name" x="64" y="298.5" text-anchor="middle">Waiting</text>
+  <rect class="soft" x="210" y="276" width="112" height="36" rx="10"/>
+  <rect class="bx" x="210" y="276" width="112" height="36" rx="10"/>
+  <text class="name" x="266" y="298.5" text-anchor="middle">Terminated</text>
+  <path class="arr" d="M170,44 L170,88"/>
+  <text class="edge" x="178" y="72">admitted</text>
+  <path class="arr" d="M152,128 L152,182"/>
+  <text class="edge" x="146" y="152" text-anchor="end">dispatch</text>
+  <path class="arr" d="M188,182 L188,132"/>
+  <text class="edge" x="194" y="152">interrupt</text>
+  <path class="arr" d="M136,222 Q104,248 78,272"/>
+  <text class="edge" x="72" y="248" text-anchor="end">I/O request</text>
+  <path class="arr" d="M18,292 Q-4,190 120,110"/>
+  <text class="edge" x="14" y="154">I/O done</text>
+  <path class="arr" d="M204,222 Q238,248 260,272"/>
+  <text class="edge" x="268" y="248">exit</text>
+</svg>
+<figcaption>The five process states and the transitions between them</figcaption>
+</figure><br><br>
 
 <b>CPU and I/O Bound Processes:</b> If the process is intensive in terms of CPU operations, then it is called CPU bound process. Similarly, If the process is intensive in terms of I/O operations then it is called I/O bound process. <br><br>
 

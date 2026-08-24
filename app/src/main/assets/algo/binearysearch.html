@@ -60,11 +60,92 @@
                     href="https://www.geeksforgeeks.org/problem-binary-search-implementations/"><strong>finding the
                         middle index &ldquo;mid&rdquo;</strong></a>.&nbsp;</li>
         </ul>
-        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
-                src="https://media.geeksforgeeks.org/wp-content/uploads/20230522163247/mid-in-binary-search-768.webp"
-                alt="finding the middle index &quot;mid&quot; in Binary Search Algorithm" width="350"
-                height="350" /><figcaption>finding the middle index &quot;mid&quot; in Binary Search Algorithm</figcaption></figure>
-            <p class="wp-caption-text">Finding the middle index &ldquo;mid&rdquo; in Binary Search Algorithm</p>
+        <div class="wp-caption alignnone"><figure class="gm-figure gm-svg" data-gm-svg="1">
+<svg viewBox="0 0 340 194" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-label="Binary search halving the range across three comparisons"
+     style="width:100%;max-width:340px;height:auto;color:currentColor">
+  <style>
+    .bx   { fill: none; stroke: currentColor; stroke-width: 1.6; }
+    .hit  { fill: currentColor; opacity: .20; }
+    .soft { fill: currentColor; opacity: .09; }
+    .out  { fill: currentColor; opacity: .05; }
+    .val  { fill: currentColor; font: 700 14px ui-monospace, monospace; }
+    .name { fill: currentColor; font: 600 12.5px system-ui, sans-serif; }
+    .step { fill: currentColor; font: 600 11.5px system-ui, sans-serif; opacity: .7; }
+    .note { fill: currentColor; font: 12px system-ui, sans-serif; opacity: .85; }
+    .edge { fill: currentColor; font: 11.5px system-ui, sans-serif; opacity: .75; }
+    .arr  { stroke: currentColor; stroke-width: 1.6; fill: none; marker-end: url(#gm-tip); }
+    .dash { stroke: currentColor; stroke-width: 1.4; fill: none; opacity: .65;
+            stroke-dasharray: 5 4; marker-end: url(#gm-tip); }
+  </style>
+  <defs>
+    <marker id="gm-tip" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+    </marker>
+  </defs>
+  <text class="step" x="56" y="36" text-anchor="end">Step 1</text>
+  <rect class="soft" x="64" y="16" width="34" height="30"/>
+  <rect class="bx" x="64" y="16" width="34" height="30"/>
+  <text class="val" x="81" y="36" text-anchor="middle">2</text>
+  <rect class="soft" x="98" y="16" width="34" height="30"/>
+  <rect class="bx" x="98" y="16" width="34" height="30"/>
+  <text class="val" x="115" y="36" text-anchor="middle">5</text>
+  <rect class="soft" x="132" y="16" width="34" height="30"/>
+  <rect class="bx" x="132" y="16" width="34" height="30"/>
+  <text class="val" x="149" y="36" text-anchor="middle">8</text>
+  <rect class="hit" x="166" y="16" width="34" height="30"/>
+  <rect class="bx" x="166" y="16" width="34" height="30"/>
+  <text class="val" x="183" y="36" text-anchor="middle">12</text>
+  <rect class="soft" x="200" y="16" width="34" height="30"/>
+  <rect class="bx" x="200" y="16" width="34" height="30"/>
+  <text class="val" x="217" y="36" text-anchor="middle">16</text>
+  <rect class="soft" x="234" y="16" width="34" height="30"/>
+  <rect class="bx" x="234" y="16" width="34" height="30"/>
+  <text class="val" x="251" y="36" text-anchor="middle">23</text>
+  <rect class="soft" x="268" y="16" width="34" height="30"/>
+  <rect class="bx" x="268" y="16" width="34" height="30"/>
+  <text class="val" x="285" y="36" text-anchor="middle">38</text>
+  <text class="note" x="183" y="63" text-anchor="middle">mid = 12 &lt; 16, so keep the right half</text>
+  <text class="step" x="56" y="98" text-anchor="end">Step 2</text>
+  <rect class="out" x="64" y="78" width="34" height="30"/>
+  <rect class="bx" x="64" y="78" width="34" height="30"/>
+  <rect class="out" x="98" y="78" width="34" height="30"/>
+  <rect class="bx" x="98" y="78" width="34" height="30"/>
+  <rect class="out" x="132" y="78" width="34" height="30"/>
+  <rect class="bx" x="132" y="78" width="34" height="30"/>
+  <rect class="out" x="166" y="78" width="34" height="30"/>
+  <rect class="bx" x="166" y="78" width="34" height="30"/>
+  <rect class="soft" x="200" y="78" width="34" height="30"/>
+  <rect class="bx" x="200" y="78" width="34" height="30"/>
+  <text class="val" x="217" y="98" text-anchor="middle">16</text>
+  <rect class="hit" x="234" y="78" width="34" height="30"/>
+  <rect class="bx" x="234" y="78" width="34" height="30"/>
+  <text class="val" x="251" y="98" text-anchor="middle">23</text>
+  <rect class="soft" x="268" y="78" width="34" height="30"/>
+  <rect class="bx" x="268" y="78" width="34" height="30"/>
+  <text class="val" x="285" y="98" text-anchor="middle">38</text>
+  <text class="note" x="183" y="125" text-anchor="middle">mid = 23 &gt; 16, so keep the left half</text>
+  <text class="step" x="56" y="160" text-anchor="end">Step 3</text>
+  <rect class="out" x="64" y="140" width="34" height="30"/>
+  <rect class="bx" x="64" y="140" width="34" height="30"/>
+  <rect class="out" x="98" y="140" width="34" height="30"/>
+  <rect class="bx" x="98" y="140" width="34" height="30"/>
+  <rect class="out" x="132" y="140" width="34" height="30"/>
+  <rect class="bx" x="132" y="140" width="34" height="30"/>
+  <rect class="out" x="166" y="140" width="34" height="30"/>
+  <rect class="bx" x="166" y="140" width="34" height="30"/>
+  <rect class="hit" x="200" y="140" width="34" height="30"/>
+  <rect class="bx" x="200" y="140" width="34" height="30"/>
+  <text class="val" x="217" y="160" text-anchor="middle">16</text>
+  <rect class="out" x="234" y="140" width="34" height="30"/>
+  <rect class="bx" x="234" y="140" width="34" height="30"/>
+  <rect class="out" x="268" y="140" width="34" height="30"/>
+  <rect class="bx" x="268" y="140" width="34" height="30"/>
+  <text class="note" x="183" y="187" text-anchor="middle">mid = 16 — found, 3 comparisons</text>
+</svg>
+<figcaption>Each comparison discards half of the remaining range</figcaption>
+</figure>
         </div>
         <ul>
             <li value="1">Compare the middle element of the search space with the key.&nbsp;</li>
