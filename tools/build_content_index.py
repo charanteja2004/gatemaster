@@ -313,6 +313,38 @@ def title_for(rel_key: str, path: str) -> str:
     return prettify(os.path.basename(rel_key))
 
 
+def headings_for(path: str, limit: int = 3) -> list:
+    """The document's first few distinct headings, in order."""
+    src = read_text(path)
+    found = []
+    for rx in HEADING_RE:
+        for m in rx.finditer(src):
+            t = clean_title(m.group(1))
+            if t and t not in found:
+                found.append(t)
+                if len(found) >= limit:
+                    return found
+    return found
+
+
+def disambiguate(topics: list, paths: dict) -> None:
+    """Widens titles that collide inside one subject.
+
+    Operating Systems had two articles both titled "Swapping": one that goes on
+    to cover fragmentation and one that goes on to cover thrashing. Two rows
+    with the same name and no way to tell them apart is a worse failure than a
+    slightly long name, so a collision takes its second heading too.
+    """
+    from collections import Counter
+    seen = Counter(t["title"] for t in topics)
+    for topic in topics:
+        if seen[topic["title"]] < 2:
+            continue
+        extra = [h for h in headings_for(paths[topic["id"]]) if h != topic["title"]]
+        if extra:
+            topic["title"] = "%s and %s" % (topic["title"], extra[0])
+
+
 def slug_id(subject_id: str, slug: str) -> str:
     s = re.sub(r"[^a-z0-9]+", "_", slug.lower()).strip("_")
     return "%s_%s" % (subject_id, s)
@@ -332,14 +364,19 @@ def build_topics(subject: dict) -> list:
     ranked += sorted(s for s in slugs if s not in order)
 
     topics = []
+    paths = {}
     for i, slug in enumerate(ranked):
         rel = "%s/%s" % (folder, slug)
+        path = os.path.join(d, slug + ".html")
+        topic_id = slug_id(subject["id"], slug)
+        paths[topic_id] = path
         topics.append({
-            "id": slug_id(subject["id"], slug),
-            "title": title_for(rel, os.path.join(d, slug + ".html")),
+            "id": topic_id,
+            "title": title_for(rel, path),
             "order": i,
             "content": {"type": "html", "path": rel + ".html"},
         })
+    disambiguate(topics, paths)
     return topics
 
 

@@ -8,7 +8,10 @@
       "marks": 1,
       "difficulty": "easy",
       "text": "An array A[10][20] is stored in row-major order with base address 100 and each element occupying 4 bytes. What is the address of A[5][10]?",
-      "numericAnswer": { "min": 540, "max": 540 },
+      "numericAnswer": {
+        "min": 540,
+        "max": 540
+      },
       "solution": "Row-major address = base + ((i &times; columns) + j) &times; size = 100 + ((5 &times; 20) + 10) &times; 4 = 100 + 110 &times; 4 = 100 + 440 = 540."
     },
     {
@@ -19,12 +22,26 @@
       "difficulty": "easy",
       "text": "What is the time complexity of inserting an element at the beginning of an array of n elements?",
       "options": [
-        { "id": "A", "text": "O(1)" },
-        { "id": "B", "text": "O(log n)" },
-        { "id": "C", "text": "O(n)" },
-        { "id": "D", "text": "O(n log n)" }
+        {
+          "id": "A",
+          "text": "O(1)"
+        },
+        {
+          "id": "B",
+          "text": "O(log n)"
+        },
+        {
+          "id": "C",
+          "text": "O(n)"
+        },
+        {
+          "id": "D",
+          "text": "O(n log n)"
+        }
       ],
-      "correctOptionIds": ["C"],
+      "correctOptionIds": [
+        "C"
+      ],
       "solution": "Every existing element must shift one position right, which is n moves. Inserting at the <em>end</em> of an array with spare capacity is O(1); it is insertion at the front that costs O(n)."
     },
     {
@@ -35,12 +52,27 @@
       "difficulty": "medium",
       "text": "Which operations are O(1) on a dynamic array (like C++ vector) with n elements?",
       "options": [
-        { "id": "A", "text": "Access by index" },
-        { "id": "B", "text": "Append at the end, amortised" },
-        { "id": "C", "text": "Delete from the front" },
-        { "id": "D", "text": "Search for a value" }
+        {
+          "id": "A",
+          "text": "Access by index"
+        },
+        {
+          "id": "B",
+          "text": "Append at the end, amortised"
+        },
+        {
+          "id": "C",
+          "text": "Delete from the front"
+        },
+        {
+          "id": "D",
+          "text": "Search for a value"
+        }
       ],
-      "correctOptionIds": ["A", "B"],
+      "correctOptionIds": [
+        "A",
+        "B"
+      ],
       "solution": "Indexing is a single address computation. Appending is amortised O(1) because doubling the capacity spreads the copy cost across many appends. Deleting from the front shifts everything (O(n)), and searching an unsorted array is O(n)."
     },
     {
@@ -51,12 +83,26 @@
       "difficulty": "medium",
       "text": "The postfix expression 5 3 + 8 2 &minus; * is evaluated using a stack. What is the result?",
       "options": [
-        { "id": "A", "text": "32" },
-        { "id": "B", "text": "48" },
-        { "id": "C", "text": "16" },
-        { "id": "D", "text": "40" }
+        {
+          "id": "A",
+          "text": "32"
+        },
+        {
+          "id": "B",
+          "text": "48"
+        },
+        {
+          "id": "C",
+          "text": "16"
+        },
+        {
+          "id": "D",
+          "text": "40"
+        }
       ],
-      "correctOptionIds": ["B"],
+      "correctOptionIds": [
+        "B"
+      ],
       "solution": "Push 5, 3; '+' pops both and pushes 8. Push 8, 2; '&minus;' pops both and pushes 6. '*' pops 8 and 6 and pushes 48."
     },
     {
@@ -67,12 +113,26 @@
       "difficulty": "easy",
       "text": "Which application does NOT naturally use a stack?",
       "options": [
-        { "id": "A", "text": "Function call management" },
-        { "id": "B", "text": "Undo in a text editor" },
-        { "id": "C", "text": "Breadth-first traversal of a graph" },
-        { "id": "D", "text": "Balanced parenthesis checking" }
+        {
+          "id": "A",
+          "text": "Function call management"
+        },
+        {
+          "id": "B",
+          "text": "Undo in a text editor"
+        },
+        {
+          "id": "C",
+          "text": "Breadth-first traversal of a graph"
+        },
+        {
+          "id": "D",
+          "text": "Balanced parenthesis checking"
+        }
       ],
-      "correctOptionIds": ["C"],
+      "correctOptionIds": [
+        "C"
+      ],
       "solution": "BFS needs first-in-first-out order, which is a queue. Replacing that queue with a stack turns BFS into DFS. The other three are all last-in-first-out by nature."
     },
     {
@@ -82,7 +142,10 @@
       "marks": 2,
       "difficulty": "medium",
       "text": "A circular queue occupies an array of size 8. FRONT is the index of the first element and REAR is the index <em>one past</em> the last element. If FRONT = 5 and REAR = 2, how many elements are in the queue?",
-      "numericAnswer": { "min": 5, "max": 5 },
+      "numericAnswer": {
+        "min": 5,
+        "max": 5
+      },
       "solution": "With REAR one past the last element, count = (REAR &minus; FRONT + size) mod size = (2 &minus; 5 + 8) mod 8 = 5. The elements sit at indices 5, 6, 7, 0 and 1. Always check which convention a question uses: if REAR indexed the last element instead, the answer would be 6."
     },
     {
@@ -93,12 +156,26 @@
       "difficulty": "medium",
       "text": "Why does a circular queue of array size n usually store only n &minus; 1 elements?",
       "options": [
-        { "id": "A", "text": "To leave room for the header" },
-        { "id": "B", "text": "So that the full and empty conditions can be distinguished" },
-        { "id": "C", "text": "To make the modulo operation faster" },
-        { "id": "D", "text": "It can store all n elements" }
+        {
+          "id": "A",
+          "text": "To leave room for the header"
+        },
+        {
+          "id": "B",
+          "text": "So that the full and empty conditions can be distinguished"
+        },
+        {
+          "id": "C",
+          "text": "To make the modulo operation faster"
+        },
+        {
+          "id": "D",
+          "text": "It can store all n elements"
+        }
       ],
-      "correctOptionIds": ["B"],
+      "correctOptionIds": [
+        "B"
+      ],
       "solution": "If all n slots were used, FRONT == REAR would mean both empty and full. Leaving one slot free makes full the distinct condition (REAR + 1) mod n == FRONT. Keeping a separate count variable is the alternative fix."
     },
     {
@@ -109,12 +186,26 @@
       "difficulty": "easy",
       "text": "Which operation is O(n) on a singly linked list but O(1) on a doubly linked list, given a pointer to the node?",
       "options": [
-        { "id": "A", "text": "Insertion after the node" },
-        { "id": "B", "text": "Deletion of the node" },
-        { "id": "C", "text": "Traversal to the end" },
-        { "id": "D", "text": "Searching for a value" }
+        {
+          "id": "A",
+          "text": "Insertion after the node"
+        },
+        {
+          "id": "B",
+          "text": "Deletion of the node"
+        },
+        {
+          "id": "C",
+          "text": "Traversal to the end"
+        },
+        {
+          "id": "D",
+          "text": "Searching for a value"
+        }
       ],
-      "correctOptionIds": ["B"],
+      "correctOptionIds": [
+        "B"
+      ],
       "solution": "Deleting a node requires relinking its predecessor. A doubly linked list stores that pointer, so it is O(1); a singly linked list must walk from the head to find it, which is O(n)."
     },
     {
@@ -125,12 +216,26 @@
       "difficulty": "medium",
       "text": "Which technique detects a cycle in a linked list using O(1) extra space?",
       "options": [
-        { "id": "A", "text": "Storing visited nodes in a hash set" },
-        { "id": "B", "text": "Floyd's slow and fast pointer method" },
-        { "id": "C", "text": "Reversing the list" },
-        { "id": "D", "text": "Sorting the nodes" }
+        {
+          "id": "A",
+          "text": "Storing visited nodes in a hash set"
+        },
+        {
+          "id": "B",
+          "text": "Floyd's slow and fast pointer method"
+        },
+        {
+          "id": "C",
+          "text": "Reversing the list"
+        },
+        {
+          "id": "D",
+          "text": "Sorting the nodes"
+        }
       ],
-      "correctOptionIds": ["B"],
+      "correctOptionIds": [
+        "B"
+      ],
       "solution": "Floyd's cycle detection advances one pointer by 1 and another by 2; if they meet, a cycle exists. It uses two pointers, so O(1) space. The hash-set method works but costs O(n) space."
     },
     {
@@ -140,7 +245,10 @@
       "marks": 1,
       "difficulty": "easy",
       "text": "What is the maximum number of nodes in a binary tree of height 4? Take the height of a single-node tree as 0.",
-      "numericAnswer": { "min": 31, "max": 31 },
+      "numericAnswer": {
+        "min": 31,
+        "max": 31
+      },
       "solution": "A perfect binary tree of height h has 2<sup>h+1</sup> &minus; 1 nodes. For h = 4: 2<sup>5</sup> &minus; 1 = 31. Watch the height convention — if height were counted as the number of levels, the answer would differ."
     },
     {
@@ -151,12 +259,26 @@
       "difficulty": "medium",
       "text": "The inorder traversal of a binary search tree always produces:",
       "options": [
-        { "id": "A", "text": "The elements in sorted order" },
-        { "id": "B", "text": "The elements in insertion order" },
-        { "id": "C", "text": "The elements in reverse sorted order" },
-        { "id": "D", "text": "A level-by-level listing" }
+        {
+          "id": "A",
+          "text": "The elements in sorted order"
+        },
+        {
+          "id": "B",
+          "text": "The elements in insertion order"
+        },
+        {
+          "id": "C",
+          "text": "The elements in reverse sorted order"
+        },
+        {
+          "id": "D",
+          "text": "A level-by-level listing"
+        }
       ],
-      "correctOptionIds": ["A"],
+      "correctOptionIds": [
+        "A"
+      ],
       "solution": "Inorder visits left subtree, node, right subtree. Since a BST keeps smaller keys left and larger keys right, this yields ascending order. This is exactly why an inorder walk is the standard BST validity check."
     },
     {
@@ -167,12 +289,28 @@
       "difficulty": "medium",
       "text": "Which statements about binary search trees are TRUE?",
       "options": [
-        { "id": "A", "text": "Search is O(log n) in the worst case" },
-        { "id": "B", "text": "Search is O(log n) on average for random insertions" },
-        { "id": "C", "text": "A BST built from sorted input degenerates to a linked list" },
-        { "id": "D", "text": "An AVL tree bounds the height at O(log n)" }
+        {
+          "id": "A",
+          "text": "Search is O(log n) in the worst case"
+        },
+        {
+          "id": "B",
+          "text": "Search is O(log n) on average for random insertions"
+        },
+        {
+          "id": "C",
+          "text": "A BST built from sorted input degenerates to a linked list"
+        },
+        {
+          "id": "D",
+          "text": "An AVL tree bounds the height at O(log n)"
+        }
       ],
-      "correctOptionIds": ["B", "C", "D"],
+      "correctOptionIds": [
+        "B",
+        "C",
+        "D"
+      ],
       "solution": "An unbalanced BST has O(n) worst-case search — inserting sorted data produces exactly that degenerate chain. Random insertion gives O(log n) expected height, and AVL or red-black balancing enforces O(log n) worst case."
     },
     {
@@ -183,12 +321,26 @@
       "difficulty": "easy",
       "text": "In an array-based binary heap using 0-based indexing, what is the index of the parent of node i?",
       "options": [
-        { "id": "A", "text": "i / 2" },
-        { "id": "B", "text": "(i &minus; 1) / 2" },
-        { "id": "C", "text": "2i + 1" },
-        { "id": "D", "text": "2i + 2" }
+        {
+          "id": "A",
+          "text": "i / 2"
+        },
+        {
+          "id": "B",
+          "text": "(i &minus; 1) / 2"
+        },
+        {
+          "id": "C",
+          "text": "2i + 1"
+        },
+        {
+          "id": "D",
+          "text": "2i + 2"
+        }
       ],
-      "correctOptionIds": ["B"],
+      "correctOptionIds": [
+        "B"
+      ],
       "solution": "With 0-based indexing, children of i are at 2i + 1 and 2i + 2, so the parent is (i &minus; 1) / 2 using integer division. The simpler i / 2 applies only to 1-based indexing."
     },
     {
@@ -198,7 +350,10 @@
       "marks": 2,
       "difficulty": "medium",
       "text": "What is the minimum number of nodes in a binary heap of height 3? Take the height of a single node as 0.",
-      "numericAnswer": { "min": 8, "max": 8 },
+      "numericAnswer": {
+        "min": 8,
+        "max": 8
+      },
       "solution": "A heap is a complete binary tree, so levels 0 to h&minus;1 must be full and level h has at least one node. Minimum = 2<sup>3</sup> &minus; 1 + 1 = 8."
     },
     {
@@ -208,7 +363,10 @@
       "marks": 1,
       "difficulty": "easy",
       "text": "A simple undirected graph has 6 vertices. What is the maximum possible number of edges?",
-      "numericAnswer": { "min": 15, "max": 15 },
+      "numericAnswer": {
+        "min": 15,
+        "max": 15
+      },
       "solution": "A simple graph has no loops or repeated edges, so every pair of distinct vertices may be joined once: C(6, 2) = 6 &times; 5 / 2 = 15."
     },
     {
@@ -219,12 +377,26 @@
       "difficulty": "medium",
       "text": "For a sparse graph with V vertices and E edges where E &asymp; V, which representation is more space-efficient and why?",
       "options": [
-        { "id": "A", "text": "Adjacency matrix, because lookup is O(1)" },
-        { "id": "B", "text": "Adjacency list, because it stores O(V + E) instead of O(V<sup>2</sup>)" },
-        { "id": "C", "text": "Both use the same space" },
-        { "id": "D", "text": "Adjacency matrix, because it needs no pointers" }
+        {
+          "id": "A",
+          "text": "Adjacency matrix, because lookup is O(1)"
+        },
+        {
+          "id": "B",
+          "text": "Adjacency list, because it stores O(V + E) instead of O(V<sup>2</sup>)"
+        },
+        {
+          "id": "C",
+          "text": "Both use the same space"
+        },
+        {
+          "id": "D",
+          "text": "Adjacency matrix, because it needs no pointers"
+        }
       ],
-      "correctOptionIds": ["B"],
+      "correctOptionIds": [
+        "B"
+      ],
       "solution": "A matrix always allocates V<sup>2</sup> entries regardless of how few edges exist. A list stores only the edges present, giving O(V + E). The matrix wins only on O(1) edge lookup and on dense graphs."
     },
     {
@@ -235,12 +407,26 @@
       "difficulty": "easy",
       "text": "BFS is used to find the shortest path in which kind of graph?",
       "options": [
-        { "id": "A", "text": "Any weighted graph" },
-        { "id": "B", "text": "Unweighted graphs, or graphs where all edges have equal weight" },
-        { "id": "C", "text": "Only directed acyclic graphs" },
-        { "id": "D", "text": "Only trees" }
+        {
+          "id": "A",
+          "text": "Any weighted graph"
+        },
+        {
+          "id": "B",
+          "text": "Unweighted graphs, or graphs where all edges have equal weight"
+        },
+        {
+          "id": "C",
+          "text": "Only directed acyclic graphs"
+        },
+        {
+          "id": "D",
+          "text": "Only trees"
+        }
       ],
-      "correctOptionIds": ["B"],
+      "correctOptionIds": [
+        "B"
+      ],
       "solution": "BFS explores by number of edges, so it finds a minimum-edge path. That is only a minimum-weight path when every edge costs the same. Weighted graphs need Dijkstra or Bellman&ndash;Ford."
     },
     {
@@ -251,12 +437,26 @@
       "difficulty": "medium",
       "text": "In DFS on a directed graph, the presence of which edge type proves a cycle exists?",
       "options": [
-        { "id": "A", "text": "Tree edge" },
-        { "id": "B", "text": "Forward edge" },
-        { "id": "C", "text": "Back edge" },
-        { "id": "D", "text": "Cross edge" }
+        {
+          "id": "A",
+          "text": "Tree edge"
+        },
+        {
+          "id": "B",
+          "text": "Forward edge"
+        },
+        {
+          "id": "C",
+          "text": "Back edge"
+        },
+        {
+          "id": "D",
+          "text": "Cross edge"
+        }
       ],
-      "correctOptionIds": ["C"],
+      "correctOptionIds": [
+        "C"
+      ],
       "solution": "A back edge points to a vertex still on the recursion stack — an ancestor — which closes a cycle. Forward and cross edges point to already-finished vertices and imply nothing about cycles."
     },
     {
@@ -267,12 +467,26 @@
       "difficulty": "medium",
       "text": "A topological sort of a DAG can be produced by:",
       "options": [
-        { "id": "A", "text": "Listing vertices in increasing DFS discovery time" },
-        { "id": "B", "text": "Listing vertices in decreasing DFS finish time" },
-        { "id": "C", "text": "Listing vertices in BFS order" },
-        { "id": "D", "text": "Sorting vertices by degree" }
+        {
+          "id": "A",
+          "text": "Listing vertices in increasing DFS discovery time"
+        },
+        {
+          "id": "B",
+          "text": "Listing vertices in decreasing DFS finish time"
+        },
+        {
+          "id": "C",
+          "text": "Listing vertices in BFS order"
+        },
+        {
+          "id": "D",
+          "text": "Sorting vertices by degree"
+        }
       ],
-      "correctOptionIds": ["B"],
+      "correctOptionIds": [
+        "B"
+      ],
       "solution": "A vertex finishes only after everything reachable from it has finished, so decreasing finish time places every vertex before its descendants. Kahn's algorithm, repeatedly removing in-degree-zero vertices, is the other standard method."
     },
     {
@@ -283,12 +497,26 @@
       "difficulty": "easy",
       "text": "What is the value of an uninitialised <code>static int</code> declared inside a function in C?",
       "options": [
-        { "id": "A", "text": "Garbage" },
-        { "id": "B", "text": "0" },
-        { "id": "C", "text": "Undefined behaviour to read it" },
-        { "id": "D", "text": "&minus;1" }
+        {
+          "id": "A",
+          "text": "Garbage"
+        },
+        {
+          "id": "B",
+          "text": "0"
+        },
+        {
+          "id": "C",
+          "text": "Undefined behaviour to read it"
+        },
+        {
+          "id": "D",
+          "text": "&minus;1"
+        }
       ],
-      "correctOptionIds": ["B"],
+      "correctOptionIds": [
+        "B"
+      ],
       "solution": "Static and global variables live in the data or BSS segment and are zero-initialised before main runs. Only <code>auto</code> locals on the stack contain garbage."
     },
     {
@@ -299,12 +527,28 @@
       "difficulty": "medium",
       "text": "Which statements about the C <code>static</code> keyword are TRUE?",
       "options": [
-        { "id": "A", "text": "Inside a function it extends the variable's lifetime to the whole program" },
-        { "id": "B", "text": "At file scope it restricts the name to that translation unit" },
-        { "id": "C", "text": "A static local is re-initialised on every call" },
-        { "id": "D", "text": "A static local keeps its value between calls" }
+        {
+          "id": "A",
+          "text": "Inside a function it extends the variable's lifetime to the whole program"
+        },
+        {
+          "id": "B",
+          "text": "At file scope it restricts the name to that translation unit"
+        },
+        {
+          "id": "C",
+          "text": "A static local is re-initialised on every call"
+        },
+        {
+          "id": "D",
+          "text": "A static local keeps its value between calls"
+        }
       ],
-      "correctOptionIds": ["A", "B", "D"],
+      "correctOptionIds": [
+        "A",
+        "B",
+        "D"
+      ],
       "solution": "<code>static</code> does two different jobs: inside a function it changes lifetime, at file scope it changes linkage. The initialiser runs once, at program start, not on each call — so C is false."
     },
     {
@@ -315,12 +559,26 @@
       "difficulty": "medium",
       "text": "Given <code>int a[5]; int *p = a;</code> on a machine where int is 4 bytes, what is <code>p + 3</code> &minus; <code>p</code>?",
       "options": [
-        { "id": "A", "text": "3" },
-        { "id": "B", "text": "12" },
-        { "id": "C", "text": "4" },
-        { "id": "D", "text": "Undefined" }
+        {
+          "id": "A",
+          "text": "3"
+        },
+        {
+          "id": "B",
+          "text": "12"
+        },
+        {
+          "id": "C",
+          "text": "4"
+        },
+        {
+          "id": "D",
+          "text": "Undefined"
+        }
       ],
-      "correctOptionIds": ["A"],
+      "correctOptionIds": [
+        "A"
+      ],
       "solution": "Pointer subtraction yields the number of <em>elements</em> between the pointers, not bytes. The compiler divides the byte difference by sizeof(int), so 12 / 4 = 3. Pointer arithmetic always scales by the pointed-to type."
     },
     {
@@ -331,12 +589,26 @@
       "difficulty": "medium",
       "text": "Why is <code>char *s = \"abc\"; s[0] = 'A';</code> undefined behaviour?",
       "options": [
-        { "id": "A", "text": "s is not initialised" },
-        { "id": "B", "text": "The string literal lives in read-only memory" },
-        { "id": "C", "text": "Arrays cannot be indexed through pointers" },
-        { "id": "D", "text": "It is well defined" }
+        {
+          "id": "A",
+          "text": "s is not initialised"
+        },
+        {
+          "id": "B",
+          "text": "The string literal lives in read-only memory"
+        },
+        {
+          "id": "C",
+          "text": "Arrays cannot be indexed through pointers"
+        },
+        {
+          "id": "D",
+          "text": "It is well defined"
+        }
       ],
-      "correctOptionIds": ["B"],
+      "correctOptionIds": [
+        "B"
+      ],
       "solution": "A string literal is stored in the read-only text segment, so writing through the pointer typically segfaults. <code>char s[] = \"abc\";</code> copies the characters into a modifiable array and is perfectly legal to change."
     },
     {
@@ -346,7 +618,10 @@
       "marks": 2,
       "difficulty": "medium",
       "text": "How many times is fib() called, including the initial call, when computing fib(4) with the naive recursion fib(n) = fib(n&minus;1) + fib(n&minus;2), with fib(0) = 0 and fib(1) = 1?",
-      "numericAnswer": { "min": 9, "max": 9 },
+      "numericAnswer": {
+        "min": 9,
+        "max": 9
+      },
       "solution": "Let C(n) be the number of calls. C(0) = C(1) = 1, and C(n) = 1 + C(n&minus;1) + C(n&minus;2). So C(2) = 3, C(3) = 5, C(4) = 1 + 5 + 3 = 9. The exponential blow-up here is the standard motivation for memoisation."
     },
     {
@@ -357,12 +632,26 @@
       "difficulty": "medium",
       "text": "What is the postfix form of the infix expression A + B * C &minus; D?",
       "options": [
-        { "id": "A", "text": "A B C * + D &minus;" },
-        { "id": "B", "text": "A B + C * D &minus;" },
-        { "id": "C", "text": "A B C + * D &minus;" },
-        { "id": "D", "text": "A B C D * + &minus;" }
+        {
+          "id": "A",
+          "text": "A B C * + D &minus;"
+        },
+        {
+          "id": "B",
+          "text": "A B + C * D &minus;"
+        },
+        {
+          "id": "C",
+          "text": "A B C + * D &minus;"
+        },
+        {
+          "id": "D",
+          "text": "A B C D * + &minus;"
+        }
       ],
-      "correctOptionIds": ["A"],
+      "correctOptionIds": [
+        "A"
+      ],
       "solution": "Multiplication binds tighter, so the expression is (A + (B * C)) &minus; D. Converting inner-first: B C * , then A B C * + , then subtract D: A B C * + D &minus;."
     },
     {
@@ -373,13 +662,549 @@
       "difficulty": "easy",
       "text": "Which data structure combination gives O(1) lookup and O(1) move-to-front, as required by an LRU cache?",
       "options": [
-        { "id": "A", "text": "Array plus binary search" },
-        { "id": "B", "text": "Hash map plus doubly linked list" },
-        { "id": "C", "text": "Binary search tree" },
-        { "id": "D", "text": "Min-heap plus hash set" }
+        {
+          "id": "A",
+          "text": "Array plus binary search"
+        },
+        {
+          "id": "B",
+          "text": "Hash map plus doubly linked list"
+        },
+        {
+          "id": "C",
+          "text": "Binary search tree"
+        },
+        {
+          "id": "D",
+          "text": "Min-heap plus hash set"
+        }
       ],
-      "correctOptionIds": ["B"],
+      "correctOptionIds": [
+        "B"
+      ],
       "solution": "The hash map gives O(1) lookup from key to node, and because the list is doubly linked, that node can be unlinked and moved to the front in O(1) without walking the list. This is the standard LRU construction."
+    },
+    {
+      "id": "ds_q027",
+      "topicId": "ds_trees",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "What is the minimum possible height of a binary tree with 15 nodes? Take the height of a single-node tree as 0.",
+      "numericAnswer": {
+        "min": 3,
+        "max": 3
+      },
+      "solution": "A tree of height h holds at most 2<sup>h+1</sup> &minus; 1 nodes. For h = 3 that is 15, so 15 nodes fit exactly in height 3 and no less. A perfect binary tree is the shape that achieves it."
+    },
+    {
+      "id": "ds_q028",
+      "topicId": "ds_trees",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "hard",
+      "text": "How many structurally distinct binary search trees can be built from 4 distinct keys?",
+      "numericAnswer": {
+        "min": 14,
+        "max": 14
+      },
+      "solution": "This is the 4th Catalan number, C<sub>4</sub> = 14. Each choice of root splits the remaining keys into a fixed left and right set, and the counts multiply and sum: C<sub>n</sub> = &Sigma; C<sub>i</sub>C<sub>n&minus;1&minus;i</sub>. The keys' order is forced by the BST property, so only the shape varies."
+    },
+    {
+      "id": "ds_q029",
+      "topicId": "ds_trees",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Which pair of traversals is always enough to reconstruct a binary tree uniquely?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Preorder and postorder"
+        },
+        {
+          "id": "B",
+          "text": "Preorder and inorder"
+        },
+        {
+          "id": "C",
+          "text": "Level order alone"
+        },
+        {
+          "id": "D",
+          "text": "Postorder alone"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "solution": "Preorder gives the root, and inorder then says which keys fall to its left and right, so the split is unambiguous at every step. Preorder with postorder fails on nodes with a single child, since neither says which side it is on."
+    },
+    {
+      "id": "ds_q030",
+      "topicId": "ds_trees",
+      "type": "nat",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "In a binary tree where every internal node has exactly two children, there are 10 leaf nodes. How many internal nodes are there?",
+      "numericAnswer": {
+        "min": 9,
+        "max": 9
+      },
+      "solution": "In a full binary tree the number of internal nodes is always one fewer than the number of leaves. Each of the 9 internal nodes contributes 2 children, giving 18 nodes below the root, and 19 nodes total splits as 9 internal and 10 leaves."
+    },
+    {
+      "id": "ds_q031",
+      "topicId": "ds_trees",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "What is the worst-case time to search an unbalanced binary search tree with n nodes?",
+      "options": [
+        {
+          "id": "A",
+          "text": "O(1)"
+        },
+        {
+          "id": "B",
+          "text": "O(log n)"
+        },
+        {
+          "id": "C",
+          "text": "O(n)"
+        },
+        {
+          "id": "D",
+          "text": "O(n log n)"
+        }
+      ],
+      "correctOptionIds": [
+        "C"
+      ],
+      "solution": "Inserting already-sorted keys produces a tree that is effectively a linked list, so a search walks all n nodes. The O(log n) figure people quote assumes balance, which is exactly what AVL and red-black trees enforce."
+    },
+    {
+      "id": "ds_q032",
+      "topicId": "ds_graphs",
+      "type": "nat",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "A simple directed graph has 5 vertices and no self loops. What is the maximum possible number of edges?",
+      "numericAnswer": {
+        "min": 20,
+        "max": 20
+      },
+      "solution": "Every ordered pair of distinct vertices can carry an edge, so 5 &times; 4 = 20. The undirected version would be half that, since an undirected edge is a single unordered pair."
+    },
+    {
+      "id": "ds_q033",
+      "topicId": "ds_graphs",
+      "type": "nat",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "What is the minimum number of edges in a connected undirected graph with 8 vertices?",
+      "numericAnswer": {
+        "min": 7,
+        "max": 7
+      },
+      "solution": "A connected graph on V vertices needs at least V &minus; 1 edges, and a graph with exactly V &minus; 1 edges that is connected is a tree. Any fewer and it must fall into separate components."
+    },
+    {
+      "id": "ds_q034",
+      "topicId": "ds_graphs",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "hard",
+      "text": "How many distinct labelled spanning trees does the complete graph on 4 vertices have?",
+      "numericAnswer": {
+        "min": 16,
+        "max": 16
+      },
+      "solution": "Cayley's formula gives n<sup>n&minus;2</sup> labelled spanning trees for K<sub>n</sub>, so 4<sup>2</sup> = 16. The vertices are labelled, so two trees with the same shape but different vertex assignments count separately."
+    },
+    {
+      "id": "ds_q035",
+      "topicId": "ds_graphs",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Which traversal finds the shortest path from a source in an <em>unweighted</em> graph?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Depth-first search"
+        },
+        {
+          "id": "B",
+          "text": "Breadth-first search"
+        },
+        {
+          "id": "C",
+          "text": "Either, they give the same tree"
+        },
+        {
+          "id": "D",
+          "text": "Neither; Dijkstra's algorithm is required"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "solution": "BFS visits vertices in non-decreasing order of edge count from the source, so the first time it reaches a vertex it has used the fewest possible edges. DFS gives no such guarantee. Dijkstra's algorithm generalises this to weighted edges but is unnecessary when every edge costs the same."
+    },
+    {
+      "id": "ds_q036",
+      "topicId": "ds_graphs",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "What is the running time of depth-first search on a graph stored as an adjacency list?",
+      "options": [
+        {
+          "id": "A",
+          "text": "O(V)"
+        },
+        {
+          "id": "B",
+          "text": "O(E)"
+        },
+        {
+          "id": "C",
+          "text": "O(V + E)"
+        },
+        {
+          "id": "D",
+          "text": "O(V<sup>2</sup>)"
+        }
+      ],
+      "correctOptionIds": [
+        "C"
+      ],
+      "solution": "Each vertex is marked once and each edge is examined a constant number of times, giving O(V + E). With an adjacency matrix it would be O(V<sup>2</sup>), because finding a vertex's neighbours means scanning a whole row regardless of how few there are."
+    },
+    {
+      "id": "ds_q037",
+      "topicId": "ds_graphs",
+      "type": "msq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Which statements about a tree, viewed as an undirected graph on V vertices, are TRUE?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It is connected and has no cycles"
+        },
+        {
+          "id": "B",
+          "text": "It has exactly V &minus; 1 edges"
+        },
+        {
+          "id": "C",
+          "text": "There is exactly one simple path between any two vertices"
+        },
+        {
+          "id": "D",
+          "text": "Adding any new edge between existing vertices keeps it acyclic"
+        }
+      ],
+      "correctOptionIds": [
+        "A",
+        "B",
+        "C"
+      ],
+      "solution": "The first three are equivalent characterisations &mdash; any two of connected, acyclic and V&minus;1 edges imply the third. D is false and is in fact the opposite: a tree is maximally acyclic, so any added edge closes exactly one cycle."
+    },
+    {
+      "id": "ds_q038",
+      "topicId": "ds_stack",
+      "type": "nat",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Evaluate the postfix expression 6 2 / 3 &minus; 4 2 * + using a stack.",
+      "numericAnswer": {
+        "min": 8,
+        "max": 8
+      },
+      "solution": "6 2 / gives 3, then 3 3 &minus; gives 0. Next 4 2 * gives 8, and 0 8 + gives 8. In postfix each operator applies to the two most recent results, so no precedence rules or brackets are needed."
+    },
+    {
+      "id": "ds_q039",
+      "topicId": "ds_stack",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "What is the postfix form of the infix expression A + B * C?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A B + C *"
+        },
+        {
+          "id": "B",
+          "text": "A B C * +"
+        },
+        {
+          "id": "C",
+          "text": "A B C + *"
+        },
+        {
+          "id": "D",
+          "text": "* + A B C"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "solution": "Multiplication binds tighter, so B * C is evaluated first and becomes B C *. Adding A gives A B C * +. Option A is the postfix of (A + B) * C, which is a different expression."
+    },
+    {
+      "id": "ds_q040",
+      "topicId": "ds_stack",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "hard",
+      "text": "The values 1, 2, 3 are pushed onto a stack in that order, with pops allowed at any point. How many distinct pop sequences are possible?",
+      "numericAnswer": {
+        "min": 5,
+        "max": 5
+      },
+      "solution": "This is the 3rd Catalan number, C<sub>3</sub> = 5: 123, 132, 213, 231 and 321. The one ordering that cannot occur is 312 &mdash; popping 3 first means 2 sits above 1, so 1 cannot come out before 2."
+    },
+    {
+      "id": "ds_q041",
+      "topicId": "ds_stack",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "A stack is implemented over a singly linked list. Which end should be the top so that push and pop are both O(1)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The head, since both operations touch only the first node"
+        },
+        {
+          "id": "B",
+          "text": "The tail, since appending is natural"
+        },
+        {
+          "id": "C",
+          "text": "Either end works in O(1)"
+        },
+        {
+          "id": "D",
+          "text": "Neither; a linked list cannot support O(1) push"
+        }
+      ],
+      "correctOptionIds": [
+        "A"
+      ],
+      "solution": "At the head both operations are a couple of pointer updates. At the tail, removing the last node of a singly linked list requires walking from the head to find its predecessor, which is O(n)."
+    },
+    {
+      "id": "ds_q042",
+      "topicId": "ds_stack",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Two stacks are to be stored in one array of size n so that neither overflows until the array is genuinely full. How should they be arranged?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Each takes a fixed half of the array"
+        },
+        {
+          "id": "B",
+          "text": "One grows from index 0 upwards and the other from index n&minus;1 downwards, meeting in the middle"
+        },
+        {
+          "id": "C",
+          "text": "They interleave at even and odd indices"
+        },
+        {
+          "id": "D",
+          "text": "It is impossible without extra memory"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "solution": "Growing towards each other means overflow happens only when the two tops meet, so the space is shared rather than divided. Fixed halves waste memory whenever one stack is deeper than the other."
+    },
+    {
+      "id": "ds_q043",
+      "topicId": "ds_stack",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "What does a runtime call stack hold for each active function call?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only the return address"
+        },
+        {
+          "id": "B",
+          "text": "Only the local variables"
+        },
+        {
+          "id": "C",
+          "text": "An activation record with the return address, parameters and locals"
+        },
+        {
+          "id": "D",
+          "text": "The compiled code of the function"
+        }
+      ],
+      "correctOptionIds": [
+        "C"
+      ],
+      "solution": "Each call pushes an activation record, also called a stack frame, holding everything needed to resume the caller. Because calls return in the reverse of the order they were made, a stack is exactly the right structure, and it is why unbounded recursion causes stack overflow."
+    },
+    {
+      "id": "ds_q044",
+      "topicId": "ds_ll",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "What is the time to insert a node at the head of a singly linked list?",
+      "options": [
+        {
+          "id": "A",
+          "text": "O(1)"
+        },
+        {
+          "id": "B",
+          "text": "O(log n)"
+        },
+        {
+          "id": "C",
+          "text": "O(n)"
+        },
+        {
+          "id": "D",
+          "text": "O(n) only if the list is unsorted"
+        }
+      ],
+      "correctOptionIds": [
+        "A"
+      ],
+      "solution": "The new node points at the old head and the head pointer moves. Nothing else is touched, so it is constant time regardless of length &mdash; the property that makes lists attractive when insertions are frequent."
+    },
+    {
+      "id": "ds_q045",
+      "topicId": "ds_ll",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Accessing the kth element of a singly linked list takes:",
+      "options": [
+        {
+          "id": "A",
+          "text": "O(1)"
+        },
+        {
+          "id": "B",
+          "text": "O(k)"
+        },
+        {
+          "id": "C",
+          "text": "O(log k)"
+        },
+        {
+          "id": "D",
+          "text": "O(n) regardless of k"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "solution": "There is no arithmetic that jumps to a node, so reaching the kth means following k links. This is the trade the list makes against an array, which indexes in O(1) but cannot insert in the middle cheaply."
+    },
+    {
+      "id": "ds_q046",
+      "topicId": "ds_ll",
+      "type": "nat",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "In a circular singly linked list of 10 nodes, how many nodes have a NULL next pointer?",
+      "numericAnswer": {
+        "min": 0,
+        "max": 0
+      },
+      "solution": "None. The last node points back to the first, which is what makes the list circular, so no next pointer is ever NULL. Traversal must therefore stop by comparing against the starting node rather than by testing for NULL."
+    },
+    {
+      "id": "ds_q047",
+      "topicId": "ds_ll",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "What is the extra space needed to reverse a singly linked list iteratively?",
+      "options": [
+        {
+          "id": "A",
+          "text": "O(1)"
+        },
+        {
+          "id": "B",
+          "text": "O(log n)"
+        },
+        {
+          "id": "C",
+          "text": "O(n)"
+        },
+        {
+          "id": "D",
+          "text": "O(n) for the recursion stack"
+        }
+      ],
+      "correctOptionIds": [
+        "A"
+      ],
+      "solution": "Three pointers &mdash; previous, current and next &mdash; suffice, and each node's link is redirected as the walk proceeds. The recursive version does the same work but uses O(n) stack depth."
+    },
+    {
+      "id": "ds_q048",
+      "topicId": "ds_ll",
+      "type": "nat",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "How many pointer fields must be updated to delete a node from the middle of a doubly linked list, given a pointer to that node?",
+      "numericAnswer": {
+        "min": 2,
+        "max": 2
+      },
+      "solution": "The predecessor's next pointer and the successor's prev pointer, both reachable from the node itself. That is why the deletion is O(1) here, while a singly linked list must first walk from the head to find the predecessor."
+    },
+    {
+      "id": "ds_q049",
+      "topicId": "ds_ll",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Two sorted singly linked lists of lengths m and n are merged into one sorted list. What is the time complexity?",
+      "options": [
+        {
+          "id": "A",
+          "text": "O(m n)"
+        },
+        {
+          "id": "B",
+          "text": "O(m + n)"
+        },
+        {
+          "id": "C",
+          "text": "O((m + n) log(m + n))"
+        },
+        {
+          "id": "D",
+          "text": "O(m log n)"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "solution": "Each step compares the two current heads and moves one forward, so every node is visited once. On lists this can be done by relinking nodes, needing no extra space at all."
     }
   ]
 }

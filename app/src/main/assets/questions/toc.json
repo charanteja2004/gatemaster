@@ -9,12 +9,26 @@
       "difficulty": "easy",
       "text": "Which statement about DFAs and NFAs is TRUE?",
       "options": [
-        { "id": "A", "text": "NFAs recognise strictly more languages than DFAs" },
-        { "id": "B", "text": "Every NFA has an equivalent DFA" },
-        { "id": "C", "text": "DFAs can have epsilon transitions" },
-        { "id": "D", "text": "NFAs are always smaller and faster to simulate" }
+        {
+          "id": "A",
+          "text": "NFAs recognise strictly more languages than DFAs"
+        },
+        {
+          "id": "B",
+          "text": "Every NFA has an equivalent DFA"
+        },
+        {
+          "id": "C",
+          "text": "DFAs can have epsilon transitions"
+        },
+        {
+          "id": "D",
+          "text": "NFAs are always smaller and faster to simulate"
+        }
       ],
-      "correctOptionIds": ["B"],
+      "correctOptionIds": [
+        "B"
+      ],
       "solution": "The subset construction converts any NFA to a DFA, so both recognise exactly the regular languages. The DFA may have up to 2<sup>n</sup> states, which is where the cost shows up — not in expressive power."
     },
     {
@@ -24,7 +38,10 @@
       "marks": 2,
       "difficulty": "medium",
       "text": "An NFA has 4 states. What is the maximum number of states in the equivalent DFA produced by the subset construction?",
-      "numericAnswer": { "min": 16, "max": 16 },
+      "numericAnswer": {
+        "min": 16,
+        "max": 16
+      },
       "solution": "Each DFA state is a subset of the NFA's states, so there are at most 2<sup>4</sup> = 16, including the empty set which acts as a dead state."
     },
     {
@@ -35,12 +52,26 @@
       "difficulty": "medium",
       "text": "What is the minimum number of states in a DFA over {0, 1} that accepts all strings whose length is divisible by 3?",
       "options": [
-        { "id": "A", "text": "2" },
-        { "id": "B", "text": "3" },
-        { "id": "C", "text": "4" },
-        { "id": "D", "text": "6" }
+        {
+          "id": "A",
+          "text": "2"
+        },
+        {
+          "id": "B",
+          "text": "3"
+        },
+        {
+          "id": "C",
+          "text": "4"
+        },
+        {
+          "id": "D",
+          "text": "6"
+        }
       ],
-      "correctOptionIds": ["B"],
+      "correctOptionIds": [
+        "B"
+      ],
       "solution": "The only thing to remember is the length modulo 3, which has three possible values. Three states in a cycle, with the state for remainder 0 accepting, suffices — and no fewer, since the three residues are pairwise distinguishable."
     },
     {
@@ -51,12 +82,26 @@
       "difficulty": "easy",
       "text": "Which language is regular?",
       "options": [
-        { "id": "A", "text": "{ a<sup>n</sup>b<sup>n</sup> | n &ge; 0 }" },
-        { "id": "B", "text": "{ a<sup>n</sup>b<sup>m</sup> | n, m &ge; 0 }" },
-        { "id": "C", "text": "{ ww | w &isin; {a,b}* }" },
-        { "id": "D", "text": "{ a<sup>n</sup>b<sup>n</sup>c<sup>n</sup> | n &ge; 0 }" }
+        {
+          "id": "A",
+          "text": "{ a<sup>n</sup>b<sup>n</sup> | n &ge; 0 }"
+        },
+        {
+          "id": "B",
+          "text": "{ a<sup>n</sup>b<sup>m</sup> | n, m &ge; 0 }"
+        },
+        {
+          "id": "C",
+          "text": "{ ww | w &isin; {a,b}* }"
+        },
+        {
+          "id": "D",
+          "text": "{ a<sup>n</sup>b<sup>n</sup>c<sup>n</sup> | n &ge; 0 }"
+        }
       ],
-      "correctOptionIds": ["B"],
+      "correctOptionIds": [
+        "B"
+      ],
       "solution": "a*b* needs no counting, so it is regular. Option A requires matching counts (context-free but not regular), C requires remembering an arbitrary string, and D needs three matched counts (not even context-free)."
     },
     {
@@ -67,12 +112,26 @@
       "difficulty": "easy",
       "text": "Which machine corresponds to context-free languages in the Chomsky hierarchy?",
       "options": [
-        { "id": "A", "text": "Finite automaton" },
-        { "id": "B", "text": "Pushdown automaton" },
-        { "id": "C", "text": "Linear bounded automaton" },
-        { "id": "D", "text": "Turing machine" }
+        {
+          "id": "A",
+          "text": "Finite automaton"
+        },
+        {
+          "id": "B",
+          "text": "Pushdown automaton"
+        },
+        {
+          "id": "C",
+          "text": "Linear bounded automaton"
+        },
+        {
+          "id": "D",
+          "text": "Turing machine"
+        }
       ],
-      "correctOptionIds": ["B"],
+      "correctOptionIds": [
+        "B"
+      ],
       "solution": "The hierarchy pairs regular with finite automata, context-free with pushdown automata, context-sensitive with linear bounded automata, and recursively enumerable with Turing machines. The stack is exactly what lets a PDA match nested structure."
     },
     {
@@ -83,12 +142,29 @@
       "difficulty": "medium",
       "text": "Which closure properties hold for regular languages?",
       "options": [
-        { "id": "A", "text": "Closed under union" },
-        { "id": "B", "text": "Closed under intersection" },
-        { "id": "C", "text": "Closed under complement" },
-        { "id": "D", "text": "Closed under Kleene star" }
+        {
+          "id": "A",
+          "text": "Closed under union"
+        },
+        {
+          "id": "B",
+          "text": "Closed under intersection"
+        },
+        {
+          "id": "C",
+          "text": "Closed under complement"
+        },
+        {
+          "id": "D",
+          "text": "Closed under Kleene star"
+        }
       ],
-      "correctOptionIds": ["A", "B", "C", "D"],
+      "correctOptionIds": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
       "solution": "Regular languages are closed under all of these — union and star by construction on NFAs, complement by swapping accepting states of a complete DFA, and intersection via the product construction or De Morgan. Context-free languages, by contrast, are <em>not</em> closed under intersection or complement."
     },
     {
@@ -99,12 +175,26 @@
       "difficulty": "medium",
       "text": "The halting problem is:",
       "options": [
-        { "id": "A", "text": "Decidable" },
-        { "id": "B", "text": "Undecidable but recursively enumerable" },
-        { "id": "C", "text": "Neither recursively enumerable nor co-recursively enumerable" },
-        { "id": "D", "text": "Decidable only for finite inputs" }
+        {
+          "id": "A",
+          "text": "Decidable"
+        },
+        {
+          "id": "B",
+          "text": "Undecidable but recursively enumerable"
+        },
+        {
+          "id": "C",
+          "text": "Neither recursively enumerable nor co-recursively enumerable"
+        },
+        {
+          "id": "D",
+          "text": "Decidable only for finite inputs"
+        }
       ],
-      "correctOptionIds": ["B"],
+      "correctOptionIds": [
+        "B"
+      ],
       "solution": "You can semi-decide halting by simulating the machine: if it halts you will see it. What you cannot do is conclude non-halting in finite time, so the language is recursively enumerable but not recursive. Its complement is not even RE."
     },
     {
@@ -115,12 +205,27 @@
       "difficulty": "hard",
       "text": "Which problems are undecidable?",
       "options": [
-        { "id": "A", "text": "Whether a given DFA accepts the empty language" },
-        { "id": "B", "text": "Whether two context-free grammars generate the same language" },
-        { "id": "C", "text": "Whether a Turing machine halts on a given input" },
-        { "id": "D", "text": "Whether a given CFG generates any string at all" }
+        {
+          "id": "A",
+          "text": "Whether a given DFA accepts the empty language"
+        },
+        {
+          "id": "B",
+          "text": "Whether two context-free grammars generate the same language"
+        },
+        {
+          "id": "C",
+          "text": "Whether a Turing machine halts on a given input"
+        },
+        {
+          "id": "D",
+          "text": "Whether a given CFG generates any string at all"
+        }
       ],
-      "correctOptionIds": ["B", "C"],
+      "correctOptionIds": [
+        "B",
+        "C"
+      ],
       "solution": "DFA emptiness is decidable by reachability, and CFG emptiness is decidable by checking whether the start symbol is generating. CFG equivalence and the halting problem are both undecidable — CFG equivalence reduces from the Post Correspondence Problem."
     },
     {
@@ -131,12 +236,26 @@
       "difficulty": "medium",
       "text": "The pumping lemma for regular languages is used to prove that a language is:",
       "options": [
-        { "id": "A", "text": "Regular" },
-        { "id": "B", "text": "NOT regular" },
-        { "id": "C", "text": "Context-free" },
-        { "id": "D", "text": "Decidable" }
+        {
+          "id": "A",
+          "text": "Regular"
+        },
+        {
+          "id": "B",
+          "text": "NOT regular"
+        },
+        {
+          "id": "C",
+          "text": "Context-free"
+        },
+        {
+          "id": "D",
+          "text": "Decidable"
+        }
       ],
-      "correctOptionIds": ["B"],
+      "correctOptionIds": [
+        "B"
+      ],
       "solution": "The lemma states a property every regular language must have, so it can only be used negatively: show the property fails and the language cannot be regular. Satisfying the lemma does not prove regularity — the converse does not hold."
     },
     {
@@ -147,12 +266,26 @@
       "difficulty": "easy",
       "text": "What is the key difference between a Mealy machine and a Moore machine?",
       "options": [
-        { "id": "A", "text": "Mealy output depends on state and input; Moore output depends only on state" },
-        { "id": "B", "text": "Moore machines are non-deterministic" },
-        { "id": "C", "text": "Mealy machines have no final states" },
-        { "id": "D", "text": "Moore machines cannot be converted to Mealy machines" }
+        {
+          "id": "A",
+          "text": "Mealy output depends on state and input; Moore output depends only on state"
+        },
+        {
+          "id": "B",
+          "text": "Moore machines are non-deterministic"
+        },
+        {
+          "id": "C",
+          "text": "Mealy machines have no final states"
+        },
+        {
+          "id": "D",
+          "text": "Moore machines cannot be converted to Mealy machines"
+        }
       ],
-      "correctOptionIds": ["A"],
+      "correctOptionIds": [
+        "A"
+      ],
       "solution": "A Moore machine labels outputs on states; a Mealy machine labels them on transitions, so its output can react within the same clock cycle. The two are inter-convertible, with a Moore machine needing at most one extra state."
     },
     {
@@ -163,12 +296,26 @@
       "difficulty": "easy",
       "text": "Which compiler phase is most directly built on finite automata?",
       "options": [
-        { "id": "A", "text": "Lexical analysis" },
-        { "id": "B", "text": "Syntax analysis" },
-        { "id": "C", "text": "Code generation" },
-        { "id": "D", "text": "Register allocation" }
+        {
+          "id": "A",
+          "text": "Lexical analysis"
+        },
+        {
+          "id": "B",
+          "text": "Syntax analysis"
+        },
+        {
+          "id": "C",
+          "text": "Code generation"
+        },
+        {
+          "id": "D",
+          "text": "Register allocation"
+        }
       ],
-      "correctOptionIds": ["A"],
+      "correctOptionIds": [
+        "A"
+      ],
       "solution": "Tokens are described by regular expressions, which compile to finite automata — that is exactly what a lexer is. Syntax analysis needs the extra power of a pushdown automaton because grammars nest."
     },
     {
@@ -179,13 +326,327 @@
       "difficulty": "medium",
       "text": "A grammar is ambiguous if:",
       "options": [
-        { "id": "A", "text": "It has left recursion" },
-        { "id": "B", "text": "Some string has more than one distinct parse tree" },
-        { "id": "C", "text": "It generates an infinite language" },
-        { "id": "D", "text": "It has more than one non-terminal" }
+        {
+          "id": "A",
+          "text": "It has left recursion"
+        },
+        {
+          "id": "B",
+          "text": "Some string has more than one distinct parse tree"
+        },
+        {
+          "id": "C",
+          "text": "It generates an infinite language"
+        },
+        {
+          "id": "D",
+          "text": "It has more than one non-terminal"
+        }
       ],
-      "correctOptionIds": ["B"],
+      "correctOptionIds": [
+        "B"
+      ],
       "solution": "Ambiguity is about parse trees, not about the shape of the productions. Left recursion is a separate problem that breaks top-down parsers but does not by itself imply ambiguity. Some context-free languages are inherently ambiguous — no unambiguous grammar exists for them."
+    },
+    {
+      "id": "toc_q013",
+      "topicId": "toc_finiteautomata",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "What is the minimum number of states in a DFA over {a, b} that accepts exactly those strings ending in ab?",
+      "numericAnswer": {
+        "min": 3,
+        "max": 3
+      },
+      "solution": "The machine only needs to know how much of ab it has just seen: nothing useful, a trailing a, or a trailing ab. Three states, with the last accepting. Fewer is impossible because those three situations are pairwise distinguishable &mdash; b, b and &epsilon; separate them."
+    },
+    {
+      "id": "toc_q014",
+      "topicId": "toc_finiteautomata",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "hard",
+      "text": "What is the minimum number of states in a DFA over {0, 1} that accepts binary strings whose value is divisible by 3, reading most significant bit first?",
+      "numericAnswer": {
+        "min": 3,
+        "max": 3
+      },
+      "solution": "Track the value modulo 3, which has three possible remainders. Reading a bit b takes remainder r to (2r + b) mod 3, and the state for remainder 0 accepts. The three residues are pairwise distinguishable, so three states is also the minimum."
+    },
+    {
+      "id": "toc_q015",
+      "topicId": "toc_finiteautomata",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Which language cannot be accepted by any finite automaton?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Strings over {a, b} containing an even number of a's"
+        },
+        {
+          "id": "B",
+          "text": "{ a<sup>n</sup>b<sup>n</sup> | n &ge; 0 }"
+        },
+        {
+          "id": "C",
+          "text": "Strings ending in 01"
+        },
+        {
+          "id": "D",
+          "text": "The empty language"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "solution": "Matching the counts of a and b requires remembering n, which is unbounded, and a finite automaton has only finitely many states. The pumping lemma makes this precise. The others need only bounded information."
+    },
+    {
+      "id": "toc_q016",
+      "topicId": "toc_finiteautomata",
+      "type": "msq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Which statements about a deterministic finite automaton are TRUE?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It has exactly one transition per state per input symbol"
+        },
+        {
+          "id": "B",
+          "text": "It may have epsilon transitions"
+        },
+        {
+          "id": "C",
+          "text": "It may have more than one accepting state"
+        },
+        {
+          "id": "D",
+          "text": "It has exactly one start state"
+        }
+      ],
+      "correctOptionIds": [
+        "A",
+        "C",
+        "D"
+      ],
+      "solution": "Determinism means the next state is fully decided by the current state and input symbol, so epsilon transitions are not allowed &mdash; those belong to NFAs. Any number of accepting states is fine, but there is always exactly one start state."
+    },
+    {
+      "id": "toc_q017",
+      "topicId": "toc_finiteautomata",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "On what principle does DFA minimisation rest?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Removing all non-accepting states"
+        },
+        {
+          "id": "B",
+          "text": "Merging states that cannot be distinguished by any input string"
+        },
+        {
+          "id": "C",
+          "text": "Converting the DFA to an NFA first"
+        },
+        {
+          "id": "D",
+          "text": "Removing all epsilon transitions"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "solution": "Two states are equivalent when no string leads one to acceptance and the other to rejection. Merging every such class gives the unique minimal DFA, a result known as the Myhill-Nerode theorem. Partition refinement computes it."
+    },
+    {
+      "id": "toc_q018",
+      "topicId": "toc_grammer",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Context-free grammars are which type in the Chomsky hierarchy?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Type 0"
+        },
+        {
+          "id": "B",
+          "text": "Type 1"
+        },
+        {
+          "id": "C",
+          "text": "Type 2"
+        },
+        {
+          "id": "D",
+          "text": "Type 3"
+        }
+      ],
+      "correctOptionIds": [
+        "C"
+      ],
+      "solution": "Type 0 is unrestricted, type 1 context-sensitive, type 2 context-free and type 3 regular. The numbering runs from most to least general, so every type 3 grammar is also type 2."
+    },
+    {
+      "id": "toc_q019",
+      "topicId": "toc_grammer",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Why is left recursion a problem?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It makes the grammar ambiguous"
+        },
+        {
+          "id": "B",
+          "text": "It makes a top-down parser recurse forever without consuming input"
+        },
+        {
+          "id": "C",
+          "text": "It makes the language non-context-free"
+        },
+        {
+          "id": "D",
+          "text": "It prevents the grammar from being converted to Chomsky normal form"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "solution": "A rule such as A &rarr; A&alpha; leads a recursive descent parser to call A again with the same input position, so it never terminates. Bottom-up parsers handle left recursion without difficulty. Left recursion and ambiguity are separate issues &mdash; a grammar can have either without the other."
+    },
+    {
+      "id": "toc_q020",
+      "topicId": "toc_grammer",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "A grammar is in Chomsky normal form when every production has the form:",
+      "options": [
+        {
+          "id": "A",
+          "text": "A &rarr; BC or A &rarr; a"
+        },
+        {
+          "id": "B",
+          "text": "A &rarr; aB or A &rarr; a"
+        },
+        {
+          "id": "C",
+          "text": "A &rarr; &alpha;B&beta;"
+        },
+        {
+          "id": "D",
+          "text": "A &rarr; a only"
+        }
+      ],
+      "correctOptionIds": [
+        "A"
+      ],
+      "solution": "Two non-terminals or a single terminal on the right, plus S &rarr; &epsilon; if the empty string is in the language. Option B is right-linear form, which characterises regular grammars. CNF is what makes the CYK parsing algorithm work."
+    },
+    {
+      "id": "toc_q021",
+      "topicId": "toc_grammer",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Which grammar generates { a<sup>n</sup>b<sup>n</sup> | n &ge; 0 }?",
+      "options": [
+        {
+          "id": "A",
+          "text": "S &rarr; aS | bS | &epsilon;"
+        },
+        {
+          "id": "B",
+          "text": "S &rarr; aSb | &epsilon;"
+        },
+        {
+          "id": "C",
+          "text": "S &rarr; aS | b"
+        },
+        {
+          "id": "D",
+          "text": "S &rarr; aSa | bSb | &epsilon;"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "solution": "Each application adds one a on the left and one b on the right, keeping the counts equal and the a's all before the b's. Option A generates every string over {a, b}, and option C generates a*b."
+    },
+    {
+      "id": "toc_q022",
+      "topicId": "toc_grammer",
+      "type": "msq",
+      "marks": 2,
+      "difficulty": "hard",
+      "text": "Under which operations are context-free languages closed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Union"
+        },
+        {
+          "id": "B",
+          "text": "Concatenation"
+        },
+        {
+          "id": "C",
+          "text": "Intersection"
+        },
+        {
+          "id": "D",
+          "text": "Kleene star"
+        }
+      ],
+      "correctOptionIds": [
+        "A",
+        "B",
+        "D"
+      ],
+      "solution": "Union, concatenation and star can all be built directly by combining grammars. Intersection fails: a<sup>n</sup>b<sup>n</sup>c<sup>m</sup> and a<sup>m</sup>b<sup>n</sup>c<sup>n</sup> are both context-free but their intersection a<sup>n</sup>b<sup>n</sup>c<sup>n</sup> is not. Complement fails too, since closure under complement plus union would give intersection."
+    },
+    {
+      "id": "toc_q023",
+      "topicId": "toc_grammer",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "A non-terminal in a context-free grammar is <em>useless</em> when:",
+      "options": [
+        {
+          "id": "A",
+          "text": "it appears on the right of no production"
+        },
+        {
+          "id": "B",
+          "text": "it derives no terminal string, or is unreachable from the start symbol"
+        },
+        {
+          "id": "C",
+          "text": "it derives the empty string"
+        },
+        {
+          "id": "D",
+          "text": "it appears in more than one production"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "solution": "Both failures make a symbol useless: one that generates no terminal string can never finish a derivation, and one the start symbol cannot reach can never begin one. Removing them changes nothing about the language, and the order matters &mdash; eliminate non-generating symbols first, then unreachable ones."
     }
   ]
 }

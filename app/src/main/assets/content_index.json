@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-08-24T13:54:00Z",
+  "generatedAt": "2026-08-24T14:14:53Z",
   "branches": [
     {
       "id": "cs",
@@ -932,7 +932,7 @@
             },
             {
               "id": "os_swapping",
-              "title": "Swapping",
+              "title": "Swapping and Fragmentation",
               "order": 30,
               "content": {
                 "type": "html",
@@ -977,7 +977,7 @@
             },
             {
               "id": "os_swappingtrashing",
-              "title": "Swapping",
+              "title": "Swapping and Thrashing",
               "order": 35,
               "content": {
                 "type": "html",
