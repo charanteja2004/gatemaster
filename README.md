@@ -53,6 +53,7 @@ To add or change material: drop files into the right assets folder, then
 ```sh
 python tools/build_content_index.py      # rebuild the index
 python tools/normalize_content_html.py   # make new HTML phone-readable
+python tools/build_test_bank.py          # rebuild the mock-test question bank
 ./gradlew :app:testDebugUnitTest         # verify nothing is orphaned
 ```
 
@@ -77,6 +78,35 @@ to report without writing.
 `assets/reader.css` is loaded last so it overrides the per-file `<style>`
 blocks by cascade order rather than by deleting anything.
 
+### `tools/build_test_bank.py`
+
+Converts the legacy `assets/mock1.json` into `assets/tests/` — the GATE-shaped
+schema with MCQ / MSQ / NAT, per-question marks and sections — and writes
+`assets/tests/catalogue.json`. Questions that cannot be converted are reported
+and skipped rather than shipped broken.
+
+## The test engine
+
+`core/model/TestModels.kt` and `core/model/Attempt.kt` model the real paper:
+
+- **Three question types.** MCQ (single correct), MSQ (one or more, no partial
+  credit), NAT (typed number, matched against the published tolerance range).
+- **GATE marking.** A wrong MCQ costs a third of its marks; MSQ and NAT carry
+  no penalty; unattempted always scores zero.
+- **A question palette** with answered / marked / skipped states, a countdown
+  that pauses when the screen is not visible, mark-for-review, clear response,
+  and free navigation in both directions.
+- **A scorecard** with per-section totals, accuracy on attempted questions,
+  marks lost to negative marking, and a per-question review showing the chosen
+  and correct options.
+
+Scoring is a pure function of the attempt plus the paper (`scoreAttempt`), so
+the rules are unit-tested without a device.
+
+Attempts are persisted as JSON in the app's files directory: an in-progress
+attempt survives being killed, and finished attempts are kept as history. Room
+replaces this once attempt history needs querying for analytics.
+
 ## Tests
 
 `ContentIndexTest` validates the material that actually ships: every referenced
@@ -100,9 +130,9 @@ legacy/                  pre-rewrite Java/XML app, excluded from the build
 
 ## Not done yet
 
-- Mock-test engine (MCQ / MSQ / NAT, timer, negative marking, scorecard)
-- Room + DataStore for progress, bookmarks, and attempt history
+- Room + DataStore for progress, bookmarks, and richer attempt analytics
 - Hilt (the app currently uses a hand-rolled `AppContainer`)
 - Accounts, sync, and serving content from a backend instead of the APK
 - Release signing config — required before the first Play upload
 - Computer Networks and Discrete Mathematics have no content
+- Only one practice test ships; there is no per-subject question bank yet

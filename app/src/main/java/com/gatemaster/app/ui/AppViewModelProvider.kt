@@ -10,6 +10,8 @@ import com.gatemaster.app.ui.home.HomeViewModel
 import com.gatemaster.app.ui.papers.PapersViewModel
 import com.gatemaster.app.ui.search.SearchViewModel
 import com.gatemaster.app.ui.subject.SubjectViewModel
+import com.gatemaster.app.ui.test.TestListViewModel
+import com.gatemaster.app.ui.test.TestPlayerViewModel
 
 /**
  * ViewModel wiring for the manual container. Replaced wholesale by
@@ -21,6 +23,13 @@ object AppViewModelProvider {
         initializer { HomeViewModel(app().container.contentRepository) }
         initializer { PapersViewModel(app().container.contentRepository) }
         initializer { SearchViewModel(app().container.contentRepository) }
+        initializer { TestListViewModel(app().container.testRepository) }
+        initializer {
+            TestPlayerViewModel(
+                repository = app().container.testRepository,
+                savedStateHandle = createSavedStateHandle(),
+            )
+        }
         initializer {
             SubjectViewModel(
                 repository = app().container.contentRepository,

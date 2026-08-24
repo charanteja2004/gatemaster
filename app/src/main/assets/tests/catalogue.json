@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "tests": [
+    {
+      "id": "aptitude-practice-1",
+      "title": "General Aptitude — Practice Test 1",
+      "description": "Verbal, quantitative and logical reasoning questions in the GATE General Aptitude style.",
+      "durationMinutes": 60,
+      "questionCount": 55,
+      "totalMarks": 55,
+      "file": "tests/aptitude-practice-1.json"
+    }
+  ]
+}

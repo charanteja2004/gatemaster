@@ -2,6 +2,7 @@ package com.gatemaster.app
 
 import android.app.Application
 import com.gatemaster.app.core.data.ContentRepository
+import com.gatemaster.app.core.data.TestRepository
 
 /**
  * Manual dependency container.
@@ -13,6 +14,10 @@ import com.gatemaster.app.core.data.ContentRepository
 class AppContainer(application: Application) {
     val contentRepository: ContentRepository by lazy {
         ContentRepository(application.assets)
+    }
+
+    val testRepository: TestRepository by lazy {
+        TestRepository(application.assets, application.filesDir)
     }
 }
 

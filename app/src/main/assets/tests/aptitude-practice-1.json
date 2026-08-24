@@ -1,0 +1,1662 @@
+{
+  "id": "aptitude-practice-1",
+  "title": "General Aptitude — Practice Test 1",
+  "description": "Verbal, quantitative and logical reasoning questions in the GATE General Aptitude style.",
+  "durationMinutes": 60,
+  "sections": [
+    {
+      "id": "ga",
+      "name": "General Aptitude",
+      "questionIds": [
+        "aptitude-practice-1-q01",
+        "aptitude-practice-1-q04",
+        "aptitude-practice-1-q05",
+        "aptitude-practice-1-q06",
+        "aptitude-practice-1-q07",
+        "aptitude-practice-1-q08",
+        "aptitude-practice-1-q09",
+        "aptitude-practice-1-q10",
+        "aptitude-practice-1-q11",
+        "aptitude-practice-1-q12",
+        "aptitude-practice-1-q13",
+        "aptitude-practice-1-q14",
+        "aptitude-practice-1-q15",
+        "aptitude-practice-1-q16",
+        "aptitude-practice-1-q17",
+        "aptitude-practice-1-q18",
+        "aptitude-practice-1-q19",
+        "aptitude-practice-1-q20",
+        "aptitude-practice-1-q21",
+        "aptitude-practice-1-q22",
+        "aptitude-practice-1-q23",
+        "aptitude-practice-1-q24",
+        "aptitude-practice-1-q25",
+        "aptitude-practice-1-q26",
+        "aptitude-practice-1-q27",
+        "aptitude-practice-1-q28",
+        "aptitude-practice-1-q29",
+        "aptitude-practice-1-q30",
+        "aptitude-practice-1-q31",
+        "aptitude-practice-1-q32",
+        "aptitude-practice-1-q33",
+        "aptitude-practice-1-q35",
+        "aptitude-practice-1-q36",
+        "aptitude-practice-1-q38",
+        "aptitude-practice-1-q39",
+        "aptitude-practice-1-q41",
+        "aptitude-practice-1-q42",
+        "aptitude-practice-1-q43",
+        "aptitude-practice-1-q44",
+        "aptitude-practice-1-q45",
+        "aptitude-practice-1-q46",
+        "aptitude-practice-1-q47",
+        "aptitude-practice-1-q48",
+        "aptitude-practice-1-q49",
+        "aptitude-practice-1-q50",
+        "aptitude-practice-1-q51",
+        "aptitude-practice-1-q52",
+        "aptitude-practice-1-q53",
+        "aptitude-practice-1-q54",
+        "aptitude-practice-1-q55",
+        "aptitude-practice-1-q56",
+        "aptitude-practice-1-q57",
+        "aptitude-practice-1-q58",
+        "aptitude-practice-1-q59",
+        "aptitude-practice-1-q60"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "aptitude-practice-1-q01",
+      "number": 1,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Fill in the blank with the suitable word/ phrase: There are _candidates opting for Home Science today as a course of study at the college level.",
+      "options": [
+        {
+          "id": "A",
+          "text": "smaller"
+        },
+        {
+          "id": "B",
+          "text": "less"
+        },
+        {
+          "id": "C",
+          "text": "fewer"
+        },
+        {
+          "id": "D",
+          "text": "lesser"
+        }
+      ],
+      "correctOptionIds": [
+        "C"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q04",
+      "number": 2,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Select the statement in which the underlined word is used correctly:",
+      "options": [
+        {
+          "id": "A",
+          "text": "These insects <b>adapted</b> themselves very easily to new environments."
+        },
+        {
+          "id": "B",
+          "text": "That woman has <b>adapted</b> a child from an orphanage."
+        },
+        {
+          "id": "C",
+          "text": "That Telugu family <b>immigrated</b> to Australia last year."
+        },
+        {
+          "id": "D",
+          "text": "None"
+        }
+      ],
+      "correctOptionIds": [
+        "A"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q05",
+      "number": 3,
+      "type": "mcq",
+      "marks": 1,
+      "text": "In a certain code language, if REPTILE is coded as 49 and CROCODILE is coded as 81, then how is ALLIGATOR coded in that language?",
+      "options": [
+        {
+          "id": "A",
+          "text": "95"
+        },
+        {
+          "id": "B",
+          "text": "100"
+        },
+        {
+          "id": "C",
+          "text": "49"
+        },
+        {
+          "id": "D",
+          "text": "81"
+        }
+      ],
+      "correctOptionIds": [
+        "D"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q06",
+      "number": 4,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Out of the following four sentences, select the most suitable sentence with respect to grammar and usage:",
+      "options": [
+        {
+          "id": "A",
+          "text": "We took a month and a few days to get acclimated to our new teacher, who is from Baroda."
+        },
+        {
+          "id": "B",
+          "text": "We will take month and few days to get acclimated to our new teacher, who is from Baroda."
+        },
+        {
+          "id": "C",
+          "text": "We have taken month and a fewer days to get acclimated to our new teacher, who is from Baroda."
+        },
+        {
+          "id": "D",
+          "text": "We took a month few days to get acclimated to our new teacher, who is from Baroda."
+        }
+      ],
+      "correctOptionIds": [
+        "A"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q07",
+      "number": 5,
+      "type": "mcq",
+      "marks": 1,
+      "text": "If 0< x< 1 and 1 + 3x + 5x²+ 7x³ + 9x4+ ... 00= 3, then the value of x is",
+      "options": [
+        {
+          "id": "A",
+          "text": "1/2"
+        },
+        {
+          "id": "B",
+          "text": "1/3"
+        },
+        {
+          "id": "C",
+          "text": "1/4"
+        },
+        {
+          "id": "D",
+          "text": "1/5"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q08",
+      "number": 6,
+      "type": "mcq",
+      "marks": 1,
+      "text": "In the following question, the first and the last sentences of a passage are in order and numbered 1 and 6. The rest of the passage is split into 4 parts and numbered as 2, 3, 4 and 5. These 4 parts are not arranged in the proper order. Read the sentences and arrange them in a logical sequence to make a passage and choose the correct sequence from the given order:\n 1.A classic example of how the \"get what you want by helping others get what they want\" approach works is the result that a major automaker got when it came out with a new design.\n2.After all, the person turning the wrench knows more about the way it really works on the assembly line than the engineers who designed the wrench.\n3.Before making these changes, the management\nasked the employees who would actually be building the new vehicles whether they had any\nideas for making the assembly lines more effective�\n4.The workers had dozens of marvelous ideas�\n5.This design necessitated the construction of new\nplants and the retooling of existing ones�",
+      "options": [
+        {
+          "id": "A",
+          "text": "5, 3, 4, 2"
+        },
+        {
+          "id": "B",
+          "text": ",(B) 3, 4, 2, 5"
+        },
+        {
+          "id": "C",
+          "text": "2, 5, 4, 3"
+        },
+        {
+          "id": "D",
+          "text": "4, 3, 2, 5"
+        }
+      ],
+      "correctOptionIds": [
+        "A"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q09",
+      "number": 7,
+      "type": "mcq",
+      "marks": 1,
+      "text": "In a parking lot six buses are parked in front of bus number 25 and fifteen buses are parked behind bus number 45. If six buses are parked between bus numbers 25 and 45, then how many buses are there in the parking lot?",
+      "options": [
+        {
+          "id": "A",
+          "text": "29"
+        },
+        {
+          "id": "B",
+          "text": "26"
+        },
+        {
+          "id": "C",
+          "text": "15"
+        },
+        {
+          "id": "D",
+          "text": "Cannot be determined"
+        }
+      ],
+      "correctOptionIds": [
+        "A"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q10",
+      "number": 8,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Jane Davis, founder of Get Into Reading, which has helped Clare Ross so much, discovered the healing power of books by accident� An English lecturer at Liverpool University, England, she also taught literature courses in her community� In the process she discovered that people derived consolation from great writers and the support network the group provided� So she set up Get Into Reading, which now has more than135 groups\\ufffd Which of the statement(s) below is/are logically valid and can be inferred from the above statements? and wholesome\\ufffd like Get Into Reading\\ufffd hope for an unattainable goal\\ufffd also support from other sources\\ufffd\n(i) Reading gives multiple benefits, both unexpected\n (ii) Reading helps everyone to set up an association like Get Into Reading�\n(iii) Reading is just a waste of time which makes one hope for an unattainable goal�\n(iv) Reading gives not only help from great writers but also support from other sources�",
+      "options": [
+        {
+          "id": "A",
+          "text": "(i) and (iii)"
+        },
+        {
+          "id": "B",
+          "text": "(i) and (iv)"
+        },
+        {
+          "id": "C",
+          "text": "(ii) and (iii)"
+        },
+        {
+          "id": "D",
+          "text": "(ii) and (iv)"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q11",
+      "number": 9,
+      "type": "mcq",
+      "marks": 1,
+      "text": "One of the eigenvectors of the matrix\n          100\n    A    021  is\n          203",
+      "options": [
+        {
+          "id": "A",
+          "text": "3"
+        },
+        {
+          "id": "B",
+          "text": "4"
+        },
+        {
+          "id": "C",
+          "text": "2"
+        },
+        {
+          "id": "D",
+          "text": "1"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q12",
+      "number": 10,
+      "type": "mcq",
+      "marks": 1,
+      "text": "The number of edges in a bipartite graph with 11 vertices should be at most,",
+      "options": [
+        {
+          "id": "A",
+          "text": "11"
+        },
+        {
+          "id": "B",
+          "text": "20"
+        },
+        {
+          "id": "C",
+          "text": "30"
+        },
+        {
+          "id": "D",
+          "text": "44"
+        }
+      ],
+      "correctOptionIds": [
+        "C"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q13",
+      "number": 11,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Which of the following is NOT a valid identity for any three arbitrary events A, B and C of a sample space?",
+      "options": [
+        {
+          "id": "A",
+          "text": "P(AUB)/C = P(A/C) + P(B/C)-P(AB/C)"
+        },
+        {
+          "id": "B",
+          "text": "P(AB)= P(A) P(B/A)"
+        },
+        {
+          "id": "C",
+          "text": "P(A) = 1- P(A/B)"
+        },
+        {
+          "id": "D",
+          "text": "None of these"
+        }
+      ],
+      "correctOptionIds": [
+        "D"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q14",
+      "number": 12,
+      "type": "mcq",
+      "marks": 1,
+      "text": "If the number of telephone calls coming to a telephone exchange follows Poisson distribution with an average of 3 calls per hour, then the probability that the number of telephone calls coming to the telephone exchange in one hour exceeding 3 is",
+      "options": [
+        {
+          "id": "A",
+          "text": "0.3528"
+        },
+        {
+          "id": "B",
+          "text": "0.6472"
+        },
+        {
+          "id": "C",
+          "text": "0.2341"
+        },
+        {
+          "id": "D",
+          "text": "0.7659"
+        }
+      ],
+      "correctOptionIds": [
+        "A"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q15",
+      "number": 13,
+      "type": "mcq",
+      "marks": 1,
+      "text": "If f(x) = 2x, g(x) = 3x² and h(x) = 3 and (fogoh) (x) exists, then the value of(fogoh) (3) is.",
+      "options": [
+        {
+          "id": "A",
+          "text": "21"
+        },
+        {
+          "id": "B",
+          "text": "54"
+        },
+        {
+          "id": "C",
+          "text": "24"
+        },
+        {
+          "id": "D",
+          "text": "50"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q16",
+      "number": 14,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Which of the following algorithm can be used to sort the numbers 1, 2, 3, ..., 99, in O(n) time?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Merge sort"
+        },
+        {
+          "id": "B",
+          "text": "Quick sort"
+        },
+        {
+          "id": "C",
+          "text": "Heap sort"
+        },
+        {
+          "id": "D",
+          "text": "Radix sort"
+        }
+      ],
+      "correctOptionIds": [
+        "D"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q17",
+      "number": 15,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Consider the following statements:\nI.  The minimum number of edges in a connected graph which is not cyclic on ' n' vertices is(n- 1).\nII.  A simple connected graph with ' n' nodes has maximum edges.\nWhich of the following is TRUE?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only I"
+        },
+        {
+          "id": "B",
+          "text": "Only II"
+        },
+        {
+          "id": "C",
+          "text": "Both I and II"
+        },
+        {
+          "id": "D",
+          "text": "Neither I nor II"
+        }
+      ],
+      "correctOptionIds": [
+        "C"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q18",
+      "number": 16,
+      "type": "mcq",
+      "marks": 1,
+      "text": "A disk has the following parameters: Number of tracks = 360, Number of blocks per track= 360, Disk rotates 600 RPM. What is the Latency?",
+      "options": [
+        {
+          "id": "A",
+          "text": "5 seconds"
+        },
+        {
+          "id": "B",
+          "text": "0.5 seconds"
+        },
+        {
+          "id": "C",
+          "text": "0.05 seconds"
+        },
+        {
+          "id": "D",
+          "text": "0.005 seconds"
+        }
+      ],
+      "correctOptionIds": [
+        "C"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q19",
+      "number": 17,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Which of the following is TRUE?\nI. A B- tree of order 3, constructed with n- elements which are in ascending order leads to maximum number of Node splits.\nII. A B - tree of order 3, constructed with n- elements which are in descending order leads to maximum number of Node Splits. (Assume value of' n' upto 10 elements)",
+      "options": [
+        {
+          "id": "A",
+          "text": "I only"
+        },
+        {
+          "id": "B",
+          "text": "II only"
+        },
+        {
+          "id": "C",
+          "text": "Both I and II"
+        },
+        {
+          "id": "D",
+          "text": "Neither I nor II"
+        }
+      ],
+      "correctOptionIds": [
+        "C"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q20",
+      "number": 18,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Which of the following is always TRUE?\nI. If a program runs on a processor with a higher frequency, then it implies that the processor always executes more number of instructions per second than a low frequency processor.\nII. If a processor executes more number of instructions per second then it implies that the processor always finishes a program faster than a processor which executes fewer instructions per second.",
+      "options": [
+        {
+          "id": "A",
+          "text": "I only"
+        },
+        {
+          "id": "B",
+          "text": "II only"
+        },
+        {
+          "id": "C",
+          "text": "Both I and II"
+        },
+        {
+          "id": "D",
+          "text": "Neither I nor II"
+        }
+      ],
+      "correctOptionIds": [
+        "D"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q21",
+      "number": 19,
+      "type": "mcq",
+      "marks": 1,
+      "text": "A machine has 5- stage pipeline, which uses delay slots to handle control dependencies. If the dependencies are resolved in the 3rd stage then the number of delay slots needed to ensure correct operation is,",
+      "options": [
+        {
+          "id": "A",
+          "text": "1"
+        },
+        {
+          "id": "B",
+          "text": "2"
+        },
+        {
+          "id": "C",
+          "text": "3"
+        },
+        {
+          "id": "D",
+          "text": "4"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q22",
+      "number": 20,
+      "type": "mcq",
+      "marks": 1,
+      "text": "A language L consists of all binary strings beginning with a' 1' such that when its value is converted to decimal, is divisible by' 3'. Then which of the following is TRUE?",
+      "options": [
+        {
+          "id": "A",
+          "text": "L can be recognized by a Deterministic Finite Automata."
+        },
+        {
+          "id": "B",
+          "text": "L can be recognized by a Non- deterministic finite automata but not by deterministic finite automata."
+        },
+        {
+          "id": "C",
+          "text": "L can be recognized by a deterministic push- down automata but not by a finite automata."
+        },
+        {
+          "id": "D",
+          "text": "The language L cannot recognized by any push down automata."
+        }
+      ],
+      "correctOptionIds": [
+        "A"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q23",
+      "number": 21,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Which of the following problem is decidable?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A Context free language L is regular or not."
+        },
+        {
+          "id": "B",
+          "text": "Complement of a CFL is CFL or not."
+        },
+        {
+          "id": "C",
+          "text": "Finding whether a given CFL is empty or not."
+        },
+        {
+          "id": "D",
+          "text": "Finding whether the intersection of two CFLs is empty or not."
+        }
+      ],
+      "correctOptionIds": [
+        "C"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q24",
+      "number": 22,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Which of the following is TRUE about socket programming?\nThe accept() socket call returns the non-negative file descriptor of the accepted socket(if there is no error).\nThe return value of receive() specifies the number of bytes read from or if the socket was closed or an error was encountered.\nIn socket programming close() and shut down() functions operate in same way.",
+      "options": [
+        {
+          "id": "A",
+          "text": "I only"
+        },
+        {
+          "id": "B",
+          "text": "I, II only"
+        },
+        {
+          "id": "C",
+          "text": "I, II, III"
+        },
+        {
+          "id": "D",
+          "text": "II only"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q25",
+      "number": 23,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Which of the following is FALSE about the connecting device ' Repeater'?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A Repeater is used to connect segments of a LAN."
+        },
+        {
+          "id": "B",
+          "text": "A Repeater can connect two LANS of different protocols."
+        },
+        {
+          "id": "C",
+          "text": "A Repeater forwards every frame as it has no filtering capability."
+        },
+        {
+          "id": "D",
+          "text": "A Repeater is a generator not an amplifier."
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q26",
+      "number": 24,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Using Caesar Cipher with key 10, what is the encrypted message of 'GATECS'?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SCETAG"
+        },
+        {
+          "id": "B",
+          "text": "AGETSC"
+        },
+        {
+          "id": "C",
+          "text": "WQJUSI"
+        },
+        {
+          "id": "D",
+          "text": "QKDOMC"
+        }
+      ],
+      "correctOptionIds": [
+        "D"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q27",
+      "number": 25,
+      "type": "mcq",
+      "marks": 1,
+      "text": "The binding takes place at, which of the following?\n(I) language design time\n(II) compile time\n(III) load time\n(IV) link time(or) run time\n(V) language implementation time",
+      "options": [
+        {
+          "id": "A",
+          "text": "(II), (III), (IV)"
+        },
+        {
+          "id": "B",
+          "text": "(II),(III), (IV), (V)"
+        },
+        {
+          "id": "C",
+          "text": "(I), (II), (III), (IV)"
+        },
+        {
+          "id": "D",
+          "text": "All the above"
+        }
+      ],
+      "correctOptionIds": [
+        "D"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q28",
+      "number": 26,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Consider the following program:\nvar x;\nfunction fun1( )\n{\n    var x1 = 20;\n    document.write(Vx = V + x);\n}\nfunction fun2( )\n{\n    var x;\n    x = 10;\n    fun1( );\n}\nx = 5;\nfun2( );\nUsing static scoping what is the value of x printed when fun 2( ) is called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "5"
+        },
+        {
+          "id": "B",
+          "text": "10"
+        },
+        {
+          "id": "C",
+          "text": "20"
+        },
+        {
+          "id": "D",
+          "text": "shows error"
+        }
+      ],
+      "correctOptionIds": [
+        "A"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q29",
+      "number": 27,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Number of binary trees that can be formed with 3 elements is",
+      "options": [
+        {
+          "id": "A",
+          "text": "20"
+        },
+        {
+          "id": "B",
+          "text": "30"
+        },
+        {
+          "id": "C",
+          "text": "40"
+        },
+        {
+          "id": "D",
+          "text": "50"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q30",
+      "number": 28,
+      "type": "mcq",
+      "marks": 1,
+      "text": "The root directory of the file system should be placed at",
+      "options": [
+        {
+          "id": "A",
+          "text": "Anywhere on the disk"
+        },
+        {
+          "id": "B",
+          "text": "Fixed location on the disk"
+        },
+        {
+          "id": "C",
+          "text": "Fixed location on the primary memory"
+        },
+        {
+          "id": "D",
+          "text": "None of the above"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q31",
+      "number": 29,
+      "type": "mcq",
+      "marks": 1,
+      "text": "In a Round- Robin scheduling, if time Quantum and Process switch takes equal amount of time, then the CPU efficiency will be",
+      "options": [
+        {
+          "id": "A",
+          "text": "75%"
+        },
+        {
+          "id": "B",
+          "text": "50%"
+        },
+        {
+          "id": "C",
+          "text": "65.5%"
+        },
+        {
+          "id": "D",
+          "text": "Depending on the number of processes in the system"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q32",
+      "number": 30,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Which of the following statements is FALSE?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Type incompatibilities between actual and formal parameters are detected at compile time."
+        },
+        {
+          "id": "B",
+          "text": "Array subscript out of range is detected at run time."
+        },
+        {
+          "id": "C",
+          "text": "Multiple declarations of a variable leads to compile time error."
+        },
+        {
+          "id": "D",
+          "text": "None of the above"
+        }
+      ],
+      "correctOptionIds": [
+        "D"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q33",
+      "number": 31,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Consider the following program\nvoid fun (  )\n{\n    int  a,  b,  c,  d;\n\n            for  ( )     (I)\n              {\n                int b,  c,  d;\n\n                          :\n                             for  ( )     (II)\n                               {\n                                  int  c, d,  x,  y;\n                                      //  line \nWhich of the following variables are visible at line (I)?                              ( I)\n                               }\n              }\n}",
+      "options": [
+        {
+          "id": "A",
+          "text": "c, d, x, y of for (II); b, c, d of for (I); a, b, c, d of fun()"
+        },
+        {
+          "id": "B",
+          "text": "c, d, x, y of for(II)"
+        },
+        {
+          "id": "C",
+          "text": "c, d, x, y of for(II); b of for (I); a of fun ()"
+        },
+        {
+          "id": "D",
+          "text": "c, d, x, y of for (I); b of for(II); a, b, c, d of fun()"
+        }
+      ],
+      "correctOptionIds": [
+        "C"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q35",
+      "number": 32,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Consider the boolean function, F(a, b, c)  лM(2,5). Then minimum SOP (Sum of Products) form of F is:",
+      "options": [
+        {
+          "id": "A",
+          "text": "a'c+ b'c' + ab"
+        },
+        {
+          "id": "B",
+          "text": "a'b'+ be+ ac¹"
+        },
+        {
+          "id": "C",
+          "text": "Both (A) and(B)"
+        },
+        {
+          "id": "D",
+          "text": "a'b' + b'c' + bc+ ab"
+        }
+      ],
+      "correctOptionIds": [
+        "C"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q36",
+      "number": 33,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Consider the propositions:\nS₁:  If Ramu is in the classroom, then Lokesh will be in the playground\nS:  Ramu is in the classroom and S3 : Lokesh is in the playground\nThen which of the following is TRUE?",
+      "options": [
+        {
+          "id": "A",
+          "text": "S₂ logically follows from S₁ and S3 but S3 does not follow logically from S₁ and S₂"
+        },
+        {
+          "id": "B",
+          "text": "S₂ does not follow logically from S₁ and S3 but S3 logically follows from S₁ and S₂"
+        },
+        {
+          "id": "C",
+          "text": "S₂ does not follow logically from S₁ and S3, and S3 does not follow logically from S, and S₂"
+        },
+        {
+          "id": "D",
+          "text": "S₂ logically follows from S₁ and S3, and S3 logically follows from S₁ and S₂"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q38",
+      "number": 34,
+      "type": "mcq",
+      "marks": 1,
+      "text": "A stationary value of a function f(x) is a value of x, where f(x)= 0. The number of distinct stationary values of f(x) = 8x - 15x + 10x², where f(x) has neither maximum nor minimum is_",
+      "options": [
+        {
+          "id": "A",
+          "text": "1"
+        },
+        {
+          "id": "B",
+          "text": "2"
+        },
+        {
+          "id": "C",
+          "text": "3"
+        },
+        {
+          "id": "D",
+          "text": "4"
+        }
+      ],
+      "correctOptionIds": [
+        "A"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q39",
+      "number": 35,
+      "type": "mcq",
+      "marks": 1,
+      "text": "In a hostel, there are 5 triple rooms (each room can accommodate 3 students), 6 double rooms (each room can accommodate 2 students) and 3 single rooms (each room can accommodate 1 student). The number of ways in which 30 students can be accommodated in these 14 rooms is",
+      "options": [
+        {
+          "id": "A",
+          "text": "(31)* x(21) x(11)"
+        },
+        {
+          "id": "B",
+          "text": "(5) x (21) x(31)"
+        },
+        {
+          "id": "C",
+          "text": "30!"
+        },
+        {
+          "id": "D",
+          "text": "30!"
+        }
+      ],
+      "correctOptionIds": [
+        "A"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q41",
+      "number": 36,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Analyze the following counter circuit, and find the Count sequence Q2120 (in decimal). Consider the initial condition of all flip flops at reset.",
+      "options": [
+        {
+          "id": "A",
+          "text": "0, 7, 6, 5, 4, 3, 2, 1, 0...."
+        },
+        {
+          "id": "B",
+          "text": "0, 1, 2, 3, 4, 5, 6, 7, 0....."
+        },
+        {
+          "id": "C",
+          "text": "0, 3, 2, 5, 4, 7, 6, 1, 0...."
+        },
+        {
+          "id": "D",
+          "text": "0, 6, 2, 5, 1, 7, 3, 4, 0...."
+        }
+      ],
+      "correctOptionIds": [
+        "C"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q42",
+      "number": 37,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Which of the following grammar is LL(1), LR(0)and SLR(1)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "S → A B | B A\nA → b AI\nB → a BI\nBI → a A BI|∈"
+        },
+        {
+          "id": "B",
+          "text": "E → TEI\nE I → + TEI| E\n        T → E F | E a | b\n   F → (E) | a"
+        },
+        {
+          "id": "C",
+          "text": "E → E F | e\n             F → F + | f\n        T → E T | g"
+        },
+        {
+          "id": "D",
+          "text": "S → a A B | B a | A b\n                    A → c\n                    B → c"
+        }
+      ],
+      "correctOptionIds": [
+        "A"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q43",
+      "number": 38,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Consider the grammar: SiCtsSa. S¹→ ese, C→ b. An LL(1) Parsing table, M is constructed for this grammar and the grammar is not in LL(1). Then which of the following entries in M, contains multiple entries?",
+      "options": [
+        {
+          "id": "A",
+          "text": "M[ S', ]"
+        },
+        {
+          "id": "B",
+          "text": "M[ S, i]"
+        },
+        {
+          "id": "C",
+          "text": "MS', )"
+        },
+        {
+          "id": "D",
+          "text": "M[ S, a]"
+        }
+      ],
+      "correctOptionIds": [
+        "C"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q44",
+      "number": 39,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Consider the following Syntax Directed Definition: \nProduction        Semantic Rule\n(1) L → En        L.val = E.val\n(2) E→ E₁ + T     E.val  E₁. val + T.val\n(3) E→ T         E.val= T.val\n(4) T → T, * F      T.val = T₁.val * F.val\n(5) T→ F         T.val= F.val\n(6) F→ (E)       F.val = E.val\n(7) F→ digit      F.val= digit.lexval\nIt evaluates the expressions, which are terminated by an end marker 'n' with operators + and*. Then which of the following statement(s) is/ are FALSE?",
+      "options": [
+        {
+          "id": "A",
+          "text": "I.   Given SDD is S- attributed grammar."
+        },
+        {
+          "id": "B",
+          "text": "II.  Given SDD is not L- attributed grammar."
+        },
+        {
+          "id": "C",
+          "text": "III.  Given SDD is an attribute grammar."
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q45",
+      "number": 40,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Consider a system which is using Round- Robin Scheduling Technique with context switch overhead of 2 ms, what is the value of time quantum(q) for n = 6 processes, so that each process must be guaranteed to get its chance(or) turn at the CPU exactly after 36 ms of time (in ms) is .",
+      "options": [
+        {
+          "id": "A",
+          "text": "4.0"
+        },
+        {
+          "id": "B",
+          "text": "4.8"
+        },
+        {
+          "id": "C",
+          "text": "6.0"
+        },
+        {
+          "id": "D",
+          "text": "3.0"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q46",
+      "number": 41,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Consider the page reference string: 1, 2, 3, 4, 2, 1, 5, 6, 2, 1, 2, 3, 7, 6, 3, 2, 1, 2, 3, 5. If the number of page faults are 9 using LRU page replacement policy then the number of page frames required would be?",
+      "options": [
+        {
+          "id": "A",
+          "text": "3"
+        },
+        {
+          "id": "B",
+          "text": "4"
+        },
+        {
+          "id": "C",
+          "text": "5"
+        },
+        {
+          "id": "D",
+          "text": "6"
+        }
+      ],
+      "correctOptionIds": [
+        "C"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q47",
+      "number": 42,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Consider a system with processes P1, P2. X is a Binary semaphore variable with an initial value of 1 and count is a variable with initial value of 1.\n\nThe processes P1, P2 executes routines P1(), P2() for accessing critical section.\n\nP1() {\n  DOWN(X);\n  count++;\n  UP(X);\n}\nP2() {\n  DOWN(X);\n  count--;\n  UP(X);\n}\n\nWhich of the following statements(S1, S2, S3) is/are TRUE?\n\nS1: The maximum value of count can be infinite.\nS2: The system cannot guarantee progress.\nS3: The system does not provide Mutual Exclusion.\n\n(A) S1 only (B) S1 and S3 (C) S2 and S3 (D) S1, S2, S3",
+      "options": [
+        {
+          "id": "A",
+          "text": "S1 only"
+        },
+        {
+          "id": "B",
+          "text": "S1 and S3"
+        },
+        {
+          "id": "C",
+          "text": "S2 and S3"
+        },
+        {
+          "id": "D",
+          "text": "S1, S2, S3"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q48",
+      "number": 43,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Consider the function fun() which deletes the duplicate elements on a non-empty sorted single linked list.\n\ntypedef struct SL {\n  int data;\n  struct SL *next;\n} SLL;\n\nvoid fun(SLL *first) {\n  SLL *curr = first, *temp;\n  if (!curr)\n    return;\n  while (curr->next) {\n    temp = curr->next;\n    if (curr->data == temp->data)\n      curr->next = temp->next;\n    else\n      curr = curr->next;\n    free(temp);\n  }\n}\n\nIf first node address is passed to fun(), Fill in the blanks.\n\n(A) curr temp temp next\n(B) curr curr=curr->next\n(C) temp curr=curr->next\n(D) temp temp=temp->next",
+      "options": [
+        {
+          "id": "A",
+          "text": "curr temp temp next"
+        },
+        {
+          "id": "B",
+          "text": "curr curr=curr->next"
+        },
+        {
+          "id": "C",
+          "text": "temp curr=curr->next"
+        },
+        {
+          "id": "D",
+          "text": "temp temp=temp->next"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q49",
+      "number": 44,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Consider the following Tree traversals of a binary Tree:\nPre-order: ABCDEFGHJKLMPQN\nIn-order: CDEBGHFKLPQMNJA\nConstruct a binary tree T from above traversals. The number of nodes with one child in the tree are_",
+      "options": [
+        {
+          "id": "A",
+          "text": "4"
+        },
+        {
+          "id": "B",
+          "text": "2"
+        },
+        {
+          "id": "C",
+          "text": "8"
+        },
+        {
+          "id": "D",
+          "text": "14"
+        }
+      ],
+      "correctOptionIds": [
+        "C"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q50",
+      "number": 45,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Consider the following program:\n\nint fun(int *x) {\n  *x += 5;\n  return (3 * (*x) - 1);\n}\n\nvoid main() {\n  int a = 8, b = 12, s1, s2;\n  s1 = (a / 2) + fun(&a);\n  s2 = fun(&b) * (b / 2);\n}\n\nWhich of the following statement(s) is/are TRUE?\n\n(A) The value of s1 will be same, irrespective of evaluation order.\n(B) The value of s2 is will be irrespective of evaluation order.\n(C) Both (A) and (B)\n(D) None of the above",
+      "options": [
+        {
+          "id": "A",
+          "text": "The value of s1 will be same, irrespective of evaluation order."
+        },
+        {
+          "id": "B",
+          "text": "The value of s2 is will be irrespective of evaluation order."
+        },
+        {
+          "id": "C",
+          "text": "Both (A) and (B)"
+        },
+        {
+          "id": "D",
+          "text": "None of the above"
+        }
+      ],
+      "correctOptionIds": [
+        "D"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q51",
+      "number": 46,
+      "type": "mcq",
+      "marks": 1,
+      "text": "The first 32-bits of an IPv4 header in Hexadecimal notation has a value 4500139CH. Then which of the following cannot be concluded by these 32-bits?\nI. The header length is 20 Bytes.\nII. The total length of the packet (both header and data) is 5000 Bytes.\nIII. The datagram is Last Fragment.\nIV. The fragmentation offset field is 628.\n\n(A) III, IV (B) II, III, IV (C) II only (D) I, II, III, IV",
+      "options": [
+        {
+          "id": "A",
+          "text": "III, IV"
+        },
+        {
+          "id": "B",
+          "text": "II, III, IV"
+        },
+        {
+          "id": "C",
+          "text": "II only"
+        },
+        {
+          "id": "D",
+          "text": "I, II, III, IV"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q52",
+      "number": 47,
+      "type": "mcq",
+      "marks": 1,
+      "text": "The stations on a wireless ALOHA network are maximum of 1200 km apart. Signals propagate with a speed of 3 × 10^8 m/s. The maximum number of retransmission attempts are 15 and for the attempt number 2, by using Binary exponential Back-off algorithm, which of the following are possible Back-off time values?\n\n(A) 0 ms, 1 ms\n(B) 0 ms, 1 ms, 2 ms, 3 ms\n(C) 0 ms, 4 ms, 8 ms, 12 ms\n(D) 4 ms, 8 ms",
+      "options": [
+        {
+          "id": "A",
+          "text": "0 ms, 1 ms"
+        },
+        {
+          "id": "B",
+          "text": "0 ms, 1 ms, 2 ms, 3 ms"
+        },
+        {
+          "id": "C",
+          "text": "0 ms, 4 ms, 8 ms, 12 ms"
+        },
+        {
+          "id": "D",
+          "text": "4 ms, 8 ms"
+        }
+      ],
+      "correctOptionIds": [
+        "C"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q53",
+      "number": 48,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Consider the below transition table of a PDA M₁:\n\n\t\t\t0\t\t1\n90\t(91,&,$)\n91\t(92,1,a)\t(91,$,0$)\t(91,$,1$)\n\nHere q₀ is the start state and q₂ is the final state. The transition entries has the form (Q, A, B) where Q is the Target state, A is the top of the stack and B is the symbols to be written in place of top of stack.\n\nL(M₁) accepts the strings of the form,\n{ w | w contains more 1s than 0s }\n\nBased on this information identify the correct transitions for M₁, M2, M3, M4",
+      "options": [
+        {
+          "id": "A",
+          "text": "MI: (q1, 1,ε), M2: Not required M3: (q1, 0, &), M4: Not required"
+        },
+        {
+          "id": "B",
+          "text": "M1: (q1, 1, ɛ), M2: (91, 0, 00) M3: (q1, 0, &), M4: (q1, 1, 11)"
+        },
+        {
+          "id": "C",
+          "text": "MI:(q1, 1, 10), M2: (q1, 0, ɛ) M3: (q1, 0, 01), M4: (q1, 1,ɛ)"
+        },
+        {
+          "id": "D",
+          "text": "M1: (q1, 0, ɛ), M2: (q1, 1, ɛ) M3: (q1, 1, 8), M4: (91, 0, ɛ)"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q54",
+      "number": 49,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Which of these languages is/ are Regular?\nL1= {xmynzp| (m = n ∨ n = p) ∧ m + n + p ≥ 10}\nL2= {xmyn zp| (m = n ∨ n = p) ∧ m + n + p ≤ 10}",
+      "options": [
+        {
+          "id": "A",
+          "text": "L₁ only"
+        },
+        {
+          "id": "B",
+          "text": "L₂ only"
+        },
+        {
+          "id": "C",
+          "text": "Both L1 and L2"
+        },
+        {
+          "id": "D",
+          "text": "Neither L, nor L₂"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q55",
+      "number": 50,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Which of the following statement is correct about L₁ and L₂?\nL1= {ai b2ii ∈ {1, 2, …}}\nL2= {a i bi2|i ∈ {1, 2, …}}",
+      "options": [
+        {
+          "id": "A",
+          "text": "Both L1 and L2 are CFLs."
+        },
+        {
+          "id": "B",
+          "text": "L₁ is CFL and L2 is recursive but not CFL."
+        },
+        {
+          "id": "C",
+          "text": "Complement of L2 is CFL."
+        },
+        {
+          "id": "D",
+          "text": "L, is regular and L₂ is CFL."
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q56",
+      "number": 51,
+      "type": "mcq",
+      "marks": 1,
+      "text": "A Branch instruction performs a modification of (PC + 4) (address of next instruction) if the condition is true. If the maximum range of jump instruction is PC4 X to (PC +4) + Y. [(PC + 4) - X and (PC+ 4)+ Y are memory address locations]. Then the respective values of X and Y would be:",
+      "options": [
+        {
+          "id": "A",
+          "text": "-32768 and 32767"
+        },
+        {
+          "id": "B",
+          "text": "32768 and 32767"
+        },
+        {
+          "id": "C",
+          "text": "131072 and 131068"
+        },
+        {
+          "id": "D",
+          "text": "131068 and 131072"
+        }
+      ],
+      "correctOptionIds": [
+        "C"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q57",
+      "number": 52,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Consider the following code fragment:\nLoop: LOAD R1, 0(R2 ) R1 ← M[0 + R2]\nADD R1, R1, #1 R1 ← R1+ 1�\n STORE R1, 0(R2) M[0 + R2] ← R1\nADD R2, R2 , #4 R2 ← R2+ 4�\n   SUB R4, R3 , R2  R4 ← R3  – R2�\n        BNEZ R4 , loop Branch to loop if R1     ! = 0          Let the initial value of R3             is R2             + 400�            The instruction sequence executed on a 5-stage ISC            pipeline� (IF: Instruction Fetch, ID: Instruction decode            and Register fetch, E�x�, execute, MA: Memory Access,            WB: Write Back) without any forwarding hardware,            but register read and write can happen in the same            clock cycle� Branch outcome is known in the EX stage            and is handled by flushing the instructions which started execution before the EX stage of Branch instruction�            If each stage takes 1 clock cycle, then the number of            clock cycles required to execute the given loop will be",
+      "options": [
+        {
+          "id": "A",
+          "text": "1602"
+        },
+        {
+          "id": "B",
+          "text": "1203"
+        },
+        {
+          "id": "C",
+          "text": "1302"
+        },
+        {
+          "id": "D",
+          "text": "1402"
+        }
+      ],
+      "correctOptionIds": [
+        "A"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q58",
+      "number": 53,
+      "type": "mcq",
+      "marks": 1,
+      "text": "A floating point number of 20-bit length has the following format:\n 1 bits 7 bits Sign Excess – 64 Exponent Mantissa        The decimal equivalent of the value (5403E)16 is       _______�",
+      "options": [
+        {
+          "id": "A",
+          "text": "12122"
+        },
+        {
+          "id": "B",
+          "text": "15872"
+        },
+        {
+          "id": "C",
+          "text": "14523"
+        },
+        {
+          "id": "D",
+          "text": "12872"
+        }
+      ],
+      "correctOptionIds": [
+        "B"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q59",
+      "number": 54,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Which of the following possible relations will not hold if the above ERD is mapped into a relational model?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Student(RNO, Sname)"
+        },
+        {
+          "id": "B",
+          "text": "Qualification (RNO, TID. Qualified Date)"
+        },
+        {
+          "id": "C",
+          "text": "Test(TID, RNo, TName)"
+        },
+        {
+          "id": "D",
+          "text": "Test (TID, TName)"
+        }
+      ],
+      "correctOptionIds": [
+        "C"
+      ],
+      "subjectId": "aptitude"
+    },
+    {
+      "id": "aptitude-practice-1-q60",
+      "number": 55,
+      "type": "mcq",
+      "marks": 1,
+      "text": "Which of the following Relational algebra expression for the above query always gives correct result?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Tsid(((o (Boats) (color Boats=\"white\") sailor) Reserves) color=' black'"
+        },
+        {
+          "id": "B",
+          "text": "Tsid(((o (Boats) (color Boats=\"black\") sailor) Reserves) color=' white'"
+        },
+        {
+          "id": "C",
+          "text": "Tsid(((o (Boats) (color Boats=\"black\") sailor) Reserves) color=' black'"
+        },
+        {
+          "id": "D",
+          "text": "Tsid(((o (Boats) (color Boats=\"white\") sailor) Reserves) color=' white'"
+        }
+      ],
+      "correctOptionIds": [
+        "C"
+      ],
+      "subjectId": "aptitude"
+    }
+  ]
+}

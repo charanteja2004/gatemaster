@@ -23,6 +23,13 @@ data object PapersRoute
 @Serializable
 data object SearchRoute
 
+@Serializable
+data object TestListRoute
+
+/** [restart] discards any saved attempt and begins the test from scratch. */
+@Serializable
+data class TestPlayerRoute(val testId: String, val restart: Boolean = false)
+
 /**
  * The document viewer. [path] is relative to the assets root; [isPdf] selects
  * the renderer.

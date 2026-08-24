@@ -17,6 +17,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.Description
+import androidx.compose.material.icons.filled.EditNote
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -50,6 +51,7 @@ import com.gatemaster.app.ui.components.EmptyState
 fun HomeScreen(
     onSubjectClick: (String) -> Unit,
     onPapersClick: () -> Unit,
+    onTestsClick: () -> Unit,
     onSearchClick: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel = viewModel(factory = AppViewModelProvider.Factory),
@@ -82,6 +84,7 @@ fun HomeScreen(
                 state = state,
                 onSubjectClick = onSubjectClick,
                 onPapersClick = onPapersClick,
+                onTestsClick = onTestsClick,
                 onSearchClick = onSearchClick,
                 modifier = Modifier.padding(padding),
             )
@@ -94,6 +97,7 @@ private fun HomeContent(
     state: HomeUiState,
     onSubjectClick: (String) -> Unit,
     onPapersClick: () -> Unit,
+    onTestsClick: () -> Unit,
     onSearchClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -118,6 +122,17 @@ private fun HomeContent(
                     "${state.paperCount} papers"
                 },
                 onClick = onPapersClick,
+            )
+        }
+
+        item {
+            QuickAction(
+                icon = Icons.Filled.EditNote,
+                title = "Mock tests",
+                subtitle = "Timed practice with a full scorecard",
+                onClick = onTestsClick,
+                container = MaterialTheme.colorScheme.tertiaryContainer,
+                onContainer = MaterialTheme.colorScheme.onTertiaryContainer,
             )
         }
 
@@ -171,13 +186,13 @@ private fun QuickAction(
     subtitle: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    container: androidx.compose.ui.graphics.Color = MaterialTheme.colorScheme.primaryContainer,
+    onContainer: androidx.compose.ui.graphics.Color = MaterialTheme.colorScheme.onPrimaryContainer,
 ) {
     Card(
         onClick = onClick,
         modifier = modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
-        ),
+        colors = CardDefaults.cardColors(containerColor = container),
     ) {
         Row(
             modifier = Modifier.padding(20.dp),
@@ -187,18 +202,18 @@ private fun QuickAction(
             Icon(
                 icon,
                 contentDescription = null,
-                tint = MaterialTheme.colorScheme.onPrimaryContainer,
+                tint = onContainer,
             )
             Column {
                 Text(
                     text = title,
                     style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                    color = onContainer,
                 )
                 Text(
                     text = subtitle,
                     style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                    color = onContainer,
                 )
             }
         }
