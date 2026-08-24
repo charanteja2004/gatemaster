@@ -131,6 +131,25 @@ schema with MCQ / MSQ / NAT, per-question marks and sections — and writes
 `assets/tests/catalogue.json`. Questions that cannot be converted are reported
 and skipped rather than shipped broken.
 
+## Reading progress and bookmarks
+
+`StudyProgressRepository` remembers what has been opened, how far it was read,
+and what was saved. It backs the Continue-reading card on home, the read ticks
+and "N of M read" counts in the subject lists, and the bookmark action in the
+reader.
+
+Two rules worth knowing:
+
+- **Furthest-read only moves forward.** Scrolling back up does not un-read what
+  has been read.
+- **Reaching the last tenth counts as read**, and an article that fits on one
+  screen counts as read once it is shown. Requiring a full scroll to 100% would
+  leave every short topic permanently unread, because there is nothing to
+  scroll to.
+
+Stored as one JSON document in the app's files directory rather than Room: it is
+small, read once at startup, and every screen wants all of it.
+
 ## Theme
 
 Light, dark or match-system, chosen in Settings and stored in DataStore. The app

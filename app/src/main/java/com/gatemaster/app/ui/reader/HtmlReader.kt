@@ -88,10 +88,7 @@ fun HtmlReader(
                     isVerticalScrollBarEnabled = false
 
                     setOnScrollChangeListener { _, _, scrollY, _, _ ->
-                        val scrollable = verticalScrollRange - verticalScrollExtent
-                        onProgress(
-                            if (scrollable > 0) scrollY / scrollable.toFloat() else 0f,
-                        )
+                        onProgress(readingFraction(scrollY))
                     }
 
                     webViewClient = object : WebViewClient() {
@@ -115,7 +112,14 @@ fun HtmlReader(
                         }
 
                         override fun onPageFinished(view: WebView, url: String) {
-                            onProgress(0f)
+                            // A short article fits on one screen and can never
+                            // be scrolled, so waiting for a scroll event would
+                            // leave it permanently unread. Once layout has
+                            // settled, decide from the actual content height.
+                            view.postDelayed(
+                                { onProgress((view as ReaderWebView).readingFraction(view.scrollY)) },
+                                LAYOUT_SETTLE_MS,
+                            )
                         }
                     }
                 }
@@ -151,9 +155,29 @@ fun HtmlReader(
  */
 @SuppressLint("ViewConstructor")
 private class ReaderWebView(context: Context) : WebView(context) {
-    val verticalScrollRange: Int get() = computeVerticalScrollRange()
-    val verticalScrollExtent: Int get() = computeVerticalScrollExtent()
+    private val verticalScrollRange: Int get() = computeVerticalScrollRange()
+    private val verticalScrollExtent: Int get() = computeVerticalScrollExtent()
+
+    /**
+     * How much of the article has been seen, 0f..1f.
+     *
+     * Content that fits entirely on screen counts as fully read: there is
+     * nothing left to scroll to, so anything else would mark short topics
+     * unread forever.
+     */
+    fun readingFraction(scrollY: Int): Float {
+        val range = verticalScrollRange
+        if (range <= 0) return 0f
+        val scrollable = range - verticalScrollExtent
+        return if (scrollable > 0) {
+            (scrollY / scrollable.toFloat()).coerceIn(0f, 1f)
+        } else {
+            1f
+        }
+    }
 }
+
+private const val LAYOUT_SETTLE_MS = 250L
 
 private const val ASSET_HOST = "appassets.androidplatform.net"
 

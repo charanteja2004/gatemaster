@@ -27,6 +27,7 @@ object AppViewModelProvider {
             HomeViewModel(
                 repository = app().container.contentRepository,
                 preferences = app().container.userPreferences,
+                studyProgress = app().container.studyProgress,
             )
         }
         initializer {
@@ -64,6 +65,7 @@ object AppViewModelProvider {
             ReaderViewModel(
                 repository = app().container.contentRepository,
                 preferences = app().container.userPreferences,
+                studyProgress = app().container.studyProgress,
                 savedStateHandle = createSavedStateHandle(),
             )
         }
@@ -71,6 +73,7 @@ object AppViewModelProvider {
             SubjectViewModel(
                 repository = app().container.contentRepository,
                 preferences = app().container.userPreferences,
+                studyProgress = app().container.studyProgress,
                 savedStateHandle = createSavedStateHandle(),
             )
         }

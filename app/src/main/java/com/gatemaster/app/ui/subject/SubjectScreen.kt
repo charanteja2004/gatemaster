@@ -19,6 +19,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.Article
+import androidx.compose.material.icons.filled.Bookmark
+import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.PictureAsPdf
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -81,7 +83,11 @@ fun SubjectScreen(
                         )
                         subject?.let {
                             Text(
-                                text = "~${it.weightage} marks in the paper",
+                                text = if (state.readCount > 0) {
+                                    "${state.readCount} of ${it.topics.size} read"
+                                } else {
+                                    "~${it.weightage} marks in the paper"
+                                },
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                             )
@@ -145,6 +151,8 @@ fun SubjectScreen(
                                 caption = "Notes",
                                 isPdf = topic.content.type == ContentType.PDF,
                                 accent = accent,
+                                isRead = state.isRead(topic.id),
+                                isBookmarked = state.isBookmarked(topic.id),
                                 onClick = {
                                     onOpen(
                                         OpenRequest(
@@ -216,10 +224,12 @@ private fun DocumentRow(
     accent: androidx.compose.ui.graphics.Color,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    isRead: Boolean = false,
+    isBookmarked: Boolean = false,
 ) {
     Surface(
         modifier = modifier.fillMaxWidth().clickable(onClick = onClick),
-        shape = RoundedCornerShape(16.dp),
+        shape = RoundedCornerShape(18.dp),
         color = MaterialTheme.colorScheme.surfaceContainerLow,
     ) {
         Row(
@@ -246,11 +256,37 @@ private fun DocumentRow(
                 )
             }
             Column(Modifier.weight(1f)) {
-                Text(title, style = MaterialTheme.typography.titleSmall)
                 Text(
-                    caption,
+                    text = title,
+                    style = MaterialTheme.typography.titleSmall,
+                    // Read topics recede so unread ones stand out in a long list.
+                    color = if (isRead) {
+                        MaterialTheme.colorScheme.onSurfaceVariant
+                    } else {
+                        MaterialTheme.colorScheme.onSurface
+                    },
+                )
+                Text(
+                    text = if (isRead) "Read" else caption,
                     style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    color = if (isRead) accent else MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+
+            if (isBookmarked) {
+                Icon(
+                    Icons.Filled.Bookmark,
+                    contentDescription = "Bookmarked",
+                    modifier = Modifier.size(16.dp),
+                    tint = accent,
+                )
+            }
+            if (isRead) {
+                Icon(
+                    Icons.Filled.CheckCircle,
+                    contentDescription = "Read",
+                    modifier = Modifier.size(18.dp),
+                    tint = accent,
                 )
             }
         }

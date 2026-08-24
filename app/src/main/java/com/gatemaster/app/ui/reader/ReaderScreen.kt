@@ -15,6 +15,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.filled.Bookmark
+import androidx.compose.material.icons.filled.BookmarkBorder
 import androidx.compose.material.icons.filled.FormatSize
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -96,6 +98,25 @@ fun ReaderScreen(
                         }
                     },
                     actions = {
+                        IconButton(onClick = viewModel::toggleBookmark) {
+                            Icon(
+                                imageVector = if (state.bookmarked) {
+                                    Icons.Filled.Bookmark
+                                } else {
+                                    Icons.Filled.BookmarkBorder
+                                },
+                                contentDescription = if (state.bookmarked) {
+                                    "Remove bookmark"
+                                } else {
+                                    "Bookmark this topic"
+                                },
+                                tint = if (state.bookmarked) {
+                                    MaterialTheme.colorScheme.primary
+                                } else {
+                                    MaterialTheme.colorScheme.onSurfaceVariant
+                                },
+                            )
+                        }
                         if (!isPdf) {
                             IconButton(onClick = { showTextControls = !showTextControls }) {
                                 Icon(

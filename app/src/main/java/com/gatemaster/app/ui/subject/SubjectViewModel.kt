@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import com.gatemaster.app.core.data.ContentRepository
+import com.gatemaster.app.core.data.StudyProgressRepository
+import com.gatemaster.app.core.data.TopicProgress
 import com.gatemaster.app.core.data.UserPreferences
 import com.gatemaster.app.core.model.Subject
 import com.gatemaster.app.navigation.SubjectRoute
@@ -28,7 +30,14 @@ data class SubjectUiState(
     val subject: Subject? = null,
     val selectedTab: SubjectTab = SubjectTab.TOPICS,
     val notFound: Boolean = false,
+    val progress: Map<String, TopicProgress> = emptyMap(),
 ) {
+    fun isRead(topicId: String): Boolean = progress[topicId]?.isRead == true
+
+    fun isBookmarked(topicId: String): Boolean = progress[topicId]?.bookmarked == true
+
+    val readCount: Int get() = subject?.topics?.count { isRead(it.id) } ?: 0
+
     /** Only offer a tab when there is something behind it. */
     val availableTabs: List<SubjectTab>
         get() {
@@ -45,6 +54,7 @@ data class SubjectUiState(
 class SubjectViewModel(
     private val repository: ContentRepository,
     private val preferences: UserPreferences,
+    private val studyProgress: StudyProgressRepository,
     savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
 
@@ -64,6 +74,12 @@ class SubjectViewModel(
                     notFound = subject == null,
                     selectedTab = firstTabFor(subject),
                 )
+            }
+        }
+        viewModelScope.launch {
+            studyProgress.load()
+            studyProgress.progress.collect { all ->
+                _uiState.update { it.copy(progress = all) }
             }
         }
     }

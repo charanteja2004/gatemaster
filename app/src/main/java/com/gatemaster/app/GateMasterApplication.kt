@@ -2,6 +2,7 @@ package com.gatemaster.app
 
 import android.app.Application
 import com.gatemaster.app.core.data.ContentRepository
+import com.gatemaster.app.core.data.StudyProgressRepository
 import com.gatemaster.app.core.data.TestRepository
 import com.gatemaster.app.core.data.UserPreferences
 
@@ -23,6 +24,10 @@ class AppContainer(application: Application) {
 
     val userPreferences: UserPreferences by lazy {
         UserPreferences(application)
+    }
+
+    val studyProgress: StudyProgressRepository by lazy {
+        StudyProgressRepository(application.filesDir)
     }
 }
 

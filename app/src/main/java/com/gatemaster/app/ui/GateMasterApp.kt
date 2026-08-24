@@ -141,6 +141,18 @@ fun GateMasterApp(
                     onSearchClick = { navController.navigate(SearchRoute) },
                     onChangeBranch = { navController.navigate(BranchPickerRoute()) },
                     onSeeAllSubjects = { navController.navigate(SubjectsRoute) },
+                    onResume = { entry ->
+                        navController.navigate(
+                            ReaderRoute(
+                                title = entry.title,
+                                subtitle = entry.subjectName,
+                                path = entry.path,
+                                isPdf = entry.isPdf,
+                                subjectId = entry.subjectId,
+                                topicId = entry.topicId,
+                            ),
+                        )
+                    },
                 )
             }
 

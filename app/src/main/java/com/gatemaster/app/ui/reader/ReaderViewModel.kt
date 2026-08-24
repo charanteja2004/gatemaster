@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import com.gatemaster.app.core.data.ContentRepository
+import com.gatemaster.app.core.data.StudyProgressRepository
+import com.gatemaster.app.core.data.TopicProgress
 import com.gatemaster.app.core.data.UserPreferences
 import com.gatemaster.app.core.model.Topic
 import com.gatemaster.app.navigation.ReaderRoute
@@ -23,6 +25,7 @@ data class ReaderUiState(
     val textZoom: Int = DEFAULT_ZOOM,
     /** 0f..1f, how far down the article the reader has scrolled. */
     val progress: Float = 0f,
+    val bookmarked: Boolean = false,
 ) {
     val canShrink: Boolean get() = textZoom > MIN_ZOOM
     val canGrow: Boolean get() = textZoom < MAX_ZOOM
@@ -38,13 +41,14 @@ data class ReaderUiState(
 /**
  * Backs the article reader.
  *
- * Its job beyond rendering is to make a long article feel finite: how far in
- * you are, and what comes next in the subject, so studying is a sequence rather
- * than a series of returns to a list.
+ * Beyond rendering, its job is to make a long article feel finite — how far in
+ * you are, and what comes next — and to remember that you were here at all, so
+ * the home screen can offer to pick the thread back up.
  */
 class ReaderViewModel(
     private val repository: ContentRepository,
     private val preferences: UserPreferences,
+    private val studyProgress: StudyProgressRepository,
     savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
 
@@ -56,7 +60,10 @@ class ReaderViewModel(
     init {
         viewModelScope.launch {
             _uiState.update { it.copy(textZoom = preferences.readerTextZoom.first()) }
+            studyProgress.load()
             loadNeighbours()
+            recordOpen()
+            observeBookmark()
         }
     }
 
@@ -78,11 +85,45 @@ class ReaderViewModel(
         }
     }
 
+    private suspend fun recordOpen() {
+        val topicId = route.topicId ?: return
+        val subjectId = route.subjectId ?: return
+        val branchId = preferences.branchId.first()
+        val subjectName = _uiState.value.subjectName.ifBlank { route.subtitle }
+
+        studyProgress.recordOpen(
+            TopicProgress(
+                topicId = topicId,
+                branchId = branchId,
+                subjectId = subjectId,
+                subjectName = subjectName,
+                title = route.title,
+                path = route.path,
+                isPdf = route.isPdf,
+            ),
+        )
+    }
+
+    private suspend fun observeBookmark() {
+        val topicId = route.topicId ?: return
+        studyProgress.progress.collect { all ->
+            val entry = all[topicId]
+            _uiState.update { it.copy(bookmarked = entry?.bookmarked == true) }
+        }
+    }
+
     fun onProgress(fraction: Float) {
         val clamped = fraction.coerceIn(0f, 1f)
         if (clamped != _uiState.value.progress) {
             _uiState.update { it.copy(progress = clamped) }
         }
+        val topicId = route.topicId ?: return
+        viewModelScope.launch { studyProgress.recordFurthest(topicId, clamped) }
+    }
+
+    fun toggleBookmark() {
+        val topicId = route.topicId ?: return
+        viewModelScope.launch { studyProgress.toggleBookmark(topicId) }
     }
 
     fun grow() = setZoom(_uiState.value.textZoom + ReaderUiState.ZOOM_STEP)

@@ -102,6 +102,7 @@ fun SubjectsScreen(
             items(state.subjects, key = { it.id }) { subject ->
                 SubjectCard(
                     subject = subject,
+                    readCount = state.readBySubject[subject.id] ?: 0,
                     onClick = { onSubjectClick(subject.id) },
                 )
             }
@@ -118,6 +119,7 @@ fun SubjectCard(
     subject: Subject,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    readCount: Int = 0,
 ) {
     val accent = subjectAccent(subject.id)
 
@@ -157,14 +159,21 @@ fun SubjectCard(
                     overflow = TextOverflow.Ellipsis,
                 )
                 Text(
-                    text = if (subject.isSyllabusOnly) {
-                        "Syllabus · ${subject.syllabus.size} areas"
-                    } else {
-                        "${subject.noteCount} items"
+                    text = when {
+                        subject.isSyllabusOnly -> "Syllabus · ${subject.syllabus.size} areas"
+                        readCount > 0 -> "$readCount of ${subject.topics.size} read"
+                        else -> "${subject.noteCount} items"
                     },
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
+                // The bar shows reading progress once there is any, and falls
+                // back to weightage — which is what matters before you start.
+                val fraction = if (readCount > 0 && subject.topics.isNotEmpty()) {
+                    readCount.toFloat() / subject.topics.size
+                } else {
+                    (subject.weightage / 25f)
+                }
                 Box(
                     Modifier
                         .fillMaxWidth()
@@ -174,7 +183,7 @@ fun SubjectCard(
                 ) {
                     Box(
                         Modifier
-                            .fillMaxWidth((subject.weightage / 25f).coerceIn(0.06f, 1f))
+                            .fillMaxWidth(fraction.coerceIn(0.06f, 1f))
                             .height(5.dp)
                             .clip(RoundedCornerShape(3.dp))
                             .background(accent),

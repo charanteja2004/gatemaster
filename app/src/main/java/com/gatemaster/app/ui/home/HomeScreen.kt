@@ -20,6 +20,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Description
 import androidx.compose.material.icons.filled.EditNote
+import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.SwapHoriz
 import androidx.compose.material3.CircularProgressIndicator
@@ -43,9 +44,11 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.gatemaster.app.core.data.TopicProgress
 import com.gatemaster.app.ui.AppViewModelProvider
 import com.gatemaster.app.ui.components.EmptyState
 import com.gatemaster.app.ui.subject.SubjectCard
+import com.gatemaster.app.ui.theme.subjectAccent
 
 /**
  * The hero keeps one fixed identity in both themes.
@@ -72,6 +75,7 @@ fun HomeScreen(
     onSearchClick: () -> Unit,
     onChangeBranch: () -> Unit,
     onSeeAllSubjects: () -> Unit,
+    onResume: (TopicProgress) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel = viewModel(factory = AppViewModelProvider.Factory),
 ) {
@@ -110,6 +114,14 @@ fun HomeScreen(
 
                 item { SearchPill(onClick = onSearchClick) }
 
+                // Picking up where you stopped is the single most-used action
+                // in a study app, so it sits above everything but the search.
+                state.continueReading?.let { entry ->
+                    item {
+                        ContinueCard(entry = entry, onClick = { onResume(entry) })
+                    }
+                }
+
                 item {
                     // Two-by-two stat grid: the numbers a candidate checks
                     // rather than a paragraph they would skip.
@@ -122,8 +134,8 @@ fun HomeScreen(
                                 modifier = Modifier.weight(1f),
                             )
                             StatTile(
-                                value = "${state.subjects.size}",
-                                label = "Subjects",
+                                value = "${state.readCount}",
+                                label = "Topics read",
                                 tint = MaterialTheme.colorScheme.tertiary,
                                 modifier = Modifier.weight(1f),
                             )
@@ -172,9 +184,74 @@ fun HomeScreen(
                 items(state.topSubjects, key = { it.id }) { subject ->
                     SubjectCard(
                         subject = subject,
+                        readCount = state.readBySubject[subject.id] ?: 0,
                         onClick = { onSubjectClick(subject.id) },
                     )
                 }
+            }
+        }
+    }
+}
+
+/** Resume the last unfinished article, with how far in it was left. */
+@Composable
+private fun ContinueCard(
+    entry: TopicProgress,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    val accent = subjectAccent(entry.subjectId)
+    val percent = (entry.furthest * 100).toInt().coerceIn(0, 99)
+
+    Surface(
+        onClick = onClick,
+        modifier = modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(22.dp),
+        color = accent.copy(alpha = 0.12f),
+    ) {
+        Column(
+            Modifier.padding(18.dp),
+            verticalArrangement = Arrangement.spacedBy(9.dp),
+        ) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(
+                    Icons.Filled.PlayArrow,
+                    contentDescription = null,
+                    modifier = Modifier.size(17.dp),
+                    tint = accent,
+                )
+                Text(
+                    text = "  CONTINUE READING",
+                    style = MaterialTheme.typography.labelSmall,
+                    fontWeight = FontWeight.Bold,
+                    color = accent,
+                )
+            }
+            Text(
+                text = entry.title,
+                style = MaterialTheme.typography.titleSmall,
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis,
+            )
+            Text(
+                text = "${entry.subjectName} · $percent% in",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Box(
+                Modifier
+                    .fillMaxWidth()
+                    .height(5.dp)
+                    .clip(RoundedCornerShape(3.dp))
+                    .background(accent.copy(alpha = 0.20f)),
+            ) {
+                Box(
+                    Modifier
+                        .fillMaxWidth(entry.furthest.coerceIn(0.02f, 1f))
+                        .height(5.dp)
+                        .clip(RoundedCornerShape(3.dp))
+                        .background(accent),
+                )
             }
         }
     }
