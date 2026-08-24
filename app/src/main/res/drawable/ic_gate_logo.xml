@@ -1,0 +1,50 @@
+<!--
+  GateMaster mark: a mortarboard.
+
+  Instantly readable at launcher size and unmistakably about exams, which the
+  default Android robot was not. Drawn on the 108x108 adaptive-icon canvas with
+  everything inside the 72x72 safe zone so no launcher shape crops it.
+
+  Groups are named because avd_gate_logo.xml animates them.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <group
+        android:name="logo"
+        android:pivotX="54"
+        android:pivotY="54">
+
+        <!-- Cap body, behind the board -->
+        <path
+            android:name="body"
+            android:fillColor="#B8C3FF"
+            android:pathData="M40,52 L40,63 C40,67.5 46,70.5 54,70.5 C62,70.5 68,67.5 68,63 L68,52 L54,58.5 Z" />
+
+        <!-- The board -->
+        <path
+            android:name="board"
+            android:fillColor="#FFFFFF"
+            android:pathData="M54,28 L20,43 L54,58 L88,43 Z" />
+
+        <!-- Tassel, hanging from the right corner -->
+        <group
+            android:name="tassel"
+            android:pivotX="88"
+            android:pivotY="43">
+            <path
+                android:name="cord"
+                android:strokeColor="#FFC46B"
+                android:strokeWidth="2.5"
+                android:strokeLineCap="round"
+                android:pathData="M88,43 L88,63" />
+            <path
+                android:name="knot"
+                android:fillColor="#FFC46B"
+                android:pathData="M88,63 m-4,0 a4,4 0 1,0 8,0 a4,4 0 1,0 -8,0" />
+        </group>
+    </group>
+</vector>

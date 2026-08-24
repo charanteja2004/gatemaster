@@ -2,12 +2,17 @@
 <resources>
     <!--
       The only XML theme in the app. Everything after the splash is Compose
-      Material 3; this exists solely so the window has a background and the
-      splash screen has somewhere to hang off.
+      Material 3; this exists so the window has a background and the splash has
+      somewhere to hang off.
+
+      The splash keeps one deep navy in both light and dark: it is the app's
+      identity, and a splash that flips colour with the system reads as two
+      different apps rather than one.
     -->
     <style name="Theme.GateMaster.Splash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/splash_background</item>
-        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_foreground</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/avd_gate_logo</item>
+        <item name="windowSplashScreenAnimationDuration">950</item>
         <item name="postSplashScreenTheme">@style/Theme.GateMaster.Main</item>
     </style>
 

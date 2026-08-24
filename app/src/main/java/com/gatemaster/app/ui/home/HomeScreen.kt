@@ -15,7 +15,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Description
@@ -31,11 +31,19 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -47,6 +55,11 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.gatemaster.app.core.data.TopicProgress
 import com.gatemaster.app.ui.AppViewModelProvider
 import com.gatemaster.app.ui.components.EmptyState
+import com.gatemaster.app.ui.components.GlassSurface
+import com.gatemaster.app.ui.components.animatedCount
+import com.gatemaster.app.ui.components.enterFromBelow
+import com.gatemaster.app.ui.components.glassSheen
+import com.gatemaster.app.ui.components.pressScale
 import com.gatemaster.app.ui.subject.SubjectCard
 import com.gatemaster.app.ui.theme.subjectAccent
 
@@ -109,10 +122,16 @@ fun HomeScreen(
                         days = state.daysToExam,
                         examYear = state.examYear,
                         onChangeBranch = onChangeBranch,
+                        modifier = Modifier.enterFromBelow(0),
                     )
                 }
 
-                item { SearchPill(onClick = onSearchClick) }
+                item {
+                    SearchPill(
+                        onClick = onSearchClick,
+                        modifier = Modifier.enterFromBelow(1),
+                    )
+                }
 
                 // Picking up where you stopped is the single most-used action
                 // in a study app, so it sits above everything but the search.
@@ -125,7 +144,10 @@ fun HomeScreen(
                 item {
                     // Two-by-two stat grid: the numbers a candidate checks
                     // rather than a paragraph they would skip.
-                    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                    Column(
+                        modifier = Modifier.enterFromBelow(2),
+                        verticalArrangement = Arrangement.spacedBy(10.dp),
+                    ) {
                         Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                             StatTile(
                                 value = "${state.totalItems}",
@@ -181,11 +203,12 @@ fun HomeScreen(
 
                 // Home is a dashboard, not the whole syllabus: the four
                 // heaviest subjects, then a way through to the rest.
-                items(state.topSubjects, key = { it.id }) { subject ->
+                itemsIndexed(state.topSubjects, key = { _, s -> s.id }) { index, subject ->
                     SubjectCard(
                         subject = subject,
                         readCount = state.readBySubject[subject.id] ?: 0,
                         onClick = { onSubjectClick(subject.id) },
+                        modifier = Modifier.enterFromBelow(index + 4),
                     )
                 }
             }
@@ -276,22 +299,41 @@ private fun Hero(
         color = Color.Transparent,
     ) {
         Box {
+            // The gradient drifts very slowly. Fast enough to notice if you
+            // look, slow enough that it never competes with the content.
+            val drift = rememberInfiniteTransition(label = "hero-drift")
+            val shift by drift.animateFloat(
+                initialValue = 0f,
+                targetValue = 1f,
+                animationSpec = infiniteRepeatable(
+                    animation = tween(14_000),
+                    repeatMode = RepeatMode.Reverse,
+                ),
+                label = "hero-shift",
+            )
+
             Box(
                 Modifier
                     .matchParentSize()
-                    .background(Brush.linearGradient(HeroGradient)),
+                    .background(
+                        Brush.linearGradient(
+                            colors = HeroGradient,
+                            start = Offset(shift * 260f, 0f),
+                            end = Offset(900f + shift * 200f, 620f),
+                        ),
+                    ),
             )
 
             // Faint concentric rings, echoing the reference layouts. Drawn
             // rather than shipped as an image so it scales and themes freely.
             Canvas(Modifier.matchParentSize()) {
-                val centre = Offset(size.width * 0.88f, size.height * 0.12f)
+                val centre = Offset(size.width * (0.86f + shift * 0.05f), size.height * 0.12f)
                 repeat(4) { i ->
                     drawCircle(
                         color = Color.White.copy(alpha = 0.07f),
                         radius = size.minDimension * (0.28f + i * 0.20f),
                         center = centre,
-                        style = androidx.compose.ui.graphics.drawscope.Stroke(width = 1.6f * density),
+                        style = Stroke(width = 1.6f * density),
                     )
                 }
             }
@@ -322,8 +364,11 @@ private fun Hero(
                 )
 
                 Row(verticalAlignment = Alignment.Bottom) {
+                    // Counting up gives the one number on this screen a moment
+                    // of its own instead of it just being there.
+                    val shown by animatedCount(days)
                     Text(
-                        text = "$days",
+                        text = "$shown",
                         style = MaterialTheme.typography.displaySmall,
                         fontWeight = FontWeight.Bold,
                         color = HeroInk,
@@ -346,7 +391,11 @@ private fun BranchChip(code: String, onClick: () -> Unit, modifier: Modifier = M
         onClick = onClick,
         modifier = modifier,
         shape = RoundedCornerShape(20.dp),
-        color = HeroInk.copy(alpha = 0.18f),
+        color = HeroInk.copy(alpha = 0.16f),
+        border = androidx.compose.foundation.BorderStroke(
+            1.dp,
+            HeroInk.copy(alpha = 0.28f),
+        ),
     ) {
         Row(
             Modifier.padding(start = 12.dp, end = 9.dp, top = 6.dp, bottom = 6.dp),
@@ -403,11 +452,20 @@ private fun StatTile(
     tint: Color,
     modifier: Modifier = Modifier,
 ) {
-    Surface(
+    GlassSurface(
         modifier = modifier,
         shape = RoundedCornerShape(20.dp),
-        color = tint.copy(alpha = 0.12f),
+        tint = tint,
+        alpha = 0.14f,
     ) {
+        // A one-pixel highlight along the top edge is what makes a translucent
+        // panel read as glass rather than as a washed-out box.
+        Box(
+            Modifier
+                .fillMaxWidth()
+                .height(1.dp)
+                .background(glassSheen()),
+        )
         Column(
             Modifier.padding(horizontal = 18.dp, vertical = 16.dp),
             verticalArrangement = Arrangement.spacedBy(1.dp),
@@ -436,10 +494,13 @@ private fun ActionTile(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
 ) {
+    val interaction = remember { MutableInteractionSource() }
+
     Surface(
         onClick = onClick,
         enabled = enabled,
-        modifier = modifier,
+        modifier = modifier.pressScale(interaction),
+        interactionSource = interaction,
         shape = RoundedCornerShape(20.dp),
         color = MaterialTheme.colorScheme.surfaceContainerLow,
     ) {

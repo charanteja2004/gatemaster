@@ -1,6 +1,11 @@
 package com.gatemaster.app
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.os.Bundle
+import android.view.View
+import android.view.animation.AccelerateInterpolator
+import androidx.core.animation.doOnEnd
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -36,6 +41,25 @@ class MainActivity : ComponentActivity() {
         var startDestinationReady = false
         var startOnBranchPicker = false
         splash.setKeepOnScreenCondition { !startDestinationReady }
+
+        // Hand-off animation: the splash icon lifts and fades while the app
+        // scales up underneath, so launching reads as one continuous motion
+        // rather than a splash that vanishes and a screen that appears.
+        splash.setOnExitAnimationListener { provider ->
+            val icon = provider.iconView
+            val lift = ObjectAnimator.ofFloat(icon, View.TRANSLATION_Y, 0f, -icon.height * 0.35f)
+            val fade = ObjectAnimator.ofFloat(icon, View.ALPHA, 1f, 0f)
+            val zoomX = ObjectAnimator.ofFloat(icon, View.SCALE_X, 1f, 1.35f)
+            val zoomY = ObjectAnimator.ofFloat(icon, View.SCALE_Y, 1f, 1.35f)
+
+            AnimatorSet().apply {
+                playTogether(lift, fade, zoomX, zoomY)
+                duration = 380L
+                interpolator = AccelerateInterpolator(1.6f)
+                doOnEnd { provider.remove() }
+                start()
+            }
+        }
 
         val preferences = (application as GateMasterApplication).container.userPreferences
 

@@ -1,0 +1,84 @@
+<!--
+  Splash animation: the mark springs in and the tassel swings, then settles.
+
+  Kept under a second because a splash is a loading indicator, not a title
+  sequence — anything longer and it starts costing the user time rather than
+  covering work the app is already doing.
+-->
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/ic_gate_logo">
+
+    <!-- The whole mark scales up with a slight overshoot. -->
+    <target android:name="logo">
+        <aapt:attr xmlns:aapt="http://schemas.android.com/aapt" name="android:animation">
+            <set>
+                <objectAnimator
+                    android:propertyName="scaleX"
+                    android:valueFrom="0.55"
+                    android:valueTo="1.0"
+                    android:duration="520"
+                    android:interpolator="@android:interpolator/overshoot" />
+                <objectAnimator
+                    android:propertyName="scaleY"
+                    android:valueFrom="0.55"
+                    android:valueTo="1.0"
+                    android:duration="520"
+                    android:interpolator="@android:interpolator/overshoot" />
+            </set>
+        </aapt:attr>
+    </target>
+
+    <!-- The tassel lags behind and swings to rest, which is what sells it. -->
+    <target android:name="tassel">
+        <aapt:attr xmlns:aapt="http://schemas.android.com/aapt" name="android:animation">
+            <set>
+                <objectAnimator
+                    android:propertyName="rotation"
+                    android:valueFrom="-26"
+                    android:valueTo="14"
+                    android:startOffset="180"
+                    android:duration="300"
+                    android:interpolator="@android:interpolator/decelerate_quad" />
+                <objectAnimator
+                    android:propertyName="rotation"
+                    android:valueFrom="14"
+                    android:valueTo="-5"
+                    android:startOffset="480"
+                    android:duration="240"
+                    android:interpolator="@android:interpolator/decelerate_quad" />
+                <objectAnimator
+                    android:propertyName="rotation"
+                    android:valueFrom="-5"
+                    android:valueTo="0"
+                    android:startOffset="720"
+                    android:duration="200"
+                    android:interpolator="@android:interpolator/decelerate_quad" />
+            </set>
+        </aapt:attr>
+    </target>
+
+    <!-- The board wipes in from the left, so the cap assembles rather than
+         simply appearing. -->
+    <target android:name="board">
+        <aapt:attr xmlns:aapt="http://schemas.android.com/aapt" name="android:animation">
+            <objectAnimator
+                android:propertyName="fillAlpha"
+                android:valueFrom="0"
+                android:valueTo="1"
+                android:duration="260"
+                android:interpolator="@android:interpolator/decelerate_quad" />
+        </aapt:attr>
+    </target>
+
+    <target android:name="body">
+        <aapt:attr xmlns:aapt="http://schemas.android.com/aapt" name="android:animation">
+            <objectAnimator
+                android:propertyName="fillAlpha"
+                android:valueFrom="0"
+                android:valueTo="1"
+                android:startOffset="120"
+                android:duration="300"
+                android:interpolator="@android:interpolator/decelerate_quad" />
+        </aapt:attr>
+    </target>
+</animated-vector>
