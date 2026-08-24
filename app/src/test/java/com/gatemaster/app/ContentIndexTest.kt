@@ -1,5 +1,6 @@
 package com.gatemaster.app
 
+import com.gatemaster.app.core.model.BranchDetail
 import com.gatemaster.app.core.model.ContentIndex
 import kotlinx.serialization.json.Json
 import org.junit.Assert.assertEquals
@@ -20,9 +21,81 @@ class ContentIndexTest {
 
     @Test
     fun `index parses`() {
-        assertTrue("schemaVersion should be set", index.schemaVersion >= 2)
-        assertTrue("expected subjects", index.subjects.isNotEmpty())
+        assertTrue("schemaVersion should be 3 or later", index.schemaVersion >= 3)
+        assertTrue("expected branches", index.branches.isNotEmpty())
         assertTrue("expected previous-year papers", index.papers.isNotEmpty())
+    }
+
+    @Test
+    fun `all thirty GATE papers are present`() {
+        assertEquals(30, index.branches.size)
+        // A representative spread of paper codes, including the three added for 2026.
+        listOf("CS", "ME", "EE", "EC", "CE", "DA", "GE", "NM", "XE", "XH").forEach { code ->
+            assertTrue(
+                "missing paper code $code",
+                index.branches.any { it.code == code },
+            )
+        }
+    }
+
+    @Test
+    fun `paper codes and branch ids are unique`() {
+        val codes = index.branches.map { it.code }
+        assertEquals("duplicate paper codes", codes.distinct().size, codes.size)
+        val ids = index.branches.map { it.id }
+        assertEquals("duplicate branch ids", ids.distinct().size, ids.size)
+    }
+
+    @Test
+    fun `every branch has General Aptitude, which is 15 marks in every paper`() {
+        index.branches.forEach { branch ->
+            val ga = branch.subjects.firstOrNull { it.id == "aptitude" }
+            assertTrue("${branch.code} has no General Aptitude", ga != null)
+            assertEquals("${branch.code} GA weightage", 15, ga!!.weightage)
+            assertTrue("${branch.code} GA has no notes", ga.topics.isNotEmpty())
+        }
+    }
+
+    @Test
+    fun `every branch has named, weighted subjects`() {
+        index.branches.forEach { branch ->
+            assertTrue("${branch.code} has no subjects", branch.subjects.isNotEmpty())
+            branch.subjects.forEach { subject ->
+                assertTrue("${branch.code}/${subject.id} unnamed", subject.name.isNotBlank())
+                assertTrue(
+                    "${branch.code}/${subject.id} has no weightage",
+                    subject.weightage > 0,
+                )
+            }
+        }
+    }
+
+    @Test
+    fun `a subject without a syllabus only ever appears in an outline paper`() {
+        // Outline papers list their sections but not yet the detailed syllabus.
+        // The UI explains that; what must never happen is a *detailed* paper
+        // shipping a subject with nothing behind it.
+        index.branches.forEach { branch ->
+            branch.subjects.filter { it.isEmpty }.forEach { subject ->
+                assertEquals(
+                    "${branch.code}/${subject.id} is empty but the paper is marked detailed",
+                    BranchDetail.OUTLINE,
+                    branch.detail,
+                )
+            }
+        }
+    }
+
+    @Test
+    fun `detailed branches carry a syllabus for every subject`() {
+        index.branches.filter { it.detail == BranchDetail.FULL }.forEach { branch ->
+            branch.subjects.forEach { subject ->
+                assertTrue(
+                    "${branch.code}/${subject.id} is marked detailed but has no syllabus",
+                    subject.syllabus.isNotEmpty(),
+                )
+            }
+        }
     }
 
     @Test
@@ -33,10 +106,14 @@ class ContentIndexTest {
             if (!File(assetsDir, path).isFile) missing += "$owner -> $path"
         }
 
-        for (subject in index.subjects) {
-            subject.topics.forEach { check(it.content.path, "${subject.id}/${it.id}") }
-            subject.referenceNotes.forEach { check(it.content.path, "${subject.id}/${it.id}") }
-            subject.shortNotes?.let { check(it.path, "${subject.id}/shortNotes") }
+        for (branch in index.branches) {
+            for (subject in branch.subjects) {
+                subject.topics.forEach { check(it.content.path, "${branch.code}/${it.id}") }
+                subject.referenceNotes.forEach {
+                    check(it.content.path, "${branch.code}/${it.id}")
+                }
+                subject.shortNotes?.let { check(it.path, "${branch.code}/${subject.id}/short") }
+            }
         }
         for (paper in index.papers) {
             check(paper.paper.path, paper.id)
@@ -47,19 +124,20 @@ class ContentIndexTest {
     }
 
     @Test
-    fun `ids are unique`() {
-        val ids = index.subjects.flatMap { subject ->
-            subject.topics.map { it.id } + subject.referenceNotes.map { it.id }
-        } + index.papers.map { it.id }
-
-        val duplicates = ids.groupingBy { it }.eachCount().filterValues { it > 1 }.keys
-        assertTrue("Duplicate ids: $duplicates", duplicates.isEmpty())
+    fun `topic ids are unique within a branch`() {
+        index.branches.forEach { branch ->
+            val ids = branch.subjects.flatMap { subject ->
+                subject.topics.map { it.id } + subject.referenceNotes.map { it.id }
+            }
+            val duplicates = ids.groupingBy { it }.eachCount().filterValues { it > 1 }.keys
+            assertTrue("${branch.code} has duplicate ids: $duplicates", duplicates.isEmpty())
+        }
     }
 
     @Test
     fun `titles are presentable`() {
         val bad = mutableListOf<String>()
-        for (subject in index.subjects) {
+        for (subject in csBranch.subjects) {
             for (topic in subject.topics) {
                 val t = topic.title
                 when {
@@ -67,8 +145,8 @@ class ContentIndexTest {
                     // The VS Code boilerplate title leaked into most files.
                     t.equals("Document", ignoreCase = true) -> bad += "${topic.id}: boilerplate"
                     t.length > 52 -> bad += "${topic.id}: ${t.length} chars"
-                    t.any { it.isLowerCase() }.not() && t.length > 4 ->
-                        bad += "${topic.id}: shouting"
+                    t.none { it.isLowerCase() } && t.length > 4 -> bad += "${topic.id}: shouting"
+                    t.none { it.isUpperCase() } -> bad += "${topic.id}: no capital"
                 }
             }
         }
@@ -78,15 +156,17 @@ class ContentIndexTest {
     @Test
     fun `every html article is reachable from the index`() {
         val indexed = buildSet {
-            for (subject in index.subjects) {
-                subject.topics.forEach { add(it.content.path) }
-                subject.referenceNotes.forEach { add(it.content.path) }
-                subject.shortNotes?.let { add(it.path) }
+            for (branch in index.branches) {
+                for (subject in branch.subjects) {
+                    subject.topics.forEach { add(it.content.path) }
+                    subject.referenceNotes.forEach { add(it.content.path) }
+                    subject.shortNotes?.let { add(it.path) }
+                }
             }
         }
 
-        // shortnotes are indexed per subject; testseries is legacy scratch data.
-        val excludedDirs = setOf("shortnotes", "testseries")
+        // shortnotes are indexed per subject rather than as their own folder.
+        val excludedDirs = setOf("shortnotes")
 
         val orphans = assetsDir.listFiles { f -> f.isDirectory }
             .orEmpty()
@@ -112,12 +192,29 @@ class ContentIndexTest {
     }
 
     @Test
-    fun `engineering mathematics has content`() {
+    fun `engineering mathematics has content in CS`() {
         // Regression guard: the old app advertised Mathematics on the home
         // screen and silently did nothing when tapped, even though six maths
         // PDFs were sitting unused in assets.
-        val maths = index.subjects.single { it.id == "maths" }
-        assertTrue("Mathematics should not be empty", !maths.isEmpty)
+        val maths = csBranch.subjects.single { it.id == "maths" }
+        assertTrue("Mathematics should not be syllabus-only in CS", !maths.isSyllabusOnly)
+    }
+
+    @Test
+    fun `topics added to close known gaps are present`() {
+        // These were reachable only as broken links before; the audit surfaced
+        // them as genuine content gaps rather than typos.
+        val csTopicPaths = csBranch.subjects.flatMap { it.topics }.map { it.content.path }
+        listOf(
+            "ds/bfs.html",
+            "ds/dfs.html",
+            "ds/dll.html",
+            "ds/variables.html",
+            "algo/spacecomplexity.html",
+            "algo/strassen.html",
+        ).forEach { path ->
+            assertTrue("missing newly written article $path", path in csTopicPaths)
+        }
     }
 
     companion object {
@@ -125,6 +222,8 @@ class ContentIndexTest {
 
         private lateinit var assetsDir: File
         private lateinit var index: ContentIndex
+
+        private val csBranch get() = index.branch("cs")!!
 
         @BeforeClass
         @JvmStatic

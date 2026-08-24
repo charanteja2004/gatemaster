@@ -27,13 +27,17 @@ import json
 import os
 import re
 import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from datetime import datetime, timezone
+
+from syllabus import all_branches
 
 ASSETS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "app", "src", "main", "assets")
 ASSETS = os.path.normpath(ASSETS)
 OUT = os.path.join(ASSETS, "content_index.json")
 
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 
 # --------------------------------------------------------------------------
 # Subjects, in GATE CS paper order, with approximate mark weightage.
@@ -315,7 +319,7 @@ def slug_id(subject_id: str, slug: str) -> str:
 
 
 def build_topics(subject: dict) -> list:
-    folder = subject["folder"]
+    folder = subject.get("folder")
     if not folder:
         return []
     d = os.path.join(ASSETS, folder)
@@ -398,50 +402,83 @@ def build_papers() -> list:
     return out
 
 
+def build_subject(branch_id: str, spec: dict, order: int) -> dict:
+    """One subject: its syllabus always, plus notes when a content folder exists."""
+    folder = spec.get("folder")
+    topics, pdf_notes, short_notes = [], [], None
+
+    if folder:
+        topics = build_topics(dict(id=spec["id"], folder=folder))
+    # Reference PDFs and short notes are keyed by the CS subject ids.
+    if branch_id == "cs":
+        pdf_notes = build_pdf_notes(spec["id"])
+        short_notes = build_short_notes(spec["id"])
+
+    return {
+        "id": spec["id"],
+        "name": spec["name"],
+        "shortName": spec["short"],
+        "weightage": spec["weight"],
+        "order": order,
+        "syllabus": spec.get("syllabus", []),
+        "topics": topics,
+        "referenceNotes": pdf_notes,
+        "shortNotes": short_notes,
+    }
+
+
 def main() -> int:
     if not os.path.isdir(ASSETS):
         print("assets folder not found: %s" % ASSETS, file=sys.stderr)
         return 1
 
-    subjects = []
-    for s in SUBJECTS:
-        topics = build_topics(s)
-        pdf_notes = build_pdf_notes(s["id"])
-        subjects.append({
-            "id": s["id"],
-            "name": s["name"],
-            "shortName": s["short"],
-            "weightage": s["weight"],
-            "order": len(subjects),
-            "topics": topics,
-            "referenceNotes": pdf_notes,
-            "shortNotes": build_short_notes(s["id"]),
+    branches = []
+    for order, spec in enumerate(all_branches()):
+        subjects = [
+            build_subject(spec["id"], subject, i)
+            for i, subject in enumerate(spec["subjects"])
+        ]
+        note_count = sum(
+            len(s["topics"]) + len(s["referenceNotes"]) + (1 if s["shortNotes"] else 0)
+            for s in subjects
+        )
+        branches.append({
+            "id": spec["id"],
+            "code": spec["code"],
+            "name": spec["name"],
+            "shortName": spec["short"],
+            "order": order,
+            "detail": spec["detail"],
+            "hasNotes": note_count > 0,
+            "noteCount": note_count,
+            "subjects": subjects,
+            # Previous-year papers are indexed for CS only so far.
+            "paperIds": [p["id"] for p in PAPERS] if spec["id"] == "cs" else [],
         })
-        print("  %-9s %3d topics  %2d pdfs  shortNotes=%s"
-              % (s["id"], len(topics), len(pdf_notes),
-                 "yes" if subjects[-1]["shortNotes"] else "no"))
-
-    papers = build_papers()
+        flag = "notes" if note_count else ("syllabus" if spec["detail"] == "full" else "outline")
+        print("  %-3s %-46s %2d subjects  %4d items  %s"
+              % (spec["code"], spec["name"][:46], len(subjects), note_count, flag))
 
     doc = {
         "schemaVersion": SCHEMA_VERSION,
         "generatedAt": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "subjects": subjects,
-        "papers": papers,
+        "branches": branches,
+        "papers": PAPERS,
     }
 
     with io.open(OUT, "w", encoding="utf-8", newline="\n") as fh:
         json.dump(doc, fh, ensure_ascii=False, indent=2)
         fh.write("\n")
 
-    n_topics = sum(len(s["topics"]) for s in subjects)
-    n_pdfs = sum(len(s["referenceNotes"]) for s in subjects)
-    n_keys = sum(1 for p in papers if p["answerKey"])
+    total_topics = sum(
+        len(s["topics"]) for b in branches for s in b["subjects"]
+    )
     print("\nwrote %s" % os.path.relpath(OUT, os.getcwd()))
-    print("  %d subjects, %d topics, %d reference PDFs" % (len(subjects), n_topics, n_pdfs))
-    print("  %d previous-year papers (%d with answer keys)" % (len(papers), n_keys))
+    print("  %d branches, %d topics, %d previous-year papers"
+          % (len(branches), total_topics, len(PAPERS)))
     return 0
 
 
 if __name__ == "__main__":
+    PAPERS = build_papers()
     raise SystemExit(main())

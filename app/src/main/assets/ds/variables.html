@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Variables and Storage Classes in C</title>
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+<h1>Variables and Storage Classes in C</h1>
+
+<p>A variable is a named region of memory. In C, four properties of that region are decided
+separately, and GATE questions almost always turn on one of them: its <strong>scope</strong> (where
+the name is visible), its <strong>lifetime</strong> (how long the memory exists), its
+<strong>linkage</strong> (whether other translation units can see it), and its <strong>initial
+value</strong>.</p>
+
+<h2>Declaration against definition</h2>
+<ul>
+  <li>A <strong>declaration</strong> introduces a name and its type: <code>extern int x;</code></li>
+  <li>A <strong>definition</strong> also allocates storage: <code>int x;</code></li>
+</ul>
+<p>A variable may be declared many times but defined exactly once across the whole program.</p>
+
+<h2>Storage classes</h2>
+<table>
+  <tr><th>Class</th><th>Scope</th><th>Lifetime</th><th>Default value</th><th>Stored in</th></tr>
+  <tr><td><code>auto</code></td><td>Block</td><td>Until the block exits</td><td><strong>Garbage</strong></td><td>Stack</td></tr>
+  <tr><td><code>register</code></td><td>Block</td><td>Until the block exits</td><td>Garbage</td><td>Register if possible</td></tr>
+  <tr><td><code>static</code> (local)</td><td>Block</td><td><strong>Whole program</strong></td><td>0</td><td>Data segment</td></tr>
+  <tr><td><code>static</code> (global)</td><td>Its file only</td><td>Whole program</td><td>0</td><td>Data segment</td></tr>
+  <tr><td><code>extern</code></td><td>Whole program</td><td>Whole program</td><td>0</td><td>Data segment</td></tr>
+</table>
+
+<blockquote>
+  <p>The single most examined line in this table: an <strong>uninitialised local variable holds
+  garbage</strong>, but an uninitialised <strong>global or static variable is zero</strong>. Reading
+  the local before assigning to it is undefined behaviour.</p>
+</blockquote>
+
+<h2><code>static</code> does two different jobs</h2>
+<p>Inside a function, <code>static</code> extends <em>lifetime</em> &mdash; the variable keeps its
+value between calls and is initialised only once:</p>
+
+<pre>void counter(void) {
+    static int n = 0;   /* initialised once, at program start */
+    n++;
+    printf("%d ", n);
+}
+/* three calls print: 1 2 3 */</pre>
+
+<p>At file scope, <code>static</code> instead restricts <em>linkage</em>: the name becomes private to
+that <code>.c</code> file and cannot be reached with <code>extern</code> from another. The keyword is
+the same; the effect is not.</p>
+
+<h2><code>register</code></h2>
+<p>A hint that the variable is used often and might live in a CPU register. The compiler is free to
+ignore it, and modern compilers almost always do &mdash; they allocate registers better than the
+programmer can. The one part of the rule that still binds: you <strong>cannot take the address</strong>
+of a <code>register</code> variable, so <code>&amp;x</code> is a compile error.</p>
+
+<h2>Scope</h2>
+<table>
+  <tr><th>Scope</th><th>Where the name is visible</th></tr>
+  <tr><td>Block</td><td>From its declaration to the closing brace of the enclosing block</td></tr>
+  <tr><td>Function</td><td>Labels only &mdash; the targets of <code>goto</code></td></tr>
+  <tr><td>File</td><td>From its declaration to the end of the file</td></tr>
+  <tr><td>Function prototype</td><td>Parameter names inside a prototype</td></tr>
+</table>
+
+<p>An inner declaration <strong>shadows</strong> an outer one of the same name for the rest of the
+inner block:</p>
+
+<pre>int x = 10;
+int main(void) {
+    int x = 20;
+    {
+        int x = 30;
+        printf("%d ", x);   /* 30 */
+    }
+    printf("%d ", x);       /* 20 */
+    return 0;
+}</pre>
+
+<h2>Memory layout</h2>
+<table>
+  <tr><th>Segment</th><th>Holds</th></tr>
+  <tr><td>Text</td><td>Compiled instructions; usually read-only</td></tr>
+  <tr><td>Data</td><td>Initialised globals and statics</td></tr>
+  <tr><td>BSS</td><td>Uninitialised globals and statics &mdash; zeroed at load</td></tr>
+  <tr><td>Heap</td><td><code>malloc</code>, <code>calloc</code>, <code>realloc</code>; grows upward</td></tr>
+  <tr><td>Stack</td><td>Locals, parameters, return addresses; grows downward</td></tr>
+</table>
+
+<p>String literals sit in the read-only region, which is why
+<code>char *s = "abc"; s[0] = 'A';</code> is undefined behaviour and typically segfaults, while
+<code>char s[] = "abc";</code> copies into a modifiable array and is fine. That distinction appears
+in GATE regularly.</p>
+
+<h2>Common traps</h2>
+<ul>
+  <li><code>static int a[10];</code> is zero-filled; <code>int a[10];</code> inside a function is not.</li>
+  <li>A <code>static</code> local is initialised <em>once</em>, not on every call.</li>
+  <li>Returning the address of a local is a dangling pointer &mdash; the stack frame is gone.</li>
+  <li><code>extern int x = 5;</code> at file scope is a definition, not a declaration.</li>
+</ul>
+
+<p>See also <a href="data types.html">Data Types in C</a> and <a href="pointers.html">Pointers</a>.</p>
+</body>
+</html>

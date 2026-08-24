@@ -1,14 +1,18 @@
 package com.gatemaster.app.ui
 
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.gatemaster.app.core.model.ContentType
+import com.gatemaster.app.navigation.BranchPickerRoute
 import com.gatemaster.app.navigation.HomeRoute
 import com.gatemaster.app.navigation.PapersRoute
 import com.gatemaster.app.navigation.ReaderRoute
@@ -16,6 +20,7 @@ import com.gatemaster.app.navigation.SearchRoute
 import com.gatemaster.app.navigation.SubjectRoute
 import com.gatemaster.app.navigation.TestListRoute
 import com.gatemaster.app.navigation.TestPlayerRoute
+import com.gatemaster.app.ui.branch.BranchPickerScreen
 import com.gatemaster.app.ui.home.HomeScreen
 import com.gatemaster.app.ui.papers.PapersScreen
 import com.gatemaster.app.ui.reader.ReaderScreen
@@ -25,12 +30,12 @@ import com.gatemaster.app.ui.subject.SubjectScreen
 import com.gatemaster.app.ui.test.TestListScreen
 import com.gatemaster.app.ui.test.TestPlayerScreen
 
-private const val TRANSITION_MS = 220
-
 @Composable
-fun GateMasterApp(modifier: Modifier = Modifier) {
-    val navController = rememberNavController()
-
+fun GateMasterApp(
+    startOnBranchPicker: Boolean,
+    modifier: Modifier = Modifier,
+    navController: NavHostController = rememberNavController(),
+) {
     fun openDocument(request: OpenRequest) {
         navController.navigate(
             ReaderRoute(
@@ -44,20 +49,16 @@ fun GateMasterApp(modifier: Modifier = Modifier) {
 
     NavHost(
         navController = navController,
-        startDestination = HomeRoute,
+        startDestination = if (startOnBranchPicker) {
+            BranchPickerRoute(firstRun = true)
+        } else {
+            HomeRoute
+        },
         modifier = modifier,
-        enterTransition = {
-            slideInHorizontally(initialOffsetX = { it / 4 }) + androidx.compose.animation.fadeIn()
-        },
-        exitTransition = {
-            slideOutHorizontally(targetOffsetX = { -it / 6 }) + androidx.compose.animation.fadeOut()
-        },
-        popEnterTransition = {
-            slideInHorizontally(initialOffsetX = { -it / 6 }) + androidx.compose.animation.fadeIn()
-        },
-        popExitTransition = {
-            slideOutHorizontally(targetOffsetX = { it / 4 }) + androidx.compose.animation.fadeOut()
-        },
+        enterTransition = { slideInHorizontally(initialOffsetX = { it / 4 }) + fadeIn() },
+        exitTransition = { slideOutHorizontally(targetOffsetX = { -it / 6 }) + fadeOut() },
+        popEnterTransition = { slideInHorizontally(initialOffsetX = { -it / 6 }) + fadeIn() },
+        popExitTransition = { slideOutHorizontally(targetOffsetX = { it / 4 }) + fadeOut() },
     ) {
         composable<HomeRoute> {
             HomeScreen(
@@ -65,6 +66,24 @@ fun GateMasterApp(modifier: Modifier = Modifier) {
                 onPapersClick = { navController.navigate(PapersRoute) },
                 onTestsClick = { navController.navigate(TestListRoute) },
                 onSearchClick = { navController.navigate(SearchRoute) },
+                onChangeBranch = { navController.navigate(BranchPickerRoute()) },
+            )
+        }
+
+        composable<BranchPickerRoute> { entry ->
+            val route = entry.toRoute<BranchPickerRoute>()
+            BranchPickerScreen(
+                showBack = !route.firstRun,
+                onDone = {
+                    if (route.firstRun) {
+                        // Replace the picker so back does not return to it.
+                        navController.navigate(HomeRoute) {
+                            popUpTo<BranchPickerRoute> { inclusive = true }
+                        }
+                    } else {
+                        navController.popBackStack()
+                    }
+                },
             )
         }
 

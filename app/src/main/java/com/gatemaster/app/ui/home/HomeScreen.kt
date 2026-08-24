@@ -1,50 +1,59 @@
 package com.gatemaster.app.ui.home
 
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.MenuBook
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.Description
 import androidx.compose.material.icons.filled.EditNote
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.SwapHoriz
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.LargeTopAppBar
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.gatemaster.app.core.model.Subject
 import com.gatemaster.app.ui.AppViewModelProvider
 import com.gatemaster.app.ui.components.EmptyState
+import com.gatemaster.app.ui.theme.subjectAccent
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -53,31 +62,40 @@ fun HomeScreen(
     onPapersClick: () -> Unit,
     onTestsClick: () -> Unit,
     onSearchClick: () -> Unit,
+    onChangeBranch: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel = viewModel(factory = AppViewModelProvider.Factory),
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
-    val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior(
-        rememberTopAppBarState(),
-    )
 
     Scaffold(
-        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        modifier = modifier,
         topBar = {
-            LargeTopAppBar(
-                title = { Text("GateMaster") },
-                scrollBehavior = scrollBehavior,
+            TopAppBar(
+                title = { Text("GateMaster", fontWeight = FontWeight.Bold) },
+                actions = {
+                    state.branch?.let { branch ->
+                        BranchChip(code = branch.code, onClick = onChangeBranch)
+                        Spacer(Modifier.width(8.dp))
+                    }
+                },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.surface,
+                ),
             )
         },
     ) { padding ->
         when {
-            state.isLoading -> LoadingBox(Modifier.padding(padding))
+            state.isLoading -> Box(
+                Modifier.fillMaxSize().padding(padding),
+                contentAlignment = Alignment.Center,
+            ) { CircularProgressIndicator() }
 
             state.errorMessage != null -> EmptyState(
                 title = "Could not open your study material",
                 body = state.errorMessage.orEmpty(),
                 modifier = Modifier.padding(padding),
-                action = { TextButton(onClick = viewModel::load) { Text("Try again") } },
+                action = { TextButton(onClick = viewModel::retry) { Text("Try again") } },
             )
 
             else -> HomeContent(
@@ -103,50 +121,133 @@ private fun HomeContent(
 ) {
     LazyColumn(
         modifier = modifier.fillMaxSize(),
-        contentPadding = androidx.compose.foundation.layout.PaddingValues(
-            start = 16.dp, end = 16.dp, bottom = 24.dp,
-        ),
+        contentPadding = PaddingValues(start = 16.dp, end = 16.dp, bottom = 28.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
+        item { CountdownHero(state) }
+        item { SearchEntry(onClick = onSearchClick) }
+
         item {
-            SearchEntry(onClick = onSearchClick)
+            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                ActionTile(
+                    icon = Icons.Filled.EditNote,
+                    title = "Mock tests",
+                    caption = "Timed, with scorecard",
+                    onClick = onTestsClick,
+                    modifier = Modifier.weight(1f),
+                )
+                ActionTile(
+                    icon = Icons.Filled.Description,
+                    title = "Past papers",
+                    caption = if (state.paperCount > 0) {
+                        "${state.paperCount} papers"
+                    } else {
+                        "Coming for ${state.branch?.code.orEmpty()}"
+                    },
+                    onClick = onPapersClick,
+                    enabled = state.paperCount > 0,
+                    modifier = Modifier.weight(1f),
+                )
+            }
         }
 
         item {
-            QuickAction(
-                icon = Icons.Filled.Description,
-                title = "Previous year papers",
-                subtitle = if (state.latestPaperYear != null) {
-                    "${state.paperCount} papers · up to GATE ${state.latestPaperYear}"
-                } else {
-                    "${state.paperCount} papers"
-                },
-                onClick = onPapersClick,
-            )
-        }
-
-        item {
-            QuickAction(
-                icon = Icons.Filled.EditNote,
-                title = "Mock tests",
-                subtitle = "Timed practice with a full scorecard",
-                onClick = onTestsClick,
-                container = MaterialTheme.colorScheme.tertiaryContainer,
-                onContainer = MaterialTheme.colorScheme.onTertiaryContainer,
-            )
-        }
-
-        item {
-            SectionHeading(
-                text = "Subjects",
-                trailing = "${state.totalTopics} items",
-            )
+            Row(
+                modifier = Modifier.fillMaxWidth().padding(top = 14.dp, bottom = 2.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.Bottom,
+            ) {
+                Text("Subjects", style = MaterialTheme.typography.titleLarge)
+                Text(
+                    text = "${state.subjectsWithNotes} of ${state.subjects.size} with notes",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
         }
 
         items(state.subjects, key = { it.id }) { subject ->
-            SubjectRow(
-                subject = subject,
-                onClick = { onSubjectClick(subject.id) },
+            SubjectRow(subject = subject, onClick = { onSubjectClick(subject.id) })
+        }
+    }
+}
+
+/**
+ * The focal point of the home screen: how long is left, and what the user is
+ * preparing for. A countdown is the one number every aspirant already carries
+ * in their head.
+ */
+@Composable
+private fun CountdownHero(state: HomeUiState, modifier: Modifier = Modifier) {
+    val scheme = MaterialTheme.colorScheme
+    Surface(
+        modifier = modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(22.dp),
+        color = Color.Transparent,
+    ) {
+        Box(
+            Modifier.background(
+                Brush.linearGradient(
+                    listOf(scheme.primaryContainer, scheme.tertiaryContainer),
+                ),
+            ),
+        ) {
+            Column(Modifier.padding(22.dp), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                Text(
+                    text = state.branch?.name.orEmpty(),
+                    style = MaterialTheme.typography.labelLarge,
+                    color = scheme.onPrimaryContainer,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                )
+                Row(verticalAlignment = Alignment.Bottom) {
+                    Text(
+                        text = "${state.daysToExam}",
+                        style = MaterialTheme.typography.displaySmall,
+                        fontWeight = FontWeight.Bold,
+                        color = scheme.onPrimaryContainer,
+                    )
+                    Text(
+                        text = "  days to GATE ${state.examYear}",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = scheme.onPrimaryContainer,
+                        modifier = Modifier.padding(bottom = 6.dp),
+                    )
+                }
+                Text(
+                    text = "${state.totalItems} items across ${state.subjects.size} subjects",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = scheme.onPrimaryContainer,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun BranchChip(code: String, onClick: () -> Unit, modifier: Modifier = Modifier) {
+    Surface(
+        onClick = onClick,
+        modifier = modifier,
+        shape = RoundedCornerShape(20.dp),
+        color = MaterialTheme.colorScheme.secondaryContainer,
+    ) {
+        Row(
+            Modifier.padding(start = 12.dp, end = 10.dp, top = 7.dp, bottom = 7.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(5.dp),
+        ) {
+            Text(
+                text = code,
+                style = MaterialTheme.typography.labelLarge,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
+            )
+            Icon(
+                Icons.Filled.SwapHoriz,
+                contentDescription = "Change paper",
+                modifier = Modifier.size(17.dp),
+                tint = MaterialTheme.colorScheme.onSecondaryContainer,
             )
         }
     }
@@ -157,13 +258,13 @@ private fun SearchEntry(onClick: () -> Unit, modifier: Modifier = Modifier) {
     Surface(
         onClick = onClick,
         modifier = modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(28.dp),
+        shape = RoundedCornerShape(26.dp),
         color = MaterialTheme.colorScheme.surfaceContainerHigh,
     ) {
         Row(
-            modifier = Modifier.padding(horizontal = 20.dp, vertical = 16.dp),
+            modifier = Modifier.padding(horizontal = 18.dp, vertical = 14.dp),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(14.dp),
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             Icon(
                 Icons.Filled.Search,
@@ -180,68 +281,43 @@ private fun SearchEntry(onClick: () -> Unit, modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun QuickAction(
-    icon: androidx.compose.ui.graphics.vector.ImageVector,
+private fun ActionTile(
+    icon: ImageVector,
     title: String,
-    subtitle: String,
+    caption: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    container: androidx.compose.ui.graphics.Color = MaterialTheme.colorScheme.primaryContainer,
-    onContainer: androidx.compose.ui.graphics.Color = MaterialTheme.colorScheme.onPrimaryContainer,
+    enabled: Boolean = true,
 ) {
     Card(
         onClick = onClick,
-        modifier = modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(containerColor = container),
+        enabled = enabled,
+        modifier = modifier,
+        shape = RoundedCornerShape(18.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+        ),
     ) {
-        Row(
-            modifier = Modifier.padding(20.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(16.dp),
+        Column(
+            Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             Icon(
                 icon,
                 contentDescription = null,
-                tint = onContainer,
+                tint = if (enabled) {
+                    MaterialTheme.colorScheme.primary
+                } else {
+                    MaterialTheme.colorScheme.onSurfaceVariant
+                },
             )
-            Column {
-                Text(
-                    text = title,
-                    style = MaterialTheme.typography.titleMedium,
-                    color = onContainer,
-                )
-                Text(
-                    text = subtitle,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = onContainer,
-                )
-            }
-        }
-    }
-}
-
-@Composable
-private fun SectionHeading(
-    text: String,
-    trailing: String? = null,
-    modifier: Modifier = Modifier,
-) {
-    Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(top = 12.dp, bottom = 4.dp),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.Bottom,
-    ) {
-        Text(
-            text = text,
-            style = MaterialTheme.typography.titleLarge,
-        )
-        if (trailing != null) {
+            Text(title, style = MaterialTheme.typography.titleSmall)
             Text(
-                text = trailing,
-                style = MaterialTheme.typography.labelMedium,
+                text = caption,
+                style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
             )
         }
     }
@@ -253,84 +329,87 @@ private fun SubjectRow(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val enabled = !subject.isEmpty
-    Card(
-        modifier = modifier
-            .fillMaxWidth()
-            .clickable(enabled = enabled, onClick = onClick),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-        ),
-    ) {
-        Row(
-            modifier = Modifier.padding(16.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(16.dp),
-        ) {
-            SubjectBadge(subject.shortName, enabled)
+    val accent = subjectAccent(subject.id)
+    val weightFraction by animateFloatAsState(
+        targetValue = (subject.weightage / 25f).coerceIn(0.05f, 1f),
+        label = "weightage",
+    )
 
-            Column(modifier = Modifier.weight(1f)) {
+    Surface(
+        modifier = modifier.fillMaxWidth().clickable(onClick = onClick),
+        shape = RoundedCornerShape(18.dp),
+        color = MaterialTheme.colorScheme.surfaceContainerLow,
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            // Colour rail: gives the subject an identity and makes a long list
+            // scannable without adding another line of text.
+            Box(
+                Modifier
+                    .width(5.dp)
+                    .height(78.dp)
+                    .background(accent),
+            )
+
+            Column(
+                Modifier
+                    .weight(1f)
+                    .padding(start = 14.dp, end = 12.dp, top = 13.dp, bottom = 13.dp),
+                verticalArrangement = Arrangement.spacedBy(7.dp),
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = subject.name,
+                        style = MaterialTheme.typography.titleSmall,
+                        modifier = Modifier.weight(1f),
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                    Text(
+                        text = "~${subject.weightage}",
+                        style = MaterialTheme.typography.labelLarge,
+                        fontWeight = FontWeight.Bold,
+                        color = accent,
+                    )
+                    Text(
+                        text = " marks",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+
+                Box(
+                    Modifier
+                        .fillMaxWidth()
+                        .height(4.dp)
+                        .clip(RoundedCornerShape(2.dp))
+                        .background(MaterialTheme.colorScheme.surfaceContainerHighest),
+                ) {
+                    Box(
+                        Modifier
+                            .fillMaxWidth(weightFraction)
+                            .height(4.dp)
+                            .clip(RoundedCornerShape(2.dp))
+                            .background(accent),
+                    )
+                }
+
                 Text(
-                    text = subject.name,
-                    style = MaterialTheme.typography.titleMedium,
-                    color = if (enabled) {
-                        MaterialTheme.colorScheme.onSurface
+                    text = if (subject.isSyllabusOnly) {
+                        "Syllabus · ${subject.syllabus.size} areas"
                     } else {
-                        MaterialTheme.colorScheme.onSurfaceVariant
-                    },
-                )
-                Text(
-                    text = if (enabled) {
-                        "${subject.itemCount} items · ~${subject.weightage} marks"
-                    } else {
-                        "Coming soon · ~${subject.weightage} marks"
+                        "${subject.noteCount} items · syllabus"
                     },
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
 
-            if (enabled) {
-                Icon(
-                    Icons.AutoMirrored.Filled.MenuBook,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
+            Icon(
+                Icons.AutoMirrored.Filled.ArrowForward,
+                contentDescription = null,
+                modifier = Modifier.padding(end = 16.dp).size(18.dp),
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
         }
-    }
-}
-
-@Composable
-private fun SubjectBadge(text: String, enabled: Boolean, modifier: Modifier = Modifier) {
-    val bg = if (enabled) {
-        MaterialTheme.colorScheme.secondaryContainer
-    } else {
-        MaterialTheme.colorScheme.surfaceVariant
-    }
-    Box(
-        modifier = modifier
-            .size(44.dp)
-            .clip(CircleShape)
-            .background(bg),
-        contentAlignment = Alignment.Center,
-    ) {
-        Text(
-            text = text,
-            style = MaterialTheme.typography.labelMedium,
-            fontWeight = FontWeight.SemiBold,
-            color = if (enabled) {
-                MaterialTheme.colorScheme.onSecondaryContainer
-            } else {
-                MaterialTheme.colorScheme.onSurfaceVariant
-            },
-        )
-    }
-}
-
-@Composable
-private fun LoadingBox(modifier: Modifier = Modifier) {
-    Box(modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        CircularProgressIndicator()
     }
 }

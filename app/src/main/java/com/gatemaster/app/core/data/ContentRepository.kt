@@ -2,6 +2,7 @@ package com.gatemaster.app.core.data
 
 import android.content.res.AssetManager
 import android.util.Log
+import com.gatemaster.app.core.model.Branch
 import com.gatemaster.app.core.model.ContentIndex
 import com.gatemaster.app.core.model.Paper
 import com.gatemaster.app.core.model.Subject
@@ -58,30 +59,44 @@ class ContentRepository(
         }
     }
 
-    suspend fun subjects(): List<Subject> =
-        index().getOrDefault(ContentIndex.EMPTY).subjects
+    private suspend fun indexOrEmpty(): ContentIndex =
+        index().getOrDefault(ContentIndex.EMPTY)
 
-    suspend fun subject(id: String): Subject? =
-        subjects().firstOrNull { it.id == id }
+    // -- branches -------------------------------------------------------------
 
-    suspend fun papers(): List<Paper> =
-        index().getOrDefault(ContentIndex.EMPTY).papers
+    suspend fun branches(): List<Branch> = indexOrEmpty().branches.sortedBy { it.order }
 
-    suspend fun paper(id: String): Paper? =
-        papers().firstOrNull { it.id == id }
+    suspend fun branch(branchId: String): Branch? =
+        indexOrEmpty().branch(branchId) ?: indexOrEmpty().branch(ContentIndex.DEFAULT_BRANCH)
+
+    // -- subjects -------------------------------------------------------------
+
+    suspend fun subjects(branchId: String): List<Subject> =
+        branch(branchId)?.subjects.orEmpty().sortedBy { it.order }
+
+    suspend fun subject(branchId: String, subjectId: String): Subject? =
+        subjects(branchId).firstOrNull { it.id == subjectId }
+
+    // -- papers ---------------------------------------------------------------
+
+    suspend fun papers(branchId: String): List<Paper> {
+        val index = indexOrEmpty()
+        val branch = index.branch(branchId) ?: return emptyList()
+        return index.papersFor(branch).sortedByDescending { it.year }
+    }
 
     /**
-     * Case-insensitive substring search over topic titles. Exact prefix matches
-     * rank above mid-word ones so typing "bin" surfaces "Binary Search" before
-     * "Combinational Circuits".
+     * Case-insensitive substring search over topic titles within one branch.
+     * Exact prefix matches rank above mid-word ones, so typing "bin" surfaces
+     * "Binary Search" before "Combinational Circuits".
      */
-    suspend fun search(query: String, limit: Int = 50): List<SearchHit> {
+    suspend fun search(branchId: String, query: String, limit: Int = 60): List<SearchHit> {
         val q = query.trim()
         if (q.length < MIN_QUERY_LENGTH) return emptyList()
 
         return withContext(io) {
             val hits = mutableListOf<Pair<Int, SearchHit>>()
-            for (subject in subjects()) {
+            for (subject in subjects(branchId)) {
                 for (topic in subject.topics) {
                     val idx = topic.title.indexOf(q, ignoreCase = true)
                     if (idx < 0) continue

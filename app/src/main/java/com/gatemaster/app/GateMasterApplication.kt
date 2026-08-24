@@ -3,6 +3,7 @@ package com.gatemaster.app
 import android.app.Application
 import com.gatemaster.app.core.data.ContentRepository
 import com.gatemaster.app.core.data.TestRepository
+import com.gatemaster.app.core.data.UserPreferences
 
 /**
  * Manual dependency container.
@@ -18,6 +19,10 @@ class AppContainer(application: Application) {
 
     val testRepository: TestRepository by lazy {
         TestRepository(application.assets, application.filesDir)
+    }
+
+    val userPreferences: UserPreferences by lazy {
+        UserPreferences(application)
     }
 }
 

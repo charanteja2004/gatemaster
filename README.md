@@ -1,7 +1,7 @@
 # GateMaster
 
-GATE Computer Science preparation app — notes, previous-year papers, and timed
-mock tests with GATE's real marking scheme.
+GATE preparation app covering **all 30 GATE 2026 papers** — notes,
+previous-year papers, and timed mock tests with GATE's real marking scheme.
 
 Being rebuilt from the ground up in Kotlin + Jetpack Compose. The pre-rewrite
 Java/XML app is preserved at `legacy/` and is **not** part of the build.
@@ -78,6 +78,28 @@ to report without writing.
 `assets/reader.css` is loaded last so it overrides the per-file `<style>`
 blocks by cascade order rather than by deleting anything.
 
+### `tools/audit_content.py`
+
+Finds the defects in the bundled notes that can be caught mechanically: links
+that go nowhere, images that were never copied across, articles that stop
+mid-sentence, placeholder text, duplicated bodies, and documents with no
+heading. It does **not** verify that the physics is right — that needs a human
+who knows the subject.
+
+### `tools/fix_content.py`
+
+Applies the fixes the audit surfaces. Every rewrite is from an explicit,
+reviewed table rather than fuzzy matching at run time — a close-string match
+would happily rewrite a link to Strassen's algorithm into a link to Dijkstra's.
+
+### `tools/syllabus.py`
+
+Branch, subject and syllabus data for all 30 GATE 2026 papers. Paper names and
+codes are the official list from gate2026.iitg.ac.in. Eight papers (CS, ME, EE,
+EC, CE, CH, IN, DA) carry a full subject breakdown with syllabus bullets and
+mark weightage; the remaining 22 carry their section names, and the app says so
+rather than pretending otherwise.
+
 ### `tools/build_test_bank.py`
 
 Converts the legacy `assets/mock1.json` into `assets/tests/` — the GATE-shaped
@@ -128,11 +150,24 @@ tools/                   content pipeline scripts
 legacy/                  pre-rewrite Java/XML app, excluded from the build
 ```
 
+## Branches
+
+All 30 GATE 2026 papers are selectable. The paper is chosen on first launch and
+switchable from the chip in the top bar.
+
+General Aptitude is 15 marks in **every** paper, so its 26 articles are shared
+across all 30 branches — every paper has real content from day one. Beyond that,
+CS has the full note set; the other papers currently offer their official
+syllabus, which is what candidates look up most often anyway.
+
 ## Not done yet
 
 - Room + DataStore for progress, bookmarks, and richer attempt analytics
 - Hilt (the app currently uses a hand-rolled `AppContainer`)
 - Accounts, sync, and serving content from a backend instead of the APK
 - Release signing config — required before the first Play upload
-- Computer Networks and Discrete Mathematics have no content
+- Notes for papers other than CS — the structure and syllabus are in place,
+  the articles are not
+- Detailed syllabus for the 22 outline papers
+- Computer Networks and Discrete Mathematics have no notes in CS
 - Only one practice test ships; there is no per-subject question bank yet

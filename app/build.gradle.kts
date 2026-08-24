@@ -95,6 +95,7 @@ dependencies {
     implementation(libs.compose.material3.adaptive.layout)
     implementation(libs.compose.material3.adaptive.navigation)
 
+    implementation(libs.androidx.datastore.preferences)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.coil.compose)

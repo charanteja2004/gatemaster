@@ -23,6 +23,10 @@ data object PapersRoute
 @Serializable
 data object SearchRoute
 
+/** [firstRun] hides the back button: there is nothing behind it yet. */
+@Serializable
+data class BranchPickerRoute(val firstRun: Boolean = false)
+
 @Serializable
 data object TestListRoute
 

@@ -3,6 +3,7 @@ package com.gatemaster.app.ui.search
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.gatemaster.app.core.data.ContentRepository
+import com.gatemaster.app.core.data.UserPreferences
 import com.gatemaster.app.core.data.SearchHit
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -10,6 +11,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
@@ -25,6 +27,7 @@ data class SearchUiState(
 @OptIn(FlowPreview::class)
 class SearchViewModel(
     private val repository: ContentRepository,
+    private val preferences: UserPreferences,
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(SearchUiState())
@@ -38,7 +41,7 @@ class SearchViewModel(
                 .debounce(SEARCH_DEBOUNCE_MS)
                 .distinctUntilChanged()
                 .collect { query ->
-                    val hits = repository.search(query)
+                    val hits = repository.search(preferences.branchId.first(), query)
                     _uiState.update { it.copy(results = hits, isSearching = false) }
                 }
         }

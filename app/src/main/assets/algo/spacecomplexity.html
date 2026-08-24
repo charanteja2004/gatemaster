@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Space Complexity</title>
+    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+</head>
+<body>
+<h1>Space Complexity</h1>
+
+<p>Space complexity is the total memory an algorithm needs as a function of the input size, counting
+both the input itself and everything the algorithm allocates on top of it.</p>
+
+<blockquote>
+  <p><strong>Space complexity = input space + auxiliary space</strong></p>
+</blockquote>
+
+<h2>Auxiliary space is the one that is usually asked</h2>
+<p><strong>Auxiliary space</strong> is the extra memory an algorithm uses <em>beyond</em> the input.
+Because the input array is already there whatever you do, comparisons between algorithms are almost
+always comparisons of auxiliary space. When a question says "space complexity of merge sort", the
+expected answer is nearly always the auxiliary space, O(n).</p>
+
+<table>
+  <tr><th></th><th>Space complexity</th><th>Auxiliary space</th></tr>
+  <tr><td>Bubble sort</td><td>O(n)</td><td>O(1)</td></tr>
+  <tr><td>Merge sort</td><td>O(n)</td><td>O(n)</td></tr>
+</table>
+
+<p>Both are O(n) overall, and the two algorithms look identical on that measure. Auxiliary space is
+what distinguishes them.</p>
+
+<h2>The recursion stack counts</h2>
+<p>Every pending recursive call holds a stack frame, so the <strong>maximum recursion depth</strong>
+is part of auxiliary space. This is the most common source of wrong answers.</p>
+
+<pre>int fact(int n) {
+    if (n &lt;= 1) return 1;
+    return n * fact(n - 1);
+}</pre>
+
+<p>This uses O(1) memory per frame but reaches depth n, so its auxiliary space is <strong>O(n)</strong>
+&mdash; not O(1). A loop doing the same job would be O(1).</p>
+
+<h2>Sorting algorithms</h2>
+<table>
+  <tr><th>Algorithm</th><th>Auxiliary space</th><th>Why</th></tr>
+  <tr><td>Bubble, Selection, Insertion</td><td>O(1)</td><td>A few loop variables; swaps in place</td></tr>
+  <tr><td>Heap sort</td><td>O(1)</td><td>Heapifies the array in place, iteratively</td></tr>
+  <tr><td>Quick sort</td><td>O(log n) average, <strong>O(n) worst</strong></td><td>Recursion stack; worst case when partitions are maximally unbalanced</td></tr>
+  <tr><td>Merge sort (array)</td><td>O(n)</td><td>Temporary array for the merge</td></tr>
+  <tr><td>Merge sort (linked list)</td><td>O(log n)</td><td>Merging needs no temporary; only the stack</td></tr>
+  <tr><td>Counting sort</td><td>O(k)</td><td>k = range of the key values</td></tr>
+  <tr><td>Radix sort</td><td>O(n + k)</td><td>Buckets plus output array</td></tr>
+</table>
+
+<p>Quick sort's O(log n) becomes O(n) if the recursion is not arranged carefully. Recursing on the
+smaller partition first and looping on the larger one bounds the stack at O(log n) even in the worst
+case &mdash; a standard follow-up question.</p>
+
+<h2>"In place" is not the same as O(1)</h2>
+<p>An algorithm is <strong>in place</strong> if it transforms the input using only a constant amount
+of extra space, or by common convention O(log n). So heap sort is in place; merge sort on an array
+is not. Quick sort is usually called in place despite its O(log n) stack, which is why the term is
+worth pinning down before answering.</p>
+
+<h2>Graph algorithms</h2>
+<table>
+  <tr><th>Algorithm</th><th>Auxiliary space</th></tr>
+  <tr><td>BFS</td><td>O(V) &mdash; queue plus visited array</td></tr>
+  <tr><td>DFS</td><td>O(V) &mdash; recursion stack plus visited array</td></tr>
+  <tr><td>Dijkstra (binary heap)</td><td>O(V)</td></tr>
+  <tr><td>Floyd&ndash;Warshall</td><td>O(V<sup>2</sup>) &mdash; the distance matrix</td></tr>
+  <tr><td>0/1 Knapsack (2-D table)</td><td>O(nW)</td></tr>
+  <tr><td>0/1 Knapsack (rolling row)</td><td>O(W)</td></tr>
+</table>
+
+<p>That last pair is a useful pattern: many dynamic-programming tables only ever read the previous
+row, so the table collapses from O(nW) to O(W) without changing the running time.</p>
+
+<h2>Worked example</h2>
+<pre>void f(int n) {
+    int a[100];          // O(1)   -- fixed size, independent of n
+    int *b = malloc(n * sizeof(int));   // O(n)
+    if (n &gt; 0) f(n / 2); // stack depth O(log n)
+}</pre>
+
+<p>The array is a constant 100 integers however large n is, so it contributes O(1). The allocation
+contributes O(n) and, because it is never freed before the recursive call, all O(log n) frames hold
+one at once &mdash; giving O(n) total for the allocations plus O(log n) for the frames, so
+<strong>O(n)</strong> overall.</p>
+
+<p>See also <a href="asymptotic.html">Asymptotic Notations</a>.</p>
+</body>
+</html>
