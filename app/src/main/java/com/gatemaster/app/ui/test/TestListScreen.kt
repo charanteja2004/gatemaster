@@ -8,10 +8,13 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.background
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Bolt
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -33,6 +36,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -41,12 +45,14 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.gatemaster.app.core.model.formatMarks
 import com.gatemaster.app.ui.AppViewModelProvider
 import com.gatemaster.app.ui.components.EmptyState
+import com.gatemaster.app.ui.theme.subjectAccent
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TestListScreen(
     onBack: () -> Unit,
     onStartTest: (testId: String, restart: Boolean) -> Unit,
+    onPractise: (subjectId: String) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: TestListViewModel = viewModel(factory = AppViewModelProvider.Factory),
 ) {
@@ -70,9 +76,9 @@ fun TestListScreen(
                 contentAlignment = Alignment.Center,
             ) { CircularProgressIndicator() }
 
-            state.tests.isEmpty() -> EmptyState(
+            state.tests.isEmpty() && state.practice.isEmpty() -> EmptyState(
                 title = "No tests yet",
-                body = "Mock tests will appear here as they are added.",
+                body = "Practice sets appear here as questions are added for your paper.",
                 modifier = Modifier.padding(padding),
             )
 
@@ -81,6 +87,24 @@ fun TestListScreen(
                 contentPadding = PaddingValues(16.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp),
             ) {
+                if (state.practice.isNotEmpty()) {
+                    item {
+                        SectionHeading(
+                            title = "Quick practice",
+                            caption = "Short sets you can finish on a phone",
+                        )
+                    }
+                    items(state.practice, key = { it.subjectId }) { entry ->
+                        PracticeCard(entry = entry, onClick = { onPractise(entry.subjectId) })
+                    }
+                    item {
+                        SectionHeading(
+                            title = "Full tests",
+                            caption = "Timed, exam length",
+                        )
+                    }
+                }
+
                 items(state.tests, key = { it.summary.id }) { entry ->
                     TestCard(
                         title = entry.summary.title,
@@ -101,11 +125,7 @@ fun TestListScreen(
 
                 if (state.history.isNotEmpty()) {
                     item {
-                        Text(
-                            "Past attempts",
-                            style = MaterialTheme.typography.titleMedium,
-                            modifier = Modifier.padding(top = 12.dp),
-                        )
+                        SectionHeading(title = "Past attempts", caption = null)
                     }
                     items(state.history, key = { it.submittedAtEpochMs }) { record ->
                         Row(
@@ -151,6 +171,82 @@ fun TestListScreen(
                 }) { Text("Start over") }
             },
         )
+    }
+}
+
+@Composable
+private fun SectionHeading(
+    title: String,
+    caption: String?,
+    modifier: Modifier = Modifier,
+) {
+    Column(modifier.padding(top = 10.dp, bottom = 2.dp)) {
+        Text(title, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+        if (caption != null) {
+            Text(
+                caption,
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+    }
+}
+
+/**
+ * One subject's practice set. Tapping it builds a paper from that subject's
+ * questions; the per-topic sets live on the topic rows inside the subject.
+ */
+@Composable
+private fun PracticeCard(
+    entry: PracticeEntry,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    val accent = subjectAccent(entry.subjectId)
+
+    Surface(
+        onClick = onClick,
+        modifier = modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(22.dp),
+        color = accent.copy(alpha = 0.10f),
+    ) {
+        Row(
+            Modifier.padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(14.dp),
+        ) {
+            Box(
+                Modifier
+                    .size(44.dp)
+                    .clip(RoundedCornerShape(14.dp))
+                    .background(accent.copy(alpha = 0.22f)),
+                contentAlignment = Alignment.Center,
+            ) {
+                Icon(
+                    Icons.Filled.Bolt,
+                    contentDescription = null,
+                    tint = accent,
+                    modifier = Modifier.size(21.dp),
+                )
+            }
+            Column(Modifier.weight(1f)) {
+                Text(entry.subjectName, style = MaterialTheme.typography.titleSmall)
+                Text(
+                    text = buildString {
+                        append("${entry.questionCount} questions")
+                        // Only mention topic sets when there are any, and get
+                        // the plural right -- "1 topics" undoes a lot of polish.
+                        when (entry.topicCount) {
+                            0 -> Unit
+                            1 -> append(" · 1 topic also has its own set")
+                            else -> append(" · ${entry.topicCount} topics also have their own sets")
+                        }
+                    },
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+        }
     }
 }
 

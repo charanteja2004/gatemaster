@@ -54,7 +54,13 @@ object AppViewModelProvider {
                 preferences = app().container.userPreferences,
             )
         }
-        initializer { TestListViewModel(app().container.testRepository) }
+        initializer {
+            TestListViewModel(
+                repository = app().container.testRepository,
+                contentRepository = app().container.contentRepository,
+                preferences = app().container.userPreferences,
+            )
+        }
         initializer {
             TestPlayerViewModel(
                 repository = app().container.testRepository,

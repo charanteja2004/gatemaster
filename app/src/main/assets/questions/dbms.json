@@ -1,0 +1,313 @@
+{
+  "subjectId": "dbms",
+  "questions": [
+    {
+      "id": "dbms_q001",
+      "topicId": "dbms_keys",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Which statement about a candidate key is TRUE?",
+      "options": [
+        { "id": "A", "text": "It is a minimal superkey" },
+        { "id": "B", "text": "It may contain NULL values" },
+        { "id": "C", "text": "There can be only one per relation" },
+        { "id": "D", "text": "It must be a single attribute" }
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "A candidate key uniquely identifies a tuple and no proper subset of it does — that is what minimal means. A relation may have several candidate keys, one of which is chosen as the primary key. Only the primary key is forbidden NULLs."
+    },
+    {
+      "id": "dbms_q002",
+      "topicId": "dbms_keys",
+      "type": "msq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Relation R(A, B, C, D) has functional dependencies A &rarr; B, B &rarr; C and C &rarr; D. Which are TRUE?",
+      "options": [
+        { "id": "A", "text": "A is a candidate key" },
+        { "id": "B", "text": "A &rarr; D holds" },
+        { "id": "C", "text": "B is a candidate key" },
+        { "id": "D", "text": "The closure of A is {A, B, C, D}" }
+      ],
+      "correctOptionIds": ["A", "B", "D"],
+      "solution": "A<sup>+</sup> = {A, B, C, D}, so A determines every attribute and is a candidate key, and A &rarr; D follows by transitivity. B<sup>+</sup> = {B, C, D} omits A, so B is not a candidate key."
+    },
+    {
+      "id": "dbms_q003",
+      "topicId": "dbms_normalization",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "A relation is in 2NF but not 3NF. What must be true?",
+      "options": [
+        { "id": "A", "text": "It has a partial dependency" },
+        { "id": "B", "text": "It has a transitive dependency on a non-prime attribute" },
+        { "id": "C", "text": "It has a multivalued dependency" },
+        { "id": "D", "text": "It has no candidate key" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "2NF removes partial dependencies, so those are already gone. 3NF additionally forbids a non-prime attribute depending on another non-prime attribute — a transitive dependency. Multivalued dependencies belong to 4NF."
+    },
+    {
+      "id": "dbms_q004",
+      "topicId": "dbms_normalforms",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "What is the difference between 3NF and BCNF?",
+      "options": [
+        { "id": "A", "text": "BCNF requires every determinant to be a superkey" },
+        { "id": "B", "text": "3NF removes multivalued dependencies" },
+        { "id": "C", "text": "BCNF allows partial dependencies" },
+        { "id": "D", "text": "They are identical" }
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "BCNF demands that for every non-trivial X &rarr; Y, X is a superkey. 3NF makes an exception when Y is a prime attribute, which is why every BCNF relation is in 3NF but not conversely. BCNF decomposition can also fail to be dependency-preserving."
+    },
+    {
+      "id": "dbms_q005",
+      "topicId": "dbms_normalforms",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "A relation violates 1NF when:",
+      "options": [
+        { "id": "A", "text": "It has a composite primary key" },
+        { "id": "B", "text": "An attribute holds a multivalued or composite value" },
+        { "id": "C", "text": "It has a transitive dependency" },
+        { "id": "D", "text": "It has more than one candidate key" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "1NF requires every attribute value to be atomic. Storing a list of phone numbers in one cell breaks it. Composite keys, transitive dependencies and multiple candidate keys are all perfectly compatible with 1NF."
+    },
+    {
+      "id": "dbms_q006",
+      "topicId": "dbms_acid",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Which ACID property guarantees that a committed transaction survives a system crash?",
+      "options": [
+        { "id": "A", "text": "Atomicity" },
+        { "id": "B", "text": "Consistency" },
+        { "id": "C", "text": "Isolation" },
+        { "id": "D", "text": "Durability" }
+      ],
+      "correctOptionIds": ["D"],
+      "solution": "Durability means committed changes are permanent, normally achieved by write-ahead logging to stable storage before commit is acknowledged. Atomicity is all-or-nothing, isolation concerns concurrent visibility."
+    },
+    {
+      "id": "dbms_q007",
+      "topicId": "dbms_acid",
+      "type": "msq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Which anomalies can occur under the READ COMMITTED isolation level?",
+      "options": [
+        { "id": "A", "text": "Dirty read" },
+        { "id": "B", "text": "Non-repeatable read" },
+        { "id": "C", "text": "Phantom read" },
+        { "id": "D", "text": "Lost update" }
+      ],
+      "correctOptionIds": ["B", "C", "D"],
+      "solution": "READ COMMITTED prevents dirty reads by only showing committed data, but a row can change between two reads (non-repeatable read), new rows can appear (phantom), and concurrent updates can overwrite one another. SERIALIZABLE prevents all four."
+    },
+    {
+      "id": "dbms_q008",
+      "topicId": "dbms_sql",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "What does <code>SELECT COUNT(*)</code> return compared with <code>SELECT COUNT(column)</code>?",
+      "options": [
+        { "id": "A", "text": "They are always equal" },
+        { "id": "B", "text": "COUNT(*) counts all rows; COUNT(column) skips NULLs in that column" },
+        { "id": "C", "text": "COUNT(column) counts all rows; COUNT(*) skips NULLs" },
+        { "id": "D", "text": "COUNT(*) is invalid SQL" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "COUNT(*) counts rows regardless of content. COUNT(column) counts only rows where that column is not NULL. This is the most common source of unexpected aggregate results."
+    },
+    {
+      "id": "dbms_q009",
+      "topicId": "dbms_joins",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Relation R has 5 tuples and relation S has 3 tuples. How many tuples are in R CROSS JOIN S?",
+      "numericAnswer": { "min": 15, "max": 15 },
+      "solution": "A cross join (Cartesian product) pairs every tuple of R with every tuple of S, giving 5 &times; 3 = 15. Any join condition then filters this set down."
+    },
+    {
+      "id": "dbms_q010",
+      "topicId": "dbms_joins",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "R has 10 tuples and S has 6 tuples, joined on a common attribute. What is the maximum possible number of tuples in a NATURAL JOIN of R and S?",
+      "options": [
+        { "id": "A", "text": "6" },
+        { "id": "B", "text": "10" },
+        { "id": "C", "text": "16" },
+        { "id": "D", "text": "60" }
+      ],
+      "correctOptionIds": ["D"],
+      "solution": "In the extreme case every tuple of R matches every tuple of S — when the join attribute holds the same value throughout both relations — giving 10 &times; 6 = 60. The minimum is 0 if nothing matches."
+    },
+    {
+      "id": "dbms_q011",
+      "topicId": "dbms_relationalalgebra",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Which relational algebra operator removes duplicate tuples by definition?",
+      "options": [
+        { "id": "A", "text": "Selection (&sigma;)" },
+        { "id": "B", "text": "Projection (&pi;)" },
+        { "id": "C", "text": "Cartesian product (&times;)" },
+        { "id": "D", "text": "Rename (&rho;)" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "Relational algebra works on sets, so projection eliminates the duplicates that dropping columns creates. SQL is bag-based and keeps duplicates unless you write SELECT DISTINCT — a classic difference between the theory and the language."
+    },
+    {
+      "id": "dbms_q012",
+      "topicId": "dbms_introtoer",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "A weak entity set is characterised by:",
+      "options": [
+        { "id": "A", "text": "Having no attributes" },
+        { "id": "B", "text": "Having no key of its own, depending on an owner entity" },
+        { "id": "C", "text": "Participating in no relationships" },
+        { "id": "D", "text": "Being derived from a strong entity" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "A weak entity cannot be identified by its own attributes alone. It has a partial (discriminator) key that becomes unique only when combined with the owner's primary key, and it participates totally in the identifying relationship."
+    },
+    {
+      "id": "dbms_q013",
+      "topicId": "dbms_hashing",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Which indexing structure is better suited to range queries such as <code>WHERE age BETWEEN 20 AND 30</code>?",
+      "options": [
+        { "id": "A", "text": "Hash index" },
+        { "id": "B", "text": "B+ tree index" },
+        { "id": "C", "text": "Bitmap index on a high-cardinality column" },
+        { "id": "D", "text": "No index helps ranges" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "A B+ tree keeps keys in sorted order and links the leaves, so a range scan finds the start and walks forward. A hash index scatters keys deliberately, making it excellent for equality and useless for ranges."
+    },
+    {
+      "id": "dbms_q014",
+      "topicId": "dbms_file",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Why do database systems favour B+ trees over binary search trees for indexes on disk?",
+      "options": [
+        { "id": "A", "text": "B+ trees use less memory" },
+        { "id": "B", "text": "High fan-out means fewer disk accesses per lookup" },
+        { "id": "C", "text": "B+ trees do not need balancing" },
+        { "id": "D", "text": "Binary search trees cannot store duplicates" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "A single B+ tree node fills a disk block and holds hundreds of keys, so the tree is only three or four levels deep for millions of records. A binary tree of the same size would be about twenty levels — twenty disk seeks instead of four."
+    },
+    {
+      "id": "dbms_q015",
+      "topicId": "dbms_deadlockindbms",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Two-phase locking (2PL) guarantees which property?",
+      "options": [
+        { "id": "A", "text": "Freedom from deadlock" },
+        { "id": "B", "text": "Conflict serialisability" },
+        { "id": "C", "text": "Freedom from starvation" },
+        { "id": "D", "text": "Recoverability" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "2PL — all locks acquired before any is released — guarantees a conflict-serialisable schedule. It does <em>not</em> prevent deadlock; that is why databases also run deadlock detection and abort a victim. Strict 2PL is what adds recoverability."
+    },
+    {
+      "id": "dbms_q016",
+      "topicId": "dbms_anomali",
+      "type": "msq",
+      "marks": 2,
+      "difficulty": "easy",
+      "text": "Which anomalies does normalisation aim to remove from a poorly designed relation?",
+      "options": [
+        { "id": "A", "text": "Insertion anomaly" },
+        { "id": "B", "text": "Deletion anomaly" },
+        { "id": "C", "text": "Update anomaly" },
+        { "id": "D", "text": "Concurrency anomaly" }
+      ],
+      "correctOptionIds": ["A", "B", "C"],
+      "solution": "Redundancy causes the first three: you cannot record a fact without unrelated data, deleting a row loses unrelated facts, and one change must be repeated in many places. Concurrency anomalies come from interleaved transactions and are handled by isolation, not normalisation."
+    },
+    {
+      "id": "dbms_q017",
+      "topicId": "dbms_typesofsql",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Which SQL command is DDL rather than DML?",
+      "options": [
+        { "id": "A", "text": "INSERT" },
+        { "id": "B", "text": "UPDATE" },
+        { "id": "C", "text": "TRUNCATE" },
+        { "id": "D", "text": "DELETE" }
+      ],
+      "correctOptionIds": ["C"],
+      "solution": "TRUNCATE removes all rows by deallocating the data pages, is DDL, and auto-commits — it cannot generally be rolled back. DELETE is DML, logs each row and can be rolled back."
+    },
+    {
+      "id": "dbms_q018",
+      "topicId": "dbms_functionaldependency",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "hard",
+      "text": "R(A, B, C, D, E) has FDs A &rarr; B, BC &rarr; D and E &rarr; C. How many attributes are in the closure of {A, E}?",
+      "numericAnswer": { "min": 5, "max": 5 },
+      "solution": "Start {A, E}. A &rarr; B adds B: {A, B, E}. E &rarr; C adds C: {A, B, C, E}. Now BC &rarr; D applies, adding D: {A, B, C, D, E}. All 5 attributes, so AE is a candidate key."
+    },
+    {
+      "id": "dbms_q019",
+      "topicId": "dbms_recoverytech",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "In write-ahead logging, what must happen before a modified page is written to disk?",
+      "options": [
+        { "id": "A", "text": "The transaction must commit" },
+        { "id": "B", "text": "The corresponding log record must reach stable storage" },
+        { "id": "C", "text": "All other transactions must finish" },
+        { "id": "D", "text": "The page must be locked exclusively forever" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "The WAL rule is that the log record describing a change is forced to disk before the data page is. Without it, a crash could leave a changed page with no log entry to undo it, making recovery impossible."
+    },
+    {
+      "id": "dbms_q020",
+      "topicId": "dbms_independence",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Changing the physical storage of a table without altering application programs is an example of:",
+      "options": [
+        { "id": "A", "text": "Logical data independence" },
+        { "id": "B", "text": "Physical data independence" },
+        { "id": "C", "text": "View independence" },
+        { "id": "D", "text": "Schema evolution" }
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "Physical data independence isolates the conceptual schema from storage decisions such as file organisation or indexing. Logical data independence — insulating applications from conceptual schema changes — is the harder of the two to achieve."
+    }
+  ]
+}

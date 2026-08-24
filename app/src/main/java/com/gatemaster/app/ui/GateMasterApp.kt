@@ -216,6 +216,11 @@ fun GateMasterApp(
                     onStartTest = { testId, restart ->
                         navController.navigate(TestPlayerRoute(testId, restart))
                     },
+                    onPractise = { subjectId ->
+                        navController.navigate(
+                            TestPlayerRoute(testId = QuickTestSpec(subjectId).id),
+                        )
+                    },
                 )
             }
 
