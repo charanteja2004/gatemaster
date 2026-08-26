@@ -1,0 +1,884 @@
+{
+  "subjectId": "aptitude",
+  "subjectName": "General Aptitude",
+  "questions": [
+    {
+      "id": "apt_q001",
+      "topicId": "aptitude_numbers",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "What is the remainder when 7<sup>100</sup> is divided by 5?",
+      "options": [
+        {"id": "A", "text": "0"},
+        {"id": "B", "text": "1"},
+        {"id": "C", "text": "2"},
+        {"id": "D", "text": "4"}
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "7 leaves remainder 2 on division by 5, so 7^100 and 2^100 leave the same remainder. Powers of 2 cycle with period 4: 2, 4, 3, 1, 2, 4, 3, 1, ... Since 100 is a multiple of 4, 2^100 sits at the end of a cycle and leaves remainder 1."
+    },
+    {
+      "id": "apt_q002",
+      "topicId": "aptitude_numbers",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "What is the HCF (greatest common divisor) of 1071 and 1044?",
+      "numericAnswer": {"min": 9, "max": 9},
+      "solution": "Euclid's algorithm: 1071 = 1044 x 1 + 27; 1044 = 27 x 38 + 18; 27 = 18 x 1 + 9; 18 = 9 x 2 + 0. The last non-zero remainder is 9."
+    },
+    {
+      "id": "apt_q003",
+      "topicId": "aptitude_numbers",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "What is the least number which, when divided by 12, 15 and 20, leaves a remainder of 3 in each case?",
+      "options": [
+        {"id": "A", "text": "63"},
+        {"id": "B", "text": "60"},
+        {"id": "C", "text": "123"},
+        {"id": "D", "text": "183"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "A number leaving remainder 3 with each divisor is 3 more than a common multiple. LCM(12, 15, 20) = 60, so the least such number is 60 + 3 = 63."
+    },
+    {
+      "id": "apt_q004",
+      "topicId": "aptitude_percentage",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "A number is first increased by 20% and the result is then decreased by 20%. What is the net change?",
+      "options": [
+        {"id": "A", "text": "4% increase"},
+        {"id": "B", "text": "4% decrease"},
+        {"id": "C", "text": "No change"},
+        {"id": "D", "text": "2% decrease"}
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "The multipliers compose: 1.20 x 0.80 = 0.96, so the number ends at 96% of what it was, a 4% decrease. Successive percentage changes multiply rather than add, which is why they do not cancel."
+    },
+    {
+      "id": "apt_q005",
+      "topicId": "aptitude_percentage",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "The price of a commodity rises by 25%. By what percentage must a household reduce its consumption so that its expenditure on the commodity is unchanged?",
+      "numericAnswer": {"min": 20, "max": 20},
+      "solution": "Expenditure = price x consumption. If price becomes 1.25 times, consumption must become 1/1.25 = 0.8 times, a reduction of 20%."
+    },
+    {
+      "id": "apt_q006",
+      "topicId": "aptitude_percentage",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "In an examination, 35% of candidates failed in Mathematics, 45% failed in English, and 20% failed in both. What percentage passed in both subjects?",
+      "options": [
+        {"id": "A", "text": "20%"},
+        {"id": "B", "text": "40%"},
+        {"id": "C", "text": "60%"},
+        {"id": "D", "text": "80%"}
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "Failed in at least one subject = 35 + 45 - 20 = 60%. Everyone else passed both, so 100 - 60 = 40%. Subtracting the overlap is what stops the 20% who failed both from being counted twice."
+    },
+    {
+      "id": "apt_q007",
+      "topicId": "aptitude_percentage",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "If A is 25% more than B, then B is what percentage less than A?",
+      "options": [
+        {"id": "A", "text": "20%"},
+        {"id": "B", "text": "25%"},
+        {"id": "C", "text": "30%"},
+        {"id": "D", "text": "33.33%"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Take B = 100, so A = 125. B falls short of A by 25, and that shortfall is measured against A: 25/125 = 20%. The base changes when the comparison is reversed, which is why the answer is not 25%."
+    },
+    {
+      "id": "apt_q008",
+      "topicId": "aptitude_profit",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "An article bought for Rs 400 is sold for Rs 500. What is the profit percentage?",
+      "options": [
+        {"id": "A", "text": "20%"},
+        {"id": "B", "text": "25%"},
+        {"id": "C", "text": "30%"},
+        {"id": "D", "text": "40%"}
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "Profit = 500 - 400 = 100, and profit percentage is measured on cost price: 100/400 = 25%."
+    },
+    {
+      "id": "apt_q009",
+      "topicId": "aptitude_profit",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "A trader sells an article at a loss of 10%. Had he sold it for Rs 100 more, he would have made a profit of 10%. What is the cost price, in rupees?",
+      "numericAnswer": {"min": 500, "max": 500},
+      "solution": "Let the cost price be C. The two selling prices are 0.9C and 1.1C, and they differ by Rs 100. So 0.2C = 100 and C = 500."
+    },
+    {
+      "id": "apt_q010",
+      "topicId": "aptitude_profit",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "A shopkeeper marks his goods 40% above cost price and then allows a discount of 25% on the marked price. What is his profit percentage?",
+      "options": [
+        {"id": "A", "text": "5%"},
+        {"id": "B", "text": "10%"},
+        {"id": "C", "text": "15%"},
+        {"id": "D", "text": "A loss of 5%"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Take cost = 100. Marked price = 140, and after 25% discount the selling price is 140 x 0.75 = 105. Profit = 5 on a cost of 100, so 5%."
+    },
+    {
+      "id": "apt_q011",
+      "topicId": "aptitude_simple_intrest",
+      "type": "nat",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "What is the simple interest, in rupees, on Rs 5000 at 8% per annum for 3 years?",
+      "numericAnswer": {"min": 1200, "max": 1200},
+      "solution": "SI = P x R x T / 100 = 5000 x 8 x 3 / 100 = 1200."
+    },
+    {
+      "id": "apt_q012",
+      "topicId": "aptitude_simple_intrest",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "A sum of money doubles itself in 8 years under simple interest. In how many years will it triple itself at the same rate?",
+      "options": [
+        {"id": "A", "text": "12 years"},
+        {"id": "B", "text": "16 years"},
+        {"id": "C", "text": "20 years"},
+        {"id": "D", "text": "24 years"}
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "Doubling means the interest earned equals the principal, so 8 years produce interest of P. Tripling needs interest of 2P, and simple interest accrues at a constant amount per year, so it takes 16 years."
+    },
+    {
+      "id": "apt_q013",
+      "topicId": "aptitude_simple_intrest",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "A sum lent at simple interest amounts to Rs 8100 in 3 years and to Rs 8400 in 4 years. What is the principal, in rupees?",
+      "numericAnswer": {"min": 7200, "max": 7200},
+      "solution": "The extra year adds 8400 - 8100 = Rs 300, so the annual interest is 300. Three years of interest is 900, and the principal is 8100 - 900 = 7200."
+    },
+    {
+      "id": "apt_q014",
+      "topicId": "aptitude_progression",
+      "type": "nat",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "What is the 7th term of the arithmetic progression 3, 7, 11, 15, ... ?",
+      "numericAnswer": {"min": 27, "max": 27},
+      "solution": "a = 3 and d = 4, so the nth term is a + (n - 1)d = 3 + 6 x 4 = 27."
+    },
+    {
+      "id": "apt_q015",
+      "topicId": "aptitude_progression",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "What is the sum of the first 20 terms of an arithmetic progression whose first term is 5 and whose common difference is 3?",
+      "numericAnswer": {"min": 670, "max": 670},
+      "solution": "S = n/2 x (2a + (n - 1)d) = 10 x (10 + 19 x 3) = 10 x 67 = 670."
+    },
+    {
+      "id": "apt_q016",
+      "topicId": "aptitude_progression",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "In an arithmetic progression the 4th term is 14 and the 10th term is 32. What is the common difference?",
+      "options": [
+        {"id": "A", "text": "2"},
+        {"id": "B", "text": "3"},
+        {"id": "C", "text": "4"},
+        {"id": "D", "text": "6"}
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "Six steps separate the 4th and 10th terms, so 6d = 32 - 14 = 18 and d = 3."
+    },
+    {
+      "id": "apt_q017",
+      "topicId": "aptitude_speed",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "A speed of 72 km/h is equal to how many metres per second?",
+      "options": [
+        {"id": "A", "text": "15 m/s"},
+        {"id": "B", "text": "18 m/s"},
+        {"id": "C", "text": "20 m/s"},
+        {"id": "D", "text": "25 m/s"}
+      ],
+      "correctOptionIds": ["C"],
+      "solution": "Multiply by 5/18 to convert km/h to m/s: 72 x 5/18 = 20 m/s."
+    },
+    {
+      "id": "apt_q018",
+      "topicId": "aptitude_speed",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "A train 150 m long, travelling at 90 km/h, crosses a bridge 300 m long. How many seconds does it take?",
+      "numericAnswer": {"min": 18, "max": 18},
+      "solution": "To clear the bridge the train must cover its own length plus the bridge: 150 + 300 = 450 m. Its speed is 90 x 5/18 = 25 m/s, so the time is 450/25 = 18 s."
+    },
+    {
+      "id": "apt_q019",
+      "topicId": "aptitude_speed",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "A boat travels at 10 km/h in still water and the stream flows at 2 km/h. How many hours does the boat take to go 24 km downstream and return to its starting point?",
+      "numericAnswer": {"min": 5, "max": 5},
+      "solution": "Downstream speed is 12 km/h, taking 24/12 = 2 h. Upstream speed is 8 km/h, taking 24/8 = 3 h. Total 5 h."
+    },
+    {
+      "id": "apt_q020",
+      "topicId": "aptitude_speed",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "A car covers a distance at 40 km/h and returns along the same route at 60 km/h. What is its average speed for the whole journey?",
+      "options": [
+        {"id": "A", "text": "48 km/h"},
+        {"id": "B", "text": "50 km/h"},
+        {"id": "C", "text": "52 km/h"},
+        {"id": "D", "text": "45 km/h"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Equal distances call for the harmonic mean: 2 x 40 x 60 / (40 + 60) = 4800/100 = 48 km/h. The plain average of 50 would be right only if equal *times* were spent at each speed."
+    },
+    {
+      "id": "apt_q021",
+      "topicId": "aptitude_work",
+      "type": "nat",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "A can finish a piece of work in 12 days and B can finish it in 18 days. Working together, how many days do they take? Give the answer to one decimal place.",
+      "numericAnswer": {"min": 7.2, "max": 7.2},
+      "solution": "Rates add: 1/12 + 1/18 = 3/36 + 2/36 = 5/36 of the work per day. The time is the reciprocal, 36/5 = 7.2 days."
+    },
+    {
+      "id": "apt_q022",
+      "topicId": "aptitude_work",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "A and B together complete a task in 8 days. A alone would take 12 days. How long would B alone take?",
+      "options": [
+        {"id": "A", "text": "16 days"},
+        {"id": "B", "text": "20 days"},
+        {"id": "C", "text": "24 days"},
+        {"id": "D", "text": "30 days"}
+      ],
+      "correctOptionIds": ["C"],
+      "solution": "B's rate is the combined rate minus A's: 1/8 - 1/12 = 3/24 - 2/24 = 1/24, so B alone takes 24 days."
+    },
+    {
+      "id": "apt_q023",
+      "topicId": "aptitude_work",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "hard",
+      "text": "Twelve men can complete a project in 20 days. After 8 days of work, 4 men leave. How many days in total does the project take?",
+      "numericAnswer": {"min": 26, "max": 26},
+      "solution": "The project is 12 x 20 = 240 man-days. In 8 days, 12 x 8 = 96 man-days are done, leaving 144. With 8 men remaining that takes 144/8 = 18 more days, so 8 + 18 = 26 days in total."
+    },
+    {
+      "id": "apt_q024",
+      "topicId": "aptitude_pipes",
+      "type": "nat",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Pipe A fills a tank in 6 hours and pipe B fills it in 4 hours. With both open, how many hours does the tank take to fill? Give the answer to one decimal place.",
+      "numericAnswer": {"min": 2.4, "max": 2.4},
+      "solution": "Combined rate = 1/6 + 1/4 = 2/12 + 3/12 = 5/12 of the tank per hour, so the time is 12/5 = 2.4 hours."
+    },
+    {
+      "id": "apt_q025",
+      "topicId": "aptitude_pipes",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Pipe A can fill a tank in 10 hours while pipe B can empty the full tank in 15 hours. If both are opened together on an empty tank, how long will it take to fill?",
+      "options": [
+        {"id": "A", "text": "20 hours"},
+        {"id": "B", "text": "25 hours"},
+        {"id": "C", "text": "30 hours"},
+        {"id": "D", "text": "The tank never fills"}
+      ],
+      "correctOptionIds": ["C"],
+      "solution": "The outlet subtracts: 1/10 - 1/15 = 3/30 - 2/30 = 1/30 of the tank per hour. The net rate is positive, so the tank does fill, in 30 hours."
+    },
+    {
+      "id": "apt_q026",
+      "topicId": "aptitude_pipes",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "hard",
+      "text": "Pipe A alone fills a tank in 20 minutes and pipe B alone in 30 minutes. Both are opened together, and A is closed after 5 minutes. How many minutes in total does the tank take to fill? Give the answer to one decimal place.",
+      "numericAnswer": {"min": 22.5, "max": 22.5},
+      "solution": "In the first 5 minutes the pipes fill 5 x (1/20 + 1/30) = 5 x 5/60 = 5/12 of the tank. The remaining 7/12 is left to B at 1/30 per minute, taking 7/12 x 30 = 17.5 minutes. Total = 5 + 17.5 = 22.5 minutes."
+    },
+    {
+      "id": "apt_q027",
+      "topicId": "aptitude_clock",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "What is the angle between the hour hand and the minute hand of a clock at exactly 3 o'clock?",
+      "options": [
+        {"id": "A", "text": "30 degrees"},
+        {"id": "B", "text": "60 degrees"},
+        {"id": "C", "text": "90 degrees"},
+        {"id": "D", "text": "120 degrees"}
+      ],
+      "correctOptionIds": ["C"],
+      "solution": "Each hour mark is 360/12 = 30 degrees apart. At 3 o'clock the hands are three marks apart: 3 x 30 = 90 degrees."
+    },
+    {
+      "id": "apt_q028",
+      "topicId": "aptitude_clock",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "What is the angle, in degrees, between the hour hand and the minute hand at 4:20?",
+      "numericAnswer": {"min": 10, "max": 10},
+      "solution": "The minute hand is at 20 x 6 = 120 degrees. The hour hand has moved past 4 by a third of an hour: 4 x 30 + 20 x 0.5 = 130 degrees. The difference is 10 degrees. Forgetting that the hour hand drifts is what makes this look like 0."
+    },
+    {
+      "id": "apt_q029",
+      "topicId": "aptitude_clock",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "How many times do the hour and minute hands of a correct clock coincide in 24 hours?",
+      "options": [
+        {"id": "A", "text": "22"},
+        {"id": "B", "text": "23"},
+        {"id": "C", "text": "24"},
+        {"id": "D", "text": "44"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The hands coincide 11 times in 12 hours, not 12: between 11 o'clock and 1 o'clock there is only one coincidence, at 12. So 24 hours give 22."
+    },
+    {
+      "id": "apt_q030",
+      "topicId": "aptitude_probability",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Two fair dice are rolled. What is the probability that the sum of the faces is 7?",
+      "options": [
+        {"id": "A", "text": "1/6"},
+        {"id": "B", "text": "1/9"},
+        {"id": "C", "text": "5/36"},
+        {"id": "D", "text": "1/12"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Six of the 36 equally likely outcomes sum to 7: (1,6), (2,5), (3,4), (4,3), (5,2), (6,1). So the probability is 6/36 = 1/6, the most likely of all the sums."
+    },
+    {
+      "id": "apt_q031",
+      "topicId": "aptitude_probability",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "A bag contains 4 red and 6 blue balls. Two balls are drawn at random without replacement. What is the probability that both are red? Give the answer correct to two decimal places.",
+      "numericAnswer": {"min": 0.13, "max": 0.14},
+      "solution": "P = (4/10) x (3/9) = 12/90 = 2/15, which is about 0.133. Equivalently C(4,2)/C(10,2) = 6/45. The second draw uses 3 and 9 because the first ball is not replaced."
+    },
+    {
+      "id": "apt_q032",
+      "topicId": "aptitude_probability",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "A fair coin is tossed three times. What is the probability of getting exactly two heads?",
+      "options": [
+        {"id": "A", "text": "1/8"},
+        {"id": "B", "text": "1/4"},
+        {"id": "C", "text": "3/8"},
+        {"id": "D", "text": "1/2"}
+      ],
+      "correctOptionIds": ["C"],
+      "solution": "Three of the eight equally likely sequences have exactly two heads: HHT, HTH, THH. So the probability is 3/8."
+    },
+    {
+      "id": "apt_q033",
+      "topicId": "aptitude_probability",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Events A and B are independent, with P(A) = 0.4 and P(B) = 0.5. What is P(A union B)? Give the answer correct to one decimal place.",
+      "numericAnswer": {"min": 0.7, "max": 0.7},
+      "solution": "Independence gives P(A and B) = 0.4 x 0.5 = 0.2. Then P(A or B) = 0.4 + 0.5 - 0.2 = 0.7. Adding without subtracting the overlap would wrongly give 0.9."
+    },
+    {
+      "id": "apt_q034",
+      "topicId": "aptitude_2d",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "easy",
+      "text": "A company's annual sales, in crore rupees, were: 2019 = 40, 2020 = 50, 2021 = 45, 2022 = 60. By what percentage did sales grow from 2019 to 2022?",
+      "options": [
+        {"id": "A", "text": "20%"},
+        {"id": "B", "text": "33.3%"},
+        {"id": "C", "text": "50%"},
+        {"id": "D", "text": "66.7%"}
+      ],
+      "correctOptionIds": ["C"],
+      "solution": "The increase is 60 - 40 = 20 on a base of 40, so 20/40 = 50%."
+    },
+    {
+      "id": "apt_q035",
+      "topicId": "aptitude_2d",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "easy",
+      "text": "A company's annual sales, in crore rupees, were: 2019 = 40, 2020 = 50, 2021 = 45, 2022 = 60. What is the average annual sales figure over these four years, in crore rupees? Give the answer correct to two decimal places.",
+      "numericAnswer": {"min": 48.75, "max": 48.75},
+      "solution": "(40 + 50 + 45 + 60)/4 = 195/4 = 48.75 crore."
+    },
+    {
+      "id": "apt_q036",
+      "topicId": "aptitude_2d",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "A company's annual sales, in crore rupees, were: 2019 = 40, 2020 = 50, 2021 = 45, 2022 = 60. In which year was the percentage increase over the previous year the largest?",
+      "options": [
+        {"id": "A", "text": "2020"},
+        {"id": "B", "text": "2021"},
+        {"id": "C", "text": "2022"},
+        {"id": "D", "text": "2020 and 2022 are equal"}
+      ],
+      "correctOptionIds": ["C"],
+      "solution": "2020 grew by 10/40 = 25%, 2021 fell, and 2022 grew by 15/45 = 33.3%. The largest rise in absolute terms and in percentage terms are both 2022 here, but they need not coincide in general."
+    },
+    {
+      "id": "apt_q037",
+      "topicId": "aptitude_quantitative",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "What is the average of the first 10 natural numbers?",
+      "options": [
+        {"id": "A", "text": "5"},
+        {"id": "B", "text": "5.5"},
+        {"id": "C", "text": "6"},
+        {"id": "D", "text": "55"}
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "Their sum is 10 x 11/2 = 55, and 55/10 = 5.5. For consecutive numbers the average is also the midpoint of the first and last, (1 + 10)/2."
+    },
+    {
+      "id": "apt_q038",
+      "topicId": "aptitude_quantitative",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "The present ages of A and B are in the ratio 3 : 4. Six years from now the ratio will be 4 : 5. What is A's present age, in years?",
+      "numericAnswer": {"min": 18, "max": 18},
+      "solution": "Let the ages be 3x and 4x. Then (3x + 6)/(4x + 6) = 4/5, so 15x + 30 = 16x + 24 and x = 6. A is 3x = 18."
+    },
+    {
+      "id": "apt_q039",
+      "topicId": "aptitude_quantitative",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "The average of five numbers is 20. When one number is removed, the average of the remaining four becomes 22. Which number was removed?",
+      "options": [
+        {"id": "A", "text": "12"},
+        {"id": "B", "text": "15"},
+        {"id": "C", "text": "18"},
+        {"id": "D", "text": "20"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The five numbers total 5 x 20 = 100 and the remaining four total 4 x 22 = 88, so the number removed is 100 - 88 = 12."
+    },
+    {
+      "id": "apt_q040",
+      "topicId": "aptitude_order",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "In a row of 40 students, Amit is 12th from the left end. What is his position from the right end?",
+      "options": [
+        {"id": "A", "text": "28th"},
+        {"id": "B", "text": "29th"},
+        {"id": "C", "text": "30th"},
+        {"id": "D", "text": "31st"}
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "Position from the right = total - position from the left + 1 = 40 - 12 + 1 = 29. The +1 is there because Amit is counted from both ends."
+    },
+    {
+      "id": "apt_q041",
+      "topicId": "aptitude_order",
+      "type": "nat",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "In a class, Ravi ranks 7th from the top and 26th from the bottom. How many students are there in the class?",
+      "numericAnswer": {"min": 32, "max": 32},
+      "solution": "Total = 7 + 26 - 1 = 32. Ravi is counted in both ranks, so one is subtracted."
+    },
+    {
+      "id": "apt_q042",
+      "topicId": "aptitude_order",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "In a row of children, Priya is 11th from the left and 15th from the right. How many children are in the row?",
+      "options": [
+        {"id": "A", "text": "24"},
+        {"id": "B", "text": "25"},
+        {"id": "C", "text": "26"},
+        {"id": "D", "text": "27"}
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "Total = 11 + 15 - 1 = 25."
+    },
+    {
+      "id": "apt_q043",
+      "topicId": "aptitude_inequality_reasoning",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Given that A > B, B >= C and C > D, which of the following definitely follows?",
+      "options": [
+        {"id": "A", "text": "A > D"},
+        {"id": "B", "text": "B > A"},
+        {"id": "C", "text": "C >= A"},
+        {"id": "D", "text": "D > B"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The chain A > B >= C > D can be combined because every link points the same way, and a chain containing at least one strict inequality is strict overall. So A > D."
+    },
+    {
+      "id": "apt_q044",
+      "topicId": "aptitude_inequality_reasoning",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Given the statement P >= Q = R < S, consider the conclusions: (I) P >= R  (II) S > Q. Which conclusions follow?",
+      "options": [
+        {"id": "A", "text": "Only I"},
+        {"id": "B", "text": "Only II"},
+        {"id": "C", "text": "Both I and II"},
+        {"id": "D", "text": "Neither I nor II"}
+      ],
+      "correctOptionIds": ["C"],
+      "solution": "Q = R lets either symbol replace the other. P >= Q = R gives P >= R, and R < S with Q = R gives S > Q. Both hold."
+    },
+    {
+      "id": "apt_q045",
+      "topicId": "aptitude_inequality_reasoning",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Given the statement M >= N > O <= P, consider the conclusions: (I) M > O  (II) M >= P. Which conclusions follow?",
+      "options": [
+        {"id": "A", "text": "Only I"},
+        {"id": "B", "text": "Only II"},
+        {"id": "C", "text": "Both I and II"},
+        {"id": "D", "text": "Neither I nor II"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "M >= N > O gives M > O. But the chain reverses direction at O <= P, so nothing links M to P: P could be enormous or barely above O. Only I follows."
+    },
+    {
+      "id": "apt_q046",
+      "topicId": "aptitude_alphanumeric",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "What comes next in the series 2, 6, 12, 20, 30, ... ?",
+      "options": [
+        {"id": "A", "text": "40"},
+        {"id": "B", "text": "42"},
+        {"id": "C", "text": "44"},
+        {"id": "D", "text": "46"}
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "The differences are 4, 6, 8, 10, so the next difference is 12 and the next term is 42. Equivalently the nth term is n(n + 1): 6 x 7 = 42."
+    },
+    {
+      "id": "apt_q047",
+      "topicId": "aptitude_alphanumeric",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "What comes next in the series AZ, BY, CX, ... ?",
+      "options": [
+        {"id": "A", "text": "DW"},
+        {"id": "B", "text": "DV"},
+        {"id": "C", "text": "EW"},
+        {"id": "D", "text": "DX"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The first letter advances A, B, C, D while the second retreats Z, Y, X, W. The pair is always a letter and its mirror in the alphabet, so DW."
+    },
+    {
+      "id": "apt_q048",
+      "topicId": "aptitude_alphanumeric",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "What comes next in the series 3, 7, 15, 31, 63, ... ?",
+      "options": [
+        {"id": "A", "text": "127"},
+        {"id": "B", "text": "125"},
+        {"id": "C", "text": "129"},
+        {"id": "D", "text": "95"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Each term is twice the previous one plus 1, so 63 x 2 + 1 = 127. Equivalently the terms are 2^n - 1: 4, 8, 16, 32, 64, 128 less one."
+    },
+    {
+      "id": "apt_q049",
+      "topicId": "aptitude_seating_arrangement",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Five friends A, B, C, D and E sit in a row facing north. A sits immediately to the left of B, D sits between B and E, and C sits at one end. Who sits at the other end?",
+      "options": [
+        {"id": "A", "text": "A"},
+        {"id": "B", "text": "B"},
+        {"id": "C", "text": "D"},
+        {"id": "D", "text": "E"}
+      ],
+      "correctOptionIds": ["D"],
+      "solution": "A immediately left of B gives the block AB. D between B and E extends it to A B D E, four consecutive seats. C takes the only seat left, one end, so the block runs C A B D E and E is at the other end."
+    },
+    {
+      "id": "apt_q050",
+      "topicId": "aptitude_seating_arrangement",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "P, Q, R and S sit around a circular table facing the centre. P sits directly opposite R, and Q sits immediately to the left of P. Who sits directly opposite Q?",
+      "options": [
+        {"id": "A", "text": "P"},
+        {"id": "B", "text": "R"},
+        {"id": "C", "text": "S"},
+        {"id": "D", "text": "It cannot be determined"}
+      ],
+      "correctOptionIds": ["C"],
+      "solution": "With four people evenly spaced, each has exactly one person opposite. P and R take one pair of opposite seats, which leaves Q and S facing each other whichever side Q sits on."
+    },
+    {
+      "id": "apt_q051",
+      "topicId": "aptitude_verbal_analog",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Doctor : Hospital :: Teacher : ?",
+      "options": [
+        {"id": "A", "text": "School"},
+        {"id": "B", "text": "Book"},
+        {"id": "C", "text": "Student"},
+        {"id": "D", "text": "Lesson"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The relation is professional to workplace. A doctor works in a hospital as a teacher works in a school. Student is the person served, not the place."
+    },
+    {
+      "id": "apt_q052",
+      "topicId": "aptitude_verbal_analog",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Ignite : Extinguish :: Enter : ?",
+      "options": [
+        {"id": "A", "text": "Exit"},
+        {"id": "B", "text": "Arrive"},
+        {"id": "C", "text": "Open"},
+        {"id": "D", "text": "Admit"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The pair is an antonym pair: to ignite is the opposite of to extinguish, and to enter is the opposite of to exit. Arrive and admit are near-synonyms of enter, not opposites."
+    },
+    {
+      "id": "apt_q053",
+      "topicId": "aptitude_verbal_analog",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Cartographer : Map :: Choreographer : ?",
+      "options": [
+        {"id": "A", "text": "Dance"},
+        {"id": "B", "text": "Music"},
+        {"id": "C", "text": "Stage"},
+        {"id": "D", "text": "Chorus"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The relation is maker to the thing made. A cartographer makes maps; a choreographer composes dances. Stage is where it happens, and chorus is a false lead from the spelling."
+    },
+    {
+      "id": "apt_q054",
+      "topicId": "aptitude_agreement",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Choose the correct verb: \"Each of the students ___ submitted the assignment.\"",
+      "options": [
+        {"id": "A", "text": "has"},
+        {"id": "B", "text": "have"},
+        {"id": "C", "text": "are"},
+        {"id": "D", "text": "were"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The subject is \"each\", which is singular; \"of the students\" is a prepositional phrase and never governs the verb. So the verb is \"has\"."
+    },
+    {
+      "id": "apt_q055",
+      "topicId": "aptitude_agreement",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Choose the correct verb: \"Neither the manager nor the employees ___ satisfied with the decision.\"",
+      "options": [
+        {"id": "A", "text": "was"},
+        {"id": "B", "text": "were"},
+        {"id": "C", "text": "is"},
+        {"id": "D", "text": "has been"}
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "With \"neither ... nor\", the verb agrees with the nearer subject. \"Employees\" is plural and stands closest, so \"were\" is correct. Reversing the order would make \"was\" correct."
+    },
+    {
+      "id": "apt_q056",
+      "topicId": "aptitude_agreement",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Choose the correct verb: \"The list of approved items ___ on the noticeboard.\"",
+      "options": [
+        {"id": "A", "text": "is"},
+        {"id": "B", "text": "are"},
+        {"id": "C", "text": "were"},
+        {"id": "D", "text": "have been"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The subject is \"the list\", singular. \"Of approved items\" is a modifier, and a plural noun inside it does not change the number of the subject."
+    },
+    {
+      "id": "apt_q057",
+      "topicId": "aptitude_article",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Choose the correct article: \"She is ___ honest officer.\"",
+      "options": [
+        {"id": "A", "text": "a"},
+        {"id": "B", "text": "an"},
+        {"id": "C", "text": "the"},
+        {"id": "D", "text": "No article is needed"}
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "The choice between a and an follows the opening *sound*, not the letter. The h in honest is silent, so the word begins with a vowel sound and takes \"an\"."
+    },
+    {
+      "id": "apt_q058",
+      "topicId": "aptitude_article",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Choose the correct article: \"___ Ganga is the longest river in India.\"",
+      "options": [
+        {"id": "A", "text": "A"},
+        {"id": "B", "text": "An"},
+        {"id": "C", "text": "The"},
+        {"id": "D", "text": "No article is needed"}
+      ],
+      "correctOptionIds": ["C"],
+      "solution": "Names of rivers, seas, mountain ranges and groups of islands take the definite article, unlike names of individual mountains or lakes."
+    },
+    {
+      "id": "apt_q059",
+      "topicId": "aptitude_article",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Choose the correct pair of articles: \"He is ___ university professor and ___ MBA graduate.\"",
+      "options": [
+        {"id": "A", "text": "a, an"},
+        {"id": "B", "text": "an, a"},
+        {"id": "C", "text": "a, a"},
+        {"id": "D", "text": "an, an"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "University begins with a consonant sound, \"yoo\", so it takes \"a\". MBA is read as a letter, \"em\", which begins with a vowel sound, so it takes \"an\". Both are decided by sound rather than spelling."
+    },
+    {
+      "id": "apt_q060",
+      "topicId": "aptitude_passive",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Choose the correct passive form of: \"The committee approved the proposal.\"",
+      "options": [
+        {"id": "A", "text": "The proposal was approved by the committee."},
+        {"id": "B", "text": "The proposal is approved by the committee."},
+        {"id": "C", "text": "The proposal had approved by the committee."},
+        {"id": "D", "text": "The proposal has been approving by the committee."}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The object becomes the subject, and the simple past \"approved\" becomes \"was approved\". The tense must be preserved when the voice changes."
+    },
+    {
+      "id": "apt_q061",
+      "topicId": "aptitude_passive",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Choose the correct passive form of: \"Someone has stolen my bicycle.\"",
+      "options": [
+        {"id": "A", "text": "My bicycle has been stolen."},
+        {"id": "B", "text": "My bicycle was stolen by someone."},
+        {"id": "C", "text": "My bicycle is stolen."},
+        {"id": "D", "text": "My bicycle has stolen."}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Present perfect becomes \"has been + past participle\". An indefinite agent like \"someone\" is normally dropped, which is one of the reasons the passive is used at all."
+    },
+    {
+      "id": "apt_q062",
+      "topicId": "aptitude_passive",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Choose the correct passive form of: \"They are building a new bridge across the river.\"",
+      "options": [
+        {"id": "A", "text": "A new bridge is being built across the river."},
+        {"id": "B", "text": "A new bridge is built across the river."},
+        {"id": "C", "text": "A new bridge was being built across the river."},
+        {"id": "D", "text": "A new bridge has been building across the river."}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The present continuous becomes \"is/are being + past participle\", so \"are building\" becomes \"is being built\" to match the singular subject \"bridge\"."
+    }
+  ]
+}

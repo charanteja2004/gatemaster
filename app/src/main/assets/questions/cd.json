@@ -1,0 +1,666 @@
+{
+  "subjectId": "cd",
+  "subjectName": "Compiler Design",
+  "questions": [
+    {
+      "id": "cd_q001",
+      "topicId": "cd_phases",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Which phase of a compiler converts the source text into a stream of tokens?",
+      "options": [
+        {"id": "A", "text": "Lexical analysis"},
+        {"id": "B", "text": "Syntax analysis"},
+        {"id": "C", "text": "Semantic analysis"},
+        {"id": "D", "text": "Code generation"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The lexical analyser groups characters into the smallest meaningful units, identifiers, keywords, literals and operators, and hands them to the parser."
+    },
+    {
+      "id": "cd_q002",
+      "topicId": "cd_phases",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "In which phase is a type mismatch such as adding an integer to a string detected?",
+      "options": [
+        {"id": "A", "text": "Semantic analysis"},
+        {"id": "B", "text": "Lexical analysis"},
+        {"id": "C", "text": "Syntax analysis"},
+        {"id": "D", "text": "Code optimisation"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The expression is lexically and grammatically fine, so only the phase that reasons about meaning, using the symbol table, can catch it."
+    },
+    {
+      "id": "cd_q003",
+      "topicId": "cd_phases",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "What is the correct order of the compiler phases?",
+      "options": [
+        {"id": "A", "text": "Lexical, syntax, semantic, intermediate code, optimisation, code generation"},
+        {"id": "B", "text": "Syntax, lexical, semantic, code generation, optimisation"},
+        {"id": "C", "text": "Lexical, semantic, syntax, optimisation, code generation"},
+        {"id": "D", "text": "Lexical, syntax, intermediate code, semantic, code generation"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Each phase consumes the output of the one before: characters to tokens, tokens to a parse tree, the tree checked for meaning, then intermediate code, improved, and finally target code."
+    },
+    {
+      "id": "cd_q004",
+      "topicId": "cd_lexical",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "What does a lexical analyser produce as output?",
+      "options": [
+        {"id": "A", "text": "A stream of tokens"},
+        {"id": "B", "text": "A parse tree"},
+        {"id": "C", "text": "Three-address code"},
+        {"id": "D", "text": "A symbol table only"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "It returns tokens, usually as a token name plus an attribute value, and enters identifiers into the symbol table as it goes."
+    },
+    {
+      "id": "cd_q005",
+      "topicId": "cd_lexical",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Which of the following is normally discarded by the lexical analyser rather than returned as a token?",
+      "options": [
+        {"id": "A", "text": "Comments and whitespace"},
+        {"id": "B", "text": "Keywords"},
+        {"id": "C", "text": "String literals"},
+        {"id": "D", "text": "Operators"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Comments and whitespace only separate tokens and carry no meaning for the parser, so they are skipped. Removing them here is why the grammar need not mention them at all."
+    },
+    {
+      "id": "cd_q006",
+      "topicId": "cd_lexical",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "hard",
+      "text": "How many tokens does a C lexical analyser produce for the following line?  printf(\"i=%d, &i=%x\", i, &i);",
+      "numericAnswer": {"min": 10, "max": 10},
+      "solution": "The tokens are printf, (, the whole string literal, comma, i, comma, &, i, ), and the semicolon: 10 in all. The commas and the ampersand inside the quotes are part of the single string token, not separate tokens."
+    },
+    {
+      "id": "cd_q007",
+      "topicId": "cd_lexical",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "The patterns recognised by a lexical analyser are most naturally specified using",
+      "options": [
+        {"id": "A", "text": "regular expressions"},
+        {"id": "B", "text": "context-free grammars"},
+        {"id": "C", "text": "attribute grammars"},
+        {"id": "D", "text": "Turing machines"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Tokens form regular languages, so regular expressions suffice and can be compiled into a finite automaton that scans in linear time. Nesting, which needs a stack, is left to the parser."
+    },
+    {
+      "id": "cd_q008",
+      "topicId": "cd_syntax",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "The output of the syntax analysis phase is",
+      "options": [
+        {"id": "A", "text": "a parse tree or syntax tree"},
+        {"id": "B", "text": "a token stream"},
+        {"id": "C", "text": "assembly code"},
+        {"id": "D", "text": "a flow graph"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The parser checks that the token stream matches the grammar and records the derivation as a tree, which the later phases walk."
+    },
+    {
+      "id": "cd_q009",
+      "topicId": "cd_syntax",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "The syntax of programming language constructs such as nested expressions is described using",
+      "options": [
+        {"id": "A", "text": "context-free grammars"},
+        {"id": "B", "text": "regular grammars"},
+        {"id": "C", "text": "regular expressions"},
+        {"id": "D", "text": "finite automata"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Balanced nesting cannot be described by a regular language, so a context-free grammar is needed. The pushdown stack of a parser is exactly the extra power required."
+    },
+    {
+      "id": "cd_q010",
+      "topicId": "cd_parsing",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "A bottom-up parser constructs the parse tree",
+      "options": [
+        {"id": "A", "text": "from the leaves upward to the root"},
+        {"id": "B", "text": "from the root downward to the leaves"},
+        {"id": "C", "text": "left to right without a tree"},
+        {"id": "D", "text": "in random order"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "It starts from the input symbols and reduces them to non-terminals until the start symbol is reached, which traces a rightmost derivation in reverse."
+    },
+    {
+      "id": "cd_q011",
+      "topicId": "cd_parsing",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Which family of parsers is also described as shift-reduce parsers?",
+      "options": [
+        {"id": "A", "text": "LR parsers"},
+        {"id": "B", "text": "LL parsers"},
+        {"id": "C", "text": "Recursive descent parsers"},
+        {"id": "D", "text": "Predictive parsers"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "LR parsers work by shifting tokens onto a stack and reducing a handle on top of it by a production. The LL family is predictive and top-down."
+    },
+    {
+      "id": "cd_q012",
+      "topicId": "cd_parsing",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Handle pruning is the basis of",
+      "options": [
+        {"id": "A", "text": "bottom-up parsing"},
+        {"id": "B", "text": "top-down parsing"},
+        {"id": "C", "text": "lexical analysis"},
+        {"id": "D", "text": "peephole optimisation"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "A handle is a substring matching the right side of a production whose reduction is a step in a rightmost derivation reversed. Repeatedly finding and reducing handles is what bottom-up parsing does."
+    },
+    {
+      "id": "cd_q013",
+      "topicId": "cd_ambigious",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "A context-free grammar is ambiguous if",
+      "options": [
+        {"id": "A", "text": "some string in its language has more than one parse tree"},
+        {"id": "B", "text": "it is left recursive"},
+        {"id": "C", "text": "it has more than one non-terminal"},
+        {"id": "D", "text": "it generates an infinite language"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Ambiguity is about the grammar admitting two distinct derivation trees for one string, which leaves the meaning of that string undetermined."
+    },
+    {
+      "id": "cd_q014",
+      "topicId": "cd_ambigious",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "The dangling-else problem is an instance of",
+      "options": [
+        {"id": "A", "text": "grammar ambiguity"},
+        {"id": "B", "text": "left recursion"},
+        {"id": "C", "text": "a lexical error"},
+        {"id": "D", "text": "a type error"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "With nested if statements and one else, the grammar allows the else to attach to either if. Languages resolve it by a rule, usually matching the else to the nearest unmatched if."
+    },
+    {
+      "id": "cd_q015",
+      "topicId": "cd_ambigious",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "hard",
+      "text": "Deciding whether an arbitrary context-free grammar is ambiguous is",
+      "options": [
+        {"id": "A", "text": "undecidable"},
+        {"id": "B", "text": "decidable in polynomial time"},
+        {"id": "C", "text": "decidable but NP-complete"},
+        {"id": "D", "text": "decidable only for regular grammars"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "No algorithm can decide ambiguity for every grammar. In practice a parser generator reports the conflicts it finds, which is a sufficient but not necessary sign of trouble."
+    },
+    {
+      "id": "cd_q016",
+      "topicId": "cd_topdown",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Recursive descent parsing is a form of",
+      "options": [
+        {"id": "A", "text": "top-down parsing"},
+        {"id": "B", "text": "bottom-up parsing"},
+        {"id": "C", "text": "shift-reduce parsing"},
+        {"id": "D", "text": "operator precedence parsing"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Each non-terminal becomes a procedure that tries to match its production, so the tree is built from the start symbol downward."
+    },
+    {
+      "id": "cd_q017",
+      "topicId": "cd_topdown",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "A grammar containing left recursion cannot be parsed by",
+      "options": [
+        {"id": "A", "text": "a predictive top-down parser"},
+        {"id": "B", "text": "an LR parser"},
+        {"id": "C", "text": "an SLR parser"},
+        {"id": "D", "text": "an LALR parser"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "A production such as A -> A a makes a recursive descent parser call itself without consuming input, so it loops forever. Left recursion must be eliminated first; bottom-up parsers handle it happily."
+    },
+    {
+      "id": "cd_q018",
+      "topicId": "cd_topdown",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "A grammar fails to be LL(1) when",
+      "options": [
+        {"id": "A", "text": "two productions for the same non-terminal have overlapping FIRST sets, or a nullable production whose FIRST meets the FOLLOW set"},
+        {"id": "B", "text": "it has more than one terminal"},
+        {"id": "C", "text": "it is right recursive"},
+        {"id": "D", "text": "it has epsilon productions of any kind"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "An LL(1) parser picks a production from one lookahead token, so the choices must be distinguishable. Overlapping FIRST sets, or a FIRST and FOLLOW clash for a nullable non-terminal, put two entries in one table cell."
+    },
+    {
+      "id": "cd_q019",
+      "topicId": "cd_slr",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "An SLR(1) parser decides to reduce by a production A -> alpha when the lookahead is in",
+      "options": [
+        {"id": "A", "text": "FOLLOW(A)"},
+        {"id": "B", "text": "FIRST(alpha)"},
+        {"id": "C", "text": "the whole terminal alphabet"},
+        {"id": "D", "text": "the lookahead recorded in the item itself"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "SLR uses the global FOLLOW set as its reduction lookahead. Because FOLLOW is computed without regard to context, it is coarser than the per-item lookaheads that CLR carries."
+    },
+    {
+      "id": "cd_q020",
+      "topicId": "cd_slr",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Which ordering of parser power is correct?",
+      "options": [
+        {"id": "A", "text": "SLR(1) is weaker than LALR(1), which is weaker than CLR(1)"},
+        {"id": "B", "text": "CLR(1) is weaker than LALR(1), which is weaker than SLR(1)"},
+        {"id": "C", "text": "All three accept exactly the same grammars"},
+        {"id": "D", "text": "LALR(1) is the most powerful of the three"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Every SLR(1) grammar is LALR(1) and every LALR(1) grammar is CLR(1). The trade-off is table size: CLR has the most states, and LALR gets close to its power with an SLR-sized table."
+    },
+    {
+      "id": "cd_q021",
+      "topicId": "cd_slr",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "A shift-reduce conflict in a parsing table means that",
+      "options": [
+        {"id": "A", "text": "in some state with some lookahead, the parser can neither be told to shift nor to reduce unambiguously"},
+        {"id": "B", "text": "the grammar has left recursion"},
+        {"id": "C", "text": "the input contains a lexical error"},
+        {"id": "D", "text": "the stack has overflowed"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "One table entry holds two possible actions, so the parser cannot decide. It signals that the grammar is not in the class the table was built for, often because of ambiguity."
+    },
+    {
+      "id": "cd_q022",
+      "topicId": "cd_lalr",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "An LALR(1) parsing table is obtained from a CLR(1) table by",
+      "options": [
+        {"id": "A", "text": "merging states that have the same core of LR(0) items"},
+        {"id": "B", "text": "deleting all reduce actions"},
+        {"id": "C", "text": "replacing FOLLOW sets by FIRST sets"},
+        {"id": "D", "text": "removing left recursion from the grammar"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "States differing only in their lookaheads are combined and their lookahead sets unioned, which shrinks the table to the size of an SLR table."
+    },
+    {
+      "id": "cd_q023",
+      "topicId": "cd_lalr",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "hard",
+      "text": "Merging CLR(1) states to form an LALR(1) table can introduce",
+      "options": [
+        {"id": "A", "text": "reduce-reduce conflicts, but never shift-reduce conflicts"},
+        {"id": "B", "text": "shift-reduce conflicts, but never reduce-reduce conflicts"},
+        {"id": "C", "text": "both kinds of conflict"},
+        {"id": "D", "text": "neither kind of conflict"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Merging only unions lookaheads for reductions, which can make two reductions compete. Shift actions depend on the core items, which merging leaves unchanged, so no new shift-reduce conflict can appear."
+    },
+    {
+      "id": "cd_q024",
+      "topicId": "cd_lalr",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Parser generators such as YACC and Bison produce which kind of parser by default?",
+      "options": [
+        {"id": "A", "text": "LALR(1)"},
+        {"id": "B", "text": "LL(1)"},
+        {"id": "C", "text": "SLR(1)"},
+        {"id": "D", "text": "Recursive descent"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "LALR(1) is the practical compromise: nearly the power of CLR(1) with a much smaller table, which mattered greatly when these tools were written."
+    },
+    {
+      "id": "cd_q025",
+      "topicId": "cd_threeaddress",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "A three-address code instruction contains at most",
+      "options": [
+        {"id": "A", "text": "one operator with two operands and one result"},
+        {"id": "B", "text": "three operators"},
+        {"id": "C", "text": "three results"},
+        {"id": "D", "text": "three memory accesses"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The three addresses are two operands and a destination, so complex expressions are broken into a sequence with temporaries. That regular shape is what makes later analysis and code generation simple."
+    },
+    {
+      "id": "cd_q026",
+      "topicId": "cd_threeaddress",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "How many three-address statements are needed for a = b * c + d * e, if each intermediate product uses a new temporary and the final sum is assigned directly to a?",
+      "numericAnswer": {"min": 3, "max": 3},
+      "solution": "t1 = b * c; t2 = d * e; a = t1 + t2. Each statement carries one operator, which is what forces the temporaries."
+    },
+    {
+      "id": "cd_q027",
+      "topicId": "cd_threeaddress",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Which of these is a standard implementation of three-address code?",
+      "options": [
+        {"id": "A", "text": "Quadruples and triples"},
+        {"id": "B", "text": "Parse trees"},
+        {"id": "C", "text": "Finite automata"},
+        {"id": "D", "text": "Symbol tables"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "A quadruple stores operator, two operands and result; a triple drops the result field and refers to instructions by position. Indirect triples add a level of indirection so code can be reordered easily."
+    },
+    {
+      "id": "cd_q028",
+      "topicId": "cd_basicblock",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "A basic block is",
+      "options": [
+        {"id": "A", "text": "a maximal sequence of instructions entered only at the first and left only at the last"},
+        {"id": "B", "text": "any sequence of ten instructions"},
+        {"id": "C", "text": "the body of a loop"},
+        {"id": "D", "text": "a procedure"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Control cannot jump into the middle or out of the middle, so every instruction in the block runs whenever the first one does. That property is what makes local optimisation within a block safe."
+    },
+    {
+      "id": "cd_q029",
+      "topicId": "cd_basicblock",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "The first instruction of a basic block is called",
+      "options": [
+        {"id": "A", "text": "a leader"},
+        {"id": "B", "text": "a handle"},
+        {"id": "C", "text": "a header"},
+        {"id": "D", "text": "an entry token"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Leaders are the first instruction of the program, any target of a jump, and any instruction immediately following a jump. Each block runs from a leader up to just before the next one."
+    },
+    {
+      "id": "cd_q030",
+      "topicId": "cd_basicblock",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "In a control flow graph, what do the nodes represent?",
+      "options": [
+        {"id": "A", "text": "Basic blocks"},
+        {"id": "B", "text": "Individual instructions"},
+        {"id": "C", "text": "Variables"},
+        {"id": "D", "text": "Procedures"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Nodes are basic blocks and edges show the possible transfers of control between them. Working at block granularity keeps the graph small enough for data flow analysis."
+    },
+    {
+      "id": "cd_q031",
+      "topicId": "cd_codeoptimization",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Common subexpression elimination is an example of",
+      "options": [
+        {"id": "A", "text": "a machine-independent optimisation"},
+        {"id": "B", "text": "a machine-dependent optimisation"},
+        {"id": "C", "text": "register allocation"},
+        {"id": "D", "text": "instruction scheduling"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "It works on the intermediate representation and needs no knowledge of the target machine. Register allocation and instruction scheduling are the machine-dependent counterparts."
+    },
+    {
+      "id": "cd_q032",
+      "topicId": "cd_codeoptimization",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Dead code elimination removes",
+      "options": [
+        {"id": "A", "text": "computations whose results are never used"},
+        {"id": "B", "text": "all comments"},
+        {"id": "C", "text": "unreferenced variables from the symbol table"},
+        {"id": "D", "text": "the last statement of every block"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "If a value is never read on any path afterwards, computing it cannot affect the result. Liveness analysis is what establishes that."
+    },
+    {
+      "id": "cd_q033",
+      "topicId": "cd_codeoptimization",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Replacing the expression 3 * 4 by 12 at compile time is called",
+      "options": [
+        {"id": "A", "text": "constant folding"},
+        {"id": "B", "text": "constant propagation"},
+        {"id": "C", "text": "strength reduction"},
+        {"id": "D", "text": "copy propagation"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Folding evaluates an operation whose operands are already known. Propagation is the related step of carrying a known constant to the places where the variable is used, which often exposes more folding."
+    },
+    {
+      "id": "cd_q034",
+      "topicId": "cd_loop",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Loop-invariant code motion",
+      "options": [
+        {"id": "A", "text": "moves a computation whose operands do not change out of the loop"},
+        {"id": "B", "text": "unrolls the loop body"},
+        {"id": "C", "text": "converts a for loop into a while loop"},
+        {"id": "D", "text": "removes the loop entirely"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "If nothing the expression depends on is modified inside the loop, it computes the same value every iteration and can be hoisted into a pre-header so it runs once."
+    },
+    {
+      "id": "cd_q035",
+      "topicId": "cd_loop",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Replacing a multiplication inside a loop by a repeated addition on an induction variable is called",
+      "options": [
+        {"id": "A", "text": "strength reduction"},
+        {"id": "B", "text": "loop unrolling"},
+        {"id": "C", "text": "loop fusion"},
+        {"id": "D", "text": "code motion"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "An expensive operator is swapped for a cheaper one that produces the same sequence of values. Array address arithmetic is the classic case: i * width becomes a running sum."
+    },
+    {
+      "id": "cd_q036",
+      "topicId": "cd_peephole",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Peephole optimisation examines",
+      "options": [
+        {"id": "A", "text": "a short window of neighbouring instructions at a time"},
+        {"id": "B", "text": "the whole program at once"},
+        {"id": "C", "text": "one basic block at a time"},
+        {"id": "D", "text": "the parse tree"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "A small sliding window is matched against a set of replacement patterns. The narrow view is what makes it cheap, and repeated passes let one improvement expose another."
+    },
+    {
+      "id": "cd_q037",
+      "topicId": "cd_peephole",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Which is a typical peephole transformation?",
+      "options": [
+        {"id": "A", "text": "Deleting a load that immediately follows a store to the same location"},
+        {"id": "B", "text": "Rewriting the grammar to remove left recursion"},
+        {"id": "C", "text": "Building the control flow graph"},
+        {"id": "D", "text": "Allocating registers across the whole function"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The value is already in the register, so the reload is redundant. Other stock patterns are removing jumps to the next instruction and algebraic simplifications such as adding zero."
+    },
+    {
+      "id": "cd_q038",
+      "topicId": "cd_peephole",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Peephole optimisation is usually applied",
+      "options": [
+        {"id": "A", "text": "to the generated target code"},
+        {"id": "B", "text": "to the token stream"},
+        {"id": "C", "text": "before parsing"},
+        {"id": "D", "text": "during lexical analysis"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "It cleans up the local inefficiencies that code generation introduces, and it can also be run on intermediate code. Either way it comes after the code is emitted, not before."
+    },
+    {
+      "id": "cd_q039",
+      "topicId": "cd_symbolic_table",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "A symbol table stores",
+      "options": [
+        {"id": "A", "text": "identifiers together with attributes such as type, scope and storage location"},
+        {"id": "B", "text": "the tokens of the program in order"},
+        {"id": "C", "text": "the parse tree"},
+        {"id": "D", "text": "the target machine instructions"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "It is the compiler's record of what each name means, built during lexical and syntax analysis and consulted heavily during semantic analysis and code generation."
+    },
+    {
+      "id": "cd_q040",
+      "topicId": "cd_symbolic_table",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Which data structure gives the best average-case lookup time for a symbol table?",
+      "options": [
+        {"id": "A", "text": "Hash table"},
+        {"id": "B", "text": "Linear list"},
+        {"id": "C", "text": "Unsorted array"},
+        {"id": "D", "text": "Queue"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Hashing gives constant average lookup, which matters because the table is consulted for nearly every identifier occurrence. Nested scopes are handled by chaining a table per scope."
+    },
+    {
+      "id": "cd_q041",
+      "topicId": "cd_sematic",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "In syntax-directed translation, semantic rules are attached to",
+      "options": [
+        {"id": "A", "text": "grammar productions"},
+        {"id": "B", "text": "tokens"},
+        {"id": "C", "text": "basic blocks"},
+        {"id": "D", "text": "target instructions"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Each production carries rules computing attribute values, so the translation is defined alongside the grammar and evaluated as the parse tree is built."
+    },
+    {
+      "id": "cd_q042",
+      "topicId": "cd_sematic",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "An attribute whose value is computed only from the attributes of a node's children is called",
+      "options": [
+        {"id": "A", "text": "a synthesised attribute"},
+        {"id": "B", "text": "an inherited attribute"},
+        {"id": "C", "text": "a global attribute"},
+        {"id": "D", "text": "a lexical attribute"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Synthesised attributes flow upward and can be evaluated during a bottom-up parse, which is why S-attributed definitions suit LR parsing. Inherited attributes take values from the parent or siblings."
+    }
+  ]
+}

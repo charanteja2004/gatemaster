@@ -1,10 +1,14 @@
 {
   "schemaVersion": 1,
   "banks": {
+    "aptitude": "questions/aptitude.json",
+    "ds": "questions/ds.json",
     "algo": "questions/algo.json",
     "os": "questions/os.json",
-    "ds": "questions/ds.json",
     "dbms": "questions/dbms.json",
-    "toc": "questions/toc.json"
+    "cao": "questions/cao.json",
+    "toc": "questions/toc.json",
+    "dl": "questions/dl.json",
+    "cd": "questions/cd.json"
   }
 }

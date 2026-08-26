@@ -1,0 +1,654 @@
+{
+  "subjectId": "dl",
+  "subjectName": "Digital Logic",
+  "questions": [
+    {
+      "id": "dl_q001",
+      "topicId": "dl_numbersystem",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "What is the decimal value of the binary number (1011.11)<sub>2</sub>?",
+      "options": [
+        {"id": "A", "text": "11.75"},
+        {"id": "B", "text": "11.5"},
+        {"id": "C", "text": "11.25"},
+        {"id": "D", "text": "13.75"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The integer part 1011 is 8 + 2 + 1 = 11. The fraction .11 is 1/2 + 1/4 = 0.75. Together, 11.75."
+    },
+    {
+      "id": "dl_q002",
+      "topicId": "dl_numbersystem",
+      "type": "nat",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "How many 1s are there in the binary representation of the decimal number 45?",
+      "numericAnswer": {"min": 4, "max": 4},
+      "solution": "45 = 32 + 8 + 4 + 1 = 101101 in binary, which has four 1s."
+    },
+    {
+      "id": "dl_q003",
+      "topicId": "dl_numbersystem",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "The hexadecimal number (2C)<sub>16</sub> is equal to which octal number?",
+      "options": [
+        {"id": "A", "text": "(54)<sub>8</sub>"},
+        {"id": "B", "text": "(44)<sub>8</sub>"},
+        {"id": "C", "text": "(56)<sub>8</sub>"},
+        {"id": "D", "text": "(64)<sub>8</sub>"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "2C hex is 2 x 16 + 12 = 44 decimal. Going to octal, 44 = 5 x 8 + 4, so (54) octal. Going through binary is quicker: 2C = 0010 1100 = 101100, grouped in threes as 101 100 = 54."
+    },
+    {
+      "id": "dl_q004",
+      "topicId": "dl_numbersystem",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "How many bits are needed to represent the decimal number 1000 in unsigned binary?",
+      "numericAnswer": {"min": 10, "max": 10},
+      "solution": "2^9 = 512 is too small and 2^10 = 1024 is enough, so 10 bits. In general the count is floor(log2 N) + 1."
+    },
+    {
+      "id": "dl_q005",
+      "topicId": "dl_12",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "What is the 8-bit 2's complement representation of the negative of 00010110?",
+      "options": [
+        {"id": "A", "text": "11101010"},
+        {"id": "B", "text": "11101001"},
+        {"id": "C", "text": "11101011"},
+        {"id": "D", "text": "00010111"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Invert every bit to get the 1's complement, 11101001, then add 1 to get 11101010. Option B is the 1's complement, which is the usual slip."
+    },
+    {
+      "id": "dl_q006",
+      "topicId": "dl_12",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "What is the range of integers representable in 8-bit 2's complement form?",
+      "options": [
+        {"id": "A", "text": "-128 to +127"},
+        {"id": "B", "text": "-127 to +127"},
+        {"id": "C", "text": "-127 to +128"},
+        {"id": "D", "text": "0 to 255"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "2's complement has a single representation of zero, so the negative side reaches one further than the positive: -2^7 to 2^7 - 1. The symmetric range -127 to +127 belongs to 1's complement, which has two zeros."
+    },
+    {
+      "id": "dl_q007",
+      "topicId": "dl_12",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Interpreted as an 8-bit 2's complement number, what decimal value does 11111011 represent?",
+      "numericAnswer": {"min": -5, "max": -5},
+      "solution": "The leading 1 marks it negative. Invert to 00000100 and add 1, giving 00000101 = 5, so the value is -5."
+    },
+    {
+      "id": "dl_q008",
+      "topicId": "dl_greycode",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "What is the Gray code equivalent of the binary number 1010?",
+      "options": [
+        {"id": "A", "text": "1111"},
+        {"id": "B", "text": "1010"},
+        {"id": "C", "text": "1101"},
+        {"id": "D", "text": "0101"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Keep the most significant bit, then XOR each bit with the one to its left: g3 = 1, g2 = 1 XOR 0 = 1, g1 = 0 XOR 1 = 1, g0 = 1 XOR 0 = 1, giving 1111."
+    },
+    {
+      "id": "dl_q009",
+      "topicId": "dl_greycode",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "What property makes Gray code useful for position encoders and K-map ordering?",
+      "options": [
+        {"id": "A", "text": "Consecutive code words differ in exactly one bit"},
+        {"id": "B", "text": "It is a weighted code"},
+        {"id": "C", "text": "It is self-complementing"},
+        {"id": "D", "text": "It needs fewer bits than binary"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Only one bit changes between neighbours, so a reading taken mid-transition can be off by at most one position. Gray code is unweighted and uses exactly as many bits as binary."
+    },
+    {
+      "id": "dl_q010",
+      "topicId": "dl_binarytogray",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "The Gray code word 1110 corresponds to which binary number?",
+      "options": [
+        {"id": "A", "text": "1011"},
+        {"id": "B", "text": "1100"},
+        {"id": "C", "text": "1001"},
+        {"id": "D", "text": "1101"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Gray to binary runs left to right, each binary bit being the XOR of the previous binary bit with the current Gray bit: b3 = 1, b2 = 1 XOR 1 = 0, b1 = 0 XOR 1 = 1, b0 = 1 XOR 0 = 1, giving 1011."
+    },
+    {
+      "id": "dl_q011",
+      "topicId": "dl_binarytogray",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "What is the 4-bit Gray code for decimal 6?",
+      "options": [
+        {"id": "A", "text": "0101"},
+        {"id": "B", "text": "0110"},
+        {"id": "C", "text": "0111"},
+        {"id": "D", "text": "1010"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Decimal 6 is 0110 in binary. XOR each bit with the one to its left: 0, 0 XOR 1 = 1, 1 XOR 1 = 0, 1 XOR 0 = 1, giving 0101."
+    },
+    {
+      "id": "dl_q012",
+      "topicId": "dl_floatpoint",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "In IEEE 754 single precision, how many bits are allotted to the exponent field?",
+      "options": [
+        {"id": "A", "text": "8"},
+        {"id": "B", "text": "11"},
+        {"id": "C", "text": "23"},
+        {"id": "D", "text": "24"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Single precision splits 32 bits into 1 sign, 8 exponent and 23 fraction bits. Double precision uses 11 exponent bits."
+    },
+    {
+      "id": "dl_q013",
+      "topicId": "dl_floatpoint",
+      "type": "nat",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "How many fraction (mantissa) bits are stored in an IEEE 754 single precision number?",
+      "numericAnswer": {"min": 23, "max": 23},
+      "solution": "23 bits are stored. The precision is effectively 24 bits because a normalised number has an implicit leading 1 that is never written down."
+    },
+    {
+      "id": "dl_q014",
+      "topicId": "dl_floatpoint",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "What is the exponent bias used in IEEE 754 single precision?",
+      "options": [
+        {"id": "A", "text": "127"},
+        {"id": "B", "text": "128"},
+        {"id": "C", "text": "255"},
+        {"id": "D", "text": "1023"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "With 8 exponent bits the bias is 2^7 - 1 = 127, so a stored exponent of 128 means an actual exponent of 1. The bias lets exponents be compared as unsigned integers. 1023 is the double precision bias."
+    },
+    {
+      "id": "dl_q015",
+      "topicId": "dl_boolean",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "The Boolean expression A + AB simplifies to which of the following?",
+      "options": [
+        {"id": "A", "text": "A"},
+        {"id": "B", "text": "B"},
+        {"id": "C", "text": "AB"},
+        {"id": "D", "text": "A + B"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "By absorption, A + AB = A(1 + B) = A. Whenever A is 1 the expression is 1 regardless of B, and when A is 0 both terms are 0."
+    },
+    {
+      "id": "dl_q016",
+      "topicId": "dl_boolean",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "The Boolean expression A + A'B simplifies to which of the following?",
+      "options": [
+        {"id": "A", "text": "A + B"},
+        {"id": "B", "text": "A"},
+        {"id": "C", "text": "B"},
+        {"id": "D", "text": "A'B"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "A + A'B = (A + A')(A + B) = A + B. The complemented literal is absorbed, which is easy to confuse with plain absorption where the answer would be just A."
+    },
+    {
+      "id": "dl_q017",
+      "topicId": "dl_boolean",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "According to De Morgan's theorem, (A . B)' is equal to which of the following?",
+      "options": [
+        {"id": "A", "text": "A' + B'"},
+        {"id": "B", "text": "A' . B'"},
+        {"id": "C", "text": "A + B"},
+        {"id": "D", "text": "(A + B)'"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Complementing a product gives the sum of the complements: the NAND of A and B is the OR of their inverses. A' . B' is the complement of A + B, which is the other half of the theorem."
+    },
+    {
+      "id": "dl_q018",
+      "topicId": "dl_min_boolean",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "easy",
+      "text": "The expression AB + AB' simplifies to which of the following?",
+      "options": [
+        {"id": "A", "text": "A"},
+        {"id": "B", "text": "B"},
+        {"id": "C", "text": "A + B"},
+        {"id": "D", "text": "AB"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "AB + AB' = A(B + B') = A . 1 = A. B appears in both polarities and so cannot affect the result."
+    },
+    {
+      "id": "dl_q019",
+      "topicId": "dl_min_boolean",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "The product-of-sums expression (A + B)(A + B') simplifies to which of the following?",
+      "options": [
+        {"id": "A", "text": "A"},
+        {"id": "B", "text": "B"},
+        {"id": "C", "text": "AB"},
+        {"id": "D", "text": "A + B"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Expanding gives AA + AB' + AB + BB' = A + A(B + B') + 0 = A. It is the dual of AB + AB' = A."
+    },
+    {
+      "id": "dl_q020",
+      "topicId": "dl_min_boolean",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "How many literals appear in the minimal sum-of-products form of F = AB + ABC + AB' ?",
+      "numericAnswer": {"min": 1, "max": 1},
+      "solution": "ABC is covered by AB, so F = AB + AB' = A(B + B') = A. The minimal form is the single literal A."
+    },
+    {
+      "id": "dl_q021",
+      "topicId": "dl_kmap",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "F(A, B, C) = sum of minterms m(0, 1, 2, 3). What is the minimal expression?",
+      "options": [
+        {"id": "A", "text": "A'"},
+        {"id": "B", "text": "B'"},
+        {"id": "C", "text": "C'"},
+        {"id": "D", "text": "A'B'"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Minterms 0 to 3 are exactly the rows where A = 0, with B and C taking every combination. They merge into the single cube A'."
+    },
+    {
+      "id": "dl_q022",
+      "topicId": "dl_kmap",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "F(A, B, C, D) = sum of minterms m(0, 2, 8, 10). What is the minimal expression?",
+      "options": [
+        {"id": "A", "text": "B'D'"},
+        {"id": "B", "text": "A'C'"},
+        {"id": "C", "text": "BD"},
+        {"id": "D", "text": "A'D'"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The four minterms are 0000, 0010, 1000 and 1010. A and C take both values while B = 0 and D = 0 throughout, so the group of four reduces to B'D'."
+    },
+    {
+      "id": "dl_q023",
+      "topicId": "dl_kmap",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "easy",
+      "text": "F(A, B, C) = sum of minterms m(1, 3, 5, 7). What is the minimal expression?",
+      "options": [
+        {"id": "A", "text": "C"},
+        {"id": "B", "text": "A"},
+        {"id": "C", "text": "B"},
+        {"id": "D", "text": "A'C"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The odd minterms are precisely those with C = 1, and A and B range freely over them, so the function is just C."
+    },
+    {
+      "id": "dl_q024",
+      "topicId": "dl_logicgates",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Which of the following is a universal gate?",
+      "options": [
+        {"id": "A", "text": "AND"},
+        {"id": "B", "text": "OR"},
+        {"id": "C", "text": "NAND"},
+        {"id": "D", "text": "XOR"}
+      ],
+      "correctOptionIds": ["C"],
+      "solution": "NAND (and NOR) can implement NOT, AND and OR, and therefore any Boolean function. AND and OR alone cannot produce a complement."
+    },
+    {
+      "id": "dl_q025",
+      "topicId": "dl_logicgates",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "The output of a two-input XOR gate is 1 when",
+      "options": [
+        {"id": "A", "text": "the inputs are different"},
+        {"id": "B", "text": "the inputs are equal"},
+        {"id": "C", "text": "both inputs are 1"},
+        {"id": "D", "text": "both inputs are 0"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "XOR is the inequality detector: it outputs 1 exactly when its inputs differ, which is why it also acts as a controllable inverter."
+    },
+    {
+      "id": "dl_q026",
+      "topicId": "dl_logicgates",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "What is the minimum number of two-input NAND gates required to implement a NOT gate?",
+      "numericAnswer": {"min": 1, "max": 1},
+      "solution": "Tie both inputs of a NAND together: (A . A)' = A'. One gate is enough."
+    },
+    {
+      "id": "dl_q027",
+      "topicId": "dl_logicgates",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "The output of a two-input XNOR gate is 1 when",
+      "options": [
+        {"id": "A", "text": "the inputs are equal"},
+        {"id": "B", "text": "the inputs are different"},
+        {"id": "C", "text": "exactly one input is 1"},
+        {"id": "D", "text": "both inputs are 0 only"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "XNOR is the complement of XOR, so it is the equality detector: 1 for 00 and 11, 0 otherwise."
+    },
+    {
+      "id": "dl_q028",
+      "topicId": "dl_half",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "In a half adder with inputs A and B, the carry output is given by",
+      "options": [
+        {"id": "A", "text": "A AND B"},
+        {"id": "B", "text": "A XOR B"},
+        {"id": "C", "text": "A OR B"},
+        {"id": "D", "text": "A NAND B"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "A carry is produced only when both bits are 1, which is the AND. The sum output is A XOR B."
+    },
+    {
+      "id": "dl_q029",
+      "topicId": "dl_half",
+      "type": "nat",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "How many half adders are needed to build one full adder (together with a single OR gate)?",
+      "numericAnswer": {"min": 2, "max": 2},
+      "solution": "The first half adder adds A and B, the second adds that sum to the carry-in, and an OR gate combines the two carries."
+    },
+    {
+      "id": "dl_q030",
+      "topicId": "dl_full",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "easy",
+      "text": "For a full adder with inputs A, B and carry-in C, the sum output is",
+      "options": [
+        {"id": "A", "text": "A XOR B XOR C"},
+        {"id": "B", "text": "A AND B AND C"},
+        {"id": "C", "text": "(A XOR B) AND C"},
+        {"id": "D", "text": "A OR B OR C"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The sum bit is 1 when an odd number of the three inputs is 1, which is exactly the three-input XOR."
+    },
+    {
+      "id": "dl_q031",
+      "topicId": "dl_full",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "easy",
+      "text": "How many full adders are required to build a 4-bit ripple carry adder?",
+      "numericAnswer": {"min": 4, "max": 4},
+      "solution": "One full adder per bit position, with each carry-out feeding the next stage's carry-in."
+    },
+    {
+      "id": "dl_q032",
+      "topicId": "dl_full",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "For a full adder with inputs A, B and carry-in C, the carry-out is",
+      "options": [
+        {"id": "A", "text": "AB + C(A XOR B)"},
+        {"id": "B", "text": "AB + AC + BC + ABC"},
+        {"id": "C", "text": "(A XOR B) AND C"},
+        {"id": "D", "text": "A XOR B XOR C"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "A carry is generated when both A and B are 1, or propagated when exactly one of them is 1 and a carry comes in. This generate-propagate split is what carry look-ahead exploits."
+    },
+    {
+      "id": "dl_q033",
+      "topicId": "dl_multiplex",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "How many select lines does an 8-to-1 multiplexer have?",
+      "options": [
+        {"id": "A", "text": "2"},
+        {"id": "B", "text": "3"},
+        {"id": "C", "text": "4"},
+        {"id": "D", "text": "8"}
+      ],
+      "correctOptionIds": ["B"],
+      "solution": "n select lines choose among 2^n inputs, so 8 inputs need 3 select lines."
+    },
+    {
+      "id": "dl_q034",
+      "topicId": "dl_multiplex",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "What is the minimum number of 4-to-1 multiplexers required to build a 16-to-1 multiplexer?",
+      "numericAnswer": {"min": 5, "max": 5},
+      "solution": "Four multiplexers in the first stage handle the 16 inputs in groups of four, and a fifth selects among their outputs: 5 in total."
+    },
+    {
+      "id": "dl_q035",
+      "topicId": "dl_multiplex",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "For a 2-to-1 multiplexer with inputs I0 and I1 and select line S, the output is",
+      "options": [
+        {"id": "A", "text": "S'I0 + SI1"},
+        {"id": "B", "text": "SI0 + S'I1"},
+        {"id": "C", "text": "S(I0 + I1)"},
+        {"id": "D", "text": "S' (I0 . I1)"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "S = 0 selects I0 and S = 1 selects I1, so each input is gated by the matching polarity of the select line."
+    },
+    {
+      "id": "dl_q036",
+      "topicId": "dl_encode",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "How many outputs does a 3-to-8 decoder have?",
+      "options": [
+        {"id": "A", "text": "3"},
+        {"id": "B", "text": "6"},
+        {"id": "C", "text": "8"},
+        {"id": "D", "text": "16"}
+      ],
+      "correctOptionIds": ["C"],
+      "solution": "A decoder asserts exactly one output per input combination, so n inputs give 2^n outputs: 8 here."
+    },
+    {
+      "id": "dl_q037",
+      "topicId": "dl_encode",
+      "type": "nat",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "How many output bits does an encoder with 16 inputs produce?",
+      "numericAnswer": {"min": 4, "max": 4},
+      "solution": "An encoder is the inverse of a decoder: 2^n inputs are coded into n outputs, and 16 = 2^4 gives 4."
+    },
+    {
+      "id": "dl_q038",
+      "topicId": "dl_flipflop",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "In a JK flip-flop, what happens when J = K = 1?",
+      "options": [
+        {"id": "A", "text": "The output toggles"},
+        {"id": "B", "text": "The output is set to 1"},
+        {"id": "C", "text": "The output is reset to 0"},
+        {"id": "D", "text": "The output is invalid"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The JK flip-flop replaces the forbidden SR state with toggling, which is what makes it the building block of counters."
+    },
+    {
+      "id": "dl_q039",
+      "topicId": "dl_flipflop",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "The characteristic equation of a D flip-flop is",
+      "options": [
+        {"id": "A", "text": "Q(next) = D"},
+        {"id": "B", "text": "Q(next) = D + Q"},
+        {"id": "C", "text": "Q(next) = D XOR Q"},
+        {"id": "D", "text": "Q(next) = D'Q"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The D flip-flop simply captures its input at the clock edge, so the next state equals D regardless of the present state. That is why it is used for registers."
+    },
+    {
+      "id": "dl_q040",
+      "topicId": "dl_flipflop",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "The race-around condition in a level-triggered JK flip-flop occurs when",
+      "options": [
+        {"id": "A", "text": "J = K = 1 and the clock pulse is wider than the propagation delay"},
+        {"id": "B", "text": "J = K = 0"},
+        {"id": "C", "text": "J = 1 and K = 0"},
+        {"id": "D", "text": "the clock is held low"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "With both inputs high the output toggles, and if the clock stays high longer than the propagation delay it toggles repeatedly, leaving the final state uncertain. Master-slave or edge triggering fixes it."
+    },
+    {
+      "id": "dl_q041",
+      "topicId": "dl_counters",
+      "type": "nat",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "How many flip-flops are required to build a mod-10 counter?",
+      "numericAnswer": {"min": 4, "max": 4},
+      "solution": "n flip-flops give 2^n states, and 10 states need 2^n >= 10, so n = 4. Six of the sixteen states go unused."
+    },
+    {
+      "id": "dl_q042",
+      "topicId": "dl_counters",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "easy",
+      "text": "A 4-bit binary ripple counter counts through which range before repeating?",
+      "options": [
+        {"id": "A", "text": "0 to 15"},
+        {"id": "B", "text": "0 to 16"},
+        {"id": "C", "text": "1 to 16"},
+        {"id": "D", "text": "0 to 7"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Four bits hold 16 distinct states, from 0000 to 1111, that is 0 to 15."
+    },
+    {
+      "id": "dl_q043",
+      "topicId": "dl_counters",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "A ripple counter is called asynchronous because",
+      "options": [
+        {"id": "A", "text": "each flip-flop is clocked by the output of the preceding one"},
+        {"id": "B", "text": "it has no clock at all"},
+        {"id": "C", "text": "its flip-flops change at random times"},
+        {"id": "D", "text": "it cannot be reset"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Only the first stage sees the external clock; the rest are triggered in turn, so the change ripples through and delays accumulate stage by stage. That accumulation limits the maximum counting speed."
+    },
+    {
+      "id": "dl_q044",
+      "topicId": "dl_sync",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "In a synchronous counter, the flip-flops",
+      "options": [
+        {"id": "A", "text": "all receive the same clock signal simultaneously"},
+        {"id": "B", "text": "are clocked one after another"},
+        {"id": "C", "text": "need no clock"},
+        {"id": "D", "text": "must be JK type only"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "A common clock means every stage changes at the same edge, so the settling delay is that of one flip-flop rather than the sum along the chain. Combinational logic on the inputs decides which stages toggle."
+    },
+    {
+      "id": "dl_q045",
+      "topicId": "dl_sync",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "easy",
+      "text": "What is the maximum modulus of a counter built from 5 flip-flops?",
+      "numericAnswer": {"min": 32, "max": 32},
+      "solution": "Five flip-flops hold 2^5 = 32 distinct states, so the largest possible modulus is 32."
+    }
+  ]
+}

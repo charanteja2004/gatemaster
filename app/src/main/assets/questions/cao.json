@@ -1,0 +1,630 @@
+{
+  "subjectId": "cao",
+  "subjectName": "Computer Organisation & Architecture",
+  "questions": [
+    {
+      "id": "cao_q001",
+      "topicId": "cao_addressingmodes",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "In immediate addressing mode, the operand is",
+      "options": [
+        {"id": "A", "text": "contained in the instruction itself"},
+        {"id": "B", "text": "in a register named by the instruction"},
+        {"id": "C", "text": "at the memory address named by the instruction"},
+        {"id": "D", "text": "at the address held in a register"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The value is part of the instruction word, so no further access is needed once the instruction is fetched. That makes it the fastest mode and also the least flexible, since the value is fixed at assembly time."
+    },
+    {
+      "id": "cao_q002",
+      "topicId": "cao_addressingmodes",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Which addressing mode is most suitable for stepping through the successive elements of an array?",
+      "options": [
+        {"id": "A", "text": "Indexed addressing"},
+        {"id": "B", "text": "Immediate addressing"},
+        {"id": "C", "text": "Direct addressing"},
+        {"id": "D", "text": "Implied addressing"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Indexed addressing adds an index register to a base address, so advancing through the array is a matter of incrementing the index while the instruction stays the same."
+    },
+    {
+      "id": "cao_q003",
+      "topicId": "cao_addressingmodes",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "The instruction MOV R1, (R2) copies into R1 the contents of the memory location whose address is in R2. Which addressing mode does the source operand use?",
+      "options": [
+        {"id": "A", "text": "Register indirect"},
+        {"id": "B", "text": "Register direct"},
+        {"id": "C", "text": "Memory indirect"},
+        {"id": "D", "text": "Displacement"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The register holds an address rather than the value, so it is register indirect. This is how pointers are implemented at the machine level."
+    },
+    {
+      "id": "cao_q004",
+      "topicId": "cao_addressingmodes",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "In memory-indirect addressing, how many memory accesses are needed to obtain the operand, not counting the instruction fetch?",
+      "numericAnswer": {"min": 2, "max": 2},
+      "solution": "The first access reads the pointer from the address in the instruction; the second reads the operand from the address just obtained. Register indirect needs only one, because the pointer is already in a register."
+    },
+    {
+      "id": "cao_q005",
+      "topicId": "cao_instructionformate",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "An instruction is 24 bits long and contains three operand fields, each identifying one of 32 registers. How many bits are left for the opcode?",
+      "numericAnswer": {"min": 9, "max": 9},
+      "solution": "32 registers need 5 bits each, so the three fields take 15 bits, leaving 24 - 15 = 9 bits for the opcode."
+    },
+    {
+      "id": "cao_q006",
+      "topicId": "cao_instructionformate",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "In a machine using zero-address instructions, where do the operands come from?",
+      "options": [
+        {"id": "A", "text": "The top of a stack"},
+        {"id": "B", "text": "The accumulator"},
+        {"id": "C", "text": "General purpose registers named by the instruction"},
+        {"id": "D", "text": "Memory addresses in the instruction"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "A zero-address instruction names no operand because both are implicit: they are popped from the stack and the result is pushed back. Expressions are written in postfix form for such machines."
+    },
+    {
+      "id": "cao_q007",
+      "topicId": "cao_instructionformate",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "A one-address instruction implicitly uses which register for the second operand and the result?",
+      "options": [
+        {"id": "A", "text": "The accumulator"},
+        {"id": "B", "text": "The program counter"},
+        {"id": "C", "text": "The stack pointer"},
+        {"id": "D", "text": "The instruction register"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "One-address machines name a single memory operand and take the other from the accumulator, leaving the result there too."
+    },
+    {
+      "id": "cao_q008",
+      "topicId": "cao_instructioncycle",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Which phase begins every instruction cycle?",
+      "options": [
+        {"id": "A", "text": "Fetch"},
+        {"id": "B", "text": "Decode"},
+        {"id": "C", "text": "Execute"},
+        {"id": "D", "text": "Write back"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The instruction must be brought from memory before anything can be done with it, so fetch always comes first."
+    },
+    {
+      "id": "cao_q009",
+      "topicId": "cao_instructioncycle",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "easy",
+      "text": "Which register holds the address of the next instruction to be executed?",
+      "options": [
+        {"id": "A", "text": "Program counter"},
+        {"id": "B", "text": "Instruction register"},
+        {"id": "C", "text": "Memory buffer register"},
+        {"id": "D", "text": "Accumulator"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The program counter tracks where execution has reached. The instruction register holds the instruction currently being decoded, not its address."
+    },
+    {
+      "id": "cao_q010",
+      "topicId": "cao_instructioncycle",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "During the fetch phase, the contents of the program counter are first transferred to",
+      "options": [
+        {"id": "A", "text": "the memory address register"},
+        {"id": "B", "text": "the accumulator"},
+        {"id": "C", "text": "the instruction register"},
+        {"id": "D", "text": "the memory buffer register"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Memory is addressed through the MAR, so the PC value goes there first. The word that comes back arrives in the MBR and is then moved into the instruction register."
+    },
+    {
+      "id": "cao_q011",
+      "topicId": "cao_pipelining",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "In the ideal case, what speedup does a k-stage instruction pipeline offer over a non-pipelined implementation?",
+      "options": [
+        {"id": "A", "text": "k"},
+        {"id": "B", "text": "k - 1"},
+        {"id": "C", "text": "log k"},
+        {"id": "D", "text": "2k"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "With k stages full and no stalls, k instructions are in flight at once and one completes per cycle, so throughput improves k-fold. Stage imbalance, latch overhead and hazards keep real speedup below k."
+    },
+    {
+      "id": "cao_q012",
+      "topicId": "cao_pipelining",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "A 5-stage pipeline with one cycle per stage executes 100 instructions with no stalls. How many clock cycles does it take in total?",
+      "numericAnswer": {"min": 104, "max": 104},
+      "solution": "The first instruction takes k = 5 cycles to fill the pipeline and each of the remaining 99 completes one cycle later: 5 + 99 = 104."
+    },
+    {
+      "id": "cao_q013",
+      "topicId": "cao_pipelining",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "The clock period of a pipelined processor is determined by",
+      "options": [
+        {"id": "A", "text": "the slowest stage plus the latch delay"},
+        {"id": "B", "text": "the average of the stage delays"},
+        {"id": "C", "text": "the fastest stage"},
+        {"id": "D", "text": "the sum of all stage delays"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Every stage advances on the same edge, so the clock must be slow enough for the worst one, plus the time to latch results between stages. This is why balancing stages matters more than making one of them fast."
+    },
+    {
+      "id": "cao_q014",
+      "topicId": "cao_pipelining",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "hard",
+      "text": "A non-pipelined processor takes 100 ns per instruction. It is redesigned as a 5-stage pipeline with equal stage delays plus a 2 ns latch delay per stage. What is the maximum speedup for a large number of instructions? Give the answer correct to two decimal places.",
+      "numericAnswer": {"min": 4.5, "max": 4.6},
+      "solution": "Each stage takes 100/5 = 20 ns, and with the latch the clock period is 22 ns. For many instructions the pipeline retires one per cycle, so the speedup is 100/22 = 4.55, short of the ideal 5 because of the latch overhead."
+    },
+    {
+      "id": "cao_q015",
+      "topicId": "cao_pipelining",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "A branch instruction whose outcome is not yet known causes which kind of pipeline hazard?",
+      "options": [
+        {"id": "A", "text": "Control hazard"},
+        {"id": "B", "text": "Data hazard"},
+        {"id": "C", "text": "Structural hazard"},
+        {"id": "D", "text": "No hazard"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The pipeline does not know which instruction to fetch next until the branch resolves. Branch prediction and delayed branches exist to limit the cost."
+    },
+    {
+      "id": "cao_q016",
+      "topicId": "cao_datahazaed",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "A read-after-write (RAW) hazard is also known as",
+      "options": [
+        {"id": "A", "text": "a true dependency"},
+        {"id": "B", "text": "an anti-dependency"},
+        {"id": "C", "text": "an output dependency"},
+        {"id": "D", "text": "a structural dependency"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The second instruction genuinely needs the value the first produces, so the dependency is real and cannot be removed by renaming registers, unlike WAR and WAW."
+    },
+    {
+      "id": "cao_q017",
+      "topicId": "cao_datahazaed",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Operand forwarding (bypassing) in a pipeline is used to",
+      "options": [
+        {"id": "A", "text": "pass a result to a later stage before it is written to the register file"},
+        {"id": "B", "text": "predict the outcome of branches"},
+        {"id": "C", "text": "resolve structural hazards on memory"},
+        {"id": "D", "text": "reorder instructions at run time"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The value already exists in a pipeline latch, so routing it straight to the stage that needs it avoids waiting for the write-back. It removes most RAW stalls, though a load-use hazard can still cost a cycle."
+    },
+    {
+      "id": "cao_q018",
+      "topicId": "cao_datahazaed",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "A WAR (write-after-read) hazard arises when",
+      "options": [
+        {"id": "A", "text": "an instruction writes a location that an earlier instruction has not yet read"},
+        {"id": "B", "text": "two instructions write the same location"},
+        {"id": "C", "text": "an instruction reads a location an earlier instruction has not yet written"},
+        {"id": "D", "text": "two instructions need the same functional unit"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "It is an anti-dependency: the later write would destroy a value the earlier instruction still needs. It only appears when instructions can complete out of order, and register renaming removes it."
+    },
+    {
+      "id": "cao_q019",
+      "topicId": "cao_cache",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Cache memory works because programs exhibit",
+      "options": [
+        {"id": "A", "text": "locality of reference"},
+        {"id": "B", "text": "uniform random access"},
+        {"id": "C", "text": "sequential file access"},
+        {"id": "D", "text": "virtual addressing"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Programs reuse recently used addresses (temporal locality) and use addresses near them (spatial locality), so a small fast memory can capture most accesses."
+    },
+    {
+      "id": "cao_q020",
+      "topicId": "cao_cache",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "A cache has an access time of 10 ns and main memory 100 ns. On a miss the word is supplied from main memory. With a hit ratio of 0.9, what is the average access time in nanoseconds, taking it as h x 10 + (1 - h) x 100?",
+      "numericAnswer": {"min": 19, "max": 19},
+      "solution": "0.9 x 10 + 0.1 x 100 = 9 + 10 = 19 ns. Even a 10% miss rate contributes more than the hits do, which is why miss rate dominates cache design."
+    },
+    {
+      "id": "cao_q021",
+      "topicId": "cao_cache",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "In a direct-mapped cache, a given block of main memory",
+      "options": [
+        {"id": "A", "text": "can be placed in exactly one cache line"},
+        {"id": "B", "text": "can be placed in any cache line"},
+        {"id": "C", "text": "can be placed in any line within one set"},
+        {"id": "D", "text": "is never cached twice"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The index bits of the address fix the line, so placement needs no search and no replacement policy. The cost is conflict misses when two hot blocks share an index."
+    },
+    {
+      "id": "cao_q022",
+      "topicId": "cao_cache",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "hard",
+      "text": "A byte-addressable machine has 32-bit addresses. A direct-mapped cache has 512 lines with a block size of 32 bytes. How many tag bits does each line need?",
+      "numericAnswer": {"min": 18, "max": 18},
+      "solution": "A 32-byte block needs 5 offset bits, and 512 lines need 9 index bits. The tag takes the rest: 32 - 9 - 5 = 18 bits."
+    },
+    {
+      "id": "cao_q023",
+      "topicId": "cao_cache",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Which write policy updates main memory only when a modified block is evicted?",
+      "options": [
+        {"id": "A", "text": "Write back"},
+        {"id": "B", "text": "Write through"},
+        {"id": "C", "text": "Write allocate"},
+        {"id": "D", "text": "No write allocate"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Write back marks the line dirty and defers the memory write, saving bandwidth when a line is written repeatedly. Write through updates memory on every write, keeping the two always consistent."
+    },
+    {
+      "id": "cao_q024",
+      "topicId": "cao_memorymapping",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "In a fully associative cache, an incoming block",
+      "options": [
+        {"id": "A", "text": "may be placed in any line"},
+        {"id": "B", "text": "may be placed in only one line"},
+        {"id": "C", "text": "may be placed only in line 0"},
+        {"id": "D", "text": "is placed by hashing the tag"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Any line will do, which eliminates conflict misses but requires every tag to be compared in parallel. That comparison cost is why fully associative caches stay small."
+    },
+    {
+      "id": "cao_q025",
+      "topicId": "cao_memorymapping",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "A cache organised as 8 sets with 4 lines in each set is described as",
+      "options": [
+        {"id": "A", "text": "4-way set associative"},
+        {"id": "B", "text": "8-way set associative"},
+        {"id": "C", "text": "direct mapped"},
+        {"id": "D", "text": "fully associative"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The associativity is the number of lines per set, so four lines per set makes it 4-way. The set is chosen by index bits, and the tag is then compared against the four lines in it."
+    },
+    {
+      "id": "cao_q026",
+      "topicId": "cao_memorymapping",
+      "type": "nat",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "A 2-way set associative cache has 128 lines in total. How many sets does it have?",
+      "numericAnswer": {"min": 64, "max": 64},
+      "solution": "Sets = lines / associativity = 128 / 2 = 64."
+    },
+    {
+      "id": "cao_q027",
+      "topicId": "cao_memoryunit",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Which of the following has the shortest access time?",
+      "options": [
+        {"id": "A", "text": "CPU registers"},
+        {"id": "B", "text": "L1 cache"},
+        {"id": "C", "text": "Main memory"},
+        {"id": "D", "text": "Solid state disk"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Registers sit inside the datapath and are reachable within a single cycle. The hierarchy trades speed against capacity and cost at every level below them."
+    },
+    {
+      "id": "cao_q028",
+      "topicId": "cao_memoryunit",
+      "type": "nat",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "How many bytes are there in 1 KiB (kibibyte)?",
+      "numericAnswer": {"min": 1024, "max": 1024},
+      "solution": "Memory sizes are powers of two because addresses are binary: 1 KiB = 2^10 = 1024 bytes."
+    },
+    {
+      "id": "cao_q029",
+      "topicId": "cao_memoryunit",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "DRAM must be refreshed periodically because",
+      "options": [
+        {"id": "A", "text": "each bit is stored on a capacitor whose charge leaks away"},
+        {"id": "B", "text": "it loses data when read"},
+        {"id": "C", "text": "its flip-flops are unstable"},
+        {"id": "D", "text": "it has no power supply of its own"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "A DRAM cell is one transistor and one capacitor, and the charge decays within milliseconds, so each row must be read and rewritten. SRAM uses cross-coupled transistors that hold their state as long as power is applied."
+    },
+    {
+      "id": "cao_q030",
+      "topicId": "cao_dma",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Direct memory access (DMA) allows",
+      "options": [
+        {"id": "A", "text": "an I/O device to transfer data to or from memory without the CPU handling each word"},
+        {"id": "B", "text": "the CPU to access memory faster"},
+        {"id": "C", "text": "two processors to share a cache"},
+        {"id": "D", "text": "programs to address more memory than is installed"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The DMA controller drives the bus itself, so the CPU is involved only in setting up the transfer and handling its completion."
+    },
+    {
+      "id": "cao_q031",
+      "topicId": "cao_dma",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "In cycle stealing mode, a DMA controller",
+      "options": [
+        {"id": "A", "text": "takes the bus for one word at a time, between CPU accesses"},
+        {"id": "B", "text": "holds the bus until the entire block is transferred"},
+        {"id": "C", "text": "transfers data only when the CPU is halted"},
+        {"id": "D", "text": "copies data through the accumulator"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "One word is moved per stolen cycle, so the CPU is slowed but never stopped for long. Burst mode, by contrast, holds the bus for the whole block and gives the fastest transfer."
+    },
+    {
+      "id": "cao_q032",
+      "topicId": "cao_dma",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "How does the CPU learn that a DMA transfer has finished?",
+      "options": [
+        {"id": "A", "text": "The DMA controller raises an interrupt"},
+        {"id": "B", "text": "The CPU polls the memory contents"},
+        {"id": "C", "text": "The transfer count register is copied into the accumulator"},
+        {"id": "D", "text": "It does not need to know"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "When the word count reaches zero the controller interrupts the CPU, which is the whole point: the processor does useful work during the transfer instead of waiting."
+    },
+    {
+      "id": "cao_q033",
+      "topicId": "cao_risccisc",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Which is a characteristic of RISC architectures?",
+      "options": [
+        {"id": "A", "text": "Fixed-length instructions"},
+        {"id": "B", "text": "Variable-length instructions"},
+        {"id": "C", "text": "Many addressing modes"},
+        {"id": "D", "text": "Instructions that operate directly on memory operands"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Fixed-length instructions make fetching and decoding regular, which is what allows straightforward pipelining. The other three options describe CISC."
+    },
+    {
+      "id": "cao_q034",
+      "topicId": "cao_risccisc",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "In a load-store architecture, memory is accessed",
+      "options": [
+        {"id": "A", "text": "only by load and store instructions"},
+        {"id": "B", "text": "by any arithmetic instruction"},
+        {"id": "C", "text": "only through the stack"},
+        {"id": "D", "text": "only by the operating system"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Arithmetic works register to register, so only loads and stores touch memory. That keeps every arithmetic instruction the same length in cycles, which suits a pipeline."
+    },
+    {
+      "id": "cao_q035",
+      "topicId": "cao_risccisc",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Compared with RISC, a CISC processor typically has",
+      "options": [
+        {"id": "A", "text": "more instructions and more addressing modes, often with micro-programmed control"},
+        {"id": "B", "text": "fewer instructions and hardwired control"},
+        {"id": "C", "text": "a larger register file and fixed instruction length"},
+        {"id": "D", "text": "no support for memory operands"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "CISC puts complexity in the hardware, using micro-programmed control to implement a rich instruction set. RISC pushes that complexity to the compiler and keeps control hardwired."
+    },
+    {
+      "id": "cao_q036",
+      "topicId": "cao_hardwiredmicroprogrammed",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Compared with micro-programmed control, hardwired control is",
+      "options": [
+        {"id": "A", "text": "faster but harder to modify"},
+        {"id": "B", "text": "slower but easier to modify"},
+        {"id": "C", "text": "faster and easier to modify"},
+        {"id": "D", "text": "identical in speed"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Control signals come straight from combinational logic, so there is no control-memory lookup. Changing the instruction set means redesigning that logic."
+    },
+    {
+      "id": "cao_q037",
+      "topicId": "cao_hardwiredmicroprogrammed",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "In a micro-programmed control unit, the control signals for each step are held in",
+      "options": [
+        {"id": "A", "text": "control memory"},
+        {"id": "B", "text": "main memory"},
+        {"id": "C", "text": "the instruction register"},
+        {"id": "D", "text": "the cache"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Each micro-instruction in control memory names the signals to assert for one step, and a micro-program counter walks through them. Altering behaviour becomes a matter of rewriting the micro-program."
+    },
+    {
+      "id": "cao_q038",
+      "topicId": "cao_hardwiredmicroprogrammed",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "Which control unit design is normally preferred for a RISC processor?",
+      "options": [
+        {"id": "A", "text": "Hardwired"},
+        {"id": "B", "text": "Micro-programmed"},
+        {"id": "C", "text": "Nano-programmed"},
+        {"id": "D", "text": "Either, with no difference"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "A small, regular instruction set is simple enough to decode in combinational logic, and the speed matters more than the flexibility a micro-program would buy."
+    },
+    {
+      "id": "cao_q039",
+      "topicId": "cao_iointerface",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "In memory-mapped I/O,",
+      "options": [
+        {"id": "A", "text": "device registers occupy addresses in the ordinary memory address space"},
+        {"id": "B", "text": "special IN and OUT instructions are required"},
+        {"id": "C", "text": "devices are accessed only through DMA"},
+        {"id": "D", "text": "the operating system copies data through the accumulator"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "Device registers look like memory, so ordinary load and store instructions reach them and no separate I/O instructions are needed. The cost is that those addresses are no longer available for memory."
+    },
+    {
+      "id": "cao_q040",
+      "topicId": "cao_iointerface",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "The main drawback of programmed I/O (polling) is that",
+      "options": [
+        {"id": "A", "text": "the CPU wastes time repeatedly testing the device status"},
+        {"id": "B", "text": "it cannot transfer more than one byte"},
+        {"id": "C", "text": "it requires a DMA controller"},
+        {"id": "D", "text": "it cannot detect errors"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The processor sits in a loop reading a status register while the device works, so its time is spent waiting rather than computing."
+    },
+    {
+      "id": "cao_q041",
+      "topicId": "cao_ioprocessor",
+      "type": "mcq",
+      "marks": 2,
+      "difficulty": "medium",
+      "text": "An I/O processor (channel) differs from a DMA controller in that it",
+      "options": [
+        {"id": "A", "text": "executes its own sequence of I/O instructions from memory"},
+        {"id": "B", "text": "cannot access memory directly"},
+        {"id": "C", "text": "interrupts the CPU for every word"},
+        {"id": "D", "text": "works only with character devices"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "A channel runs an I/O program, so it can carry out a whole sequence of transfers and conditional steps on its own. A DMA controller only performs the single transfer it was configured for."
+    },
+    {
+      "id": "cao_q042",
+      "topicId": "cao_ioprocessor",
+      "type": "mcq",
+      "marks": 1,
+      "difficulty": "easy",
+      "text": "Interrupt-driven I/O improves on polling because",
+      "options": [
+        {"id": "A", "text": "the device signals the CPU when it is ready, so the CPU can do other work meanwhile"},
+        {"id": "B", "text": "it transfers data faster per byte"},
+        {"id": "C", "text": "it needs no device driver"},
+        {"id": "D", "text": "it avoids the use of buses"}
+      ],
+      "correctOptionIds": ["A"],
+      "solution": "The initiative moves to the device, so the processor is interrupted only when there is something to do rather than checking continually."
+    }
+  ]
+}
