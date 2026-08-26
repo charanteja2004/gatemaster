@@ -59,6 +59,15 @@ android {
         compose = true
     }
 
+    testOptions {
+        unitTests {
+            // android.util.Log is a stub in unit tests and throws unless this
+            // is set. The repositories log on the failure paths, which is
+            // exactly what the tests exercise.
+            isReturnDefaultValues = true
+        }
+    }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
