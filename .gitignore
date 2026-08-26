@@ -37,6 +37,9 @@ signing.properties
 .DS_Store
 Thumbs.db
 
+# Claude Code local settings
+.claude/
+
 # Python tooling
 __pycache__/
 *.pyc
