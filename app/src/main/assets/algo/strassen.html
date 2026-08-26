@@ -1,102 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Strassen's Matrix Multiplication</title>
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Strassen's Matrix Multiplication</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-<body data-gm-enriched="1">
+<body>
 <h1>Strassen's Matrix Multiplication</h1>
-
-<p>Multiplying two n &times; n matrices the obvious way costs &Theta;(n<sup>3</sup>). Strassen's
-algorithm (1969) gets it down to about &Theta;(n<sup>2.81</sup>) by trading one multiplication for
-several additions &mdash; the first algorithm to beat the cubic bound, and the reason
-&Theta;(n<sup>3</sup>) is not a lower bound for the problem.</p>
-
-<h2>The naive divide and conquer that does not help</h2>
-<p>Split each matrix into four n/2 &times; n/2 blocks:</p>
-
-<pre>A = | A11  A12 |     B = | B11  B12 |     C = | C11  C12 |
-    | A21  A22 |         | B21  B22 |         | C21  C22 |
-
-C11 = A11·B11 + A12·B21
-C12 = A11·B12 + A12·B22
-C21 = A21·B11 + A22·B21
-C22 = A21·B12 + A22·B22</pre>
-
-<p>That is <strong>8</strong> multiplications of half-size matrices plus 4 additions, giving</p>
-
-<blockquote>
-  <p>T(n) = 8T(n/2) + &Theta;(n<sup>2</sup>)&nbsp; &rArr; &nbsp;T(n) = &Theta;(n<sup>3</sup>)</p>
-</blockquote>
-
-<p>By the master theorem, a = 8, b = 2, so n<sup>log<sub>2</sub>8</sup> = n<sup>3</sup> dominates the
-&Theta;(n<sup>2</sup>) work. No gain at all &mdash; the recursion has bought nothing.</p>
-
-<h2>Strassen's seven products</h2>
-<p>Strassen found a way to compute the same four blocks from only <strong>seven</strong>
-multiplications:</p>
-
-<pre>M1 = (A11 + A22) · (B11 + B22)
-M2 = (A21 + A22) ·  B11
-M3 =  A11        · (B12 - B22)
-M4 =  A22        · (B21 - B11)
-M5 = (A11 + A12) ·  B22
-M6 = (A21 - A11) · (B11 + B12)
-M7 = (A12 - A22) · (B21 + B22)</pre>
-
-<p>and then recombines them with additions only:</p>
-
-<pre>C11 = M1 + M4 - M5 + M7
-C12 = M3 + M5
-C21 = M2 + M4
-C22 = M1 - M2 + M3 + M6</pre>
-
-<p>Expanding C11 is a good sanity check: M1 + M4 &minus; M5 + M7 collapses term by term to
-A11&middot;B11 + A12&middot;B21, which is exactly what the block formula demands.</p>
-
-<h2>Complexity</h2>
-<blockquote>
-  <p>T(n) = 7T(n/2) + &Theta;(n<sup>2</sup>)&nbsp; &rArr; &nbsp;T(n) =
-  &Theta;(n<sup>log<sub>2</sub>7</sup>) &asymp; &Theta;(n<sup>2.8074</sup>)</p>
-</blockquote>
-
-<p>Master theorem case 1: a = 7, b = 2, f(n) = &Theta;(n<sup>2</sup>), and
-n<sup>log<sub>2</sub>7</sup> &asymp; n<sup>2.807</sup> grows faster than n<sup>2</sup>, so the
-recursion leaves dominate.</p>
-
-<div class="gm-table"><table>
-  <tr><th>Method</th><th>Multiplications per level</th><th>Time</th></tr>
-  <tr><td>Naive iterative</td><td>&mdash;</td><td>&Theta;(n<sup>3</sup>)</td></tr>
-  <tr><td>Divide and conquer</td><td>8</td><td>&Theta;(n<sup>3</sup>)</td></tr>
-  <tr><td><strong>Strassen</strong></td><td><strong>7</strong></td><td>&Theta;(n<sup>2.8074</sup>)</td></tr>
-</table></div>
-
-<p>Additions rise from 4 to 18, but additions cost &Theta;(n<sup>2</sup>) while a multiplication
-costs a full recursive call &mdash; so removing one multiplication is worth a great many additions.</p>
-
-<h2>Why it is rarely used in practice</h2>
-<ul>
-  <li><strong>Large constant factor.</strong> The 18 additions and the temporary matrices mean the
-      naive algorithm is faster until n reaches somewhere in the hundreds.</li>
-  <li><strong>Numerical stability.</strong> The subtractions cause more floating-point error
-      accumulation than the naive method, which matters in scientific computing.</li>
-  <li><strong>Requires a power of two.</strong> Matrices are padded with zero rows and columns up to
-      the next power of 2, which can nearly quadruple the work in the worst case.</li>
-  <li><strong>Memory.</strong> Each level allocates temporaries for the sums and the seven products.</li>
-  <li><strong>Cache behaviour.</strong> Blocked iterative multiplication uses the cache extremely
-      well; Strassen's scattered temporaries do not.</li>
-</ul>
-
-<h2>Beyond Strassen</h2>
-<p>The exponent has been pushed lower by later algorithms &mdash; Coppersmith&ndash;Winograd and its
-refinements reach roughly n<sup>2.37</sup> &mdash; but their constants are so enormous that they are
-faster only for matrices far larger than any that exist. They are called galactic algorithms for
-that reason. The true lower bound for matrix multiplication is still open; only the trivial
-&Omega;(n<sup>2</sup>) is known, since every entry must be read.</p>
-
-<p>See also <a href="divide&amp;conq.html">Divide and Conquer</a> and
-<a href="asymptotic.html">Asymptotic Notations</a>.</p>
+<p>Multiply two n×n matrices with 7 recursive multiplications of half-size blocks instead of the obvious 8, at the cost of more additions.</p>
+<div class="gm-formula"><p>T(n) = 7·T(n/2) + Θ(n²) ⟹ T(n) = Θ(n^log₂7) ≈ Θ(n^2.807)</p></div>
+<div class="gm-callout gm-key" data-label="Key point"><p>The saving comes entirely from turning 8 multiplications into 7. Applying the master theorem to a = 8 gives back the ordinary Θ(n³).</p></div>
+<div class="gm-callout gm-warn" data-label="Careful"><p>Faster only for large n. The extra additions and poorer numerical stability mean library code uses the classical algorithm below a sizeable threshold.</p></div>
 </body>
 </html>

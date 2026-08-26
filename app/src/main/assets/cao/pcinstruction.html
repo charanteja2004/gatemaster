@@ -1,80 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-    /* Style the heading */
-    body {
-            font-family: Arial, sans-serif;
-
-            margin: 20px;
-            background-color:#fff1dc  ;
-        }
-    .gray{
-        background-color: #e0e0e0;
-        border-radius: 10px;
-        color: rgba(0, 0, 0, .9);
-        font-family: Consolas, monospace;
-        margin-bottom: 10px;
-        padding:5px
-    }
-  </style>
-
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Program Control Instructions</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-<body data-gm-enriched="1">
-    <h2><b>Program Control instructions</b></h2>
-
-<b>Program Control Instructions</b> are the machine code that are used by machine or in assembly language by user to command the processor act accordingly. These instructions are of various types. These are used in assembly language by user also. But in level language, user code is translated into machine code and thus instructions are passed to instruct the processor do the task. <br><br>
-
-<b>Types of Program Control Instructions:</b> <br>
-There are different types of Program Control Instructions:<br><br> 
-
-<b>1. Compare Instruction:</b><br> 
-Compare instruction is specifically provided, which is similar to a subtract instruction except the result is not stored anywhere, but flags are set according to the result.<br><br> 
- 
-<b>Example:</b><br> 
-CMP R1, R2 ;<br><br>
-
-<b>2. Unconditional Branch Instruction:</b><br> 
-It causes an unconditional change of execution sequence to a new location. <br><br>
-
-<b>Example:</b><br>
-JUMP L2<br>
-Mov R3, R1 goto L2<br><br>
-
-<b>3. Conditional Branch Instruction:</b><br>
-A conditional branch instruction is used to examine the values stored in the condition code register to determine whether the specific condition exists and to branch if it does.<br><br> 
- 
-
-<b>Example:</b><br>
-Assembly Code : BE R1, R2, L1<br>
-Compiler allocates R1 for x and R2 for y<br>
-High Level Code: if (x==y) goto L1;<br><br>
-
-<b>4. Subroutines:</b><br> 
-A subroutine is a program fragment that lives in user space, performs a well-defined task. It is invoked by another user program and returns control to the calling program when finished. <br><br>
- 
-
-<b>Example: </b><br>
-CALL and RET <br><br>
-
-<b>5. Halting Instructions:</b><br> 
- 
-
-<li><b>NOP Instruction –</b> NOP is no operation. It cause no change in the processor state other than an advancement of the program counter. It can be used to synchronize timing.</li><br> 
- 
-<li><b>HALT –</b> It brings the processor to an orderly halt, remaining in an idle state until restarted by interrupt, trace, reset or external action. </li><br>
- 
-<b>6. Interrupt Instructions: </b><br>
-Interrupt is a mechanism by which an I/O or an instruction can suspend the normal execution of processor and get itself serviced. <br><br>
- 
-
-<li><b>RESET –</b> It reset the processor. This may include any or all setting registers to an initial value or setting program counter to standard starting location.</li><br>
-<li><b>TRAP – </b>It is non-maskable edge and level triggered interrupt. TRAP has the highest priority and vectored interrupt.</li><br>
-<li><b>INTR –</b> It is level triggered and maskable interrupt. It has the lowest priority. It can be disabled by resetting the processor.</li><br><br>
-
+<body>
+<h1>Program Control Instructions</h1>
+<p>Control instructions change the PC: unconditionally, conditionally on the flags, or by calling and returning.</p>
+<div class="gm-table"><table><thead><tr><th>Flag</th><th>Set when</th></tr></thead><tbody><tr><td>Z</td><td>the result is zero</td></tr><tr><td>C</td><td>a carry out of the most significant bit</td></tr><tr><td>S / N</td><td>the result is negative</td></tr><tr><td>V / O</td><td>signed overflow</td></tr></tbody></table></div>
+<div class="gm-callout gm-key" data-label="Key point"><p>Carry signals unsigned overflow, and the overflow flag signals signed overflow. Choosing the wrong one is the classic error in comparison questions.</p></div>
+<div class="gm-callout gm-note" data-label="Note"><p>CALL pushes the return address and jumps; RET pops it. Nesting works because the stack is last-in-first-out, which is why recursion needs no special instruction.</p></div>
 </body>
 </html>

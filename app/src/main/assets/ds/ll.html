@@ -1,126 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-    /* Style the heading */
-    body {
-            font-family: Arial, sans-serif;
-
-            margin: 20px;
-            background-color:#fff1dc  ;
-        }
-    .gray{
-        background-color: #e0e0e0;
-        border-radius: 10px;
-        color: rgba(0, 0, 0, .9);
-        font-family: Consolas, monospace;
-        margin-bottom: 10px;
-        padding:5px
-    }
-  </style>
-
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Linked Lists</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-<body data-gm-enriched="1">
-    <div class="article-title">
-        <h1>Linked List Notes for GATE Exam [2024]</h1>
-    </div>
-       
-        </div>
-        <div class="text">
-        <p dir="ltr">The &ldquo;Linked List Notes for GATE Exam&rdquo; is a comprehensive resource designed to aid students in preparing for the Graduate Aptitude Test in Engineering (GATE). Focused specifically on the topic of linked lists, a fundamental data structure in computer science, these notes offer a detailed and structured approach to mastering this subject within the context of the GATE examination.</p>
-        <div id="table_of_content">
-        <p>Table of Content</p>
-        <ul>
-        <li><a href="#what-is-linked-list">What is Linked List?</a></li>
-        <li><a href="#singly-linked-list">Singly Linked List</a></li>
-        <li><a href="#doubly-linked-list">Doubly Linked List</a></li>
-        <li><a href="#circular-linked-list">Circular Linked List</a></li>
-        <li><a href="#applications-of-linked-list">Applications of Linked List</a></li>
-        <li><a href="#advantages-of-linked-lists">Advantages of Linked Lists</a></li>
-        <li><a href="#disadvantages-of-linked-lists">Disadvantages of Linked Lists</a></li>
-        </ul>
-        </div>
-        <h2 id="what-is-linked-list">What is Linked List?</h2>
-        <blockquote>
-        <p dir="ltr">A&nbsp;<strong>linked list</strong>&nbsp;is a&nbsp;<strong>linear&nbsp;</strong>data structure, in which the elements are not stored at contiguous memory locations. Linked list consists of nodes where each node contains a data field and a reference(link) to the next node in the list.</p>
-        </blockquote>
-        <p dir="ltr">The elements in a linked list are linked using pointers as shown in the below image:</p>
-        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
-        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231130131446/Linked-List-Data-Structure-768.png" alt="Linked-List-Data-Structure" width="430" height="215" /><figcaption>Linked-List-Data-Structure</figcaption></figure>
-        <p class="wp-caption-text">Linked-List-Data-Structure</p>
-        </div>
-        <h2 id="singly-linked-list"><a href="sll.html" rel="noreferrer noopener"><u><span class="GFGEditorTheme__textUnderline">Singly Linked List:</span></u></a></h2>
-        <blockquote>
-        <p dir="ltr"><em><em class="GFGEditorTheme__textItalic">A</em></em>&nbsp;<strong>singly linked list</strong>&nbsp;<em><em class="GFGEditorTheme__textItalic">is a linear data structure in which the elements are not stored in contiguous memory locations and each element is connected only to its next element using a pointer.</em></em></p>
-        </blockquote>
-        <p dir="ltr">The elements in a linked list are linked using pointers to the next node as shown in the below image:</p>
-        
-        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231130131725/LLdrawio-768.png" alt="LLdrawio" width="379" height="103" /><figcaption>LLdrawio</figcaption></figure>
-        <p class="wp-caption-text">Singly Linked List</p>
-        </div>
-        <p dir="ltr"><strong>Operations on Singly Linked List:</strong></p>
-        <ul>
-        <li value="1"><strong>Insertion at the beginning of the Linked List:</strong>&nbsp;To insert a node at the beginning of the Linked List, we change the next pointer of the new node to the current head and make the new node as the current head. Time Complexity:&nbsp;<strong>O(1)</strong></li>
-        <li value="2"><strong>Insertion at the end or after a given node:&nbsp;</strong>To insert a node after a given node, we need to update the next pointer of the new node to the next pointer of the given node and update the next pointer of the given node to the new node. Time Complexity:&nbsp;<strong>O(N)&nbsp;</strong>as in the worst case we may traverse through all the nodes of the linked list.</li>
-        <li value="3"><strong>Searching an element:&nbsp;</strong>We can search a node by traversing through the linked list and comparing the nodes one by one. Time Complexity:&nbsp;<strong>O(N)</strong></li>
-        <li value="4"><strong>Find length of the Linked List:&nbsp;</strong>We can find the length of the linked list by traversing through the linked list and maintaining the count of nodes. Time Complexity:&nbsp;<strong>O(N)</strong></li>
-        <li value="5"><strong>Reverse a Linked List:&nbsp;</strong>We can reverse a linked list using three pointers&nbsp;<strong>curr</strong>,&nbsp;<strong>prev,</strong>&nbsp;and&nbsp;<strong>next&nbsp;</strong>to keep track of nodes to update reverse links<em><em class="GFGEditorTheme__textItalic">.&nbsp;</em></em>Time Complexity:&nbsp;<strong>O(N)</strong></li>
-        <li value="6"><strong>Deletion at the beginning of the Linked List:&nbsp;</strong>To delete a node from the beginning of the Linked List, we can change the head to the next of the current head and delete the previous head. Time Complexity:&nbsp;<strong>O(1)</strong></li>
-        <li value="7"><strong>Deletion at the end or after a given node:&nbsp;</strong>To delete a node after a given node, we need to update the next pointer of the given node to point to the node which is present after the node to be deleted. Time Complexity:&nbsp;<strong>O(N)&nbsp;</strong>as in the worst case we may traverse through all the nodes of the linked list.</li>
-        </ul>
-        </div>
-        <div class="article-title">
-            <h2 id="doubly-linked-list"><a href="dll.html" rel="noreferrer noopener"><u><span class="GFGEditorTheme__textUnderline">Doubly Linked List:</span></u></a></h2>
-            <blockquote>
-            <p dir="ltr">A&nbsp;<strong>doubly linked list</strong>&nbsp;(DLL) is a special type of linked list in which each node contains a pointer to the previous node as well as the next node of the linked list.</p>
-            </blockquote>
-            <p dir="ltr">The elements in a linked list are linked using pointers to the next node as well as to the previous node as shown in the below image:</p>
-            <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231130134656/DLL1-768.png" alt="DLL1" width="548" height="112" /><figcaption>DLL1</figcaption></figure>
-            <p class="wp-caption-text">Doubly Linked List</p>
-            </div>
-            <p dir="ltr">All operations of Circular Singly Linked List are same as of Singly Linked List, except that we need to update the previous pointers along with the next pointers whenever we insert or delete a node.</p>
-            <h2 id="circular-linked-list"><u><span class="GFGEditorTheme__textUnderline">Circular Linked List:</span></u></h2>
-            <p dir="ltr">The<strong>&nbsp;circular linked list</strong>&nbsp;is a linked list where all nodes are connected to form a circle. In a circular linked list, the first node and the last node are connected to each other which forms a circle. There is no NULL at the end.</p>
-            <p dir="ltr">The elements in a linked list are linked using pointers to the next node with the last node pointing to the head of the linked list as shown in the below image:</p>
-            
-            <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231130150101/CircularSinglyLinkedList-660x172.png" alt="CircularSinglyLinkedList-660x172" width="411" height="107" /><figcaption>CircularSinglyLinkedList-660x172</figcaption></figure>
-            <p class="wp-caption-text">Circular Singly Linked List</p>
-            </div>
-            
-            <p dir="ltr">All operations of Circular Singly Linked List are same as of Singly Linked List.</p>
-            <p dir="ltr">There are two types of Circular Linked List:</p>
-            <ul>
-            <li value="1"><strong>Circular singly linked list:&nbsp;</strong>In a circular Singly linked list, the last node of the list contains a pointer to the first node of the list. We traverse the circular singly linked list until we reach the same node where we started. The circular singly linked list has no beginning or end. No null value is present in the next part of any of the nodes.</li>
-            <li value="2"><strong>Circular Doubly linked list:</strong>&nbsp;Circular Doubly Linked List has properties of both doubly linked list and circular linked list in which two consecutive elements are linked or connected by the previous and next pointer and the last node points to the first node by the next pointer and also the first node points to the last node by the previous pointer.</li>
-            </ul>
-            
-            <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231130150515/Circulardoublylinkedlist-660x155.png" alt="Circulardoublylinkedlist-660x155" width="426" height="100" /><figcaption>Circulardoublylinkedlist-660x155</figcaption></figure>
-            <p class="wp-caption-text">Circular Doubly Linked List</p>
-            </div>
-            
-            <div class="gm-callout gm-note" data-label="Note"><p dir="ltr"><strong>Note:&nbsp;</strong>Unlike other types of Linked Lists, Circular Doubly Linked List takes&nbsp;<strong>O(1)</strong>&nbsp;time for insertion or deletion at the end of the Linked List.</p></div>
-            <h2 id="applications-of-linked-list"><u><span class="GFGEditorTheme__textUnderline">Applications of Linked List:</span></u></h2>
-            <ul>
-            <li value="1"><strong>Image viewer&nbsp;</strong>&ndash; Previous and next images are linked and can be accessed by the next and previous buttons.</li>
-            <li value="2"><strong>Previous and next page in a web browser</strong>&nbsp;&ndash; We can access the previous and next URL searched in a web browser by pressing the back and next buttons since they are linked as a linked list.</li>
-            <li value="3"><strong>Music Player</strong>&nbsp;&ndash; Songs in the music player are linked to the previous and next songs. So you can play songs either from starting or ending of the list.</li>
-            <li value="4"><strong>GPS navigation systems</strong>&ndash; Linked lists can be used to store and manage a list of locations and routes, allowing users to easily navigate to their desired destination.</li>
-            </ul>
-            <h2 id="advantages-of-linked-lists"><u><span class="GFGEditorTheme__textUnderline">Advantages of Linked Lists:</span></u></h2>
-            <ul>
-            <li value="1"><strong>Dynamic Size:&nbsp;</strong>Linked lists can grow or shrink dynamically, as memory allocation is done at runtime.</li>
-            <li value="2"><strong>Insertion and Deletion:&nbsp;</strong>Adding or removing elements from a linked list is efficient, especially for large lists.</li>
-            <li value="3"><strong>Flexibility:</strong>&nbsp;Linked lists can be easily reorganized and modified without requiring a contiguous block of memory.</li>
-            </ul>
-            <h2 id="disadvantages-of-linked-lists"><u><span class="GFGEditorTheme__textUnderline">Disadvantages of Linked Lists:</span></u></h2>
-            <ul>
-            <li value="1"><strong>Random Access:&nbsp;</strong>Unlike arrays, linked lists do not allow direct access to elements by index. Traversal is required to reach a specific node.</li>
-            <li value="2"><strong>Extra Memory:</strong>&nbsp;Linked lists require additional memory for storing the pointers, compared to arrays.</li>
-            </ul>
-            </div>
+<body>
+<h1>Linked Lists</h1>
+<div class="gm-callout gm-definition" data-label="Definition"><p>A linked list stores each element in a node holding the data and a pointer to the next node, so elements need not be contiguous.</p></div>
+<div class="gm-table"><table><thead><tr><th></th><th>Array</th><th>Linked list</th></tr></thead><tbody><tr><td>Access by index</td><td>O(1)</td><td>O(n)</td></tr><tr><td>Insert at front</td><td>O(n)</td><td>O(1)</td></tr><tr><td>Memory</td><td>contiguous, may need resizing</td><td>per-node pointer overhead</td></tr><tr><td>Cache behaviour</td><td>excellent</td><td>poor</td></tr></tbody></table></div>
+<div class="gm-callout gm-key" data-label="Key point"><p>Insertion is O(1) given the previous node. Every list question turns on whether you already hold that pointer or must search for it.</p></div>
+<div class="gm-callout gm-note" data-label="Note"><p>Floyd's cycle detection — a slow and a fast pointer — finds a loop in O(n) time and O(1) space and is the most examined list algorithm.</p></div>
 </body>
 </html>

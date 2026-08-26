@@ -1,106 +1,15 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 <head>
-    <title>Applications of various Automata</title>
-    <style>
-    /* Style the heading */
-    body {
-            font-family: Arial, sans-serif;
-
-            margin: 20px;
-            background-color:#fff1dc  ;
-        }
-    .gray{
-        background-color: #e0e0e0;
-        border-radius: 10px;
-        color: rgba(0, 0, 0, .9);
-        font-family: Consolas, monospace;
-        margin-bottom: 10px;
-        padding:5px
-    }
-  </style>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multilevel Queue Scheduling</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-<body data-gm-enriched="1">
-<div class="main_wrapper">
-    <div class="article-title">
-        <div class="main_wrapper">
-            <div>
-                <div class="article-title">
-                    <h1>Multilevel Queue (MLQ) CPU Scheduling</h1>
-                </div>
-            </div>
-        </div>
-        <div class="text">
-            <p>It may happen that processes in the ready queue can be divided into different classes where each class has its own scheduling needs. For example, a common division is a&nbsp;<strong>foreground (interactive)</strong>&nbsp;process and a&nbsp;<strong>background (batch)</strong>&nbsp;process. These two classes have different scheduling needs. For this kind of situation,&nbsp;<strong>Multilevel Queue Scheduling</strong>&nbsp;is used.&nbsp;</p>
-            <p>Now, let us see how it works.&nbsp;</p>
-            <h3>Features of Multilevel Queue (MLQ) CPU Scheduling:</h3>
-            <ul>
-                <li><strong>Multiple queues:&nbsp;</strong>In MLQ scheduling, processes are divided into multiple queues based on their priority, with each queue having a different priority level. Higher-priority processes are placed in queues with higher priority levels, while lower-priority processes are placed in queues with lower priority levels.</li>
-                <li><strong>Priorities assigned:</strong>&nbsp;Priorities are assigned to processes based on their type, characteristics, and importance. For example, interactive processes like user input/output may have a higher priority than batch processes like file backups.</li>
-                <li><strong>Preemption:&nbsp;</strong>Preemption is allowed in MLQ scheduling, which means a higher priority process can preempt a lower priority process, and the CPU is allocated to the higher priority process. This helps ensure that high-priority processes are executed in a timely manner.</li>
-                <li><strong>Scheduling algorithm:&nbsp;</strong>Different scheduling algorithms can be used for each queue, depending on the requirements of the processes in that queue. For example, Round Robin scheduling may be used for interactive processes, while First Come First Serve scheduling may be used for batch processes.</li>
-                <li><strong>Feedback mechanism:</strong>&nbsp;A feedback mechanism can be implemented to adjust the priority of a process based on its behavior over time. For example, if an interactive process has been waiting in a lower-priority queue for a long time, its priority may be increased to ensure it is executed in a timely manner.</li>
-                <li><strong>Efficient allocation of CPU time:&nbsp;</strong>MLQ scheduling ensures that processes with higher priority levels are executed in a timely manner, while still allowing lower priority processes to execute when the CPU is idle.</li>
-                <li><strong>Fairness:</strong>&nbsp;MLQ scheduling provides a fair allocation of CPU time to different types of processes, based on their priority and requirements.</li>
-                <li><strong>Customizable:&nbsp;</strong>MLQ scheduling can be customized to meet the specific requirements of different types of processes.</li>
-            </ul>
-            <h2><strong><u>Advantages of Multilevel Queue CPU Scheduling:</u></strong></h2>
-            <ul>
-                <li><strong>Low scheduling overhead:</strong>&nbsp;Since processes are permanently assigned to their respective queues, the overhead of scheduling is low, as the scheduler only needs to select the appropriate queue for execution.</li>
-                <li><strong>Efficient allocation of CPU time:&nbsp;</strong>The scheduling algorithm ensures that processes with higher priority levels are executed in a timely manner, while still allowing lower priority processes to execute when the CPU is idle. This ensures optimal utilization of CPU time.</li>
-                <li><strong>Fairness:</strong>&nbsp;The scheduling algorithm provides a fair allocation of CPU time to different types of processes, based on their priority and requirements.</li>
-                <li><strong>Customizable:&nbsp;</strong>The scheduling algorithm can be customized to meet the specific requirements of different types of processes. Different scheduling algorithms can be used for each queue, depending on the requirements of the processes in that queue.</li>
-                <li><strong>Prioritization:&nbsp;</strong>Priorities are assigned to processes based on their type, characteristics, and importance, which ensures that important processes are executed in a timely manner.</li>
-                <li><strong>Preemption:</strong>&nbsp;Preemption is allowed in Multilevel Queue Scheduling, which means that higher-priority processes can preempt lower-priority processes, and the CPU is allocated to the higher-priority process. This helps ensure that high-priority processes are executed in a timely manner.</li>
-            </ul>
-            <h2><strong><u>Disadvantages of Multilevel Queue CPU Scheduling:</u></strong></h2>
-            <ul>
-                <li>Some processes may starve for CPU if some higher priority queues are never becoming empty.</li>
-                <li>It is inflexible in nature.</li>
-                <li>There may be added complexity in implementing and maintaining multiple queues and scheduling algorithms.</li>
-            </ul>
-            <p><strong>Ready Queue</strong>&nbsp;is divided into separate queues for each class of processes. For example, let us take three different types of processes System processes, Interactive processes, and Batch Processes. All three processes have their own queue. Now, look at the below figure.&nbsp;</p>
-            <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/multilevel-queue-schedueling-1-300x217.png" alt="" /></figure>&nbsp;</p>
-        </div>
-    </div>
-</div>
-<div class="main_wrapper">
-    <div class="article-title">
-        <div class="main_wrapper">
-            <div class="article-title">
-                <p>The Description of the processes in the above diagram is as follows:</p>
-                <ul>
-                    <li><strong>System Processes:&nbsp;</strong>The CPU itself has its own process to run which is generally termed a System Process.</li>
-                    <li><strong>Interactive Processes:&nbsp;</strong>An Interactive Process is a type of process in which there should be the same type of interaction.</li>
-                    <li><strong>Batch Processes:&nbsp;</strong>Batch processing is generally a technique in the Operating system that collects the programs and data together in the form of a&nbsp;<strong>batch</strong>&nbsp;before the&nbsp;<strong>processing</strong>&nbsp;starts.</li>
-                </ul>
-                <p>All three different type of processes have their own queue. Each queue has its own Scheduling algorithm. For example, queue 1 and queue 2 use&nbsp;<strong>Round Robin</strong>&nbsp;while queue 3 can use&nbsp;<strong>FCFS</strong>&nbsp;to schedule their processes.&nbsp;</p>
-                <p><strong>Scheduling among the queues:</strong>&nbsp;What will happen if all the queues have some processes? Which process should get the CPU? To determine this Scheduling among the queues is necessary. There are two ways to do so &ndash;&nbsp;</p>
-                <ol>
-                    <li><strong>Fixed priority preemptive scheduling method &ndash;</strong>&nbsp;Each queue has absolute priority over the lower priority queue. Let us consider the following priority order&nbsp;<strong>queue 1 &gt; queue 2 &gt; queue 3</strong>. According to this algorithm, no process in the batch queue(queue 3) can run unless queues 1 and 2 are empty. If any batch process (queue 3) is running and any system (queue 1) or Interactive process(queue 2) entered the ready queue the batch process is preempted.</li>
-                    <li><strong>Time slicing</strong>&nbsp;&ndash; In this method, each queue gets a certain portion of CPU time and can use it to schedule its own processes. For instance, queue 1 takes 50 percent of CPU time queue 2 takes 30 percent and queue 3 gets 20 percent of CPU time.</li>
-                </ol>
-                <p><strong>Example Problem:</strong></p>
-                <p>Consider the below table of four processes under Multilevel queue scheduling. Queue number denotes the queue of the process.&nbsp;</p>
-                <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/Multilevel-Process-Queue-1.png" alt="" /></figure></p>
-                <p>Priority of queue 1 is greater than queue 2. queue 1 uses Round Robin (Time Quantum = 2) and queue 2 uses FCFS.&nbsp;</p>
-                <p>Below is the&nbsp;<strong>Gantt chart</strong>&nbsp;of the problem:&nbsp;</p>
-                <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20221016191236/0-300x36.png" /></figure>
-                    
-                </div>
-                <p><strong>Working:</strong></p>
-                <ul>
-                    <li>At starting, both queues have process so process in queue 1 (P1, P2) runs first (because of higher priority) in the round-robin fashion and completes after 7 units</li>
-                    <li>Then process in queue 2 (P3) starts running (as there is no process in queue 1) but while it is running P4 comes in queue 1 and interrupts P3 and start running for 5 seconds and&nbsp;</li>
-                    <li>After its completion P3 takes the CPU and completes its execution.&nbsp;</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+<body>
+<h1>Multilevel Queue Scheduling</h1>
+<p>Split the ready queue into several queues with different policies, for instance interactive jobs on round robin and batch jobs on FCFS.</p>
+<div class="gm-callout gm-key" data-label="Key point"><p>In a plain multilevel queue a process never changes queue. Multilevel feedback queues let a process move down when it uses a whole quantum and up when it waits, which approximates SJF without knowing burst lengths.</p></div>
+<div class="gm-callout gm-note" data-label="Note"><p>Scheduling between the queues is itself a policy: fixed priority risks starving the lower queues, so time slices are often shared out instead.</p></div>
 </body>
 </html>

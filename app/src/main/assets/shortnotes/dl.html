@@ -1,72 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digital Logic: revision sheet</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-<body data-gm-enriched="1">
-    <div class="main_wrapper">
-        <div>
-        <div class="article-title">
-        <h1>Digital Electronics</h1>
-        </div>
-        </div>
-        </div>
-        <div class="text">
-        <p>See Last Minute Notes on all subjects&nbsp;<a href="https://www.geeksforgeeks.org/lmns-gq/">here</a>.<br />We will discuss the important key points useful for GATE exams in summarized form. For details you may refer&nbsp;<a href="https://www.geeksforgeeks.org/gate-cs-notes-gq/" target="_blank" rel="noopener">this</a>.</p>
-        <p><a href="https://www.geeksforgeeks.org/digital-logic-logic-gates/"><strong>Logic Gates</strong></a>:</p>
-        <p><figure class="gm-figure gm-remote"><img class="alignnone size-medium wp-image-799068" src="https://media.geeksforgeeks.org/wp-content/uploads/logic-gates1.png" width="436" height="185" /></figure></p>
-        <ul>
-        <li><strong>Note:&nbsp;</strong>NAND and NOR gates are called UNIVERSAL GATES because all other gates can be constructed from any of them.</li>
-        </ul>
-        <p><strong>K-map example of 3 variables:&nbsp;</strong>: F(A,B,C)=&pi;(0,3,6,7)<br /><figure class="gm-figure gm-remote"><img class="alignnone size-medium wp-image-800127" src="https://media.geeksforgeeks.org/wp-content/uploads/K-Map.png" alt="" width="346" height="192" /></figure><br /><br />From&nbsp;<strong>red</strong>&nbsp;group we find terms</p>
-        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
-        <div class="gray">A    B      C&rsquo;</div>
-        <p>Taking complement of these two</p>
-        <div class="gray">A&rsquo;     B&rsquo;     C</div>
-        <p>Now sum up them<br /><strong>(A&rsquo; + B&rsquo; + C)</strong><br />From&nbsp;<strong>green</strong>&nbsp;group we find terms</p>
-        <div class="gray">B         C</div>
-        <p>Taking complement of these two terms</p>
-        <div class="gray">B&rsquo;         C&rsquo;</div>
-        <p>Now sum up them<br /><strong>(B&rsquo;+C&rsquo;)</strong><br />From&nbsp;<strong>brown</strong>&nbsp;group we find terms</p>
-        <div class="gray">A&rsquo; B&rsquo; C&rsquo;</div>
-        <p>Taking complement of these two</p>
-        <div class="gray">A B C</div>
-        <p>Now sum up them<br /><strong>(A + B + C)</strong><br />We will take product of these three terms :Final expression&nbsp;<strong>(A&rsquo; + B&rsquo; + C) (B&rsquo; + C&rsquo;) (A + B + C)</strong></p>
-        </div>
-        <div class="main_wrapper">
-            <div class="article-title">
-            <p><br /><strong>Number of NAND or NOR gate required to implement other GATE</strong>:</p>
-            <p><figure class="gm-figure gm-remote"><img class="alignnone size-medium wp-image-799145" src="https://media.geeksforgeeks.org/wp-content/uploads/combi-ckt2.png" width="485" height="89" /></figure></p>
-            <p><strong>Combinational circuits:&nbsp;</strong>In combinational circuits, output depends on present input only; it does not require any feedback and memory.</p>
-            <p><figure class="gm-figure gm-remote"><img class="alignnone size-medium wp-image-799180" src="https://media.geeksforgeeks.org/wp-content/uploads/combi-ckt2-1.png" alt="" width="477" height="129" /></figure></p>
-            <p><a href="https://www.geeksforgeeks.org/multiplexers-digital-electronics/"><strong>Multiplexer</strong>&nbsp;</a>: It selects the input from one of many input lines and sends it single output line. The input line chosen from output is based upon set of selection lines.For 2<sup>n</sup>&nbsp;input lines, there will be n select lines and 1 output lines.</p>
-            <div class="gm-callout gm-note" data-label="Note"><p><strong>Note:&nbsp;</strong>No. of mux required to implement n x 1 mux using m x 1 mux is ceil(n-1 / m-1)A&oplus;B.<br />No. of mux required to implement 16 x 1 mux using 4 x 1 mux is ceil(15/3)=5.</p></div>
-            <p><strong>Demultiplexer:&nbsp;</strong>It selects the input from one input line and sends it to one out of many output lines. The output line chosen is based upon set of selection lines. For 1 input lines, there will be n select lines and 2<sup>n</sup>&nbsp;output lines.</p>
-            <div class="gm-callout gm-note" data-label="Note"><p><strong>Note:&nbsp;</strong>No. of mux required to implement 1 x n mux using 1 x m mux is ceil(n-1 / m-1)A&oplus;B.<br />No. of mux required to implement 1 x 16 mux using 1 x 4 mux is ceil(15/3)=5.</p></div>
-            <p><a href="https://www.geeksforgeeks.org/digital-logic-encoders-decoders/"><strong>Encoder</strong></a>: For 2<sup>n</sup>&nbsp;input lines, it has n output. It can be used to convert octal or hexadecimal to binary data.</p>
-            <p><a href="https://www.geeksforgeeks.org/digital-logic-binary-decoder/"><strong>Decoder</strong></a>: For n input lines, it has either 2<sup>n</sup>&nbsp;outputs or less then that. It can be used to convert binary data to other codes like octal or hexadecimal.</p>
-            <p><strong>Code Converter:&nbsp;</strong>Code converters are used to convert one type of code to others.</p>
-            <ul>
-            <li><a href="https://www.geeksforgeeks.org/digital-logic-code-converters-bcd8421-tofrom-excess-3/"><strong>BCD to Excess-3</strong></a>: It will add 0011(value 3) to binary code.<br /><strong>Function:</strong><br />4 bit Input(ABCD) with A as MSB and 4 bit output(WXYZ) with W as MSB, O/P is<br />Z=D&rsquo;<br />Y=CD + C&rsquo;D&rsquo;<br />X=B&rsquo;D + B&rsquo;C + BC&rsquo;D&rsquo;<br />W=A + BC + BD</li>
-            <li><a href="https://www.geeksforgeeks.org/digital-logic-code-converters-binary-gray-code/"><strong>Binary to Gray Converter</strong></a><br /><strong>Function:</strong><br />4 bit Input(B<sub>3</sub>B<sub>2</sub>B<sub>1</sub>B<sub>0</sub>) with B<sub>3</sub>&nbsp;as MSB and 4 bit output(G<sub>3</sub>G<sub>2</sub>G<sub>1</sub>G<sub>0</sub>) with G<sub>3</sub>&nbsp;as MSB, O/P is<br />G<sub>3</sub>=B<sub>3</sub><br />G<sub>2</sub>=B<sub>3</sub>&oplus; B<sub>2</sub><br />G<sub>1</sub>=B<sub>2</sub>&oplus; B<sub>1</sub><br />G<sub>0</sub>=B<sub>1</sub>&oplus; B<sub>0</sub></li>
-            <li><a href="https://www.geeksforgeeks.org/digital-logic-code-converters-binary-gray-code/"><strong>Gray to Binary Converter</strong></a><br /><strong>Function:</strong><br />4 bit Input(G<sub>3</sub>G<sub>2</sub>G<sub>1</sub>G<sub>0</sub>) with G<sub>3</sub>&nbsp;as MSB and 4 bit output(B<sub>3</sub>B<sub>2</sub>B<sub>1</sub>B<sub>0</sub>) with B<sub>3</sub>&nbsp;as MSB, O/P is<br />B<sub>3</sub>=G<sub>3</sub><br />B<sub>2</sub>=B<sub>3</sub>&oplus;G<sub>2</sub><br />B<sub>1</sub>=B<sub>2</sub>&oplus;G<sub>1</sub><br />B<sub>0</sub>=B<sub>1</sub>&oplus;G<sub>0</sub></li>
-            </ul>
-            <p><a href="https://www.geeksforgeeks.org/flip-flop-types-and-their-conversion/"><strong>Flip-Flops</strong></a>: Flip-Flop are sequential circuits where O/P depends on present input as well as previous output.</p>
-            <p><strong>S-R Flip-Flops:</strong><br /><figure class="gm-figure gm-remote"><img class="alignnone size-medium wp-image-799406" src="https://media.geeksforgeeks.org/wp-content/uploads/flipflops1.png" alt="" width="480" height="89" /></figure><br /><strong>Characteristics equation: Q<sub>n</sub>&nbsp;= S + R̄ Q<sub>n</sub></strong></p>
-            <p><strong>J-K Flip-Flops:</strong><br /><figure class="gm-figure gm-remote"><img class="alignnone size-medium wp-image-799557" src="https://media.geeksforgeeks.org/wp-content/uploads/flipflops1-1.png" alt="" width="481" height="90" /></figure><br /><strong>Characteristics equation: Q<sub>n</sub>&nbsp;= J Q̄<sub>n</sub>&nbsp;+ R̄ Q<sub>n</sub></strong></p>
-            <p><strong>D Flip-Flops:</strong><br /><figure class="gm-figure gm-remote"><img class="alignnone size-medium wp-image-799581" src="https://media.geeksforgeeks.org/wp-content/uploads/flipflops21.png" alt="" width="470" height="83" /></figure><br /><strong>Characteristics equation: Q<sub>n+1</sub>&nbsp;= D</strong></p>
-            <p><strong>T Flip-Flops:</strong><br /><figure class="gm-figure gm-remote"><img class="alignnone size-medium wp-image-799589" src="https://media.geeksforgeeks.org/wp-content/uploads/flipflops21-1.png" alt="" width="405" height="73" /></figure><br /><strong>Characteristics equation: Q<sub>n+1</sub>&nbsp;= T Q̄<sub>n</sub>&nbsp;+ T̄ Q<sub>n</sub></strong></p>
-            
-            <p><a href="https://www.geeksforgeeks.org/counters-in-digital-logic/"><strong>Counters</strong></a>&nbsp;is a device which stores (and sometimes displays) the number of times a particular event or process has occurred, often in relationship to a clock signal.</p>
-            <p><strong>Counters are basically divided into two types:</strong></p>
-            <p><strong>Asynchronous counter:&nbsp;</strong>In asynchronous counter we don&rsquo;t use universal clock, only first flip flop is driven by main clock and the clock input of rest of the following counters is driven by output of previous flip flops.</p>
-            <p><strong>Synchronous counter:&nbsp;</strong>Unlike the asynchronous counter, synchronous counter has one global clock which drives each flip flop so output changes in parallel. The one advantage of synchronous counter over asynchronous counter is, it can operate on higher frequency than asynchronous counter as it does not have cumulative delay because of same clock is given to each flip flop.</p>
-            <p><strong>Important point:&nbsp;</strong>Number of flip flops used in counter are always greater than equal to (log<sub>2</sub>&nbsp;n) where n=number of states in counter.</p>
-            </div>
-            </div>
+<body>
+<h1>Digital Logic: revision sheet</h1>
+<h2>Number systems</h2>
+<ul><li>2's complement of n bits: −2ⁿ⁻¹ to 2ⁿ⁻¹ − 1, single zero.</li><li>1's complement: −(2ⁿ⁻¹ − 1) to 2ⁿ⁻¹ − 1, two zeros.</li><li>Binary to Gray: g(i) = b(i+1) ⊕ b(i). Gray to binary: b(i) = b(i+1) ⊕ g(i).</li></ul>
+<h2>IEEE 754</h2>
+<div class="gm-table"><table><thead><tr><th></th><th>Sign</th><th>Exponent</th><th>Mantissa</th><th>Bias</th></tr></thead><tbody><tr><td>Single</td><td>1</td><td>8</td><td>23</td><td>127</td></tr><tr><td>Double</td><td>1</td><td>11</td><td>52</td><td>1023</td></tr></tbody></table></div>
+<h2>Boolean identities</h2>
+<div class="gm-formula"><p>A + AB = A;  A + A'B = A + B;  (AB)' = A' + B';  (A+B)' = A'B'</p></div>
+<h2>Adders</h2>
+<div class="gm-formula"><p>Full adder: Sum = A ⊕ B ⊕ Cin,  Cout = AB + Cin(A ⊕ B)</p></div>
+<div class="gm-callout gm-note" data-label="Note"><p>Ripple carry delay is O(n); carry look-ahead computes carries in constant gate delay per block using G = AB and P = A ⊕ B.</p></div>
+<h2>Combinational blocks</h2>
+<ul><li>n select lines choose among 2ⁿ multiplexer inputs.</li><li>A 2ⁿ-to-1 mux implements any n-variable function directly.</li><li>A decoder has n inputs and 2ⁿ outputs; an encoder is the reverse.</li><li>Five 4-to-1 muxes build a 16-to-1.</li></ul>
+<h2>Flip-flops</h2>
+<div class="gm-table"><table><thead><tr><th>Type</th><th>Q⁺</th></tr></thead><tbody><tr><td>SR</td><td>S + R'Q</td></tr><tr><td>D</td><td>D</td></tr><tr><td>JK</td><td>JQ' + K'Q</td></tr><tr><td>T</td><td>T ⊕ Q</td></tr></tbody></table></div>
+<div class="gm-callout gm-key" data-label="Key point"><p>A mod-m counter needs ⌈log₂ m⌉ flip-flops. Ring counters give n states from n flip-flops, Johnson counters 2n.</p></div>
 </body>
 </html>

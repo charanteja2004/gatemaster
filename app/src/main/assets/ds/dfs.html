@@ -1,94 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Depth-First Search</title>
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Depth-First Search</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-<body data-gm-enriched="1">
-<h1>Depth-First Search (DFS)</h1>
-
-<p>DFS follows one path as deep as it can go, then backtracks and tries the next unexplored branch.
-It uses a <strong>stack</strong> &mdash; usually the implicit call stack of a recursive function.</p>
-
-<h2>Algorithm</h2>
-<pre>DFS(G):
-    for each vertex u in V(G):
-        colour[u] = WHITE
-        parent[u] = NIL
-    time = 0
-    for each vertex u in V(G):
-        if colour[u] == WHITE:
-            DFS-VISIT(G, u)
-
-DFS-VISIT(G, u):
-    time = time + 1
-    d[u] = time                 // discovery time
-    colour[u] = GREY
-    for each v adjacent to u:
-        if colour[v] == WHITE:
-            parent[v] = u
-            DFS-VISIT(G, v)
-    colour[u] = BLACK
-    time = time + 1
-    f[u] = time                 // finish time</pre>
-
-<p>The three colours matter: <strong>white</strong> is undiscovered, <strong>grey</strong> is
-discovered but not finished (it is on the current recursion stack), and <strong>black</strong> is
-finished. A vertex is grey exactly while it sits on the stack.</p>
-
-<h2>Complexity</h2>
-<div class="gm-table"><table>
-  <tr><th>Representation</th><th>Time</th><th>Space</th></tr>
-  <tr><td>Adjacency list</td><td>&Theta;(V + E)</td><td>O(V) recursion stack</td></tr>
-  <tr><td>Adjacency matrix</td><td>&Theta;(V<sup>2</sup>)</td><td>O(V)</td></tr>
-</table></div>
-
-<h2>Edge classification</h2>
-<p>DFS on a <strong>directed</strong> graph classifies every edge (u, v) by the colour of v at the
-moment the edge is explored:</p>
-<div class="gm-table"><table>
-  <tr><th>Colour of v</th><th>Edge type</th><th>Meaning</th></tr>
-  <tr><td>White</td><td>Tree edge</td><td>v is discovered from u</td></tr>
-  <tr><td>Grey</td><td><strong>Back edge</strong></td><td>v is an ancestor of u &mdash; a cycle</td></tr>
-  <tr><td>Black, d[u] &lt; d[v]</td><td>Forward edge</td><td>v is a descendant, already finished</td></tr>
-  <tr><td>Black, d[u] &gt; d[v]</td><td>Cross edge</td><td>v is in another subtree</td></tr>
-</table></div>
-
-<blockquote>
-  <p>A directed graph has a cycle <strong>if and only if</strong> DFS finds a back edge. In an
-  <em>undirected</em> graph only tree edges and back edges occur &mdash; forward and cross edges are
-  impossible.</p>
-</blockquote>
-
-<h2>Parenthesis theorem</h2>
-<p>For any two vertices u and v, the intervals [d[u], f[u]] and [d[v], f[v]] are either completely
-disjoint, or one wholly contains the other. They never partially overlap. Containment means one
-vertex is a descendant of the other in the DFS forest.</p>
-
-<h2>Applications</h2>
-<ul>
-  <li><strong>Cycle detection</strong> &mdash; a back edge in directed graphs; in undirected graphs,
-      an edge to a visited vertex that is not the immediate parent</li>
-  <li><strong>Topological sort</strong> of a DAG &mdash; output vertices in decreasing finish time</li>
-  <li><strong>Strongly connected components</strong> &mdash; Kosaraju's two passes, or Tarjan's
-      single pass</li>
-  <li><strong>Articulation points and bridges</strong> in undirected graphs, using discovery times
-      and low-link values</li>
-  <li>Path finding, maze solving, flood fill</li>
-</ul>
-
-<h2>Common traps</h2>
-<ul>
-  <li>DFS does <em>not</em> give shortest paths. Use <a href="bfs.html">BFS</a> for unweighted
-      graphs.</li>
-  <li>The traversal order depends on the order neighbours appear in the adjacency list, so one graph
-      has many valid DFS orders.</li>
-  <li>Recursion depth is O(V), so a long path graph will overflow the call stack &mdash; an explicit
-      stack avoids this.</li>
-</ul>
-
-<p>See also <a href="graphs.html">Graphs</a>.</p>
+<body>
+<h1>Depth-First Search</h1>
+<p>Follow one path as deep as possible, then backtrack. Recursive by nature, or explicit with a stack.</p>
+<p class="gm-complexity" data-label="Time complexity">O(V + E) with an adjacency list</p>
+<ul><li>Cycle detection: a back edge to a vertex still on the recursion stack.</li><li>Topological sort: reverse of the finishing order in a DAG.</li><li>Strongly connected components: Kosaraju's two passes, or Tarjan's one.</li></ul>
+<div class="gm-callout gm-key" data-label="Key point"><p>In a directed graph, a cycle exists exactly when DFS finds a back edge. Reaching an already-visited vertex is not enough — it must still be on the current stack.</p></div>
 </body>
 </html>

@@ -1,102 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title><style>
-    /* Style the heading */
-    body {
-            font-family: Arial, sans-serif;
-
-            margin: 20px;
-            background-color:#fff1dc  ;
-        }
-    .gray{
-        background-color: #e0e0e0;
-        border-radius: 10px;
-        color: rgba(0, 0, 0, .9);
-        font-family: Consolas, monospace;
-        margin-bottom: 10px;
-        padding:5px
-    }
-  </style>
-
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hashing</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-<body data-gm-enriched="1">
-    <div class="article-title">
-        <div class="main_wrapper">
-        <div>
-        <div class="article-title">
-        <h1>Hashing in DBMS</h1>
-        </div>
-        </div>
-        </div>
-        <div class="text">
-        <p dir="ltr">Hashing in DBMS is a technique to quickly locate a data record in a database irrespective of the size of the database. For larger databases containing thousands and millions of records, the indexing data structure technique becomes very inefficient because searching a specific record through indexing will consume more time. This doesn&rsquo;t align with the goals of DBMS, especially when performance and date retrieval time are minimized. So, to counter this problem hashing technique is used. In this article, we will learn about various hashing techniques.</p>
-        <h2>What is Hashing?</h2>
-        <p dir="ltr">The hashing technique utilizes an auxiliary hash table to store the data records using a hash function. There are 2 key components in hashing:</p>
-        <ul>
-        <li value="1"><strong>Hash Table:&nbsp;</strong>A hash table is an array or data structure and its size is determined by the total volume of data records present in the database. Each memory location in a hash table is called a &lsquo;<em><strong><strong class="GFGEditorTheme__textItalic">bucket</strong></strong></em>&lsquo; or hash indice and stores a data record&rsquo;s exact location and can be accessed through a hash function.</li>
-        <li value="2"><strong>Bucket:&nbsp;</strong>A bucket is a memory location (index) in the hash table that stores the data record. These buckets generally store a disk block which further stores multiple records. It is also known as the hash index.</li>
-        <li value="3"><strong>Hash Function:&nbsp;</strong>A hash function is a mathematical equation or algorithm that takes one data record&rsquo;s primary key as input and computes the hash index as output.</li>
-        </ul>
-        <h2>Hash Function</h2>
-        <p dir="ltr">A hash function is a mathematical algorithm that computes the index or the location where the current data record is to be stored in the hash table so that it can be accessed efficiently later. This hash function is the most crucial component that determines the speed of fetching data.</p>
-        <h3>Working of Hash Function</h3>
-        <p dir="ltr">The hash function generates a hash index through the primary key of the data record.</p>
-        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
-        <p dir="ltr"><strong>Now, there are 2 possibilities:</strong></p>
-        <p dir="ltr">1. The hash index generated isn&rsquo;t already occupied by any other value. So, the address of the data record will be stored here.</p>
-        <p dir="ltr">2. The hash index generated is already occupied by some other value. This is called collision so to counter this, a collision resolution technique will be applied.</p>
-        <p dir="ltr">3. Now whenever we query a specific record, the hash function will be applied and returns the data record comparatively faster than indexing because we can directly reach the exact location of the data record through the hash function rather than searching through indices one by one.</p>
-        <p dir="ltr" class="gm-lead gm-example-lead"><strong>Example:</strong></p>
-        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231025191909/Buckets-(1).png" alt="Buckets-(1)" width="419" height="180" /><figcaption>Buckets-(1)</figcaption></figure>
-        <p class="wp-caption-text">Hashing</p>
-        </div>
-        <h2>Types of Hashing in DBMS</h2>
-        <p dir="ltr">There are two primary hashing techniques in&nbsp;<a href="introtoDBMS.html">DBMS</a>.</p>
-        <h2>1. Static Hashing</h2>
-        <p dir="ltr">In static hashing, the hash function always generates the same bucket&rsquo;s address. For example, if we have a data record for employee_id = 107, the hash function is mod-5 which is &ndash; H(x) % 5, where x = id. Then the operation will take place like this:</p>
-        <div class="gray">H(106) % 5 = 1.<br />This indicates that the data record should be placed or searched in the 1st bucket (or 1st hash index) in the hash table.</pre>
-        <p dir="ltr" class="gm-lead gm-example-lead"><strong>Example:</strong></p>
-        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231025234639/static-hash.png" alt="static-hash" width="440" height="146" /><figcaption>static-hash</figcaption></figure>
-        <p class="wp-caption-text">Static Hashing Technique</p>
-        </div>
-        <p dir="ltr">The primary key is used as the input to the hash function and the hash function generates the output as the hash index (bucket&rsquo;s address) which contains the address of the actual data record on the disk block.</p>
-        <h3>Static Hashing has the following Properties</h3>
-        <ul>
-        <li value="1"><strong>Data Buckets:</strong>&nbsp;The number of buckets in memory remains constant. The size of the hash table is decided initially and it may also implement chaining that will allow handling some collision issues though, it&rsquo;s only a slight optimization and may not prove worthy if the database size keeps fluctuating.</li>
-        <li value="2"><strong>Hash function:</strong>&nbsp;It uses the simplest hash function to map the data records to its appropriate bucket. It is generally modulo-hash function</li>
-        <li value="3"><strong>Efficient for known data size:&nbsp;</strong>It&rsquo;s very efficient in terms when we know the data size and its distribution in the database.</li>
-        <li value="4">It is inefficient and inaccurate when the data size dynamically varies because we have limited space and the hash function always generates the same value for every specific input. When the data size fluctuates very often it&rsquo;s not at all useful because collision will keep happening and it will result in problems like &ndash; bucket skew, insufficient buckets etc.</li>
-        </ul>
-        <p dir="ltr">To resolve this problem of bucket overflow, techniques such as &ndash; chaining and open addressing are used. Here&rsquo;s a brief info on both:</p>
-        
-<h3>1. Chaining</h3>
-<p dir="ltr">Chaining&nbsp;is a mechanism in which the hash table is implemented using an array of type nodes, where each bucket is of node type and can contain a long chain of linked lists to store the data records. So, even if a hash function generates the same value for any data record it can still be stored in a bucket by adding a new node.</p>
-<p dir="ltr">However, this will give rise to the problem bucket skew that is, if the hash function keeps generating the same value again and again then the hashing will become inefficient as the remaining data buckets will stay unoccupied or store minimal data.</p>
-<h3>2. Open Addressing/Closed Hashing</h3>
-<p dir="ltr">This is also called closed hashing this aims to solve the problem of collision by looking out for the next empty slot available which can store data. It uses techniques like&nbsp;<strong>linear probing</strong>,<strong>&nbsp;quadratic probing</strong>,<strong>&nbsp;double hashing,</strong>&nbsp;etc.</p>
-<h2>2. Dynamic Hashing</h2>
-<p dir="ltr">Dynamic hashing is also known as&nbsp;extendible hashing, used to handle database that frequently changes data sets. This method offers us a way to add and remove data buckets on demand dynamically. This way as the number of data records varies, the buckets will also grow and shrink in size periodically whenever a change is made.</p>
-<h3>Properties of Dynamic Hashing</h3>
-<ul>
-<li value="1">The buckets will vary in size dynamically periodically as changes are made offering more flexibility in making any change.</li>
-<li value="2">Dynamic Hashing aids in improving overall performance by minimizing or completely preventing collisions.</li>
-<li value="3"><strong>It has the following major components:&nbsp;</strong>Data bucket, Flexible hash function, and directories</li>
-<li value="4">A flexible hash function means that it will generate more dynamic values and will keep changing periodically asserting to the requirements of the database.</li>
-<li value="5">Directories are containers that store the pointer to buckets. If bucket overflow or bucket skew-like problems happen to occur, then bucket splitting is done to maintain efficient retrieval time of data records. Each directory will have a directory id.</li>
-<li value="6"><strong>Global Depth:&nbsp;</strong>It is defined as the number of bits in each directory id. The more the number of records, the more bits are there.</li>
-</ul>
-<h3>Working of Dynamic Hashing</h3>
-<div class="gm-callout gm-example" data-label="Example"><p dir="ltr"><strong>Example:</strong>&nbsp;If global depth: k = 2, the keys will be mapped accordingly to the hash index. K bits starting from LSB will be taken to map a key to the buckets. That leaves us with the following 4 possibilities: 00, 11, 10, 01.</p></div>
-<div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231026004607/directories.png" alt="directories" width="441" height="156" /><figcaption>directories</figcaption></figure>
-<p class="wp-caption-text">Dynamic Hashing &ndash; mapping</p>
-</div>
-<p dir="ltr">As we can see in the above image, the k bits from LSBs are taken in the hash index to map to their appropriate buckets through directory IDs. The hash indices point to the directories, and the k bits are taken from the directories&rsquo; IDs and then mapped to the buckets. Each bucket holds the value corresponding to the IDs converted in binary.</p>
-
-        </div>
-        </div>
+<body>
+<h1>Hashing</h1>
+<p>A hash function maps a key directly to a bucket, giving constant-time lookup when collisions are rare.</p>
+<div class="gm-table"><table><thead><tr><th>Collision handling</th><th>How</th></tr></thead><tbody><tr><td>Chaining</td><td>a list per bucket</td></tr><tr><td>Linear probing</td><td>try the next slot</td></tr><tr><td>Quadratic probing</td><td>try i² slots away</td></tr><tr><td>Double hashing</td><td>step by a second hash</td></tr></tbody></table></div>
+<div class="gm-formula"><p>Load factor α = number of keys / number of slots</p></div>
+<div class="gm-callout gm-key" data-label="Key point"><p>Linear probing suffers primary clustering: occupied runs grow and lengthen every later probe. Double hashing spreads the probe sequence and largely avoids it.</p></div>
+<h2>Static against dynamic</h2>
+<div class="gm-callout gm-note" data-label="Note"><p>Static hashing degrades as the file grows past its bucket count. Extendible hashing doubles the directory on overflow, and linear hashing splits one bucket at a time, so both grow without a full rehash.</p></div>
 </body>
 </html>

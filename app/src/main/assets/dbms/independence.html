@@ -1,95 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title><style>
-    /* Style the heading */
-    body {
-            font-family: Arial, sans-serif;
-
-            margin: 20px;
-            background-color:#fff1dc  ;
-        }
-    .gray{
-        background-color: #e0e0e0;
-        border-radius: 10px;
-        color: rgba(0, 0, 0, .9);
-        font-family: Consolas, monospace;
-        margin-bottom: 10px;
-        padding:5px
-    }
-  </style>
-
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Abstraction and Independence</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-<body data-gm-enriched="1">
-    <div class="main_wrapper">
-        <div class="article-title">
-        <div class="main_wrapper">
-        <div>
-        <div class="article-title">
-        <h1>Data Abstraction and Data Independence</h1>
-        </div>
-        </div>
-        </div>
-        <div class="text">
-        <p dir="ltr">Database systems comprise complex data structures. In order to make the system efficient in terms of retrieval of data, and reduce complexity in terms of usability of users, developers use abstraction i.e. hide irrelevant details from the users. This approach simplifies database design.&nbsp;</p>
-        <h2>Level of Abstraction in a DBMS</h2>
-        <p dir="ltr"><strong>There are mainly 3 levels of data abstraction:&nbsp;</strong></p>
-        <ul>
-        <li value="1">Physical or Internal Level</li>
-        <li value="2">Logical or Conceptual Level</li>
-        <li value="3">View or External Level</li>
-        </ul>
-        <h3><strong>Physical or Internal Level</strong></h3>
-        <p dir="ltr">This is the lowest level of data abstraction. It tells us how the data is actually stored in memory. Access methods like sequential or random access and file organization methods like B+ trees and hashing are used for the same. Usability, size of memory, and the number of times the records are factors that we need to know while designing the database.&nbsp;<br />Suppose we need to store the details of an employee. Blocks of storage and the amount of memory used for these purposes are kept hidden from the user.&nbsp;</p>
-        <h3><strong>Logical or Conceptual Level</strong></h3>
-        <p dir="ltr">This level comprises the information that is actually stored in the database in the form of tables. It also stores the relationship among the data entities in relatively simple structures. At this level, the information available to the user at the view level is unknown.&nbsp;<br />We can store the various attributes of an employee and relationships, e.g. with the manager can also be stored.&nbsp;</p>
-        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
-        <p dir="ltr">The logical level thus describes the entire database in terms of a small number of relatively simple structures. Although implementation of the simple structures at the logical level may involve complex physical-level structures, the user of the logical level does not need to be aware of this complexity. This is referred to as physical data independence. Database administrators, who must decide what information to keep in the database, use the logical level of abstraction.</p>
-        <h3><strong>View or External Level</strong></h3>
-        <p dir="ltr">This is the highest level of abstraction. Only a part of the actual database is viewed by the users. This level exists to ease the accessibility of the database by an individual user. Users view data in the form of rows and columns. Tables and relations are used to store data. Multiple views of the same database may exist. Users can just view the data and interact with the database, storage and implementation details are hidden from them.&nbsp;Even though the logical level uses simpler structures, complexity remains because of the variety of information stored in a large database. Many users of the database system do not need all this information; instead, they need to access only a part of the database. The view level of abstraction exists to simplify their interaction with the system</p>
-        <div class="gm-callout gm-example" data-label="Example"><p dir="ltr"><strong>Example:&nbsp;</strong>In case of storing customer data,</p></div>
-        <ul>
-        <li value="1"><strong>Physical level</strong>&nbsp;&ndash; it will contains block of storages (bytes,GB,TB,etc)</li>
-        <li value="2"><strong>Logical level &ndash;</strong>&nbsp;&nbsp;it will contain the fields and the attributes of data.</li>
-        <li value="3"><strong>View level</strong>&nbsp;&ndash; it works with&nbsp;<a href="https://www.geeksforgeeks.org/linux-operating-system-cli-command-line-interface-and-gui-graphic-user-interface/">CLI&nbsp;</a>or&nbsp;<a href="https://www.geeksforgeeks.org/difference-between-cli-and-gui/">GUI</a>&nbsp;access of database</li>
-        </ul>
-        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231030153527/13-1-(1).png" alt="Data Abstraction" width="374" height="306" /><figcaption>Data Abstraction</figcaption></figure>
-        <p class="wp-caption-text">Data Abstraction</p>
-        </div>
-        <p dir="ltr">The main purpose of data abstraction is to achieve data independence in order to save the time and cost required when the database is modified or altered.&nbsp;</p>
-        </div>
-        </div>
-        </div><div class="main_wrapper">
-            <div class="article-title">
-            <div class="main_wrapper">
-            <div class="article-title">
-            <h2><strong>Data Independence</strong></h2>
-            <p dir="ltr"><strong>Data Independence</strong>&nbsp;is mainly defined as a property of DBMS that helps you to change the database schema at one level of a system without requiring to change the schema at the next level. it helps to keep the data separated from all program that makes use of it.<br />We have namely two levels of data independence arising from these levels of abstraction:&nbsp;</p>
-            <ul>
-            <li value="1">Phys<strong>i</strong>cal level data independence</li>
-            <li value="2">Logical level data independence</li>
-            </ul>
-            <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20231031152106/Data-Abstraction-and-Data-Independence.webp" alt="Data-Abstraction-and-Data-Independence" width="405" height="386" /><figcaption>Data-Abstraction-and-Data-Independence</figcaption></figure>
-            <p class="wp-caption-text">Data Independence</p>
-            </div>
-            <h3><strong>Physical Level Data Independence</strong></h3>
-            <p dir="ltr">It refers to the characteristic of being able to modify the physical schema without any alterations to the conceptual or logical schema, done for optimization purposes, e.g., the Conceptual structure of the<a href="https://www.geeksforgeeks.org/what-is-database/" rel="">&nbsp;database</a>&nbsp;would not be affected by any change in storage size of the database system server. Changing from sequential to random access files is one such example. These alterations or modifications to the physical structure may include:&nbsp;</p>
-            <ul>
-            <li value="1">Utilizing new storage devices.</li>
-            <li value="2">Modifying data structures used for storage.</li>
-            <li value="3">Altering indexes or using alternative file organization techniques etc.</li>
-            </ul>
-            <h3><strong>Logical Level Data Independence</strong></h3>
-            <p dir="ltr">It refers characteristic of being able to modify the logical schema without affecting the external schema or application program. The user view of the data would not be affected by any changes to the conceptual view of the data. These changes may include insertion or deletion of attributes, altering table structures entities or relationships to the logical schema, etc.</p>
-            <div class="article_bottom_text">
-            <p>Summer-time is here and so is the time to skill-up! More than 5,000 learners have now completed their journey from&nbsp;<strong>basics of DSA to advanced level development programs</strong>&nbsp;such as Full-Stack, Backend Development, Data Science.&nbsp;</p>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
+<body>
+<h1>Data Abstraction and Independence</h1>
+<div class="gm-table"><table><thead><tr><th>Level</th><th>Describes</th><th>Seen by</th></tr></thead><tbody><tr><td>Physical</td><td>how bytes are stored and indexed</td><td>the DBMS</td></tr><tr><td>Logical</td><td>tables, columns and relationships</td><td>the DBA</td></tr><tr><td>View</td><td>the slice one application sees</td><td>the user</td></tr></tbody></table></div>
+<div class="gm-callout gm-definition" data-label="Definition"><p>Physical data independence is the ability to change the storage layout without touching the logical schema. Logical data independence is changing the logical schema without touching the views.</p></div>
+<div class="gm-callout gm-key" data-label="Key point"><p>Physical independence is easy and universally achieved; logical independence is hard, because applications are written against the logical schema and notice when it changes.</p></div>
 </body>
 </html>

@@ -1,110 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title><style>
-    /* Style the heading */
-    body {
-            font-family: Arial, sans-serif;
-
-            margin: 20px;
-            background-color:#fff1dc  ;
-        }
-    .gray{
-        background-color: #e0e0e0;
-        border-radius: 10px;
-        color: rgba(0, 0, 0, .9);
-        font-family: Consolas, monospace;
-        margin-bottom: 10px;
-        padding:5px
-    }
-  </style>
-
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Database Recovery</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-<body data-gm-enriched="1">
-    <div class="main_wrapper">
-        <div>
-        <div class="article-title">
-        <h1>Database Recovery Techniques in DBMS</h1>
-        </div>
-        </div>
-        </div>
-        <div class="text">
-        <p dir="ltr">Database Systems like any other computer system, are subject to failures but the data stored in them must be available as and when required. When a database fails it must possess the facilities for fast recovery. It must also have atomicity i.e. either transactions are completed successfully and committed (the effect is recorded permanently in the database) or the transaction should have no effect on the database.</p>
-        <h2>Types of Recovery Techniques in DBMS</h2>
-        <p dir="ltr">Database recovery techniques are used in database management systems (DBMS) to restore a database to a consistent state after a failure or error has occurred. The main goal of recovery techniques is to ensure data integrity and consistency and prevent data loss.</p>
-        <p dir="ltr">There are mainly two types of recovery techniques used in DBMS</p>
-        <ul>
-        <li value="1"><strong>Rollback/Undo Recovery Technique</strong></li>
-        <li value="2"><strong>Commit/Redo Recovery Technique</strong></li>
-        </ul>
-        <h3><strong>Rollback/Undo Recovery Technique</strong></h3>
-        <p dir="ltr">The rollback/undo recovery technique is based on the principle of backing out or undoing the effects of a transaction that has not been completed successfully due to a system failure or error. This technique is accomplished by undoing the changes made by the transaction using the log records stored in the transaction log. The transaction log contains a record of all the transactions that have been performed on the database. The system uses the log records to undo the changes made by the failed transaction and restore the database to its previous state.</p>
-        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
-        <h3><strong>Commit/Redo Recovery Technique</strong></h3>
-        <p dir="ltr">The commit/redo recovery technique is based on the principle of reapplying the changes made by a transaction that has been completed successfully to the database. This technique is accomplished by using the log records stored in the transaction log to redo the changes made by the transaction that was in progress at the time of the failure or error. The system uses the log records to reapply the changes made by the transaction and restore the database to its most recent consistent state.</p>
-        <p dir="ltr">In addition to these two techniques, there is also a third technique called&nbsp;<a href="https://www.geeksforgeeks.org/checkpoints-in-dbms/" rel="noopener">checkpoint recovery</a>.</p>
-        <p dir="ltr"><strong>Checkpoint Recovery&nbsp;</strong>is a technique used to reduce the recovery time by periodically saving the state of the database in a checkpoint file. In the event of a failure, the system can use the checkpoint file to restore the database to the most recent consistent state before the failure occurred, rather than going through the entire log to recover the database.</p>
-        <p dir="ltr">Overall, recovery techniques are essential to ensure data consistency and availability in&nbsp;<a href="https://www.geeksforgeeks.org/introduction-of-dbms-database-management-system-set-1/" rel="noopener">Database Management System</a>, and each technique has its own advantages and limitations that must be considered in the design of a recovery system.</p>
-        <h2><strong>Database Systems</strong></h2>
-        <p dir="ltr">There are both automatic and non-automatic ways for both, backing up data and recovery from any failure situations. The techniques used to recover lost data due to system crashes, transaction errors, viruses, catastrophic failure, incorrect command execution, etc. are database recovery techniques. So to prevent data loss recovery techniques based on deferred updates and immediate updates or backing up data can be used. Recovery techniques are heavily dependent upon the existence of a special file known as a&nbsp;<strong>system log</strong>. It contains information about the start and end of each transaction and any updates which occur during the&nbsp;<strong>transaction</strong>. The log keeps track of all transaction operations that affect the values of database items. This information is needed to recover from transaction failure.</p>
-        <ul>
-        <li value="1"><strong>The log is kept on disk start_transaction(T):</strong>&nbsp;This log entry records that transaction T starts the execution.</li>
-        </ul>
-        <ul>
-        <li value="1"><strong>read_item(T, X):</strong>&nbsp;This log entry records that transaction T reads the value of database item X.</li>
-        </ul>
-        <ul>
-        <li value="1"><strong>write_item(T, X, old_value, new_value):</strong>&nbsp;This log entry records that transaction T changes the value of the database item X from old_value to new_value. The old value is sometimes known as a before an image of X, and the new value is known as an afterimage of X.</li>
-        </ul>
-        <ul>
-        <li value="1"><strong>commit(T):</strong>&nbsp;This log entry records that transaction T has completed all accesses to the database successfully and its effect can be committed (recorded permanently) to the database.</li>
-        </ul>
-        <ul>
-        <li value="1"><strong>abort(T):&nbsp;</strong>This records that transaction T has been aborted.</li>
-        </ul>
-        <ul>
-        <li value="1"><strong>checkpoint:&nbsp;</strong>A checkpoint is a mechanism where all the previous logs are removed from the system and stored permanently in a storage disk. Checkpoint declares a point before which the DBMS was in a consistent state, and all the transactions were committed.</li>
-        </ul>
-        </div>
-        <div class="main_wrapper">
-            <div class="article-title">
-            <p dir="ltr">A transaction T reaches its&nbsp;<strong>commit</strong>&nbsp;point when all its operations that access the database have been executed successfully i.e. the transaction has reached the point at which it will not&nbsp;<strong>abort</strong>&nbsp;(terminate without completing). Once committed, the transaction is permanently recorded in the database. Commitment always involves writing a commit entry to the log and writing the log to disk. At the time of a system crash, the item is searched back in the log for all transactions T that have written a start_transaction(T) entry into the log but have not written a commit(T) entry yet; these transactions may have to be rolled back to undo their effect on the database during the recovery process.</p>
-            <ul>
-            <li value="1"><strong>Undoing:</strong>&nbsp;If a transaction crashes, then the recovery manager may undo transactions i.e. reverse the operations of a transaction. This involves examining a transaction for the log entry write_item(T, x, old_value, new_value) and setting the value of item x in the database to old-value. There are two major techniques for recovery from non-catastrophic transaction failures:&nbsp;<a href="https://www.geeksforgeeks.org/difference-between-deferred-update-and-immediate-update/" rel="noopener">deferred updates and immediate updates.</a></li>
-            </ul>
-            <ul>
-            <li value="1"><strong>Deferred Update:</strong>&nbsp;This technique does not physically update the database on disk until a transaction has reached its commit point. Before reaching commit, all transaction updates are recorded in the local transaction workspace. If a transaction fails before reaching its commit point, it will not have changed the database in any way so UNDO is not needed. It may be necessary to REDO the effect of the operations that are recorded in the local transaction workspace, because their effect may not yet have been written in the database. Hence, a deferred update is also known as the&nbsp;<strong>No-undo/redo algorithm.</strong></li>
-            </ul>
-            <ul>
-            <li value="1"><strong>Immediate Update:</strong>&nbsp;In the immediate update, the database may be updated by some operations of a transaction before the transaction reaches its commit point. However, these operations are recorded in a log on disk before they are applied to the database, making recovery still possible. If a transaction fails to reach its commit point, the effect of its operation must be undone i.e. the transaction must be rolled back hence we require both undo and redo. This technique is known as&nbsp;<strong>undo/redo algorithm.</strong></li>
-            </ul>
-            <ul>
-            <li value="1"><strong>Caching/Buffering:</strong>&nbsp;In this one or more disk pages that include data items to be updated are cached into main memory buffers and then updated in memory before being written back to disk. A collection of in-memory buffers called the DBMS cache is kept under the control of DBMS for holding these buffers. A directory is used to keep track of which database items are in the buffer. A dirty bit is associated with each buffer, which is 0 if the buffer is not modified else 1 if modified.</li>
-            </ul>
-            <ul>
-            <li value="1"><strong>Shadow Paging:</strong>&nbsp;It provides atomicity and durability. A directory with n entries is constructed, where the ith entry points to the ith database page on the link. When a transaction began executing the current directory is copied into a shadow directory. When a page is to be modified, a shadow page is allocated in which changes are made and when it is ready to become durable, all pages that refer to the original are updated to refer new replacement page.</li>
-            </ul>
-            <ul>
-            <li value="1"><strong>Backward Recovery:</strong>&nbsp;The term &ldquo;<strong>Rollback</strong>&rdquo; and &ldquo;<strong>UNDO</strong>&rdquo; can also refer to backward recovery. When a backup of the data is not available and previous modifications need to be undone, this technique can be helpful. With the backward recovery method, unused modifications are removed and the database is returned to its prior condition. All adjustments made during the previous traction are reversed during the backward recovery. In other words, it reprocesses valid transactions and undoes the erroneous database updates.</li>
-            </ul>
-            <ul>
-            <li value="1"><strong>Forward Recovery:</strong>&nbsp;&ldquo;<strong>Roll forward</strong>&nbsp;&ldquo;and &ldquo;<strong>REDO</strong>&rdquo; refers to forwarding recovery. When a database needs to be updated with all changes verified, this forward recovery technique is helpful. Some failed transactions in this database are applied to the database to roll those modifications forward. In other words, the database is restored using preserved data and valid transactions counted by their past saves.</li>
-            </ul>
-            <h2>Backup Techniques</h2>
-            <p dir="ltr">There are different types of Backup Techniques. Some of them are listed below.</p>
-            <ul>
-            <li value="1"><strong>Full database Backup:</strong>&nbsp;In this full database including data and database, Meta information needed to restore the whole database, including full-text catalogs are backed up in a predefined time series.</li>
-            </ul>
-            <ul>
-            <li value="1"><strong>Differential Backup:</strong>&nbsp;It stores only the data changes that have occurred since the last full database backup. When some data has changed many times since the last full database backup, a differential backup stores the most recent version of the changed data. For this first, we need to restore a full database backup.</li>
-            </ul>
-            <ul>
-            <li value="1"><strong>Transaction Log Backup:</strong>&nbsp;In this, all events that have occurred in the database, like a record of every single statement executed is backed up. It is the backup of transaction log entries and contains all transactions that had happened to the database. Through this, the database can be recovered to a specific point in time. It is even possible to perform a backup from a transaction log if the data files are destroyed and not even a single committed transaction is lost.</li>
-            </ul>
-            </div>
-            </div>
+<body>
+<h1>Database Recovery</h1>
+<p>Recovery restores the last consistent state after a crash, using a log written before the data pages.</p>
+<div class="gm-callout gm-key" data-label="Key point"><p>Write-ahead logging: the log record reaches stable storage before the change it describes. Without that rule, a crash could leave a change with no record of how to undo it.</p></div>
+<ul><li>Undo: roll back transactions that had not committed.</li><li>Redo: reapply transactions that had committed but whose pages were not yet written.</li><li>Checkpoints bound how far back recovery must read.</li></ul>
+<div class="gm-callout gm-note" data-label="Note"><p>Deferred update writes nothing until commit and so never needs undo. Immediate update writes as it goes and needs both.</p></div>
 </body>
 </html>

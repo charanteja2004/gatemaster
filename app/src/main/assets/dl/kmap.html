@@ -1,162 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title><style>
-    /* Style the heading */
-    body {
-            font-family: Arial, sans-serif;
-
-            margin: 20px;
-            background-color:#fff1dc  ;
-        }
-    .gray{
-        background-color: #e0e0e0;
-        border-radius: 10px;
-        color: rgba(0, 0, 0, .9);
-        font-family: Consolas, monospace;
-        margin-bottom: 10px;
-        padding:5px
-    }
-  </style>
-
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karnaugh Maps</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-
-<body data-gm-enriched="1">
-
-    <div class="article-title">
-        <h1>Introduction of K-Map (Karnaugh Map)</h1>
-    </div>
-    </div>
-    <div class="three_dot_dropdown">
-        <div>
-            
-        </div>
-    </div>
-    </div>
-    <div class="text">
-        <p dir="ltr">In many digital circuits and practical problems, we need to find expressions with minimum
-            variables. We can minimize Boolean expressions of 3, 4 variables very easily using K-map without using any
-            Boolean algebra theorems.</p>
-        <p dir="ltr">K-map can take two forms:</p>
-        <ol>
-            <li value="1">Sum of product (SOP)</li>
-            <li value="2">Product of Sum (POS)</li>
-        </ol>
-        <p dir="ltr">According to the need of problem. K-map is a table-like representation, but it gives more
-            information than the TABLE. We fill a grid of the K-map with 0&rsquo;s and 1&rsquo;s then solve it by making
-            groups.</p>
-        <h2><strong>Steps to Solve Expression using K-map</strong></h2>
-        <ol>
-            <li value="1">Select the K-map according to the number of variables.</li>
-            <li value="2">Identify minterms or maxterms as given in the problem.</li>
-            <li value="3">For SOP put 1&rsquo;s in blocks of K-map respective to the minterms (0&rsquo;s elsewhere).
-            </li>
-            <li value="4">For POS put 0&rsquo;s in blocks of K-map respective to the max terms (1&rsquo;s elsewhere).
-            </li>
-            <li value="5">Make rectangular groups containing total terms in power of two like 2,4,8 ..(except 1) and try
-                to cover as many elements as you can in one group.</li>
-            <li value="6">From the groups made in step 5 find the product terms and sum them up for SOP form.</li>
-        </ol>
-        <h2><strong>SOP FORM</strong></h2>
-        <h3><strong>1. K-map of 3 variables</strong></h3>
-        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
-                src="https://media.geeksforgeeks.org/wp-content/uploads/20220613125859/k3sop-300x295.png" width="300"
-                height="inherit" /></figure>
-            <p class="wp-caption-text">K-map SOP form for 3 variables</p>
-        </div>
-        <div class="gray">Z= ?A,B,C(1,3,6,7)&nbsp; </div>
-        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/K-Map-Karnaugh-Map.png" alt="SOP" width="398"
-                height="280" /><figcaption>SOP</figcaption></figure></p>
-        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
-        <p dir="ltr">From&nbsp;<strong>red</strong>&nbsp;group we get product term&mdash;&nbsp;</p>
-        <div class="gray">A&rsquo;C&nbsp;</div>
-        <p dir="ltr">From<strong>&nbsp;green</strong>&nbsp;group we get product term&mdash;&nbsp;</p>
-        <div class="gray">AB&nbsp;</div>
-        <p dir="ltr">Summing these product terms&nbsp; we get-&nbsp;<strong>Final expression
-                (A&rsquo;C+AB)</strong>&nbsp;</p>
-        <h3><strong>2. K-map for 4 variables</strong></h3>
-        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
-                src="https://media.geeksforgeeks.org/wp-content/uploads/20220613125927/k4sop-287x300.png"
-                alt="K-map 4 variable SOP form" width="287" height="inherit" /><figcaption>K-map 4 variable SOP form</figcaption></figure>
-            <p class="wp-caption-text">K-map 4 variable SOP form</p>
-        </div>
-        <div class="gray">F(P,Q,R,S)=?(0,2,5,7,8,10,13,15)&nbsp; </div>
-        <p dir="ltr">From&nbsp;<strong>red</strong>&nbsp;group we get product term&mdash;&nbsp;</p>
-        <div class="gray">QS&nbsp;</div>
-        <p dir="ltr">From&nbsp;<strong>green</strong>&nbsp;group we get product term&mdash;&nbsp;</p>
-        <div class="gray">Q&rsquo;S&rsquo;&nbsp;</div>
-        <p dir="ltr">Summing&nbsp; these product terms&nbsp; we get-&nbsp;<strong>Final expression
-                (QS+Q&rsquo;S&rsquo;)</strong>.</p>
-        <div class="article-title">
-            <h2><strong>POS FORM</strong></h2>
-            <h3><strong>1. K-map of 3 variables</strong></h3>
-            <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
-                    src="https://media.geeksforgeeks.org/wp-content/uploads/20220613125908/k3pos-300x295.png" alt="POS"
-                    width="300" height="inherit" /><figcaption>POS</figcaption></figure>
-                <p class="wp-caption-text">K-map 3 variable POS form</p>
-            </div>
-            <div class="gray">F(A,B,C)=?(0,3,6,7)</div>
-            <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20211109194324/Screenshot281.png" alt="POS"
-                    width="374" height="222" /><figcaption>POS</figcaption></figure></p>
-            
-            <p>From&nbsp;<strong>red&nbsp;</strong>group we find&nbsp;terms&nbsp;</p>
-            <div class="gray">A&nbsp;&nbsp;&nbsp; B&nbsp;&nbsp;&nbsp;</div>
-            <p dir="ltr">Taking complement of these two&nbsp;</p>
-            <div class="gray">A'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B'&nbsp;&nbsp;&nbsp; </div>
-            <p dir="ltr">Now&nbsp;<strong>sum</strong>&nbsp;up them&nbsp;</p>
-            <div class="gray">(A' + B')&nbsp;</div>
-            <p dir="ltr">From<strong>&nbsp;brown</strong>&nbsp;group we find&nbsp;terms&nbsp;</p>
-            <div class="gray">B&nbsp;&nbsp; C&nbsp;</div>
-            <p dir="ltr">Taking complement of these two terms&nbsp;</p>
-            <div class="gray">B&rsquo;&nbsp; C&rsquo;&nbsp;</div>
-            <p dir="ltr">Now sum up them&nbsp;</p>
-            <div class="gray">(B&rsquo;+C&rsquo;)&nbsp;</div>
-            <p dir="ltr">From&nbsp;<strong>yellow&nbsp;</strong>group we find terms&nbsp;</p>
-            <div class="gray">A' B' C&rsquo;&nbsp;</div>
-            <p dir="ltr">Taking complement of these two&nbsp;</p>
-            <div class="gray">A B C&nbsp;</div>
-            <p dir="ltr">Now&nbsp;<strong>sum</strong>&nbsp;up them&nbsp;</p>
-            <div class="gray">(A + B + C)&nbsp;</div>
-            <p dir="ltr">We will take product of these three terms :&nbsp;<strong>Final expression &ndash;</strong></p>
-            <div class="gray"><strong>(A' + B&rsquo;) (B&rsquo; + C&rsquo;) (A + B + C)</strong>&nbsp;</div>
-            <h3><strong>2. K-map of&nbsp; 4 variables&nbsp;</strong>&nbsp;</h3>
-            <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img
-                    src="https://media.geeksforgeeks.org/wp-content/uploads/20220613125920/k4pos-287x300.png"
-                    alt="4 variables" width="287" height="inherit" /><figcaption>4 variables</figcaption></figure>
-                <p class="wp-caption-text">K-map 4 variable POS form</p>
-            </div>
-            <div class="gray">F(A,B,C,D)=?(3,5,7,8,10,11,12,13)&nbsp;</div>
-            <p dir="ltr"><figure class="gm-figure gm-remote"><img
-                    src="https://media.geeksforgeeks.org/wp-content/uploads/20200821002803/KMapKarnaughMap3correct01-300x300.png"
-                    width="inherit" height="inherit" /></figure></p>
-            
-            
-            <p>From&nbsp;<strong>green</strong>&nbsp;group we find&nbsp;terms&nbsp;</p>
-            <div class="gray">C&rsquo;&nbsp; D&nbsp; B&nbsp;</div>
-            <p dir="ltr">Taking their complement and summing them&nbsp;</p>
-            <div class="gray">(C+D&rsquo;+B&rsquo;)&nbsp;</div>
-            <p dir="ltr">From&nbsp;<strong>red</strong>&nbsp;group we find terms&nbsp;</p>
-            <div class="gray">C&nbsp; D&nbsp; A&rsquo;&nbsp;</div>
-            <p dir="ltr">Taking their complement and summing them&nbsp;</p>
-            <div class="gray">(C&rsquo;+D&rsquo;+A)&nbsp;</div>
-            <p dir="ltr">From&nbsp;<strong>blue</strong>&nbsp; group we find&nbsp;terms</p>
-            <div class="gray">A&nbsp; C&rsquo;&nbsp; D&rsquo;&nbsp;</div>
-            <p dir="ltr">Taking their complement and summing them&nbsp;</p>
-            <div class="gray">(A&rsquo;+C+D)&nbsp;</div>
-            <p dir="ltr">From&nbsp;<strong>brown&nbsp;</strong>&nbsp;group we find&nbsp;terms</p>
-            <div class="gray">A&nbsp; B&rsquo;&nbsp; C&nbsp;</div>
-            <p dir="ltr">Taking their complement and summing them&nbsp;</p>
-            <div class="gray">(A&rsquo;+B+C&rsquo;)&nbsp;</div>
-            <p dir="ltr">Finally we express these as product &ndash;</p>
-            <div class="gray">
-                <strong>(C+D&rsquo;+B&rsquo;).(C&rsquo;+D&rsquo;+A).(A&rsquo;+C+D).(A&rsquo;+B+C&rsquo;)</strong>&nbsp;
-            </div>
-        </div>
-    </div>
+<body>
+<h1>Karnaugh Maps</h1>
+<p>A K-map lays the truth table out in Gray-code order so that logically adjacent minterms are physically adjacent and can be grouped.</p>
+<ol><li>Fill the map from the truth table.</li><li>Group 1s in blocks of 1, 2, 4, 8… as large as possible, wrapping around edges.</li><li>Every 1 must be covered; groups may overlap.</li><li>Read each group as the product of the variables that stay constant in it.</li></ol>
+<div class="gm-callout gm-example" data-label="Example"><p>F(A,B,C,D) = Σm(0,2,8,10): A and C vary while B = 0 and D = 0, so the group of four reduces to B'D'.</p></div>
+<div class="gm-callout gm-key" data-label="Key point"><p>Don't-care cells may be treated as 1 or 0, whichever makes the groups larger. Using them well is usually the difference between the intended answer and a longer one.</p></div>
+<div class="gm-callout gm-note" data-label="Note"><p>A prime implicant is a group that cannot be enlarged; an essential prime implicant is one covering a 1 that no other group covers. Essential ones must appear in the answer.</p></div>
 </body>
-
 </html>

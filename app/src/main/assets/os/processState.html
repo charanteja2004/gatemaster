@@ -1,137 +1,15 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 <head>
-    <title>Applications of various Automata</title>
-    <style>
-    /* Style the heading */
-    body {
-            font-family: Arial, sans-serif;
-
-            margin: 20px;
-            background-color:#fff1dc  ;
-        }
-    .gray{
-        background-color: #e0e0e0;
-        border-radius: 10px;
-        color: rgba(0, 0, 0, .9);
-        font-family: Consolas, monospace;
-        margin-bottom: 10px;
-        padding:5px
-    }
-  </style>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Process States</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-<body data-gm-enriched="1">
-<h2><b>Process State</b></h2>
-<p>As a process executes, it changes state. The state of a process is defined in part
-    by the current activity of that process. A process may be in one of the following
-    states:<br>
-    <li><b>New.</b> The process is being created.</li>
-    <li> Running.</b> Instructions are being executed.</li>
-    <li><b>Waiting.</b> The process is waiting for some event to occur (such as an I/O
-        completion or reception of a signal).</li>
-    <li><b>Ready.</b> The process is waiting to be assigned to a processor.</li>
-    <li><b>Terminated.</b> The process has finished execution.</li><br>
-
-    These names are arbitrary, and they vary across operating systems. The states
-    that they represent are found on all systems, however. Certain operating
-    systems also more finely delineate process states. It is important to realize
-    that only one process can be running on any processor at any instant. Many
-    processes may be ready and waiting, however.</p><br>
-<h2><b>States of a Process in Operating Systems</b></h2>
-<p>A process has several stages that it passes through from beginning to end. There must be a minimum of five states. Even though during execution, the process could be in one of these states, the names of the states are not standardized. Each process goes through several stages throughout its life cycle.<br><br>
-<h3><b>Process States in Operating System</b></h3>
-The states of a process are as follows: <br>
-
-<li><b>New (Create):</b> In this step, the process is about to be created but not yet created. It is the program that is present in secondary memory that will be picked up by OS to create the process.</li>
-<li><b>Ready:</b> New -> Ready to run. After the creation of a process, the process enters the ready state i.e. the process is loaded into the main memory. The process here is ready to run and is waiting to get the CPU time for its execution. Processes that are ready for execution by the CPU are maintained in a queue called ready queue for ready processes.</li>
-<li><b>Run:</b> The process is chosen from the ready queue by the CPU for execution and the instructions within the process are executed by any one of the available CPU cores.</li>
-<li><b>Blocked or Wait:</b> Whenever the process requests access to I/O or needs input from the user or needs access to a critical region(the lock for which is already acquired) it enters the blocked or waits state. The process continues to wait in the main memory and does not require CPU. Once the I/O operation is completed the process goes to the ready state.</li>
-<li><b>Terminated or Completed:</b> Process is killed as well as PCB is deleted. The resources allocated to the process will be released or deallocated.</li>
-<li><b>Suspend Ready:</b> Process that was initially in the ready state but was swapped out of main memory(refer to Virtual Memory topic) and placed onto external storage by the scheduler is said to be in suspend ready state. The process will transition back to a ready state whenever the process is again brought onto the main memory.</li>
-<li><b>Suspend wait or suspend blocked:</b> Similar to suspend ready but uses the process which was performing I/O operation and lack of main memory caused them to move to secondary memory. When work is finished it may go to suspend ready.</li><br>
-
-<figure class="gm-figure gm-svg" data-gm-svg="1">
-<svg viewBox="0 0 340 324" xmlns="http://www.w3.org/2000/svg" role="img"
-     aria-label="The five process states and the transitions between them"
-     style="width:100%;max-width:340px;height:auto;color:currentColor">
-  <style>
-    .bx   { fill: none; stroke: currentColor; stroke-width: 1.6; }
-    .hit  { fill: currentColor; opacity: .20; }
-    .soft { fill: currentColor; opacity: .09; }
-    .out  { fill: currentColor; opacity: .05; }
-    .val  { fill: currentColor; font: 700 14px ui-monospace, monospace; }
-    .name { fill: currentColor; font: 600 12.5px system-ui, sans-serif; }
-    .step { fill: currentColor; font: 600 11.5px system-ui, sans-serif; opacity: .7; }
-    .note { fill: currentColor; font: 12px system-ui, sans-serif; opacity: .85; }
-    .edge { fill: currentColor; font: 11.5px system-ui, sans-serif; opacity: .75; }
-    .arr  { stroke: currentColor; stroke-width: 1.6; fill: none; marker-end: url(#gm-tip); }
-    .dash { stroke: currentColor; stroke-width: 1.4; fill: none; opacity: .65;
-            stroke-dasharray: 5 4; marker-end: url(#gm-tip); }
-  </style>
-  <defs>
-    <marker id="gm-tip" viewBox="0 0 10 10" refX="9" refY="5"
-            markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
-    </marker>
-  </defs>
-  <rect class="soft" x="125" y="8" width="90" height="36" rx="10"/>
-  <rect class="bx" x="125" y="8" width="90" height="36" rx="10"/>
-  <text class="name" x="170" y="30.5" text-anchor="middle">New</text>
-  <rect class="soft" x="125" y="92" width="90" height="36" rx="10"/>
-  <rect class="bx" x="125" y="92" width="90" height="36" rx="10"/>
-  <text class="name" x="170" y="114.5" text-anchor="middle">Ready</text>
-  <rect class="hit" x="125" y="186" width="90" height="36" rx="10"/>
-  <rect class="bx" x="125" y="186" width="90" height="36" rx="10"/>
-  <text class="name" x="170" y="208.5" text-anchor="middle">Running</text>
-  <rect class="soft" x="18" y="276" width="92" height="36" rx="10"/>
-  <rect class="bx" x="18" y="276" width="92" height="36" rx="10"/>
-  <text class="name" x="64" y="298.5" text-anchor="middle">Waiting</text>
-  <rect class="soft" x="210" y="276" width="112" height="36" rx="10"/>
-  <rect class="bx" x="210" y="276" width="112" height="36" rx="10"/>
-  <text class="name" x="266" y="298.5" text-anchor="middle">Terminated</text>
-  <path class="arr" d="M170,44 L170,88"/>
-  <text class="edge" x="178" y="72">admitted</text>
-  <path class="arr" d="M152,128 L152,182"/>
-  <text class="edge" x="146" y="152" text-anchor="end">dispatch</text>
-  <path class="arr" d="M188,182 L188,132"/>
-  <text class="edge" x="194" y="152">interrupt</text>
-  <path class="arr" d="M136,222 Q104,248 78,272"/>
-  <text class="edge" x="72" y="248" text-anchor="end">I/O request</text>
-  <path class="arr" d="M18,292 Q-4,190 120,110"/>
-  <text class="edge" x="14" y="154">I/O done</text>
-  <path class="arr" d="M204,222 Q238,248 260,272"/>
-  <text class="edge" x="268" y="248">exit</text>
-</svg>
-<figcaption>The five process states and the transitions between them</figcaption>
-</figure><br><br>
-
-<b>CPU and I/O Bound Processes:</b> If the process is intensive in terms of CPU operations, then it is called CPU bound process. Similarly, If the process is intensive in terms of I/O operations then it is called I/O bound process. <br><br>
-
-<b>How does a process move between different states in an operating system?</b><br>
-A process can move between different states in an operating system based on its execution status and resource availability. Here are some examples of how a process can move between different states:<br><br>
-
-<li><b>New to ready:</b> When a process is created, it is in a new state. It moves to the ready state when the operating system has allocated resources to it and it is ready to be executed.</li>
-<li><b>Ready to running:</b> When the CPU becomes available, the operating system selects a process from the ready queue depending on various scheduling algorithms and moves it to the running state.</li>
-<li><b>Running to blocked:</b> When a process needs to wait for an event to occur (I/O operation or system call), it moves to the blocked state. For example, if a process needs to wait for user input, it moves to the blocked state until the user provides the input.</li>
-<li><b>Running to ready:</b> When a running process is preempted by the operating system, it moves to the ready state. For example, if a higher-priority process becomes ready, the operating system may preempt the running process and move it to the ready state.</li>
-<li><b>Blocked to ready:</b> When the event a blocked process was waiting for occurs, the process moves to the ready state. For example, if a process was waiting for user input and the input is provided, it moves to the ready state.</li>
-<li><b>Running to terminated:</b> When a process completes its execution or is terminated by the operating system, it moves to the terminated state.</li><br>
-
-<h3><b>Features of the Process State</b></h3>
-<li>A process can move from the running state to the waiting state if it needs to wait for a resource to become available.</li>
-<li>A process can move from the waiting state to the ready state when the resource it was waiting for becomes available.</li>
-<li>A process can move from the ready state to the running state when it is selected by the operating system for execution.</li>
-<li>The scheduling algorithm used by the operating system determines which process is selected to execute from the ready state.</li>
-<li>The operating system may also move a process from the running state to the ready state to allow other processes to execute.</li>
-<li>A process can move from the running state to the terminated state when it completes its execution.</li>
-<li>A process can move from the waiting state directly to the terminated state if it is aborted or killed by the operating system or another process.</li>
-<li>A process can go through ready, running and waiting state any number of times in its lifecycle but new and terminated happens only once.</li>
-<li>The process state includes information about the program counter, CPU registers, memory allocation, and other resources used by the process.</li>
-<li>The operating system maintains a process control block (PCB) for each process, which contains information about the process state, priority, scheduling information, and other process-related data.</li>
-<li>The process state diagram is used to represent the transitions between different states of a process and is an essential concept in process management in operating systems.</li><br>
+<body>
+<h1>Process States</h1>
+<div class="gm-table"><table><thead><tr><th>State</th><th>Meaning</th><th>Leaves when</th></tr></thead><tbody><tr><td>New</td><td>being created</td><td>admitted</td></tr><tr><td>Ready</td><td>waiting for the CPU</td><td>scheduler dispatches it</td></tr><tr><td>Running</td><td>executing</td><td>preempted, exits, or waits</td></tr><tr><td>Waiting</td><td>blocked on I/O or an event</td><td>the event completes</td></tr><tr><td>Terminated</td><td>finished</td><td>—</td></tr></tbody></table></div>
+<div class="gm-callout gm-key" data-label="Key point"><p>Running to Ready is preemption; Running to Waiting is a voluntary block. Waiting never goes straight to Running — a woken process joins the ready queue and waits its turn.</p></div>
+<div class="gm-callout gm-note" data-label="Note"><p>A zombie has terminated but its parent has not collected the exit status; an orphan has lost its parent and is adopted by init.</p></div>
 </body>
 </html>

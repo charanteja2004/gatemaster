@@ -1,88 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title><style>
-    /* Style the heading */
-    body {
-            font-family: Arial, sans-serif;
-
-            margin: 20px;
-            background-color:#fff1dc  ;
-        }
-    .gray{
-        background-color: #e0e0e0;
-        border-radius: 10px;
-        color: rgba(0, 0, 0, .9);
-        font-family: Consolas, monospace;
-        margin-bottom: 10px;
-        padding:5px
-    }
-  </style>
-
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Synchronous Sequential Circuits</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-<body data-gm-enriched="1">
-    <div class="main_wrapper">
-        <div>
-        <div class="article-title">
-        <h1>Synchronous Sequential Circuits in Digital Logic</h1>
-        </div>
-        </div>
-        </div>
-        <div class="text">
-        <p>Synchronous sequential circuits are digital circuits that use clock signals to determine the timing of their operations. They are commonly used in digital systems to implement timers, counters, and memory elements.</p>
-        <ol>
-        <li>In a synchronous sequential circuit, the state of the circuit changes only on the rising or falling edge of the clock signal, and all changes in the circuit are synchronized to this clock. This makes the behavior of the circuit predictable and ensures that all elements of the circuit change at the same time, preventing race conditions and making the circuit easier to design and debug.</li>
-        <li>Synchronous sequential circuits can be implemented using flip-flops, which are circuits that store binary values and maintain their state even when the inputs change. The output of the flip-flops is determined by the current inputs and the previous state stored in the flip-flops, and the next state is determined by the state transition function, which is a Boolean function that describes the behavior of the circuit.</li>
-        <li>In summary, synchronous sequential circuits are digital circuits that use clock signals to determine the timing of their operations. They are commonly used in digital systems to implement timers, counters, and memory elements and are essential components in digital systems design.</li>
-        </ol>
-        <p>Steps to solve a problem:<br /><strong>1.</strong>&nbsp;Draw the state diagram from the problem statement or from the given state table.&nbsp;<strong>Example:</strong>&nbsp;Serial Adder. The functioning of serial adder can be depicted by the following state diagram. X1 and X2 are inputs, A and B are states representing carry.<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/synchronous_1.png" alt="" width="353" height="129" /></figure>&nbsp;<br /><strong>2.</strong>&nbsp;Draw the state table. If there is any redundant state then reduce the state table.<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/synchronous_2.png" alt="" width="341" height="137" /></figure>&nbsp;<br /><strong>3.</strong>&nbsp;Select&nbsp;<strong>state assignment</strong>&nbsp;i.e. assign binary numbers to the states according to total number states. Also decide the memory element (flip-flops) for the circuit. A -&gt; 0 B -&gt; 1&nbsp;<strong>4.</strong>&nbsp;Replace the assignments in the state table to obtain Transition table:<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/synchronous_3.png" alt="" width="419" height="128" /></figure>&nbsp;<br /><strong>5.</strong>&nbsp;Separate the output table from the transition table.<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/synchronous_4.png" alt="" width="392" height="120" /></figure></p>
-        <p>z = x<sub>1</sub>x&rsquo;<sub>2</sub>y+x&rsquo;<sub>1</sub>x<sub>2</sub>y&rsquo;+x<sub>1</sub>x<sub>2</sub>y+x<sub>1</sub>x&rsquo;<sub>2</sub>y&rsquo;</p>
-        <p><strong>6.</strong>&nbsp;Excitation table for the flip-flop is obtained from the transition table using the output of flip-flop.&nbsp;<strong>Excitation table for D flip-flop:</strong><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/synchronous_5.png" alt="" width="338" height="118" /></figure></p>
-
-        <div class="gm-formula"><p>D = x<sub>1</sub>&nbsp;x<sub>2</sub>&nbsp;+x<sub>1</sub>&nbsp;y+x<sub>2</sub>&nbsp;y</p></div>
-        <p><strong>7.</strong>&nbsp;Draw the circuit diagram using gates and flip-flops.<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/synchronous_6.png" alt="" /></figure></p>
-        </div>
-        
-<div class="article-title">
-    <h1>Asynchronous Sequential Circuits</h1>
-    </div>
-
-    <div class="text">
-    <p>Asynchronous sequential circuits, also known as self-timed or ripple-clock circuits, are digital circuits that do not use a clock signal to determine the timing of their operations. Instead, the state of the circuit changes in response to changes in the inputs.</p>
-    <ol>
-    <li>In an asynchronous sequential circuit, each flip-flop has a different set of inputs and outputs, and the state of the circuit is determined by the outputs of the flip-flops. The state transition function, which is a Boolean function that describes the behavior of the circuit, determines the next state of the circuit based on the current inputs and the previous state stored in the flip-flops.</li>
-    <li>Asynchronous sequential circuits are used in digital systems to implement state machines, which are digital circuits that change their output based on the current state and the inputs. They are commonly used in applications that require low power consumption or where a clock signal is not available or practical to use.</li>
-    <li>In summary, asynchronous sequential circuits are digital circuits that do not use a clock signal to determine the timing of their operations. They are used in digital systems to implement state machines and are commonly used in applications that require low power consumption or where a clock signal is not available or practical to use.</li>
-    </ol>
-    <p><strong>Sequential</strong>&nbsp;circuits are those which use&nbsp;<strong>previous and current input</strong>&nbsp;variables by storing their information and placing them back into the circuit on the next clock (activation) cycle.&nbsp;</p>
-    <p>There are two types of input to the combinational logic.&nbsp;<strong>External inputs</strong>&nbsp;which come from outside the circuit design are not controlled by the circuit&nbsp;<strong>Internal inputs</strong>&nbsp;are functions of a previous output state.&nbsp;</p>
-    <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
-    <p>Asynchronous sequential circuits&nbsp;<strong>do not use clock signals</strong>&nbsp;as synchronous circuits do. Instead, the circuit is driven by the pulses of the inputs which means the state of the circuit changes when the inputs change. Also, they don&rsquo;t use clock pulses. The change of internal state occurs when there is a change in the input variable. Their memory elements are either un-clocked flip-flops or time-delay elements. They are similar to combinational circuits with feedback.&nbsp;</p>
-    <p><strong>Advantages &ndash;</strong>&nbsp;</p>
-    <ul>
-    <li>No clock signal, hence no waiting for a clock pulse to begin processing inputs, therefore fast. Their speed is faster and theoretically limited only by propagation delays of the logic gates.</li>
-    <li>Robust handling. Higher performance function units, which provide average-case completion rather than worst-case completion.&nbsp;<strong>Lower power consumption</strong>&nbsp;because no transistor transitions when it is not performing useful computation. The absence of clock drivers reduces power consumption. Less severe electromagnetic interference (EMI).</li>
-    <li>More tolerant to process variations and external voltage fluctuations. Achieve high performance while gracefully handling variable input and output rates and mismatched pipeline stage delays. Freedom from difficulties of distributing a high-fan-out, timing-sensitive clock signal. Better modularity.</li>
-    <li><strong>Less assumptions</strong>&nbsp;about the manufacturing process. Circuit speed adapts to changing temperature and voltage conditions. Immunity to transistor-to-transistor variability in the manufacturing process, which is one of the most serious problems faced by the semiconductor industry</li>
-    <li>Lower power consumption: Asynchronous sequential circuits do not require a clock signal, which reduces power consumption compared to synchronous sequential circuits.</li>
-    <li>More robust: Asynchronous sequential circuits are less sensitive to timing errors, such as clock skew and jitter, which can cause errors in the operation of synchronous sequential circuits.</li>
-    <li>Simpler design: Asynchronous sequential circuits do not require the synchronization logic that is required in synchronous sequential circuits, making their design simpler.</li>
-    <li>More flexible: Asynchronous sequential circuits can be designed to change their state in response to changes in the inputs, which makes them more flexible and adaptable to changing conditions.<br />&nbsp;</li>
-    </ul>
-    <p><strong>Disadvantages &ndash;</strong>&nbsp;</p>
-    <ul>
-    <li>Some asynchronous circuits may require extra power for certain operations.</li>
-    <li>More&nbsp;<strong>difficult to design</strong>&nbsp;and subject to problems like sensitivity to the relative arrival times of inputs at gates. If transitions on two inputs arrive at almost the same time, the circuit can go into the wrong state depending on slight differences in the propagation delays of the gates which are known as&nbsp;<strong>race condition</strong>.</li>
-    <li>The number of circuit elements (transistors) maybe double that of synchronous circuits. Fewer people are trained in this style compared to synchronous design. Difficult to test and debug. Their&nbsp;<strong>output</strong>&nbsp;is&nbsp;<strong>uncertain</strong>.</li>
-    <li>The performance of asynchronous circuits may be reduced in architectures that have a complex data path. Lack of dedicated, asynchronous design-focused commercial EDA tools.</li>
-    <li>Unpredictable behavior: The lack of a clock signal makes the behavior of asynchronous sequential circuits unpredictable, which can make them harder to design and debug.</li>
-    <li>Timing constraints: The timing constraints in asynchronous sequential circuits are more complex and difficult to specify compared to synchronous sequential circuits.</li>
-    <li>Complex design: The design of asynchronous sequential circuits can be complex, especially for large systems with many state transitions.</li>
-    <li>Limited use: Asynchronous sequential circuits are not suitable for real-time control applications, where a clock signal is required to ensure predictable behavior.</li>
-    </ul>
-    </div>
+<body>
+<h1>Synchronous Sequential Circuits</h1>
+<p>All flip-flops share one clock, so the whole circuit moves between states at a single instant.</p>
+<ol><li>Draw the state diagram and state table.</li><li>Assign binary codes to states.</li><li>Choose a flip-flop type and use its excitation table to find the input equations.</li><li>Minimise those equations with K-maps.</li></ol>
+<div class="gm-table"><table><thead><tr><th>Flip-flop</th><th>Excitation for Q → Q⁺</th></tr></thead><tbody><tr><td>D</td><td>D = Q⁺</td></tr><tr><td>T</td><td>T = Q ⊕ Q⁺</td></tr><tr><td>JK</td><td>J and K, one may be don't-care</td></tr></tbody></table></div>
+<div class="gm-callout gm-key" data-label="Key point"><p>The JK excitation table has a don't-care in every row, which is why JK-based designs usually minimise to fewer gates than D-based ones.</p></div>
+<div class="gm-callout gm-note" data-label="Note"><p>The maximum clock frequency is set by the longest path: flip-flop propagation delay plus combinational delay plus setup time.</p></div>
 </body>
 </html>

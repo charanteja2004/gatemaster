@@ -1,122 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-    /* Style the heading */
-    body {
-            font-family: Arial, sans-serif;
-
-            margin: 20px;
-            background-color:#fff1dc  ;
-        }
-    .gray{
-        background-color: #e0e0e0;
-        border-radius: 10px;
-        color: rgba(0, 0, 0, .9);
-        font-family: Consolas, monospace;
-        margin-bottom: 10px;
-        padding:5px
-    }
-  </style>
-
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fibonacci Series</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-<body data-gm-enriched="1">
-    
+<body>
 <h1>Fibonacci Series</h1>
-<div class="text">
-<p dir="ltr">Ever wondered about the cool math behind the&nbsp;<strong>Fibonacci series</strong>? This simple pattern has a remarkable presence in nature, from the arrangement of leaves on plants to the spirals of seashells. We&rsquo;re diving into this&nbsp;<strong>Fibonacci Series</strong>&nbsp;sequence. It&rsquo;s not just math, it&rsquo;s in art, nature, and more! Let&rsquo;s discover the secrets of the&nbsp;<strong>Fibonacci series&nbsp;</strong>together.</p>
-<h2><u><span class="GFGEditorTheme__textUnderline">What is the Fibonacci Series</span></u>?</h2>
-<p dir="ltr">The&nbsp;Fibonacci series&nbsp;is the sequence where each number is the sum of the previous two numbers of the sequence. The first two numbers of the Fibonacci series are 0 and 1 and are used to generate the Fibonacci series.</p>
-<div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230828183030/FIBONACCI-SERIES.png" alt="FIBONACCI-SERIES" width="512" height="256" /><figcaption>FIBONACCI-SERIES</figcaption></figure>
-<p class="wp-caption-text">Fibonacci Series</p>
-</div>
-<h2><u><span class="GFGEditorTheme__textUnderline">How to Find the Nth term of Fibonacci Series</span></u>?</h2>
-<p dir="ltr">In mathematical terms, the number at the&nbsp;<strong>n</strong><strong><sup>th</sup></strong>&nbsp;position can be represented by:</p>
-<blockquote>
-<div class="gm-formula"><p dir="ltr"><strong>Fn = Fn-1 + Fn-2</strong></p></div>
-<div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
-</blockquote>
-<p dir="ltr">where,&nbsp;<strong>F</strong><strong><sub>0</sub></strong><strong>&nbsp;= 0 and F</strong><strong><sub>1</sub></strong><strong>&nbsp;= 1.</strong></p>
-<p dir="ltr">For example, Fibonacci series upto 10 terms is: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34</p>
-<h2><u><span class="GFGEditorTheme__textUnderline">Program to print first N term of Fibonacci Series</span></u>:</h2>
-<h3>1.&nbsp;<u><span class="GFGEditorTheme__textUnderline">Print Fibonacci series using&nbsp;</span></u><u><span class="GFGEditorTheme__textUnderline">Recursion</span></u><u><span class="GFGEditorTheme__textUnderline">:</span></u></h3>
-<blockquote>
-<p dir="ltr">In this method, we will use a function that prints the first two terms, and the rest of the terms are then handled by the other function that makes use of a recursive technique to print the next terms of the sequence.</p>
-</blockquote>
-<div class="responsive-tabs-wrapper">
-<div class="responsive-tabs responsive-tabs--enabled">
-
-<div id="tablist1-panel1" class="tabcontent responsive-tabs__panel responsive-tabs__panel--active" role="tabpanel" aria-hidden="false" aria-labelledby="tablist1-tab1">
-    <div class="gray">-
-        <div>// C++ Program to print the Fibonacci</div>
-        <div>// series using recursion</div>
-        <div>#include &lt;iostream&gt;</div>
-        <div>using namespace std;</div>
-        <div>&nbsp;</div>
-        <div>// First two values</div>
-        <div>int prev1 = 1;</div>
-        <div>int prev2 = 0;</div>
-        <div>&nbsp;</div>
-        <div>// Recursive function to print the</div>
-        <div>// fibonacci series</div>
-        <div>void fib(int n)</div>
-        <div>{</div>
-        <div>if (n &lt; 3) {</div>
-        <div>return;</div>
-        <div>}</div>
-        <div>int fn = prev1 + prev2;</div>
-        <div>prev2 = prev1;</div>
-        <div>prev1 = fn;</div>
-        <div>cout &lt;&lt; fn &lt;&lt; " ";</div>
-        <div>return fib(n - 1);</div>
-        <div>}</div>
-        <div>&nbsp;</div>
-        <div>// Function that handles the first two terms</div>
-        <div>// and calls the recursive function</div>
-        <div>void printFib(int n)</div>
-        <div>{</div>
-        <div>&nbsp;</div>
-        <div>// When the number of terms is less than 1</div>
-        <div>if (n &lt; 1) {</div>
-        <div>cout &lt;&lt; "Invalid number of terms\n";</div>
-        <div>}</div>
-        <div>&nbsp;</div>
-        <div>// When the number of terms is 1</div>
-        <div>else if (n == 1) {</div>
-        <div>cout &lt;&lt; 0;</div>
-        <div>}</div>
-        <div>&nbsp;</div>
-        <div>// When the number of terms is 2</div>
-        <div>else if (n == 2) {</div>
-        <div>cout &lt;&lt; "0 1";</div>
-        <div>}</div>
-        <div>&nbsp;</div>
-        <div>// Number of terms greater than 2</div>
-        <div>else {</div>
-        <div>cout &lt;&lt; "0 1 ";</div>
-        <div>fib(n);</div>
-        <div>}</div>
-        <div>return;</div>
-        <div>}</div>
-        <div>&nbsp;</div>
-        <div>// Driver code</div>
-        <div>int main()</div>
-        <div>{</div>
-        <div>int n = 9;</div>
-        <div>&nbsp;</div>
-        <div>// Function call</div>
-        <div>printFib(n);</div>
-        <div>return 0;</div>
-        <div>}</div>
-        
-    </div>
-</div>
-</div>
-</div>
-</div>
+<div class="gm-formula"><p>F(0) = 0, F(1) = 1, F(n) = F(n−1) + F(n−2)</p></div>
+<div class="gm-table"><table><thead><tr><th>Method</th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Naive recursion</td><td>Θ(φⁿ) ≈ Θ(1.618ⁿ)</td><td>O(n)</td></tr><tr><td>Memoised</td><td>Θ(n)</td><td>O(n)</td></tr><tr><td>Iterative, two variables</td><td>Θ(n)</td><td>O(1)</td></tr><tr><td>Matrix power</td><td>Θ(log n)</td><td>O(1)</td></tr></tbody></table></div>
+<div class="gm-callout gm-key" data-label="Key point"><p>The naive version recomputes F(n−2) twice, F(n−3) three times and so on — the call tree has about F(n) leaves. It is the standard motivation for dynamic programming.</p></div>
 </body>
 </html>

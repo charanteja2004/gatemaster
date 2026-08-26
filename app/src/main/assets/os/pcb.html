@@ -1,63 +1,15 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 <head>
-    <title>Applications of various Automata</title>
-    <style>
-    /* Style the heading */
-    body {
-            font-family: Arial, sans-serif;
-
-            margin: 20px;
-            background-color:#fff1dc  ;
-        }
-    .gray{
-        background-color: #e0e0e0;
-        border-radius: 10px;
-        color: rgba(0, 0, 0, .9);
-        font-family: Consolas, monospace;
-        margin-bottom: 10px;
-        padding:5px
-    }
-  </style>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Process Control Block</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-<body data-gm-enriched="1">
-<h3><b>Process Control Block</b></h3>
-<h2><b>What is Process Control Block(PCB)?</b></h2>
-<p>So, The Process Control block(PCB) is also known as a Task Control Block. it represents a process in the Operating System. A process control block (PCB) is a data structure used by a computer to store all information about a process. It is also called the descriptive process. When a process is created (started or installed), the operating system creates a process manager.</p><br>
-<p>Each process is represented in the operating system by a process control block
-    (PCB)—also called a task control block.. It contains
-    many pieces of information associated with a specific process, including these:<br>
-
-    <figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20200430105252/Untitled-Diagram-617.png" width="350" height="300"></figure><br>
-    <li><b> Process state.</b> The state may be new, ready, running, waiting, halted, and
-        so on.</li>
-    <li><b>Program counter.</b> The counter indicates the address of the next instruction
-        to be executed for this process.</li>
-    <li><b>CPU registers.</b> The registers vary in number and type, depending on
-        the computer architecture. They include accumulators, index registers,
-        stack pointers, and general-purpose registers, plus any condition-code
-        information. Along with the program counter, this state information must
-        be saved when an interrupt occurs, to allow the process to be continued
-        correctly afterward.</li>
-    <li><b>CPU-scheduling information.</b> This information includes a process priority,
-        pointers to scheduling queues, and any other scheduling parameters.</li>
-    <li><b>Memory-management information.</b> This information may include such
-        items as the value of the base and limit registers and the page tables, or the
-        segment tables, depending on the memory system used by the operating
-        system.</li><br>
-    <figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/process-table.jpg" width="350" height="300"></figure><br><br>
-
-
-    <figure class="gm-figure gm-remote"><img src="https://scanftree.com/operating-system/cpu-switch-from-process-to-process.JPG" width="350" height="300"></figure><br><br>
-
-    <li><b>Accounting information.</b> This information includes the amount of CPU
-        and real time used, time limits, account numbers, job or process numbers,
-        and so on.</li>
-    <li><b>I/O status information.</b> This information includes the list of I/O devices
-        allocated to the process, a list of open files, and so on.</li></p>
+<body>
+<h1>Process Control Block</h1>
+<div class="gm-callout gm-definition" data-label="Definition"><p>The PCB is the kernel's record of a process: everything needed to stop it and later resume it as if nothing happened.</p></div>
+<ul><li>Process id and state.</li><li>Program counter and CPU registers.</li><li>Scheduling information: priority, queue pointers.</li><li>Memory management data: page table or segment table pointers.</li><li>Accounting and I/O status, including open files.</li></ul>
+<div class="gm-callout gm-key" data-label="Key point"><p>A context switch is precisely the act of saving the CPU state into one PCB and loading it from another. The size of that state is what makes switching costly.</p></div>
 </body>
 </html>

@@ -1,101 +1,16 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 <head>
-    <title>Applications of various Automata</title>
-    <style>
-    /* Style the heading */
-    body {
-            font-family: Arial, sans-serif;
-
-            margin: 20px;
-            background-color:#fff1dc  ;
-        }
-    .gray{
-        background-color: #e0e0e0;
-        border-radius: 10px;
-        color: rgba(0, 0, 0, .9);
-        font-family: Consolas, monospace;
-        margin-bottom: 10px;
-        padding:5px
-    }
-  </style>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Context Switching</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-<body data-gm-enriched="1">
-<h2><b> Context Switch</b></h2>
-<p>An interrupts cause the operating system to change
-    a CPU from its current task and to run a kernel routine. Such operations happen
-    frequently on general-purpose systems. When an interrupt occurs, the system
-    needs to save the current context of the process running on the CPU so that
-    it can restore that context when its processing is done, essentially suspending
-    the process and then resuming it. The context is represented in the PCB of the
-    process. It includes the value of the CPU registers, the process state, and memory-management information. Generically, we perform a state
-    save of the current state of the CPU, be it in kernel or user mode, and then a
-    state restore to resume operations.<br><br>
-    Switching the CPU to another process requires performing a state save of
-    the current process and a state restore of a different process. This task is known
-    as a context switch. When a context switch occurs, the kernel saves the context
-    of the old process in its PCB and loads the saved context of the new process
-    scheduled to run. Context-switch time is pure overhead, because the system
-    does no useful work while switching. Switching speed varies from machine to
-    machine, depending on the memory speed, the number of registers that must
-    be copied, and the existence of special instructions (such as a single instruction
-    to load or store all registers). A typical speed is a few milliseconds.<br><br>
-    Context-switch times are highly dependent on hardware support. For
-    instance, some processors (such as the Sun UltraSPARC) provide multiple sets
-    of registers. A context switch here simply requires changing the pointer to the
-    current register set. Of course, if there are more active processes than there are
-    register sets, the system resorts to copying register data to and from memory,
-    as before. Also, the more complex the operating system, the greater the amount
-    of work that must be done during a context switch. As we will see in Chapter
-    8, advanced memory-management techniques may require that extra data be
-    switched with each context. For instance, the address space of the current
-    process must be preserved as the space of the next task is prepared for use.
-    How the address space is preserved, and what amount of work is needed
-    to preserve it, depend on the memory-management method of the operating
-    system.<br><br>
-
-
-<h2><b>Need of Context Switching</b></h2>
-Context switching enables all processes to share a single CPU to finish their execution and store the status of the system’s tasks. The execution of the process begins at the same place where there is a conflict when the process is reloaded into the system.<br><br>
-
-The operating system’s need for context switching is explained by the reasons listed below.<br>
-
-<li>One process does not directly switch to another within the system. Context switching makes it easier for the operating system to use the CPU’s resources to carry out its tasks and store its context while switching between multiple processes.</li>
-<li>Context switching enables all processes to share a single CPU to finish their execution and store the status of the system’s tasks. The execution of the process begins at the same place where there is a conflict when the process is reloaded into the system.</li>
-<li>Context switching only allows a single CPU to handle multiple processes requests parallelly without the need for any additional processors.</li>
-<h2><b>Context Switching Triggers</b></h2>
-The three different categories of context-switching triggers are as follows.<br>
-
-<li>Interrupts</li>
-<li>Multitasking</li>
-<li>User/Kernel switch</li>
-<b>Interrupts:</b> When a CPU requests that data be read from a disc, if any interruptions occur, context switching automatically switches to a component of the hardware that can handle the interruptions more quickly.<br>
-
-<b>Multitasking:</b> The ability for a process to be switched from the CPU so that another process can run is known as context switching. When a process is switched, the previous state is retained so that the process can continue running at the same spot in the system.<br>
-
-<b>Kernel/User Switch:</b> This trigger is used when the OS needed to switch between the user mode and kernel mode.<br>
-
-When switching between user mode and kernel/user mode is necessary, operating systems use the kernel/user switch.<br>
-
-<h2><b>What is Process Control Block(PCB)?</b></h2>
-<p>So, The Process Control block(PCB) is also known as a Task Control Block. it represents a process in the Operating System. A process control block (PCB) is a data structure used by a computer to store all information about a process. It is also called the descriptive process. When a process is created (started or installed), the operating system creates a process manager.</p><br>
-<h2><b>State Diagram of Context Switching</b></h2>
-<br>
-<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20210615183559/swapping1.png" width="400" height="350"></figure><br>
-
-<h2><b>Working Process Context Switching</b></h2>
-So the context switching of two processes, the priority-based process occurs in the ready queue of the process control block. These are the following steps.
-
-<li>The state of the current process must be saved for rescheduling.</li>
-<li>The process state contains records, credentials, and operating system-specific information stored on the PCB or switch.</li>
-<li>The PCB can be stored in a single layer in kernel memory or in a custom OS file.</li>
-<li>A handle has been added to the PCB to have the system ready to run.</li>
-<li>The operating system aborts the execution of the current process and selects a process from the waiting list by tuning its PCB.</li>
-<li>Load the PCB’s program counter and continue execution in the selected process.</li>
-<li>Process/thread values ​​can affect which processes are selected from the queue, this can be important.</li><br><br>
+<body>
+<h1>Context Switching</h1>
+<div class="gm-callout gm-definition" data-label="Definition"><p>A context switch saves the state of the running process into its PCB and restores another process's state so it can resume.</p></div>
+<p>It is pure overhead: no user work happens during the switch. That cost sets the floor on how small a scheduling quantum can usefully be.</p>
+<div class="gm-callout gm-key" data-label="Key point"><p>Switching between threads of the same process is cheaper than between processes, because the address space and page tables do not change and the TLB need not be flushed.</p></div>
+<div class="gm-callout gm-warn" data-label="Careful"><p>A very small round-robin quantum gives excellent response time and terrible throughput, as the CPU spends its time switching rather than computing.</p></div>
 </body>
 </html>

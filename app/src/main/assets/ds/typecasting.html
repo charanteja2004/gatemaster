@@ -1,125 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title><style>
-    /* Style the heading */
-    body {
-            font-family: Arial, sans-serif;
-
-            margin: 20px;
-            background-color:#fff1dc  ;
-        }
-    .gray{
-        background-color: #e0e0e0;
-        border-radius: 10px;
-        color: rgba(0, 0, 0, .9);
-        font-family: Consolas, monospace;
-        margin-bottom: 10px;
-        padding:5px
-    }
-  </style>
-
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Type Casting in C</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-<body data-gm-enriched="1">
-    <div class="responsive-tabs-wrapper">
-        <div class="responsive-tabs responsive-tabs--enabled">
-        <div class="main_wrapper">
-        <div>
-        <div class="article-title">
-        <h1>C- TypeCasting</h1>
-        </div>
-        </div>
-        </div>
-        <div class="text">
-        <p>Typecasting in C is the process of converting one data type to another data type by the programmer using the casting operator during program design.&nbsp;</p>
-        <p>In typecasting, the destination data type may be smaller than the source data type when converting the data type to another data type, that&rsquo;s why it is also called narrowing conversion.</p>
-        <p class="gm-lead gm-syntax-lead"><strong>Syntax:</strong></p>
-        <div class="gray">int x;
-        float y;
-        y = (float) x;</div>
-        <h2>Types of Type Casting in C</h2>
-        <p>In C there are two major types to perform type casting.</p>
-        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
-        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220920132835/Typecasting.png" alt="Type Casting in C" width="473" height="183" /><figcaption>Type Casting in C</figcaption></figure>
-        
-        </div>
-        <ul>
-        <li>Implicit type casting</li>
-        <li>Explicit type casting</li>
-        </ul>
-        <h3>1. Implicit Type Casting</h3>
-        <p>Implicit type casting in C is used to convert the data type of any variable without using the actual value that the variable holds. It performs the conversions without altering any of the values which are stored in the data variable. Conversion of lower data type to higher data type will occur automatically.</p>
-        <p>Integer promotion will be performed first by the compiler. After that, it will determine whether two of the operands have different data types. Using the hierarchy below, the conversion would appear as follows if they both have varied data types:</p>
-        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220920140427/hierarchyofarithmeticconversion.png" alt="Implicit Type Casting" width="374" height="387" /><figcaption>Implicit Type Casting</figcaption></figure>
-        
-        </div>
-        <h3>2. Explicit Type Casting</h3>
-        <p>There are some cases where if the&nbsp;<a href="data types.html">datatype</a>&nbsp;remains unchanged, it can give incorrect output. In such cases, typecasting can help to get the correct output and reduce the time of compilation. In explicit type casting, we have to force the conversion between data types. This type of casting is explicitly defined within the program.</p>
-        <p><strong>Program 1:&nbsp;</strong></p>
-        <div class="responsive-tabs-wrapper">
-        <div class="responsive-tabs responsive-tabs--enabled">
-        <div id="tablist1-panel1" class="tabcontent responsive-tabs__panel responsive-tabs__panel--active" role="tabpanel" aria-hidden="false" aria-labelledby="tablist1-tab1">
-        <div class="code-block">
-        <div class="code-gutter">
-        <div class="editor-buttons-container">
-        <div class="editor-buttons">&nbsp;</div>
-        </div>
-        </div>
-        <div class="code-container">
-        <div id="highlighter_706751" class="syntaxhighlighter nogutter  ">
-        <div class="gm-table"><table border="0" cellspacing="0" cellpadding="0">
-        <tbody>
-        <tr>
-        <td class="code">
-        <div class="container">
-<div class="gm-code" data-lang="code"><div class="gm-code-body"><div class="line number1 index0 alt2"><code class="comments">// C program to illustrate the use of </code></div>
-        <div class="line number2 index1 alt1"><code class="comments">// typecasting </code></div>
-        <div class="line number3 index2 alt2"><code class="preprocessor">#include &lt;stdio.h&gt; </code></div>
-        <div class="line number4 index3 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
-        <div class="line number5 index4 alt2"><code class="comments">// Driver Code </code></div>
-        <div class="line number6 index5 alt1"><code class="color1 bold">int</code> <code class="plain">main() </code></div>
-        <div class="line number7 index6 alt2"><code class="plain">{ </code></div>
-        <div class="line number8 index7 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Given a &amp; b </code></div>
-        <div class="line number9 index8 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">a = 15, b = 2; </code></div>
-        <div class="line number10 index9 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">float</code> <code class="functions bold">div</code><code class="plain">; </code></div>
-        <div class="line number11 index10 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
-        <div class="line number12 index11 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Division of a and b </code></div>
-        <div class="line number13 index12 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">div</code> <code class="plain">= a / b; </code></div>
-        <div class="line number14 index13 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
-        <div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"The result is %f\n"</code><code class="plain">, </code><code class="functions bold">div</code><code class="plain">); </code></div>
-        <div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
-        <div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
-        <div class="line number18 index17 alt1"><code class="plain">}</code></div></div></div>
-
-        </div>
-        </td>
-        </tr>
-        </tbody>
-        </table></div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        <div class="code-output"><strong>Output:</strong>
-        <div class="gray">The result is 7.000000</div>
-        
-<p>In C programming, there are 5 built-in type casting functions.&nbsp;</p>
-<ul>
-<li><strong>atof():</strong>&nbsp;This function is used for converting the string data type into a float data type.</li>
-<li><strong>atbol():</strong>&nbsp;This function is used for converting the string data type into a long data type.</li>
-<li><strong>Itoa():</strong>&nbsp;This function is used to convert the long data type into the string data type.</li>
-<li><strong>itoba()</strong>: This function is used to convert an int data type into a string data type.</li>
-<li><strong>atoi()</strong>: This data type is used to convert the string data type into an int data type.&nbsp;</li>
-</ul>
-
-        </div>
-        </div>
-        </div>
-        </div>
+<body>
+<h1>Type Casting in C</h1>
+<p>Implicit conversion happens along the usual arithmetic conversions; explicit conversion is written with a cast.</p>
+<div class="gm-formula"><p>char → short → int → unsigned → long → float → double</p></div>
+<div class="gm-callout gm-example" data-label="Example"><p>5 / 2 is 2 because both operands are int. 5 / 2.0 is 2.5 because the int is promoted to double before the division.</p></div>
+<div class="gm-callout gm-warn" data-label="Careful"><p>Mixing signed and unsigned promotes the signed operand to unsigned. −1 &lt; 1u is false, because −1 becomes a very large unsigned value.</p></div>
 </body>
 </html>

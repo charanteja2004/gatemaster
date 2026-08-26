@@ -1,102 +1,16 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 <head>
-    <title>Applications of various Automata</title>
-    <style>
-    /* Style the heading */
-    body {
-            font-family: Arial, sans-serif;
-
-            margin: 20px;
-            background-color:#fff1dc  ;
-        }
-    .gray{
-        background-color: #e0e0e0;
-        border-radius: 10px;
-        color: rgba(0, 0, 0, .9);
-        font-family: Consolas, monospace;
-        margin-bottom: 10px;
-        padding:5px
-    }
-  </style>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where Each Automaton Is Used</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-<body data-gm-enriched="1">
-    <h2>Applications of various Automata</h2>
-    <p>Automata is a machine that can accept the Strings of a Language L over an input alphabet Σ . So far we are familiar with the Types of Automata. Now, let us discuss the expressive power of Automata and further understand its Applications.<br>
-
-    Expressive Power of various Automata: The Expressive Power of any machine can be determined from the class or set of Languages accepted by that particular type of Machine. Here is the increasing sequence of expressive power of machines :<br>
-
-    <span class="gray">FA < DPDA < PDA < LBA < TM</span>
-
-    As we can observe that FA is less powerful than any other machine. It is important to note that DFA and NFA are of same power because every NFA can be converted into DFA and every DFA can be converted into NFA . The Turing Machine i.e. TM is more powerful than any other machine</p>
-    (i) Finite Automata (FA) equivalence:
-    <div class="gray">
-        Finite Automata<br>
-        ≡ PDA with finite Stack<br>
-        ≡ TM with finite tape<br>
-        ≡ TM with unidirectional tape<br>
-        ≡ TM with read only tape<br>
-        </div>
-    (ii) Pushdown Automata (PDA) equivalence:
-    <div class="gray">
-        PDA ≡ Finite Automata with Stack
-    </div>
-    (iii) Turing Machine (TM) equivalence:
-    <div class="gray">
-        Turing Machine<br>
-        ≡ PDA with additional Stack<br>
-        ≡ FA with 2 Stacks<br>
-    </div>
-    The Applications of these Automata are given as follows:<br>
-    <b>1. Finite Automata (FA) –</b>
-    <ul>
-        <li>For the designing of lexical analysis of a compiler.</li>
-        <li>For recognizing the pattern using regular expressions.</li>
-        <li>For the designing of the combination and sequential circuits using Mealy and Moore Machines.</li>
-        <li>Used in text editors.</li>
-        <li>For the implementation of spell checkers.</li>
-        <li>Can be used as a model for learning and decision making.</li>
-        <li>Can parse text to extract information and structure data.</li>
-    </ul>
-    <b>2. Push Down Automata (PDA) –</b>
-    <ul>
-        <li>For designing the parsing phase of a compiler (Syntax Analysis).</li>
-        <li>For implementation of stack applications.</li>
-        <li>For evaluating the arithmetic expressions.</li>
-        <li>For solving the Tower of Hanoi Problem.</li>
-        <li>Can be used in software engineering, to verify and validate the correctness of software models.</li>
-        <li>Can be used in network protocols, to parse and validate incoming messages and to enforce specific message formats.</li>
-        <li>Can be used in cryptography, to implement secure algorithms for encryption and decryption.</li>
-        <li>Used in string matching and pattern recognition, to search for specific patterns in input strings.</li>
-        <li>Used in XML parsing.</li>
-        <li>Used in natural language processing applications like parsing sentences, recognizing parts of speech, and generating syntax trees.</li>
-        <li>Used in automatic theorem proving and formal verification.</li>
-        <li>Used in formal verification of hardware and software systems.</li>
-    </ul>
-    <b>3. Linear Bounded Automata (LBA) –</b>
-    <ul>
-        <li>For implementation of genetic programming.</li>
-        <li>   For constructing syntactic parse trees for semantic analysis of the compiler.</li>
-        <li>   For recognition of context-sensitive languages.</li>
-        <li>  Used in game theory to model and analyze interactions between agents.</li>
-    </ul>
-    <b>4. Turing Machine (TM) –</b>
-        <ul>
-            <li>For solving any recursively enumerable problem.</li>
-            <li>For understanding complexity theory.</li>
-            <li>For implementation of neural networks.</li>
-            <li>For implementation of Robotics Applications.</li>
-            <li>For implementation of artificial intelligence.</li>
-            <li>Used as a theoretical model to analyze the time and space complexity of algorithms.</li>
-            <li>Used in computational biology to model and analyze biological systems.</li>
-            <li>Used in artificial intelligence as a model for learning and decision making.</li>
-            <li>Used to study the relationship between classical computing and quantum computing.</li>
-            <li>Used in digital circuit design to model and verify the behavior of digital circuits.</li>
-            <li>Used in human-computer interaction to model and analyze the interaction between humans and computers.</li>
-        </ul>
+<body>
+<h1>Where Each Automaton Is Used</h1>
+<p>The hierarchy is not only theory: each level names the tool a compiler or a system actually reaches for.</p>
+<div class="gm-table"><table><thead><tr><th>Model</th><th>Used for</th></tr></thead><tbody><tr><td>Finite automaton</td><td>Lexical analysis, text search, protocol and UI state machines</td></tr><tr><td>Pushdown automaton</td><td>Parsing nested syntax: brackets, blocks, expressions</td></tr><tr><td>Linear bounded automaton</td><td>Context-sensitive checks such as declare-before-use</td></tr><tr><td>Turing machine</td><td>The reference model for what is computable at all</td></tr></tbody></table></div>
+<div class="gm-callout gm-key" data-label="Key point"><p>The split between lexing and parsing in every compiler is exactly the split between regular and context-free. Tokens have no nesting, so a finite automaton suffices and runs in linear time with no stack.</p></div>
+<div class="gm-callout gm-note" data-label="Note"><p>Regular expressions in a text editor are the same machine in another notation. Some library flavours add backreferences, which take them beyond regular and can cost exponential time.</p></div>
 </body>
 </html>

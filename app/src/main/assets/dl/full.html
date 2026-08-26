@@ -1,99 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title><style>
-    /* Style the heading */
-    body {
-            font-family: Arial, sans-serif;
-
-            margin: 20px;
-            background-color:#fff1dc  ;
-        }
-    .gray{
-        background-color: #e0e0e0;
-        border-radius: 10px;
-        color: rgba(0, 0, 0, .9);
-        font-family: Consolas, monospace;
-        margin-bottom: 10px;
-        padding:5px
-    }
-  </style>
-
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Full Adder</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-<body data-gm-enriched="1">
-    <div class="article-title">
-        <div class="main_wrapper">
-        <div>
-        <div class="article-title">
-        <h1>Full Adder in Digital Logic</h1>
-        </div>
-        </div>
-        </div>
-        <div class="text">
-        <p dir="ltr">Full Adder is the adder that adds three inputs and produces two outputs. The first two inputs are A and B and the third input is an input carry as C-IN. The output carry is designated as C-OUT and the normal output is designated as S which is SUM. The C-OUT is also known as the majority 1&rsquo;s detector, whose output goes high when more than one input is high. A full adder logic is designed in such a manner that can take eight inputs together to create a byte-wide adder and cascade the carry bit from one adder to another. we use a full adder because when a carry-in bit is available, another 1-bit adder must be used since a 1-bit half-adder does not take a carry-in bit. A 1-bit full adder adds three operands and generates 2-bit results.</p>
-        <p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/1-77.png" width="inherit" height="inherit" /></figure></p>
-        <p dir="ltr"><strong>Full Adder Truth Table:</strong><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/2-41.jpg" width="400" height="175" /></figure>&nbsp;</p>
-        <p dir="ltr"><strong>Logical Expression for SUM:</strong>&nbsp;= A&rsquo; B&rsquo; C-IN + A&rsquo; B C-IN&rsquo; + A B&rsquo; C-IN&rsquo; + A B C-IN = C-IN (A&rsquo; B&rsquo; + A B) + C-IN&rsquo; (A&rsquo; B + A B&rsquo;) = C-IN XOR (A XOR B) = (1,2,4,7)&nbsp;</p>
-        <p dir="ltr"><strong>Logical Expression for C-OUT:</strong>&nbsp;= A&rsquo; B C-IN + A B&rsquo; C-IN + A B C-IN&rsquo; + A B C-IN = A B + B C-IN + A C-IN = (3,5,6,7)&nbsp;</p>
-        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
-        <p dir="ltr"><strong>Another form in which C-OUT can be implemented:</strong>&nbsp;= A B + A C-IN + B C-IN (A + A&rsquo;) = A B C-IN + A B + A C-IN + A&rsquo; B C-IN = A B (1 +C-IN) + A C-IN + A&rsquo; B C-IN = A B + A C-IN + A&rsquo; B C-IN = A B + A C-IN (B + B&rsquo;) + A&rsquo; B C-IN = A B C-IN + A B + A B&rsquo; C-IN + A&rsquo; B C-IN = A B (C-IN + 1) + A B&rsquo; C-IN + A&rsquo; B C-IN = A B + A B&rsquo; C-IN + A&rsquo; B C-IN = AB + C-IN (A&rsquo; B + A B&rsquo;)&nbsp;</p>
-        <p dir="ltr">Therefore COUT = AB + C-IN (A EX &ndash; OR B)&nbsp;</p>
-        <p dir="ltr"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/3-57.png" width="497" height="238" /></figure></p>
-        <p dir="ltr">Full Adder logic circuit.</p>
-        
-        <h3>Implementation of Full Adder using Half Adders:</h3>
-        <p dir="ltr">2 Half Adders and an OR gate is required to implement a Full Adder.&nbsp;</p>
-        <p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/4-34.png" width="449" height="173" /></figure>&nbsp;</p>
-        <p dir="ltr">With this logic circuit, two bits can be added together, taking a carry from the next lower order of magnitude, and sending a carry to the next higher order of magnitude.&nbsp;</p>
-        <h3>Implementation of Full Adder using NAND gates:<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/nand-2.png" width="516" height="194" /></figure><strong>Implementation of Full Adder using NOR gates:</strong>&nbsp;</h3>
-        <p dir="ltr">Total 9 NOR gates are required to implement a Full Adder.<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/nor-1.png" width="514" height="188" /></figure>In the logic expression above, one would recognize the logic expressions of a 1-bit half-adder. A 1-bit full adder can be accomplished by cascading two 1-bit half adders.</p>
-        </div>
-        </div>
-        
-<div class="article-title">
-    <h1>Full Subtractor in Digital Logic</h1>
-    </div>
-    </div>
-    </div>
-    <div class="text">
-    <p>A full subtractor is a&nbsp;<strong>combinational circuit</strong>&nbsp;that performs subtraction of two bits, one is minuend and other is subtrahend, taking into account borrow of the previous adjacent lower minuend bit. This circuit<strong>&nbsp;has three inputs and two outputs</strong>. The three inputs A, B and Bin, denote the minuend, subtrahend, and previous borrow, respectively. The two outputs, D and Bout represent the difference and output borrow, respectively. Although subtraction is usually achieved by adding the complement of subtrahend to the minuend, it is of academic interest to work out the Truth Table and logic realisation of a full subtractor; x is the minuend; y is the subtrahend; z is the input borrow; D is the difference; and B denotes the output borrow. The corresponding maps for logic functions for outputs of the full subtractor namely difference and borrow.</p>
-    <p>&nbsp;<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/full-subtractor.jpg" alt="" /></figure>&nbsp;</p>
-    <p><strong>Here&rsquo;s how a full subtractor works:</strong></p>
-    <p>1. First, we need to convert the binary numbers to their two&rsquo;s complement form if we are subtracting a negative number.<br />2. Next, we compare the bits in the minuend and subtrahend at the corresponding positions. If the subtrahend bit is greater than or equal to the minuend bit, we need to borrow from the previous stage (if there is one) to subtract the subtrahend bit from th<strong>e&nbsp;</strong>minuend bit.<br />3. We subtract the two bits along with the borrow-in to get the difference bit. If the minuend bit is greater than or equal to the subtrahend bit along with the borrow-in, then the difference bit is 1, otherwise it is 0.<br />4. We then calculate the borrow-out bit by comparing the minuend and subtrahend bits. If the minuend bit is less than the subtrahend bit along with the borrow-in, then we need to borrow for the next stage, so the borrow-out bit is 1, otherwise it is 0.</p>
-    <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
-    <p>The circuit diagram for a full subtractor usually consists of two half-subtractors and an additional OR gate to calculate the borrow-out bit. The inputs and outputs of the full subtractor are as follows:</p>
-    <p class="gm-lead gm-syntax-lead"><strong>Inputs</strong>:</p>
-    <p>A: minuend bit<br />B: subtrahend bit<br />Bin: borrow-in bit from the previous stage<br /><strong>Outputs</strong>:</p>
-    <p>Diff: difference bit<br />Bout: borrow-out bit for the next stage</p>
-    <p><strong>Truth Table &ndash;</strong></p>
-    <p>&nbsp;<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/full-subtractor-truth-table.jpg" alt="" /></figure>&nbsp;</p>
-    <p>From above table we can draw the K-Map as shown for &ldquo;difference&rdquo; and &ldquo;borrow&rdquo;.<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/full-subtractor-Kmap.jpg" alt="" /></figure><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/full-subtractor-Kmap2.jpg" alt="" /></figure>&nbsp;</p>
-    <p><strong>Logical expression for difference &ndash;</strong></p>
-    <div class="gray">D   = A&rsquo;B&rsquo;Bin + A&rsquo;BBin&rsquo; + AB&rsquo;Bin&rsquo; + ABBin
-        = Bin(A&rsquo;B&rsquo; + AB)  + Bin&rsquo;(AB&rsquo; + A&rsquo;B)
-        = Bin( A XNOR B) + Bin&rsquo;(A XOR B)
-        = Bin (A XOR B)&rsquo;  +  Bin&rsquo;(A XOR B)
-        = Bin XOR (A XOR B)
-        = (A XOR B) XOR Bin</div>
-    <p><strong>Logical expression for borrow &ndash;</strong></p>
-    <div class="gray">Bout = A&rsquo;B&rsquo;Bin + A&rsquo;BBin&rsquo; + A&rsquo;BBin + ABBin      
-         = A&rsquo;B&rsquo;Bin +A&rsquo;BBin&rsquo; + A&rsquo;BBin + A&rsquo;BBin + A&rsquo;BBin + ABBin
-         = A&rsquo;Bin(B + B&rsquo;) + A&rsquo;B(Bin + Bin&rsquo;) + BBin(A + A&rsquo;)
-         = A&rsquo;Bin + A&rsquo;B + BBin
-    
-    OR
-    
-    Bout = A&rsquo;B&rsquo;Bin + A&rsquo;BBin&rsquo; + A&rsquo;BBin + ABBin      
-         = Bin(AB + A&rsquo;B&rsquo;) + A&rsquo;B(Bin + Bin&rsquo;)
-         = Bin( A XNOR B) + A&rsquo;B
-         = Bin (A XOR B)&rsquo; + A&rsquo;B</div>
-    <p><strong>Logic Circuit for Full Subtractor &ndash;</strong></p>
-    <p>&nbsp;<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/full-subtractor-logic-gate.jpg" alt="" /></figure>&nbsp;</p>
-    <p><strong>Implementation</strong>&nbsp;of Full Subtractor using Half Subtractors &ndash; 2 Half Subtractors and an OR gate is required to implement a Full Subtractor.</p>
-    <p>&nbsp;<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/full-subtractor-implementa.jpg" alt="" /></figure></p>
-    
+<body>
+<h1>Full Adder</h1>
+<div class="gm-formula"><p>Sum = A ⊕ B ⊕ Cin</p></div>
+<div class="gm-formula"><p>Cout = AB + Cin(A ⊕ B)</p></div>
+<p>Adds three bits — two operands and a carry-in — producing a sum and a carry-out.</p>
+<div class="gm-callout gm-key" data-label="Key point"><p>The carry expression splits into generate (AB) and propagate (A ⊕ B). Naming those two terms is what makes carry look-ahead possible.</p></div>
+<div class="gm-callout gm-note" data-label="Note"><p>n full adders chained by their carries form a ripple carry adder, which is correct but slow: the last sum bit waits for a carry that has crossed every stage.</p></div>
 </body>
 </html>

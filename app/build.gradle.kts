@@ -1,3 +1,4 @@
+import org.gradle.api.tasks.PathSensitivity
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -60,6 +61,14 @@ android {
     }
 
     testOptions {
+        // ContentIndexTest reads the assets straight off disk rather than out
+        // of the APK, so Gradle cannot see them as an input and would report
+        // the tests up to date after the content changed. Declaring the folder
+        // is what makes "content drift breaks the build" actually true.
+        unitTests.all {
+            it.inputs.dir(layout.projectDirectory.dir("src/main/assets"))
+                .withPathSensitivity(PathSensitivity.RELATIVE)
+        }
         unitTests {
             // android.util.Log is a stub in unit tests and throws unless this
             // is set. The repositories log on the failure paths, which is

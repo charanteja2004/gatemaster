@@ -1,88 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Doubly Linked List</title>
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Doubly Linked List</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-<body data-gm-enriched="1">
+<body>
 <h1>Doubly Linked List</h1>
-
-<p>A doubly linked list gives every node a pointer to its <strong>predecessor</strong> as well as its
-successor. That one extra pointer is what allows deletion of a node in O(1) when you already hold a
-pointer to it &mdash; something a <a href="sll.html">singly linked list</a> cannot do.</p>
-
-<pre>struct Node {
-    int          data;
-    struct Node *prev;
-    struct Node *next;
-};</pre>
-
-<p>The head's <code>prev</code> and the tail's <code>next</code> are both <code>NULL</code>. In a
-<em>circular</em> doubly linked list they point at the tail and the head respectively.</p>
-
-<h2>Insertion</h2>
-<p>Inserting node <code>q</code> after node <code>p</code> needs four pointer writes, and the order
-matters &mdash; write to <code>p-&gt;next</code> last or you lose the rest of the list:</p>
-
-<pre>q-&gt;next = p-&gt;next;
-q-&gt;prev = p;
-if (p-&gt;next != NULL)
-    p-&gt;next-&gt;prev = q;
-p-&gt;next = q;</pre>
-
-<h2>Deletion</h2>
-<p>To delete node <code>p</code>, given only <code>p</code>:</p>
-
-<pre>if (p-&gt;prev != NULL) p-&gt;prev-&gt;next = p-&gt;next;
-else                 head           = p-&gt;next;
-
-if (p-&gt;next != NULL) p-&gt;next-&gt;prev = p-&gt;prev;
-
-free(p);</pre>
-
-<blockquote>
-  <p>This is the whole point of the structure. In a singly linked list you must first walk from the
-  head to find the predecessor, making deletion O(n).</p>
-</blockquote>
-
-<h2>Cost of each operation</h2>
-<div class="gm-table"><table>
-  <tr><th>Operation</th><th>Singly linked</th><th>Doubly linked</th></tr>
-  <tr><td>Insert at head</td><td>O(1)</td><td>O(1)</td></tr>
-  <tr><td>Insert at tail (tail pointer kept)</td><td>O(1)</td><td>O(1)</td></tr>
-  <tr><td>Delete a given node</td><td>O(n)</td><td><strong>O(1)</strong></td></tr>
-  <tr><td>Delete from tail (tail pointer kept)</td><td>O(n)</td><td><strong>O(1)</strong></td></tr>
-  <tr><td>Search by value</td><td>O(n)</td><td>O(n)</td></tr>
-  <tr><td>Traverse backwards</td><td>Not possible</td><td>O(n)</td></tr>
-  <tr><td>Extra memory per node</td><td>1 pointer</td><td>2 pointers</td></tr>
-</table></div>
-
-<h2>Trade-offs</h2>
-<ul>
-  <li><strong>Cost:</strong> one extra pointer per node. On a 64-bit machine that is 8 more bytes
-      per element, which matters when the payload is small.</li>
-  <li><strong>Maintenance:</strong> every insertion and deletion has to keep two pointers
-      consistent, so there are more ways to write a bug.</li>
-  <li><strong>Benefit:</strong> O(1) deletion given a node, and backward traversal.</li>
-</ul>
-
-<h2>Where it is used</h2>
-<ul>
-  <li><strong>LRU cache</strong> &mdash; a hash map to nodes plus a doubly linked list gives O(1)
-      lookup and O(1) move-to-front, which is the standard interview and GATE construction</li>
-  <li>Browser history, undo/redo stacks, music playlists</li>
-  <li>Deques, and the free lists inside many memory allocators</li>
-  <li>The scheduler queues and buffer caches of most operating systems</li>
-</ul>
-
-<h2>XOR linked list</h2>
-<p>A memory-saving variant stores <code>prev XOR next</code> in a single field, recovering both
-pointers by XOR-ing with the address you arrived from. It halves the pointer overhead but breaks
-garbage collection and pointer-safety analysis, so it is a curiosity rather than a practical
-structure &mdash; worth knowing only because it appears in questions.</p>
-
-<p>See also <a href="ll.html">Linked Lists</a> and <a href="sll.html">Singly Linked List</a>.</p>
+<p>Each node carries pointers both ways, so traversal and deletion work from either direction.</p>
+<div class="gm-table"><table><thead><tr><th></th><th>Singly</th><th>Doubly</th></tr></thead><tbody><tr><td>Pointers per node</td><td>1</td><td>2</td></tr><tr><td>Delete a known node</td><td>O(n) — needs predecessor</td><td>O(1)</td></tr><tr><td>Backward traversal</td><td>no</td><td>yes</td></tr></tbody></table></div>
+<div class="gm-callout gm-key" data-label="Key point"><p>The cost is one extra pointer per node and two pointer updates per operation instead of one. LRU caches use a doubly linked list precisely for the O(1) removal.</p></div>
 </body>
 </html>

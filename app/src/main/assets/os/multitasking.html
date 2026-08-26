@@ -1,91 +1,15 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 <head>
-    <title>Applications of various Automata</title>
-    <style>
-    /* Style the heading */
-    body {
-            font-family: Arial, sans-serif;
-
-            margin: 20px;
-            background-color:#fff1dc  ;
-        }
-    .gray{
-        background-color: #e0e0e0;
-        border-radius: 10px;
-        color: rgba(0, 0, 0, .9);
-        font-family: Consolas, monospace;
-        margin-bottom: 10px;
-        padding:5px
-    }
-  </style>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multitasking and Multiprogramming</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-<body data-gm-enriched="1">
-<h2><b>Multitasking Operating System</b></h2>
-<p>Single tasking Operating system was used before the multitasking operating system. single tasking operating system allows user to perform a single task at a time. So tasks like printing a document or downloading an image from the internet can be done one after another, leading to wastage of resources which makes the operating system relatively slow and gives a bad user experience. So keeping this in mind Multi-Tasking Operating Systems were introduced that allow users to run multiple programs simultaneously thus making the computer far more efficient and user friendly. A user can download the image from the internet as well as listen to music or can surf the internet while downloading the image all at the same time.<br><br>
-
-<h3><b>What is Multi-Tasking Operating System?</h3></b>
-Multi tasking operating systems allow multiple users to perform multiple tasks at the same time. The allocation of system resources such as input/output devices, CPU and memory among processes can be easily managed by multi-tasking operating system. There are various states through which a processor passes to complete particular or multiple executions. Multitasking is the ability of an OS to execute more than one task simultaneously on a CPU machine as shown in the below diagram.</p><br>
-
-<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230627104501/Multitasking-Operating-System.jpg" width="350" height="300"></figure><br><br>
-<h2><b>Features of Multi-Tasking Operating System</b></h2>
-<li><b>Time Sharing –</b> In this, many processes are allocated with resources of computer in respective time slots, processors time is shared with multiple processes.</li>
-<li><b>Context Switching –</b> context switching is a process of saving the context of one process and loading the context of another process. In simpler terms it is loading another process when the prior process has finished its execution.</li>
-<li><b>Multi-Threading –</b> Multithreading is the ability of a program or an operating system to enable more than one user at a time without requiring multiple copies of the program running on the computer.</li>
-<li><b>Hardware Interrupt –</b> When a process or an event requires urgent attention, hardware or software will signal with an interrupt. It informs the processor that a high-priority task has arisen that necessitates interrupting the running process.</li>
-
-<h2><b>Types of Multi-Tasking Operating System</b></h2>
-Two types of Multi-Tasking Operating System available as shown below:<br>
-
-<li><b>Pre-emptive Multi-Tasking Operating System:</b> In pre-emptive multitasking, the operating system can initiate a context switching from the running process to another process. In other words, the operating system allows stopping the execution of the currently running process and allocating the CPU to some other process. The OS uses some criteria to decide for how long a process should execute before allowing another process to use the operating system. The mechanism of taking control of the operating system from one process and giving it to another process is called pre-emption. Here are some Examples UNIX, Windows 95, Windows NT operating system.</li>
-<li><b>Non-pre-emptive Multi-Tasking Operating System:</b> Non-pre-emptive Multi-Tasking Operating System is also known as cooperative multitasking, this operating system never initiates context switching from the running process to another process. A context switch occurs only when the processes voluntarily yield control periodically or when idle or logically blocked to allow multiple applications to execute simultaneously. Also, in this multitasking, all the processes cooperate for the scheduling scheme to work. Example – Macintosh OS version 8.0-9.2.2 and Windows 3.x operating system.</li><br><br>
-<h2><b>Pros of Multi-Tasking Operating System</b></h2>
-<li>Multi-Tasking Operating System is capable of executing multiple application simultaneously without slowing down the system.</li>
-<li>Each process is assigned specific length of time(i.e time sharing), hence a process does not have to wait for longer duration to utilize CPU. Starvation of process is not found in these operating system.</li>
-<li>A multitasking OS can effectively manage I/O devices, RAM, hard disks, CPUs, and other computer resources.</li>
-<li>In Multi-Tasking Operating a user is capable of executing multiple programs at the same time, such as games, browser, MS Word, and other services.</li>
-<li>Memory management is well-defined in multitasking operating systems. Because of this, the operating system does not grant any permission for unwanted apps to waste RAM.</li>
-<h2><b>Cons of Multi-Tasking Operating System</b></h2>
-<li>As a single processor is executing multiple processes at the same time then there will be load on CPU and CPU may gets heat up.</li>
-<li>Computer system will be lagging if the processor is slow in Multi-Tasking Operating System while executing multiple programs simultaneously.</li>
-<li>Main memory(RAM) have to store multiple processes during multi tasking so there can be memory boundation if the main memory is overloaded.</li><br><br>
-
-<h2><b>MULTITASKING IN MOBILE SYSTEMS</b></h2>
-<p>Because of the constraints imposed on mobile devices, early versions of iOS
-    did not provide user-application multitasking; only one application runs in
-    the foreground and all other user applications are suspended. Operatingsystem tasks were multitasked because they were written by Apple and well
-    behaved. However, beginning with iOS 4, Apple now provides a limited
-    form of multitasking for user applications, thus allowing a single foreground
-    application to run concurrently with multiple background applications. (On
-    a mobile device, the foreground application is the application currently
-    open and appearing on the display. The background application remains
-    in memory, but does not occupy the display screen.) The iOS 4 programming
-    API provides support for multitasking, thus allowing a process to run in
-    the background without being suspended. However, it is limited and only
-    available for a limited number of application types, including applications<br>
-    • running a single, finite-length task (such as completing a download of
-    content from a network);<br>
-    • receiving notifications of an event occurring (such as a new email
-    message);<br>
-    • with long-running background tasks (such as an audio player.)<br>
-    Apple probably limits multitasking due to battery life and memory use
-    concerns. The CPU certainly has the features to support multitasking, but
-    Apple chooses to not take advantage of some of them in order to better
-    manage resource use.<br>
-    Android does not place such constraints on the types of applications that
-    can run in the background. If an application requires processing while in
-    the background, the application must use a service, a separate application
-    component that runs on behalf of the background process. Consider a
-    streaming audio application: if the application moves to the background, the
-    service continues to send audio files to the audio device driver on behalf of
-    the background application. In fact, the service will continue to run even if the
-    background application is suspended. Services do not have a user interface
-    and have a small memory footprint, thus providing an efficient technique for
-    multitasking in a mobile environment.<br><br>
-</p>
+<body>
+<h1>Multitasking and Multiprogramming</h1>
+<div class="gm-table"><table><thead><tr><th>Term</th><th>Means</th></tr></thead><tbody><tr><td>Multiprogramming</td><td>several jobs in memory, CPU switches when one blocks</td></tr><tr><td>Multitasking</td><td>multiprogramming plus timer-driven preemption</td></tr><tr><td>Multiprocessing</td><td>more than one physical CPU</td></tr><tr><td>Multithreading</td><td>several threads inside one process</td></tr></tbody></table></div>
+<div class="gm-callout gm-key" data-label="Key point"><p>Multiprogramming raises CPU utilisation; multitasking raises responsiveness. They answer different questions and are often confused in exam options.</p></div>
+<div class="gm-formula"><p>CPU utilisation ≈ 1 − pⁿ  for n processes each spending fraction p of their time waiting on I/O</p></div>
 </body>
 </html>

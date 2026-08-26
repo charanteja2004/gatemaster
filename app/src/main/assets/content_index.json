@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-08-24T14:14:53Z",
+  "generatedAt": "2026-08-26T17:57:38Z",
   "branches": [
     {
       "id": "cs",
@@ -36,7 +36,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -63,7 +63,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -72,7 +72,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -81,7 +81,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -90,7 +90,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -99,7 +99,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -108,7 +108,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -117,7 +117,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -135,7 +135,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -162,7 +162,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -171,7 +171,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -207,7 +207,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -225,7 +225,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -243,7 +243,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -384,7 +384,7 @@
             },
             {
               "id": "ds_typecasting",
-              "title": "C- TypeCasting",
+              "title": "Type Casting in C",
               "order": 3,
               "content": {
                 "type": "html",
@@ -447,7 +447,7 @@
             },
             {
               "id": "ds_array",
-              "title": "Array",
+              "title": "Arrays",
               "order": 10,
               "content": {
                 "type": "html",
@@ -474,7 +474,7 @@
             },
             {
               "id": "ds_ll",
-              "title": "Linked List Notes for GATE Exam [2024]",
+              "title": "Linked Lists",
               "order": 13,
               "content": {
                 "type": "html",
@@ -501,7 +501,7 @@
             },
             {
               "id": "ds_infixtopostfix",
-              "title": "Convert Infix expression to Postfix expression",
+              "title": "Infix to Postfix Conversion",
               "order": 16,
               "content": {
                 "type": "html",
@@ -528,7 +528,7 @@
             },
             {
               "id": "ds_priorityqueue",
-              "title": "What is Priority Queue",
+              "title": "Priority Queue",
               "order": 19,
               "content": {
                 "type": "html",
@@ -564,7 +564,7 @@
             },
             {
               "id": "ds_bfs",
-              "title": "Breadth-First Search (BFS)",
+              "title": "Breadth-First Search",
               "order": 23,
               "content": {
                 "type": "html",
@@ -573,7 +573,7 @@
             },
             {
               "id": "ds_dfs",
-              "title": "Depth-First Search (DFS)",
+              "title": "Depth-First Search",
               "order": 24,
               "content": {
                 "type": "html",
@@ -662,7 +662,7 @@
           "topics": [
             {
               "id": "os_os_basic1",
-              "title": "Operating System",
+              "title": "What an Operating System Does",
               "order": 0,
               "content": {
                 "type": "html",
@@ -680,7 +680,7 @@
             },
             {
               "id": "os_structure",
-              "title": "Operating-System Structure",
+              "title": "Operating System Structure",
               "order": 2,
               "content": {
                 "type": "html",
@@ -689,7 +689,7 @@
             },
             {
               "id": "os_systemcalls",
-              "title": "Introduction to System Call",
+              "title": "System Calls",
               "order": 3,
               "content": {
                 "type": "html",
@@ -707,7 +707,7 @@
             },
             {
               "id": "os_pcb",
-              "title": "What is Process Control Block(PCB)?",
+              "title": "Process Control Block",
               "order": 5,
               "content": {
                 "type": "html",
@@ -716,7 +716,7 @@
             },
             {
               "id": "os_processstate",
-              "title": "Process State",
+              "title": "Process States",
               "order": 6,
               "content": {
                 "type": "html",
@@ -725,7 +725,7 @@
             },
             {
               "id": "os_contactswitching",
-              "title": "Context Switch",
+              "title": "Context Switching",
               "order": 7,
               "content": {
                 "type": "html",
@@ -734,7 +734,7 @@
             },
             {
               "id": "os_multitasking",
-              "title": "Multitasking Operating System",
+              "title": "Multitasking and Multiprogramming",
               "order": 8,
               "content": {
                 "type": "html",
@@ -743,7 +743,7 @@
             },
             {
               "id": "os_cs",
-              "title": "Race Condition",
+              "title": "Race Conditions and the Critical Section",
               "order": 9,
               "content": {
                 "type": "html",
@@ -752,7 +752,7 @@
             },
             {
               "id": "os_preemptive",
-              "title": "Preemptive Scheduling",
+              "title": "Preemptive and Non-preemptive Scheduling",
               "order": 10,
               "content": {
                 "type": "html",
@@ -761,7 +761,7 @@
             },
             {
               "id": "os_fcfs",
-              "title": "First Come First Serve – CPU Scheduling",
+              "title": "First Come First Serve Scheduling",
               "order": 11,
               "content": {
                 "type": "html",
@@ -779,7 +779,7 @@
             },
             {
               "id": "os_ljf",
-              "title": "Longest Job First (LJF) CPU Scheduling Algorithm",
+              "title": "Longest Job First",
               "order": 13,
               "content": {
                 "type": "html",
@@ -797,7 +797,7 @@
             },
             {
               "id": "os_rr",
-              "title": "Round Robin Scheduling with different arrival times",
+              "title": "Round Robin Scheduling",
               "order": 15,
               "content": {
                 "type": "html",
@@ -815,7 +815,7 @@
             },
             {
               "id": "os_hrrn",
-              "title": "Highest Response Ratio Next (HRRN) CPU Scheduling",
+              "title": "Highest Response Ratio Next",
               "order": 17,
               "content": {
                 "type": "html",
@@ -824,7 +824,7 @@
             },
             {
               "id": "os_mq",
-              "title": "Multilevel Queue (MLQ) CPU Scheduling",
+              "title": "Multilevel Queue Scheduling",
               "order": 18,
               "content": {
                 "type": "html",
@@ -833,7 +833,7 @@
             },
             {
               "id": "os_ipc",
-              "title": "Inter Process Communication (IPC)",
+              "title": "Inter-Process Communication",
               "order": 19,
               "content": {
                 "type": "html",
@@ -851,7 +851,7 @@
             },
             {
               "id": "os_pcproblem",
-              "title": "Producer Consumer Problem using Semaphores",
+              "title": "Producer-Consumer Problem",
               "order": 21,
               "content": {
                 "type": "html",
@@ -860,7 +860,7 @@
             },
             {
               "id": "os_rwproblem",
-              "title": "The Readers –Writers Problem",
+              "title": "The Readers-Writers Problem",
               "order": 22,
               "content": {
                 "type": "html",
@@ -869,7 +869,7 @@
             },
             {
               "id": "os_dpproblem",
-              "title": "The Dining-Philosophers Problem",
+              "title": "The Dining Philosophers Problem",
               "order": 23,
               "content": {
                 "type": "html",
@@ -887,7 +887,7 @@
             },
             {
               "id": "os_resource",
-              "title": "Resource-Allocation Graph",
+              "title": "Resource Allocation Graph",
               "order": 25,
               "content": {
                 "type": "html",
@@ -905,7 +905,7 @@
             },
             {
               "id": "os_bankers",
-              "title": "Banker’s Algorithm",
+              "title": "Banker's Algorithm",
               "order": 27,
               "content": {
                 "type": "html",
@@ -914,7 +914,7 @@
             },
             {
               "id": "os_methods",
-              "title": "Methods for Handling Deadlocks",
+              "title": "Handling Deadlocks",
               "order": 28,
               "content": {
                 "type": "html",
@@ -959,7 +959,7 @@
             },
             {
               "id": "os_pagereplacement",
-              "title": "Page Replacement Algorithms in Operating Systems",
+              "title": "Page Replacement Algorithms",
               "order": 33,
               "content": {
                 "type": "html",
@@ -977,7 +977,7 @@
             },
             {
               "id": "os_swappingtrashing",
-              "title": "Swapping and Thrashing",
+              "title": "Thrashing",
               "order": 35,
               "content": {
                 "type": "html",
@@ -1051,7 +1051,7 @@
             },
             {
               "id": "algo_binearysearch",
-              "title": "Binary Search Algorithm",
+              "title": "Binary Search",
               "order": 3,
               "content": {
                 "type": "html",
@@ -1105,7 +1105,7 @@
             },
             {
               "id": "algo_quicksort",
-              "title": "Time and Space Complexity Analysis of Quick Sort",
+              "title": "Quick Sort",
               "order": 9,
               "content": {
                 "type": "html",
@@ -1132,7 +1132,7 @@
             },
             {
               "id": "algo_radixsort",
-              "title": "Radix Sort Algorithm",
+              "title": "Radix Sort",
               "order": 12,
               "content": {
                 "type": "html",
@@ -1150,7 +1150,7 @@
             },
             {
               "id": "algo_divide_conq",
-              "title": "Divide & Conquer",
+              "title": "Divide and Conquer",
               "order": 14,
               "content": {
                 "type": "html",
@@ -1159,7 +1159,7 @@
             },
             {
               "id": "algo_greedyalg",
-              "title": "Greedy Algorithm",
+              "title": "Greedy Algorithms",
               "order": 15,
               "content": {
                 "type": "html",
@@ -1177,7 +1177,7 @@
             },
             {
               "id": "algo_spanningtree",
-              "title": "Introduction to Spanning Trees",
+              "title": "Spanning Trees",
               "order": 17,
               "content": {
                 "type": "html",
@@ -1186,7 +1186,7 @@
             },
             {
               "id": "algo_prims",
-              "title": "Prim’s Algorithm for Minimum Spanning Tree",
+              "title": "Prim's Algorithm",
               "order": 18,
               "content": {
                 "type": "html",
@@ -1195,7 +1195,7 @@
             },
             {
               "id": "algo_krushkalminspanningtree",
-              "title": "Kruskal’s Minimum Spanning Tree (MST) Algorithm",
+              "title": "Kruskal's Algorithm",
               "order": 19,
               "content": {
                 "type": "html",
@@ -1204,7 +1204,7 @@
             },
             {
               "id": "algo_dijasthras",
-              "title": "Dijkstra’s Algorithm",
+              "title": "Dijkstra's Algorithm",
               "order": 20,
               "content": {
                 "type": "html",
@@ -1213,7 +1213,7 @@
             },
             {
               "id": "algo_bellmenford",
-              "title": "Bellman–Ford Algorithm",
+              "title": "Bellman-Ford Algorithm",
               "order": 21,
               "content": {
                 "type": "html",
@@ -1222,7 +1222,7 @@
             },
             {
               "id": "algo_floydwarshall",
-              "title": "Floyd Warshall Algorithm",
+              "title": "Floyd-Warshall Algorithm",
               "order": 22,
               "content": {
                 "type": "html",
@@ -1240,7 +1240,7 @@
             },
             {
               "id": "algo_matrixchain",
-              "title": "Matrix Chain Multiplication using Dynamic Methods",
+              "title": "Matrix Chain Multiplication",
               "order": 24,
               "content": {
                 "type": "html",
@@ -1258,7 +1258,7 @@
             },
             {
               "id": "algo_knapsack01",
-              "title": "0/1 KnapSack",
+              "title": "0/1 Knapsack",
               "order": 26,
               "content": {
                 "type": "html",
@@ -1267,7 +1267,7 @@
             },
             {
               "id": "algo_subsetproblemsum",
-              "title": "Subset Sum Problem using Recursion",
+              "title": "Subset Sum Problem",
               "order": 27,
               "content": {
                 "type": "html",
@@ -1375,7 +1375,7 @@
             },
             {
               "id": "dbms_independence",
-              "title": "Data Abstraction and Data Independence",
+              "title": "Data Abstraction and Independence",
               "order": 1,
               "content": {
                 "type": "html",
@@ -1402,7 +1402,7 @@
             },
             {
               "id": "dbms_introtoer",
-              "title": "Introduction to ER Model",
+              "title": "The ER Model",
               "order": 4,
               "content": {
                 "type": "html",
@@ -1411,7 +1411,7 @@
             },
             {
               "id": "dbms_recursiverelationship",
-              "title": "Recursive Relationships in ER diagrams",
+              "title": "Recursive Relationships",
               "order": 5,
               "content": {
                 "type": "html",
@@ -1420,7 +1420,7 @@
             },
             {
               "id": "dbms_miner",
-              "title": "Minimization of ER Diagrams",
+              "title": "Minimisation of ER Diagrams",
               "order": 6,
               "content": {
                 "type": "html",
@@ -1429,7 +1429,7 @@
             },
             {
               "id": "dbms_keys",
-              "title": "Types of Keys in Relational Model",
+              "title": "Keys in the Relational Model",
               "order": 7,
               "content": {
                 "type": "html",
@@ -1438,7 +1438,7 @@
             },
             {
               "id": "dbms_relationalalgebra",
-              "title": "Introduction to Relational Algebra",
+              "title": "Relational Algebra",
               "order": 8,
               "content": {
                 "type": "html",
@@ -1447,7 +1447,7 @@
             },
             {
               "id": "dbms_sql",
-              "title": "Structured Query Language (SQL)",
+              "title": "Structured Query Language",
               "order": 9,
               "content": {
                 "type": "html",
@@ -1456,7 +1456,7 @@
             },
             {
               "id": "dbms_typesofsql",
-              "title": "SQL Commands",
+              "title": "SQL Command Categories",
               "order": 10,
               "content": {
                 "type": "html",
@@ -1465,7 +1465,7 @@
             },
             {
               "id": "dbms_where",
-              "title": "SQL",
+              "title": "Filtering Rows in SQL",
               "order": 11,
               "content": {
                 "type": "html",
@@ -1474,7 +1474,7 @@
             },
             {
               "id": "dbms_joins",
-              "title": "SQL Joins (Inner, Left, Right and Full Join)",
+              "title": "SQL Joins",
               "order": 12,
               "content": {
                 "type": "html",
@@ -1501,7 +1501,7 @@
             },
             {
               "id": "dbms_normalization",
-              "title": "Introduction to Database Normalization",
+              "title": "Normalisation",
               "order": 15,
               "content": {
                 "type": "html",
@@ -1519,7 +1519,7 @@
             },
             {
               "id": "dbms_anomali",
-              "title": "Anomalies in Relational Model",
+              "title": "Anomalies in the Relational Model",
               "order": 17,
               "content": {
                 "type": "html",
@@ -1537,7 +1537,7 @@
             },
             {
               "id": "dbms_recoverytech",
-              "title": "Database Recovery Techniques",
+              "title": "Database Recovery",
               "order": 19,
               "content": {
                 "type": "html",
@@ -1546,7 +1546,7 @@
             },
             {
               "id": "dbms_deadlockindbms",
-              "title": "Deadlock",
+              "title": "Deadlock in Databases",
               "order": 20,
               "content": {
                 "type": "html",
@@ -1564,7 +1564,7 @@
             },
             {
               "id": "dbms_file",
-              "title": "File Organization",
+              "title": "File Organisation and Indexing",
               "order": 22,
               "content": {
                 "type": "html",
@@ -1699,7 +1699,7 @@
             },
             {
               "id": "cao_instructioncycle",
-              "title": "Different Instruction Cycles",
+              "title": "The Instruction Cycle",
               "order": 5,
               "content": {
                 "type": "html",
@@ -1708,7 +1708,7 @@
             },
             {
               "id": "cao_datamanupulation_pc",
-              "title": "Data transfer instructions",
+              "title": "Data Transfer Instructions",
               "order": 6,
               "content": {
                 "type": "html",
@@ -1717,7 +1717,7 @@
             },
             {
               "id": "cao_pcinstruction",
-              "title": "Program Control instructions",
+              "title": "Program Control Instructions",
               "order": 7,
               "content": {
                 "type": "html",
@@ -1726,7 +1726,7 @@
             },
             {
               "id": "cao_datapath",
-              "title": "What is Data Path?",
+              "title": "The Data Path",
               "order": 8,
               "content": {
                 "type": "html",
@@ -1735,7 +1735,7 @@
             },
             {
               "id": "cao_aludatapath",
-              "title": "Introduction to ALU and Data Path",
+              "title": "ALU and Data Path",
               "order": 9,
               "content": {
                 "type": "html",
@@ -1744,7 +1744,7 @@
             },
             {
               "id": "cao_hardwiredmicroprogrammed",
-              "title": "Hardwired v/s Micro-programmed Control Unit",
+              "title": "Hardwired and Micro-programmed Control",
               "order": 10,
               "content": {
                 "type": "html",
@@ -1762,7 +1762,7 @@
             },
             {
               "id": "cao_pipelining",
-              "title": "Pipelining (Execution, Stages and Throughput)",
+              "title": "Pipelining",
               "order": 12,
               "content": {
                 "type": "html",
@@ -1771,7 +1771,7 @@
             },
             {
               "id": "cao_arithmeticinstructionpipeline",
-              "title": "Arithmetic Pipeline and Instruction Pipeline",
+              "title": "Arithmetic and Instruction Pipelines",
               "order": 13,
               "content": {
                 "type": "html",
@@ -1780,7 +1780,7 @@
             },
             {
               "id": "cao_datahazaed",
-              "title": "Pipelining(Dependencies and Data Hazard)",
+              "title": "Dependencies and Data Hazards",
               "order": 14,
               "content": {
                 "type": "html",
@@ -1789,7 +1789,7 @@
             },
             {
               "id": "cao_memoryunit",
-              "title": "Introduction to memory and memory units",
+              "title": "Memory and the Hierarchy",
               "order": 15,
               "content": {
                 "type": "html",
@@ -1798,7 +1798,7 @@
             },
             {
               "id": "cao_memorymapping",
-              "title": "Memory Mapping",
+              "title": "Cache Mapping",
               "order": 16,
               "content": {
                 "type": "html",
@@ -1825,7 +1825,7 @@
             },
             {
               "id": "cao_ioprocessor",
-              "title": "Introduction to Input-Output Processor",
+              "title": "I/O Processors",
               "order": 19,
               "content": {
                 "type": "html",
@@ -1941,7 +1941,7 @@
             },
             {
               "id": "toc_grammer",
-              "title": "Relationship between grammar and language",
+              "title": "Grammars and the Languages They Generate",
               "order": 3,
               "content": {
                 "type": "html",
@@ -1950,7 +1950,7 @@
             },
             {
               "id": "toc_chomsky_hirarky",
-              "title": "Chomsky Hierarchy in Theory of Computation",
+              "title": "Chomsky Hierarchy",
               "order": 4,
               "content": {
                 "type": "html",
@@ -1959,7 +1959,7 @@
             },
             {
               "id": "toc_application_of_autometa",
-              "title": "Applications of various Automata",
+              "title": "Where Each Automaton Is Used",
               "order": 5,
               "content": {
                 "type": "html",
@@ -1968,7 +1968,7 @@
             },
             {
               "id": "toc_computable",
-              "title": "Computable and non-computable",
+              "title": "Computable and Non-computable Problems",
               "order": 6,
               "content": {
                 "type": "html",
@@ -2018,7 +2018,7 @@
           "topics": [
             {
               "id": "dl_numbersystem",
-              "title": "Number System and Base Conversions",
+              "title": "Number Systems and Base Conversion",
               "order": 0,
               "content": {
                 "type": "html",
@@ -2036,7 +2036,7 @@
             },
             {
               "id": "dl_greycode",
-              "title": "What is Gray Code?",
+              "title": "Gray Code",
               "order": 2,
               "content": {
                 "type": "html",
@@ -2045,7 +2045,7 @@
             },
             {
               "id": "dl_binarytogray",
-              "title": "Code Converters – Binary to/from Gray Code",
+              "title": "Code Converters: Binary and Gray",
               "order": 3,
               "content": {
                 "type": "html",
@@ -2054,7 +2054,7 @@
             },
             {
               "id": "dl_floatpoint",
-              "title": "Introduction to Floating Point Representation",
+              "title": "Floating Point Representation",
               "order": 4,
               "content": {
                 "type": "html",
@@ -2063,7 +2063,7 @@
             },
             {
               "id": "dl_boolean",
-              "title": "Properties of Boolean Algebra",
+              "title": "Boolean Algebra",
               "order": 5,
               "content": {
                 "type": "html",
@@ -2072,7 +2072,7 @@
             },
             {
               "id": "dl_rep_boolean",
-              "title": "Representation of Boolean Functions",
+              "title": "Representing Boolean Functions",
               "order": 6,
               "content": {
                 "type": "html",
@@ -2081,7 +2081,7 @@
             },
             {
               "id": "dl_min_boolean",
-              "title": "Minimization of Boolean Functions",
+              "title": "Minimising Boolean Functions",
               "order": 7,
               "content": {
                 "type": "html",
@@ -2090,7 +2090,7 @@
             },
             {
               "id": "dl_conical",
-              "title": "Canonical and Standard Form",
+              "title": "Canonical and Standard Forms",
               "order": 8,
               "content": {
                 "type": "html",
@@ -2099,7 +2099,7 @@
             },
             {
               "id": "dl_kmap",
-              "title": "Introduction to K-Map (Karnaugh Map)",
+              "title": "Karnaugh Maps",
               "order": 9,
               "content": {
                 "type": "html",
@@ -2117,7 +2117,7 @@
             },
             {
               "id": "dl_half",
-              "title": "Half Adder in Digital Logic",
+              "title": "Half Adder",
               "order": 11,
               "content": {
                 "type": "html",
@@ -2126,7 +2126,7 @@
             },
             {
               "id": "dl_full",
-              "title": "Full Adder in Digital Logic",
+              "title": "Full Adder",
               "order": 12,
               "content": {
                 "type": "html",
@@ -2144,7 +2144,7 @@
             },
             {
               "id": "dl_parallel",
-              "title": "Parallel Adder and Parallel Subtractor",
+              "title": "Parallel Adder and Subtractor",
               "order": 14,
               "content": {
                 "type": "html",
@@ -2153,7 +2153,7 @@
             },
             {
               "id": "dl_encode",
-              "title": "Encoders and Decoders in Digital Logic",
+              "title": "Encoders and Decoders",
               "order": 15,
               "content": {
                 "type": "html",
@@ -2162,7 +2162,7 @@
             },
             {
               "id": "dl_multiplex",
-              "title": "Multiplexers in Digital Logic",
+              "title": "Multiplexers",
               "order": 16,
               "content": {
                 "type": "html",
@@ -2171,7 +2171,7 @@
             },
             {
               "id": "dl_demux",
-              "title": "What is a demultiplexer ?",
+              "title": "Demultiplexers",
               "order": 17,
               "content": {
                 "type": "html",
@@ -2180,7 +2180,7 @@
             },
             {
               "id": "dl_introsequntial",
-              "title": "Introduction to Sequential Circuits",
+              "title": "Sequential Circuits",
               "order": 18,
               "content": {
                 "type": "html",
@@ -2189,7 +2189,7 @@
             },
             {
               "id": "dl_flipflop",
-              "title": "Flip-Flop types, their Conversion and Applications",
+              "title": "Flip-Flops",
               "order": 19,
               "content": {
                 "type": "html",
@@ -2198,7 +2198,7 @@
             },
             {
               "id": "dl_masterslave",
-              "title": "Master-Slave JK Flip Flop",
+              "title": "Master-Slave Flip-Flop",
               "order": 20,
               "content": {
                 "type": "html",
@@ -2207,7 +2207,7 @@
             },
             {
               "id": "dl_counters",
-              "title": "Counters in Digital Logic",
+              "title": "Counters",
               "order": 21,
               "content": {
                 "type": "html",
@@ -2216,7 +2216,7 @@
             },
             {
               "id": "dl_shiftregistors",
-              "title": "Shift Registers in Digital Logic",
+              "title": "Shift Registers",
               "order": 22,
               "content": {
                 "type": "html",
@@ -2225,7 +2225,7 @@
             },
             {
               "id": "dl_sync",
-              "title": "Synchronous Sequential Circuits in Digital Logic",
+              "title": "Synchronous Sequential Circuits",
               "order": 23,
               "content": {
                 "type": "html",
@@ -2313,7 +2313,7 @@
             },
             {
               "id": "cd_lexical",
-              "title": "Introduction to Lexical Analysis",
+              "title": "Lexical Analysis",
               "order": 2,
               "content": {
                 "type": "html",
@@ -2322,7 +2322,7 @@
             },
             {
               "id": "cd_syntax",
-              "title": "Introduction to Syntax Analysis",
+              "title": "Syntax Analysis",
               "order": 3,
               "content": {
                 "type": "html",
@@ -2340,7 +2340,7 @@
             },
             {
               "id": "cd_ambigious",
-              "title": "Ambiguous Grammar",
+              "title": "Ambiguous Grammars",
               "order": 5,
               "content": {
                 "type": "html",
@@ -2349,7 +2349,7 @@
             },
             {
               "id": "cd_topdown",
-              "title": "Top Down Parsers",
+              "title": "Top-Down Parsers",
               "order": 6,
               "content": {
                 "type": "html",
@@ -2385,7 +2385,7 @@
             },
             {
               "id": "cd_sematic",
-              "title": "Syntax Directed Translation",
+              "title": "Syntax-Directed Translation",
               "order": 10,
               "content": {
                 "type": "html",
@@ -2403,7 +2403,7 @@
             },
             {
               "id": "cd_symbolic_table",
-              "title": "Symbol Table in Compiler",
+              "title": "Symbol Table",
               "order": 12,
               "content": {
                 "type": "html",
@@ -2412,7 +2412,7 @@
             },
             {
               "id": "cd_error",
-              "title": "Error detection and Recovery in Compiler",
+              "title": "Error Detection and Recovery",
               "order": 13,
               "content": {
                 "type": "html",
@@ -2430,7 +2430,7 @@
             },
             {
               "id": "cd_threeaddress",
-              "title": "Three address code",
+              "title": "Three-Address Code",
               "order": 15,
               "content": {
                 "type": "html",
@@ -2439,7 +2439,7 @@
             },
             {
               "id": "cd_basicblock",
-              "title": "Basic Blocks",
+              "title": "Basic Blocks and Flow Graphs",
               "order": 16,
               "content": {
                 "type": "html",
@@ -2448,7 +2448,7 @@
             },
             {
               "id": "cd_codeoptimization",
-              "title": "Code Optimization",
+              "title": "Code Optimisation",
               "order": 17,
               "content": {
                 "type": "html",
@@ -2457,7 +2457,7 @@
             },
             {
               "id": "cd_loop",
-              "title": "Loop Optimization",
+              "title": "Loop Optimisation",
               "order": 18,
               "content": {
                 "type": "html",
@@ -2466,7 +2466,7 @@
             },
             {
               "id": "cd_peephole",
-              "title": "Peephole Optimization",
+              "title": "Peephole Optimisation",
               "order": 19,
               "content": {
                 "type": "html",
@@ -2533,7 +2533,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -2560,7 +2560,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -2569,7 +2569,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -2578,7 +2578,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -2587,7 +2587,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -2596,7 +2596,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -2605,7 +2605,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -2614,7 +2614,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -2632,7 +2632,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -2659,7 +2659,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -2668,7 +2668,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -2704,7 +2704,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -2722,7 +2722,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -2740,7 +2740,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -2868,7 +2868,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -2895,7 +2895,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -2904,7 +2904,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -2913,7 +2913,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -2922,7 +2922,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -2931,7 +2931,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -2940,7 +2940,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -2949,7 +2949,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -2967,7 +2967,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -2994,7 +2994,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -3003,7 +3003,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -3039,7 +3039,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -3057,7 +3057,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -3075,7 +3075,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -3293,7 +3293,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -3320,7 +3320,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -3329,7 +3329,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -3338,7 +3338,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -3347,7 +3347,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -3356,7 +3356,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -3365,7 +3365,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -3374,7 +3374,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -3392,7 +3392,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -3419,7 +3419,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -3428,7 +3428,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -3464,7 +3464,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -3482,7 +3482,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -3500,7 +3500,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -3687,7 +3687,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -3714,7 +3714,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -3723,7 +3723,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -3732,7 +3732,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -3741,7 +3741,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -3750,7 +3750,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -3759,7 +3759,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -3768,7 +3768,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -3786,7 +3786,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -3813,7 +3813,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -3822,7 +3822,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -3858,7 +3858,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -3876,7 +3876,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -3894,7 +3894,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -4061,7 +4061,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -4088,7 +4088,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -4097,7 +4097,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -4106,7 +4106,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -4115,7 +4115,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -4124,7 +4124,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -4133,7 +4133,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -4142,7 +4142,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -4160,7 +4160,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -4187,7 +4187,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -4196,7 +4196,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -4232,7 +4232,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -4250,7 +4250,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -4268,7 +4268,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -4449,7 +4449,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -4476,7 +4476,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -4485,7 +4485,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -4494,7 +4494,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -4503,7 +4503,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -4512,7 +4512,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -4521,7 +4521,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -4530,7 +4530,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -4548,7 +4548,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -4575,7 +4575,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -4584,7 +4584,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -4620,7 +4620,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -4638,7 +4638,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -4656,7 +4656,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -4854,7 +4854,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -4881,7 +4881,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -4890,7 +4890,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -4899,7 +4899,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -4908,7 +4908,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -4917,7 +4917,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -4926,7 +4926,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -4935,7 +4935,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -4953,7 +4953,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -4980,7 +4980,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -4989,7 +4989,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -5025,7 +5025,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -5043,7 +5043,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -5061,7 +5061,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -5219,7 +5219,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -5246,7 +5246,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -5255,7 +5255,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -5264,7 +5264,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -5273,7 +5273,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -5282,7 +5282,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -5291,7 +5291,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -5300,7 +5300,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -5318,7 +5318,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -5345,7 +5345,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -5354,7 +5354,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -5390,7 +5390,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -5408,7 +5408,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -5426,7 +5426,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -5549,7 +5549,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -5576,7 +5576,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -5585,7 +5585,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -5594,7 +5594,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -5603,7 +5603,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -5612,7 +5612,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -5621,7 +5621,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -5630,7 +5630,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -5648,7 +5648,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -5675,7 +5675,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -5684,7 +5684,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -5720,7 +5720,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -5738,7 +5738,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -5756,7 +5756,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -5890,7 +5890,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -5917,7 +5917,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -5926,7 +5926,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -5935,7 +5935,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -5944,7 +5944,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -5953,7 +5953,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -5962,7 +5962,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -5971,7 +5971,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -5989,7 +5989,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -6016,7 +6016,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -6025,7 +6025,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -6061,7 +6061,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -6079,7 +6079,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -6097,7 +6097,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -6242,7 +6242,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -6269,7 +6269,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -6278,7 +6278,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -6287,7 +6287,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -6296,7 +6296,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -6305,7 +6305,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -6314,7 +6314,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -6323,7 +6323,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -6341,7 +6341,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -6368,7 +6368,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -6377,7 +6377,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -6413,7 +6413,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -6431,7 +6431,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -6449,7 +6449,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -6616,7 +6616,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -6643,7 +6643,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -6652,7 +6652,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -6661,7 +6661,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -6670,7 +6670,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -6679,7 +6679,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -6688,7 +6688,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -6697,7 +6697,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -6715,7 +6715,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -6742,7 +6742,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -6751,7 +6751,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -6787,7 +6787,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -6805,7 +6805,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -6823,7 +6823,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -6935,7 +6935,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -6962,7 +6962,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -6971,7 +6971,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -6980,7 +6980,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -6989,7 +6989,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -6998,7 +6998,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -7007,7 +7007,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -7016,7 +7016,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -7034,7 +7034,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -7061,7 +7061,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -7070,7 +7070,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -7106,7 +7106,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -7124,7 +7124,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -7142,7 +7142,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -7232,7 +7232,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -7259,7 +7259,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -7268,7 +7268,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -7277,7 +7277,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -7286,7 +7286,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -7295,7 +7295,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -7304,7 +7304,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -7313,7 +7313,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -7331,7 +7331,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -7358,7 +7358,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -7367,7 +7367,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -7403,7 +7403,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -7421,7 +7421,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -7439,7 +7439,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -7551,7 +7551,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -7578,7 +7578,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -7587,7 +7587,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -7596,7 +7596,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -7605,7 +7605,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -7614,7 +7614,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -7623,7 +7623,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -7632,7 +7632,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -7650,7 +7650,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -7677,7 +7677,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -7686,7 +7686,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -7722,7 +7722,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -7740,7 +7740,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -7758,7 +7758,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -7914,7 +7914,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -7941,7 +7941,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -7950,7 +7950,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -7959,7 +7959,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -7968,7 +7968,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -7977,7 +7977,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -7986,7 +7986,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -7995,7 +7995,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -8013,7 +8013,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -8040,7 +8040,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -8049,7 +8049,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -8085,7 +8085,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -8103,7 +8103,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -8121,7 +8121,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -8277,7 +8277,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -8304,7 +8304,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -8313,7 +8313,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -8322,7 +8322,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -8331,7 +8331,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -8340,7 +8340,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -8349,7 +8349,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -8358,7 +8358,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -8376,7 +8376,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -8403,7 +8403,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -8412,7 +8412,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -8448,7 +8448,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -8466,7 +8466,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -8484,7 +8484,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -8574,7 +8574,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -8601,7 +8601,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -8610,7 +8610,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -8619,7 +8619,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -8628,7 +8628,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -8637,7 +8637,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -8646,7 +8646,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -8655,7 +8655,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -8673,7 +8673,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -8700,7 +8700,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -8709,7 +8709,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -8745,7 +8745,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -8763,7 +8763,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -8781,7 +8781,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -8926,7 +8926,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -8953,7 +8953,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -8962,7 +8962,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -8971,7 +8971,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -8980,7 +8980,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -8989,7 +8989,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -8998,7 +8998,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -9007,7 +9007,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -9025,7 +9025,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -9052,7 +9052,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -9061,7 +9061,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -9097,7 +9097,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -9115,7 +9115,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -9133,7 +9133,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -9267,7 +9267,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -9294,7 +9294,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -9303,7 +9303,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -9312,7 +9312,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -9321,7 +9321,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -9330,7 +9330,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -9339,7 +9339,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -9348,7 +9348,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -9366,7 +9366,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -9393,7 +9393,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -9402,7 +9402,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -9438,7 +9438,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -9456,7 +9456,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -9474,7 +9474,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -9597,7 +9597,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -9624,7 +9624,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -9633,7 +9633,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -9642,7 +9642,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -9651,7 +9651,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -9660,7 +9660,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -9669,7 +9669,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -9678,7 +9678,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -9696,7 +9696,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -9723,7 +9723,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -9732,7 +9732,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -9768,7 +9768,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -9786,7 +9786,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -9804,7 +9804,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -9982,7 +9982,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -10009,7 +10009,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -10018,7 +10018,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -10027,7 +10027,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -10036,7 +10036,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -10045,7 +10045,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -10054,7 +10054,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -10063,7 +10063,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -10081,7 +10081,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -10108,7 +10108,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -10117,7 +10117,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -10153,7 +10153,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -10171,7 +10171,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -10189,7 +10189,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -10312,7 +10312,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -10339,7 +10339,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -10348,7 +10348,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -10357,7 +10357,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -10366,7 +10366,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -10375,7 +10375,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -10384,7 +10384,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -10393,7 +10393,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -10411,7 +10411,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -10438,7 +10438,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -10447,7 +10447,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -10483,7 +10483,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -10501,7 +10501,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -10519,7 +10519,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -10642,7 +10642,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -10669,7 +10669,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -10678,7 +10678,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -10687,7 +10687,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -10696,7 +10696,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -10705,7 +10705,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -10714,7 +10714,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -10723,7 +10723,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -10741,7 +10741,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -10768,7 +10768,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -10777,7 +10777,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -10813,7 +10813,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -10831,7 +10831,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -10849,7 +10849,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -10972,7 +10972,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -10999,7 +10999,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -11008,7 +11008,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -11017,7 +11017,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -11026,7 +11026,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -11035,7 +11035,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -11044,7 +11044,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -11053,7 +11053,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -11071,7 +11071,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -11098,7 +11098,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -11107,7 +11107,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -11143,7 +11143,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -11161,7 +11161,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -11179,7 +11179,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -11357,7 +11357,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -11384,7 +11384,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -11393,7 +11393,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -11402,7 +11402,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -11411,7 +11411,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -11420,7 +11420,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -11429,7 +11429,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -11438,7 +11438,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -11456,7 +11456,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -11483,7 +11483,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -11492,7 +11492,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -11528,7 +11528,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -11546,7 +11546,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -11564,7 +11564,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -11709,7 +11709,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -11736,7 +11736,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -11745,7 +11745,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -11754,7 +11754,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -11763,7 +11763,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -11772,7 +11772,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -11781,7 +11781,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -11790,7 +11790,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -11808,7 +11808,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -11835,7 +11835,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -11844,7 +11844,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -11880,7 +11880,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -11898,7 +11898,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -11916,7 +11916,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -12050,7 +12050,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -12077,7 +12077,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -12086,7 +12086,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -12095,7 +12095,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -12104,7 +12104,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -12113,7 +12113,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -12122,7 +12122,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -12131,7 +12131,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -12149,7 +12149,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -12176,7 +12176,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -12185,7 +12185,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -12221,7 +12221,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -12239,7 +12239,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -12257,7 +12257,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",
@@ -12435,7 +12435,7 @@
             },
             {
               "id": "aptitude_numbers",
-              "title": "Numbers Definition",
+              "title": "Numbers",
               "order": 1,
               "content": {
                 "type": "html",
@@ -12462,7 +12462,7 @@
             },
             {
               "id": "aptitude_simple_intrest",
-              "title": "Simple Interest Definition",
+              "title": "Simple Interest",
               "order": 4,
               "content": {
                 "type": "html",
@@ -12471,7 +12471,7 @@
             },
             {
               "id": "aptitude_progression",
-              "title": "Arithmetic Progression (AP)",
+              "title": "Arithmetic Progression",
               "order": 5,
               "content": {
                 "type": "html",
@@ -12480,7 +12480,7 @@
             },
             {
               "id": "aptitude_speed",
-              "title": "Speed, Time, and Distance Concepts",
+              "title": "Speed, Time and Distance",
               "order": 6,
               "content": {
                 "type": "html",
@@ -12489,7 +12489,7 @@
             },
             {
               "id": "aptitude_work",
-              "title": "Fundamental Concepts and Formulas for Work and Wages",
+              "title": "Work and Wages",
               "order": 7,
               "content": {
                 "type": "html",
@@ -12498,7 +12498,7 @@
             },
             {
               "id": "aptitude_pipes",
-              "title": "Pipes and Cisterns Concept",
+              "title": "Pipes and Cisterns",
               "order": 8,
               "content": {
                 "type": "html",
@@ -12507,7 +12507,7 @@
             },
             {
               "id": "aptitude_clock",
-              "title": "Clocks Formulas and Concepts",
+              "title": "Clocks",
               "order": 9,
               "content": {
                 "type": "html",
@@ -12516,7 +12516,7 @@
             },
             {
               "id": "aptitude_probability",
-              "title": "Probability Formulas",
+              "title": "Probability",
               "order": 10,
               "content": {
                 "type": "html",
@@ -12534,7 +12534,7 @@
             },
             {
               "id": "aptitude_puzzle",
-              "title": "What is a Puzzle?",
+              "title": "Puzzles",
               "order": 12,
               "content": {
                 "type": "html",
@@ -12561,7 +12561,7 @@
             },
             {
               "id": "aptitude_inequality_reasoning",
-              "title": "Types of Inequality",
+              "title": "Inequality Reasoning",
               "order": 15,
               "content": {
                 "type": "html",
@@ -12570,7 +12570,7 @@
             },
             {
               "id": "aptitude_alphanumeric",
-              "title": "Alphanumeric Series Reasoning Questions and Answers",
+              "title": "Alphanumeric Series",
               "order": 16,
               "content": {
                 "type": "html",
@@ -12606,7 +12606,7 @@
             },
             {
               "id": "aptitude_determiners",
-              "title": "Types of Determiners",
+              "title": "Determiners",
               "order": 20,
               "content": {
                 "type": "html",
@@ -12624,7 +12624,7 @@
             },
             {
               "id": "aptitude_passive",
-              "title": "Active and Passive Voice Rules Chart",
+              "title": "Active and Passive Voice",
               "order": 22,
               "content": {
                 "type": "html",
@@ -12642,7 +12642,7 @@
             },
             {
               "id": "aptitude_verbal_analog",
-              "title": "What is a Verbal Analogy Test?",
+              "title": "Verbal Analogies",
               "order": 24,
               "content": {
                 "type": "html",

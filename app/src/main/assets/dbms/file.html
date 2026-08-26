@@ -1,88 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title><style>
-    /* Style the heading */
-    body {
-            font-family: Arial, sans-serif;
-
-            margin: 20px;
-            background-color:#fff1dc  ;
-        }
-    .gray{
-        background-color: #e0e0e0;
-        border-radius: 10px;
-        color: rgba(0, 0, 0, .9);
-        font-family: Consolas, monospace;
-        margin-bottom: 10px;
-        padding:5px
-    }
-  </style>
-
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>File Organisation and Indexing</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-<body data-gm-enriched="1">
-    <div class="article-title">
-        <h1>File Organization in DBMS&nbsp;</h1>
-        </div>
-        <div class="text">
-        <p dir="ltr">A database consists of a huge amount of data. The data is grouped within a table in RDBMS, and each table has related records. A user can see that the data is stored in the form of tables, but in actuality, this huge amount of data is stored in physical memory in the form of files.&nbsp;</p>
-        <h2><strong>What is&nbsp;</strong>a&nbsp;<strong>File?</strong></h2>
-        <p dir="ltr">A file is named a collection of related information that is recorded on secondary storage such as&nbsp;magnetic disks, &nbsp;and&nbsp;optical disks.&nbsp;</p>
-        <h2><strong>What is File Organization?</strong></h2>
-        <p dir="ltr">File Organization refers to the logical relationships among various records that constitute the file, particularly with respect to the means of identification and access to any specific record. In simple terms, Storing the files in a certain order is called File Organization.&nbsp;<strong>File Structure</strong>&nbsp;refers to the format of the label and data blocks and of any logical control record.&nbsp;</p>
-        <h2>The Objective of File Organization</h2>
-        <ul>
-        <li value="1">It helps in the faster selection of records i.e. it makes the process faster.</li>
-        <li value="2">Different Operations like inserting, deleting, and updating different records are faster and easier.</li>
-        <li value="3">It prevents us from inserting duplicate records via various operations.</li>
-        <li value="4">It helps in storing the records or the data very efficiently at a minimal cost</li>
-        </ul>
-        <h2>Types of File Organizations</h2>
-        <p dir="ltr">Various methods have been introduced to Organize files. These particular methods have advantages and disadvantages on the basis of access or selection. Thus it is all upon the programmer to decide the best-suited file Organization method according to his requirements.&nbsp;</p>
-        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
-        <p dir="ltr">Some types of File Organizations are:&nbsp;</p>
-        <ul>
-        <li value="1">Sequential File Organization</li>
-        <li value="2">Heap File Organization&nbsp;</li>
-        <li value="3">Hash File Organization&nbsp;</li>
-        <li value="4">B+ Tree File Organization&nbsp;</li>
-        <li value="5">Clustered File Organization</li>
-        <li value="6">ISAM (Indexed Sequential Access Method)<br />&nbsp;</li>
-        </ul>
-        <p dir="ltr">We will be discussing each of the file Organizations in further sets of this article along with the differences and advantages/ disadvantages of each file Organization method.&nbsp;</p>
-        <h2>Sequential File Organization</h2>
-        <p dir="ltr">The easiest method for file Organization is the Sequential method. In this method, the file is stored one after another in a sequential manner. There are two ways to implement this method:</p>
-        <h3><strong>1. Pile File Method</strong></h3>
-        <p dir="ltr">This method is quite simple, in which we store the records in a sequence i.e. one after the other in the order in which they are inserted into the tables.&nbsp;</p>
-        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230619153354/aa.webp" alt="Pile File Method" width="401" height="197" /><figcaption>Pile File Method</figcaption></figure>
-        <p class="wp-caption-text">Pile File Method</p>
-        </div>
-        <p dir="ltr"><strong>Insertion of the new record:&nbsp;</strong>Let the R1, R3, and so on up to R5 and R4 be four records in the sequence. Here, records are nothing but a row in any table. Suppose a new record R2 has to be inserted in the sequence, then it is simply placed at the end of the file.&nbsp;</p>
-        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230619153513/ab.webp" alt="New Record Insertion" width="468" height="168" /><figcaption>New Record Insertion</figcaption></figure>
-        <p class="wp-caption-text">New Record Insertion</p>
-        </div>
-        <h3><strong>2. Sorted File Method</strong></h3>
-        <p dir="ltr">In this method, As the name itself suggests whenever a new record has to be inserted, it is always inserted in a sorted (ascending or descending) manner. The sorting of records may be based on any&nbsp;<a href="https://www.geeksforgeeks.org/postgresql-primary-key/">primary key</a>&nbsp;or any other key.&nbsp;</p>
-        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230619153555/ac.webp" alt="Sorted File Method" width="419" height="161" /><figcaption>Sorted File Method</figcaption></figure>
-        <p class="wp-caption-text">Sorted File Method</p>
-        </div>
-        <p dir="ltr"><strong>Insertion of the new record:&nbsp;</strong>Let us assume that there is a preexisting sorted sequence of four records R1, R3, and so on up to R7 and R8. Suppose a new record R2 has to be inserted in the sequence, then it will be inserted at the end of the file and then it will sort the sequence.&nbsp;</p>
-        <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230619153653/ad.webp" alt="new Record Insertion" width="402" height="185" /><figcaption>new Record Insertion</figcaption></figure></div>
-        </div>
-        <div class="article-title">
-            <h2>Heap File Organization</h2>
-            <p dir="ltr"><strong>Heap File Organization</strong>&nbsp;works with data blocks. In this method, records are inserted at the end of the file, into the data blocks. No Sorting or Ordering is required in this method. If a data block is full, the new record is stored in some other block, Here the other data block need not be the very next data block, but it can be any block in the memory. It is the responsibility of DBMS to store and manage the new records.&nbsp;</p>
-            <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230619153826/ae.webp" alt="Heap File Organization" width="326" height="inherit" /><figcaption>Heap File Organization</figcaption></figure>
-            <p class="wp-caption-text">Heap File Organization</p>
-            </div>
-            <p dir="ltr"><strong>Insertion of the new record:&nbsp;</strong>Suppose we have four records in the heap R1, R5, R6, R4, and R3, and suppose a new record R2 has to be inserted in the heap then, since the last data block i.e data block 3 is full it will be inserted in any of the data blocks selected by the DBMS, let&rsquo;s say data block 1.</p>
-            <div class="wp-caption alignnone"><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230619153910/af.webp" alt="New Record Insertion" width="401" height="inherit" /><figcaption>New Record Insertion</figcaption></figure>
-            <p class="wp-caption-text">New Record Insertion</p>
-            </div>
-            <p dir="ltr">If we want to search, delete or update data in the heap file Organization we will traverse the data from the beginning of the file till we get the requested record. Thus if the database is very huge, searching, deleting, or updating the record will take a lot of time.</p>
-            </div>
+<body>
+<h1>File Organisation and Indexing</h1>
+<div class="gm-table"><table><thead><tr><th>Organisation</th><th>Search</th><th>Insert</th></tr></thead><tbody><tr><td>Heap</td><td>O(n)</td><td>O(1)</td></tr><tr><td>Sorted</td><td>O(log n) by binary search</td><td>O(n)</td></tr><tr><td>Hashed</td><td>O(1) average</td><td>O(1) average</td></tr><tr><td>B+ tree indexed</td><td>O(log n)</td><td>O(log n)</td></tr></tbody></table></div>
+<div class="gm-callout gm-definition" data-label="Definition"><p>A dense index has an entry per record; a sparse index has one per block and needs the file to be sorted on the indexed key.</p></div>
+<div class="gm-callout gm-key" data-label="Key point"><p>Only one clustered index per table, because it dictates the physical order of the rows. Everything else is a secondary index and must be dense.</p></div>
+<h2>B+ trees</h2>
+<ul><li>All records live in the leaves, which are chained for range scans.</li><li>Internal nodes hold only separator keys, so fan-out is high and the tree is shallow.</li><li>Order n means each node holds up to n−1 keys and n pointers.</li></ul>
+<div class="gm-callout gm-note" data-label="Note"><p>A B+ tree of order 100 and height 3 indexes about a million records, which is why disk-based indexes are B+ trees rather than binary trees.</p></div>
 </body>
 </html>

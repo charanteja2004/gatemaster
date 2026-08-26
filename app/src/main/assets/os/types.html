@@ -1,72 +1,15 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 <head>
-    <title>Applications of various Automata</title>
-    <style>
-    /* Style the heading */
-    body {
-            font-family: Arial, sans-serif;
-
-            margin: 20px;
-            background-color:#fff1dc  ;
-        }
-    .gray{
-        background-color: #e0e0e0;
-        border-radius: 10px;
-        color: rgba(0, 0, 0, .9);
-        font-family: Consolas, monospace;
-        margin-bottom: 10px;
-        padding:5px
-    }
-  </style>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Types of Operating Systems</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-<body data-gm-enriched="1">
-<h2><b>Types of Operating Systems</b></h2>
-<li><b>Batch Operating System:</b> </li>
-<li><b>Time-sharing Operating System:</b></li>
-<li><b>Distributed Operating System:</b></li>
-<li><b>Network Operating System:</b></li>
-<li><b>Real-time Operating System:</b></li>
-<li><b>Multiprocessing Operating System:</b> </li>
-<li><b>Single-User Operating Systems:</b> </li>
-<li><b>Multi-User Operating Systems:</b> <li>
-<li><b>Embedded Operating Systems:</b></li>
-<li><b>Cluster Operating Systems:</b> </li>
-
-<h2><b> 1.Batch Processing Operating System</b></h2>
-<p>This type of operating system does not interact with the computer directly. There is an operator which takes similar jobs having the same requirement and groups them into batches. It is the responsibility of the operator to sort jobs with similar needs.</p>
-<br>
-<h2>2. Multi-Programming Operating System</h2>
-<p>Multiprogramming Operating Systems can be simply illustrated as more than one program is present in the main memory and any one of them can be kept in execution. This is basically used for better execution of resources.</p>
-<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230516182714/Types-of-OS-03-660.webp" width="350" height="300"></figure>
-<h2>3. Multi-Processing Operating System</h2>
-<p>Multi-Processing Operating System is a type of Operating System in which more than one CPU is used for the execution of resources. It betters the throughput of the System.</p>
-<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230516183450/Types-of-OS-02-660.webp"width="350" height="300"></figure>
-<h2>4. Multi-Tasking Operating System</h2>
-<p>Multitasking Operating System is simply a multiprogramming Operating System with having facility of a Round-Robin Scheduling Algorithm. It can run multiple programs simultaneously.</p>
-
-<p>There are two types of Multi-Tasking Systems which are listed below.</p>
-
-<li>Preemptive Multi-Tasking</li>
-<li>Cooperative Multi-Tasking</li>
-<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230516183620/Types-of-OS-01-660.webp" width="350" height="300"></figure>
-
-<h2>5. Time-Sharing Operating Systems</h2>
-<p>Each task is given some time to execute so that all the tasks work smoothly. Each user gets the time of the CPU as they use a single system. These systems are also known as Multitasking Systems. The task can be from a single user or different users also. The time that each task gets to execute is called quantum. After this time interval is over OS switches over to the next task.</p>
-<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230512125908/Capture2210.png" width="350" height="300"></figure>
-
-<h2>6. Distributed Operating System</h2>
-
-<p>These types of operating system is a recent advancement in the world of computer technology and are being widely accepted all over the world and, that too, at a great pace. Various autonomous interconnected computers communicate with each other using a shared communication network. Independent systems possess their own memory unit and CPU. These are referred to as loosely coupled systems or distributed systems. These systems’ processors differ in size and function. The major benefit of working with these types of the operating system is that it is always possible that one user can access the files or software which are not actually present on his system but some other system connected within this network i.e., remote access is enabled within the devices connected in that network.</p>
-<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230516183602/Types-of-OS-04.webp" width="350" height="300"></figure>
-<h2>7. Network Operating System</h2>
-<p>These systems run on a server and provide the capability to manage data, users, groups, security, applications, and other networking functions. These types of operating systems allow shared access to files, printers, security, applications, and other networking functions over a small private network. One more important aspect of Network Operating Systems is that all the users are well aware of the underlying configuration, of all other users within the network, their individual connections, etc. and that’s why these computers are popularly known as tightly coupled systems.</p>
-<figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230511145829/types-7-(1).webp" width="350" height="300"></figure>
-
-
+<body>
+<h1>Types of Operating Systems</h1>
+<div class="gm-table"><table><thead><tr><th>Type</th><th>Optimises for</th><th>Example use</th></tr></thead><tbody><tr><td>Batch</td><td>throughput</td><td>payroll runs, no interaction</td></tr><tr><td>Multiprogrammed</td><td>CPU utilisation</td><td>keeps CPU busy across jobs</td></tr><tr><td>Time sharing</td><td>response time</td><td>many interactive users</td></tr><tr><td>Real time</td><td>meeting deadlines</td><td>control systems</td></tr><tr><td>Distributed</td><td>sharing resources</td><td>clusters</td></tr></tbody></table></div>
+<div class="gm-callout gm-key" data-label="Key point"><p>Multiprogramming keeps several jobs in memory so the CPU switches away on I/O; time sharing adds a timer so it also switches on a quantum. The second is the first plus preemption.</p></div>
+<div class="gm-callout gm-note" data-label="Note"><p>Hard real time guarantees a deadline is met; soft real time only degrades in value when late. Missing a hard deadline is a system failure, not a slowdown.</p></div>
 </body>
 </html>

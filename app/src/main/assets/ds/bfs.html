@@ -1,92 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Breadth-First Search</title>
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Breadth-First Search</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-<body data-gm-enriched="1">
-<h1>Breadth-First Search (BFS)</h1>
-
-<p>BFS explores a graph <strong>level by level</strong>: it visits every vertex at distance 1 from
-the source, then every vertex at distance 2, and so on. It uses a <strong>queue</strong> (FIFO),
-which is what makes the traversal breadth-first rather than depth-first.</p>
-
-<h2>Algorithm</h2>
-<pre>BFS(G, s):
-    for each vertex u in V(G):
-        visited[u] = false
-        dist[u]    = INFINITY
-        parent[u]  = NIL
-
-    visited[s] = true
-    dist[s]    = 0
-    Q = empty queue
-    ENQUEUE(Q, s)
-
-    while Q is not empty:
-        u = DEQUEUE(Q)
-        for each v adjacent to u:
-            if not visited[v]:
-                visited[v] = true
-                dist[v]    = dist[u] + 1
-                parent[v]  = u
-                ENQUEUE(Q, v)</pre>
-
-<p>A vertex is marked visited <em>when it is enqueued</em>, not when it is dequeued. Marking on
-dequeue instead lets the same vertex enter the queue several times, which is a common source of
-wrong answers.</p>
-
-<h2>Complexity</h2>
-<div class="gm-table"><table>
-  <tr><th>Representation</th><th>Time</th><th>Space</th></tr>
-  <tr><td>Adjacency list</td><td>&Theta;(V + E)</td><td>&Theta;(V)</td></tr>
-  <tr><td>Adjacency matrix</td><td>&Theta;(V<sup>2</sup>)</td><td>&Theta;(V)</td></tr>
-</table></div>
-
-<p>With an adjacency list every vertex is enqueued and dequeued once (&Theta;(V)) and every edge is
-examined once in a directed graph, twice in an undirected one (&Theta;(E)). With a matrix, finding
-the neighbours of a vertex costs &Theta;(V) regardless of how few there are, so the total is
-&Theta;(V<sup>2</sup>).</p>
-
-<h2>Why the distances are shortest paths</h2>
-<p>In an <strong>unweighted</strong> graph, <code>dist[v]</code> computed by BFS is the smallest
-number of edges from <em>s</em> to <em>v</em>. The queue holds vertices in non-decreasing order of
-distance, so a vertex is first reached along a shortest path.</p>
-
-<blockquote>
-  <p>This guarantee holds <strong>only</strong> when every edge has the same weight. For weighted
-  graphs use <a href="../algo/dijasthras.html">Dijkstra's algorithm</a>, or Bellman&ndash;Ford if
-  negative weights are present.</p>
-</blockquote>
-
-<h2>The BFS tree and edge types</h2>
-<p>The <code>parent</code> pointers form a BFS tree rooted at <em>s</em>. In an undirected graph
-every non-tree edge is a <strong>cross edge</strong>, and it always joins vertices whose levels
-differ by at most 1. There are no forward or back edges &mdash; a frequent one-mark question.</p>
-
-<h2>Applications</h2>
-<ul>
-  <li>Shortest path and minimum number of moves in an unweighted graph or grid</li>
-  <li>Connected components of an undirected graph</li>
-  <li>Testing whether a graph is <strong>bipartite</strong>: 2-colour by level, and an edge inside a
-      level means an odd cycle, so the graph is not bipartite</li>
-  <li>Level-order traversal of a tree</li>
-  <li>Finding all vertices within <em>k</em> edges of a source</li>
-</ul>
-
-<h2>BFS against DFS</h2>
-<div class="gm-table"><table>
-  <tr><th></th><th>BFS</th><th>DFS</th></tr>
-  <tr><td>Data structure</td><td>Queue</td><td>Stack / recursion</td></tr>
-  <tr><td>Shortest path (unweighted)</td><td>Yes</td><td>No</td></tr>
-  <tr><td>Worst-case space</td><td>O(V) &mdash; widest level</td><td>O(V) &mdash; deepest path</td></tr>
-  <tr><td>Typical use</td><td>Distance, bipartite check</td><td>Cycles, topological sort, SCC</td></tr>
-</table></div>
-
-<p>Both run in &Theta;(V + E) on an adjacency list. They differ in the <em>order</em> of visits, not
-in asymptotic cost. See <a href="dfs.html">Depth-First Search</a> and
-<a href="graphs.html">Graphs</a>.</p>
+<body>
+<h1>Breadth-First Search</h1>
+<p>Explore all neighbours of a vertex before moving further out, using a queue.</p>
+<p class="gm-complexity" data-label="Time complexity">O(V + E) with an adjacency list</p>
+<div class="gm-callout gm-key" data-label="Key point"><p>BFS finds the shortest path in an unweighted graph, because it reaches every vertex by the fewest edges first. With weights, that guarantee disappears and Dijkstra is needed.</p></div>
+<div class="gm-callout gm-note" data-label="Note"><p>The BFS tree's level of a vertex is its distance in edges from the source. Cross edges in an undirected BFS connect vertices whose levels differ by at most one.</p></div>
 </body>
 </html>

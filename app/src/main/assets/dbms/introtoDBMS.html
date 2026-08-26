@@ -1,126 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title><style>
-    /* Style the heading */
-    body {
-            font-family: Arial, sans-serif;
-
-            margin: 20px;
-            background-color:#fff1dc  ;
-        }
-    .gray{
-        background-color: #e0e0e0;
-        border-radius: 10px;
-        color: rgba(0, 0, 0, .9);
-        font-family: Consolas, monospace;
-        margin-bottom: 10px;
-        padding:5px
-    }
-  </style>
-
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Introduction to DBMS</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-<body data-gm-enriched="1">
-    <div class="main_wrapper">
-        <div>
-        <div class="article-title">
-        <h1>Introduction of DBMS (Database Management System)&nbsp;</h1>
-        </div>
-        </div>
-        </div>
-        <div class="text">
-        <p dir="ltr">A Database Management System (DBMS) is a software system that is designed to manage and organize data in a structured manner. It allows users to create, modify, and query a database, as well as manage the security and access controls for that database.</p>
-        <p dir="ltr">DBMS provides an environment to store and retrieve the data in coinvent and efficient manner.</p>
-        <p dir="ltr">Key Features of DBMS</p>
-        <ul>
-        <li value="1"><strong>Data modeling:</strong>&nbsp;A DBMS provides tools for creating and modifying data models, which define the structure and relationships of the data in a database.</li>
-        <li value="2"><strong>Data storage and retrieval:&nbsp;</strong>A DBMS is responsible for storing and retrieving data from the database, and can provide various methods for searching and querying the data.</li>
-        <li value="3"><strong>Concurrency control:</strong>&nbsp;A DBMS provides mechanisms for controlling concurrent access to the database, to ensure that multiple users can access the data without conflicting with each other.</li>
-        <li value="4"><strong>Data integrity and security:</strong>&nbsp;A DBMS provides tools for enforcing data integrity and security constraints, such as constraints on the values of data and access controls that restrict who can access the data.</li>
-        <li value="5"><strong>Backup and recovery:</strong>&nbsp;A DBMS provides mechanisms for backing up and recovering the data in the event of a system failure.</li>
-        <li value="6"><strong>DBMS can be classified into two types:</strong>&nbsp;Relational Database Management System (RDBMS) and Non-Relational Database Management System (NoSQL or Non-SQL)</li>
-        <li value="7"><strong>RDBMS:&nbsp;</strong>Data is organized in the form of tables and each table has a set of rows and columns. The data are related to each other through primary and foreign keys.</li>
-        <li value="8"><strong>NoSQL:&nbsp;</strong>Data is organized in the form of key-value pairs, documents, graphs, or column-based. These are designed to handle large-scale, high-performance scenarios.</li>
-        </ul>
-        <p dir="ltr">A database is a collection of interrelated data which helps in the efficient retrieval, insertion, and deletion of data from the database and organizes the data in the form of tables, views, schemas, reports, etc. For Example, a university database organizes the data about students, faculty, admin staff, etc. which helps in the efficient retrieval, insertion, and deletion of data from it.</p>
-        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
-        <h2>Database Languages</h2>
-        <ul>
-        <li value="1">Data Definition Language</li>
-        <li value="2">Data Manipulation Language</li>
-        <li value="3">Data Control Language</li>
-        <li value="4">Transactional Control Language</li>
-        </ul>
-        <h2>Data Definition Language</h2>
-        <p dir="ltr"><strong>DDL</strong>&nbsp;is the short name for Data Definition Language, which deals with database schemas and descriptions, of how the data should reside in the database.</p>
-        <ul>
-        <li value="1"><strong>CREATE:</strong>&nbsp;to create a database and its objects like (table, index, views, store procedure, function, and triggers)</li>
-        <li value="2"><strong>ALTER:&nbsp;</strong>alters the structure of the existing database</li>
-        <li value="3"><strong>DROP:</strong>&nbsp;delete objects from the database</li>
-        <li value="4"><strong>TRUNCATE:</strong>&nbsp;remove all records from a table, including all spaces allocated for the records are removed</li>
-        <li value="5"><strong>COMMENT:&nbsp;</strong>add comments to the data dictionary</li>
-        <li value="6"><strong>RENAME:</strong>&nbsp;rename an object</li>
-        </ul>
-        <h2>Data Manipulation Language</h2>
-        <p dir="ltr"><strong>DML</strong>&nbsp;is the short name for Data Manipulation Language which deals with data manipulation and includes most common SQL statements such SELECT, INSERT, UPDATE, DELETE, etc., and it is used to store, modify, retrieve, delete and update data in a database.&nbsp;<strong>Data query language(DQL)</strong>&nbsp;is the subset of &ldquo;Data Manipulation Language&rdquo;. The most common command of DQL is&nbsp;<strong>SELECT</strong>&nbsp;statement. SELECT statement help on retrieving the data from the table without changing anything in the table.</p>
-        <ul>
-        <li value="1"><strong>SELECT:&nbsp;</strong>retrieve data from a database</li>
-        <li value="2"><strong>INSERT:</strong>&nbsp;insert data into a table</li>
-        <li value="3"><strong>UPDATE:</strong>&nbsp;updates existing data within a table</li>
-        <li value="4"><strong>DELETE:&nbsp;</strong>Delete all records from a database table</li>
-        <li value="5"><strong>MERGE:</strong>&nbsp;UPSERT operation (insert or update)</li>
-        <li value="6"><strong>CALL:&nbsp;</strong>call a PL/SQL or Java subprogram</li>
-        <li value="7"><strong>EXPLAIN PLAN:</strong>&nbsp;interpretation of the data access path</li>
-        <li value="8"><strong>LOCK TABLE:&nbsp;</strong>concurrency Control</li>
-        </ul>
-        <h2>Data Control Language</h2>
-        <p dir="ltr"><strong>DCL&nbsp;</strong>is short for Data Control Language which acts as an access specifier to the database.(basically to grant and revoke permissions to users in the database</p>
-        <ul>
-        <li value="1"><strong>GRANT:&nbsp;</strong>grant permissions to the user for running DML(SELECT, INSERT, DELETE,&hellip;) commands on the table</li>
-        <li value="2"><strong>REVOKE:&nbsp;</strong>revoke permissions to the user for running DML(SELECT, INSERT, DELETE,&hellip;) command on the specified table</li>
-        </ul>
-        <h2>Transactional Control Language</h2>
-        <p dir="ltr"><strong>TCL</strong>&nbsp;is short for Transactional Control Language which acts as an manager for all types of transactional data and all transactions. Some of the command of TCL are</p>
-        <ul>
-        <li value="1"><strong>Roll Back:</strong>&nbsp;Used to cancel &nbsp;or Undo changes made in the database&nbsp;</li>
-        <li value="2"><strong>Commit:</strong>&nbsp;It is used to apply or save changes in the database</li>
-        <li value="3"><strong>Save Point:</strong>&nbsp;It is used to save the data on the temporary basis in the database</li>
-        </ul>
-        </div>
-        <div class="main_wrapper">
-            <div class="article-title">
-            <h2><strong>Data Query Language (DQL):</strong></h2>
-            <p dir="ltr"><strong>Data query language(DQL)</strong>&nbsp;is the subset of&nbsp;<strong>&ldquo;Data Manipulation Language&rdquo;</strong>. The most common command of DQL is 1the&nbsp;<strong>SELECT statement</strong>. SELECT statement helps us in retrieving the data from the table without changing anything or modifying the table. DQL is very important for retrieval of essential data from a database.</p>
-            <h2><strong>Database Management System</strong></h2>
-            <p dir="ltr">The software which is used to manage databases is called Database Management System (DBMS). For Example, MySQL, Oracle, etc. are popular commercial DBMS used in different applications. DBMS allows users the following tasks:&nbsp;</p>
-            <ul>
-            <li value="1"><strong>Data Definition:</strong>&nbsp;It helps in the creation, modification, and removal of definitions that define the organization of data in the database.&nbsp;</li>
-            <li value="2"><strong>Data Updation:</strong>&nbsp;It helps in the insertion, modification, and deletion of the actual data in the database.&nbsp;</li>
-            <li value="3"><strong>Data Retrieval:</strong>&nbsp;It helps in the retrieval of data from the database which can be used by applications for various purposes.&nbsp;</li>
-            <li value="4"><strong>User Administration:</strong>&nbsp;It helps in registering and monitoring users, enforcing data security, monitoring performance, maintaining data integrity, dealing with concurrency control, and recovering information corrupted by unexpected failure.</li>
-            </ul>
-            <h2>Applications of DBMS:</h2>
-            <ul>
-            <li value="1"><strong>Enterprise Information:&nbsp;</strong>Sales, accounting, human resources, Manufacturing, online retailers.</li>
-            <li value="2"><strong>Banking and Finance Sector:&nbsp;</strong>Banks maintaining the customer details, accounts, loans, banking transactions, credit card transactions. Finance: Storing the information about sales and holdings, purchasing of financial stocks and bonds.</li>
-            <li value="3"><strong>University:&nbsp;</strong>Maintaining the information about student course enrolled information, student grades, staff roles.</li>
-            <li value="4"><strong>Airlines:&nbsp;</strong>Reservations and schedules.</li>
-            <li value="5"><strong>Telecommunications:&nbsp;</strong>Prepaid, postpaid bills maintance.</li>
-            </ul>
-            <h2><strong>Paradigm Shift from File System to DBMS</strong></h2>
-            <p dir="ltr"><strong>&nbsp;</strong>File System manages data using files on a hard disk. Users are allowed to create, delete, and update the files according to their requirements. Let us consider the example of file-based University Management System. Data of students is available to their respective Departments, Academics Section, Result Section, Accounts Section, Hostel Office, etc. Some of the data is common for all sections like Roll No, Name, Father Name, Address, and Phone number of students but some data is available to a particular section only like Hostel allotment number which is a part of the hostel office. Let us discuss the issues with this system:</p>
-            <ul>
-            <li value="1"><strong>Redundancy of data:</strong>&nbsp;Data is said to be redundant if the same data is copied at many places. If a student wants to change their Phone number, he or she has to get it updated in various sections. Similarly, old records must be deleted from all sections representing that student.</li>
-            <li value="2"><strong>Inconsistency of Data:&nbsp;</strong>Data is said to be inconsistent if multiple copies of the same data do not match each other. If the Phone number is different in Accounts Section and Academics Section, it will be inconsistent. Inconsistency may be because of typing errors or not updating all copies of the same data.</li>
-            <li value="3"><strong>Difficult Data Access:</strong>&nbsp;A user should know the exact location of the file to access data, so the process is very cumbersome and tedious. If the user wants to search the student hostel allotment number of a student from 10000 unsorted students&rsquo; records, how difficult it can be.</li>
-            <li value="4"><strong>Unauthorized Access:</strong>&nbsp;File Systems may lead to unauthorized access to data. If a student gets access to a file having his marks, he can change it in an unauthorized way.</li>
-            <li value="5"><strong>No Concurrent Access:&nbsp;</strong>The access of the same data by multiple users at the same time is known as concurrency. The file system does not allow concurrency as data can be accessed by only one user at a time.</li>
-            <li value="6"><strong>No Backup and Recovery:</strong>&nbsp;The file system does not incorporate any backup and recovery of data if a file is lost or corrupted.</li>
-            </ul>
-            </div>
-            </div>
+<body>
+<h1>Introduction to DBMS</h1>
+<div class="gm-callout gm-definition" data-label="Definition"><p>A database management system is software that stores data and controls access to it, providing querying, concurrency, recovery and integrity in one place.</p></div>
+<div class="gm-table"><table><thead><tr><th></th><th>File system</th><th>DBMS</th></tr></thead><tbody><tr><td>Redundancy</td><td>high, per application</td><td>controlled</td></tr><tr><td>Consistency</td><td>the application's problem</td><td>enforced by constraints</td></tr><tr><td>Concurrent access</td><td>unmanaged</td><td>transactions and locking</td></tr><tr><td>Recovery after a crash</td><td>manual</td><td>logs and rollback</td></tr></tbody></table></div>
+<div class="gm-callout gm-key" data-label="Key point"><p>The point is not storage — files store data too. It is that integrity, concurrency and recovery are solved once, centrally, rather than in every program that touches the data.</p></div>
 </body>
 </html>

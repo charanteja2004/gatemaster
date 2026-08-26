@@ -1,62 +1,16 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 <head>
-    <title>Applications of various Automata</title>
-    <style>
-    /* Style the heading */
-    body {
-            font-family: Arial, sans-serif;
-
-            margin: 20px;
-            background-color:#fff1dc  ;
-        }
-    .gray{
-        background-color: #e0e0e0;
-        border-radius: 10px;
-        color: rgba(0, 0, 0, .9);
-        font-family: Consolas, monospace;
-        margin-bottom: 10px;
-        padding:5px
-    }
-  </style>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Highest Response Ratio Next</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-<body data-gm-enriched="1">
-<div class="main_wrapper">
-    <div>
-        <div class="article-title">
-            <h1>Highest Response Ratio Next (HRRN) CPU Scheduling</h1>
-        </div>
-
-    </div>
-
-
-</div>
-<div class="text">
-    <p dir="ltr">CPU scheduling is the process of deciding which process will own the CPU to use while another process is suspended. The main function of CPU scheduling is to ensure that whenever the CPU remains idle, the OS has at least selected one of the processes available in the ready-to-use line. Highest Response Ratio Next (HRRN) Scheduling is a part of nonpreemptive CPU scheduling.</p>
-    <h2>What is the Highest Response Ratio Next (HRRN) Scheduling?</h2>
-    <p dir="ltr">One of the most optimal scheduling algorithms is the Highest Response Ratio Next (HRNN). This algorithm is a non-preemptive algorithm in which, HRRN scheduling is done based on an extra parameter, which is called Response Ratio. Given&nbsp;<strong>N&nbsp;</strong>processes with their Arrival times and Burst times, the task is to find the average waiting time and an average turnaround time using the HRRN scheduling algorithm.&nbsp;</p>
-    <p dir="ltr">The name itself states that we need to find the response ratio of all available processes and select the one with the highest Response Ratio. A process once selected will run till completion. below is the formula to calculate the Response Ratio.</p>
-    <blockquote>
-        <div class="gm-formula"><p dir="ltr"><strong>Response Ratio = (W + S)/S</strong></p></div>
-        <div id="_GFG_ABP_Incontent_728x90">&nbsp;</div>
-    </blockquote>
-    <p dir="ltr">Here, W is the waiting time of the process so far and S is the Burst time of the process.</p>
-    <h2>Characteristics of HRRN Scheduling</h2>
-    <ul>
-        <li value="1">Highest Response Ratio Next<strong>&nbsp;</strong>is a non-preemptive CPU Scheduling algorithm and it is considered as one of the most optimal scheduling algorithms.</li>
-        <li value="2">The&nbsp;<strong>criteria</strong>&nbsp;for HRRN is<strong>&nbsp;</strong>Response Ratio<strong>,&nbsp;</strong>and the mode is Non-Preemptive.&nbsp;</li>
-        <li value="3">HRRN is considered as the modification of the&nbsp;<a href="sjf.html">Shortest Job First</a>&nbsp;to reduce the problem of&nbsp;starvation.</li>
-        <li value="4">In comparison with SJF, during the HRRN scheduling algorithm, the CPU is allotted to the next process which has the highest response ratio, and not to the process having less burst time.</li>
-    </ul>
-    <h2><strong>Performance of HRRN Scheduling</strong></h2>
-    <ul>
-        <li value="1">Shorter Processes are favored.</li>
-        <li value="2">Aging without service increases the ratio, longer jobs can get past shorter jobs.</li>
-    </ul>
-</div>
+<body>
+<h1>Highest Response Ratio Next</h1>
+<p>Non-preemptive scheduling that balances burst length against how long a process has already waited.</p>
+<div class="gm-formula"><p>Response ratio = (waiting time + burst time) / burst time</p></div>
+<div class="gm-callout gm-key" data-label="Key point"><p>Short jobs still win, but a long job's ratio grows as it waits, so it eventually overtakes. HRRN gets much of SJF's average while avoiding its starvation.</p></div>
+<div class="gm-callout gm-example" data-label="Example"><p>A job with burst 10 that has waited 20 has ratio 3.0, beating a fresh job with burst 4 and ratio 1.0.</p></div>
 </body>
 </html>

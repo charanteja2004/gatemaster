@@ -1,61 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-    /* Style the heading */
-    body {
-            font-family: Arial, sans-serif;
-
-            margin: 20px;
-            background-color:#fff1dc  ;
-        }
-    .gray{
-        background-color: #e0e0e0;
-        border-radius: 10px;
-        color: rgba(0, 0, 0, .9);
-        font-family: Consolas, monospace;
-        margin-bottom: 10px;
-        padding:5px
-    }
-  </style>
-
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cache Mapping</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-<body data-gm-enriched="1">
-    <h2><b>Memory Mapping</b></h2>
-<p>Modern computers have a virtual memory that is not physically present. We can achieve it by setting up a Hard disk, this way extended memory is called virtual memory. So any program that is inside the computer will have a virtual memory address to store data. This data cannot be used unless it is converted to a physical address. So, In short, Memory Mapping is the process done by the Operating System to translate Virtual memory addresses to physical addresses. So, the program can run anytime when the OS loads it as it is required.<br><br>
-
-<h3><b>What is Memory Mapping?</b></h3>
-Memory mapping or mmap() is a function call in an Operating system like Unix. It is a low-level language, and it helps to directly map a file to the currently executing process’s own memory address space. Which could optimize File I/O operations, inter-process communication, etc.<br><br>
-
-<b>Types of Mapping</b><br>
-<b>1. File Mapping:</b> It will map the File to the process virtual memory<br><br>
-
-<li><b>Read-Only Mappings:</b> The File is mapped into memory only for the purpose of reading. If we try to write it will end up in a segmentation fault.</li>
-<li><b>Read-Write Mappings:</b> The file is mapped into memory for both reading and writing. ie, it helps with file manipulation.</li><br>
-<b>2. Anonymous mapping: </b>It is a memory-mapped region where there is no connection with any file/device. Or we can say it is used for dynamic allocation of memory within a program.<br><br>
-
-
-<li><b>Private Anonymous Mapping:</b> This is an area of memory that does not have a file associated with it. It is commonly used for dynamic allocation. Custom memory allocators are examples of this type of mapping.</li>
-<li><b>Shared Anonymous mapping:</b> Inter-process communication is a type of shared mapping in which multiple processes can have access to and change the data. An example of this is implementing Inter-process communication (IPC).</li><br><br>
-
-<b>3. Device Mapping:</b> In this type, Registers, hardware devices like graphic cards, and network adapters can be mapped into the process’s address space.<br><br>
-
-
-<h4><b>Implementation of Memory-Mapping Algorithm</b></h4>
-Memory mapping involves a series of steps. An algorithmic explanation of how memory mapping can be implemented in C is provided here:<br><br>
-
-1.Start<br>
-2.Initialize the size of the file and mapping.<br>
-3.If the file not exists, create file; Open the file.<br>
-4.If exists, truncate the file to the desired size.<br>
-5.Create a memory-mapped region.<br>
-6.Initialize memory-mapped region with some data.<br>
-7.Read and print the contents of the memory mapped region.<br>
-8.Un-map the memory and close the file.<br>
-9.Stop<br><br>
+<body>
+<h1>Cache Mapping</h1>
+<div class="gm-table"><table><thead><tr><th>Mapping</th><th>A block may go</th><th>Tag comparisons</th><th>Replacement policy</th></tr></thead><tbody><tr><td>Direct</td><td>in exactly one line</td><td>1</td><td>none needed</td></tr><tr><td>Fully associative</td><td>in any line</td><td>all lines</td><td>needed</td></tr><tr><td>k-way set associative</td><td>in any line of one set</td><td>k</td><td>needed within the set</td></tr></tbody></table></div>
+<div class="gm-formula"><p>Address = tag | index | block offset</p></div>
+<div class="gm-formula"><p>index bits = log₂(number of sets);  offset bits = log₂(block size)</p></div>
+<div class="gm-callout gm-example" data-label="Example"><p>32-bit address, 32-byte blocks, direct-mapped with 512 lines: 5 offset bits, 9 index bits, so the tag is 32 − 14 = 18 bits.</p></div>
+<div class="gm-callout gm-key" data-label="Key point"><p>Increasing associativity cuts conflict misses and lengthens the hit path, because more tags must be compared in parallel.</p></div>
 </body>
 </html>

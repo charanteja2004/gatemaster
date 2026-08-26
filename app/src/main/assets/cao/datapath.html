@@ -1,55 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-    /* Style the heading */
-    body {
-            font-family: Arial, sans-serif;
-
-            margin: 20px;
-            background-color:#fff1dc  ;
-        }
-    .gray{
-        background-color: #e0e0e0;
-        border-radius: 10px;
-        color: rgba(0, 0, 0, .9);
-        font-family: Consolas, monospace;
-        margin-bottom: 10px;
-        padding:5px
-    }
-  </style>
-
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Data Path</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-<body data-gm-enriched="1">
-    <h2>What is Data Path?</h2>
-<p dir="ltr">Suppose that the CPU needs to carry out any data processing action, such as copying data from memory to a register and vice versa, moving register content from one register to another, or adding two numbers in the ALU. Therefore, whenever a data processing action takes place in the CPU, the data involved for that operation follows a particular path, or data path.</p>
-<p dir="ltr">Data paths&nbsp;are made up of various functional components, such as multipliers or arithmetic logic units. Data path is is required to do data processing operations.</p>
-<h2>One Bus Organization<br /><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/12112.png" alt="one bus organization" width="350" height="350" /><figcaption>one bus organization</figcaption></figure></h2>
-<p dir="ltr">In one bus organization, a single bus is used for multiple purposes. A set of general-purpose registers, program counters, instruction registers, memory address registers (MAR), memory data registers (MDR) are connected with the single bus. Memory read/write can be done with MAR and MDR. The program counterpoints to the memory location from where the next instruction is to be fetched. Instruction register is that very register will hold the copy of the current instruction. In the case of one bus organization, at a time only one operand can be read from the bus.&nbsp;<br />As a result, if the requirement is to read two operands for the operation then the read operation needs to be carried twice. So that&rsquo;s why it is making the process a little longer. One of the advantages of one bus organization is that it is one of the simplest and also this is very cheap to implement. At the same time a disadvantage lies that it has only one bus and this &ldquo;one bus&rdquo; is accessed by all&nbsp;<a href="https://www.geeksforgeeks.org/general-purpose-registers/" rel="noopener">general-purpose registers</a>, program counter, instruction register, MAR, MDR making each and every operation sequential. No one recommends this architecture nowadays.</p>
-<h2>Two Bus Organization</h2>
-<p dir="ltr">To overcome the disadvantage of one bus organization another architecture was developed known as two bus organization. In two bus organizations, there are two buses. The general-purpose register can read/write from both the buses. In this case, two operands can be fetched at the same time because of the two buses. One bus fetch operand for ALU and another bus fetch for register. The situation arises when both buses are busy fetching operands, the output can be stored in a temporary register and when the buses are free, the particular output can be dumped on the buses.&nbsp;</p>
-<p>There are two versions of two bus organizations, i.e., in-bus and out-bus. From in-bus, the general-purpose register can read data and to the out bus, the general-purpose registers can write data. Here buses get dedicated.&nbsp;</p>
-<div id="GFG_AD_gfg_outstream_incontent" data-google-query-id="CM24maOUi4YDFUVMnQkdiTkIxQ">
-<div id="google_ads_iframe_/27823234/gfg_outstream_incontent_0__container__">&nbsp;</div>
-</div>
-<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/33333.png" alt="Two Bus Organization" width="350" height="350" /><figcaption>Two Bus Organization</figcaption></figure></p>
-
-<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/6666-2.png" alt="Two Bus Organization" width="350" height="350" /><figcaption>Two Bus Organization</figcaption></figure></p>
-
-
-
-<h2><strong>Three Bus Organization</strong></h2>
-<p dir="ltr">In three bus organizations we have three buses, OUT bus1, OUT bus2, and an IN bus. From the out buses, we can get the operand which can come from the general-purpose register and evaluated in ALU and the output is dropped on In Bus so it can be sent to respective registers. This implementation is a bit complex but faster in nature because in parallel two operands can flow into ALU and out of ALU. It was developed to overcome the busy waiting problem of two bus organizations. In this structure after execution, the output can be dropped on the bus without waiting because of the presence of an extra bus. The structure is given below in the figure.&nbsp;</p>
-<p><figure class="gm-figure gm-remote"><img src="https://media.geeksforgeeks.org/wp-content/uploads/7777.png" alt="Three Bus Organization" width="350" height="350" /><figcaption>Three Bus Organization</figcaption></figure></p>
-<p dir="ltr">The main advantages of multiple bus organizations over the single bus are as given below.&nbsp;</p>
-<ol>
-<li value="1">Increase in size of the registers.&nbsp;</li>
-<li value="2">Reduction in the number of cycles for execution.&nbsp;</li>
-<li value="3">Increases the speed of execution or we can say faster execution.&nbsp;</li>
-</ol>
+<body>
+<h1>The Data Path</h1>
+<div class="gm-callout gm-definition" data-label="Definition"><p>The data path is the collection of registers, buses, multiplexers and the ALU through which data actually moves; the control unit decides which of those paths is active each cycle.</p></div>
+<ul><li>Single-bus: cheapest, one transfer per cycle, so most instructions take many cycles.</li><li>Multiple-bus: several transfers per cycle, fewer cycles per instruction, more hardware.</li></ul>
+<div class="gm-callout gm-key" data-label="Key point"><p>Counting cycles for a micro-operation sequence is the standard exercise, and the bus count is what bounds how many of them can happen at once.</p></div>
 </body>
 </html>

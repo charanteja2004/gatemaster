@@ -1,61 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-    /* Style the heading */
-    body {
-            font-family: Arial, sans-serif;
-
-            margin: 20px;
-            background-color:#fff1dc  ;
-        }
-    .gray{
-        background-color: #e0e0e0;
-        border-radius: 10px;
-        color: rgba(0, 0, 0, .9);
-        font-family: Consolas, monospace;
-        margin-bottom: 10px;
-        padding:5px
-    }
-  </style>
-
-    <link rel="stylesheet" href="../reader.css" data-gatemaster-reader="1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clocks</title>
+<link rel="stylesheet" href="../reader.css">
 </head>
-<body data-gm-enriched="1">
-    <h2>Clocks Formulas and Concepts:</h2><br>
-<p>Here are some formulas, concepts, and short related to clocks that are commonly used in quantitative aptitude exams:<br>
-Minute Spaces:<br>
-A typical analog clock has a circular face with twelve-hour markings, and 60-minute markings placed around the circumference of the circle, called minute spaces.<br>
-•	When it comes to telling time, clocks use two primary hands: the hour hand and the minute hand.<br>
-•	Hour hand, also known as the shorthand, is typically smaller and moves more slowly than the minute hand.<br>
-•	Meanwhile, the larger, faster-moving hand is called the minute hand or long hand.<br>
-•	The markings on the face of a clock are 60 spaces, one each for a minute. Every hour, the minute hand completes one round of 60 spaces and the hour hand completes one full round every 12 hours.<br>
-Important Points and Shortcuts for Clock:<br>
-•	In 60 minutes, the minute hand gains 55 spaces (also known as minute spaces) over the hour hand. For example, if the initial time is 12:00, then after 1 hour, the minute hand would cover 60 spaces whereas the hour hand would cover only 5 spaces. Thus, the minute hand covers 55 spaces extra than the hour hand.<br>
-•	The minute hand covers 360 degrees in 60 minutes. => In 1 minute, the minute hand covers 360 / 60 = 6 degrees<br>
-•	The hour hand covers 360 degrees in 12 hours. => In 1 hour, the hour hand covers 360 / 12 = 30 degrees => In 1 minute, the hour hand covers 30 / 60 = 0.50 degrees<br>
-•	The angle between the minute hand and the hour hand increases by 5.50 degrees every minute. For example, after 2 minutes, angle made by the minute hand = 2 x 6 = 12 degrees and angle made by the hour hand = 2 x 0.50 = 1 degree => Angle between the hour hand and the minute hand after 2 minutes = 12 – 1 = 11 degrees = 2 x 5.50 degrees<br>
-•	In every hour, the minute hand and the hour hand coincide once.<br>
-•	If the minute hand and the hour hand are in the same line, then the angle between them is either 0 degree or 180 degrees.<br>
-•	The angle between the minute hand and the hour hand is 180 degrees if they are 30 spaces apart, 90 degrees if they are 15 spaces apart, and 0 degrees if they are 0 spaces apart.<br>
-•	If the clock shows time ahead of the actual time, it is said to be running fast. For example, if the clock is showing 12:15 PM but it is actually 12:00 PM, then the clock is said to be running 15 minutes fast.<br>
-•	If the clock shows time behind the actual time, it is said to be running slow. For example, if the clock is showing 2:15 PM but it is actually 2:30 PM, then the clock is said to be running 15 minutes slow.</p><br>
-Angle Equivalence of a Minute:<br>
-Below mentioned tables contain the angular values of the first ten minutes:<br>
-Minute(s)	Angular values<br>
-1	6°<br>
-2	12°<br>
-3	18°<br>
-4	24°<br>
-5	30°<br>
-6	36°<br>
-7	42°<br>
-8	48°<br>
-9	54°<br>
-10	60°<br>
-
+<body>
+<h1>Clocks</h1>
+<ul><li>The minute hand moves 6° per minute.</li><li>The hour hand moves 0.5° per minute, or 30° per hour.</li><li>The minute hand gains 5.5° per minute on the hour hand.</li></ul>
+<div class="gm-formula"><p>Angle = |30H − 5.5M| degrees, taking 360 − θ if the result exceeds 180</p></div>
+<div class="gm-callout gm-example" data-label="Example"><p>At 4:20 the angle is |120 − 110| = 10°, not 0 — the hour hand has already drifted a third of the way to 5.</p></div>
+<ul><li>The hands coincide 11 times in 12 hours, so 22 times a day.</li><li>They are opposite 11 times in 12 hours, and at right angles 22 times.</li></ul>
+<div class="gm-callout gm-key" data-label="Key point"><p>There is no coincidence between 11 and 12 o'clock — the 11 o'clock and 12 o'clock cases are the same event, which is why the count is 11 and not 12.</p></div>
 </body>
 </html>
