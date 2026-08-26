@@ -18,6 +18,8 @@ build.log
 # source. Keep them locally; the app indexes whatever is present at build time.
 app/src/main/assets/pdfs/
 app/src/main/assets/previousPapers/
+legacy/src/main/assets/pdfs/
+legacy/src/main/assets/previousPapers/
 
 # Signing material — never commit these
 *.jks
