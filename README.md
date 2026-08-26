@@ -9,8 +9,12 @@ Kotlin, Jetpack Compose, Material 3. All 30 GATE 2026 papers are selectable. The
 pre-rewrite Java/XML app is preserved at `legacy/` and is **not** part of the
 build.
 
-<!-- Screenshots go here: drop PNGs in docs/screenshots/ and link them as a
-     table — home, subject list, reader, test player, scorecard, settings. -->
+| | | |
+|:--:|:--:|:--:|
+| <img src="docs/screenshots/home.png" width="240"> | <img src="docs/screenshots/subjects.png" width="240"> | <img src="docs/screenshots/practice.png" width="240"> |
+| **Home** — resume where you stopped | **Study** — subjects by paper weightage | **Practice** — a subject set, then topic by topic |
+| <img src="docs/screenshots/tests.png" width="240"> | <img src="docs/screenshots/player.png" width="240"> | <img src="docs/screenshots/scorecard.png" width="240"> |
+| **Tests** — mixed papers lead | **Player** — the marking rule on every question | **Result** — scored subject by subject |
 
 ## What it does
 
@@ -259,8 +263,14 @@ Three rules run through all of them:
 - **Duration is two minutes a question**, floored at 5 and capped at 60, which
   is roughly the GATE pace.
 
+<p align="center">
+  <img src="docs/screenshots/palette.png" width="240">
+  <img src="docs/screenshots/papers.png" width="240">
+</p>
+
 A mixed paper gets **one section per subject**, so the scorecard reports a score
-per subject. That is the whole point of it: a single-subject test can tell you
+per subject, and the question palette groups by subject while the paper is being
+sat. That is the whole point of it: a single-subject test can tell you
 how well you know that subject, but only a mixed one tells you where tomorrow
 should go.
 
