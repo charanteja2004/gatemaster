@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.rememberScrollState
@@ -51,6 +52,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -185,6 +187,8 @@ fun TestPlayerScreen(
         ) {
             QuestionPalette(
                 questions = state.questions,
+                sections = state.paletteSections,
+                showHeadings = state.showsSectionHeadings,
                 currentIndex = state.currentIndex,
                 statusOf = state::statusOf,
                 onSelect = viewModel::goTo,
@@ -443,11 +447,17 @@ private fun PlayerControls(
 @Composable
 private fun QuestionPalette(
     questions: List<Question>,
+    sections: List<PaletteSection>,
+    showHeadings: Boolean,
     currentIndex: Int,
     statusOf: (Question) -> QuestionStatus,
     onSelect: (Int) -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    // Built once rather than searching the list for every cell drawn.
+    val indexOfId = remember(questions) {
+        questions.withIndex().associate { (index, question) -> question.id to index }
+    }
     Column(modifier.padding(horizontal = 20.dp)) {
         Text("Questions", style = MaterialTheme.typography.titleMedium)
 
@@ -468,14 +478,41 @@ private fun QuestionPalette(
             horizontalArrangement = Arrangement.spacedBy(10.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp),
         ) {
-            items(questions, key = { it.id }) { question ->
-                val index = questions.indexOf(question)
-                PaletteCell(
-                    number = question.number,
-                    status = statusOf(question),
-                    isCurrent = index == currentIndex,
-                    onClick = { onSelect(index) },
-                )
+            fun cells(group: List<Question>) = group.map { question ->
+                question to (indexOfId[question.id] ?: 0)
+            }
+
+            if (showHeadings) {
+                sections.forEach { section ->
+                    item(
+                        span = { GridItemSpan(maxLineSpan) },
+                        key = "heading-${section.name}",
+                    ) {
+                        Text(
+                            text = section.name,
+                            style = MaterialTheme.typography.labelLarge,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier.padding(top = 6.dp, bottom = 2.dp),
+                        )
+                    }
+                    items(cells(section.questions), key = { it.first.id }) { (question, index) ->
+                        PaletteCell(
+                            number = question.number,
+                            status = statusOf(question),
+                            isCurrent = index == currentIndex,
+                            onClick = { onSelect(index) },
+                        )
+                    }
+                }
+            } else {
+                items(cells(questions), key = { it.first.id }) { (question, index) ->
+                    PaletteCell(
+                        number = question.number,
+                        status = statusOf(question),
+                        isCurrent = index == currentIndex,
+                        onClick = { onSelect(index) },
+                    )
+                }
             }
         }
     }

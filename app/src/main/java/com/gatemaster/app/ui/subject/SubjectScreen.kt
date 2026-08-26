@@ -33,10 +33,10 @@ import androidx.compose.material3.SecondaryScrollableTabRow
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.key
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -102,18 +102,6 @@ fun SubjectScreen(
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
                     }
                 },
-                actions = {
-                    if (state.canPractiseSubject && subject != null) {
-                        TextButton(onClick = { onPractise(subject.id, null) }) {
-                            Icon(
-                                Icons.Filled.Bolt,
-                                contentDescription = null,
-                                modifier = Modifier.size(17.dp),
-                            )
-                            Text(" Practise")
-                        }
-                    }
-                },
             )
         },
     ) { padding ->
@@ -154,6 +142,10 @@ fun SubjectScreen(
                     }
                 }
 
+                // Keyed on the tab so each one gets its own list state.
+                // Sharing it means opening Practice half way down, at whatever
+                // offset the topic list happened to be scrolled to.
+                key(state.selectedTab) {
                 LazyColumn(
                     modifier = Modifier.fillMaxSize(),
                     contentPadding = PaddingValues(16.dp),
@@ -185,6 +177,48 @@ fun SubjectScreen(
                                     )
                                 },
                             )
+                        }
+
+                        SubjectTab.PRACTICE -> {
+                            item {
+                                MixedPracticeCard(
+                                    questionCount = state.subjectQuestionCount,
+                                    accent = accent,
+                                    onClick = { onPractise(subject.id, null) },
+                                )
+                            }
+                            if (state.readyTopicPractice.isNotEmpty()) {
+                                item {
+                                    PracticeLabel(
+                                        text = "Topic by topic",
+                                        caption = "Ten questions from one topic",
+                                    )
+                                }
+                                items(
+                                    state.readyTopicPractice,
+                                    key = { it.topicId },
+                                ) { entry ->
+                                    TopicPracticeRow(
+                                        entry = entry,
+                                        accent = accent,
+                                        isRead = state.isRead(entry.topicId),
+                                        onClick = { onPractise(subject.id, entry.topicId) },
+                                    )
+                                }
+                            }
+                            if (state.pendingTopicCount > 0) {
+                                item {
+                                    Text(
+                                        text = "${state.pendingTopicCount} more " +
+                                            "${topicWord(state.pendingTopicCount)} have questions " +
+                                            "but not yet the three needed for a set of their own. " +
+                                            "They are still in the mixed practice above.",
+                                        style = MaterialTheme.typography.bodySmall,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                        modifier = Modifier.padding(top = 8.dp),
+                                    )
+                                }
+                            }
                         }
 
                         SubjectTab.HANDOUTS -> items(
@@ -230,6 +264,7 @@ fun SubjectScreen(
                             }
                         }
                     }
+                }
                 }
             }
         }
@@ -326,6 +361,123 @@ private fun DocumentRow(
         }
     }
 }
+
+/**
+ * The subject-wide set, leading the practice tab because it is the one that
+ * asks nothing of you first. The topic list below is for when you already know
+ * what you are weak at.
+ */
+@Composable
+private fun MixedPracticeCard(
+    questionCount: Int,
+    accent: androidx.compose.ui.graphics.Color,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Surface(
+        onClick = onClick,
+        modifier = modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(22.dp),
+        color = accent.copy(alpha = 0.12f),
+    ) {
+        Row(
+            Modifier.padding(18.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(14.dp),
+        ) {
+            Box(
+                Modifier
+                    .size(44.dp)
+                    .clip(RoundedCornerShape(14.dp))
+                    .background(accent.copy(alpha = 0.24f)),
+                contentAlignment = Alignment.Center,
+            ) {
+                Icon(
+                    Icons.Filled.Bolt,
+                    contentDescription = null,
+                    tint = accent,
+                    modifier = Modifier.size(22.dp),
+                )
+            }
+            Column(Modifier.weight(1f)) {
+                Text("Mixed practice", style = MaterialTheme.typography.titleMedium)
+                Text(
+                    text = "20 questions spread across the topics of this " +
+                        "subject, drawn from $questionCount",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun PracticeLabel(text: String, caption: String, modifier: Modifier = Modifier) {
+    Column(modifier.padding(top = 14.dp, bottom = 2.dp)) {
+        Text(text, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
+        Text(
+            caption,
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+}
+
+@Composable
+private fun TopicPracticeRow(
+    entry: TopicPractice,
+    accent: androidx.compose.ui.graphics.Color,
+    isRead: Boolean,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Surface(
+        onClick = onClick,
+        modifier = modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(18.dp),
+        color = MaterialTheme.colorScheme.surfaceContainerLow,
+    ) {
+        Row(
+            modifier = Modifier.padding(14.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(14.dp),
+        ) {
+            Box(
+                Modifier
+                    .size(34.dp)
+                    .clip(RoundedCornerShape(10.dp))
+                    .background(accent.copy(alpha = 0.16f)),
+                contentAlignment = Alignment.Center,
+            ) {
+                Text(
+                    text = "${entry.questionCount}",
+                    style = MaterialTheme.typography.labelMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = accent,
+                )
+            }
+            Column(Modifier.weight(1f)) {
+                Text(entry.title, style = MaterialTheme.typography.titleSmall)
+                Text(
+                    // Saying the notes are read turns the practice tab into a
+                    // check on what was just studied.
+                    text = if (isRead) "Notes read" else "${entry.questionCount} questions",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = if (isRead) accent else MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+            Icon(
+                Icons.Filled.Bolt,
+                contentDescription = null,
+                tint = accent,
+                modifier = Modifier.size(19.dp),
+            )
+        }
+    }
+}
+
+private fun topicWord(count: Int): String = if (count == 1) "topic" else "topics"
 
 /**
  * The syllabus is the one thing every candidate looks up, and it is available

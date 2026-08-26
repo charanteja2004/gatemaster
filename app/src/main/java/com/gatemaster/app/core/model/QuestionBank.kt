@@ -57,12 +57,26 @@ data class BankQuestion(
 @Serializable
 data class SubjectQuestionBank(
     val subjectId: String,
+    /**
+     * Display name, so a mixed paper can label its sections without loading the
+     * whole content index. Falls back to the id when a bank predates the field.
+     */
+    val subjectName: String = "",
     val questions: List<BankQuestion> = emptyList(),
 ) {
     fun forTopic(topicId: String): List<BankQuestion> =
         questions.filter { it.topicId == topicId }
 
     val topicIds: Set<String> get() = questions.mapNotNull { it.topicId }.toSet()
+
+    val displayName: String get() = subjectName.ifBlank { subjectId }
+
+    /** Questions grouped by topic. Untagged questions form a group of their own. */
+    fun byTopic(): List<List<BankQuestion>> =
+        questions.groupBy { it.topicId }.values.toList()
+
+    fun countByTopic(): Map<String, Int> =
+        questions.mapNotNull { it.topicId }.groupingBy { it }.eachCount()
 }
 
 @Serializable
@@ -73,31 +87,100 @@ data class QuestionBankIndex(
 )
 
 /**
+ * The three sittings a practice set can be.
+ *
+ * They exist because one shape does not fit how people actually revise: a
+ * single topic is what fits a spare five minutes, a subject is a study block,
+ * and a mixed paper is how you find out which subject is weakest — which a
+ * subject-at-a-time test can never tell you.
+ */
+enum class PracticeMode(val label: String, val questionLimit: Int) {
+    TOPIC("Topic practice", 10),
+    SUBJECT("Subject practice", 20),
+    MIXED("Mixed test", 30),
+}
+
+/**
  * A test the app assembles rather than ships.
  *
- * The id encodes what to build so the player can be handed a plain id and stay
- * unaware that the test did not come from a file.
+ * The id encodes what to build, so the player can be handed a plain test id and
+ * stay unaware that the test did not come from a file.
  */
-data class QuickTestSpec(
-    val subjectId: String,
+data class PracticeSpec(
+    val mode: PracticeMode,
+    /** Empty in [PracticeMode.MIXED] means every subject that has a bank. */
+    val subjectIds: List<String> = emptyList(),
     val topicId: String? = null,
 ) {
-    val id: String get() = if (topicId != null) "$PREFIX$subjectId:$topicId" else "$PREFIX$subjectId"
+    val id: String
+        get() = when (mode) {
+            PracticeMode.TOPIC -> "${PREFIX}topic:${subjectIds.first()}:$topicId"
+            PracticeMode.SUBJECT -> "${PREFIX}subject:${subjectIds.first()}"
+            PracticeMode.MIXED ->
+                PREFIX + "mixed:" +
+                    if (subjectIds.isEmpty()) EVERY_SUBJECT else subjectIds.joinToString("+")
+        }
 
     companion object {
-        const val PREFIX = "quick:"
+        const val PREFIX = "practice:"
+
+        /** The id segment standing for "whatever subjects have questions". */
+        const val EVERY_SUBJECT = "all"
+
+        /** Ids written before practice grew past one subject at a time. */
+        private const val LEGACY_PREFIX = "quick:"
+
+        fun topic(subjectId: String, topicId: String) =
+            PracticeSpec(PracticeMode.TOPIC, listOf(subjectId), topicId)
+
+        fun subject(subjectId: String) =
+            PracticeSpec(PracticeMode.SUBJECT, listOf(subjectId))
+
+        /** Pass no subjects for a mix across everything that has questions. */
+        fun mixed(subjectIds: List<String> = emptyList()) =
+            PracticeSpec(PracticeMode.MIXED, subjectIds.distinct())
 
         /** Roughly two minutes a question, which is the GATE pace. */
         fun durationFor(questionCount: Int): Int = (questionCount * 2).coerceIn(5, 60)
 
-        fun parse(testId: String): QuickTestSpec? {
-            if (!testId.startsWith(PREFIX)) return null
-            val body = testId.removePrefix(PREFIX)
+        fun parse(testId: String): PracticeSpec? = when {
+            testId.startsWith(PREFIX) -> parseCurrent(testId.removePrefix(PREFIX))
+            testId.startsWith(LEGACY_PREFIX) -> parseLegacy(testId.removePrefix(LEGACY_PREFIX))
+            else -> null
+        }
+
+        private fun parseCurrent(body: String): PracticeSpec? {
+            val (kind, rest) = body.split(":", limit = 2).let {
+                it[0] to it.getOrElse(1) { "" }
+            }
+            if (rest.isBlank()) return null
+            return when (kind) {
+                "topic" -> rest.split(":", limit = 2)
+                    .takeIf { it.size == 2 && it.all(String::isNotBlank) }
+                    ?.let { topic(it[0], it[1]) }
+
+                "subject" -> subject(rest)
+
+                "mixed" -> if (rest == EVERY_SUBJECT) {
+                    mixed()
+                } else {
+                    mixed(rest.split("+").filter(String::isNotBlank))
+                }
+
+                else -> null
+            }
+        }
+
+        /**
+         * A saved attempt outlives the id scheme that created it. Reading the
+         * old form costs four lines and means an in-progress test from a
+         * previous version still resumes.
+         */
+        private fun parseLegacy(body: String): PracticeSpec? {
             val parts = body.split(":", limit = 2)
-            return QuickTestSpec(
-                subjectId = parts[0],
-                topicId = parts.getOrNull(1)?.takeIf { it.isNotBlank() },
-            )
+            val subjectId = parts[0].takeIf { it.isNotBlank() } ?: return null
+            val topicId = parts.getOrNull(1)?.takeIf { it.isNotBlank() }
+            return if (topicId != null) topic(subjectId, topicId) else subject(subjectId)
         }
     }
 }

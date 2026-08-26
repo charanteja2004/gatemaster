@@ -56,6 +56,8 @@ private data class ProgressFile(
 class StudyProgressRepository(
     private val filesDir: File,
     private val io: CoroutineDispatcher = Dispatchers.IO,
+    /** Injectable so tests can order events without sleeping. */
+    private val now: () -> Long = System::currentTimeMillis,
 ) {
 
     private val json = Json {
@@ -100,7 +102,7 @@ class StudyProgressRepository(
             title = entry.title,
             path = entry.path,
             isPdf = entry.isPdf,
-            lastOpenedEpochMs = System.currentTimeMillis(),
+            lastOpenedEpochMs = now(),
         )
     }
 

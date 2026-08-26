@@ -1,5 +1,6 @@
 {
   "subjectId": "dbms",
+  "subjectName": "Databases",
   "questions": [
     {
       "id": "dbms_q001",

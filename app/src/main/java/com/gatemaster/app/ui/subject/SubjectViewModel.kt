@@ -21,9 +21,24 @@ import kotlinx.coroutines.launch
 /** Which group of material the user is looking at within a subject. */
 enum class SubjectTab(val label: String) {
     TOPICS("Topics"),
+    PRACTICE("Practice"),
     HANDOUTS("Handouts"),
     REVISION("Revision"),
     SYLLABUS("Syllabus"),
+}
+
+/** One topic on the practice tab, with the size of the set behind it. */
+data class TopicPractice(
+    val topicId: String,
+    val title: String,
+    val questionCount: Int,
+) {
+    /** Below the threshold a set would be the same three questions every time. */
+    val isReady: Boolean get() = questionCount >= MIN_QUESTIONS
+
+    companion object {
+        const val MIN_QUESTIONS = 3
+    }
 }
 
 data class SubjectUiState(
@@ -35,8 +50,13 @@ data class SubjectUiState(
     /** Topics with enough questions to offer a practice test. */
     val practisableTopics: Set<String> = emptySet(),
     val subjectQuestionCount: Int = 0,
+    /** Every topic that has any questions at all, ready or not. */
+    val topicPractice: List<TopicPractice> = emptyList(),
 ) {
-    val canPractiseSubject: Boolean get() = subjectQuestionCount >= 5
+    val readyTopicPractice: List<TopicPractice> get() = topicPractice.filter { it.isReady }
+
+    /** Topics with a question or two — worth saying so rather than hiding them. */
+    val pendingTopicCount: Int get() = topicPractice.count { !it.isReady }
 
     fun isRead(topicId: String): Boolean = progress[topicId]?.isRead == true
 
@@ -50,6 +70,7 @@ data class SubjectUiState(
             val s = subject ?: return emptyList()
             return buildList {
                 if (s.topics.isNotEmpty()) add(SubjectTab.TOPICS)
+                if (subjectQuestionCount > 0) add(SubjectTab.PRACTICE)
                 if (s.referenceNotes.isNotEmpty()) add(SubjectTab.HANDOUTS)
                 if (s.shortNotes != null) add(SubjectTab.REVISION)
                 if (s.syllabus.isNotEmpty()) add(SubjectTab.SYLLABUS)
@@ -71,23 +92,28 @@ class SubjectViewModel(
     val uiState: StateFlow<SubjectUiState> = _uiState.asStateFlow()
 
     init {
+        // Subject and question counts load together rather than in parallel:
+        // the practice list needs the topic titles from the subject to say
+        // anything more useful than an id.
         viewModelScope.launch {
             val branchId = preferences.branchId.first()
             val subject = repository.subject(branchId, subjectId)
+            val counts = testRepository.topicQuestionCounts(subjectId)
+            val practice = subject?.topics.orEmpty().mapNotNull { topic ->
+                counts[topic.id]?.let { count -> TopicPractice(topic.id, topic.title, count) }
+            }
+
             _uiState.update {
                 it.copy(
                     isLoading = false,
                     subject = subject,
                     notFound = subject == null,
-                    selectedTab = firstTabFor(subject),
-                )
-            }
-        }
-        viewModelScope.launch {
-            _uiState.update {
-                it.copy(
-                    practisableTopics = testRepository.topicsWithQuestions(subjectId),
+                    topicPractice = practice,
+                    practisableTopics = practice.filter(TopicPractice::isReady)
+                        .map(TopicPractice::topicId)
+                        .toSet(),
                     subjectQuestionCount = testRepository.questionCount(subjectId),
+                    selectedTab = firstTabFor(subject),
                 )
             }
         }

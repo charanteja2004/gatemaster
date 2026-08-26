@@ -169,6 +169,7 @@ fun SubjectCard(
                     text = when {
                         subject.isSyllabusOnly -> "Syllabus · ${subject.syllabus.size} areas"
                         readCount > 0 -> "$readCount of ${subject.topics.size} read"
+                        subject.noteCount == 1 -> "1 item"
                         else -> "${subject.noteCount} items"
                     },
                     style = MaterialTheme.typography.bodySmall,

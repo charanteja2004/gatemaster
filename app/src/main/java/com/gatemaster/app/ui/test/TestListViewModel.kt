@@ -6,6 +6,7 @@ import com.gatemaster.app.core.data.AttemptRecord
 import com.gatemaster.app.core.data.ContentRepository
 import com.gatemaster.app.core.data.TestRepository
 import com.gatemaster.app.core.data.UserPreferences
+import com.gatemaster.app.core.model.PracticeSpec
 import com.gatemaster.app.core.model.TestSummary
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -34,7 +35,26 @@ data class TestListUiState(
     val practice: List<PracticeEntry> = emptyList(),
     val history: List<AttemptRecord> = emptyList(),
     val resumePromptTestId: String? = null,
-)
+    /** Subjects that can go into a mixed paper, in paper order. */
+    val mixSubjects: List<PracticeEntry> = emptyList(),
+    val selectedMix: Set<String> = emptySet(),
+    val isChoosingMix: Boolean = false,
+) {
+    /** A mix needs at least two subjects to be a mix. */
+    val canMix: Boolean get() = mixSubjects.size >= 2
+
+    val mixedQuestionCount: Int get() = mixSubjects.sumOf { it.questionCount }
+
+    /** The whole-paper mix: everything that has questions. */
+    val everythingMixId: String get() = PracticeSpec.mixed().id
+
+    /** Null until enough subjects are ticked for the choice to mean anything. */
+    val customMixId: String?
+        get() = mixSubjects.map { it.subjectId }
+            .filter { it in selectedMix }
+            .takeIf { it.size >= 2 }
+            ?.let { PracticeSpec.mixed(it).id }
+}
 
 class TestListViewModel(
     private val repository: TestRepository,
@@ -78,6 +98,9 @@ class TestListViewModel(
                     isLoading = false,
                     tests = entries,
                     practice = practice,
+                    // The same subjects, offered as ingredients for a mixed
+                    // paper rather than as one test each.
+                    mixSubjects = practice,
                     history = repository.history(),
                 )
             }
@@ -88,6 +111,30 @@ class TestListViewModel(
         _uiState.update { it.copy(resumePromptTestId = testId) }
 
     fun dismissResumePrompt() = _uiState.update { it.copy(resumePromptTestId = null) }
+
+    // -- building a mixed paper -----------------------------------------------
+
+    fun chooseMix() = _uiState.update {
+        // Everything starts ticked: the common case is dropping the one or two
+        // subjects you have not studied yet, not building a mix from nothing.
+        it.copy(
+            isChoosingMix = true,
+            selectedMix = it.mixSubjects.map(PracticeEntry::subjectId).toSet(),
+        )
+    }
+
+    fun dismissMixPicker() = _uiState.update { it.copy(isChoosingMix = false) }
+
+    fun toggleMixSubject(subjectId: String) = _uiState.update { state ->
+        val selected = state.selectedMix
+        state.copy(
+            selectedMix = if (subjectId in selected) {
+                selected - subjectId
+            } else {
+                selected + subjectId
+            },
+        )
+    }
 
     private companion object {
         const val MIN_SUBJECT_QUESTIONS = 5

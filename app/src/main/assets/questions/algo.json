@@ -1,5 +1,6 @@
 {
   "subjectId": "algo",
+  "subjectName": "Algorithms",
   "questions": [
     {
       "id": "algo_q001",

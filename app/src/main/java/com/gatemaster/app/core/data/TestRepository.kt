@@ -1,11 +1,13 @@
 package com.gatemaster.app.core.data
 
-import android.content.res.AssetManager
 import android.util.Log
 import com.gatemaster.app.core.model.Attempt
+import com.gatemaster.app.core.model.BankQuestion
 import com.gatemaster.app.core.model.MockTest
+import com.gatemaster.app.core.model.PracticeMode
+import com.gatemaster.app.core.model.PracticeSpec
+import com.gatemaster.app.core.model.Question
 import com.gatemaster.app.core.model.QuestionBankIndex
-import com.gatemaster.app.core.model.QuickTestSpec
 import com.gatemaster.app.core.model.SubjectQuestionBank
 import com.gatemaster.app.core.model.TestSection
 import com.gatemaster.app.core.model.TestCatalogue
@@ -40,7 +42,7 @@ data class AttemptRecord(
  * analytics.
  */
 class TestRepository(
-    private val assets: AssetManager,
+    private val assets: AssetSource,
     private val filesDir: File,
     private val io: CoroutineDispatcher = Dispatchers.IO,
 ) {
@@ -73,9 +75,12 @@ class TestRepository(
 
     suspend fun loadTest(testId: String): Result<MockTest> {
         testCache[testId]?.let { return Result.success(it) }
-        // A quick test is assembled from the bank rather than read from a file.
-        // Recognising it here keeps the player unaware of the difference.
-        QuickTestSpec.parse(testId)?.let { return buildQuickTest(it) }
+        // A practice test is assembled from the bank rather than read from a
+        // file. Recognising it here keeps the player unaware of the difference.
+        PracticeSpec.parse(testId)?.let { spec ->
+            return buildPracticeTest(spec, requestedId = testId)
+                .onSuccess { testCache[testId] = it }
+        }
         return withContext(io) {
             runCatching {
                 val summary = catalogue().firstOrNull { it.id == testId }
@@ -112,59 +117,154 @@ class TestRepository(
         }
     }
 
+    /** Subject ids that have a bank at all, in the order the index lists them. */
+    suspend fun subjectsWithBanks(): List<String> = bankIndex().banks.keys.toList()
+
     /** Topic ids that have at least [minimum] questions, so the UI can offer a test. */
-    suspend fun topicsWithQuestions(subjectId: String, minimum: Int = MIN_TOPIC_QUESTIONS): Set<String> {
-        val bank = bankFor(subjectId) ?: return emptySet()
-        return bank.questions
-            .mapNotNull { it.topicId }
-            .groupingBy { it }
-            .eachCount()
-            .filterValues { it >= minimum }
-            .keys
-    }
+    suspend fun topicsWithQuestions(subjectId: String, minimum: Int = MIN_TOPIC_QUESTIONS): Set<String> =
+        topicQuestionCounts(subjectId).filterValues { it >= minimum }.keys
+
+    /** How many questions each topic of a subject holds, for the practice tab. */
+    suspend fun topicQuestionCounts(subjectId: String): Map<String, Int> =
+        bankFor(subjectId)?.countByTopic().orEmpty()
 
     suspend fun questionCount(subjectId: String, topicId: String? = null): Int {
         val bank = bankFor(subjectId) ?: return 0
         return if (topicId == null) bank.questions.size else bank.forTopic(topicId).size
     }
 
+    // -- practice assembly ----------------------------------------------------
+
+    /** One section of a paper being assembled, before ids and numbers are set. */
+    private class Draft(
+        val name: String,
+        val subjectId: String,
+        val questions: List<BankQuestion>,
+    )
+
     /**
-     * Assembles a practice test.
+     * Assembles a practice paper on demand.
      *
-     * Questions are shuffled so a second attempt is not the same paper in the
-     * same order, and a subject test is capped so it stays a phone-sized
-     * session rather than turning back into a mock.
+     * Two rules run through all three modes. Questions are shuffled, so a
+     * second attempt is not the same paper in the same order. And the draw is
+     * balanced across whatever the set spans — topics within a subject,
+     * subjects within a mix — so a test cannot quietly become twenty questions
+     * about the one topic that happens to have the most written for it.
      */
-    private suspend fun buildQuickTest(spec: QuickTestSpec): Result<MockTest> {
-        val bank = bankFor(spec.subjectId)
-            ?: return Result.failure(IllegalStateException("No questions for ${spec.subjectId} yet"))
+    private suspend fun buildPracticeTest(
+        spec: PracticeSpec,
+        requestedId: String,
+    ): Result<MockTest> {
+        val drafts = when (spec.mode) {
+            PracticeMode.TOPIC -> topicDraft(spec)
+            PracticeMode.SUBJECT -> subjectDraft(spec)
+            PracticeMode.MIXED -> mixedDraft(spec)
+        }.filter { it.questions.isNotEmpty() }
 
-        val pool = if (spec.topicId != null) bank.forTopic(spec.topicId) else bank.questions
-        if (pool.isEmpty()) {
-            return Result.failure(IllegalStateException("No questions for this topic yet"))
+        if (drafts.isEmpty()) {
+            return Result.failure(IllegalStateException(emptyMessage(spec.mode)))
+        }
+        return Result.success(assemble(spec, requestedId, drafts))
+    }
+
+    private suspend fun topicDraft(spec: PracticeSpec): List<Draft> {
+        val subjectId = spec.subjectIds.firstOrNull() ?: return emptyList()
+        val topicId = spec.topicId ?: return emptyList()
+        val bank = bankFor(subjectId) ?: return emptyList()
+        val chosen = bank.forTopic(topicId).shuffled().take(spec.mode.questionLimit)
+        return listOf(Draft(spec.mode.label, subjectId, chosen))
+    }
+
+    private suspend fun subjectDraft(spec: PracticeSpec): List<Draft> {
+        val subjectId = spec.subjectIds.firstOrNull() ?: return emptyList()
+        val bank = bankFor(subjectId) ?: return emptyList()
+        val chosen = drawBalanced(bank.byTopic(), spec.mode.questionLimit)
+        return listOf(Draft(bank.displayName, subjectId, chosen))
+    }
+
+    /**
+     * A mix gets one section per subject, which is the whole point of it: the
+     * scorecard then reports a score per subject, and "which subject is
+     * costing me marks" is a question a single-subject test cannot answer.
+     */
+    private suspend fun mixedDraft(spec: PracticeSpec): List<Draft> {
+        val subjectIds = spec.subjectIds.ifEmpty { subjectsWithBanks() }
+        val banks = subjectIds.mapNotNull { bankFor(it) }.filter { it.questions.isNotEmpty() }
+        if (banks.isEmpty()) return emptyList()
+
+        // Balance within each subject first, then across subjects, so a mix is
+        // not three-quarters whichever subject has the biggest bank.
+        val perSubject = banks.map { drawBalanced(it.byTopic(), spec.mode.questionLimit) }
+        val chosen = drawBalanced(perSubject, spec.mode.questionLimit).toSet()
+
+        return banks.mapIndexed { index, bank ->
+            Draft(bank.displayName, bank.subjectId, perSubject[index].filter { it in chosen })
+        }
+    }
+
+    /**
+     * Takes up to [limit] items, one from each pool in turn, so the result is
+     * spread across the pools rather than dominated by the largest.
+     */
+    private fun <T> drawBalanced(pools: List<List<T>>, limit: Int): List<T> {
+        val queues = pools.map { ArrayDeque(it.shuffled()) }
+            .filter { it.isNotEmpty() }
+            .toMutableList()
+
+        val taken = mutableListOf<T>()
+        var index = 0
+        while (taken.size < limit && queues.isNotEmpty()) {
+            if (index >= queues.size) index = 0
+            val queue = queues[index]
+            taken += queue.removeFirst()
+            // Dropping the exhausted pool shifts the next one into its place,
+            // so the cursor only advances when nothing was removed.
+            if (queue.isEmpty()) queues.removeAt(index) else index++
+        }
+        return taken
+    }
+
+    private fun assemble(spec: PracticeSpec, id: String, drafts: List<Draft>): MockTest {
+        var number = 0
+        val sections = mutableListOf<TestSection>()
+        val questions = mutableListOf<Question>()
+
+        drafts.forEach { draft ->
+            val converted = draft.questions.map { question ->
+                question.toQuestion(
+                    number = ++number,
+                    subjectId = draft.subjectId,
+                    topicTitle = question.topicId,
+                )
+            }
+            questions += converted
+            sections += TestSection(
+                id = draft.subjectId,
+                name = draft.name,
+                questionIds = converted.map { it.id },
+            )
         }
 
-        val limit = if (spec.topicId != null) MAX_TOPIC_QUESTIONS else MAX_SUBJECT_QUESTIONS
-        val chosen = pool.shuffled().take(limit)
-
-        val questions = chosen.mapIndexed { index, q ->
-            q.toQuestion(number = index + 1, subjectId = spec.subjectId, topicTitle = q.topicId)
-        }
-
-        val title = if (spec.topicId != null) "Topic practice" else "Subject practice"
-        val test = MockTest(
-            id = spec.id,
-            title = title,
-            description = "",
-            durationMinutes = QuickTestSpec.durationFor(questions.size),
-            sections = listOf(
-                TestSection(id = "practice", name = title, questionIds = questions.map { it.id }),
-            ),
+        return MockTest(
+            id = id,
+            title = when (spec.mode) {
+                PracticeMode.SUBJECT -> "${drafts.first().name} practice"
+                else -> spec.mode.label
+            },
+            description = when (spec.mode) {
+                PracticeMode.MIXED -> "Drawn from ${drafts.size} subjects"
+                else -> ""
+            },
+            durationMinutes = PracticeSpec.durationFor(questions.size),
+            sections = sections,
             questions = questions,
         )
+    }
 
-        testCache[spec.id] = test
-        return Result.success(test)
+    private fun emptyMessage(mode: PracticeMode): String = when (mode) {
+        PracticeMode.TOPIC -> "No questions for this topic yet"
+        PracticeMode.SUBJECT -> "No questions for this subject yet"
+        PracticeMode.MIXED -> "No questions for these subjects yet"
     }
 
     // -- in-progress attempts -------------------------------------------------
@@ -231,8 +331,6 @@ class TestRepository(
         const val CATALOGUE_ASSET = "tests/catalogue.json"
         const val BANK_INDEX_ASSET = "questions/index.json"
         const val MIN_TOPIC_QUESTIONS = 3
-        const val MAX_TOPIC_QUESTIONS = 10
-        const val MAX_SUBJECT_QUESTIONS = 20
         const val MAX_HISTORY = 100
     }
 }

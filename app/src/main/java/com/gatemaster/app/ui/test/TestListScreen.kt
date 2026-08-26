@@ -10,21 +10,22 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Bolt
+import androidx.compose.material.icons.filled.Shuffle
+import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Surface
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -87,16 +88,48 @@ fun TestListScreen(
                 contentPadding = PaddingValues(16.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp),
             ) {
+                // Mixed papers lead the screen. A single-subject set tells you
+                // how well you know that subject; only a mixed one tells you
+                // which subject to spend tomorrow on.
+                if (state.canMix) {
+                    item {
+                        SectionHeading(
+                            title = "Mixed tests",
+                            caption = "Several subjects in one paper, scored subject by subject",
+                        )
+                    }
+                    item {
+                        MixCard(
+                            title = "Everything",
+                            body = "30 questions drawn across all ${state.mixSubjects.size} " +
+                                "subjects with a question bank",
+                            icon = Icons.Filled.Shuffle,
+                            onClick = { onStartTest(state.everythingMixId, false) },
+                        )
+                    }
+                    item {
+                        MixCard(
+                            title = "Choose subjects",
+                            body = "Build a paper from just the subjects you are revising",
+                            icon = Icons.Filled.Tune,
+                            onClick = viewModel::chooseMix,
+                        )
+                    }
+                }
+
                 if (state.practice.isNotEmpty()) {
                     item {
                         SectionHeading(
-                            title = "Quick practice",
-                            caption = "Short sets you can finish on a phone",
+                            title = "Subject practice",
+                            caption = "One subject at a time, twenty questions",
                         )
                     }
                     items(state.practice, key = { it.subjectId }) { entry ->
                         PracticeCard(entry = entry, onClick = { onPractise(entry.subjectId) })
                     }
+                }
+
+                if (state.tests.isNotEmpty()) {
                     item {
                         SectionHeading(
                             title = "Full tests",
@@ -153,6 +186,21 @@ fun TestListScreen(
         }
     }
 
+    if (state.isChoosingMix) {
+        ModalBottomSheet(onDismissRequest = viewModel::dismissMixPicker) {
+            MixPicker(
+                subjects = state.mixSubjects,
+                selected = state.selectedMix,
+                onToggle = viewModel::toggleMixSubject,
+                startId = state.customMixId,
+                onStart = { testId ->
+                    viewModel.dismissMixPicker()
+                    onStartTest(testId, false)
+                },
+            )
+        }
+    }
+
     state.resumePromptTestId?.let { testId ->
         AlertDialog(
             onDismissRequest = viewModel::dismissResumePrompt,
@@ -187,6 +235,126 @@ private fun SectionHeading(
                 caption,
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+    }
+}
+
+/** An entry point to a multi-subject paper: the whole lot, or a chosen few. */
+@Composable
+private fun MixCard(
+    title: String,
+    body: String,
+    icon: androidx.compose.ui.graphics.vector.ImageVector,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Surface(
+        onClick = onClick,
+        modifier = modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(22.dp),
+        color = MaterialTheme.colorScheme.secondaryContainer,
+    ) {
+        Row(
+            Modifier.padding(18.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(14.dp),
+        ) {
+            Box(
+                Modifier
+                    .size(44.dp)
+                    .clip(RoundedCornerShape(14.dp))
+                    .background(MaterialTheme.colorScheme.secondary.copy(alpha = 0.18f)),
+                contentAlignment = Alignment.Center,
+            ) {
+                Icon(
+                    icon,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onSecondaryContainer,
+                    modifier = Modifier.size(22.dp),
+                )
+            }
+            Column(Modifier.weight(1f)) {
+                Text(
+                    title,
+                    style = MaterialTheme.typography.titleMedium,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer,
+                )
+                Text(
+                    body,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.78f),
+                )
+            }
+        }
+    }
+}
+
+/**
+ * Subject picker for a custom mix.
+ *
+ * The start button carries the question count rather than sitting there as a
+ * bare "Start", because the number is the thing that changes as subjects are
+ * ticked, and a paper of six questions is worth knowing about before starting.
+ */
+@Composable
+private fun MixPicker(
+    subjects: List<PracticeEntry>,
+    selected: Set<String>,
+    onToggle: (String) -> Unit,
+    startId: String?,
+    onStart: (String) -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Column(
+        modifier
+            .fillMaxWidth()
+            .padding(start = 20.dp, end = 20.dp, bottom = 28.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+    ) {
+        Text("Choose subjects", style = MaterialTheme.typography.titleLarge)
+        Text(
+            text = "The paper is drawn evenly from whatever you pick, and scored " +
+                "one section per subject.",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(bottom = 6.dp),
+        )
+
+        subjects.forEach { entry ->
+            val isSelected = entry.subjectId in selected
+            Row(
+                Modifier
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(14.dp))
+                    .clickable { onToggle(entry.subjectId) }
+                    .padding(vertical = 6.dp, horizontal = 4.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(6.dp),
+            ) {
+                Checkbox(checked = isSelected, onCheckedChange = { onToggle(entry.subjectId) })
+                Column(Modifier.weight(1f)) {
+                    Text(entry.subjectName, style = MaterialTheme.typography.bodyLarge)
+                    Text(
+                        "${entry.questionCount} questions",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+            }
+        }
+
+        Button(
+            onClick = { startId?.let(onStart) },
+            enabled = startId != null,
+            modifier = Modifier.fillMaxWidth().padding(top = 12.dp),
+        ) {
+            Text(
+                if (startId == null) {
+                    "Pick at least two subjects"
+                } else {
+                    "Start mixed test"
+                },
             )
         }
     }

@@ -28,7 +28,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.gatemaster.app.core.model.ContentType
-import com.gatemaster.app.core.model.QuickTestSpec
+import com.gatemaster.app.core.model.PracticeSpec
 import com.gatemaster.app.navigation.BranchPickerRoute
 import com.gatemaster.app.navigation.HomeRoute
 import com.gatemaster.app.navigation.PapersRoute
@@ -196,7 +196,11 @@ fun GateMasterApp(
                         // bundled one -- no second player, no second ViewModel.
                         navController.navigate(
                             TestPlayerRoute(
-                                testId = QuickTestSpec(subjectId, topicId).id,
+                                testId = if (topicId == null) {
+                                    PracticeSpec.subject(subjectId).id
+                                } else {
+                                    PracticeSpec.topic(subjectId, topicId).id
+                                },
                             ),
                         )
                     },
@@ -218,7 +222,7 @@ fun GateMasterApp(
                     },
                     onPractise = { subjectId ->
                         navController.navigate(
-                            TestPlayerRoute(testId = QuickTestSpec(subjectId).id),
+                            TestPlayerRoute(testId = PracticeSpec.subject(subjectId).id),
                         )
                     },
                 )

@@ -23,6 +23,9 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
+/** A labelled run of questions in the palette. */
+data class PaletteSection(val name: String, val questions: List<Question>)
+
 data class TestPlayerUiState(
     val isLoading: Boolean = true,
     val test: MockTest? = null,
@@ -34,6 +37,23 @@ data class TestPlayerUiState(
     val errorMessage: String? = null,
 ) {
     val questions: List<Question> get() = test?.orderedQuestions.orEmpty()
+
+    /**
+     * Questions grouped by section, in paper order. A mixed paper carries one
+     * section per subject, and picking "the Databases questions" out of a flat
+     * grid of thirty numbers is not something anyone should do by counting.
+     */
+    val paletteSections: List<PaletteSection>
+        get() = test?.let { paper ->
+            paper.sections.mapNotNull { section ->
+                section.questionIds.mapNotNull(paper::question)
+                    .takeIf { it.isNotEmpty() }
+                    ?.let { PaletteSection(section.name, it) }
+            }
+        }.orEmpty()
+
+    /** One section is the whole paper, and naming it adds nothing. */
+    val showsSectionHeadings: Boolean get() = paletteSections.size > 1
 
     val currentIndex: Int get() = attempt?.currentIndex ?: 0
 
