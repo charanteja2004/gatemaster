@@ -13,6 +13,12 @@ captures/
 local.properties
 build.log
 
+# Bundled PDFs are not kept in the repository: they are large, and they are
+# third-party documents we redistribute in the APK but should not republish as
+# source. Keep them locally; the app indexes whatever is present at build time.
+app/src/main/assets/pdfs/
+app/src/main/assets/previousPapers/
+
 # Signing material — never commit these
 *.jks
 *.keystore

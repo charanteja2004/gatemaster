@@ -1,6 +1,5 @@
 package com.gatemaster.app.core.data
 
-import android.content.res.AssetManager
 import android.util.Log
 import com.gatemaster.app.core.model.Branch
 import com.gatemaster.app.core.model.ContentIndex
@@ -29,7 +28,7 @@ data class SearchHit(
  * an empty course list.
  */
 class ContentRepository(
-    private val assets: AssetManager,
+    private val assets: AssetSource,
     private val io: CoroutineDispatcher = Dispatchers.IO,
 ) {
 
@@ -52,11 +51,47 @@ class ContentRepository(
                     val raw = assets.open(INDEX_ASSET)
                         .bufferedReader()
                         .use { it.readText() }
-                    json.decodeFromString<ContentIndex>(raw)
+                    json.decodeFromString<ContentIndex>(raw).prunedToBundledAssets()
                 }
             }.onSuccess { cached = it }
                 .onFailure { Log.e(TAG, "Could not read $INDEX_ASSET", it) }
         }
+    }
+
+    /**
+     * Drops anything the index names but this build does not carry.
+     *
+     * PDFs are not kept in the repository, so a build made from a plain
+     * checkout has the index but not the documents. Pruning here means the app
+     * offers what it can actually open, instead of a handout list that errors
+     * when tapped. It runs once, behind the same cache as the parse.
+     */
+    private fun ContentIndex.prunedToBundledAssets(): ContentIndex {
+        // The same aptitude articles are shared by all 30 papers, so the index
+        // names roughly three times as many paths as it has distinct files.
+        val checked = HashMap<String, Boolean>()
+        fun bundled(path: String) = checked.getOrPut(path) { assets.exists(path) }
+
+        val prunedBranches = branches.map { branch ->
+            val subjects = branch.subjects.map { subject ->
+                subject.copy(
+                    topics = subject.topics.filter { bundled(it.content.path) },
+                    referenceNotes = subject.referenceNotes.filter { bundled(it.content.path) },
+                    shortNotes = subject.shortNotes?.takeIf { bundled(it.path) },
+                )
+            }
+            branch.copy(
+                subjects = subjects,
+                noteCount = subjects.sumOf { it.noteCount },
+                hasNotes = subjects.any { !it.isSyllabusOnly },
+            )
+        }
+
+        val prunedPapers = papers
+            .filter { bundled(it.paper.path) }
+            .map { paper -> paper.copy(answerKey = paper.answerKey?.takeIf { bundled(it.path) }) }
+
+        return copy(branches = prunedBranches, papers = prunedPapers)
     }
 
     private suspend fun indexOrEmpty(): ContentIndex =

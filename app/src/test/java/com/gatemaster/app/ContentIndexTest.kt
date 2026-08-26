@@ -103,7 +103,13 @@ class ContentIndexTest {
         val missing = mutableListOf<String>()
 
         fun check(path: String, owner: String) {
-            if (!File(assetsDir, path).isFile) missing += "$owner -> $path"
+            val file = File(assetsDir, path)
+            if (file.isFile) return
+            // PDFs are not kept in the repository, so a checkout without them
+            // is expected rather than broken. A missing PDF from a folder that
+            // *is* present is still real drift, and still fails.
+            if (path.endsWith(".pdf", ignoreCase = true) && !file.parentFile.isDirectory) return
+            missing += "$owner -> $path"
         }
 
         for (branch in index.branches) {
