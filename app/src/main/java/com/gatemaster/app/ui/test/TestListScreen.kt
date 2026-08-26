@@ -160,13 +160,13 @@ fun TestListScreen(
                     item {
                         SectionHeading(title = "Past attempts", caption = null)
                     }
-                    items(state.history, key = { it.submittedAtEpochMs }) { record ->
+                    items(state.history, key = { it.id }) { record ->
                         Row(
                             modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp),
                             horizontalArrangement = Arrangement.SpaceBetween,
                         ) {
                             Column(Modifier.weight(1f)) {
-                                Text(record.testTitle, style = MaterialTheme.typography.bodyMedium)
+                                Text(record.title, style = MaterialTheme.typography.bodyMedium)
                                 Text(
                                     text = "${record.correct} right · ${record.incorrect} wrong · " +
                                         formatDuration(record.timeTakenMs),

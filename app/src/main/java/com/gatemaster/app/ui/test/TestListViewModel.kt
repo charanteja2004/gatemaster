@@ -2,10 +2,11 @@ package com.gatemaster.app.ui.test
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.gatemaster.app.core.data.AttemptRecord
 import com.gatemaster.app.core.data.ContentRepository
+import com.gatemaster.app.core.data.ProgressRepository
 import com.gatemaster.app.core.data.TestRepository
 import com.gatemaster.app.core.data.UserPreferences
+import com.gatemaster.app.core.data.db.AttemptEntity
 import com.gatemaster.app.core.model.PracticeSpec
 import com.gatemaster.app.core.model.TestSummary
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -33,7 +34,7 @@ data class TestListUiState(
     val isLoading: Boolean = true,
     val tests: List<TestEntry> = emptyList(),
     val practice: List<PracticeEntry> = emptyList(),
-    val history: List<AttemptRecord> = emptyList(),
+    val history: List<AttemptEntity> = emptyList(),
     val resumePromptTestId: String? = null,
     /** Subjects that can go into a mixed paper, in paper order. */
     val mixSubjects: List<PracticeEntry> = emptyList(),
@@ -60,6 +61,7 @@ class TestListViewModel(
     private val repository: TestRepository,
     private val contentRepository: ContentRepository,
     private val preferences: UserPreferences,
+    private val progress: ProgressRepository,
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(TestListUiState())
@@ -67,6 +69,14 @@ class TestListViewModel(
 
     init {
         refresh()
+        // History comes from the database now, so it updates itself when an
+        // attempt is recorded rather than waiting for the screen to be
+        // revisited.
+        viewModelScope.launch {
+            progress.recentAttempts().collect { attempts ->
+                _uiState.update { it.copy(history = attempts) }
+            }
+        }
     }
 
     /** Re-read on every return to the screen so history stays current. */
@@ -101,7 +111,6 @@ class TestListViewModel(
                     // The same subjects, offered as ingredients for a mixed
                     // paper rather than as one test each.
                     mixSubjects = practice,
-                    history = repository.history(),
                 )
             }
         }

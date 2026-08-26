@@ -7,6 +7,7 @@ plugins {
     // and rejects that plugin. Compiler plugins are still applied normally.
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -60,6 +61,12 @@ android {
         compose = true
     }
 
+    // Schemas are checked in so a migration can be diffed in review rather
+    // than discovered by a crash on someone's phone.
+    ksp {
+        arg("room.schemaLocation", "$projectDir/schemas")
+    }
+
     testOptions {
         // ContentIndexTest reads the assets straight off disk rather than out
         // of the APK, so Gradle cannot see them as an input and would report
@@ -69,6 +76,7 @@ android {
             it.inputs.dir(layout.projectDirectory.dir("src/main/assets"))
                 .withPathSensitivity(PathSensitivity.RELATIVE)
         }
+        unitTests.isIncludeAndroidResources = true
         unitTests {
             // android.util.Log is a stub in unit tests and throws unless this
             // is set. The repositories log on the failure paths, which is
@@ -113,6 +121,10 @@ dependencies {
     implementation(libs.compose.material3.adaptive.layout)
     implementation(libs.compose.material3.adaptive.navigation)
 
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
+
     implementation(libs.androidx.datastore.preferences)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.kotlinx.coroutines.android)
@@ -122,6 +134,8 @@ dependencies {
     debugImplementation(libs.compose.ui.test.manifest)
 
     testImplementation(libs.junit)
+    testImplementation(libs.androidx.room.testing)
+    testImplementation(libs.robolectric)
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.turbine)
 

@@ -4,7 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
-import com.gatemaster.app.core.data.AttemptRecord
+import com.gatemaster.app.core.data.ProgressRepository
 import com.gatemaster.app.core.data.TestRepository
 import com.gatemaster.app.core.model.Attempt
 import com.gatemaster.app.core.model.AnswerState
@@ -86,6 +86,7 @@ data class TestPlayerUiState(
  */
 class TestPlayerViewModel(
     private val repository: TestRepository,
+    private val progress: ProgressRepository,
     savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
 
@@ -348,19 +349,9 @@ class TestPlayerViewModel(
 
         viewModelScope.launch {
             repository.clearAttempt(test.id)
-            repository.recordAttempt(
-                AttemptRecord(
-                    testId = test.id,
-                    testTitle = test.title,
-                    submittedAtEpochMs = finished.submittedAtEpochMs ?: System.currentTimeMillis(),
-                    score = scorecard.score,
-                    maxMarks = scorecard.maxMarks,
-                    correct = scorecard.correct,
-                    incorrect = scorecard.incorrect,
-                    unattempted = scorecard.unattempted,
-                    timeTakenMs = scorecard.timeTakenMs,
-                ),
-            )
+            // Room rather than the old history file: a row per question is
+            // what the subject and topic breakdowns are computed from.
+            progress.record(scorecard, scorecard.timeTakenMs)
         }
     }
 

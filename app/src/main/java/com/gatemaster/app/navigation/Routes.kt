@@ -35,6 +35,10 @@ data object SettingsRoute
 @Serializable
 data class BranchPickerRoute(val firstRun: Boolean = false)
 
+/** Bottom-bar tab: what the attempt history says about how it is going. */
+@Serializable
+data object ProgressRoute
+
 @Serializable
 data object TestListRoute
 

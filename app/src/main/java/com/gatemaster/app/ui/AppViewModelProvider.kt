@@ -9,6 +9,7 @@ import com.gatemaster.app.GateMasterApplication
 import com.gatemaster.app.ui.branch.BranchPickerViewModel
 import com.gatemaster.app.ui.home.HomeViewModel
 import com.gatemaster.app.ui.papers.PapersViewModel
+import com.gatemaster.app.ui.progress.ProgressViewModel
 import com.gatemaster.app.ui.reader.ReaderViewModel
 import com.gatemaster.app.ui.search.SearchViewModel
 import com.gatemaster.app.ui.settings.SettingsViewModel
@@ -55,15 +56,24 @@ object AppViewModelProvider {
             )
         }
         initializer {
+            ProgressViewModel(
+                progress = app().container.progressRepository,
+                content = app().container.contentRepository,
+                preferences = app().container.userPreferences,
+            )
+        }
+        initializer {
             TestListViewModel(
                 repository = app().container.testRepository,
                 contentRepository = app().container.contentRepository,
                 preferences = app().container.userPreferences,
+                progress = app().container.progressRepository,
             )
         }
         initializer {
             TestPlayerViewModel(
                 repository = app().container.testRepository,
+                progress = app().container.progressRepository,
                 savedStateHandle = createSavedStateHandle(),
             )
         }

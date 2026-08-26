@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.EditNote
+import androidx.compose.material.icons.filled.Insights
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Icon
@@ -37,11 +38,13 @@ import com.gatemaster.app.navigation.SearchRoute
 import com.gatemaster.app.navigation.SettingsRoute
 import com.gatemaster.app.navigation.SubjectRoute
 import com.gatemaster.app.navigation.SubjectsRoute
+import com.gatemaster.app.navigation.ProgressRoute
 import com.gatemaster.app.navigation.TestListRoute
 import com.gatemaster.app.navigation.TestPlayerRoute
 import com.gatemaster.app.ui.branch.BranchPickerScreen
 import com.gatemaster.app.ui.home.HomeScreen
 import com.gatemaster.app.ui.papers.PapersScreen
+import com.gatemaster.app.ui.progress.ProgressScreen
 import com.gatemaster.app.ui.reader.ReaderScreen
 import com.gatemaster.app.ui.search.SearchScreen
 import com.gatemaster.app.ui.settings.SettingsScreen
@@ -60,6 +63,7 @@ private enum class TopLevel(
     HOME("Home", Icons.Filled.Home, HomeRoute),
     SUBJECTS("Study", Icons.AutoMirrored.Filled.MenuBook, SubjectsRoute),
     TESTS("Tests", Icons.Filled.EditNote, TestListRoute),
+    PROGRESS("Progress", Icons.Filled.Insights, ProgressRoute),
     SETTINGS("Settings", Icons.Filled.Settings, SettingsRoute),
 }
 
@@ -67,6 +71,7 @@ private fun NavDestination.matches(level: TopLevel): Boolean = when (level) {
     TopLevel.HOME -> hasRoute(HomeRoute::class)
     TopLevel.SUBJECTS -> hasRoute(SubjectsRoute::class)
     TopLevel.TESTS -> hasRoute(TestListRoute::class)
+    TopLevel.PROGRESS -> hasRoute(ProgressRoute::class)
     TopLevel.SETTINGS -> hasRoute(SettingsRoute::class)
 }
 
@@ -212,6 +217,10 @@ fun GateMasterApp(
                     onBack = navController::popBackStack,
                     onOpen = ::openDocument,
                 )
+            }
+
+            composable<ProgressRoute> {
+                ProgressScreen()
             }
 
             composable<TestListRoute> {
