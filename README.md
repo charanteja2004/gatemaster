@@ -1,10 +1,52 @@
 # GateMaster
 
-GATE preparation app covering **all 30 GATE 2026 papers** — notes,
-previous-year papers, and timed mock tests with GATE's real marking scheme.
+[![CI](https://github.com/charanteja2004/gatemaster/actions/workflows/ci.yml/badge.svg)](https://github.com/charanteja2004/gatemaster/actions/workflows/ci.yml)
 
-Being rebuilt from the ground up in Kotlin + Jetpack Compose. The pre-rewrite
-Java/XML app is preserved at `legacy/` and is **not** part of the build.
+An Android study app for the GATE exam: bundled notes, previous-year papers, and
+practice tests that score the way the real paper does.
+
+Kotlin, Jetpack Compose, Material 3. All 30 GATE 2026 papers are selectable. The
+pre-rewrite Java/XML app is preserved at `legacy/` and is **not** part of the
+build.
+
+<!-- Screenshots go here: drop PNGs in docs/screenshots/ and link them as a
+     table — home, subject list, reader, test player, scorecard, settings. -->
+
+## What it does
+
+- **Notes for 11 CS subjects**, 217 topics, read in an in-app reader with its
+  own stylesheet: syntax-highlighted code panels, callouts, formula plaques,
+  scroll progress, adjustable text size, and previous/next topic navigation.
+- **Practice tests assembled on demand** from a 410-question bank across nine
+  subjects, at three sizes: ten questions for one topic, twenty for a subject,
+  thirty for a mixed paper spanning several subjects. 71 topics hold enough
+  questions to be offered a set of their own.
+- **A mixed paper is scored subject by subject**, so it answers the question a
+  single-subject test cannot: which subject is costing you marks.
+- **GATE's actual marking scheme.** Three question types (MCQ, MSQ, NAT), a
+  third of the marks deducted for a wrong MCQ and nothing else, no partial
+  credit on MSQ, and NAT answers matched against the published tolerance range.
+- **15 previous-year papers** with their answer keys, read in-app.
+- **Progress that survives.** Continue-reading, per-subject read counts,
+  bookmarks, and an in-progress attempt that outlives the process being killed.
+- **Search** across topic titles, ranked so a prefix match wins.
+- **Light, dark or system theme** — applied to the notes as well as the app.
+
+## Architecture
+
+Single module, one direction of data flow:
+
+```
+ui/          Compose screens, one ViewModel each, state as StateFlow
+core/data/   repositories — assets in, model out; no Android types leak up
+core/model/  serializable model + the pure scoring functions
+navigation/  type-safe routes
+```
+
+The repositories read through an `AssetSource` seam rather than `AssetManager`
+directly, and scoring is a pure function of (paper, attempt). Between them, the
+whole of the app's logic is testable on the JVM — there is no emulator in the
+loop.
 
 ---
 
@@ -13,8 +55,8 @@ Java/XML app is preserved at `legacy/` and is **not** part of the build.
 | | |
 |---|---|
 | JDK | 17+ (Android Studio's bundled JBR 21 is what this is built with) |
-| Android Studio | any version shipping AGP 9.3+ support |
-| SDK platforms | 37 (compile), 36 (target) — Gradle installs both on first build |
+| Android Studio | 2025.3.1 or newer (it must support AGP 9.0) |
+| SDK platforms | 36 — Gradle installs it on first build |
 
 From the command line:
 
@@ -36,9 +78,14 @@ These are the non-obvious constraints. Change them only deliberately.
   not a top-level `kotlin {}` block.
 - **Kotlin is held at 2.3.x**, not 2.4, because KSP — which Room and Hilt both
   need — has no 2.4 release yet.
-- **`compileSdk` is 37, `targetSdk` is 36.** Compose 1.12 (BOM 2026.08.00)
-  refuses to compile against anything below 37; 36 is what Google Play requires
-  and what the app is actually tested against.
+- **AGP is held at 9.0.0, and that holds AndroidX back with it.** 9.0.0 is the
+  newest AGP that Android Studio 2025.3.1 will open a project with. Compose 1.12
+  (BOM 2026.08.00), lifecycle 2.11 and material3-adaptive 1.3 all refuse to
+  build under anything below AGP 9.1, so they are pinned one release back —
+  BOM 2026.06.01, lifecycle 2.10.0, adaptive 1.2.0. Raising any of them means
+  upgrading Android Studio first; the version catalog says so at each pin.
+- **`compileSdk` and `targetSdk` are both 36.** 36 is the highest compile SDK
+  AGP 9.0 supports, and it is what Google Play requires as a target.
 - **`minSdk` is 24.** The old app used 31, which excluded every device on
   Android 11 or older for no technical reason.
 
@@ -47,6 +94,14 @@ These are the non-obvious constraints. Change them only deliberately.
 All study material lives in `app/src/main/assets/` and is described by a single
 generated file, `assets/content_index.json`. Nothing about content is hardcoded
 in Kotlin.
+
+**PDFs are not in the repository.** `assets/pdfs/` and `assets/previousPapers/`
+are git-ignored: they are large, and they are third-party documents. A plain
+checkout therefore builds an APK with notes and practice but no handouts or
+previous-year papers. `ContentRepository` prunes the index to whatever the build
+actually carries, so the app offers what it can open rather than listing rows
+that fail when tapped — and the content test checks a referenced PDF only when
+its folder is present.
 
 To add or change material: drop files into the right assets folder, then
 
@@ -176,23 +231,54 @@ The reader itself adds a scroll-progress bar, a text-size control persisted in
 DataStore, and previous/next topic navigation so studying is a sequence rather
 than repeated trips back to a list.
 
-**Known limitation:** 899 of the 918 images in the bundled notes are hotlinks to
+**Known limitation:** 722 of the 741 images in the bundled notes are hotlinks to
 external CDNs, so diagrams need an internet connection and will break if those
 URLs change. Figures are framed and labelled so a missing diagram reads as an
 explained placeholder, but hosting the images is unresolved.
 
-## Practice tests
+## Practice
 
-A three-hour mock is the wrong shape for a phone. `assets/questions/<subject>.json`
+A three-hour mock is the wrong shape for a phone, and one subject at a time is
+the wrong shape for finding out what you are weak at. `assets/questions/<subject>.json`
 holds questions tagged with the topic they belong to, and `TestRepository`
-assembles a paper on demand:
+assembles a paper on demand in one of three sizes:
 
-- **Topic practice** — up to 10 questions from one topic, offered on a topic row
-  once that topic has at least 3 questions
-- **Subject practice** — up to 20 questions across the subject
+| Mode | Size | Where it lives |
+|---|---|---|
+| **Topic practice** | 10 questions from one topic | Practice tab inside a subject, and the bolt on a topic row |
+| **Subject practice** | 20 questions across one subject | Practice tab, and the Tests tab |
+| **Mixed test** | 30 questions across several subjects | Tests tab — everything, or a chosen few |
 
-Duration is roughly two minutes a question, which is the GATE pace. Questions are
-shuffled so a second attempt is not the same paper in the same order.
+Three rules run through all of them:
+
+- **Questions are shuffled**, so a second attempt is not the same paper in the
+  same order.
+- **The draw is balanced** across whatever the set spans — topics within a
+  subject, subjects within a mix. Without this a subject test becomes twenty
+  questions about whichever topic happens to have the most written for it.
+- **Duration is two minutes a question**, floored at 5 and capped at 60, which
+  is roughly the GATE pace.
+
+A mixed paper gets **one section per subject**, so the scorecard reports a score
+per subject. That is the whole point of it: a single-subject test can tell you
+how well you know that subject, but only a mixed one tells you where tomorrow
+should go.
+
+A topic is offered its own set once it holds at least 3 questions — below that
+the set would be the same three questions every time. Topics under the
+threshold still feed the subject and mixed papers.
+
+The generated test's id encodes what to build (`practice:topic:<subject>:<topic>`,
+`practice:subject:<subject>`, `practice:mixed:<a>+<b>` or `practice:mixed:all`),
+so it reaches the player through exactly the same route as a bundled test — no
+second player and no second ViewModel. Ids written by earlier versions are still
+read, so an attempt saved before the scheme changed still resumes.
+
+The bank holds 410 questions across General Aptitude, Programming & Data
+Structures, Algorithms, Operating Systems, Databases, Computer Organisation,
+Theory of Computation, Digital Logic and Compiler Design. General Aptitude is
+worth 15 marks in **every** GATE paper, so its bank is the one every candidate
+can use whatever their branch.
 
 The generated test's id encodes what to build (`quick:<subject>:<topic>`), so it
 reaches the player through exactly the same route as a bundled test — no second
@@ -222,10 +308,33 @@ replaces this once attempt history needs querying for analytics.
 
 ## Tests
 
-`ContentIndexTest` validates the material that actually ships: every referenced
-asset exists on disk, ids are unique, no HTML article is orphaned, titles are
-presentable, and papers are ordered. Content drift breaks the build rather than
-the app.
+98 JVM tests, no emulator required. `./gradlew :app:testDebugUnitTest`.
+
+- **`ScoringTest`** — the marking scheme, which is specific and easy to get
+  subtly wrong: only single-answer MCQs are penalised, the penalty is a third of
+  the question's marks, MSQ gives no partial credit, and a sparse answer map
+  still grades every question.
+- **`ContentIndexTest`** — the material that actually ships. Every referenced
+  asset exists on disk, ids are unique, no HTML article is orphaned, titles are
+  presentable, papers are ordered. Content drift breaks the build rather than
+  the app.
+- **`TestRepositoryTest`** — practice assembly for all three modes: the caps,
+  the two-minute pace, the three-question threshold, the balanced draw, and a
+  mixed paper getting one section per subject. Plus attempt persistence,
+  including a half-written attempt file being discarded instead of failing
+  every launch.
+- **`PracticeSpecTest`** — the test id, which is the only thing crossing into
+  the player and the key a saved attempt is filed under. It has to survive a
+  round trip exactly and to keep reading ids written by older versions.
+- **`StudyProgressRepositoryTest`** — furthest-read only moving forward, the
+  last-tenth read rule, and progress surviving a restart. The clock is injected,
+  so ordering is exact rather than dependent on machine speed.
+- **`ContentRepositoryTest`** — search ranking and the failure paths the real
+  assets deliberately never exercise: a malformed index surfaces as a failure
+  rather than a silently empty app.
+
+CI runs the tests, Android lint and a debug build on every push
+(`.github/workflows/ci.yml`), and publishes the APK as a build artifact.
 
 ## Project layout
 
@@ -251,14 +360,33 @@ across all 30 branches — every paper has real content from day one. Beyond tha
 CS has the full note set; the other papers currently offer their official
 syllabus, which is what candidates look up most often anyway.
 
+## Deliberate choices
+
+Things a reviewer might expect to find here and will not, with the reasoning:
+
+- **A hand-rolled `AppContainer` rather than Hilt.** Nine ViewModels and four
+  singletons do not need a DI graph, and the container keeps the build free of
+  annotation processing. `AppViewModelProvider` is the only file that changes
+  when that stops being true.
+- **JSON files rather than Room.** Study progress is one small document, read
+  once at startup and wanted whole by every screen; an attempt is a
+  self-contained record. Room earns its place when attempt history needs
+  querying for analytics — not before.
+- **Content is generated, never hardcoded.** Everything the app shows comes from
+  `content_index.json`, built by the scripts in `tools/`, so the content source
+  is swappable without touching Kotlin.
+
 ## Not done yet
 
-- Room + DataStore for progress, bookmarks, and richer attempt analytics
-- Hilt (the app currently uses a hand-rolled `AppContainer`)
+- Attempt analytics: score trend, weak topics, per-subject accuracy over time
 - Accounts, sync, and serving content from a backend instead of the APK
 - Release signing config — required before the first Play upload
 - Notes for papers other than CS — the structure and syllabus are in place,
   the articles are not
 - Detailed syllabus for the 22 outline papers
 - Computer Networks and Discrete Mathematics have no notes in CS
-- Only one practice test ships; there is no per-subject question bank yet
+- Question banks for Computer Networks and Engineering Mathematics — blocked
+  on those two subjects having no topics in the index to tag questions against
+- Depth in the older banks: Algorithms, Operating Systems, Databases and Data
+  Structures each have around 50 questions but only four or five topics deep
+  enough for a per-topic set
