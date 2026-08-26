@@ -9,6 +9,16 @@ Kotlin, Jetpack Compose, Material 3. All 30 GATE 2026 papers are selectable. The
 pre-rewrite Java/XML app is preserved at `legacy/` and is **not** part of the
 build.
 
+## Install
+
+Grab the APK from [Releases](https://github.com/charanteja2004/gatemaster/releases)
+and open it on an Android phone (Android 7.0 or newer). Android will ask you to
+allow installing from this source the first time.
+
+Built from a plain checkout, that APK carries the notes, the practice question
+bank and the syllabus. It does not carry the reference PDFs or previous-year
+papers, which are not kept in the repository — see **Content pipeline** below.
+
 | | | |
 |:--:|:--:|:--:|
 | <img src="docs/screenshots/home.png" width="240"> | <img src="docs/screenshots/subjects.png" width="240"> | <img src="docs/screenshots/practice.png" width="240"> |
@@ -33,6 +43,10 @@ build.
 - **15 previous-year papers** with their answer keys, read in-app.
 - **Progress that survives.** Continue-reading, per-subject read counts,
   bookmarks, and an in-progress attempt that outlives the process being killed.
+- **Progress that answers the next question.** A scorecard says how one paper
+  went; the Progress tab says which subjects are costing marks, which topics to
+  go back to, and whether the score is moving — computed from every question of
+  every attempt.
 - **Search** across topic titles, ranked so a prefix match wins.
 - **Light, dark or system theme** — applied to the notes as well as the app.
 
@@ -92,6 +106,51 @@ These are the non-obvious constraints. Change them only deliberately.
   AGP 9.0 supports, and it is what Google Play requires as a target.
 - **`minSdk` is 24.** The old app used 31, which excluded every device on
   Android 11 or older for no technical reason.
+
+## Releasing
+
+`.github/workflows/release.yml` builds a signed APK and publishes it whenever a
+version tag is pushed:
+
+```sh
+git tag v0.2.0
+git push origin v0.2.0
+```
+
+The tag runs the tests first, so a tag that fails its own suite never becomes a
+download.
+
+### Signing
+
+The keystore is never committed. Create one once:
+
+```sh
+keytool -genkeypair -v -keystore release.jks -alias gatemaster \
+        -keyalg RSA -keysize 2048 -validity 10000
+```
+
+Keep it somewhere safe and back it up: Android identifies an app by its signing
+key, so losing it means never being able to update this app again under the
+same identity.
+
+For local release builds, put a `keystore.properties` next to
+`settings.gradle.kts` (it is git-ignored):
+
+```properties
+storeFile=release.jks
+storePassword=…
+keyAlias=gatemaster
+keyPassword=…
+```
+
+Without that file the release build still compiles — it simply comes out
+unsigned, so a fresh clone and CI are never blocked on a secret they do not
+have.
+
+For the workflow, add four repository secrets: `KEYSTORE_BASE64`
+(`base64 -w0 release.jks`), `KEYSTORE_PASSWORD`, `KEY_ALIAS` and `KEY_PASSWORD`.
+The job writes them to disk for the length of the build and deletes them
+afterwards.
 
 ## Content pipeline
 
@@ -312,13 +371,13 @@ player and no second ViewModel.
 Scoring is a pure function of the attempt plus the paper (`scoreAttempt`), so
 the rules are unit-tested without a device.
 
-Attempts are persisted as JSON in the app's files directory: an in-progress
-attempt survives being killed, and finished attempts are kept as history. Room
-replaces this once attempt history needs querying for analytics.
+An in-progress attempt is persisted as JSON in the app's files directory, so it
+survives the process being killed. Finished attempts go to Room instead: one row
+per attempt and one per question, which is what the Progress tab aggregates.
 
 ## Tests
 
-98 JVM tests, no emulator required. `./gradlew :app:testDebugUnitTest`.
+111 JVM tests, no emulator required. `./gradlew :app:testDebugUnitTest`.
 
 - **`ScoringTest`** — the marking scheme, which is specific and easy to get
   subtly wrong: only single-answer MCQs are penalised, the penalty is a third of
@@ -342,6 +401,9 @@ replaces this once attempt history needs querying for analytics.
 - **`ContentRepositoryTest`** — search ranking and the failure paths the real
   assets deliberately never exercise: a malformed index surfaces as a failure
   rather than a silently empty app.
+- **`AttemptDaoTest`** — the analytics SQL, under Robolectric so it stays on the
+  JVM. An ORDER BY the wrong way round or a forgotten HAVING would produce a
+  plausible screen full of wrong advice, which no other test would catch.
 
 CI runs the tests, Android lint and a debug build on every push
 (`.github/workflows/ci.yml`), and publishes the APK as a build artifact.
@@ -352,11 +414,13 @@ CI runs the tests, Android lint and a debug build on every push
 app/                     the Kotlin + Compose app
   src/main/assets/       study material + generated content_index.json
   src/main/java/com/gatemaster/app/
-    core/model/          serializable content model
-    core/data/           ContentRepository (assets -> model)
+    core/model/          serializable content model + pure scoring
+    core/data/           repositories: assets in, model out
+    core/data/db/        Room: attempt history and the analytics queries
     navigation/          type-safe routes
-    ui/                  theme, screens, reader
-tools/                   content pipeline scripts
+    ui/                  theme, screens, reader, progress
+  schemas/               exported Room schemas, checked in for review
+tools/                   content pipeline and the authored notes
 legacy/                  pre-rewrite Java/XML app, excluded from the build
 ```
 
@@ -378,19 +442,20 @@ Things a reviewer might expect to find here and will not, with the reasoning:
   singletons do not need a DI graph, and the container keeps the build free of
   annotation processing. `AppViewModelProvider` is the only file that changes
   when that stops being true.
-- **JSON files rather than Room.** Study progress is one small document, read
-  once at startup and wanted whole by every screen; an attempt is a
-  self-contained record. Room earns its place when attempt history needs
-  querying for analytics — not before.
+- **Two stores, on purpose.** Study progress is one small document, read once
+  at startup and wanted whole by every screen, so it stays a JSON file. Attempt
+  history is the opposite — it grows without bound and every question asked of
+  it is an aggregate — so it lives in Room, one row per question, which is what
+  makes the topic breakdown possible at all.
 - **Content is generated, never hardcoded.** Everything the app shows comes from
   `content_index.json`, built by the scripts in `tools/`, so the content source
   is swappable without touching Kotlin.
 
 ## Not done yet
 
-- Attempt analytics: score trend, weak topics, per-subject accuracy over time
 - Accounts, sync, and serving content from a backend instead of the APK
-- Release signing config — required before the first Play upload
+- A Play Store listing. The APK is published on GitHub Releases; Play needs a
+  developer account and a review pass
 - Notes for papers other than CS — the structure and syllabus are in place,
   the articles are not
 - Detailed syllabus for the 22 outline papers

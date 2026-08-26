@@ -1,5 +1,6 @@
 import org.gradle.api.tasks.PathSensitivity
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import java.util.Properties
 
 plugins {
     alias(libs.plugins.android.application)
@@ -9,6 +10,21 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp)
 }
+
+/**
+ * Release signing material, kept out of the repository.
+ *
+ * Create keystore.properties next to settings.gradle.kts with storeFile,
+ * storePassword, keyAlias and keyPassword; see the README. When it is absent
+ * -- a fresh clone, or CI building a debug APK -- the release build simply
+ * goes unsigned rather than failing, so the file is never required just to
+ * compile.
+ */
+val signingProperties = Properties().apply {
+    val file = rootProject.file("keystore.properties")
+    if (file.exists()) file.inputStream().use { load(it) }
+}
+val hasSigningMaterial = signingProperties.getProperty("storeFile") != null
 
 android {
     namespace = "com.gatemaster.app"
@@ -20,11 +36,22 @@ android {
         applicationId = "com.gatemaster.app"
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.targetSdk.get().toInt()
-        versionCode = 1
-        versionName = "0.1.0"
+        versionCode = 2
+        versionName = "0.2.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+    }
+
+    signingConfigs {
+        if (hasSigningMaterial) {
+            create("release") {
+                storeFile = rootProject.file(signingProperties.getProperty("storeFile"))
+                storePassword = signingProperties.getProperty("storePassword")
+                keyAlias = signingProperties.getProperty("keyAlias")
+                keyPassword = signingProperties.getProperty("keyPassword")
+            }
+        }
     }
 
     buildTypes {
@@ -39,7 +66,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",
             )
-            // TODO: add a signingConfig before the first Play upload.
+            signingConfig = signingConfigs.findByName("release")
         }
     }
 
