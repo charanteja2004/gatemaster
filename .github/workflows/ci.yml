@@ -16,6 +16,69 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # The server needs no Android SDK and the app needs no database, so they run
+  # as separate jobs: either can go red without waiting on the other's
+  # toolchain, and the server's feedback arrives in about a minute.
+  server:
+    name: Sync API
+    runs-on: ubuntu-latest
+
+    services:
+      # Only the second test run uses this. The first deliberately does not, so
+      # a regression that makes the suite need a database shows up here rather
+      # than on somebody's laptop.
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_DB: gatemaster_test
+          POSTGRES_USER: gatemaster
+          POSTGRES_PASSWORD: ci
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U gatemaster -d gatemaster_test"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      # H2 in memory: this run proves the suite needs no database.
+      - name: Tests (H2)
+        run: ./gradlew :server:test
+
+      # The same tests again, against the database this actually deploys on.
+      # H2 in PostgreSQL mode accepts things Postgres does not, so without this
+      # run the schema's portability would be a claim rather than a fact.
+      - name: Tests (PostgreSQL)
+        env:
+          GATEMASTER_TEST_POSTGRES_URL: jdbc:postgresql://localhost:5432/gatemaster_test?user=gatemaster&password=ci
+        run: ./gradlew :server:test --rerun-tasks
+
+      - name: Build the distribution
+        run: ./gradlew :server:installDist
+
+      - name: Build the image
+        run: docker build -f server/Dockerfile -t gatemaster-api .
+
+      - name: Upload reports
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: server-reports
+          path: server/build/reports/
+          if-no-files-found: ignore
+
   build:
     name: Test, lint and build
     runs-on: ubuntu-latest
