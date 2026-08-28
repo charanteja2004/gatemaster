@@ -41,6 +41,9 @@ class ProgressRepository(
 
     fun recentAttempts(): Flow<List<AttemptEntity>> = dao.recentAttempts()
 
+    /** How many topics have been practised, for the screens that gate on it. */
+    fun practisedTopicCount(): Flow<Int> = dao.practisedTopicCount()
+
     /** Per-topic history, which is what adaptive practice is drawn from. */
     suspend fun topicHistory(): List<TopicHistory> = withContext(io) {
         runCatching { dao.topicHistory() }.getOrDefault(emptyList())

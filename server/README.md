@@ -28,12 +28,36 @@ Tests need nothing installed:
 ./gradlew :server:test
 ```
 
-Against a real Postgres:
+Neither does the server itself, if you point it at H2. That is for development
+only -- it boots with a warning saying so -- but it means a working API is one
+command away with no Docker and no database:
+
+```sh
+export GATEMASTER_DATABASE_URL='jdbc:h2:file:./build/devdb;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE'
+export GATEMASTER_DATABASE_USER=sa
+export GATEMASTER_JWT_SECRET=local-development-secret-not-for-any-real-deployment
+export GATEMASTER_BCRYPT_COST=10
+./gradlew :server:run
+```
+
+Against the database it actually deploys on:
 
 ```sh
 docker compose -f server/docker-compose.yml up --build
 curl localhost:8080/health
 ```
+
+### Pointing the app at it
+
+The debug build permits cleartext to localhost (`app/src/debug`, so the release
+APK never does). Forward the port down the USB cable and the phone's localhost
+becomes yours -- no LAN address, no router, no self-signed certificate:
+
+```sh
+adb reverse tcp:8080 tcp:8080
+```
+
+Then set `http://localhost:8080` in the app under Settings -> Account.
 
 ## Configuration
 

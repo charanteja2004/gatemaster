@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Debug-only manifest additions, merged into the main one for this variant.
+
+  The only thing here is the network security config, which permits cleartext
+  to localhost so the app can be run against a sync server on the developer's
+  own machine. The release build never sees it.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application android:networkSecurityConfig="@xml/network_security_config" />
+</manifest>

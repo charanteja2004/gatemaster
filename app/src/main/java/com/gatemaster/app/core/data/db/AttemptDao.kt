@@ -186,6 +186,28 @@ interface AttemptDao {
     )
     suspend fun topicHistory(): List<TopicHistory>
 
+    /**
+     * How many topics the history can say anything about.
+     *
+     * A Flow, not a suspend call, because it gates a card on the Tests tab and
+     * the thing that changes it -- submitting a paper -- happens on a different
+     * screen. Re-reading it only when that screen is built is how it ends up
+     * permanently stale.
+     */
+    @Query(
+        """
+        SELECT COUNT(*) FROM (
+            SELECT r.topicId
+            FROM question_results r
+            WHERE r.topicId IS NOT NULL
+              AND r.subjectId IS NOT NULL
+              AND r.kind != 'UNATTEMPTED'
+            GROUP BY r.topicId, r.subjectId
+        )
+        """,
+    )
+    fun practisedTopicCount(): Flow<Int>
+
     @Query("SELECT COUNT(*) FROM attempts")
     suspend fun count(): Int
 

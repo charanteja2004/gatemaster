@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
@@ -86,6 +87,10 @@ fun AccountScreen(
                 .padding(padding)
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
+                // Without this the keyboard covers the submit button, and on a
+                // form whose last field is a password that is every time: the
+                // keyboard is already open when the user wants to press it.
+                .imePadding()
                 .padding(PaddingValues(start = 16.dp, end = 16.dp, bottom = 28.dp)),
             verticalArrangement = Arrangement.spacedBy(14.dp),
         ) {
@@ -227,7 +232,7 @@ private fun UnavailableCard() {
         }
         Text(
             "This build has no sync server, so there is nothing to sign in to. " +
-                "Everything works without one -- notes, practice and progress all " +
+                "Everything works without one — notes, practice and progress all " +
                 "live on this phone. Point it at a server below to turn sync on.",
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,

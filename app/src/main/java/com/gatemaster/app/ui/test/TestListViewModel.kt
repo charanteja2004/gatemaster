@@ -90,6 +90,13 @@ class TestListViewModel(
                 _uiState.update { it.copy(history = attempts) }
             }
         }
+        // Likewise for the recommendation gate: the paper that unlocks it is
+        // sat on another screen, so this cannot be read once and kept.
+        viewModelScope.launch {
+            progress.practisedTopicCount().collect { count ->
+                _uiState.update { it.copy(practisedTopics = count) }
+            }
+        }
     }
 
     /** Re-read on every return to the screen so history stays current. */
@@ -124,7 +131,6 @@ class TestListViewModel(
                     // The same subjects, offered as ingredients for a mixed
                     // paper rather than as one test each.
                     mixSubjects = practice,
-                    practisedTopics = progress.topicHistory().size,
                 )
             }
         }

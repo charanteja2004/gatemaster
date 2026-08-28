@@ -12,6 +12,15 @@ fun main() {
     // fail here, in the logs, on the first second -- not on whichever request
     // happens to need it.
     val config = Config.fromEnv()
+
+    if (config.databaseUrl.startsWith("jdbc:h2:")) {
+        // Supported so a developer can run this with nothing installed, and
+        // called out loudly because H2 accepts SQL that PostgreSQL does not.
+        // Anything that works here still has to be checked against the real
+        // thing before it means anything.
+        log.warn("Running on H2. This is for local development only; deploy against PostgreSQL.")
+    }
+
     val database = Database.connect(config)
     log.info("Migrations applied; listening on {}", config.port)
 

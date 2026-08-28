@@ -44,6 +44,10 @@ dependencies {
     runtimeOnly(libs.flyway.postgresql)
     implementation(libs.hikaricp)
     runtimeOnly(libs.postgresql)
+    // Also on the runtime classpath, not just the test one, so `:server:run`
+    // works against a file-backed H2 with nothing installed. That is for
+    // development only -- see the warning Main.kt prints when it sees one.
+    runtimeOnly(libs.h2)
 
     implementation(libs.bcrypt)
     implementation(libs.logback.classic)
