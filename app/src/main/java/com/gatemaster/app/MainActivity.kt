@@ -27,6 +27,7 @@ import com.gatemaster.app.core.model.ThemeMode
 import com.gatemaster.app.ui.theme.GateMasterTheme
 import com.gatemaster.app.ui.theme.isDark
 import kotlinx.coroutines.flow.first
+import com.gatemaster.app.core.data.sync.SyncWorker
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
@@ -35,6 +36,17 @@ class MainActivity : ComponentActivity() {
         val splash = installSplashScreen()
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
+
+        // Scheduled here rather than in Application.onCreate: WorkManager
+        // initialises lazily through a content provider, which has not run
+        // when the Application is constructed under a unit test. Launching the
+        // app is a perfectly good trigger, and it keeps framework start-up out
+        // of a constructor the JVM tests also run.
+        //
+        // Enqueued whether or not anyone is signed in -- the worker's first act
+        // is to look for a session and return. Scheduling only after a sign-in
+        // would mean the schedule did not exist on the next launch.
+        SyncWorker.schedule(this)
 
         // Hold the splash until we know whether this is a first run, so the
         // user never sees the home screen flash before the paper picker.

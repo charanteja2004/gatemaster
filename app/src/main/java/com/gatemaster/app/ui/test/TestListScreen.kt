@@ -12,8 +12,10 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.lazy.LazyColumn
+import com.gatemaster.app.core.model.AdaptivePlan
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.Bolt
 import androidx.compose.material.icons.filled.Shuffle
 import androidx.compose.material.icons.filled.Tune
@@ -88,7 +90,30 @@ fun TestListScreen(
                 contentPadding = PaddingValues(16.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp),
             ) {
-                // Mixed papers lead the screen. A single-subject set tells you
+                // The recommendation leads, once there is a history to base one
+                // on. Everything else on this screen asks the user what to
+                // practise; this is the only thing that answers it.
+                if (state.canRecommend) {
+                    item {
+                        SectionHeading(
+                            title = "Recommended",
+                            caption = "Drawn from the topics you get wrong and the ones " +
+                                "you have not seen in a while",
+                        )
+                    }
+                    item {
+                        MixCard(
+                            title = "Practise what needs it",
+                            body = "${AdaptivePlan.QUESTION_COUNT} questions chosen from " +
+                                "your ${state.practisedTopics} practised topics, " +
+                                "weighted by the marks each subject carries",
+                            icon = Icons.Filled.AutoAwesome,
+                            onClick = { onStartTest(state.recommendedId, true) },
+                        )
+                    }
+                }
+
+                // Mixed papers lead the rest. A single-subject set tells you
                 // how well you know that subject; only a mixed one tells you
                 // which subject to spend tomorrow on.
                 if (state.canMix) {

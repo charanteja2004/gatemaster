@@ -1,7 +1,9 @@
 package com.gatemaster.app.core.data.db
 
 import androidx.room.Dao
+import com.gatemaster.app.core.model.TopicHistory
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
 import kotlinx.coroutines.flow.Flow
@@ -31,6 +33,68 @@ interface AttemptDao {
 
     @Query("SELECT * FROM attempts ORDER BY submittedAtEpochMs DESC LIMIT :limit")
     fun recentAttempts(limit: Int = 20): Flow<List<AttemptEntity>>
+
+    // --- Sync ---------------------------------------------------------------
+
+    /**
+     * Attempts this device has not yet handed to the server, oldest first.
+     *
+     * Oldest first so a client that has been offline for a month uploads its
+     * history in the order it happened, and a truncated batch still leaves the
+     * server with a prefix rather than a scatter.
+     */
+    @Query("SELECT * FROM attempts WHERE syncedAt IS NULL ORDER BY id LIMIT :limit")
+    suspend fun unsyncedAttempts(limit: Int): List<AttemptEntity>
+
+    @Query("SELECT * FROM question_results WHERE attemptId IN (:attemptIds)")
+    suspend fun resultsFor(attemptIds: List<Long>): List<QuestionResultEntity>
+
+    @Query("UPDATE attempts SET syncedAt = :at WHERE clientAttemptId IN (:clientIds)")
+    suspend fun markSynced(clientIds: List<String>, at: Long)
+
+    /** Where the next download starts. Zero when nothing has ever come down. */
+    @Query("SELECT COALESCE(MAX(serverSeq), 0) FROM attempts")
+    suspend fun highestServerSeq(): Long
+
+    @Query("SELECT clientAttemptId FROM attempts WHERE clientAttemptId IN (:clientIds)")
+    suspend fun existingClientIds(clientIds: List<String>): List<String>
+
+    /**
+     * Records where the server filed an attempt this device already had.
+     *
+     * Without this the download cursor never moves past the rows this device
+     * uploaded -- they come back down, are recognised as known, are skipped,
+     * and MAX(serverSeq) stays where it was. The same page would then be
+     * fetched on every sync for ever.
+     */
+    @Query(
+        """
+        UPDATE attempts
+        SET serverSeq = :serverSeq, syncedAt = COALESCE(syncedAt, :at)
+        WHERE clientAttemptId = :clientId
+        """,
+    )
+    suspend fun recordServerSeq(clientId: String, serverSeq: Long, at: Long)
+
+    /**
+     * Stores an attempt that came down from the server.
+     *
+     * IGNORE rather than REPLACE on the conflict: an attempt is immutable, so
+     * a second copy carries nothing new, and REPLACE would delete the existing
+     * row -- taking its questions with it through the foreign key cascade, then
+     * re-inserting them. IGNORE simply does nothing, which is correct and also
+     * what makes this safe to call on every sync.
+     */
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertDownloaded(attempt: AttemptEntity): Long
+
+    @Transaction
+    suspend fun storeDownloaded(attempt: AttemptEntity, results: List<QuestionResultEntity>) {
+        val id = insertDownloaded(attempt)
+        // -1 means the unique index rejected it: this device already had it.
+        if (id == -1L) return
+        insertResults(results.map { it.copy(attemptId = id) })
+    }
 
     @Query(
         """
@@ -95,6 +159,32 @@ interface AttemptDao {
         """,
     )
     fun scoreTrend(limit: Int = 30): Flow<List<ScorePoint>>
+
+    /**
+     * Per topic: how many questions were answered, how many were right, and
+     * when it was last seen.
+     *
+     * This is what adaptive practice runs on, and it is deliberately the same
+     * grain the Progress tab already aggregates -- the join to `attempts` is
+     * only there for the timestamp, which lives on the sitting rather than on
+     * the question.
+     */
+    @Query(
+        """
+        SELECT r.topicId AS topicId,
+               r.subjectId AS subjectId,
+               COUNT(*) AS attempted,
+               SUM(CASE WHEN r.kind = 'CORRECT' THEN 1 ELSE 0 END) AS correct,
+               MAX(a.submittedAtEpochMs) AS lastAttemptedEpochMs
+        FROM question_results r
+        JOIN attempts a ON a.id = r.attemptId
+        WHERE r.topicId IS NOT NULL
+          AND r.subjectId IS NOT NULL
+          AND r.kind != 'UNATTEMPTED'
+        GROUP BY r.topicId, r.subjectId
+        """,
+    )
+    suspend fun topicHistory(): List<TopicHistory>
 
     @Query("SELECT COUNT(*) FROM attempts")
     suspend fun count(): Int

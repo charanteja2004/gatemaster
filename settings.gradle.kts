@@ -16,6 +16,11 @@ dependencyResolutionManagement {
 
 rootProject.name = "GateMaster"
 
+// The wire contract: request and response types, and nothing else. A plain
+// Kotlin module, so both the Android app and the JVM server can depend on it
+// and the two can never drift apart on what a field is called.
+include(":protocol")
+
 include(":app")
 
 // The sync API. A plain JVM module -- it shares the wire models' shape with

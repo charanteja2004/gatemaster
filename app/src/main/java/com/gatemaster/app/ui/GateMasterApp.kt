@@ -30,6 +30,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.gatemaster.app.core.model.ContentType
 import com.gatemaster.app.core.model.PracticeSpec
+import com.gatemaster.app.navigation.AccountRoute
 import com.gatemaster.app.navigation.BranchPickerRoute
 import com.gatemaster.app.navigation.HomeRoute
 import com.gatemaster.app.navigation.PapersRoute
@@ -47,6 +48,7 @@ import com.gatemaster.app.ui.papers.PapersScreen
 import com.gatemaster.app.ui.progress.ProgressScreen
 import com.gatemaster.app.ui.reader.ReaderScreen
 import com.gatemaster.app.ui.search.SearchScreen
+import com.gatemaster.app.ui.account.AccountScreen
 import com.gatemaster.app.ui.settings.SettingsScreen
 import com.gatemaster.app.ui.subject.OpenRequest
 import com.gatemaster.app.ui.subject.SubjectScreen
@@ -172,7 +174,12 @@ fun GateMasterApp(
             composable<SettingsRoute> {
                 SettingsScreen(
                     onChangeBranch = { navController.navigate(BranchPickerRoute()) },
+                    onAccount = { navController.navigate(AccountRoute) },
                 )
+            }
+
+            composable<AccountRoute> {
+                AccountScreen(onBack = navController::popBackStack)
             }
 
             composable<BranchPickerRoute> { entry ->

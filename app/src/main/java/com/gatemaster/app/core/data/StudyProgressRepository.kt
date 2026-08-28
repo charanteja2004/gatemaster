@@ -120,6 +120,26 @@ class StudyProgressRepository(
     suspend fun toggleBookmark(topicId: String) =
         update(topicId) { it?.copy(bookmarked = !it.bookmarked) }
 
+    /**
+     * Folds another device's reading into this one's and saves the result.
+     *
+     * Returns the merged map so the caller can push exactly what was stored --
+     * reading it back afterwards would race a reader that scrolled in between.
+     *
+     * The merge rule itself lives in [com.gatemaster.app.core.data.sync.mergeProgress],
+     * which is a pure function and is where the decisions are explained.
+     */
+    suspend fun merge(remote: Map<String, TopicProgress>): Map<String, TopicProgress> {
+        load()
+        val merged = mutex.withLock {
+            val result = com.gatemaster.app.core.data.sync.mergeProgress(_progress.value, remote)
+            _progress.value = result
+            result
+        }
+        persist()
+        return merged
+    }
+
     private suspend fun update(
         topicId: String,
         transform: (TopicProgress?) -> TopicProgress?,

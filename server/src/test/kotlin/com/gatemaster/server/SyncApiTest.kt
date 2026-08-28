@@ -1,13 +1,13 @@
 package com.gatemaster.server
 
-import com.gatemaster.server.api.ProgressConflictResponse
-import com.gatemaster.server.api.ProgressPutRequest
-import com.gatemaster.server.api.ProgressResponse
-import com.gatemaster.server.api.UploadAttemptsRequest
-import com.gatemaster.server.sync.AttemptPage
-import com.gatemaster.server.sync.SyncedAttempt
-import com.gatemaster.server.sync.SyncedAttemptQuestion
-import com.gatemaster.server.sync.UploadResult
+import com.gatemaster.protocol.ProgressConflictResponse
+import com.gatemaster.protocol.ProgressPutRequest
+import com.gatemaster.protocol.ProgressResponse
+import com.gatemaster.protocol.UploadAttemptsRequest
+import com.gatemaster.protocol.AttemptPage
+import com.gatemaster.protocol.SyncedAttempt
+import com.gatemaster.protocol.SyncedAttemptQuestion
+import com.gatemaster.protocol.UploadResult
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.client.request.put

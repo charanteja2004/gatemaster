@@ -1,7 +1,7 @@
 package com.gatemaster.server
 
-import com.gatemaster.server.api.RefreshRequest
-import com.gatemaster.server.api.SessionResponse
+import com.gatemaster.protocol.RefreshRequest
+import com.gatemaster.protocol.SessionResponse
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.http.HttpStatusCode

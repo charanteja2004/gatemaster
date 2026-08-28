@@ -1,5 +1,12 @@
 package com.gatemaster.server.api
 
+import com.gatemaster.protocol.ErrorResponse
+import com.gatemaster.protocol.LoginRequest
+import com.gatemaster.protocol.ProgressPutRequest
+import com.gatemaster.protocol.ProgressResponse
+import com.gatemaster.protocol.RefreshRequest
+import com.gatemaster.protocol.RegisterRequest
+import com.gatemaster.protocol.UploadAttemptsRequest
 import com.gatemaster.server.auth.AuthService
 import com.gatemaster.server.sync.SyncRepository
 import io.ktor.http.HttpStatusCode
@@ -28,17 +35,17 @@ fun Route.authRoutes(auth: AuthService) {
         post("/register") {
             val body = call.receive<RegisterRequest>()
             val session = auth.register(body.email, body.password, body.displayName)
-            call.respond(HttpStatusCode.Created, SessionResponse.of(session))
+            call.respond(HttpStatusCode.Created, session.toResponse())
         }
 
         post("/login") {
             val body = call.receive<LoginRequest>()
-            call.respond(SessionResponse.of(auth.login(body.email, body.password)))
+            call.respond(auth.login(body.email, body.password).toResponse())
         }
 
         post("/refresh") {
             val body = call.receive<RefreshRequest>()
-            call.respond(SessionResponse.of(auth.refresh(body.refreshToken)))
+            call.respond(auth.refresh(body.refreshToken).toResponse())
         }
 
         post("/logout") {
@@ -62,7 +69,7 @@ fun Route.meRoute(auth: AuthService) {
                 // valid access token was still in flight.
                 call.respond(HttpStatusCode.Unauthorized, ErrorResponse("unauthorized", "Sign in again"))
             } else {
-                call.respond(UserResponse.of(user))
+                call.respond(user.toResponse())
             }
         }
     }

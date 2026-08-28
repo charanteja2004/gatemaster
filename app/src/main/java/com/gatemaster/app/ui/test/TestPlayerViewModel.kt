@@ -88,6 +88,8 @@ class TestPlayerViewModel(
     private val repository: TestRepository,
     private val progress: ProgressRepository,
     savedStateHandle: SavedStateHandle,
+    /** Called once a sitting is recorded, so it reaches the account that owns it. */
+    private val requestSync: () -> Unit = {},
 ) : ViewModel() {
 
     private val testId: String = savedStateHandle.toRoute<TestPlayerRoute>().testId
@@ -352,6 +354,10 @@ class TestPlayerViewModel(
             // Room rather than the old history file: a row per question is
             // what the subject and topic breakdowns are computed from.
             progress.record(scorecard, scorecard.timeTakenMs)
+            // Recorded locally first, and uploaded whenever the network allows.
+            // Doing it in that order is what makes finishing a paper on a train
+            // work: the scorecard is never waiting on a request.
+            requestSync()
         }
     }
 

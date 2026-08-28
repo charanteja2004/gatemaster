@@ -1,5 +1,10 @@
 package com.gatemaster.server.sync
 
+import com.gatemaster.protocol.AttemptPage
+import com.gatemaster.protocol.ProgressResponse
+import com.gatemaster.protocol.SyncedAttempt
+import com.gatemaster.protocol.SyncedAttemptQuestion
+import com.gatemaster.protocol.UploadResult
 import com.gatemaster.server.auth.isUniqueViolation
 import com.gatemaster.server.db.Database
 import com.gatemaster.server.db.firstOrNull
@@ -15,10 +20,10 @@ class SyncRepository(private val database: Database) {
 
     // --- Study progress -----------------------------------------------------
 
-    fun progressFor(userId: UUID): ProgressDocument? = database.read { connection ->
+    fun progressFor(userId: UUID): ProgressResponse? = database.read { connection ->
         connection.query("SELECT document, revision FROM study_progress WHERE user_id = ?") {
             setObject(1, userId)
-            firstOrNull { ProgressDocument(it.getString("document"), it.getLong("revision")) }
+            firstOrNull { ProgressResponse(it.getString("document"), it.getLong("revision")) }
         }
     }
 
@@ -39,19 +44,19 @@ class SyncRepository(private val database: Database) {
         document: String,
         expectedRevision: Long,
         now: Instant,
-    ): ProgressDocument = database.transaction { connection ->
+    ): ProgressResponse = database.transaction { connection ->
         val current = connection.query(
             "SELECT document, revision FROM study_progress WHERE user_id = ?",
         ) {
             setObject(1, userId)
-            firstOrNull { ProgressDocument(it.getString("document"), it.getLong("revision")) }
+            firstOrNull { ProgressResponse(it.getString("document"), it.getLong("revision")) }
         }
 
         if (current == null) {
             if (expectedRevision != 0L) {
-                throw ProgressConflict(ProgressDocument(document = "", revision = 0))
+                throw ProgressConflict(ProgressResponse(document = "", revision = 0))
             }
-            val next = ProgressDocument(document, revision = 1)
+            val next = ProgressResponse(document, revision = 1)
             connection.query(
                 """
                 INSERT INTO study_progress (user_id, document, revision, updated_at)
@@ -69,7 +74,7 @@ class SyncRepository(private val database: Database) {
 
         if (current.revision != expectedRevision) throw ProgressConflict(current)
 
-        val next = ProgressDocument(document, revision = current.revision + 1)
+        val next = ProgressResponse(document, revision = current.revision + 1)
         val updated = connection.query(
             """
             UPDATE study_progress SET document = ?, revision = ?, updated_at = ?

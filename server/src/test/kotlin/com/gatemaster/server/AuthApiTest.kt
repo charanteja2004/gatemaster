@@ -1,10 +1,10 @@
 package com.gatemaster.server
 
-import com.gatemaster.server.api.ErrorResponse
-import com.gatemaster.server.api.LoginRequest
-import com.gatemaster.server.api.RegisterRequest
-import com.gatemaster.server.api.SessionResponse
-import com.gatemaster.server.api.UserResponse
+import com.gatemaster.protocol.ErrorResponse
+import com.gatemaster.protocol.LoginRequest
+import com.gatemaster.protocol.RegisterRequest
+import com.gatemaster.protocol.SessionResponse
+import com.gatemaster.protocol.UserResponse
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.http.HttpStatusCode

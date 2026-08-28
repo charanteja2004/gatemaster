@@ -22,6 +22,10 @@ application {
 }
 
 dependencies {
+    // The wire contract, shared with the Android app. A renamed field is a
+    // compile error on both sides rather than a 400 a user discovers.
+    api(project(":protocol"))
+
     implementation(libs.ktor.server.core)
     implementation(libs.ktor.server.netty)
     implementation(libs.ktor.server.content.negotiation)

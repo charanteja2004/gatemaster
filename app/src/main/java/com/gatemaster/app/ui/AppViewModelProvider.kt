@@ -6,6 +6,7 @@ import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.gatemaster.app.GateMasterApplication
+import com.gatemaster.app.ui.account.AccountViewModel
 import com.gatemaster.app.ui.branch.BranchPickerViewModel
 import com.gatemaster.app.ui.home.HomeViewModel
 import com.gatemaster.app.ui.papers.PapersViewModel
@@ -32,6 +33,13 @@ object AppViewModelProvider {
             )
         }
         initializer {
+            AccountViewModel(
+                auth = app().container.authRepository,
+                preferences = app().container.userPreferences,
+                sync = app().container.syncManager,
+            )
+        }
+        initializer {
             BranchPickerViewModel(
                 repository = app().container.contentRepository,
                 preferences = app().container.userPreferences,
@@ -53,6 +61,7 @@ object AppViewModelProvider {
             SettingsViewModel(
                 repository = app().container.contentRepository,
                 preferences = app().container.userPreferences,
+                auth = app().container.authRepository,
             )
         }
         initializer {
@@ -75,6 +84,7 @@ object AppViewModelProvider {
                 repository = app().container.testRepository,
                 progress = app().container.progressRepository,
                 savedStateHandle = createSavedStateHandle(),
+                requestSync = app().container::requestSync,
             )
         }
         initializer {

@@ -17,6 +17,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Brightness6
 import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.CloudSync
 import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.LightMode
 import androidx.compose.material.icons.filled.SwapHoriz
@@ -47,6 +48,7 @@ import com.gatemaster.app.ui.AppViewModelProvider
 @Composable
 fun SettingsScreen(
     onChangeBranch: () -> Unit,
+    onAccount: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: SettingsViewModel = viewModel(factory = AppViewModelProvider.Factory),
 ) {
@@ -77,6 +79,17 @@ fun SettingsScreen(
                     title = state.branchName.ifBlank { "Choose a paper" },
                     subtitle = state.branchCode.ifBlank { "All 30 GATE papers" },
                     onClick = onChangeBranch,
+                )
+            }
+
+            item { SectionLabel("Account") }
+
+            item {
+                SettingRow(
+                    icon = Icons.Filled.CloudSync,
+                    title = state.accountTitle,
+                    subtitle = state.accountSubtitle,
+                    onClick = onAccount,
                 )
             }
 

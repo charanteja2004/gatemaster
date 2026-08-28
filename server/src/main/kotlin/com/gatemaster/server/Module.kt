@@ -1,9 +1,8 @@
 package com.gatemaster.server
 
-import com.gatemaster.server.api.ErrorResponse
+import com.gatemaster.protocol.ErrorResponse
+import com.gatemaster.protocol.ProgressConflictResponse
 import com.gatemaster.server.api.JWT_AUTH
-import com.gatemaster.server.api.ProgressConflictResponse
-import com.gatemaster.server.api.ProgressResponse
 import com.gatemaster.server.api.authRoutes
 import com.gatemaster.server.api.meRoute
 import com.gatemaster.server.api.syncRoutes
@@ -187,7 +186,7 @@ private fun Application.installErrorHandling() {
                 HttpStatusCode.Conflict,
                 ProgressConflictResponse(
                     message = "Study progress changed on another device; merge and retry",
-                    current = ProgressResponse(cause.current.document, cause.current.revision),
+                    current = cause.current,
                 ),
             )
         }

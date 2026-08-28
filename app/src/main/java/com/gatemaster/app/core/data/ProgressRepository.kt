@@ -9,6 +9,7 @@ import com.gatemaster.app.core.data.db.ScorePoint
 import com.gatemaster.app.core.data.db.SubjectAccuracy
 import com.gatemaster.app.core.data.db.TopicAccuracy
 import com.gatemaster.app.core.model.Scorecard
+import com.gatemaster.app.core.model.TopicHistory
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -26,6 +27,8 @@ class ProgressRepository(
     private val dao: AttemptDao,
     private val io: CoroutineDispatcher = Dispatchers.IO,
     private val now: () -> Long = System::currentTimeMillis,
+    /** Injectable so a test can assert on a stable id instead of a random one. */
+    private val newClientId: () -> String = { java.util.UUID.randomUUID().toString() },
 ) {
 
     fun totals(): Flow<ProgressTotals> = dao.totals()
@@ -37,6 +40,11 @@ class ProgressRepository(
     fun scoreTrend(): Flow<List<ScorePoint>> = dao.scoreTrend()
 
     fun recentAttempts(): Flow<List<AttemptEntity>> = dao.recentAttempts()
+
+    /** Per-topic history, which is what adaptive practice is drawn from. */
+    suspend fun topicHistory(): List<TopicHistory> = withContext(io) {
+        runCatching { dao.topicHistory() }.getOrDefault(emptyList())
+    }
 
     /** Stores a finished sitting: one attempt row and one row per question. */
     suspend fun record(scorecard: Scorecard, timeTakenMs: Long) = withContext(io) {
@@ -52,6 +60,12 @@ class ProgressRepository(
                     incorrect = scorecard.incorrect,
                     unattempted = scorecard.unattempted,
                     timeTakenMs = timeTakenMs,
+                    // Assigned here, at the moment the attempt becomes a fact,
+                    // and never changed. Sync uses it as the idempotency key,
+                    // so it has to exist whether or not anyone is signed in --
+                    // an attempt sat offline still has to upload cleanly when
+                    // an account is added later.
+                    clientAttemptId = newClientId(),
                 ),
                 results = scorecard.results.map { result ->
                     QuestionResultEntity(
@@ -93,6 +107,7 @@ class ProgressRepository(
                         incorrect = record.incorrect,
                         unattempted = record.unattempted,
                         timeTakenMs = record.timeTakenMs,
+                        clientAttemptId = newClientId(),
                     ),
                     results = emptyList(),
                 )

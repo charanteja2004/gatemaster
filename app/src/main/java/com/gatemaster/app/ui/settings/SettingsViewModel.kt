@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.gatemaster.app.core.data.ContentRepository
 import com.gatemaster.app.core.data.UserPreferences
+import com.gatemaster.app.core.data.auth.AuthRepository
+import com.gatemaster.app.core.data.auth.AuthState
 import com.gatemaster.app.core.model.ThemeMode
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -18,11 +20,26 @@ data class SettingsUiState(
     val branchCode: String = "",
     val articleCount: Int = 0,
     val paperCount: Int = 0,
-)
+    val auth: AuthState = AuthState.SignedOut,
+) {
+    val accountTitle: String
+        get() = when (val state = auth) {
+            is AuthState.SignedIn -> state.displayName.ifBlank { state.email }
+            else -> "Not signed in"
+        }
+
+    val accountSubtitle: String
+        get() = when (auth) {
+            is AuthState.SignedIn -> "Progress syncs across your devices"
+            AuthState.Unavailable -> "No sync server set for this app"
+            AuthState.SignedOut -> "Optional — sync progress across devices"
+        }
+}
 
 class SettingsViewModel(
     private val repository: ContentRepository,
     private val preferences: UserPreferences,
+    auth: AuthRepository,
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(SettingsUiState())
@@ -45,6 +62,12 @@ class SettingsViewModel(
                     )
                 }
             }
+        }
+    }
+
+    init {
+        viewModelScope.launch {
+            auth.state.collect { state -> _uiState.update { it.copy(auth = state) } }
         }
     }
 

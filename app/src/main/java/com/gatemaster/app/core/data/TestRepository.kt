@@ -5,7 +5,9 @@ import com.gatemaster.app.core.model.Attempt
 import com.gatemaster.app.core.model.BankQuestion
 import com.gatemaster.app.core.model.MockTest
 import com.gatemaster.app.core.model.PracticeMode
+import com.gatemaster.app.core.model.AdaptivePlan
 import com.gatemaster.app.core.model.PracticeSpec
+import com.gatemaster.app.core.model.TopicHistory
 import com.gatemaster.app.core.model.Question
 import com.gatemaster.app.core.model.QuestionBankIndex
 import com.gatemaster.app.core.model.SubjectQuestionBank
@@ -45,6 +47,18 @@ class TestRepository(
     private val assets: AssetSource,
     private val filesDir: File,
     private val io: CoroutineDispatcher = Dispatchers.IO,
+    /**
+     * What the attempt history says about each topic, for adaptive practice.
+     *
+     * A lambda rather than the DAO, so this class stays free of Room and stays
+     * constructible in a test with no database -- which every existing test
+     * here relies on. Empty by default, and an adaptive set built from nothing
+     * simply reports that there is no history yet.
+     */
+    private val topicHistory: suspend () -> List<TopicHistory> = { emptyList() },
+    /** Subject id to its marks in the paper, so weightage can bias the draw. */
+    private val subjectWeights: suspend () -> Map<String, Int> = { emptyMap() },
+    private val now: () -> Long = System::currentTimeMillis,
 ) {
 
     private val json = Json {
@@ -159,6 +173,7 @@ class TestRepository(
             PracticeMode.TOPIC -> topicDraft(spec)
             PracticeMode.SUBJECT -> subjectDraft(spec)
             PracticeMode.MIXED -> mixedDraft(spec)
+            PracticeMode.ADAPTIVE -> adaptiveDraft(spec)
         }.filter { it.questions.isNotEmpty() }
 
         if (drafts.isEmpty()) {
@@ -180,6 +195,57 @@ class TestRepository(
         val bank = bankFor(subjectId) ?: return emptyList()
         val chosen = drawBalanced(bank.byTopic(), spec.mode.questionLimit)
         return listOf(Draft(bank.displayName, subjectId, chosen))
+    }
+
+    /**
+     * A set drawn from what the history says is weakest and most overdue.
+     *
+     * The scheduler decides how many questions each topic is worth; this only
+     * has to honour that and cope with a topic whose bank cannot fill its
+     * share. Anything short is made up from the remaining priorities in order,
+     * so a full-length set still comes out when the top topic has three
+     * questions written for it.
+     */
+    private suspend fun adaptiveDraft(spec: PracticeSpec): List<Draft> {
+        val history = topicHistory()
+        if (history.isEmpty()) return emptyList()
+
+        val ranked = AdaptivePlan.prioritise(history, subjectWeights(), now())
+        val allocation = AdaptivePlan.allocate(ranked, spec.mode.questionLimit)
+        if (allocation.isEmpty()) return emptyList()
+
+        val used = mutableSetOf<String>()
+        val bySubject = linkedMapOf<String, MutableList<BankQuestion>>()
+
+        suspend fun draw(topicId: String, subjectId: String, want: Int): Int {
+            if (want <= 0) return 0
+            val bank = bankFor(subjectId) ?: return 0
+            val taken = bank.forTopic(topicId)
+                .filter { it.id !in used }
+                .shuffled()
+                .take(want)
+            if (taken.isEmpty()) return 0
+            used += taken.map { it.id }
+            bySubject.getOrPut(subjectId) { mutableListOf() } += taken
+            return taken.size
+        }
+
+        var shortfall = 0
+        for (topic in ranked) {
+            val want = allocation[topic.topicId] ?: continue
+            shortfall += want - draw(topic.topicId, topic.subjectId, want)
+        }
+
+        // Second pass for whatever the first could not fill, in priority order
+        // and skipping the questions already drawn.
+        for (topic in ranked) {
+            if (shortfall <= 0) break
+            shortfall -= draw(topic.topicId, topic.subjectId, shortfall)
+        }
+
+        return bySubject.map { (subjectId, questions) ->
+            Draft(bankFor(subjectId)?.displayName ?: subjectId, subjectId, questions)
+        }
     }
 
     /**
@@ -265,6 +331,9 @@ class TestRepository(
         PracticeMode.TOPIC -> "No questions for this topic yet"
         PracticeMode.SUBJECT -> "No questions for this subject yet"
         PracticeMode.MIXED -> "No questions for these subjects yet"
+        // Not "no questions": there are plenty. There is no history to choose
+        // from, which is a different thing and has a different fix.
+        PracticeMode.ADAPTIVE -> "Sit a practice set first, then this picks what to revise"
     }
 
     // -- in-progress attempts -------------------------------------------------

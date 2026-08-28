@@ -1,8 +1,8 @@
 package com.gatemaster.server
 
-import com.gatemaster.server.api.LoginRequest
-import com.gatemaster.server.api.RegisterRequest
-import com.gatemaster.server.api.SessionResponse
+import com.gatemaster.protocol.LoginRequest
+import com.gatemaster.protocol.RegisterRequest
+import com.gatemaster.protocol.SessionResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation

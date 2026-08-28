@@ -31,6 +31,10 @@ data object SubjectsRoute
 @Serializable
 data object SettingsRoute
 
+/** Sign in, sign out, and which sync server this install talks to. */
+@Serializable
+data object AccountRoute
+
 /** [firstRun] hides the back button: there is nothing behind it yet. */
 @Serializable
 data class BranchPickerRoute(val firstRun: Boolean = false)

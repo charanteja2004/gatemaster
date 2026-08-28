@@ -98,7 +98,11 @@ CREATE TABLE attempt_questions (
     question_id         VARCHAR(120) NOT NULL,
     subject_id          VARCHAR(60) NOT NULL,
     topic_id            VARCHAR(120),
-    question_type       VARCHAR(8) NOT NULL,
+    -- Nullable, and it usually is. The app's own attempt rows record whether a
+    -- question was right, not whether it was an MCQ, so a client that has been
+    -- storing history since before sync existed has nothing to put here. The
+    -- column stays for the clients that will.
+    question_type       VARCHAR(16),
     marks               DOUBLE PRECISION NOT NULL,
     awarded             DOUBLE PRECISION NOT NULL,
     was_attempted       BOOLEAN NOT NULL,

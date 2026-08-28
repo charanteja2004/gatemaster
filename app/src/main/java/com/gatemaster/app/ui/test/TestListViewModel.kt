@@ -40,7 +40,20 @@ data class TestListUiState(
     val mixSubjects: List<PracticeEntry> = emptyList(),
     val selectedMix: Set<String> = emptySet(),
     val isChoosingMix: Boolean = false,
+    /** How many topics the attempt history has anything to say about. */
+    val practisedTopics: Int = 0,
 ) {
+    /**
+     * Recommendations need something to recommend from.
+     *
+     * Three topics, not one: with a single topic in the history the "set drawn
+     * from your weakest topics" is that one topic, which is a topic practice
+     * set wearing a different name.
+     */
+    val canRecommend: Boolean get() = practisedTopics >= 3
+
+    val recommendedId: String get() = PracticeSpec.adaptive().id
+
     /** A mix needs at least two subjects to be a mix. */
     val canMix: Boolean get() = mixSubjects.size >= 2
 
@@ -111,6 +124,7 @@ class TestListViewModel(
                     // The same subjects, offered as ingredients for a mixed
                     // paper rather than as one test each.
                     mixSubjects = practice,
+                    practisedTopics = progress.topicHistory().size,
                 )
             }
         }

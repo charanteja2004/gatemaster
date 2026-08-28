@@ -98,6 +98,17 @@ enum class PracticeMode(val label: String, val questionLimit: Int) {
     TOPIC("Topic practice", 10),
     SUBJECT("Subject practice", 20),
     MIXED("Mixed test", 30),
+
+    /**
+     * Drawn from whatever the attempt history says is weakest and most overdue,
+     * rather than from a subject the user picked.
+     *
+     * The other three answer "practise this". This one answers "what should I
+     * practise", which is the question a student cannot answer for themselves
+     * -- the topics you have forgotten are precisely the ones you do not think
+     * of. See [AdaptivePlan].
+     */
+    ADAPTIVE("Recommended", AdaptivePlan.QUESTION_COUNT),
 }
 
 /**
@@ -119,6 +130,12 @@ data class PracticeSpec(
             PracticeMode.MIXED ->
                 PREFIX + "mixed:" +
                     if (subjectIds.isEmpty()) EVERY_SUBJECT else subjectIds.joinToString("+")
+
+            // No parameters: what it contains is decided from the attempt
+            // history at the moment it is built, not encoded in the id. Two
+            // sets built a week apart from the same id are different papers,
+            // which is the point.
+            PracticeMode.ADAPTIVE -> "${PREFIX}adaptive"
         }
 
     companion object {
@@ -140,6 +157,8 @@ data class PracticeSpec(
         fun mixed(subjectIds: List<String> = emptyList()) =
             PracticeSpec(PracticeMode.MIXED, subjectIds.distinct())
 
+        fun adaptive() = PracticeSpec(PracticeMode.ADAPTIVE)
+
         /** Roughly two minutes a question, which is the GATE pace. */
         fun durationFor(questionCount: Int): Int = (questionCount * 2).coerceIn(5, 60)
 
@@ -153,6 +172,9 @@ data class PracticeSpec(
             val (kind, rest) = body.split(":", limit = 2).let {
                 it[0] to it.getOrElse(1) { "" }
             }
+            // Checked before the blank guard below: this is the one form that
+            // carries nothing after the kind.
+            if (kind == "adaptive") return adaptive()
             if (rest.isBlank()) return null
             return when (kind) {
                 "topic" -> rest.split(":", limit = 2)

@@ -1,5 +1,6 @@
 package com.gatemaster.app.core.data.db
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.Index
@@ -13,7 +14,12 @@ import androidx.room.PrimaryKey
  * bound and the questions asked of it are aggregates ("accuracy per subject",
  * "which topics cost me marks"), which is a query and not a document.
  */
-@Entity(tableName = "attempts")
+@Entity(
+    tableName = "attempts",
+    // Unique, because it is the idempotency key the server files this attempt
+    // under: two rows sharing one would mean the same sitting uploaded twice.
+    indices = [Index(value = ["clientAttemptId"], unique = true)],
+)
 data class AttemptEntity(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val testId: String,
@@ -25,6 +31,39 @@ data class AttemptEntity(
     val incorrect: Int,
     val unattempted: Int,
     val timeTakenMs: Long,
+
+    /**
+     * Generated on this device when the attempt is recorded, and never
+     * changed.
+     *
+     * The row id cannot do this job: two phones both signed into one account
+     * would both call their first attempt 1. This is what makes an upload
+     * idempotent, so a retry after a dropped response cannot count the same
+     * sitting twice and skew every average built on it.
+     *
+     * Rows written before sync existed get "local-<id>" in the migration --
+     * unique within this device, which is all they need to be, since they have
+     * never been anywhere else.
+     *
+     * The default generates a fresh id rather than leaving it blank. An empty
+     * default under a unique index is a trap: the first row takes "" and the
+     * second one fails to insert, and the caller that forgot to set it gets a
+     * constraint violation rather than the obvious behaviour. The SQL default
+     * below stays empty because it exists only for the migration, which fills
+     * the column in immediately afterwards.
+     */
+    @ColumnInfo(defaultValue = "")
+    val clientAttemptId: String = java.util.UUID.randomUUID().toString(),
+
+    /** When the server acknowledged this attempt. Null means still to upload. */
+    val syncedAt: Long? = null,
+
+    /**
+     * The sequence the server filed it under. Null for anything this device
+     * has not yet heard back about; the highest of these is the download
+     * cursor.
+     */
+    val serverSeq: Long? = null,
 )
 
 /**

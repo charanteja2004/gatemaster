@@ -112,6 +112,15 @@ class ContentRepository(
     suspend fun subject(branchId: String, subjectId: String): Subject? =
         subjects(branchId).firstOrNull { it.id == subjectId }
 
+    /**
+     * Subject id to its marks in the paper.
+     *
+     * Adaptive practice weights its draw by this, so a 15-mark subject earns
+     * more questions than a 3-mark one.
+     */
+    suspend fun subjectWeights(branchId: String): Map<String, Int> =
+        subjects(branchId).associate { it.id to it.weightage }
+
     // -- papers ---------------------------------------------------------------
 
     suspend fun papers(branchId: String): List<Paper> {

@@ -3,11 +3,14 @@
 [![CI](https://github.com/charanteja2004/gatemaster/actions/workflows/ci.yml/badge.svg)](https://github.com/charanteja2004/gatemaster/actions/workflows/ci.yml)
 
 An Android study app for the GATE exam: bundled notes, previous-year papers, and
-practice tests that score the way the real paper does.
+practice tests that score the way the real paper does -- plus an optional
+account, so what you have read and every paper you have sat follow you to
+another phone.
 
-Kotlin, Jetpack Compose, Material 3. All 30 GATE 2026 papers are selectable. The
-pre-rewrite Java/XML app is preserved at `legacy/` and is **not** part of the
-build.
+Kotlin, Jetpack Compose and Material 3 on the phone; Kotlin, Ktor and PostgreSQL
+on the server; a shared module so the two cannot disagree about the wire format.
+All 30 GATE 2026 papers are selectable. The pre-rewrite Java/XML app is preserved
+at `legacy/` and is **not** part of the build.
 
 ## Install
 
@@ -35,6 +38,11 @@ papers, which are not kept in the repository — see **Content pipeline** below.
   subjects, at three sizes: ten questions for one topic, twenty for a subject,
   thirty for a mixed paper spanning several subjects. 71 topics hold enough
   questions to be offered a set of their own.
+- **A fourth set the app chooses for you**, drawn from the topics your own
+  attempt history says you get wrong and the ones you have not seen in a while,
+  weighted by the marks each subject carries in the paper.
+- **An optional account**, so what you have read and every paper you have sat
+  follow you to another phone. Everything works signed out.
 - **A mixed paper is scored subject by subject**, so it answers the question a
   single-subject test cannot: which subject is costing you marks.
 - **GATE's actual marking scheme.** Three question types (MCQ, MSQ, NAT), a
@@ -52,19 +60,37 @@ papers, which are not kept in the repository — see **Content pipeline** below.
 
 ## Architecture
 
-Single module, one direction of data flow:
+Three Gradle modules:
 
 ```
-ui/          Compose screens, one ViewModel each, state as StateFlow
-core/data/   repositories — assets in, model out; no Android types leak up
-core/model/  serializable model + the pure scoring functions
-navigation/  type-safe routes
+:app        the Android app
+:server     the sync API — Ktor, no Android SDK anywhere in its build
+:protocol   the wire contract, and nothing else
+```
+
+`:protocol` is a plain Kotlin module that both of the others depend on, so a
+renamed field is a compile error on both sides at once rather than a 400 a user
+discovers. It holds request and response types and no logic; anything
+JVM-specific added to it would stop the app compiling, which is a better
+guarantee than a comment asking people to be careful.
+
+Inside `:app`, one direction of data flow:
+
+```
+ui/               Compose screens, one ViewModel each, state as StateFlow
+core/data/        repositories — assets in, model out; no Android types leak up
+core/data/auth/   tokens, the HTTP client, and who is signed in
+core/data/sync/   the merge rule, the sync cycle, the background worker
+core/data/db/     Room: attempt history and the analytics queries
+core/model/       serializable model + the pure scoring functions
+navigation/       type-safe routes
 ```
 
 The repositories read through an `AssetSource` seam rather than `AssetManager`
-directly, and scoring is a pure function of (paper, attempt). Between them, the
-whole of the app's logic is testable on the JVM — there is no emulator in the
-loop.
+directly, scoring is a pure function of (paper, attempt), and the session store
+is an interface so the HTTP layer stays testable without the Android Keystore.
+Between them, the whole of the app's logic is testable on the JVM — there is no
+emulator in the loop.
 
 ---
 
@@ -82,7 +108,17 @@ From the command line:
 export JAVA_HOME="C:/Program Files/Android/Android Studio/jbr"
 ./gradlew :app:assembleDebug
 ./gradlew :app:testDebugUnitTest
+./gradlew :server:test          # needs no database and no Docker
 ```
+
+To build an APK that points at a sync server:
+
+```sh
+./gradlew :app:assembleDebug -Pgatemaster.syncBaseUrl=https://your-host
+```
+
+It can also be set per install, in Settings → Account, which is what makes one
+APK usable against a local server and a deployed one.
 
 ## Toolchain notes
 
@@ -310,6 +346,7 @@ assembles a paper on demand in one of three sizes:
 
 | Mode | Size | Where it lives |
 |---|---|---|
+| **Recommended** | 15 questions the app chose | Tests tab, leading — see [What to practise next](#what-to-practise-next) |
 | **Topic practice** | 10 questions from one topic | Practice tab inside a subject, and the bolt on a topic row |
 | **Subject practice** | 20 questions across one subject | Practice tab, and the Tests tab |
 | **Mixed test** | 30 questions across several subjects | Tests tab — everything, or a chosen few |
@@ -377,9 +414,120 @@ An in-progress attempt is persisted as JSON in the app's files directory, so it
 survives the process being killed. Finished attempts go to Room instead: one row
 per attempt and one per question, which is what the Progress tab aggregates.
 
+## What to practise next
+
+Every other part of the app answers "how did that paper go". This answers the
+question a scorecard cannot: **what should I do tomorrow**. The Tests tab leads
+with a fifteen-question set the app chose, and it is the only place GateMaster
+makes a recommendation — so `core/model/AdaptivePlan.kt` is written to be read,
+and is a pure function of its inputs so the whole thing is tested on the JVM
+with no database, no clock and no device.
+
+It needs nothing new recorded. The per-question attempt history has been in Room
+since the Progress tab was built; it was simply never read back.
+
+Three things multiply into a topic's priority:
+
+- **Weakness.** One minus mastery, where mastery is accuracy **smoothed with a
+  prior** rather than `correct / attempted`. Raw accuracy calls one lucky answer
+  100% and drops the topic for three weeks; it calls one unlucky answer a
+  catastrophe. Starting each topic as though it had already been seen three
+  times with one right means a single answer nudges the estimate and ten answers
+  move it.
+- **Dueness.** How long it has been, against an interval that grows with mastery
+  — the spaced-repetition idea. A topic known cold waits three weeks; one barely
+  known comes back tomorrow. Capped, because a topic last seen a year ago is not
+  a hundred times more urgent than one from last week, and without the cap a
+  single ancient topic takes every set forever.
+- **Exam weight.** A 15-mark subject earns more practice than a 3-mark one.
+  Half the weight is flat, so a light subject is practised less and never not at
+  all. This is the part a general-purpose flashcard scheduler cannot do, and the
+  reason to write one for this app rather than import one.
+
+The questions are then **split across the top six topics** proportionally rather
+than dumped on the single worst one — fifteen questions on one topic is a worse
+revision session and a more boring one. Every chosen topic gets at least one,
+the allocation always totals exactly what was asked for, and a topic whose bank
+cannot fill its share hands the remainder back to the next priority down.
+
+Topics never practised enter the rotation, but rank below a measured weakness:
+unknown is not the same as known-to-be-bad, and treating it as such would bury
+every real gap under everything the user has yet to touch.
+
+## Accounts and sync
+
+Optional, and the app is built so that it stays optional. Signed out it behaves
+exactly as it did before there was a server: notes, practice, scoring and
+progress all work with no network and no account. Signing in adds one thing --
+your reading and your attempt history follow you to another phone.
+
+The API is a second Gradle module, `:server` — Ktor and PostgreSQL. Its own
+[README](server/README.md) covers the endpoints, the deployment and the schema.
+Two decisions are worth reading either way.
+
+### Refresh tokens rotate, and reuse is treated as theft
+
+Access tokens are JWTs and cannot be revoked, so they live fifteen minutes.
+Refresh tokens are opaque, revocable, and live two months; only their SHA-256
+reaches the database.
+
+Every refresh rotates the token, which makes each one single-use — so a token
+presented twice means two parties hold it. The server cannot tell which of them
+is the real user, so neither keeps the session: every token descended from that
+sign-in is revoked, and the real user signs back in with a password the thief
+does not have. Separate sign-ins are separate families, so this never signs out
+the other device.
+
+On the phone the session is encrypted with a key from the Android Keystore, so
+it cannot be read out of a backup or an `adb run-as` dump of the data directory.
+
+### The two synced shapes get different mechanisms
+
+Because they are different kinds of data, and one mechanism for both would break
+one of them.
+
+**Reading progress is mutable shared state.** What you have read changes on
+whichever phone you are reading on, so two devices genuinely can disagree.
+Last-write-wins would let a phone that synced an hour late erase a week of
+reading on the tablet. So the server row carries a revision, a write says which
+revision it was based on, and a stale write is rejected with `409` — carrying
+the current document, because the client needs it to merge and has just proved
+it does not have it.
+
+The merge itself is a pure function, `core/data/sync/mergeProgress`, and it is
+where the real decisions are:
+
+- `furthest` takes the **maximum**, because reading is cumulative — taking the
+  later write would un-read half a chapter because of which phone was picked up
+  last.
+- `bookmarked` follows the **more recently opened** record. It is the one field
+  a user toggles both ways, so OR could never remove a bookmark and AND could
+  never keep one.
+
+It is tested for idempotence and for commutativity, because sync runs on a
+schedule: a merge that kept changing its answer would push a new revision every
+six hours forever, and two devices that disagreed on the result would push
+conflicting documents at each other indefinitely.
+
+**Attempts are immutable historical facts.** A finished paper never changes, so
+there is nothing to disagree about and no conflict resolution to write. Upload
+is append-only and idempotent on a client-generated id — which is what stops the
+retry after a dropped response counting the same sitting twice and skewing every
+average built on it. Download is a cursor over a server-assigned sequence.
+
+Sync runs in a `SyncWorker` on WorkManager rather than a coroutine tied to a
+screen, for the case that actually happens: you finish a mock test on the train,
+lock the phone, and the process is killed before the upload lands. It also runs
+right after a paper is submitted, and on demand from the account screen.
+
 ## Tests
 
-111 JVM tests, no emulator required. `./gradlew :app:testDebugUnitTest`.
+**192 JVM tests** — 158 for the app, 34 for the server. No emulator, no
+database, no Docker.
+
+```sh
+./gradlew :app:testDebugUnitTest :server:test
+```
 
 - **`ScoringTest`** — the marking scheme, which is specific and easy to get
   subtly wrong: only single-answer MCQs are penalised, the penalty is a third of
@@ -406,6 +554,29 @@ per attempt and one per question, which is what the Progress tab aggregates.
 - **`AttemptDaoTest`** — the analytics SQL, under Robolectric so it stays on the
   JVM. An ORDER BY the wrong way round or a forgotten HAVING would produce a
   plausible screen full of wrong advice, which no other test would catch.
+- **`AdaptivePlanTest`** — the scheduler's arithmetic, which is the only place
+  the app makes a recommendation: that one lucky answer is not mastery, that a
+  well-known topic still resurfaces once it is stale, that a heavier subject
+  wins a tie, and that a proportional split of fifteen questions always totals
+  fifteen.
+- **`AdaptivePracticeTest`** — the plan meeting a real question bank: a topic
+  with fewer questions than it was allocated hands the remainder to the next
+  priority instead of shortening the paper, and no question is drawn twice.
+- **`ProgressMergeTest`** — the sync merge rule, including the two properties
+  that keep sync from oscillating: merging is idempotent, and it gives the same
+  answer whichever device runs it.
+- **`SyncApiTest`** — the HTTP layer against a mock engine. Which requests carry
+  a token, that a 401 on `/auth/login` is a wrong password rather than an
+  expired session, and that an unreachable server keeps the session while a
+  refused refresh drops it.
+- **`SyncManagerTest`** — a whole sync cycle against a real database and a
+  scripted server: an upload is not repeated, the download cursor advances past
+  the rows this device sent, and a rejected progress write merges and retries
+  rather than losing a week of reading.
+
+The server's suite is described in [server/README.md](server/README.md); it runs
+on H2 locally and against real PostgreSQL in CI, so the schema's portability is
+a fact rather than a claim.
 
 CI runs the tests, Android lint and a debug build on every push
 (`.github/workflows/ci.yml`), and publishes the APK as a build artifact.
@@ -413,15 +584,20 @@ CI runs the tests, Android lint and a debug build on every push
 ## Project layout
 
 ```
+protocol/                the wire contract, shared by the app and the server
 app/                     the Kotlin + Compose app
   src/main/assets/       study material + generated content_index.json
   src/main/java/com/gatemaster/app/
     core/model/          serializable content model + pure scoring
     core/data/           repositories: assets in, model out
+    core/data/auth/      Keystore-backed session, HTTP client, auth state
+    core/data/sync/      the merge rule, the sync cycle, the worker
     core/data/db/        Room: attempt history and the analytics queries
     navigation/          type-safe routes
-    ui/                  theme, screens, reader, progress
+    ui/                  theme, screens, reader, progress, account
   schemas/               exported Room schemas, checked in for review
+server/                  the sync API: Ktor, PostgreSQL, Docker
+  src/main/resources/db/migration/   versioned SQL
 tools/                   content pipeline and the authored notes
 legacy/                  pre-rewrite Java/XML app, excluded from the build
 ```
@@ -455,7 +631,10 @@ Things a reviewer might expect to find here and will not, with the reasoning:
 
 ## Not done yet
 
-- Accounts, sync, and serving content from a backend instead of the APK
+- A deployed instance of the sync API. The code, the image and the migrations
+  are here; no public host runs them yet, so `SYNC_BASE_URL` is empty by
+  default and the account screen says so
+- Serving the study material from that backend instead of the APK
 - Adaptive practice: the per-topic accuracy Room already stores is not yet fed
   back into which questions the next set draws
 - Diagrams in the notes -- see the reading-experience limitation above

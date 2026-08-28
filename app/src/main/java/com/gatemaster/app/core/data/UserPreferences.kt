@@ -61,10 +61,30 @@ class UserPreferences(private val context: Context) {
         context.dataStore.edit { it[KEY_TEXT_ZOOM] = percent }
     }
 
+    /**
+     * Where the sync API lives, when the user has pointed this install at one.
+     *
+     * Blank means "use whatever the build was compiled with", which is itself
+     * usually blank. Sync is off in that case and the app behaves exactly as it
+     * did before there was a server -- there is no half-configured state where
+     * something fails against a host that does not exist.
+     */
+    val syncBaseUrlOverride: Flow<String> = context.dataStore.data.map { prefs ->
+        prefs[KEY_SYNC_BASE_URL].orEmpty()
+    }
+
+    suspend fun setSyncBaseUrlOverride(url: String) {
+        context.dataStore.edit { prefs ->
+            val clean = url.trim().trimEnd('/')
+            if (clean.isEmpty()) prefs.remove(KEY_SYNC_BASE_URL) else prefs[KEY_SYNC_BASE_URL] = clean
+        }
+    }
+
     private companion object {
         const val DEFAULT_TEXT_ZOOM = 100
         val KEY_BRANCH = stringPreferencesKey("branch_id")
         val KEY_TEXT_ZOOM = intPreferencesKey("reader_text_zoom")
         val KEY_THEME = stringPreferencesKey("theme_mode")
+        val KEY_SYNC_BASE_URL = stringPreferencesKey("sync_base_url")
     }
 }

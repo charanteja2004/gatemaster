@@ -41,6 +41,18 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+
+        // Where the sync API lives. Empty by default, because a fresh clone has
+        // nowhere to point at and the app is fully usable without one -- the
+        // account screen then says sync is unconfigured rather than failing
+        // against a host that does not exist. Override at build time with
+        //   ./gradlew :app:assembleDebug -Pgatemaster.syncBaseUrl=https://...
+        // or per-install in Settings, which wins over this.
+        buildConfigField(
+            "String",
+            "SYNC_BASE_URL",
+            "\"${providers.gradleProperty("gatemaster.syncBaseUrl").getOrElse("")}\"",
+        )
     }
 
     signingConfigs {
@@ -86,6 +98,8 @@ android {
 
     buildFeatures {
         compose = true
+        // For SYNC_BASE_URL below.
+        buildConfig = true
     }
 
     // Schemas are checked in so a migration can be diffed in review rather
@@ -129,6 +143,10 @@ android {
 dependencies {
     coreLibraryDesugaring(libs.desugar.jdk.libs)
 
+    // The wire contract, shared with :server. Neither side can rename a field
+    // without breaking the other's compile.
+    implementation(project(":protocol"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.splashscreen)
     implementation(libs.androidx.webkit)
@@ -153,6 +171,13 @@ dependencies {
     ksp(libs.androidx.room.compiler)
 
     implementation(libs.androidx.datastore.preferences)
+    implementation(libs.androidx.work.runtime)
+
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.okhttp)
+    implementation(libs.ktor.client.auth)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.serialization.kotlinx.json)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.coil.compose)
@@ -165,6 +190,8 @@ dependencies {
     testImplementation(libs.robolectric)
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.turbine)
+    testImplementation(libs.ktor.client.mock)
+    testImplementation(libs.androidx.work.testing)
 
     androidTestImplementation(platform(libs.compose.bom))
     androidTestImplementation(libs.androidx.test.ext.junit)
