@@ -294,10 +294,12 @@ The reader itself adds a scroll-progress bar, a text-size control persisted in
 DataStore, and previous/next topic navigation so studying is a sequence rather
 than repeated trips back to a list.
 
-**Known limitation:** 722 of the 741 images in the bundled notes are hotlinks to
-external CDNs, so diagrams need an internet connection and will break if those
-URLs change. Figures are framed and labelled so a missing diagram reads as an
-explained placeholder, but hosting the images is unresolved.
+**Known limitation:** the notes carry no diagrams. The scraped articles they
+replaced hotlinked 722 images from an external CDN, which is exactly why they
+were replaced; the notes are now entirely self-contained text and render
+identically offline. Eight hand-drawn SVGs sit unused in `tools/diagrams/` --
+wiring them back into the topics they illustrate is the obvious next content
+pass.
 
 ## Practice
 
@@ -454,6 +456,9 @@ Things a reviewer might expect to find here and will not, with the reasoning:
 ## Not done yet
 
 - Accounts, sync, and serving content from a backend instead of the APK
+- Adaptive practice: the per-topic accuracy Room already stores is not yet fed
+  back into which questions the next set draws
+- Diagrams in the notes -- see the reading-experience limitation above
 - A Play Store listing. The APK is published on GitHub Releases; Play needs a
   developer account and a review pass
 - Notes for papers other than CS — the structure and syllabus are in place,
@@ -465,3 +470,10 @@ Things a reviewer might expect to find here and will not, with the reasoning:
 - Depth in the older banks: Algorithms, Operating Systems, Databases and Data
   Structures each have around 50 questions but only four or five topics deep
   enough for a per-topic set
+
+## License
+
+The code is MIT. The study material -- the notes under `app/src/main/assets/`,
+their definitions under `tools/notes/`, and the question banks -- was written
+for this app and stays copyrighted; use it to study, not to republish. See
+[LICENSE](LICENSE).
