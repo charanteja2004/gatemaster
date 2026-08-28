@@ -24,10 +24,12 @@ papers, which are not kept in the repository — see **Content pipeline** below.
 
 | | | |
 |:--:|:--:|:--:|
-| <img src="docs/screenshots/home.png" width="240"> | <img src="docs/screenshots/subjects.png" width="240"> | <img src="docs/screenshots/practice.png" width="240"> |
-| **Home** — resume where you stopped | **Study** — subjects by paper weightage | **Practice** — a subject set, then topic by topic |
-| <img src="docs/screenshots/tests.png" width="240"> | <img src="docs/screenshots/player.png" width="240"> | <img src="docs/screenshots/scorecard.png" width="240"> |
-| **Tests** — mixed papers lead | **Player** — the marking rule on every question | **Result** — scored subject by subject |
+| <img src="docs/screenshots/home.png" width="240"> | <img src="docs/screenshots/tests.png" width="240"> | <img src="docs/screenshots/account.png" width="240"> |
+| **Home** — resume where you stopped | **Tests** — the set the app chose, first | **Account** — optional, and it says so |
+| <img src="docs/screenshots/player.png" width="240"> | <img src="docs/screenshots/scorecard.png" width="240"> | <img src="docs/screenshots/progress.png" width="240"> |
+| **Player** — the marking rule on every question | **Result** — scored subject by subject | **Progress** — which subjects cost marks |
+| <img src="docs/screenshots/subjects.png" width="240"> | <img src="docs/screenshots/practice.png" width="240"> | <img src="docs/screenshots/papers.png" width="240"> |
+| **Study** — subjects by paper weightage | **Practice** — a subject set, then topic by topic | **Papers** — previous years with answer keys |
 
 ## What it does
 
@@ -363,7 +365,6 @@ Three rules run through all of them:
 
 <p align="center">
   <img src="docs/screenshots/palette.png" width="240">
-  <img src="docs/screenshots/papers.png" width="240">
 </p>
 
 A mixed paper gets **one section per subject**, so the scorecard reports a score
