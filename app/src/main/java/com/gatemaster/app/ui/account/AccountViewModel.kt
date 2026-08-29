@@ -24,6 +24,15 @@ data class AccountUiState(
     val displayName: String = "",
     val serverUrl: String = "",
     val editingServer: Boolean = false,
+    /**
+     * Whether to offer the sync-server field at all.
+     *
+     * False in a released APK, which already carries the server it is meant to
+     * talk to. Asking a student to supply a URL is asking them to deploy a Ktor
+     * service to sync their reading progress, which is not a feature -- it is a
+     * developer tool that was showing in the product.
+     */
+    val canChooseServer: Boolean = false,
     val busy: Boolean = false,
     val syncing: Boolean = false,
     /** What the last manual sync did, in one line. Cleared on the next action. */
@@ -47,9 +56,11 @@ class AccountViewModel(
     private val auth: AuthRepository,
     private val preferences: UserPreferences,
     private val sync: SyncManager,
+    /** True only in a debug build; see [AccountUiState.canChooseServer]. */
+    canChooseServer: Boolean = false,
 ) : ViewModel() {
 
-    private val _uiState = MutableStateFlow(AccountUiState())
+    private val _uiState = MutableStateFlow(AccountUiState(canChooseServer = canChooseServer))
     val uiState: StateFlow<AccountUiState> = _uiState.asStateFlow()
 
     init {

@@ -159,18 +159,20 @@ fun AccountContent(
                     onSignOut = actions.onSignOut,
                 )
 
-                AuthState.Unavailable -> UnavailableCard()
+                AuthState.Unavailable -> UnavailableCard(canChooseServer = state.canChooseServer)
 
                 AuthState.SignedOut -> SignInForm(state = state, actions = actions)
             }
 
-            ServerCard(
-                url = state.serverUrl,
-                editing = state.editingServer,
-                onEdit = actions.onEditServer,
-                onChange = actions.onServerUrl,
-                onSave = actions.onSaveServer,
-            )
+            if (state.canChooseServer) {
+                ServerCard(
+                    url = state.serverUrl,
+                    editing = state.editingServer,
+                    onEdit = actions.onEditServer,
+                    onChange = actions.onServerUrl,
+                    onSave = actions.onSaveServer,
+                )
+            }
         }
     }
 }
@@ -271,7 +273,7 @@ private fun SignedInCard(
 }
 
 @Composable
-private fun UnavailableCard() {
+private fun UnavailableCard(canChooseServer: Boolean) {
     Card {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -285,9 +287,19 @@ private fun UnavailableCard() {
             Text("Sync is not set up", style = MaterialTheme.typography.titleMedium)
         }
         Text(
-            "This build has no sync server, so there is nothing to sign in to. " +
-                "Everything works without one — notes, practice and progress all " +
-                "live on this phone. Point it at a server below to turn sync on.",
+            text = buildString {
+                append(
+                    "This build has no sync server, so there is nothing to sign in " +
+                        "to. Everything else works exactly as it does with one — " +
+                        "notes, practice, tests and progress all live on this phone.",
+                )
+                // Only a developer can act on this. A released build says the
+                // first half and stops, rather than asking the person who
+                // installed it to go and find a server.
+                if (canChooseServer) {
+                    append(" Point it at a server below to turn sync on.")
+                }
+            },
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.padding(top = 12.dp),
@@ -439,8 +451,9 @@ private fun ServerCard(
         }
 
         Text(
-            text = "Your own instance of the GateMaster sync API. Nothing leaves " +
-                "this phone until you set one and sign in.",
+            text = "Debug builds only. A released app already knows its server; " +
+                "this is here so it can be pointed at one running on your own " +
+                "machine. Nothing leaves this phone until you set one and sign in.",
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )

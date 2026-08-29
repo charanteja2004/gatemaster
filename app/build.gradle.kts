@@ -42,12 +42,19 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
 
-        // Where the sync API lives. Empty by default, because a fresh clone has
-        // nowhere to point at and the app is fully usable without one -- the
-        // account screen then says sync is unconfigured rather than failing
-        // against a host that does not exist. Override at build time with
-        //   ./gradlew :app:assembleDebug -Pgatemaster.syncBaseUrl=https://...
-        // or per-install in Settings, which wins over this.
+        // Where the sync API lives, baked in at build time. A published APK
+        // carries the real one (release.yml passes it from a repository
+        // variable), so nobody who installs the app is ever asked for a URL.
+        //
+        // Empty by default, because a fresh clone has nowhere to point at. The
+        // account screen then says sync is unavailable rather than failing
+        // against a host that does not exist.
+        //
+        //   ./gradlew :app:assembleRelease -Pgatemaster.syncBaseUrl=https://...
+        //
+        // Debug builds can also be pointed somewhere per-install from the
+        // account screen, which wins over this. That is for running against a
+        // server on your own machine; release builds do not offer it.
         buildConfigField(
             "String",
             "SYNC_BASE_URL",

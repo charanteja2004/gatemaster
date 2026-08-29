@@ -113,14 +113,25 @@ export JAVA_HOME="C:/Program Files/Android/Android Studio/jbr"
 ./gradlew :server:test          # needs no database and no Docker
 ```
 
-To build an APK that points at a sync server:
+### Sync, and who configures it
+
+**Nobody who installs the app is asked for a server.** A published APK carries
+one, baked in at build time from the `SYNC_BASE_URL` repository variable
+(`release.yml`), so signing in is an email and a password and nothing else.
 
 ```sh
-./gradlew :app:assembleDebug -Pgatemaster.syncBaseUrl=https://your-host
+./gradlew :app:assembleRelease -Pgatemaster.syncBaseUrl=https://your-host
 ```
 
-It can also be set per install, in Settings → Account, which is what makes one
-APK usable against a local server and a deployed one.
+Build without it and the app simply has no sync: the account screen says so and
+everything else — notes, practice, tests, progress — works exactly as it does
+with one. That is the state a fresh clone is in, and the state the published
+APK is in until an instance is deployed.
+
+Debug builds additionally offer a server field on the account screen, so the
+app can be run against a server on your own machine. Release builds do not: a
+field asking a student for a URL is a developer tool showing in the product,
+and there is nothing they could usefully type into it.
 
 ## Toolchain notes
 
@@ -523,14 +534,14 @@ right after a paper is submitted, and on demand from the account screen.
 
 ## Tests
 
-**215 tests.** 202 of them run on the JVM — 168 for the app, 34 for the
+**218 tests.** 202 of them run on the JVM — 168 for the app, 34 for the
 server — and need no emulator, no database and no Docker:
 
 ```sh
 ./gradlew :app:testDebugUnitTest :server:test
 ```
 
-The other 13 are Compose UI tests and do need a device or emulator:
+The other 16 are Compose UI tests and do need a device or emulator:
 
 ```sh
 ./gradlew :app:connectedDebugAndroidTest

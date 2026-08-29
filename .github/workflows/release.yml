@@ -55,8 +55,14 @@ jobs:
       - name: Unit tests
         run: ./gradlew :app:testDebugUnitTest
 
+      # The sync server is baked in here, from a repository variable, so the
+      # published APK already knows where to sync and nobody downloading it is
+      # ever asked to supply a URL. Empty until an instance is deployed, in
+      # which case the APK simply ships without sync and says so.
       - name: Build the release APK
-        run: ./gradlew :app:assembleRelease
+        env:
+          SYNC_BASE_URL: ${{ vars.SYNC_BASE_URL }}
+        run: ./gradlew :app:assembleRelease -Pgatemaster.syncBaseUrl="$SYNC_BASE_URL"
 
       - name: Name the APK after the tag
         run: |

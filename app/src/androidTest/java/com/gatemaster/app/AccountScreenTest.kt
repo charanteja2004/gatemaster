@@ -209,9 +209,34 @@ class AccountScreenTest {
         show(AccountUiState(auth = AuthState.Unavailable))
 
         compose.onNodeWithText("Sync is not set up").assertIsDisplayed()
-        compose.onNodeWithText("Set a server").assertIsDisplayed()
         // No form at all: there is nothing to sign in to yet.
         compose.onNodeWithText("Password").assertDoesNotExist()
+    }
+
+    @Test
+    fun aReleasedAppNeverAsksTheUserToSupplyAServer() {
+        // The bug this exists for: a published APK carries its own server, so
+        // a field asking for a URL is a developer tool showing in the product.
+        // Somebody who installs the app has nothing they could type here.
+        show(AccountUiState(auth = AuthState.Unavailable, canChooseServer = false))
+
+        compose.onNodeWithText("Sync server").assertDoesNotExist()
+        compose.onNodeWithText("Set a server").assertDoesNotExist()
+        compose.onNodeWithText("Point it at a server", substring = true).assertDoesNotExist()
+    }
+
+    @Test
+    fun aDebugBuildStillOffersTheServerFieldSoItCanRunAgainstALocalOne() {
+        show(AccountUiState(auth = AuthState.Unavailable, canChooseServer = true))
+
+        compose.onNodeWithText("Sync server").assertIsDisplayed()
+        compose.onNodeWithText("Set a server").assertIsDisplayed()
+    }
+
+    @Test
+    fun theServerFieldIsHiddenWhileSignedInOnAReleasedApp() {
+        show(signedIn())
+        compose.onNodeWithText("Sync server").assertDoesNotExist()
     }
 
     @Test

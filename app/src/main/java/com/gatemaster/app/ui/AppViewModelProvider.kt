@@ -5,6 +5,7 @@ import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
+import com.gatemaster.app.BuildConfig
 import com.gatemaster.app.GateMasterApplication
 import com.gatemaster.app.ui.account.AccountViewModel
 import com.gatemaster.app.ui.branch.BranchPickerViewModel
@@ -37,6 +38,9 @@ object AppViewModelProvider {
                 auth = app().container.authRepository,
                 preferences = app().container.userPreferences,
                 sync = app().container.syncManager,
+                // A released app knows its own server; only a developer needs
+                // to point one somewhere else.
+                canChooseServer = BuildConfig.DEBUG,
             )
         }
         initializer {

@@ -31,7 +31,9 @@ data class SettingsUiState(
     val accountSubtitle: String
         get() = when (auth) {
             is AuthState.SignedIn -> "Progress syncs across your devices"
-            AuthState.Unavailable -> "No sync server set for this app"
+            // Not "no server set", which reads as a step the user should take.
+            // There is nothing for them to do about it.
+            AuthState.Unavailable -> "Sync is not available in this build"
             AuthState.SignedOut -> "Optional — sync progress across devices"
         }
 }
