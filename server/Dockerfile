@@ -10,13 +10,19 @@ WORKDIR /src
 # downloaded dependencies instead of fetching them again.
 COPY gradlew gradlew.bat settings.gradle.kts build.gradle.kts gradle.properties ./
 COPY gradle ./gradle
+# :server depends on :protocol, so both build files are needed before Gradle
+# can even configure. Leaving :protocol out is what broke this image the first
+# time it ran in CI: settings.gradle.kts includes it, so the build fails at
+# configuration with no such project.
 COPY server/build.gradle.kts ./server/
+COPY protocol/build.gradle.kts ./protocol/
 # :app is in settings.gradle.kts and needs the Android SDK, which this image
 # does not have. Excluding it here keeps the server image free of a 1 GB SDK
 # download for a module it never builds.
 RUN sed -i '/include(":app")/d' settings.gradle.kts
 RUN ./gradlew --no-daemon :server:dependencies > /dev/null 2>&1 || true
 
+COPY protocol/src ./protocol/src
 COPY server/src ./server/src
 RUN ./gradlew --no-daemon :server:installDist
 
