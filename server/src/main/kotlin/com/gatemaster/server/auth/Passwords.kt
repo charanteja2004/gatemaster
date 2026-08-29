@@ -1,6 +1,7 @@
 package com.gatemaster.server.auth
 
 import at.favre.lib.crypto.bcrypt.BCrypt
+import com.gatemaster.protocol.PasswordRules
 import java.nio.charset.StandardCharsets
 import java.security.MessageDigest
 import java.util.Base64
@@ -46,12 +47,9 @@ class Passwords(private val cost: Int) {
     }
 
     companion object {
-        const val MIN_LENGTH = 8
-
-        /**
-         * Not a BCrypt limit -- the pre-hash above removed that -- but a cap on
-         * how much work an unauthenticated caller can ask the server to do.
-         */
-        const val MAX_LENGTH = 200
+        // From :protocol, so the app can show the same minimum in its form
+        // rather than keeping a second copy that drifts from this one.
+        const val MIN_LENGTH = PasswordRules.MIN_LENGTH
+        const val MAX_LENGTH = PasswordRules.MAX_LENGTH
     }
 }

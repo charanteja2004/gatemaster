@@ -523,11 +523,17 @@ right after a paper is submitted, and on demand from the account screen.
 
 ## Tests
 
-**192 JVM tests** — 158 for the app, 34 for the server. No emulator, no
-database, no Docker.
+**209 tests.** 196 of them run on the JVM — 162 for the app, 34 for the
+server — and need no emulator, no database and no Docker:
 
 ```sh
 ./gradlew :app:testDebugUnitTest :server:test
+```
+
+The other 13 are Compose UI tests and do need a device or emulator:
+
+```sh
+./gradlew :app:connectedDebugAndroidTest
 ```
 
 - **`ScoringTest`** — the marking scheme, which is specific and easy to get
@@ -579,8 +585,18 @@ The server's suite is described in [server/README.md](server/README.md); it runs
 on H2 locally and against real PostgreSQL in CI, so the schema's portability is
 a fact rather than a claim.
 
-CI runs the tests, Android lint and a debug build on every push
-(`.github/workflows/ci.yml`), and publishes the APK as a build artifact.
+- **`AccountScreenTest`** — the account screen, driven as a user drives it,
+  on an emulator. Every bug that screen has had was a UI-state bug: a submit
+  button under the keyboard, an em dash written as two hyphens, a server error
+  that had to reach the field it blamed. None of them are logic, so none of the
+  JVM tests could see them. These run against a stateless `AccountContent`, so
+  the states that are awkward to reach on a device — no server configured, a
+  rejected field, a sync in flight — are one line to set up.
+
+CI runs three jobs on every push (`.github/workflows/ci.yml`): the server suite
+twice over, on H2 and against a real PostgreSQL service; the UI tests on an API
+34 emulator; and the app's unit tests, Android lint and a debug build, which is
+published as a build artifact.
 
 ## Project layout
 

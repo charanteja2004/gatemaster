@@ -42,6 +42,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -50,6 +51,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.gatemaster.app.core.data.auth.AuthState
+import com.gatemaster.protocol.PasswordRules
 import com.gatemaster.app.ui.AppViewModelProvider
 
 /**
@@ -60,7 +62,6 @@ import com.gatemaster.app.ui.AppViewModelProvider
  * thing, which is that it follows you to another phone. A sign-in wall in front
  * of offline study notes would be the wrong trade for a student on a train.
  */
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AccountScreen(
     onBack: () -> Unit,
@@ -69,6 +70,59 @@ fun AccountScreen(
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
 
+    AccountContent(
+        state = state,
+        onBack = onBack,
+        actions = AccountActions(
+            onMode = viewModel::setMode,
+            onEmail = viewModel::setEmail,
+            onPassword = viewModel::setPassword,
+            onDisplayName = viewModel::setDisplayName,
+            onSubmit = viewModel::submit,
+            onSyncNow = viewModel::syncNow,
+            onSignOut = viewModel::signOut,
+            onEditServer = viewModel::startEditingServer,
+            onServerUrl = viewModel::setServerUrl,
+            onSaveServer = viewModel::saveServerUrl,
+        ),
+        modifier = modifier,
+    )
+}
+
+/**
+ * Everything this screen can do, gathered up.
+ *
+ * Ten separate lambda parameters on [AccountContent] would be ten things to
+ * thread through every test and every preview. One object is one.
+ */
+data class AccountActions(
+    val onMode: (AccountMode) -> Unit = {},
+    val onEmail: (String) -> Unit = {},
+    val onPassword: (String) -> Unit = {},
+    val onDisplayName: (String) -> Unit = {},
+    val onSubmit: () -> Unit = {},
+    val onSyncNow: () -> Unit = {},
+    val onSignOut: () -> Unit = {},
+    val onEditServer: () -> Unit = {},
+    val onServerUrl: (String) -> Unit = {},
+    val onSaveServer: () -> Unit = {},
+)
+
+/**
+ * The screen, with no ViewModel behind it.
+ *
+ * Split out so it can be driven from a UI test by handing it a state, which is
+ * the only way to check the states that are awkward to reach on a device: a
+ * server that is unreachable, a rejected field, a session mid-sync.
+ */
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun AccountContent(
+    state: AccountUiState,
+    onBack: () -> Unit,
+    actions: AccountActions,
+    modifier: Modifier = Modifier,
+) {
     Scaffold(
         modifier = modifier,
         topBar = {
@@ -101,21 +155,21 @@ fun AccountScreen(
                     busy = state.busy,
                     syncing = state.syncing,
                     syncMessage = state.syncMessage,
-                    onSyncNow = viewModel::syncNow,
-                    onSignOut = viewModel::signOut,
+                    onSyncNow = actions.onSyncNow,
+                    onSignOut = actions.onSignOut,
                 )
 
                 AuthState.Unavailable -> UnavailableCard()
 
-                AuthState.SignedOut -> SignInForm(state = state, viewModel = viewModel)
+                AuthState.SignedOut -> SignInForm(state = state, actions = actions)
             }
 
             ServerCard(
                 url = state.serverUrl,
                 editing = state.editingServer,
-                onEdit = viewModel::startEditingServer,
-                onChange = viewModel::setServerUrl,
-                onSave = viewModel::saveServerUrl,
+                onEdit = actions.onEditServer,
+                onChange = actions.onServerUrl,
+                onSave = actions.onSaveServer,
             )
         }
     }
@@ -170,7 +224,7 @@ private fun SignedInCard(
         Button(
             onClick = onSyncNow,
             enabled = !syncing && !busy,
-            modifier = Modifier.fillMaxWidth().padding(top = 14.dp),
+            modifier = Modifier.fillMaxWidth().padding(top = 14.dp).testTag(TAG_SYNC_NOW),
         ) {
             if (syncing) {
                 CircularProgressIndicator(
@@ -242,13 +296,13 @@ private fun UnavailableCard() {
 }
 
 @Composable
-private fun SignInForm(state: AccountUiState, viewModel: AccountViewModel) {
+private fun SignInForm(state: AccountUiState, actions: AccountActions) {
     Card {
         SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth()) {
             AccountMode.entries.forEachIndexed { index, mode ->
                 SegmentedButton(
                     selected = state.mode == mode,
-                    onClick = { viewModel.setMode(mode) },
+                    onClick = { actions.onMode(mode) },
                     shape = SegmentedButtonDefaults.itemShape(index, AccountMode.entries.size),
                 ) {
                     Text(if (mode == AccountMode.SIGN_IN) "Sign in" else "Create account")
@@ -267,7 +321,7 @@ private fun SignInForm(state: AccountUiState, viewModel: AccountViewModel) {
         if (state.mode == AccountMode.CREATE) {
             OutlinedTextField(
                 value = state.displayName,
-                onValueChange = viewModel::setDisplayName,
+                onValueChange = actions.onDisplayName,
                 label = { Text("Name") },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
@@ -277,7 +331,7 @@ private fun SignInForm(state: AccountUiState, viewModel: AccountViewModel) {
 
         OutlinedTextField(
             value = state.email,
-            onValueChange = viewModel::setEmail,
+            onValueChange = actions.onEmail,
             label = { Text("Email") },
             singleLine = true,
             isError = state.errorField == "email",
@@ -290,10 +344,19 @@ private fun SignInForm(state: AccountUiState, viewModel: AccountViewModel) {
 
         OutlinedTextField(
             value = state.password,
-            onValueChange = viewModel::setPassword,
+            onValueChange = actions.onPassword,
             label = { Text("Password") },
             singleLine = true,
             isError = state.errorField == "password",
+            // The requirement, said up front rather than after a round trip --
+            // but only while creating an account. On the sign-in form the rule
+            // is whatever the existing password already was, and showing a
+            // minimum there would imply the old one is now wrong.
+            supportingText = if (state.mode == AccountMode.CREATE) {
+                { Text("At least ${PasswordRules.MIN_LENGTH} characters") }
+            } else {
+                null
+            },
             visualTransformation = PasswordVisualTransformation(),
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Password,
@@ -312,9 +375,11 @@ private fun SignInForm(state: AccountUiState, viewModel: AccountViewModel) {
         }
 
         Button(
-            onClick = viewModel::submit,
+            onClick = actions.onSubmit,
             enabled = state.canSubmit,
-            modifier = Modifier.fillMaxWidth().padding(top = 16.dp),
+            // Tagged because its label is the same word as the segmented
+            // button above it, and a test cannot otherwise tell them apart.
+            modifier = Modifier.fillMaxWidth().padding(top = 16.dp).testTag(TAG_SUBMIT),
         ) {
             if (state.busy) {
                 CircularProgressIndicator(
@@ -393,3 +458,7 @@ private fun Card(content: @Composable ColumnScope.() -> Unit) {
         Column(Modifier.padding(18.dp), content = content)
     }
 }
+
+/** Test tags, for the controls whose visible label is not unique on screen. */
+const val TAG_SUBMIT = "account_submit"
+const val TAG_SYNC_NOW = "account_sync_now"

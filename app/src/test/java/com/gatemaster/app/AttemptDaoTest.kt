@@ -84,6 +84,71 @@ class AttemptDaoTest {
         kind = kind,
     )
 
+    // -- the recommendation gate ----------------------------------------------
+
+    @Test
+    fun `the practised-topic count follows what is recorded`() = runTest {
+        // This is the regression. The count gates the recommended set on the
+        // Tests tab, and the thing that changes it -- submitting a paper --
+        // happens on a different screen. It was read once when the screen
+        // loaded, so the card stayed hidden after the very paper that unlocked
+        // it. A Flow is the fix; this is what proves it emits.
+        assertEquals(0, dao.practisedTopicCount().first())
+
+        dao.record(
+            attempt = attempt(),
+            results = listOf(
+                result("q1", "os", "scheduling", "CORRECT"),
+                result("q2", "os", "deadlock", "INCORRECT"),
+            ),
+        )
+        assertEquals(2, dao.practisedTopicCount().first())
+
+        dao.record(
+            attempt = attempt(testId = "practice:subject:dbms"),
+            results = listOf(result("q3", "dbms", "joins", "CORRECT")),
+        )
+        assertEquals(3, dao.practisedTopicCount().first())
+    }
+
+    @Test
+    fun `a topic answered twice is still one topic`() = runTest {
+        dao.record(
+            attempt = attempt(),
+            results = listOf(
+                result("q1", "os", "scheduling", "CORRECT"),
+                result("q2", "os", "scheduling", "INCORRECT"),
+            ),
+        )
+        assertEquals(1, dao.practisedTopicCount().first())
+    }
+
+    @Test
+    fun `questions left blank do not count as a practised topic`() = runTest {
+        // Running out of time is not the same as having practised something,
+        // and counting it would unlock a recommendation drawn from topics the
+        // user has never actually answered.
+        dao.record(
+            attempt = attempt(),
+            results = listOf(
+                result("q1", "os", "scheduling", "UNATTEMPTED"),
+                result("q2", "os", "deadlock", "UNATTEMPTED"),
+            ),
+        )
+        assertEquals(0, dao.practisedTopicCount().first())
+    }
+
+    @Test
+    fun `a question with no topic does not count`() = runTest {
+        // Bundled tests carry no topic ids, so their questions cannot tell the
+        // scheduler anything and must not gate it either.
+        dao.record(
+            attempt = attempt(),
+            results = listOf(result("q1", "os", null, "CORRECT")),
+        )
+        assertEquals(0, dao.practisedTopicCount().first())
+    }
+
     // -- recording ------------------------------------------------------------
 
     @Test
