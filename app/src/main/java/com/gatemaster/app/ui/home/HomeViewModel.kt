@@ -6,6 +6,7 @@ import com.gatemaster.app.core.data.ContentRepository
 import com.gatemaster.app.core.data.StudyProgressRepository
 import com.gatemaster.app.core.data.TopicProgress
 import com.gatemaster.app.core.data.UserPreferences
+import com.gatemaster.app.core.model.ExamCalendar
 import com.gatemaster.app.core.data.bookmarks
 import com.gatemaster.app.core.data.continueReading
 import com.gatemaster.app.core.data.readCount
@@ -19,7 +20,6 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import java.time.LocalDate
-import java.time.Month
 import java.time.temporal.ChronoUnit
 
 data class HomeUiState(
@@ -78,7 +78,7 @@ class HomeViewModel(
             .onSuccess { index ->
                 val branch = index.branch(branchId) ?: index.branches.firstOrNull()
                 val papers = branch?.let { index.papersFor(it) }.orEmpty()
-                val exam = nextExam()
+                val exam = ExamCalendar.nextExamDate()
                 val actualBranchId = branch?.id ?: branchId
 
                 _uiState.update {
@@ -109,25 +109,4 @@ class HomeViewModel(
             }
     }
 
-    /**
-     * GATE runs on the first two weekends of February. The first Saturday of
-     * February is close enough for a countdown, and rolls over to next year
-     * once this year's exam has passed.
-     */
-    private fun nextExam(): LocalDate {
-        val today = LocalDate.now()
-        var candidate = firstSaturdayOfFebruary(today.year)
-        if (!candidate.isAfter(today)) {
-            candidate = firstSaturdayOfFebruary(today.year + 1)
-        }
-        return candidate
-    }
-
-    private fun firstSaturdayOfFebruary(year: Int): LocalDate {
-        var date = LocalDate.of(year, Month.FEBRUARY, 1)
-        while (date.dayOfWeek.value != 6) {
-            date = date.plusDays(1)
-        }
-        return date
-    }
 }

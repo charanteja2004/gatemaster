@@ -77,7 +77,7 @@ fun BranchPickerScreen(
         Column(Modifier.padding(padding).fillMaxSize()) {
             if (!showBack) {
                 Text(
-                    text = "All 30 GATE 2026 papers are here. You can change this at any time.",
+                    text = "All 30 GATE ${state.examYear} papers are here. You can change this at any time.",
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.padding(horizontal = 20.dp, vertical = 4.dp),

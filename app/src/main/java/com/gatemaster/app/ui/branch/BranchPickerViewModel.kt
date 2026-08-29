@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.gatemaster.app.core.data.ContentRepository
 import com.gatemaster.app.core.data.UserPreferences
 import com.gatemaster.app.core.model.Branch
+import com.gatemaster.app.core.model.ExamCalendar
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -17,6 +18,12 @@ data class BranchPickerUiState(
     val all: List<Branch> = emptyList(),
     val query: String = "",
     val selectedId: String? = null,
+    /**
+     * The exam the papers are for. Read rather than hard-coded, because a
+     * literal year here disagreed with the countdown on home for eleven months
+     * out of every twelve.
+     */
+    val examYear: Int = ExamCalendar.nextExamYear(),
 ) {
     /**
      * Papers matching the query. Code matches rank first so typing "ME" puts

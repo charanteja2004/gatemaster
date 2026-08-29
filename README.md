@@ -523,7 +523,7 @@ right after a paper is submitted, and on demand from the account screen.
 
 ## Tests
 
-**209 tests.** 196 of them run on the JVM — 162 for the app, 34 for the
+**215 tests.** 202 of them run on the JVM — 168 for the app, 34 for the
 server — and need no emulator, no database and no Docker:
 
 ```sh
