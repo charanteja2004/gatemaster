@@ -9,8 +9,9 @@ another phone.
 
 Kotlin, Jetpack Compose and Material 3 on the phone; Kotlin, Ktor and PostgreSQL
 on the server; a shared module so the two cannot disagree about the wire format.
-All 30 GATE 2026 papers are selectable. The pre-rewrite Java/XML app is preserved
-at `legacy/` and is **not** part of the build.
+All 30 GATE papers are selectable, but only CS carries the full note set --
+**Coverage** below says exactly what each paper has. The pre-rewrite Java/XML
+app is preserved at `legacy/` and is **not** part of the build.
 
 ## Install
 
@@ -50,7 +51,9 @@ papers, which are not kept in the repository — see **Content pipeline** below.
 - **GATE's actual marking scheme.** Three question types (MCQ, MSQ, NAT), a
   third of the marks deducted for a wrong MCQ and nothing else, no partial
   credit on MSQ, and NAT answers matched against the published tolerance range.
-- **15 previous-year papers** with their answer keys, read in-app.
+- **15 previous-year papers** with their answer keys, read in-app -- for CS,
+  and only in a build you make yourself. They are third-party PDFs, so they
+  are not in the repository and not in the published APK.
 - **Progress that survives.** Continue-reading, per-subject read counts,
   bookmarks, and an in-progress attempt that outlives the process being killed.
 - **Progress that answers the next question.** A scorecard says how one paper
@@ -59,6 +62,36 @@ papers, which are not kept in the repository — see **Content pipeline** below.
   every attempt.
 - **Search** across topic titles, ranked so a prefix match wins.
 - **Light, dark or system theme** — applied to the notes as well as the app.
+
+## Coverage
+
+General Aptitude is 15 marks in **every** GATE paper, so its 26 articles are
+shared across all 30 -- no paper is empty. Past that, the depth is uneven, and
+this table is the honest version:
+
+| Papers | Notes | Practice questions | Mock test | Past papers | Syllabus |
+|---|---|---|---|---|---|
+| **CS & IT** (1) | **217 topics** | **410** across 9 banks | ✓ | 15 | full, 48 entries |
+| **ME, EE, EC, CE, CH, IN, DA** (7) | 26 (Aptitude) | 62 (Aptitude) | ✓ | — | full, 20–45 entries |
+| **The other 22** | 26 (Aptitude) | 62 (Aptitude) | ✓ | — | outline, 4 entries |
+
+The past-papers column applies to a build you make yourself. They are
+third-party PDFs, kept out of the repository, so **the published APK has none**
+— everything else in the table it has.
+
+So: **notes and question banks exist for CS only.** Choose ME and you get the
+General Aptitude articles, an Aptitude question bank, the Aptitude mock test
+and the ME syllabus -- a real app, but not a full one. Everything the other 29
+papers need is structural work already done; what is missing is written
+material.
+
+Two gaps inside CS itself: **Computer Networks and Discrete Mathematics have no
+notes**, and Computer Networks and Engineering Mathematics have no question
+banks -- those two subjects carry no topics in the index for questions to be
+tagged against.
+
+**Nothing here is scraped.** Every article was written for this app; see
+**License**.
 
 ## Architecture
 
@@ -125,8 +158,11 @@ one, baked in at build time from the `SYNC_BASE_URL` repository variable
 
 Build without it and the app simply has no sync: the account screen says so and
 everything else — notes, practice, tests, progress — works exactly as it does
-with one. That is the state a fresh clone is in, and the state the published
-APK is in until an instance is deployed.
+with one. That is the state a fresh clone is in.
+
+The published APK is not in that state. It is built with `SYNC_BASE_URL` set to
+the deployed instance, so an account works the moment you install it and nobody
+is ever asked for a URL.
 
 Until then, a released build does not show an account row in Settings at all.
 There is no account to make and nothing to configure, so the row would be a
@@ -661,13 +697,8 @@ legacy/                  pre-rewrite Java/XML app, excluded from the build
 
 ## Branches
 
-All 30 GATE 2026 papers are selectable. The paper is chosen on first launch and
-switchable from the chip in the top bar.
-
-General Aptitude is 15 marks in **every** paper, so its 26 articles are shared
-across all 30 branches — every paper has real content from day one. Beyond that,
-CS has the full note set; the other papers currently offer their official
-syllabus, which is what candidates look up most often anyway.
+The paper is chosen on first launch and switchable from the chip in the top bar.
+What each one actually contains is in **Coverage** above.
 
 ## Deliberate choices
 
@@ -688,21 +719,15 @@ Things a reviewer might expect to find here and will not, with the reasoning:
 
 ## Not done yet
 
-- A deployed instance of the sync API. The code, the image and the migrations
-  are here; no public host runs them yet, so `SYNC_BASE_URL` is empty by
-  default and the account screen says so
-- Serving the study material from that backend instead of the APK
+- Serving the study material from the backend instead of the APK
 - Adaptive practice: the per-topic accuracy Room already stores is not yet fed
   back into which questions the next set draws
 - Diagrams in the notes -- see the reading-experience limitation above
 - A Play Store listing. The APK is published on GitHub Releases; Play needs a
   developer account and a review pass
-- Notes for papers other than CS — the structure and syllabus are in place,
-  the articles are not
-- Detailed syllabus for the 22 outline papers
-- Computer Networks and Discrete Mathematics have no notes in CS
-- Question banks for Computer Networks and Engineering Mathematics — blocked
-  on those two subjects having no topics in the index to tag questions against
+- The content gaps in **Coverage** above: notes and question banks for the 29
+  papers that are not CS, a detailed syllabus for the 22 outline papers, and
+  the two CS subjects that have neither notes nor a bank
 - Depth in the older banks: Algorithms, Operating Systems, Databases and Data
   Structures each have around 50 questions but only four or five topics deep
   enough for a per-topic set
