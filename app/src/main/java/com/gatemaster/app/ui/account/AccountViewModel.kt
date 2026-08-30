@@ -2,7 +2,10 @@ package com.gatemaster.app.ui.account
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.gatemaster.app.core.data.ContentRepository
+import com.gatemaster.app.core.data.StudyProgressRepository
 import com.gatemaster.app.core.data.UserPreferences
+import com.gatemaster.app.core.data.branchAfterSignIn
 import com.gatemaster.app.core.data.auth.AuthRepository
 import com.gatemaster.app.core.data.auth.AuthState
 import com.gatemaster.app.core.data.sync.SyncManager
@@ -10,6 +13,7 @@ import com.gatemaster.app.core.data.sync.SyncOutcome
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
@@ -56,6 +60,8 @@ class AccountViewModel(
     private val auth: AuthRepository,
     private val preferences: UserPreferences,
     private val sync: SyncManager,
+    private val studyProgress: StudyProgressRepository,
+    private val content: ContentRepository,
     /** True only in a debug build; see [AccountUiState.canChooseServer]. */
     canChooseServer: Boolean = false,
 ) : ViewModel() {
@@ -109,20 +115,59 @@ class AccountViewModel(
 
         _uiState.update { it.copy(busy = true, error = null, errorField = null) }
         viewModelScope.launch {
+            // Read before anything is downloaded, and after a load() so an
+            // unopened repository does not read as an empty one. Once the sync
+            // below has merged an account's history in there is no way left to
+            // tell whether this phone had any reading of its own.
+            studyProgress.load()
+            val hadLocalProgress = studyProgress.progress.value.isNotEmpty()
+
             val failure = when (state.mode) {
                 AccountMode.SIGN_IN -> auth.login(state.email, state.password)
                 AccountMode.CREATE -> auth.register(state.email, state.password, state.displayName)
             }
-            _uiState.update {
-                if (failure == null) {
-                    // Clear the password on success. The state outlives this
-                    // screen, and there is no reason for it to keep one.
-                    it.copy(busy = false, password = "", error = null, errorField = null)
-                } else {
+
+            if (failure != null) {
+                _uiState.update {
                     it.copy(busy = false, error = failure.message, errorField = failure.field)
                 }
+                return@launch
             }
+
+            _uiState.update {
+                // Clear the password on success. The state outlives this
+                // screen, and there is no reason for it to keep one.
+                it.copy(busy = false, password = "", error = null, errorField = null, syncing = true)
+            }
+
+            // Sync immediately rather than waiting for the worker. Signing in
+            // and then seeing none of your own reading for six hours is
+            // indistinguishable from it not having worked.
+            sync.sync()
+            val message = adoptBranchFromAccount(hadLocalProgress)
+            _uiState.update { it.copy(syncing = false, syncMessage = message) }
         }
+    }
+
+    /**
+     * Moves this install onto the paper the downloaded history belongs to.
+     *
+     * Signing in on a new phone pulls down a term of reading and then shows a
+     * home screen with none of it on it, because the paper was picked from a
+     * list a minute earlier and the progress belongs to a different one. The
+     * decision itself is [branchAfterSignIn], which declines to touch anything
+     * when this phone already had reading of its own.
+     */
+    private suspend fun adoptBranchFromAccount(hadLocalProgress: Boolean): String? {
+        val target = branchAfterSignIn(
+            current = preferences.branchId.first(),
+            hadLocalProgress = hadLocalProgress,
+            synced = studyProgress.progress.value,
+        ) ?: return null
+
+        preferences.setBranch(target)
+        val name = content.branch(target)?.name ?: return null
+        return "Switched to $name, which is where your saved progress is."
     }
 
     /**

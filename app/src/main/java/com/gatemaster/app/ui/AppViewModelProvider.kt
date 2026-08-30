@@ -11,6 +11,7 @@ import com.gatemaster.app.ui.account.AccountViewModel
 import com.gatemaster.app.ui.branch.BranchPickerViewModel
 import com.gatemaster.app.ui.home.HomeViewModel
 import com.gatemaster.app.ui.papers.PapersViewModel
+import com.gatemaster.app.ui.onboarding.SyncIntroViewModel
 import com.gatemaster.app.ui.progress.ProgressViewModel
 import com.gatemaster.app.ui.reader.ReaderViewModel
 import com.gatemaster.app.ui.search.SearchViewModel
@@ -38,10 +39,15 @@ object AppViewModelProvider {
                 auth = app().container.authRepository,
                 preferences = app().container.userPreferences,
                 sync = app().container.syncManager,
+                studyProgress = app().container.studyProgress,
+                content = app().container.contentRepository,
                 // A released app knows its own server; only a developer needs
                 // to point one somewhere else.
                 canChooseServer = BuildConfig.DEBUG,
             )
+        }
+        initializer {
+            SyncIntroViewModel(auth = app().container.authRepository)
         }
         initializer {
             BranchPickerViewModel(

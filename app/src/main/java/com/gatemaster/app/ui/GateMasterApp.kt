@@ -39,11 +39,13 @@ import com.gatemaster.app.navigation.SearchRoute
 import com.gatemaster.app.navigation.SettingsRoute
 import com.gatemaster.app.navigation.SubjectRoute
 import com.gatemaster.app.navigation.SubjectsRoute
+import com.gatemaster.app.navigation.SyncIntroRoute
 import com.gatemaster.app.navigation.ProgressRoute
 import com.gatemaster.app.navigation.TestListRoute
 import com.gatemaster.app.navigation.TestPlayerRoute
 import com.gatemaster.app.ui.branch.BranchPickerScreen
 import com.gatemaster.app.ui.home.HomeScreen
+import com.gatemaster.app.ui.onboarding.SyncIntroScreen
 import com.gatemaster.app.ui.papers.PapersScreen
 import com.gatemaster.app.ui.progress.ProgressScreen
 import com.gatemaster.app.ui.reader.ReaderScreen
@@ -188,11 +190,28 @@ fun GateMasterApp(
                     showBack = !route.firstRun,
                     onDone = {
                         if (route.firstRun) {
-                            navController.navigate(HomeRoute) {
+                            // Straight to the sync offer rather than home. It
+                            // forwards itself to home when there is no server,
+                            // so this stays one branch rather than two.
+                            navController.navigate(SyncIntroRoute) {
                                 popUpTo<BranchPickerRoute> { inclusive = true }
                             }
                         } else {
                             navController.popBackStack()
+                        }
+                    },
+                )
+            }
+
+            composable<SyncIntroRoute> {
+                SyncIntroScreen(
+                    // Reuses the account screen rather than growing a second
+                    // sign-in form. Back from it lands here, where the button
+                    // has become "Start studying".
+                    onSignIn = { navController.navigate(AccountRoute) },
+                    onContinue = {
+                        navController.navigate(HomeRoute) {
+                            popUpTo<SyncIntroRoute> { inclusive = true }
                         }
                     },
                 )

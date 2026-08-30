@@ -482,6 +482,30 @@ The API is a second Gradle module, `:server` — Ktor and PostgreSQL. Its own
 [README](server/README.md) covers the endpoints, the deployment and the schema.
 Two decisions are worth reading either way.
 
+### It is offered once, and it takes no for an answer
+
+Sync used to be reachable only from a row inside Settings, which meant most
+people never found out it existed. First run now ends with one screen that says
+what an account is for, with *Not now* under it — and skipping is a normal
+answer, not a lesser one. A sign-in wall in front of an app that works entirely
+offline would cost a first-time reader everything and buy them nothing.
+
+On a build with no sync server the step is not skipped so much as absent: it
+forwards to home before it draws, for the same reason the Settings row hides.
+
+### Signing in moves you to the paper your history is in
+
+Sign in on a new phone and a term of reading arrives — for a paper you may not
+have picked, because you chose one from a list a minute earlier. Home would
+then show none of it. So after the first sync the install adopts whichever
+paper the downloaded history is mostly in.
+
+The guard matters more than the rule: this only happens when the phone had no
+reading of its own, checked *before* the merge makes that unanswerable. Someone
+already studying ME here who signs into an account with more CS history keeps
+ME. Their own reading is better evidence of what they are sitting than the
+account's is.
+
 ### Refresh tokens rotate, and reuse is treated as theft
 
 Access tokens are JWTs and cannot be revoked, so they live fifteen minutes.
@@ -539,7 +563,7 @@ right after a paper is submitted, and on demand from the account screen.
 
 ## Tests
 
-**222 tests.** 206 of them run on the JVM — 172 for the app, 34 for the
+**237 tests.** 221 of them run on the JVM — 187 for the app, 34 for the
 server — and need no emulator, no database and no Docker:
 
 ```sh

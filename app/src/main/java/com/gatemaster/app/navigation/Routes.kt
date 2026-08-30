@@ -39,6 +39,16 @@ data object AccountRoute
 @Serializable
 data class BranchPickerRoute(val firstRun: Boolean = false)
 
+/**
+ * First-run offer of an account, shown after the paper is chosen.
+ *
+ * Skippable on purpose: everything except sync works signed out, so this asks
+ * rather than blocks. It is not in the graph at all when no server is
+ * configured, because then there is nothing to offer.
+ */
+@Serializable
+data object SyncIntroRoute
+
 /** Bottom-bar tab: what the attempt history says about how it is going. */
 @Serializable
 data object ProgressRoute

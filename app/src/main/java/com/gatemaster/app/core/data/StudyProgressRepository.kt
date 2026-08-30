@@ -192,3 +192,49 @@ fun Map<String, TopicProgress>.readCount(subjectId: String): Int =
 
 fun Map<String, TopicProgress>.readCountForBranch(branchId: String): Int =
     values.count { it.branchId == branchId && it.isRead }
+
+/**
+ * The paper most of this progress belongs to, or null when there is none.
+ *
+ * Counts only topics that were actually opened: a progress file carries an
+ * entry for anything the reader touched, and one stray tap into another
+ * paper should not outvote a term's reading.
+ *
+ * Ties break towards whichever paper was read most recently, so the answer is
+ * stable rather than dependent on map iteration order.
+ */
+fun Map<String, TopicProgress>.dominantBranch(): String? =
+    values.filter { it.lastOpenedEpochMs > 0 }
+        .groupBy { it.branchId }
+        .maxWithOrNull(
+            compareBy(
+                { it.value.size },
+                { it.value.maxOf(TopicProgress::lastOpenedEpochMs) },
+            ),
+        )
+        ?.key
+
+/**
+ * Which paper to switch to once a sync has brought an account's history down,
+ * or null to leave the current choice alone.
+ *
+ * Signing in on a new phone downloads a term of reading and then shows a home
+ * screen with none of it on, because the paper was picked from a list thirty
+ * seconds earlier and the progress belongs to a different one. This closes
+ * that gap.
+ *
+ * [hadLocalProgress] is the guard, and it is read *before* the sync merges
+ * anything in. Someone who has been studying on this phone already made a
+ * choice that their own reading backs up; an account with more history
+ * elsewhere does not get to overrule it. Only a fresh install -- where the
+ * pick really was a guess -- is corrected.
+ */
+fun branchAfterSignIn(
+    current: String,
+    hadLocalProgress: Boolean,
+    synced: Map<String, TopicProgress>,
+): String? {
+    if (hadLocalProgress) return null
+    val dominant = synced.dominantBranch() ?: return null
+    return dominant.takeIf { it != current }
+}
