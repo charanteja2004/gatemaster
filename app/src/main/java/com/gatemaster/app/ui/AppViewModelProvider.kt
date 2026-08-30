@@ -66,6 +66,7 @@ object AppViewModelProvider {
                 repository = app().container.contentRepository,
                 preferences = app().container.userPreferences,
                 auth = app().container.authRepository,
+                canChooseServer = BuildConfig.DEBUG,
             )
         }
         initializer {

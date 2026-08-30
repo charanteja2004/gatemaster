@@ -82,15 +82,17 @@ fun SettingsScreen(
                 )
             }
 
-            item { SectionLabel("Account") }
+            if (state.showAccount) {
+                item { SectionLabel("Account") }
 
-            item {
-                SettingRow(
-                    icon = Icons.Filled.CloudSync,
-                    title = state.accountTitle,
-                    subtitle = state.accountSubtitle,
-                    onClick = onAccount,
-                )
+                item {
+                    SettingRow(
+                        icon = Icons.Filled.CloudSync,
+                        title = state.accountTitle,
+                        subtitle = state.accountSubtitle,
+                        onClick = onAccount,
+                    )
+                }
             }
 
             item { SectionLabel("Appearance") }

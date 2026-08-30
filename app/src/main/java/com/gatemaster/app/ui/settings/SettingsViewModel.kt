@@ -21,7 +21,20 @@ data class SettingsUiState(
     val articleCount: Int = 0,
     val paperCount: Int = 0,
     val auth: AuthState = AuthState.SignedOut,
+    /** True only in a debug build, where a server can still be pointed at. */
+    val canChooseServer: Boolean = false,
 ) {
+    /**
+     * Whether to offer the account row at all.
+     *
+     * A released build with no sync server has nothing behind this row: no
+     * account to make, nothing to configure, and no action the person reading
+     * it could take. Showing it anyway is a dead end wearing the clothes of a
+     * feature. It comes back on its own the moment a server is baked in.
+     */
+    val showAccount: Boolean
+        get() = auth !is AuthState.Unavailable || canChooseServer
+
     val accountTitle: String
         get() = when (val state = auth) {
             is AuthState.SignedIn -> state.displayName.ifBlank { state.email }
@@ -42,9 +55,10 @@ class SettingsViewModel(
     private val repository: ContentRepository,
     private val preferences: UserPreferences,
     auth: AuthRepository,
+    canChooseServer: Boolean = false,
 ) : ViewModel() {
 
-    private val _uiState = MutableStateFlow(SettingsUiState())
+    private val _uiState = MutableStateFlow(SettingsUiState(canChooseServer = canChooseServer))
     val uiState: StateFlow<SettingsUiState> = _uiState.asStateFlow()
 
     init {

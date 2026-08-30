@@ -128,10 +128,15 @@ everything else — notes, practice, tests, progress — works exactly as it doe
 with one. That is the state a fresh clone is in, and the state the published
 APK is in until an instance is deployed.
 
-Debug builds additionally offer a server field on the account screen, so the
-app can be run against a server on your own machine. Release builds do not: a
-field asking a student for a URL is a developer tool showing in the product,
-and there is nothing they could usefully type into it.
+Until then, a released build does not show an account row in Settings at all.
+There is no account to make and nothing to configure, so the row would be a
+dead end wearing the clothes of a feature. It appears on its own the moment a
+server is baked in.
+
+Debug builds keep both the row and a server field on the account screen, so the
+app can be run against a server on your own machine. Release builds have
+neither: a field asking a student for a URL is a developer tool showing in the
+product, and there is nothing they could usefully type into it.
 
 ## Toolchain notes
 
@@ -534,7 +539,7 @@ right after a paper is submitted, and on demand from the account screen.
 
 ## Tests
 
-**218 tests.** 202 of them run on the JVM — 168 for the app, 34 for the
+**222 tests.** 206 of them run on the JVM — 172 for the app, 34 for the
 server — and need no emulator, no database and no Docker:
 
 ```sh
