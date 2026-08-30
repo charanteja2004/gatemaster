@@ -26,6 +26,8 @@ legacy/src/main/assets/previousPapers/
 *.keystore
 keystore.properties
 signing.properties
+# The base64 blob handed to the KEYSTORE_BASE64 secret is the key itself.
+*.b64
 
 # Android Studio / IntelliJ
 *.iml
